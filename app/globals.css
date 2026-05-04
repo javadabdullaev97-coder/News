@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #ffffff;
+  --fg: #0a0a0a;
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --fg: #f5f5f5;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+@layer utilities {
+  .container-news {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+}
