@@ -15,13 +15,65 @@ export const rubrics: Rubric[] = [
   { slug: "world", title: "Мир", color: "bg-sky-500" },
 ];
 
+export type Author = {
+  slug: string;
+  name: string;
+  bio: string;
+  initialsColor: string;
+};
+
+export const authors: Record<string, Author> = {
+  "alisher-karimov": {
+    slug: "alisher-karimov",
+    name: "Алишер Каримов",
+    bio: "Корреспондент отдела общества. Пишет о Ташкенте, инфраструктуре и городских проектах.",
+    initialsColor: "bg-rose-500",
+  },
+  "kamila-yusupova": {
+    slug: "kamila-yusupova",
+    name: "Камила Юсупова",
+    bio: "Технологический обозреватель. Стартапы, IT-индустрия, цифровая экономика Узбекистана.",
+    initialsColor: "bg-violet-500",
+  },
+  "sherzod-rakhimov": {
+    slug: "sherzod-rakhimov",
+    name: "Шерзод Рахимов",
+    bio: "Спортивный редактор. Футбол, бокс, олимпийские дисциплины.",
+    initialsColor: "bg-orange-500",
+  },
+  "dilnoza-abbasova": {
+    slug: "dilnoza-abbasova",
+    name: "Дильноза Аббасова",
+    bio: "Репортёр в Самарканде. Туризм, регионы, культура.",
+    initialsColor: "bg-emerald-500",
+  },
+  "bekzod-tursunov": {
+    slug: "bekzod-tursunov",
+    name: "Бекзод Турсунов",
+    bio: "Деловой журналист. Экономика, налоги, малый бизнес.",
+    initialsColor: "bg-amber-500",
+  },
+  "zuhra-nurmatova": {
+    slug: "zuhra-nurmatova",
+    name: "Зухра Нурматова",
+    bio: "Культурный обозреватель. Искусство, выставки, кино.",
+    initialsColor: "bg-pink-500",
+  },
+  "redakciya": {
+    slug: "redakciya",
+    name: "Редакция LEAP",
+    bio: "Совместные материалы редакции.",
+    initialsColor: "bg-neutral-500",
+  },
+};
+
 export type Article = {
   slug: string;
   title: string;
   lead: string;
   body: string[];
   rubric: string;
-  author: string;
+  authorSlug: string;
   publishedAt: string;
   readingTime: number;
   cover: string;
@@ -40,8 +92,8 @@ export const articles: Article[] = [
       "Проект реализован при участии международных подрядчиков. Общая стоимость превысила $400 млн. В перспективе линию планируют продлить ещё на четыре станции.",
     ],
     rubric: "society",
-    author: "Алишер Каримов",
-    publishedAt: "2026-05-04T08:30:00Z",
+    authorSlug: "alisher-karimov",
+    publishedAt: new Date(Date.now() - 25 * 60 * 1000).toISOString(),
     readingTime: 4,
     cover: "https://images.unsplash.com/photo-1581262177000-8139a463e531?w=1600",
     featured: true,
@@ -56,8 +108,8 @@ export const articles: Article[] = [
       "Основными рынками сбыта стали США, Великобритания и страны Евросоюза. Лидируют направления заказной разработки, аутстаффинга и продуктовых стартапов.",
     ],
     rubric: "tech",
-    author: "Камила Юсупова",
-    publishedAt: "2026-05-04T07:00:00Z",
+    authorSlug: "kamila-yusupova",
+    publishedAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
     readingTime: 3,
     cover: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200",
     featured: true,
@@ -72,8 +124,8 @@ export const articles: Article[] = [
       "Аналитики связывают укрепление с сезонным ростом экспорта и сокращением спроса на наличную валюту со стороны населения.",
     ],
     rubric: "economy",
-    author: "Редакция",
-    publishedAt: "2026-05-04T06:15:00Z",
+    authorSlug: "redakciya",
+    publishedAt: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
     readingTime: 2,
     cover: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=1200",
     tags: ["сум", "ЦБ", "валюта"],
@@ -87,8 +139,8 @@ export const articles: Article[] = [
       "В полуфинале команда сыграет с победителем пары Япония — Южная Корея.",
     ],
     rubric: "sport",
-    author: "Шерзод Рахимов",
-    publishedAt: "2026-05-03T22:10:00Z",
+    authorSlug: "sherzod-rakhimov",
+    publishedAt: new Date(Date.now() - 11 * 60 * 60 * 1000).toISOString(),
     readingTime: 3,
     cover: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1200",
     tags: ["футбол", "сборная", "Кубок Азии"],
@@ -101,8 +153,8 @@ export const articles: Article[] = [
       "Самым большим спросом пользовались туры выходного дня из Индии, Малайзии и Турции. Гостиничный фонд города загружен в среднем на 82%.",
     ],
     rubric: "society",
-    author: "Дильноза Аббасова",
-    publishedAt: "2026-05-03T18:00:00Z",
+    authorSlug: "dilnoza-abbasova",
+    publishedAt: new Date(Date.now() - 16 * 60 * 60 * 1000).toISOString(),
     readingTime: 2,
     cover: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200",
     tags: ["Самарканд", "туризм"],
@@ -115,8 +167,8 @@ export const articles: Article[] = [
       "Курс рассчитан на два года и включает практические занятия с готовыми ИИ-инструментами. Преподавателей переобучат на базе IT Park и национального университета.",
     ],
     rubric: "tech",
-    author: "Камила Юсупова",
-    publishedAt: "2026-05-03T15:20:00Z",
+    authorSlug: "kamila-yusupova",
+    publishedAt: new Date(Date.now() - 22 * 60 * 60 * 1000).toISOString(),
     readingTime: 4,
     cover: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200",
     tags: ["ИИ", "образование", "школа"],
@@ -129,8 +181,8 @@ export const articles: Article[] = [
       "Тема биеннале — «Шёлковый путь будущего». Экспозиция продлится до конца июля, вход свободный.",
     ],
     rubric: "culture",
-    author: "Зухра Нурматова",
-    publishedAt: "2026-05-03T12:00:00Z",
+    authorSlug: "zuhra-nurmatova",
+    publishedAt: new Date(Date.now() - 26 * 60 * 60 * 1000).toISOString(),
     readingTime: 3,
     cover: "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=1200",
     tags: ["искусство", "биеннале", "Ташкент"],
@@ -143,8 +195,8 @@ export const articles: Article[] = [
       "Несмотря на то что Узбекистан не является крупным экспортёром нефти, страна косвенно зависит от цен через торговлю с Россией и Казахстаном.",
     ],
     rubric: "world",
-    author: "Редакция",
-    publishedAt: "2026-05-03T10:30:00Z",
+    authorSlug: "redakciya",
+    publishedAt: new Date(Date.now() - 28 * 60 * 60 * 1000).toISOString(),
     readingTime: 5,
     cover: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=1200",
     tags: ["нефть", "бюджет", "анализ"],
@@ -157,8 +209,8 @@ export const articles: Article[] = [
       "Реформа разрабатывалась более полугода с участием бизнес-ассоциаций. Если её примут, изменения вступят в силу с 1 января 2027 года.",
     ],
     rubric: "business",
-    author: "Бекзод Турсунов",
-    publishedAt: "2026-05-03T09:00:00Z",
+    authorSlug: "bekzod-tursunov",
+    publishedAt: new Date(Date.now() - 30 * 60 * 60 * 1000).toISOString(),
     readingTime: 4,
     cover: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200",
     tags: ["налоги", "малый бизнес", "реформа"],
@@ -177,6 +229,10 @@ export function getRubric(slug: string) {
   return rubrics.find((r) => r.slug === slug);
 }
 
+export function getAuthor(slug: string) {
+  return authors[slug] ?? authors["redakciya"];
+}
+
 export function formatDate(iso: string) {
   const d = new Date(iso);
   return d.toLocaleDateString("ru-RU", {
@@ -185,4 +241,33 @@ export function formatDate(iso: string) {
     hour: "2-digit",
     minute: "2-digit",
   });
+}
+
+export function timeAgo(iso: string) {
+  const seconds = Math.floor((Date.now() - new Date(iso).getTime()) / 1000);
+  if (seconds < 60) return "только что";
+  const minutes = Math.floor(seconds / 60);
+  if (minutes < 60) return `${minutes} мин назад`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours} ч назад`;
+  const days = Math.floor(hours / 24);
+  if (days < 7) return `${days} ${pluralRu(days, "день", "дня", "дней")} назад`;
+  return formatDate(iso);
+}
+
+function pluralRu(n: number, one: string, few: string, many: string) {
+  const mod10 = n % 10;
+  const mod100 = n % 100;
+  if (mod10 === 1 && mod100 !== 11) return one;
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return few;
+  return many;
+}
+
+export function initials(name: string) {
+  return name
+    .split(" ")
+    .slice(0, 2)
+    .map((p) => p[0])
+    .join("")
+    .toUpperCase();
 }

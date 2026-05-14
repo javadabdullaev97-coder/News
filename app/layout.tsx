@@ -1,12 +1,39 @@
 import type { Metadata } from "next";
+import { Inter, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
+const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const serif = Source_Serif_4({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const siteUrl = "https://leap.uz";
+
 export const metadata: Metadata = {
-  title: "LEAP — Новости, которые опережают",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "LEAP — Новости, которые опережают",
+    template: "%s — LEAP",
+  },
   description:
     "LEAP News — современное медиа Узбекистана. Политика, экономика, бизнес, технологии, культура и спорт.",
+  openGraph: {
+    type: "website",
+    siteName: "LEAP",
+    locale: "ru_RU",
+    url: siteUrl,
+  },
+  twitter: { card: "summary_large_image" },
+  alternates: { types: { "application/rss+xml": "/rss.xml" } },
 };
 
 const themeScript = `
@@ -21,9 +48,10 @@ const themeScript = `
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" suppressHydrationWarning>
+    <html lang="ru" suppressHydrationWarning className={`${inter.variable} ${serif.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <link rel="alternate" type="application/rss+xml" title="LEAP — RSS" href="/rss.xml" />
       </head>
       <body className="min-h-screen font-sans antialiased">
         <Header />
