@@ -135,7 +135,7 @@ export function LogoBracket({ size = 32, className = "" }: LogoProps) {
 export function LogoChevron({ size = 32, className = "" }: LogoProps) {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
-      <IconChevron size={size * 0.85} />
+      <IconChevron size={size * 0.65} />
       <span
         className="font-sans font-black uppercase tracking-tight"
         style={{ fontSize: size * 0.7, lineHeight: 1 }}
