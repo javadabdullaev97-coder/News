@@ -400,3 +400,219 @@ export function LogoArc({ size = 32, className = "" }: LogoProps) {
     </div>
   );
 }
+
+// ─── Concept 10: Tilted chevron (leap angle) ─────────────────────────
+
+export function IconChevronTilt({ size = 40, className = "" }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-label="LEAP"
+    >
+      <rect width="64" height="64" rx="14" fill="#FF4D2E" />
+      <g transform="rotate(-28 32 32)">
+        <path
+          d="M 14 20 L 28 32 L 14 44"
+          stroke="white"
+          strokeWidth="8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+        <path
+          d="M 30 20 L 44 32 L 30 44"
+          stroke="white"
+          strokeWidth="8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+      </g>
+    </svg>
+  );
+}
+
+export function LogoChevronTilt({ size = 32, className = "" }: LogoProps) {
+  return (
+    <div className={`flex items-center gap-2 ${className}`}>
+      <IconChevronTilt size={size * 0.65} />
+      <span
+        className="font-sans font-black uppercase tracking-tight"
+        style={{ fontSize: size * 0.7, lineHeight: 1 }}
+      >
+        LEAP
+      </span>
+    </div>
+  );
+}
+
+// ─── Concept 11: Ascending chevrons (stair-step) ─────────────────────
+
+export function IconChevronAscend({ size = 40, className = "" }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-label="LEAP"
+    >
+      <rect width="64" height="64" rx="14" fill="#FF4D2E" />
+      <path
+        d="M 8 46 L 16 38 L 8 30"
+        stroke="white"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        transform="rotate(180 12 38)"
+      />
+      <path
+        d="M 24 40 L 32 32 L 24 24"
+        stroke="white"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      <path
+        d="M 40 34 L 48 26 L 40 18"
+        stroke="white"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+export function LogoChevronAscend({ size = 32, className = "" }: LogoProps) {
+  return (
+    <div className={`flex items-center gap-2 ${className}`}>
+      <IconChevronAscend size={size * 0.65} />
+      <span
+        className="font-sans font-black uppercase tracking-tight"
+        style={{ fontSize: size * 0.7, lineHeight: 1 }}
+      >
+        LEAP
+      </span>
+    </div>
+  );
+}
+
+// ─── Concept 12: Square chevron (L-corner) ───────────────────────────
+
+export function IconChevronSquare({ size = 40, className = "" }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-label="LEAP"
+    >
+      <rect width="64" height="64" rx="14" fill="#FF4D2E" />
+      <path
+        d="M 12 18 L 30 18 L 30 30"
+        stroke="white"
+        strokeWidth="7"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
+        fill="none"
+      />
+      <path
+        d="M 12 46 L 30 46 L 30 34"
+        stroke="white"
+        strokeWidth="7"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
+        fill="none"
+      />
+      <path
+        d="M 36 18 L 52 18 L 52 30"
+        stroke="white"
+        strokeWidth="7"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
+        fill="none"
+      />
+      <path
+        d="M 36 46 L 52 46 L 52 34"
+        stroke="white"
+        strokeWidth="7"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+export function LogoChevronSquare({ size = 32, className = "" }: LogoProps) {
+  return (
+    <div className={`flex items-center gap-2 ${className}`}>
+      <IconChevronSquare size={size * 0.65} />
+      <span
+        className="font-sans font-black uppercase tracking-tight"
+        style={{ fontSize: size * 0.7, lineHeight: 1 }}
+      >
+        LEAP
+      </span>
+    </div>
+  );
+}
+
+// ─── Concept 13: Chevron with leap dot ───────────────────────────────
+
+export function IconChevronJump({ size = 40, className = "" }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-label="LEAP"
+    >
+      <rect width="64" height="64" rx="14" fill="#FF4D2E" />
+      <path
+        d="M 12 30 Q 26 14 40 30"
+        stroke="white"
+        strokeWidth="4"
+        strokeLinecap="round"
+        fill="none"
+        strokeDasharray="3 4"
+      />
+      <circle cx="12" cy="30" r="3.5" fill="white" />
+      <path
+        d="M 32 22 L 48 36 L 32 50"
+        stroke="white"
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+export function LogoChevronJump({ size = 32, className = "" }: LogoProps) {
+  return (
+    <div className={`flex items-center gap-2 ${className}`}>
+      <IconChevronJump size={size * 0.65} />
+      <span
+        className="font-sans font-black uppercase tracking-tight"
+        style={{ fontSize: size * 0.7, lineHeight: 1 }}
+      >
+        LEAP
+      </span>
+    </div>
+  );
+}
