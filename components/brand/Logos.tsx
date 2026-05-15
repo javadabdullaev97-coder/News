@@ -414,19 +414,27 @@ export function IconChevronTilt({ size = 40, className = "" }: IconProps) {
       aria-label="LEAP"
     >
       <rect width="64" height="64" rx="14" fill="#FF4D2E" />
-      <g transform="rotate(-28 32 32)">
+      <g transform="rotate(-45 32 32)">
         <path
-          d="M 14 20 L 28 32 L 14 44"
+          d="M 8 22 L 18 32 L 8 42"
           stroke="white"
-          strokeWidth="8"
+          strokeWidth="5"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
         />
         <path
-          d="M 30 20 L 44 32 L 30 44"
+          d="M 22 22 L 32 32 L 22 42"
           stroke="white"
-          strokeWidth="8"
+          strokeWidth="5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+        <path
+          d="M 36 22 L 46 32 L 36 42"
+          stroke="white"
+          strokeWidth="5"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
