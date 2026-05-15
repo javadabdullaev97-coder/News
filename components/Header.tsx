@@ -3,6 +3,7 @@ import { rubrics } from "@/lib/data";
 import { ThemeToggle } from "./ThemeToggle";
 import { TopStrip } from "./TopStrip";
 import { BreakingTicker } from "./BreakingTicker";
+import { LogoChevron } from "./brand/Logos";
 
 export function Header() {
   return (
@@ -10,11 +11,8 @@ export function Header() {
       <TopStrip />
       <div className="border-b border-neutral-200 dark:border-neutral-800">
         <div className="container-news flex h-14 items-center justify-between gap-6">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="grid h-8 w-8 place-items-center rounded-md bg-brand font-black text-white">
-              L
-            </span>
-            <span className="text-lg font-extrabold tracking-tight">LEAP</span>
+          <Link href="/" aria-label="LEAP — на главную">
+            <LogoChevron size={32} />
           </Link>
 
           <nav className="hidden items-center gap-5 text-sm font-medium md:flex">
