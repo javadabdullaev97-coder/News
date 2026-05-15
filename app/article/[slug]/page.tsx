@@ -11,8 +11,10 @@ import {
   getRubric,
   timeAgo,
 } from "@/lib/data";
+import { Fragment } from "react";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { AuthorBlock } from "@/components/AuthorBlock";
+import { AdSlot } from "@/components/AdSlot";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -101,6 +103,12 @@ export default async function ArticlePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <article className="container-news py-8">
+        <AdSlot
+          id="article-top-leaderboard"
+          size="970x90"
+          label="Топ-баннер статьи"
+          className="mb-8"
+        />
         <div className="mx-auto max-w-3xl">
           {rubric && (
             <Link
@@ -163,9 +171,18 @@ export default async function ArticlePage({
 
           <div className="prose prose-neutral mt-8 max-w-none font-serif text-lg leading-relaxed dark:prose-invert">
             {article.body.map((p, i) => (
-              <p key={i} className="mb-5">
-                {p}
-              </p>
+              <Fragment key={i}>
+                <p className="mb-5">{p}</p>
+                {i === 0 && article.body.length > 1 && (
+                  <div className="my-8 not-prose">
+                    <AdSlot
+                      id={`article-${article.slug}-inarticle-1`}
+                      size="300x250"
+                      label="In-article #1"
+                    />
+                  </div>
+                )}
+              </Fragment>
             ))}
           </div>
 
@@ -181,6 +198,14 @@ export default async function ArticlePage({
           </div>
 
           <AuthorBlock author={author} />
+        </div>
+
+        <div className="mx-auto mt-12 max-w-5xl">
+          <AdSlot
+            id="article-end-billboard"
+            size="970x250"
+            label="Под статьёй (перед related)"
+          />
         </div>
 
         {related.length > 0 && (

@@ -3,6 +3,7 @@ import { Inter, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { MobileStickyAd } from "@/components/AdSlot";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main>{children}</main>
         <Footer />
+        <MobileStickyAd />
       </body>
     </html>
   );

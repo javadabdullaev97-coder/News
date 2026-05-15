@@ -1,5 +1,7 @@
+import { Fragment } from "react";
 import { notFound } from "next/navigation";
 import { ArticleCard } from "@/components/ArticleCard";
+import { AdSlot, NativeAdCard } from "@/components/AdSlot";
 import { getArticlesByRubric, getRubric, rubrics } from "@/lib/data";
 
 export function generateStaticParams() {
@@ -27,14 +29,26 @@ export default async function RubricPage({
         Все материалы рубрики · {list.length} публикаций
       </p>
 
+      <AdSlot
+        id={`rubric-${slug}-sponsor`}
+        size="970x90"
+        label={`Спонсор рубрики «${rubric.title}»`}
+        className="my-6"
+      />
+
       {list.length === 0 ? (
         <p className="mt-12 text-center text-neutral-500">
           В этой рубрике пока нет материалов.
         </p>
       ) : (
         <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {list.map((a) => (
-            <ArticleCard key={a.slug} article={a} />
+          {list.map((a, i) => (
+            <Fragment key={a.slug}>
+              <ArticleCard article={a} />
+              {i === 2 && (
+                <NativeAdCard id={`rubric-${slug}-native-1`} brand="Рекламодатель" />
+              )}
+            </Fragment>
           ))}
         </div>
       )}

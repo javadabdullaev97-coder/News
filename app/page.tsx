@@ -1,4 +1,5 @@
 import { ArticleCard } from "@/components/ArticleCard";
+import { AdSlot, NativeAdCard } from "@/components/AdSlot";
 import { articles, rubrics } from "@/lib/data";
 import Link from "next/link";
 
@@ -10,6 +11,13 @@ export default function HomePage() {
 
   return (
     <div className="container-news py-6">
+      <AdSlot
+        id="home-top-billboard"
+        size="970x250"
+        label="Премиум-баннер · топ главной"
+        className="mb-8"
+      />
+
       <section className="grid gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2">
           <ArticleCard article={featured} variant="hero" />
@@ -20,7 +28,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <aside>
+        <aside className="space-y-6">
           <div className="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
             <div className="flex items-baseline justify-between">
               <h3 className="text-sm font-bold uppercase tracking-wider">Сейчас читают</h3>
@@ -28,7 +36,10 @@ export default function HomePage() {
             </div>
             <ol className="mt-2">
               {sidebar.map((a, i) => (
-                <li key={a.slug} className="flex gap-3 border-b border-neutral-100 py-3 last:border-0 dark:border-neutral-800">
+                <li
+                  key={a.slug}
+                  className="flex gap-3 border-b border-neutral-100 py-3 last:border-0 dark:border-neutral-800"
+                >
                   <span className="font-serif text-2xl font-bold text-brand">{i + 1}</span>
                   <Link
                     href={`/article/${a.slug}`}
@@ -41,11 +52,15 @@ export default function HomePage() {
             </ol>
           </div>
 
-          <div className="mt-6 rounded-xl bg-gradient-to-br from-brand to-brand-700 p-5 text-white">
+          <AdSlot
+            id="home-sidebar-rect"
+            size="300x250"
+            label="Сайдбар главной"
+          />
+
+          <div className="rounded-xl bg-gradient-to-br from-brand to-brand-700 p-5 text-white">
             <div className="text-xs font-semibold uppercase opacity-80">LEAP за 5 минут</div>
-            <h3 className="mt-1 font-serif text-xl font-bold">
-              Подкаст-дайджест дня
-            </h3>
+            <h3 className="mt-1 font-serif text-xl font-bold">Подкаст-дайджест дня</h3>
             <p className="mt-2 text-sm opacity-90">
               Главное за день — голосом. Слушайте по дороге на работу.
             </p>
@@ -64,13 +79,24 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {latest.map((a) => (
+          {latest.slice(0, 2).map((a) => (
+            <ArticleCard key={a.slug} article={a} />
+          ))}
+          <NativeAdCard id="home-feed-native-1" brand="Hamkorbank" />
+          {latest.slice(2).map((a) => (
             <ArticleCard key={a.slug} article={a} />
           ))}
         </div>
       </section>
 
-      <section className="mt-12">
+      <AdSlot
+        id="home-mid-leaderboard"
+        size="970x90"
+        label="Между секциями"
+        className="my-12"
+      />
+
+      <section>
         <h2 className="font-serif text-2xl font-bold">По рубрикам</h2>
         <div className="mt-4 flex flex-wrap gap-2">
           {rubrics.map((r) => (
