@@ -174,7 +174,7 @@ export default async function ArticlePage({
               <Fragment key={i}>
                 <p className="mb-5">{p}</p>
                 {i === 0 && article.body.length > 1 && (
-                  <div className="my-8 not-prose">
+                  <div className="my-8 not-prose mx-auto max-w-[336px]">
                     <AdSlot
                       id={`article-${article.slug}-inarticle-1`}
                       size="300x250"

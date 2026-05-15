@@ -5,10 +5,10 @@ import { useState } from "react";
 type Size = "970x250" | "970x90" | "300x250" | "300x600" | "320x50";
 
 const sizeClasses: Record<Size, string> = {
-  "970x250": "min-h-[250px] w-full max-w-[970px] mx-auto",
-  "970x90": "min-h-[90px] w-full max-w-[970px] mx-auto",
-  "300x250": "h-[250px] w-full max-w-[300px] mx-auto",
-  "300x600": "h-[600px] w-full max-w-[300px] mx-auto",
+  "970x250": "min-h-[250px] w-full",
+  "970x90": "min-h-[90px] w-full",
+  "300x250": "h-[250px] w-full",
+  "300x600": "h-[600px] w-full",
   "320x50": "h-[50px] w-full max-w-[320px] mx-auto",
 };
 
