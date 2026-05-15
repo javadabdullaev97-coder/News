@@ -113,7 +113,7 @@ export default function BrandPage() {
 
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {/* Светлый фон */}
-              <div className="rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800">
+              <div className="rounded-xl border border-neutral-200 bg-white p-6 text-neutral-900 dark:border-neutral-800">
                 <div className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
                   На светлом
                 </div>
