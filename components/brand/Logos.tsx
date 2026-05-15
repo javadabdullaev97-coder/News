@@ -416,25 +416,25 @@ export function IconChevronTilt({ size = 40, className = "" }: IconProps) {
       <rect width="64" height="64" rx="14" fill="#FF4D2E" />
       <g transform="rotate(-45 32 32)">
         <path
-          d="M 8 22 L 18 32 L 8 42"
+          d="M 9 18 L 23 32 L 9 46"
           stroke="white"
-          strokeWidth="5"
+          strokeWidth="8"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
         />
         <path
-          d="M 22 22 L 32 32 L 22 42"
+          d="M 25 18 L 39 32 L 25 46"
           stroke="white"
-          strokeWidth="5"
+          strokeWidth="8"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
         />
         <path
-          d="M 36 22 L 46 32 L 36 42"
+          d="M 41 18 L 55 32 L 41 46"
           stroke="white"
-          strokeWidth="5"
+          strokeWidth="8"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
