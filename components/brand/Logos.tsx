@@ -156,3 +156,247 @@ export function WordmarkOnly({ size = 32, className = "" }: LogoProps) {
     </span>
   );
 }
+
+// ─── Concept 5: Live dot ─────────────────────────────────────────────
+
+export function IconLive({ size = 40, className = "" }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-label="LEAP"
+    >
+      <rect width="64" height="64" rx="14" fill="#FF4D2E" />
+      <path
+        d="M 14 14 L 26 14 L 26 42 L 50 42 L 50 50 L 14 50 Z"
+        fill="white"
+      />
+      <circle cx="50" cy="18" r="6" fill="white" />
+      <circle cx="50" cy="18" r="2.5" fill="#FF4D2E" />
+    </svg>
+  );
+}
+
+export function LogoLive({ size = 32, className = "" }: LogoProps) {
+  const dot = size * 0.32;
+  return (
+    <div className={`flex items-center gap-2 ${className}`}>
+      <span
+        className="relative inline-flex"
+        style={{ width: dot, height: dot }}
+      >
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-75" />
+        <span className="relative inline-flex h-full w-full rounded-full bg-brand" />
+      </span>
+      <span
+        className="font-sans font-black uppercase tracking-tight"
+        style={{ fontSize: size * 0.7, lineHeight: 1 }}
+      >
+        LEAP
+      </span>
+    </div>
+  );
+}
+
+// ─── Concept 6: Underline arrow ──────────────────────────────────────
+
+export function IconUnderline({ size = 40, className = "" }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-label="LEAP"
+    >
+      <rect width="64" height="64" rx="14" fill="#FF4D2E" />
+      <path d="M 18 14 L 28 14 L 28 38 L 18 38 Z" fill="white" />
+      <path
+        d="M 14 46 L 44 46 L 44 42 L 54 49 L 44 56 L 44 52 L 14 52 Z"
+        fill="white"
+      />
+    </svg>
+  );
+}
+
+export function LogoUnderline({ size = 32, className = "" }: LogoProps) {
+  return (
+    <div className={`inline-flex flex-col items-start ${className}`}>
+      <span
+        className="font-sans font-black uppercase tracking-tight"
+        style={{ fontSize: size, lineHeight: 1 }}
+      >
+        LEAP
+      </span>
+      <svg
+        width={size * 2.4}
+        height={size * 0.25}
+        viewBox="0 0 100 10"
+        className="mt-1"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M 0 5 L 84 5"
+          stroke="#FF4D2E"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <path
+          d="M 80 1 L 92 5 L 80 9 Z"
+          fill="#FF4D2E"
+          stroke="#FF4D2E"
+          strokeWidth="1"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
+  );
+}
+
+// ─── Concept 7: Brackets [LEAP] ──────────────────────────────────────
+
+export function IconBrackets({ size = 40, className = "" }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-label="LEAP"
+    >
+      <rect width="64" height="64" rx="14" fill="#FF4D2E" />
+      <path
+        d="M 16 16 L 26 16 L 26 22 L 22 22 L 22 42 L 26 42 L 26 48 L 16 48 Z"
+        fill="white"
+      />
+      <path
+        d="M 48 16 L 38 16 L 38 22 L 42 22 L 42 42 L 38 42 L 38 48 L 48 48 Z"
+        fill="white"
+      />
+    </svg>
+  );
+}
+
+export function LogoBrackets({ size = 32, className = "" }: LogoProps) {
+  return (
+    <div className={`flex items-baseline gap-1 ${className}`}>
+      <span
+        className="font-sans font-black"
+        style={{ fontSize: size * 1.05, color: "#FF4D2E", lineHeight: 1 }}
+      >
+        [
+      </span>
+      <span
+        className="font-sans font-black uppercase tracking-tight"
+        style={{ fontSize: size * 0.7, lineHeight: 1 }}
+      >
+        LEAP
+      </span>
+      <span
+        className="font-sans font-black"
+        style={{ fontSize: size * 1.05, color: "#FF4D2E", lineHeight: 1 }}
+      >
+        ]
+      </span>
+    </div>
+  );
+}
+
+// ─── Concept 8: LEAP. period ─────────────────────────────────────────
+
+export function IconPeriod({ size = 40, className = "" }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-label="LEAP"
+    >
+      <rect width="64" height="64" rx="14" fill="#FF4D2E" />
+      <path
+        d="M 14 14 L 26 14 L 26 42 L 42 42 L 42 50 L 14 50 Z"
+        fill="white"
+      />
+      <rect x="46" y="42" width="8" height="8" rx="1" fill="white" />
+    </svg>
+  );
+}
+
+export function LogoPeriod({ size = 32, className = "" }: LogoProps) {
+  return (
+    <span className={`inline-flex items-baseline ${className}`}>
+      <span
+        className="font-sans font-black uppercase tracking-tight"
+        style={{ fontSize: size, lineHeight: 1 }}
+      >
+        LEAP
+      </span>
+      <span
+        style={{
+          fontSize: size * 1.4,
+          color: "#FF4D2E",
+          lineHeight: 0.8,
+          marginLeft: "0.04em",
+          fontWeight: 900,
+        }}
+      >
+        .
+      </span>
+    </span>
+  );
+}
+
+// ─── Concept 9: Leap trajectory (arc) ────────────────────────────────
+
+export function IconArc({ size = 40, className = "" }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-label="LEAP"
+    >
+      <rect width="64" height="64" rx="14" fill="#FF4D2E" />
+      <path
+        d="M 12 50 Q 32 12 52 50"
+        stroke="white"
+        strokeWidth="5"
+        fill="none"
+        strokeLinecap="round"
+        strokeDasharray="0 0"
+      />
+      <circle cx="12" cy="50" r="4.5" fill="white" />
+      <path
+        d="M 48 46 L 54 50 L 48 54"
+        stroke="white"
+        strokeWidth="5"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function LogoArc({ size = 32, className = "" }: LogoProps) {
+  return (
+    <div className={`flex items-center gap-2 ${className}`}>
+      <IconArc size={size} />
+      <span
+        className="font-sans font-black uppercase tracking-tight"
+        style={{ fontSize: size * 0.7, lineHeight: 1 }}
+      >
+        LEAP
+      </span>
+    </div>
+  );
+}
