@@ -22,7 +22,7 @@ body {
   color: var(--fg);
 }
 
-/* Брендовый скроллбар (WebKit + Firefox) */
+/* Брендовый скроллбар */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -42,7 +42,20 @@ body {
   scrollbar-color: rgba(115, 115, 115, 0.4) transparent;
 }
 
-/* Fade-in для основного контента при загрузке */
+/* Видимая клавиатурная фокусировка только при tab-навигации */
+:focus-visible {
+  outline: 2px solid #ff4d2e;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 77, 46, 0.25);
+  color: inherit;
+}
+
+/* Fade-in для основного контента */
 main {
   animation: fadeIn 0.25s ease-out;
 }
