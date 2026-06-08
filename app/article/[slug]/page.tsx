@@ -15,6 +15,7 @@ import { Fragment } from "react";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { AuthorBlock } from "@/components/AuthorBlock";
 import { AdSlot } from "@/components/AdSlot";
+import { StickyShare } from "@/components/StickyShare";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -98,6 +99,7 @@ export default async function ArticlePage({
   return (
     <>
       <ReadingProgress />
+      <StickyShare title={article.title} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -125,26 +127,27 @@ export default async function ArticlePage({
             {article.lead}
           </p>
 
-          <div className="mt-6 flex items-center justify-between border-y border-neutral-200 py-3 text-sm text-neutral-600 dark:border-neutral-800 dark:text-neutral-400">
-            <div>
+          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-neutral-200 py-3 text-sm text-neutral-600 dark:border-neutral-800 dark:text-neutral-400">
+            <span className="inline-flex items-center gap-1.5">
+              <span aria-hidden className="text-neutral-400">✍︎</span>
               <span className="font-semibold text-neutral-900 dark:text-neutral-100">
                 {author.name}
               </span>
-              <span className="mx-2">·</span>
-              <time dateTime={article.publishedAt} title={formatDate(article.publishedAt)}>
-                {timeAgo(article.publishedAt)}
-              </time>
-              <span className="mx-2">·</span>
+            </span>
+            <span aria-hidden className="text-neutral-300 dark:text-neutral-700">·</span>
+            <time
+              dateTime={article.publishedAt}
+              title={formatDate(article.publishedAt)}
+              className="inline-flex items-center gap-1.5"
+            >
+              <span aria-hidden className="text-neutral-400">🕐</span>
+              {timeAgo(article.publishedAt)}
+            </time>
+            <span aria-hidden className="text-neutral-300 dark:text-neutral-700">·</span>
+            <span className="inline-flex items-center gap-1.5">
+              <span aria-hidden className="text-neutral-400">📖</span>
               {article.readingTime} мин чтения
-            </div>
-            <div className="flex gap-2">
-              <button
-                aria-label="Поделиться"
-                className="rounded-full border border-neutral-300 px-3 py-1 text-xs hover:border-brand hover:text-brand dark:border-neutral-700"
-              >
-                ↗ Поделиться
-              </button>
-            </div>
+            </span>
           </div>
 
           <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-xl">
@@ -166,7 +169,15 @@ export default async function ArticlePage({
           <div className="prose prose-neutral mt-8 max-w-none font-serif text-lg leading-relaxed dark:prose-invert">
             {article.body.map((p, i) => (
               <Fragment key={i}>
-                <p className="mb-5">{p}</p>
+                <p
+                  className={
+                    i === 0
+                      ? "mb-5 first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-serif first-letter:text-6xl first-letter:font-bold first-letter:leading-[0.9] first-letter:text-brand"
+                      : "mb-5"
+                  }
+                >
+                  {p}
+                </p>
                 {i === 0 && article.body.length > 1 && (
                   <div className="my-8 not-prose mx-auto max-w-[336px]">
                     <AdSlot
