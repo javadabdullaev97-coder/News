@@ -12,6 +12,14 @@ export default {
     "bg-pink-500",
     "bg-orange-500",
     "bg-sky-500",
+    "text-blue-500",
+    "text-emerald-500",
+    "text-amber-500",
+    "text-violet-500",
+    "text-rose-500",
+    "text-pink-500",
+    "text-orange-500",
+    "text-sky-500",
   ],
   theme: {
     extend: {
@@ -28,6 +36,7 @@ export default {
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         serif: ["var(--font-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       keyframes: {
         marquee: {

@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { notFound } from "next/navigation";
 import { ArticleCard } from "@/components/ArticleCard";
 import { AdSlot, NativeAdCard } from "@/components/AdSlot";
+import { LeapTag } from "@/components/LeapTag";
 import { getArticlesByRubric, getRubric, rubrics } from "@/lib/data";
 
 export function generateStaticParams() {
@@ -21,13 +22,15 @@ export default async function RubricPage({
 
   return (
     <div className="container-news py-8">
-      <div className="flex items-center gap-3">
-        <span className={`h-8 w-1.5 rounded ${rubric.color}`} />
-        <h1 className="font-serif text-4xl font-bold">{rubric.title}</h1>
+      <div className="flex items-center gap-4">
+        <span className={`h-12 w-1.5 rounded ${rubric.color}`} />
+        <div>
+          <LeapTag rubricSlug={rubric.slug} size="xl" />
+          <p className="mt-1 text-sm text-neutral-500">
+            {rubric.title} · все материалы
+          </p>
+        </div>
       </div>
-      <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-        Все материалы рубрики
-      </p>
 
       <AdSlot
         id={`rubric-${slug}-sponsor`}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArticleCard } from "./ArticleCard";
+import { LeapTag } from "./LeapTag";
 import { getArticlesByRubric, getRubric } from "@/lib/data";
 
 export function RubricSection({ rubricSlug }: { rubricSlug: string }) {
@@ -8,21 +9,14 @@ export function RubricSection({ rubricSlug }: { rubricSlug: string }) {
   if (!rubric || items.length === 0) return null;
 
   const [main, ...rest] = items;
+  const href = `/rubric/${rubric.slug}`;
 
   return (
     <section className="mt-14">
-      <div className="flex items-center justify-between border-b border-neutral-200 pb-3 dark:border-neutral-800">
+      <div className="flex items-end justify-between border-b border-neutral-200 pb-3 dark:border-neutral-800">
+        <LeapTag rubricSlug={rubric.slug} size="lg" href={href} />
         <Link
-          href={`/rubric/${rubric.slug}`}
-          className="group flex items-center gap-3"
-        >
-          <span className={`h-7 w-1 rounded ${rubric.color}`} />
-          <h2 className="font-serif text-2xl font-bold transition-colors group-hover:text-brand">
-            {rubric.title}
-          </h2>
-        </Link>
-        <Link
-          href={`/rubric/${rubric.slug}`}
+          href={href}
           className="text-sm font-medium text-brand transition-colors hover:underline"
         >
           Все материалы →
