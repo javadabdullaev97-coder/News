@@ -12,10 +12,50 @@
   --fg: #f5f5f5;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   background: var(--bg);
   color: var(--fg);
+}
+
+/* Брендовый скроллбар (WebKit + Firefox) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(115, 115, 115, 0.35);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff4d2e;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(115, 115, 115, 0.4) transparent;
+}
+
+/* Fade-in для основного контента при загрузке */
+main {
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @layer utilities {

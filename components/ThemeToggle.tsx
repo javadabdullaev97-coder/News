@@ -24,7 +24,7 @@ export function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label="Переключить тему"
-      className="rounded-full border border-neutral-300 p-2 text-sm transition hover:border-brand hover:text-brand dark:border-neutral-700"
+      className="grid h-9 w-9 place-items-center rounded-full border border-neutral-200 bg-white text-sm shadow-sm transition-all duration-150 hover:border-brand hover:text-brand hover:shadow active:scale-95 dark:border-neutral-800 dark:bg-neutral-900"
     >
       {dark ? "☀" : "☾"}
     </button>

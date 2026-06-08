@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { rubrics } from "@/lib/data";
 import { ThemeToggle } from "./ThemeToggle";
 import { TopStrip } from "./TopStrip";
 import { BreakingTicker } from "./BreakingTicker";
 import { LogoChevron } from "./brand/Logos";
+import { HeaderNav, MobileNav } from "./HeaderNav";
 
 export function Header() {
   return (
@@ -11,51 +11,39 @@ export function Header() {
       <TopStrip />
       <div className="border-b border-neutral-200 dark:border-neutral-800">
         <div className="container-news flex h-14 items-center justify-between gap-6">
-          <Link href="/" aria-label="LEAP — на главную">
+          <Link
+            href="/"
+            aria-label="LEAP — на главную"
+            className="transition-transform active:scale-95"
+          >
             <LogoChevron size={32} />
           </Link>
 
-          <nav className="hidden items-center gap-5 text-sm font-medium md:flex">
-            {rubrics.slice(0, 6).map((r) => (
-              <Link
-                key={r.slug}
-                href={`/rubric/${r.slug}`}
-                className="text-neutral-700 transition hover:text-brand dark:text-neutral-300"
-              >
-                {r.title}
-              </Link>
-            ))}
-          </nav>
+          <HeaderNav />
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
             <button
               aria-label="Поиск"
-              className="rounded-full border border-neutral-300 p-2 text-sm transition hover:border-brand hover:text-brand dark:border-neutral-700"
+              className="grid h-9 w-9 place-items-center rounded-full border border-neutral-200 bg-white text-sm shadow-sm transition-all duration-150 hover:border-brand hover:text-brand hover:shadow active:scale-95 dark:border-neutral-800 dark:bg-neutral-900"
             >
               🔎
             </button>
-            <div className="hidden items-center gap-1 rounded-full border border-neutral-300 p-1 text-xs dark:border-neutral-700 sm:flex">
-              <button className="rounded-full bg-neutral-900 px-2 py-0.5 text-white dark:bg-white dark:text-neutral-900">
+            <div className="hidden items-center gap-0.5 rounded-full border border-neutral-200 bg-white p-0.5 text-xs shadow-sm dark:border-neutral-800 dark:bg-neutral-900 sm:flex">
+              <button className="rounded-full bg-neutral-900 px-2 py-1 font-semibold text-white dark:bg-white dark:text-neutral-900">
                 RU
               </button>
-              <button className="px-2 py-0.5 text-neutral-500">UZ</button>
-              <button className="px-2 py-0.5 text-neutral-500">EN</button>
+              <button className="rounded-full px-2 py-1 text-neutral-500 transition-colors hover:text-neutral-900 dark:hover:text-white">
+                UZ
+              </button>
+              <button className="rounded-full px-2 py-1 text-neutral-500 transition-colors hover:text-neutral-900 dark:hover:text-white">
+                EN
+              </button>
             </div>
             <ThemeToggle />
           </div>
         </div>
         <div className="border-t border-neutral-200 dark:border-neutral-800 md:hidden">
-          <div className="container-news flex gap-4 overflow-x-auto py-2 text-sm">
-            {rubrics.map((r) => (
-              <Link
-                key={r.slug}
-                href={`/rubric/${r.slug}`}
-                className="whitespace-nowrap text-neutral-700 hover:text-brand dark:text-neutral-300"
-              >
-                {r.title}
-              </Link>
-            ))}
-          </div>
+          <MobileNav />
         </div>
       </div>
       <BreakingTicker />
