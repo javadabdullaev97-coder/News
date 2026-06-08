@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Onest, Spectral } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -7,18 +7,10 @@ import { MobileStickyAd } from "@/components/AdSlot";
 import { SearchProvider } from "@/components/SearchModal";
 import { ToastProvider } from "@/components/Toast";
 
-const sans = Onest({
+const manrope = Manrope({
   subsets: ["latin", "cyrillic"],
   variable: "--font-sans",
   display: "swap",
-});
-
-const serif = Spectral({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-serif",
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
-  style: ["normal", "italic"],
 });
 
 const siteUrl = "https://leap.uz";
@@ -53,7 +45,7 @@ const themeScript = `
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" suppressHydrationWarning className={`${sans.variable} ${serif.variable}`}>
+    <html lang="ru" suppressHydrationWarning className={manrope.variable}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <link rel="alternate" type="application/rss+xml" title="LEAP — RSS" href="/rss.xml" />
