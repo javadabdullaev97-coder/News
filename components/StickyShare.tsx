@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useToast } from "./Toast";
 
 function shareUrl(platform: "tg" | "fb" | "x", url: string, title: string) {
   const u = encodeURIComponent(url);
@@ -12,7 +13,7 @@ function shareUrl(platform: "tg" | "fb" | "x", url: string, title: string) {
 
 export function StickyShare({ title }: { title: string }) {
   const [url, setUrl] = useState("");
-  const [copied, setCopied] = useState(false);
+  const { show } = useToast();
 
   useEffect(() => {
     setUrl(window.location.href);
@@ -21,9 +22,10 @@ export function StickyShare({ title }: { title: string }) {
   async function copy() {
     try {
       await navigator.clipboard.writeText(url);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
-    } catch {}
+      show("Ссылка скопирована", "🔗");
+    } catch {
+      show("Не получилось скопировать", "⚠");
+    }
   }
 
   const btn =
@@ -59,12 +61,8 @@ export function StickyShare({ title }: { title: string }) {
         >
           𝕏
         </a>
-        <button
-          onClick={copy}
-          aria-label="Скопировать ссылку"
-          className={btn}
-        >
-          {copied ? "✓" : "🔗"}
+        <button onClick={copy} aria-label="Скопировать ссылку" className={btn}>
+          🔗
         </button>
       </div>
     </div>

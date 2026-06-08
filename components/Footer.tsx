@@ -25,12 +25,20 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <div className="text-xs font-semibold uppercase text-neutral-500">Редакция</div>
+          <div className="text-xs font-semibold uppercase text-neutral-500">Сервисы</div>
           <ul className="mt-3 space-y-1 text-sm">
+            <li>
+              <Link href="/saved" className="hover:text-brand">
+                Сохранённое
+              </Link>
+            </li>
+            <li>
+              <a href="/rss.xml" className="hover:text-brand">
+                RSS-лента
+              </a>
+            </li>
             <li>О LEAP</li>
-            <li>Контакты</li>
             <li>Реклама</li>
-            <li>Вакансии</li>
           </ul>
         </div>
         <div>

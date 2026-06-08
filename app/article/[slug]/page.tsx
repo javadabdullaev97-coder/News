@@ -16,6 +16,7 @@ import { ReadingProgress } from "@/components/ReadingProgress";
 import { AuthorBlock } from "@/components/AuthorBlock";
 import { AdSlot } from "@/components/AdSlot";
 import { StickyShare } from "@/components/StickyShare";
+import { BookmarkButton } from "@/components/BookmarkButton";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -148,6 +149,9 @@ export default async function ArticlePage({
               <span aria-hidden className="text-neutral-400">📖</span>
               {article.readingTime} мин чтения
             </span>
+            <div className="ml-auto">
+              <BookmarkButton slug={article.slug} variant="labelled" />
+            </div>
           </div>
 
           <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-xl">

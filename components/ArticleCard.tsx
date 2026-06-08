@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Article, getRubric, timeAgo } from "@/lib/data";
+import { BookmarkButton } from "./BookmarkButton";
 
 type Variant = "hero" | "large" | "default" | "compact";
 
@@ -96,6 +97,9 @@ export function ArticleCard({
           sizes="(max-width: 768px) 100vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
+        <div className="absolute right-2 top-2 transition-opacity">
+          <BookmarkButton slug={article.slug} />
+        </div>
       </div>
       <div className="mt-3">
         {rubric && (
