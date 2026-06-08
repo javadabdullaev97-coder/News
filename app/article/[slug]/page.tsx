@@ -194,15 +194,7 @@ export default async function ArticlePage({
           <div className="prose prose-neutral mt-10 max-w-none font-serif text-[19px] leading-[1.75] tracking-[-0.005em] dark:prose-invert prose-p:my-5 prose-blockquote:my-8 prose-blockquote:border-l-4 prose-blockquote:border-brand prose-blockquote:bg-neutral-50 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:not-italic prose-blockquote:font-serif prose-blockquote:text-xl prose-blockquote:font-medium dark:prose-blockquote:bg-neutral-900">
             {article.body.map((p, i) => (
               <Fragment key={i}>
-                <p
-                  className={
-                    i === 0
-                      ? "first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-serif first-letter:text-7xl first-letter:font-bold first-letter:leading-[0.85] first-letter:text-brand"
-                      : ""
-                  }
-                >
-                  {p}
-                </p>
+                <p>{p}</p>
                 {i === 0 && article.body.length > 1 && (
                   <div className="not-prose mx-auto my-10 max-w-[336px]">
                     <AdSlot
