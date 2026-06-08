@@ -8,11 +8,11 @@ export const rubrics: Rubric[] = [
   { slug: "politics", title: "Политика", color: "bg-blue-500" },
   { slug: "economy", title: "Экономика", color: "bg-emerald-500" },
   { slug: "business", title: "Бизнес", color: "bg-amber-500" },
-  { slug: "tech", title: "Технологии", color: "bg-violet-500" },
   { slug: "society", title: "Общество", color: "bg-rose-500" },
-  { slug: "culture", title: "Культура", color: "bg-pink-500" },
   { slug: "sport", title: "Спорт", color: "bg-orange-500" },
   { slug: "world", title: "Мир", color: "bg-sky-500" },
+  { slug: "tech", title: "Технологии", color: "bg-violet-500" },
+  { slug: "culture", title: "Культура", color: "bg-pink-500" },
 ];
 
 export type Author = {
