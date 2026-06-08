@@ -26,7 +26,7 @@ export default async function RubricPage({
         <h1 className="font-serif text-4xl font-bold">{rubric.title}</h1>
       </div>
       <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-        Все материалы рубрики · {list.length} публикаций
+        Все материалы рубрики
       </p>
 
       <AdSlot
