@@ -139,12 +139,6 @@ export default async function ArticlePage({
             </div>
             <div className="flex gap-2">
               <button
-                aria-label="Слушать"
-                className="rounded-full border border-neutral-300 px-3 py-1 text-xs hover:border-brand hover:text-brand dark:border-neutral-700"
-              >
-                🎧 Слушать
-              </button>
-              <button
                 aria-label="Поделиться"
                 className="rounded-full border border-neutral-300 px-3 py-1 text-xs hover:border-brand hover:text-brand dark:border-neutral-700"
               >

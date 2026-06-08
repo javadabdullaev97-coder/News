@@ -57,17 +57,6 @@ export default function HomePage() {
             size="300x250"
             label="Сайдбар главной"
           />
-
-          <div className="rounded-xl bg-gradient-to-br from-brand to-brand-700 p-5 text-white">
-            <div className="text-xs font-semibold uppercase opacity-80">LEAP за 5 минут</div>
-            <h3 className="mt-1 font-serif text-xl font-bold">Подкаст-дайджест дня</h3>
-            <p className="mt-2 text-sm opacity-90">
-              Главное за день — голосом. Слушайте по дороге на работу.
-            </p>
-            <button className="mt-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-brand">
-              ▶ Слушать
-            </button>
-          </div>
         </aside>
       </section>
 
