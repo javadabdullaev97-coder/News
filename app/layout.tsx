@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Geist_Mono } from "next/font/google";
+import { Manrope, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -13,9 +13,10 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const mono = Geist_Mono({
+const mono = DM_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  weight: ["400", "500"],
   display: "swap",
 });
 
