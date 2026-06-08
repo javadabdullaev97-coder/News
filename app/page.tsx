@@ -1,6 +1,8 @@
 import { ArticleCard } from "@/components/ArticleCard";
 import { AdSlot, NativeAdCard } from "@/components/AdSlot";
 import { RubricSection } from "@/components/RubricSection";
+import { CurrencyWidget } from "@/components/CurrencyWidget";
+import { WeatherWidget } from "@/components/WeatherWidget";
 import { articles, rubrics } from "@/lib/data";
 import Link from "next/link";
 
@@ -52,6 +54,10 @@ export default function HomePage() {
               ))}
             </ol>
           </div>
+
+          <WeatherWidget />
+
+          <CurrencyWidget />
 
           <AdSlot
             id="home-sidebar-rect"
