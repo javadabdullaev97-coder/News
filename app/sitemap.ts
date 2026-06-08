@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { articles, rubrics } from "@/lib/data";
 
+export const dynamic = "force-static";
+
 const SITE = "https://leap.uz";
 
 export default function sitemap(): MetadataRoute.Sitemap {

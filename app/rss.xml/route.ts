@@ -1,5 +1,7 @@
 import { articles, getAuthor, getRubric } from "@/lib/data";
 
+export const dynamic = "force-static";
+
 const SITE = "https://leap.uz";
 
 function escape(s: string) {
