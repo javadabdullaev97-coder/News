@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileStickyAd } from "@/components/AdSlot";
+import { SearchProvider } from "@/components/SearchModal";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -55,10 +56,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="alternate" type="application/rss+xml" title="LEAP — RSS" href="/rss.xml" />
       </head>
       <body className="min-h-screen font-sans antialiased">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <MobileStickyAd />
+        <SearchProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <MobileStickyAd />
+        </SearchProvider>
       </body>
     </html>
   );

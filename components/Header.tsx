@@ -4,6 +4,7 @@ import { TopStrip } from "./TopStrip";
 import { BreakingTicker } from "./BreakingTicker";
 import { LogoChevron } from "./brand/Logos";
 import { HeaderNav, MobileNav } from "./HeaderNav";
+import { SearchButton } from "./SearchModal";
 
 export function Header() {
   return (
@@ -22,12 +23,7 @@ export function Header() {
           <HeaderNav />
 
           <div className="flex items-center gap-1.5">
-            <button
-              aria-label="Поиск"
-              className="grid h-9 w-9 place-items-center rounded-full border border-neutral-200 bg-white text-sm shadow-sm transition-all duration-150 hover:border-brand hover:text-brand hover:shadow active:scale-95 dark:border-neutral-800 dark:bg-neutral-900"
-            >
-              🔎
-            </button>
+            <SearchButton />
             <div className="hidden items-center gap-0.5 rounded-full border border-neutral-200 bg-white p-0.5 text-xs shadow-sm dark:border-neutral-800 dark:bg-neutral-900 sm:flex">
               <button className="rounded-full bg-neutral-900 px-2 py-1 font-semibold text-white dark:bg-white dark:text-neutral-900">
                 RU
