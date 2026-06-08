@@ -1,5 +1,6 @@
 import { ArticleCard } from "@/components/ArticleCard";
 import { AdSlot, NativeAdCard } from "@/components/AdSlot";
+import { RubricSection } from "@/components/RubricSection";
 import { articles, rubrics } from "@/lib/data";
 import Link from "next/link";
 
@@ -62,7 +63,7 @@ export default function HomePage() {
 
       <section className="mt-12">
         <div className="flex items-baseline justify-between border-b border-neutral-200 pb-3 dark:border-neutral-800">
-          <h2 className="font-serif text-2xl font-bold">Лента новостей</h2>
+          <h2 className="font-serif text-2xl font-bold">Главное</h2>
           <Link href="#" className="text-sm font-medium text-brand hover:underline">
             Все новости →
           </Link>
@@ -78,6 +79,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      <RubricSection rubricSlug="politics" />
+      <RubricSection rubricSlug="business" />
+
       <AdSlot
         id="home-mid-leaderboard"
         size="970x90"
@@ -85,14 +89,17 @@ export default function HomePage() {
         className="my-12"
       />
 
-      <section>
+      <RubricSection rubricSlug="sport" />
+      <RubricSection rubricSlug="tech" />
+
+      <section className="mt-16">
         <h2 className="font-serif text-2xl font-bold">По рубрикам</h2>
         <div className="mt-4 flex flex-wrap gap-2">
           {rubrics.map((r) => (
             <Link
               key={r.slug}
               href={`/rubric/${r.slug}`}
-              className="rounded-full border border-neutral-300 px-4 py-1.5 text-sm font-medium transition hover:border-brand hover:text-brand dark:border-neutral-700"
+              className="rounded-full border border-neutral-300 px-4 py-1.5 text-sm font-medium transition-all duration-150 hover:border-brand hover:text-brand active:scale-95 dark:border-neutral-700"
             >
               {r.title}
             </Link>
