@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { Fragment } from "react";
 import {
   articles,
   formatDate,
@@ -11,12 +12,13 @@ import {
   getRubric,
   timeAgo,
 } from "@/lib/data";
-import { Fragment } from "react";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { AuthorBlock } from "@/components/AuthorBlock";
 import { AdSlot } from "@/components/AdSlot";
 import { StickyShare } from "@/components/StickyShare";
 import { BookmarkButton } from "@/components/BookmarkButton";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { InlineSubscribe } from "@/components/InlineSubscribe";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -84,10 +86,7 @@ export default async function ArticlePage({
     publisher: {
       "@type": "Organization",
       name: "LEAP",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://leap.uz/icon.png",
-      },
+      logo: { "@type": "ImageObject", url: "https://leap.uz/icon.png" },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -105,28 +104,41 @@ export default async function ArticlePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <article className="container-news py-8">
+      <article className="container-news py-6">
         <AdSlot
           id="article-top-leaderboard"
           size="970x90"
           label="Топ-баннер статьи"
-          className="mb-8"
+          className="mb-6"
         />
+
         <div className="mx-auto max-w-3xl">
-          {rubric && (
-            <Link
-              href={`/rubric/${rubric.slug}`}
-              className={`inline-block rounded px-2 py-0.5 text-xs font-semibold uppercase text-white ${rubric.color}`}
-            >
-              {rubric.title}
-            </Link>
-          )}
-          <h1 className="mt-4 font-serif text-3xl font-bold leading-tight md:text-5xl">
-            {article.title}
-          </h1>
-          <p className="mt-4 text-lg text-neutral-700 dark:text-neutral-300">
-            {article.lead}
-          </p>
+          <Breadcrumbs
+            items={[
+              { label: "Главная", href: "/" },
+              rubric
+                ? { label: rubric.title, href: `/rubric/${rubric.slug}` }
+                : { label: "Статья" },
+              { label: article.title },
+            ]}
+          />
+
+          <div className="mt-6">
+            {rubric && (
+              <Link
+                href={`/rubric/${rubric.slug}`}
+                className={`inline-block rounded px-2 py-0.5 text-xs font-semibold uppercase text-white ${rubric.color}`}
+              >
+                {rubric.title}
+              </Link>
+            )}
+            <h1 className="mt-4 font-serif text-4xl font-bold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
+              {article.title}
+            </h1>
+            <p className="mt-5 font-serif text-xl leading-relaxed text-neutral-700 md:text-2xl dark:text-neutral-300">
+              {article.lead}
+            </p>
+          </div>
 
           <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-neutral-200 py-3 text-sm text-neutral-600 dark:border-neutral-800 dark:text-neutral-400">
             <span className="inline-flex items-center gap-1.5">
@@ -154,36 +166,45 @@ export default async function ArticlePage({
             </div>
           </div>
 
-          <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-xl">
-            <Image
-              src={article.cover}
-              alt={article.title}
-              fill
-              sizes="(max-width: 1024px) 100vw, 768px"
-              className="object-cover"
-              priority
-            />
-          </div>
+          <figure className="mt-8">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
+              <Image
+                src={article.cover}
+                alt={article.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 768px"
+                className="object-cover"
+                priority
+              />
+            </div>
+            <figcaption className="mt-2 text-xs text-neutral-500">
+              Фото: {rubric?.title.toLowerCase()} · {timeAgo(article.publishedAt)}
+            </figcaption>
+          </figure>
 
-          <div className="mt-4 rounded-lg border border-brand/30 bg-brand-50 p-4 text-sm dark:bg-brand/10">
-            <div className="font-semibold text-brand">⚡ Прочитать за 30 секунд</div>
-            <p className="mt-1 text-neutral-800 dark:text-neutral-200">{article.lead}</p>
-          </div>
+          <aside className="mt-6 rounded-xl border-l-4 border-brand bg-brand-50 px-5 py-4 text-sm dark:bg-brand/10">
+            <div className="text-xs font-bold uppercase tracking-wider text-brand">
+              ⚡ Прочитать за 30 секунд
+            </div>
+            <p className="mt-1.5 leading-relaxed text-neutral-800 dark:text-neutral-100">
+              {article.lead}
+            </p>
+          </aside>
 
-          <div className="prose prose-neutral mt-8 max-w-none font-serif text-lg leading-relaxed dark:prose-invert">
+          <div className="prose prose-neutral mt-10 max-w-none font-serif text-[19px] leading-[1.75] tracking-[-0.005em] dark:prose-invert prose-p:my-5 prose-blockquote:my-8 prose-blockquote:border-l-4 prose-blockquote:border-brand prose-blockquote:bg-neutral-50 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:not-italic prose-blockquote:font-serif prose-blockquote:text-xl prose-blockquote:font-medium dark:prose-blockquote:bg-neutral-900">
             {article.body.map((p, i) => (
               <Fragment key={i}>
                 <p
                   className={
                     i === 0
-                      ? "mb-5 first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-serif first-letter:text-6xl first-letter:font-bold first-letter:leading-[0.9] first-letter:text-brand"
-                      : "mb-5"
+                      ? "first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-serif first-letter:text-7xl first-letter:font-bold first-letter:leading-[0.85] first-letter:text-brand"
+                      : ""
                   }
                 >
                   {p}
                 </p>
                 {i === 0 && article.body.length > 1 && (
-                  <div className="my-8 not-prose mx-auto max-w-[336px]">
+                  <div className="not-prose mx-auto my-10 max-w-[336px]">
                     <AdSlot
                       id={`article-${article.slug}-inarticle-1`}
                       size="300x250"
@@ -197,16 +218,19 @@ export default async function ArticlePage({
 
           <div className="mt-8 flex flex-wrap gap-2">
             {article.tags.map((t) => (
-              <span
+              <Link
                 key={t}
-                className="rounded-full bg-neutral-100 px-3 py-1 text-xs dark:bg-neutral-800"
+                href={`/rubric/${article.rubric}`}
+                className="rounded-full bg-neutral-100 px-3 py-1 text-xs transition-colors hover:bg-brand hover:text-white dark:bg-neutral-800"
               >
                 #{t}
-              </span>
+              </Link>
             ))}
           </div>
 
           <AuthorBlock author={author} />
+
+          <InlineSubscribe />
         </div>
 
         <div className="mx-auto mt-12 max-w-5xl">
@@ -219,22 +243,35 @@ export default async function ArticlePage({
 
         {related.length > 0 && (
           <section className="mx-auto mt-16 max-w-5xl">
-            <h2 className="font-serif text-2xl font-bold">Ещё в рубрике</h2>
-            <div className="mt-4 grid gap-6 sm:grid-cols-3">
+            <div className="flex items-baseline justify-between border-b border-neutral-200 pb-3 dark:border-neutral-800">
+              <h2 className="font-serif text-2xl font-bold">Продолжите читать</h2>
+              {rubric && (
+                <Link
+                  href={`/rubric/${rubric.slug}`}
+                  className="text-sm font-medium text-brand hover:underline"
+                >
+                  Все в {rubric.title.toLowerCase()} →
+                </Link>
+              )}
+            </div>
+            <div className="mt-6 grid gap-6 sm:grid-cols-3">
               {related.map((a) => (
                 <Link key={a.slug} href={`/article/${a.slug}`} className="group">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-lg">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-lg ring-1 ring-neutral-200/0 transition-all duration-300 group-hover:shadow-lg group-hover:ring-neutral-200 dark:group-hover:ring-neutral-800">
                     <Image
                       src={a.cover}
                       alt=""
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition group-hover:scale-105"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <h3 className="mt-3 font-serif text-base font-bold group-hover:text-brand">
+                  <h3 className="mt-3 font-serif text-base font-bold leading-snug transition-colors group-hover:text-brand">
                     {a.title}
                   </h3>
+                  <div className="mt-1 text-xs text-neutral-500">
+                    {timeAgo(a.publishedAt)}
+                  </div>
                 </Link>
               ))}
             </div>
