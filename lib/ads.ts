@@ -10,7 +10,7 @@ export type AdCreative = {
 export const ads: Record<string, AdCreative> = {
   "geely-ex5": {
     id: "geely-ex5",
-    image: "/ads/geely-ex5.jpg",
+    image: "/ads/geely-ex5.webp",
     href: "#",
     alt: "Geely EX5 EV — машина, которая не шумит. Уровень шума всего 68,3 дБ при 120 км/ч",
     width: 1170,
