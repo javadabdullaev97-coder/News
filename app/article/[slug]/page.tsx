@@ -20,6 +20,31 @@ import { CurrencyWidget } from "@/components/CurrencyWidget";
 import { WeatherWidget } from "@/components/WeatherWidget";
 import { ShareButtons } from "@/components/ShareButtons";
 
+function renderInline(text: string): React.ReactNode[] {
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const out: React.ReactNode[] = [];
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let key = 0;
+  while ((m = regex.exec(text))) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    out.push(
+      <a
+        key={`l-${key++}`}
+        href={m[2]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-brand underline decoration-brand/30 decoration-2 underline-offset-4 transition-colors hover:decoration-brand"
+      >
+        {m[1]}
+      </a>,
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
+
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
 }
@@ -184,33 +209,9 @@ export default async function ArticlePage({
 
             <div className="prose prose-neutral mt-10 max-w-[68ch] text-[19px] leading-[1.75] tracking-[-0.005em] dark:prose-invert prose-p:my-5 prose-blockquote:my-8 prose-blockquote:border-l-4 prose-blockquote:border-brand prose-blockquote:bg-neutral-50 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:not-italic prose-blockquote:font-medium dark:prose-blockquote:bg-neutral-900">
               {article.body.map((p, i) => (
-                <p key={i}>{p}</p>
+                <p key={i}>{renderInline(p)}</p>
               ))}
             </div>
-
-            {article.sources && article.sources.length > 0 && (
-              <div className="mt-10 border-t border-neutral-200 pt-6 dark:border-neutral-800">
-                <div className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
-                  Источники
-                </div>
-                <ul className="mt-3 space-y-2">
-                  {article.sources.map((s, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm">
-                      <span aria-hidden className="mt-1 h-1 w-1 shrink-0 rounded-full bg-brand" />
-                      <a
-                        href={s.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-neutral-700 transition-colors hover:text-brand hover:underline dark:text-neutral-300"
-                      >
-                        {s.name}
-                        <span aria-hidden className="ml-1 text-xs text-neutral-400">↗</span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
 
             <div className="mt-8 flex flex-wrap gap-2">
               {article.tags.map((t) => (
