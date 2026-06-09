@@ -27,7 +27,7 @@ export function ArticleCard({
             alt={article.title}
             fill
             sizes="(max-width: 1024px) 100vw, 66vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
@@ -66,7 +66,7 @@ export function ArticleCard({
             alt=""
             fill
             sizes="96px"
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="object-cover"
           />
         </div>
         <div>

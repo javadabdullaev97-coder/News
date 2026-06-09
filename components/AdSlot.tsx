@@ -34,7 +34,7 @@ export function AdSlot({
         target="_blank"
         rel="noopener sponsored"
         data-ad-slot={id}
-        className={`group relative block overflow-hidden rounded-lg ring-1 ring-neutral-200/60 transition-all duration-300 hover:ring-brand/40 hover:shadow-lg dark:ring-neutral-800 ${className}`}
+        className={`relative block overflow-hidden rounded-lg ring-1 ring-neutral-200/60 dark:ring-neutral-800 ${className}`}
         style={{ aspectRatio: `${creative.width} / ${creative.height}` }}
       >
         <Image
@@ -42,7 +42,7 @@ export function AdSlot({
           alt={creative.alt}
           fill
           sizes="(max-width: 1280px) 100vw, 1216px"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          className="object-cover"
         />
         <span className="absolute left-2 top-2 rounded bg-black/55 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
           реклама

@@ -308,7 +308,7 @@ export default async function ArticlePage({
                       alt=""
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover"
                     />
                   </div>
                   <h3 className="mt-3 text-base font-bold leading-snug transition-colors group-hover:text-brand">
