@@ -2,14 +2,10 @@ import Link from "next/link";
 import { Flag } from "@/components/wc2026/Flag";
 import { articles, feedDate } from "@/lib/data";
 import {
-  WC_BASE_CAMP,
   WC_GROUP_K_PREVIEW,
-  WC_HEAD_COACH,
   WC_MATCHES,
-  WC_QUALIFICATION,
   getGroupTeams,
   getMatchPreview,
-  getTeamByFifa,
   getUzMatches,
   readableRef,
   type WCMatch,
@@ -76,58 +72,6 @@ export default function WCOverviewPage() {
 
   return (
     <div className="space-y-10">
-      {/* Уз-фокус: тренер + путёвка + база */}
-      <section className="grid gap-4 md:grid-cols-3">
-        <div className="rounded-xl border border-brand/40 bg-brand/5 p-5">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-brand">
-            Главный тренер
-          </div>
-          <div className="mt-2 text-xl font-bold">{WC_HEAD_COACH.nameRu}</div>
-          <div className="mt-1 text-xs text-neutral-400">
-            Назначен{" "}
-            {new Date(WC_HEAD_COACH.appointed).toLocaleDateString("ru-RU", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            })}
-          </div>
-          <p className="mt-3 text-sm text-neutral-300">{WC_HEAD_COACH.note}</p>
-        </div>
-
-        <div className="rounded-xl border border-white/10 bg-white/5 p-5">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-neutral-400">
-            Путёвка
-          </div>
-          <div className="mt-2 text-xl font-bold">Впервые в истории</div>
-          <div className="mt-1 text-xs text-neutral-400">
-            {new Date(WC_QUALIFICATION.whenIso).toLocaleDateString("ru-RU", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            })}{" "}
-            · {WC_QUALIFICATION.where}
-          </div>
-          <p className="mt-3 text-sm text-neutral-300">{WC_QUALIFICATION.match}</p>
-          <a
-            href={WC_QUALIFICATION.primarySourceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 inline-block text-xs font-medium text-brand hover:underline"
-          >
-            Сообщение AFC →
-          </a>
-        </div>
-
-        <div className="rounded-xl border border-white/10 bg-white/5 p-5">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-neutral-400">
-            База на турнире
-          </div>
-          <div className="mt-2 text-xl font-bold">{WC_BASE_CAMP.cityRu}</div>
-          <div className="mt-1 text-xs text-neutral-400">{WC_BASE_CAMP.facility}</div>
-          <p className="mt-3 text-sm text-neutral-300">{WC_BASE_CAMP.note}</p>
-        </div>
-      </section>
-
       {/* Матчи Узбекистана с превью */}
       <section>
         <div className="flex items-baseline justify-between">
