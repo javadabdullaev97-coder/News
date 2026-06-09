@@ -11,6 +11,11 @@ on:
 permissions:
   contents: write
 
+env:
+  # GitHub меняет ноду на воркер-машинах с 16 июня 2026 — опираемся
+  # на новую заранее, чтобы избежать варнинга в логах.
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   trigger-rebuild:
     runs-on: ubuntu-latest
