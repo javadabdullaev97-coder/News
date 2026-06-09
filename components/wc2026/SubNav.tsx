@@ -4,11 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const TABS: { href: string; label: string }[] = [
-  { href: "/wc2026", label: "Обзор" },
+  { href: "/wc2026", label: "Новости и матчи" },
+  { href: "/wc2026/uzbekistan", label: "Сборная Узбекистана" },
   { href: "/wc2026/groups", label: "Группы" },
   { href: "/wc2026/bracket", label: "Сетка плей-офф" },
   { href: "/wc2026/schedule", label: "Расписание" },
-  { href: "/wc2026/news", label: "Новости" },
   { href: "/wc2026/rules", label: "Регламент" },
 ];
 
