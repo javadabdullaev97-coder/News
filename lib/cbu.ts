@@ -84,6 +84,22 @@ export function formatRate(n: number): string {
   return n.toLocaleString("ru-RU", { maximumFractionDigits: 2 });
 }
 
+const FLAG_CODES: Record<string, string> = {
+  USD: "us",
+  EUR: "eu",
+  RUB: "ru",
+  GBP: "gb",
+  JPY: "jp",
+  CHF: "ch",
+  CNY: "cn",
+  KZT: "kz",
+};
+
+export function flagUrl(code: string, size: 40 | 80 | 160 = 80): string {
+  const cc = FLAG_CODES[code] ?? "xx";
+  return `https://flagcdn.com/w${size}/${cc}.png`;
+}
+
 export function formatDiff(diff: number): string {
   const abs = Math.abs(diff);
   if (abs === 0) return "0 сум";

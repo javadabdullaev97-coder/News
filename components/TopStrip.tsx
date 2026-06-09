@@ -1,4 +1,4 @@
-import { fetchCbuSnapshot, formatRate, pickRates } from "@/lib/cbu";
+import { fetchCbuSnapshot, flagUrl, formatRate, pickRates } from "@/lib/cbu";
 import { TashkentClock } from "./TashkentClock";
 
 export async function TopStrip() {
@@ -26,8 +26,17 @@ export async function TopStrip() {
             return (
               <div
                 key={r.code}
-                className="flex items-center gap-1 whitespace-nowrap"
+                className="flex items-center gap-1.5 whitespace-nowrap"
               >
+                <span className="grid h-4 w-4 shrink-0 overflow-hidden rounded-full ring-1 ring-neutral-200 dark:ring-neutral-700">
+                  <img
+                    src={flagUrl(r.code, 40)}
+                    alt=""
+                    width={16}
+                    height={16}
+                    className="h-full w-full object-cover"
+                  />
+                </span>
                 <span className="text-neutral-500">{r.code}</span>
                 <span className="font-semibold tabular-nums">
                   {formatRate(r.rate)}
