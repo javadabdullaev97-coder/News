@@ -51,24 +51,24 @@ function StatusPill({
 }) {
   if (status === "finished") {
     return (
-      <span className="text-[10px] uppercase tracking-wider text-neutral-500">
+      <span className="text-[9px] uppercase tracking-wider text-neutral-500">
         завершён
       </span>
     );
   }
   if (status === "live") {
     return (
-      <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-red-400">
-        <span className="relative inline-flex h-2 w-2">
+      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-red-400">
+        <span className="relative inline-flex h-1.5 w-1.5">
           <span className="absolute inset-0 animate-ping rounded-full bg-red-500 opacity-75" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
+          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-red-500" />
         </span>
-        live{minute ? `, ${minute}'` : ""}
+        {minute ? `${minute}'` : "live"}
       </span>
     );
   }
   return (
-    <span className="text-[11px] font-bold tabular-nums text-brand">
+    <span className="text-[10px] font-bold tabular-nums text-brand">
       {timeTashkent(dateLocal)}
     </span>
   );
@@ -88,28 +88,28 @@ function MatchRow({ item }: { item: MatchWithStatus }) {
 
   return (
     <div
-      className={`flex items-center gap-3 rounded-lg border px-3 py-2.5 ${
+      className={`flex items-center gap-2 rounded-md border px-2 py-1.5 text-xs ${
         isUz ? "border-brand/40 bg-brand/5" : "border-white/10 bg-white/5"
       }`}
     >
-      <div className="w-14 shrink-0">
+      <div className="w-10 shrink-0">
         <StatusPill
           status={status}
           minute={minute}
           dateLocal={m.dateLocal}
         />
       </div>
-      <div className="flex min-w-0 flex-1 items-center justify-end gap-2">
+      <div className="flex min-w-0 flex-1 items-center justify-end gap-1.5">
         <span
-          className="truncate text-right text-sm font-semibold text-white"
+          className="truncate text-right font-semibold text-white"
           title={home.long}
         >
           {home.team?.name ?? home.short}
         </span>
-        <Flag code={home.team?.code ?? "_tbd"} size={20} />
+        <Flag code={home.team?.code ?? "_tbd"} size={16} />
       </div>
       <div
-        className={`min-w-[44px] shrink-0 text-center font-mono text-sm font-bold tabular-nums ${
+        className={`min-w-[34px] shrink-0 text-center font-mono font-bold tabular-nums ${
           status === "finished"
             ? "text-white"
             : status === "live"
@@ -119,10 +119,10 @@ function MatchRow({ item }: { item: MatchWithStatus }) {
       >
         {score}
       </div>
-      <div className="flex min-w-0 flex-1 items-center gap-2">
-        <Flag code={away.team?.code ?? "_tbd"} size={20} />
+      <div className="flex min-w-0 flex-1 items-center gap-1.5">
+        <Flag code={away.team?.code ?? "_tbd"} size={16} />
         <span
-          className="truncate text-sm font-semibold text-white"
+          className="truncate font-semibold text-white"
           title={away.long}
         >
           {away.team?.name ?? away.short}
@@ -211,14 +211,14 @@ export default function WCHomePage() {
               Все матчи →
             </Link>
           </div>
-          <div className="space-y-6">
+          <div className="space-y-4">
             {matchCenterByDay.map(({ dayKey, label, items }) => (
               <div key={dayKey}>
-                <div className="mb-2 flex items-baseline gap-3 border-b border-white/10 pb-1.5">
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-white">
+                <div className="mb-1.5 flex items-baseline gap-2 border-b border-white/10 pb-1">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-white">
                     {label}
                   </h3>
-                  <span className="text-[11px] text-neutral-500">
+                  <span className="text-[10px] text-neutral-500">
                     {new Date(items[0].m.dateLocal).toLocaleDateString("ru-RU", {
                       day: "numeric",
                       month: "long",
@@ -226,7 +226,7 @@ export default function WCHomePage() {
                     })}
                   </span>
                 </div>
-                <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-1.5 md:grid-cols-2 lg:grid-cols-3">
                   {items.map((item) => (
                     <MatchRow key={item.m.id} item={item} />
                   ))}
