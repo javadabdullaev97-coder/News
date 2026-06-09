@@ -16,9 +16,9 @@ function shortDate(iso: string) {
 function SlotRow({ slot }: { slot: string }) {
   const r = readableRef(slot);
   return (
-    <div className="flex items-center gap-2 truncate" title={r.long}>
-      <Flag code={r.team?.code ?? "_tbd"} size={16} />
-      <span className="truncate text-[11px] font-semibold text-neutral-100">
+    <div className="flex items-center gap-1.5 truncate" title={r.long}>
+      <Flag code={r.team?.code ?? "_tbd"} size={14} />
+      <span className="truncate text-[10px] font-semibold text-neutral-100">
         {r.team?.name ?? r.short}
       </span>
     </div>
@@ -27,12 +27,12 @@ function SlotRow({ slot }: { slot: string }) {
 
 function MatchCard({ m }: { m: WCMatch }) {
   return (
-    <div className="flex h-[72px] flex-col justify-between rounded-md border border-white/10 bg-white/5 px-2 py-1.5">
-      <div className="flex items-center justify-between text-[9px] uppercase tracking-wider text-neutral-500">
+    <div className="flex h-[58px] flex-col justify-between rounded-md border border-white/10 bg-white/5 px-1.5 py-1">
+      <div className="flex items-center justify-between gap-1 text-[8px] uppercase tracking-wider text-neutral-500">
         <span className="font-mono">{m.id}</span>
-        <span>{shortDate(m.dateLocal)}</span>
+        <span className="truncate">{shortDate(m.dateLocal)}</span>
       </div>
-      <div className="space-y-1">
+      <div className="space-y-0.5">
         <SlotRow slot={m.homeRef} />
         <SlotRow slot={m.awayRef} />
       </div>
@@ -43,18 +43,21 @@ function MatchCard({ m }: { m: WCMatch }) {
 function Column({
   label,
   matches,
-  width,
+  grow = 1,
 }: {
   label: string;
   matches: WCMatch[];
-  width: number;
+  grow?: number;
 }) {
   return (
-    <div className="flex shrink-0 flex-col" style={{ width }}>
-      <div className="mb-3 border-b border-white/10 pb-2 text-center text-[10px] font-bold uppercase tracking-wider text-neutral-400">
+    <div
+      className="flex min-w-[88px] flex-col"
+      style={{ flex: `${grow} 1 0` }}
+    >
+      <div className="mb-2 border-b border-white/10 pb-1.5 text-center text-[9px] font-bold uppercase tracking-wider text-neutral-400">
         {label}
       </div>
-      <div className="flex flex-1 flex-col justify-around gap-2">
+      <div className="flex flex-1 flex-col justify-around gap-1.5">
         {matches.map((m) => (
           <MatchCard key={m.id} m={m} />
         ))}
@@ -71,40 +74,40 @@ function CenterColumn({
   thirdMatch: WCMatch;
 }) {
   return (
-    <div className="flex shrink-0 flex-col items-stretch" style={{ width: 200 }}>
-      <div className="mb-3 border-b border-brand/40 pb-2 text-center text-[10px] font-bold uppercase tracking-wider text-brand">
+    <div
+      className="flex min-w-[110px] flex-col items-stretch"
+      style={{ flex: "1.4 1 0" }}
+    >
+      <div className="mb-2 border-b border-brand/40 pb-1.5 text-center text-[9px] font-bold uppercase tracking-wider text-brand">
         🏆 Финал
       </div>
-      <div className="flex flex-1 flex-col justify-around gap-6">
+      <div className="flex flex-1 flex-col justify-around gap-4">
         <div>
-          <div className="rounded-lg border-2 border-brand/60 bg-brand/10 px-2 py-2 shadow-[0_0_24px_rgba(255,123,0,0.15)]">
-            <div className="flex items-center justify-between text-[9px] uppercase tracking-wider text-brand">
+          <div className="rounded-lg border-2 border-brand/60 bg-brand/10 px-1.5 py-1.5 shadow-[0_0_24px_rgba(255,123,0,0.15)]">
+            <div className="flex items-center justify-between gap-1 text-[8px] uppercase tracking-wider text-brand">
               <span className="font-mono">{finalMatch.id}</span>
-              <span>{shortDate(finalMatch.dateLocal)}</span>
+              <span className="truncate">{shortDate(finalMatch.dateLocal)}</span>
             </div>
-            <div className="mt-1.5 space-y-1">
+            <div className="mt-1 space-y-0.5">
               <SlotRow slot={finalMatch.homeRef} />
               <SlotRow slot={finalMatch.awayRef} />
             </div>
           </div>
-          <div className="mt-2 text-center text-[10px] font-bold uppercase tracking-wider text-neutral-500">
+          <div className="mt-1.5 text-center text-[9px] font-bold uppercase tracking-wider text-neutral-500">
             Чемпион мира
-          </div>
-          <div className="mt-1 text-center text-[10px] text-neutral-500">
-            {finalMatch.venueRu}, {finalMatch.cityRu}
           </div>
         </div>
 
         <div>
-          <div className="text-center text-[10px] font-bold uppercase tracking-wider text-neutral-500">
+          <div className="text-center text-[9px] font-bold uppercase tracking-wider text-neutral-500">
             Матч за 3-е место
           </div>
-          <div className="mt-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5">
-            <div className="flex items-center justify-between text-[9px] uppercase tracking-wider text-neutral-500">
+          <div className="mt-1.5 rounded-md border border-white/10 bg-white/5 px-1.5 py-1">
+            <div className="flex items-center justify-between gap-1 text-[8px] uppercase tracking-wider text-neutral-500">
               <span className="font-mono">{thirdMatch.id}</span>
-              <span>{shortDate(thirdMatch.dateLocal)}</span>
+              <span className="truncate">{shortDate(thirdMatch.dateLocal)}</span>
             </div>
-            <div className="mt-1.5 space-y-1">
+            <div className="mt-1 space-y-0.5">
               <SlotRow slot={thirdMatch.homeRef} />
               <SlotRow slot={thirdMatch.awayRef} />
             </div>
@@ -132,38 +135,34 @@ export default function WCBracketPage() {
   const leftSF = sf.slice(0, 1);
   const rightSF = sf.slice(1, 2);
 
-  const COL_NARROW = 145;
-  const COL_WIDE = 155;
-
   return (
-    <div className="space-y-8">
-      <div className="rounded-xl border border-white/10 bg-white/5 p-5 text-sm text-neutral-300">
+    <div className="space-y-6">
+      <div className="rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-neutral-300 md:p-5">
         <h2 className="text-sm font-bold uppercase tracking-wider text-white">
           Сетка плей-офф
         </h2>
-        <p className="mt-2 text-neutral-400">
+        <p className="mt-2 text-xs text-neutral-400 md:text-sm">
           Слева и справа — две половины сетки, в центре финал и матч за 3-е
-          место. Слоты заполнятся по итогам группового этапа: <b>1A/2B</b> —
-          победитель и второе место групп; <b>3-е ABCDF</b> — лучшее третье
-          место из пула групп, которые ФИФА свяжет с этим слотом. Наведи курсор
-          на слот, чтобы увидеть расшифровку.
+          место. <b>1A/2B</b> — победитель и второе место групп;{" "}
+          <b>3-е ABCDF</b> — лучшее третье место из пула групп. Наведи курсор
+          на слот — увидишь расшифровку.
         </p>
       </div>
 
-      <div className="-mx-4 overflow-x-auto px-4 pb-6">
+      <div className="-mx-4 overflow-x-auto px-4 pb-4 md:mx-0 md:overflow-visible md:px-0">
         <div
-          className="mx-auto flex min-w-max items-stretch gap-3"
-          style={{ minHeight: 680 }}
+          className="flex min-w-[880px] items-stretch gap-1 md:min-w-0 md:gap-1.5"
+          style={{ minHeight: 580 }}
         >
-          <Column label="1/16 финала" matches={leftR32} width={COL_NARROW} />
-          <Column label="1/8 финала" matches={leftR16} width={COL_NARROW} />
-          <Column label="1/4 финала" matches={leftQF} width={COL_NARROW} />
-          <Column label="1/2 финала" matches={leftSF} width={COL_WIDE} />
+          <Column label="1/16" matches={leftR32} />
+          <Column label="1/8" matches={leftR16} />
+          <Column label="1/4" matches={leftQF} />
+          <Column label="1/2" matches={leftSF} grow={1.05} />
           <CenterColumn finalMatch={finalMatch} thirdMatch={thirdMatch} />
-          <Column label="1/2 финала" matches={rightSF} width={COL_WIDE} />
-          <Column label="1/4 финала" matches={rightQF} width={COL_NARROW} />
-          <Column label="1/8 финала" matches={rightR16} width={COL_NARROW} />
-          <Column label="1/16 финала" matches={rightR32} width={COL_NARROW} />
+          <Column label="1/2" matches={rightSF} grow={1.05} />
+          <Column label="1/4" matches={rightQF} />
+          <Column label="1/8" matches={rightR16} />
+          <Column label="1/16" matches={rightR32} />
         </div>
       </div>
     </div>
