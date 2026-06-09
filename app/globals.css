@@ -18,6 +18,19 @@ body {
   color: var(--fg);
 }
 
+@keyframes drawerIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.drawer-in {
+  animation: drawerIn 0.22s ease-out;
+}
+
 /* Брендовый скроллбар */
 ::-webkit-scrollbar {
   width: 10px;

@@ -21,7 +21,7 @@ export function ArticleCard({
         href={href}
         className="group relative block overflow-hidden rounded-xl ring-1 ring-neutral-200/60 transition-all duration-300 hover:ring-brand/40 hover:shadow-xl dark:ring-neutral-800"
       >
-        <div className="relative aspect-[16/9] overflow-hidden">
+        <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[16/10] md:aspect-[16/9]">
           <Image
             src={article.cover}
             alt={article.title}
@@ -30,22 +30,22 @@ export function ArticleCard({
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-          <div className="absolute bottom-0 p-6 text-white">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 p-4 text-white md:p-6">
             {rubric && (
               <span
-                className={`inline-block rounded px-2 py-0.5 text-xs font-semibold uppercase ${rubric.color}`}
+                className={`inline-block rounded px-2 py-0.5 text-[10px] font-semibold uppercase md:text-xs ${rubric.color}`}
               >
                 {rubric.title}
               </span>
             )}
-            <h2 className="mt-3 font-serif text-3xl font-bold leading-tight md:text-4xl">
+            <h2 className="mt-2 font-serif text-xl font-bold leading-tight md:mt-3 md:text-3xl lg:text-4xl">
               {article.title}
             </h2>
             <p className="mt-2 hidden max-w-2xl text-neutral-200 md:block">
               {article.lead}
             </p>
-            <div className="mt-3 text-xs text-neutral-300">
+            <div className="mt-2 text-[11px] text-neutral-300 md:mt-3 md:text-xs">
               {timeAgo(article.publishedAt)}
             </div>
           </div>

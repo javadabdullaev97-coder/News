@@ -158,10 +158,10 @@ export default async function ArticlePage({
                   {rubric.title}
                 </Link>
               )}
-              <h1 className="mt-4 text-4xl font-extrabold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
+              <h1 className="mt-4 text-2xl font-extrabold leading-[1.15] tracking-tight md:text-4xl lg:text-5xl">
                 {article.title}
               </h1>
-              <p className="mt-5 text-xl leading-relaxed text-neutral-700 md:text-2xl dark:text-neutral-300">
+              <p className="mt-4 text-base leading-relaxed text-neutral-700 md:mt-5 md:text-xl lg:text-2xl dark:text-neutral-300">
                 {article.lead}
               </p>
             </div>
