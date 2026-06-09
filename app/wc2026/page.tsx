@@ -8,6 +8,7 @@ import {
   getMatchPreview,
   getTeamByFifa,
   getUzMatches,
+  kickoffTashkent,
   readableRef,
   type WCMatch,
 } from "@/lib/wc2026";
@@ -28,7 +29,7 @@ function MatchTile({
       }`}
     >
       <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-neutral-400">
-        <span>{m.kickoffTashkent} (Tashkent)</span>
+        <span>{kickoffTashkent(m.dateLocal)} (Tashkent)</span>
         {highlight && (
           <span className="rounded-full bg-brand px-2 py-0.5 text-[10px] font-bold text-white">
             Узбекистан
@@ -65,7 +66,7 @@ function OpponentCard({ m, index }: { m: WCMatch; index: number }) {
       {/* Хедер с матч-метой */}
       <div className="flex items-center justify-between gap-3 border-b border-white/10 bg-black/30 px-4 py-3 text-[11px] uppercase tracking-wider text-neutral-400">
         <span className="font-bold text-white">Матч {index + 1}</span>
-        <span>{m.kickoffTashkent} (Tashkent)</span>
+        <span>{kickoffTashkent(m.dateLocal)} (Tashkent)</span>
       </div>
 
       {/* Хиро-зона с соперником */}
