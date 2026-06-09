@@ -84,6 +84,18 @@ export function formatRate(n: number): string {
   return n.toLocaleString("ru-RU", { maximumFractionDigits: 2 });
 }
 
+export function formatDiff(diff: number): string {
+  const abs = Math.abs(diff);
+  if (abs === 0) return "0 сум";
+  if (abs >= 10) {
+    return `${abs.toLocaleString("ru-RU", { maximumFractionDigits: 0 })} сум`;
+  }
+  if (abs >= 1) {
+    return `${abs.toLocaleString("ru-RU", { maximumFractionDigits: 1 })} сум`;
+  }
+  return `${abs.toLocaleString("ru-RU", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} сум`;
+}
+
 export function formatFetchedAt(iso: string): string {
   if (!iso) return "";
   return new Intl.DateTimeFormat("ru-RU", {

@@ -1,5 +1,6 @@
 import {
   fetchCbuSnapshot,
+  formatDiff,
   formatFetchedAt,
   formatRate,
   pickRates,
@@ -15,11 +16,11 @@ export async function CurrencyWidget() {
 
   return (
     <div className="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
-      <div className="flex items-baseline justify-between">
+      <div className="flex items-baseline justify-between gap-2">
         <h3 className="text-sm font-bold uppercase tracking-wider">Курсы</h3>
-        {updated && (
-          <span className="text-[10px] text-neutral-500">
-            обновлено {updated}
+        {rateDate && (
+          <span className="text-xs font-medium text-neutral-700 dark:text-neutral-300">
+            на {rateDate}
           </span>
         )}
       </div>
@@ -42,26 +43,26 @@ export async function CurrencyWidget() {
                   {formatRate(r.rate)}
                 </div>
                 <div
-                  className={`text-[10px] tabular-nums ${
+                  className={`text-[11px] tabular-nums ${
                     down ? "text-rose-500" : "text-emerald-500"
                   }`}
                 >
-                  {down ? "▾" : "▴"} {Math.abs(r.diffPct).toFixed(2)}%
+                  {down ? "▾" : "▴"} {formatDiff(r.diff)}
                 </div>
               </div>
             </li>
           );
         })}
       </ul>
-      <div className="mt-2 flex items-center justify-between border-t border-neutral-200 pt-2 text-[10px] text-neutral-500 dark:border-neutral-800">
-        {rateDate && <span>Курс на {rateDate}</span>}
+      <div className="mt-2 flex items-center justify-between gap-2 border-t border-neutral-200 pt-2 text-xs text-neutral-500 dark:border-neutral-800">
+        {updated && <span>обновлено {updated}</span>}
         <a
           href="https://cbu.uz/ru/arkhiv-kursov-valyut/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-brand"
         >
-          Источник: ЦБ РУз →
+          ЦБ РУз →
         </a>
       </div>
     </div>
