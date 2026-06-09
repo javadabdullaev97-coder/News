@@ -18,18 +18,31 @@ export function InlineSubscribe() {
     setTimeout(() => {
       setSending(false);
       setEmail("");
-      show("Подписка оформлена. До встречи в рассылке!", "📩");
+      show("Подписка оформлена. До встречи в рассылке!", "✓");
     }, 600);
   }
 
   return (
     <aside className="mt-12 rounded-2xl border border-brand/20 bg-gradient-to-br from-brand-50 to-white p-6 dark:from-brand/10 dark:to-neutral-950">
       <div className="flex items-start gap-4">
-        <div className="hidden h-12 w-12 shrink-0 place-items-center rounded-full bg-brand text-2xl text-white sm:grid">
-          📩
+        <div className="hidden h-12 w-12 shrink-0 place-items-center rounded-full bg-brand text-white sm:grid">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden
+          >
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="M3 7l9 6 9-6" />
+          </svg>
         </div>
         <div className="flex-1">
-          <h3 className="font-serif text-xl font-bold">
+          <h3 className="text-xl font-bold">
             Получайте главное за день одним письмом
           </h3>
           <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">

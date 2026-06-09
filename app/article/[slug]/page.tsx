@@ -189,18 +189,7 @@ export default async function ArticlePage({
 
             <div className="prose prose-neutral mt-10 max-w-[68ch] text-[19px] leading-[1.75] tracking-[-0.005em] dark:prose-invert prose-p:my-5 prose-blockquote:my-8 prose-blockquote:border-l-4 prose-blockquote:border-brand prose-blockquote:bg-neutral-50 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:not-italic prose-blockquote:font-medium dark:prose-blockquote:bg-neutral-900">
               {article.body.map((p, i) => (
-                <Fragment key={i}>
-                  <p>{p}</p>
-                  {i === 0 && article.body.length > 1 && (
-                    <div className="not-prose mx-auto my-10 max-w-[336px]">
-                      <AdSlot
-                        id={`article-${article.slug}-inarticle-1`}
-                        size="300x250"
-                        label="In-article #1"
-                      />
-                    </div>
-                  )}
-                </Fragment>
+                <p key={i}>{p}</p>
               ))}
             </div>
 
@@ -256,17 +245,26 @@ export default async function ArticlePage({
               </ol>
             </div>
 
-            <AdSlot
-              id={`article-${article.slug}-sidebar-rect`}
-              size="300x250"
-              label="Сайдбар статьи"
-            />
-
             <WeatherWidget />
 
             <CurrencyWidget />
+
+            <div className="sticky top-[140px]">
+              <AdSlot
+                id={`article-${article.slug}-sidebar-rect`}
+                size="300x250"
+                label="Сайдбар статьи · sticky"
+              />
+            </div>
           </aside>
         </div>
+
+        <AdSlot
+          id="article-end-billboard"
+          size="970x250"
+          label="Премиум-баннер · после статьи"
+          className="mt-16"
+        />
 
         {related.length > 0 && (
           <section className="mt-16 border-t border-neutral-200 pt-10 dark:border-neutral-800">
