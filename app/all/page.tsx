@@ -55,14 +55,6 @@ function ListRow({ article }: { article: Article }) {
     <Link href={href} className="group block py-6">
       <FeedMeta article={article} />
       <div className="mt-2 flex gap-5">
-        <div className="min-w-0 flex-1">
-          <h3 className="font-serif text-xl font-bold leading-snug tracking-tight transition-colors group-hover:text-brand md:text-2xl">
-            {article.title}
-          </h3>
-          <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-base">
-            {article.lead}
-          </p>
-        </div>
         <div className="relative h-24 w-32 shrink-0 overflow-hidden rounded-lg sm:h-28 sm:w-40 md:h-32 md:w-48">
           <Image
             src={article.cover}
@@ -71,6 +63,14 @@ function ListRow({ article }: { article: Article }) {
             sizes="(max-width: 768px) 128px, 192px"
             className="object-cover"
           />
+        </div>
+        <div className="min-w-0 flex-1">
+          <h3 className="font-serif text-xl font-bold leading-snug tracking-tight transition-colors group-hover:text-brand md:text-2xl">
+            {article.title}
+          </h3>
+          <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-base">
+            {article.lead}
+          </p>
         </div>
       </div>
     </Link>
