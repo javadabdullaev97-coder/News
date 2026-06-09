@@ -102,7 +102,13 @@ export default async function RubricPage({
 
           <WeatherWidget />
 
-          <CurrencyWidget />
+          <CurrencyWidget
+            codes={
+              slug === "business"
+                ? ["USD", "EUR", "RUB", "GBP", "CHF", "JPY", "CNY", "KZT"]
+                : undefined
+            }
+          />
         </aside>
       </div>
     </div>

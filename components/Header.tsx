@@ -1,16 +1,14 @@
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
-import { TopStrip } from "./TopStrip";
 import { BreakingTicker } from "./BreakingTicker";
 import { LogoChevron } from "./brand/Logos";
 import { HeaderNav } from "./HeaderNav";
 import { SearchButton } from "./SearchModal";
 import { MobileMenuButton } from "./MobileDrawer";
 
-export async function Header() {
+export function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white/85 backdrop-blur dark:bg-neutral-950/85">
-      <TopStrip />
       <div className="border-b border-neutral-200 dark:border-neutral-800">
         <div className="container-news flex h-14 items-center justify-between gap-4">
           <Link

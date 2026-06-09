@@ -7,11 +7,15 @@ import {
   pickRates,
 } from "@/lib/cbu";
 
-const SIDEBAR_CODES = ["USD", "EUR", "RUB", "CNY", "KZT"];
+const DEFAULT_CODES = ["USD", "EUR", "RUB"];
 
-export async function CurrencyWidget() {
+export async function CurrencyWidget({
+  codes = DEFAULT_CODES,
+}: {
+  codes?: string[];
+}) {
   const { rates: all, fetchedAt } = await fetchCbuSnapshot();
-  const rates = pickRates(all, SIDEBAR_CODES);
+  const rates = pickRates(all, codes);
   const rateDate = rates.find((r) => r.date)?.date ?? "";
   const updated = formatFetchedAt(fetchedAt);
 
@@ -33,24 +37,19 @@ export async function CurrencyWidget() {
               key={r.code}
               className="flex items-center justify-between gap-3 py-2.5"
             >
-              <div className="flex min-w-0 items-center gap-2.5">
-                <div className="grid h-7 w-7 shrink-0 place-items-center overflow-hidden rounded-full bg-neutral-100 ring-1 ring-neutral-200/70 dark:bg-neutral-800 dark:ring-neutral-700">
+              <div className="flex items-center gap-2">
+                <span className="grid h-4 w-4 shrink-0 overflow-hidden rounded-full ring-1 ring-neutral-200/70 dark:ring-neutral-700">
                   <img
-                    src={flagUrl(r.code, 80)}
+                    src={flagUrl(r.code, 40)}
                     alt=""
-                    width={28}
-                    height={28}
+                    width={16}
+                    height={16}
                     className="h-full w-full object-cover"
                   />
-                </div>
-                <div className="min-w-0">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
-                    {r.code}
-                  </div>
-                  <div className="truncate text-xs text-neutral-500">
-                    {r.name}
-                  </div>
-                </div>
+                </span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-neutral-700 dark:text-neutral-300">
+                  {r.code}
+                </span>
               </div>
               <div className="text-right">
                 <div className="font-semibold tabular-nums">
