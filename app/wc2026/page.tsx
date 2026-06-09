@@ -17,6 +17,29 @@ type MatchWithStatus = {
   when: number;
 };
 
+// «2026-06-15» по Asia/Tashkent — стабильный ключ дня для группировки.
+function tashkentDayKey(iso: string): string {
+  return new Date(iso).toLocaleDateString("en-CA", {
+    timeZone: "Asia/Tashkent",
+  });
+}
+
+function dayLabel(iso: string, todayKey: string): string {
+  const key = tashkentDayKey(iso);
+  const dayDate = new Date(`${key}T12:00:00+05:00`).getTime();
+  const todayDate = new Date(`${todayKey}T12:00:00+05:00`).getTime();
+  const diff = Math.round((dayDate - todayDate) / (24 * 3600 * 1000));
+  if (diff === -1) return "Вчера";
+  if (diff === 0) return "Сегодня";
+  if (diff === 1) return "Завтра";
+  return new Date(iso).toLocaleDateString("ru-RU", {
+    day: "numeric",
+    month: "long",
+    weekday: "long",
+    timeZone: "Asia/Tashkent",
+  });
+}
+
 function StatusPill({
   status,
   minute,
@@ -143,6 +166,25 @@ function pickMatchCenter(now: number): MatchWithStatus[] {
 export default function WCHomePage() {
   const now = Date.now();
   const matchCenter = pickMatchCenter(now);
+  const todayKey = new Date(now).toLocaleDateString("en-CA", {
+    timeZone: "Asia/Tashkent",
+  });
+
+  // Группировка матч-центра по дням Ташкента, в хронологическом порядке.
+  const dayMap = new Map<string, MatchWithStatus[]>();
+  for (const item of matchCenter) {
+    const key = tashkentDayKey(item.m.dateLocal);
+    const list = dayMap.get(key) ?? [];
+    list.push(item);
+    dayMap.set(key, list);
+  }
+  const matchCenterByDay = [...dayMap.entries()]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([dayKey, items]) => ({
+      dayKey,
+      label: dayLabel(items[0].m.dateLocal, todayKey),
+      items: items.sort((a, b) => a.when - b.when),
+    }));
 
   const wcNews = articles
     .filter((a) => a.tags.includes("ЧМ-2026"))
@@ -158,7 +200,7 @@ export default function WCHomePage() {
       {/* Матч-центр: последние сутки + лайв + ближайшие сутки */}
       {matchCenter.length > 0 && (
         <section>
-          <div className="mb-3 flex items-baseline justify-between">
+          <div className="mb-4 flex items-baseline justify-between">
             <h2 className="text-lg font-bold uppercase tracking-wider text-white">
               Матч-центр
             </h2>
@@ -169,9 +211,27 @@ export default function WCHomePage() {
               Все матчи →
             </Link>
           </div>
-          <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
-            {matchCenter.map((item) => (
-              <MatchRow key={item.m.id} item={item} />
+          <div className="space-y-6">
+            {matchCenterByDay.map(({ dayKey, label, items }) => (
+              <div key={dayKey}>
+                <div className="mb-2 flex items-baseline gap-3 border-b border-white/10 pb-1.5">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-white">
+                    {label}
+                  </h3>
+                  <span className="text-[11px] text-neutral-500">
+                    {new Date(items[0].m.dateLocal).toLocaleDateString("ru-RU", {
+                      day: "numeric",
+                      month: "long",
+                      timeZone: "Asia/Tashkent",
+                    })}
+                  </span>
+                </div>
+                <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+                  {items.map((item) => (
+                    <MatchRow key={item.m.id} item={item} />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </section>
