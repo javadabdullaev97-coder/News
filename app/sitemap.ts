@@ -10,6 +10,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: SITE, lastModified: now, changeFrequency: "always", priority: 1 },
     { url: `${SITE}/all`, lastModified: now, changeFrequency: "always", priority: 0.9 },
+    { url: `${SITE}/wc2026`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
+    { url: `${SITE}/wc2026/groups`, lastModified: now, changeFrequency: "daily", priority: 0.7 },
+    { url: `${SITE}/wc2026/bracket`, lastModified: now, changeFrequency: "daily", priority: 0.7 },
+    { url: `${SITE}/wc2026/schedule`, lastModified: now, changeFrequency: "daily", priority: 0.7 },
+    { url: `${SITE}/wc2026/news`, lastModified: now, changeFrequency: "daily", priority: 0.7 },
+    { url: `${SITE}/wc2026/rules`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     ...rubrics.map((r) => ({
       url: `${SITE}/rubric/${r.slug}`,
       lastModified: now,

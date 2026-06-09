@@ -7,6 +7,7 @@ import { rubrics } from "@/lib/data";
 export function HeaderNav() {
   const pathname = usePathname();
   const isAllActive = pathname === "/all";
+  const isWcActive = pathname === "/wc2026" || pathname.startsWith("/wc2026/");
   return (
     <nav className="hidden flex-1 items-center justify-center gap-0.5 text-sm font-medium lg:flex">
       <Link
@@ -44,6 +45,22 @@ export function HeaderNav() {
           </Link>
         );
       })}
+      <span
+        aria-hidden
+        className="mx-1.5 h-4 w-px bg-neutral-200 dark:bg-neutral-800"
+      />
+      <Link
+        href="/wc2026"
+        aria-current={isWcActive ? "page" : undefined}
+        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider transition-colors ${
+          isWcActive
+            ? "bg-brand text-white"
+            : "bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
+        }`}
+      >
+        <span aria-hidden>🏆</span>
+        ЧМ-2026
+      </Link>
     </nav>
   );
 }
@@ -51,6 +68,7 @@ export function HeaderNav() {
 export function MobileNav() {
   const pathname = usePathname();
   const isAllActive = pathname === "/all";
+  const isWcActive = pathname === "/wc2026" || pathname.startsWith("/wc2026/");
   return (
     <div className="container-news flex gap-2 overflow-x-auto py-2 text-sm">
       <Link
@@ -82,6 +100,21 @@ export function MobileNav() {
           </Link>
         );
       })}
+      <span
+        aria-hidden
+        className="mx-0.5 my-1 h-auto w-px self-stretch bg-neutral-200 dark:bg-neutral-800"
+      />
+      <Link
+        href="/wc2026"
+        className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1 font-semibold transition-colors ${
+          isWcActive
+            ? "bg-brand text-white"
+            : "bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900"
+        }`}
+      >
+        <span aria-hidden>🏆</span>
+        ЧМ-2026
+      </Link>
     </div>
   );
 }
