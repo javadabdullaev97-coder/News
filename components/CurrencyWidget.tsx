@@ -1,7 +1,10 @@
-import { fetchCbuRates, formatRate } from "@/lib/cbu";
+import { fetchCbuRates, formatRate, pickRates } from "@/lib/cbu";
+
+const SIDEBAR_CODES = ["USD", "EUR", "RUB", "CNY", "KZT"];
 
 export async function CurrencyWidget() {
-  const rates = await fetchCbuRates();
+  const all = await fetchCbuRates();
+  const rates = pickRates(all, SIDEBAR_CODES);
   const date = rates.find((r) => r.date)?.date ?? "";
 
   return (

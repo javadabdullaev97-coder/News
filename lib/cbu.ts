@@ -7,12 +7,17 @@ export type CbuRate = {
   date: string;
 };
 
-const WANTED = ["USD", "EUR", "RUB"] as const;
+const ALL_WANTED = ["USD", "EUR", "RUB", "GBP", "JPY", "CHF", "CNY", "KZT"] as const;
 
 const FALLBACK: CbuRate[] = [
   { code: "USD", name: "Доллар США", rate: 12587, diff: -47, diffPct: -0.37, date: "" },
   { code: "EUR", name: "Евро", rate: 13740, diff: 28, diffPct: 0.2, date: "" },
   { code: "RUB", name: "Российский рубль", rate: 138.2, diff: -0.2, diffPct: -0.14, date: "" },
+  { code: "GBP", name: "Фунт стерлингов", rate: 16125, diff: 36, diffPct: 0.22, date: "" },
+  { code: "JPY", name: "Японская иена", rate: 83.5, diff: -0.1, diffPct: -0.12, date: "" },
+  { code: "CHF", name: "Швейцарский франк", rate: 14380, diff: 12, diffPct: 0.08, date: "" },
+  { code: "CNY", name: "Китайский юань", rate: 1748, diff: -3, diffPct: -0.17, date: "" },
+  { code: "KZT", name: "Казахстанский тенге", rate: 25.8, diff: -0.05, diffPct: -0.19, date: "" },
 ];
 
 type CbuApiItem = {
@@ -38,7 +43,7 @@ export async function fetchCbuRates(): Promise<CbuRate[]> {
     const data = (await res.json()) as CbuApiItem[];
 
     const rates: CbuRate[] = [];
-    for (const code of WANTED) {
+    for (const code of ALL_WANTED) {
       const found = data.find((r) => r.Ccy === code);
       if (!found) continue;
       const rate = parseFloat(found.Rate);
@@ -52,10 +57,16 @@ export async function fetchCbuRates(): Promise<CbuRate[]> {
         date: found.Date,
       });
     }
-    return rates.length === WANTED.length ? rates : FALLBACK;
+    return rates.length >= 3 ? rates : FALLBACK;
   } catch {
     return FALLBACK;
   }
+}
+
+export function pickRates(rates: CbuRate[], codes: string[]): CbuRate[] {
+  return codes
+    .map((c) => rates.find((r) => r.code === c))
+    .filter((r): r is CbuRate => Boolean(r));
 }
 
 export function formatRate(n: number): string {

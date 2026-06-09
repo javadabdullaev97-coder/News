@@ -1,8 +1,9 @@
-import { fetchCbuRates, formatRate } from "@/lib/cbu";
+import { fetchCbuRates, formatRate, pickRates } from "@/lib/cbu";
 import { TashkentClock } from "./TashkentClock";
 
 export async function TopStrip() {
-  const rates = await fetchCbuRates();
+  const all = await fetchCbuRates();
+  const rates = pickRates(all, ["USD", "EUR", "RUB"]);
 
   return (
     <div className="border-b border-neutral-200 bg-neutral-50 text-xs text-neutral-700 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300">
