@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
-import { BreakingTicker } from "./BreakingTicker";
 import { LogoChevron } from "./brand/Logos";
 import { HeaderNav } from "./HeaderNav";
 import { SearchButton } from "./SearchModal";
@@ -41,7 +40,6 @@ export function Header() {
           </div>
         </div>
       </div>
-      <BreakingTicker />
     </header>
   );
 }
