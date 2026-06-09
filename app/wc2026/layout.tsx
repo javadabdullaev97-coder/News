@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Flag } from "@/components/wc2026/Flag";
 import { WCSubNav } from "@/components/wc2026/SubNav";
+
+const HOSTS: { code: string; name: string }[] = [
+  { code: "us", name: "США" },
+  { code: "ca", name: "Канада" },
+  { code: "mx", name: "Мексика" },
+];
 
 export const metadata: Metadata = {
   title: "ЧМ-2026 — LEAP",
@@ -21,18 +28,25 @@ export default function WCLayout({ children }: { children: React.ReactNode }) {
                 alt="FIFA World Cup 2026"
                 fill
                 sizes="(max-width: 768px) 96px, 128px"
-                className="scale-[1.35] object-cover"
+                className="scale-[1.1] object-cover"
                 priority
               />
             </div>
-            <div className="flex flex-col justify-center">
-              <span className="text-xs uppercase tracking-wider text-neutral-400">
-                США · Канада · Мексика
-              </span>
-              <h1 className="mt-1 font-serif text-2xl font-extrabold leading-tight md:mt-2 md:text-4xl">
-                Чемпионат мира по футболу 2026
-              </h1>
-              <p className="mt-1 text-xs text-neutral-400 md:text-sm">
+            <div className="flex min-w-0 flex-col justify-center">
+              <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                <h1 className="whitespace-nowrap font-serif text-2xl font-extrabold leading-tight md:text-4xl">
+                  Чемпионат мира по футболу 2026
+                </h1>
+                <div className="flex items-center gap-3 text-[11px] uppercase tracking-wider text-neutral-400">
+                  {HOSTS.map((h) => (
+                    <span key={h.code} className="inline-flex items-center gap-1.5">
+                      <Flag code={h.code} size={14} />
+                      {h.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <p className="mt-1.5 text-xs text-neutral-400 md:mt-2 md:text-sm">
                 11 июня — 19 июля · 48 команд · 12 групп · 104 матча
               </p>
             </div>
