@@ -19,8 +19,8 @@ export const metadata: Metadata = {
 export default function WCLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="bg-neutral-950 text-white">
-      <div className="container-news pt-8">
-        <div className="flex items-stretch justify-between gap-4 pb-6">
+      <div className="container-news pt-12 md:pt-16">
+        <div className="flex items-stretch justify-between gap-6 pb-8">
           <div className="flex items-stretch gap-4 md:gap-5">
             <div className="relative aspect-square shrink-0 self-stretch overflow-hidden rounded-xl bg-white">
               <Image
@@ -33,24 +33,32 @@ export default function WCLayout({ children }: { children: React.ReactNode }) {
               />
             </div>
             <div className="flex min-w-0 flex-col justify-center">
-              <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                <h1 className="whitespace-nowrap font-serif text-2xl font-extrabold leading-tight md:text-4xl">
-                  Чемпионат мира по футболу 2026
-                </h1>
-                <div className="flex items-center gap-3 text-[11px] uppercase tracking-wider text-neutral-400">
-                  {HOSTS.map((h) => (
-                    <span key={h.code} className="inline-flex items-center gap-1.5">
-                      <Flag code={h.code} size={14} />
-                      {h.name}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <h1 className="whitespace-nowrap font-serif text-2xl font-extrabold leading-tight md:text-4xl">
+                Чемпионат мира по футболу 2026
+              </h1>
               <p className="mt-1.5 text-xs text-neutral-400 md:mt-2 md:text-sm">
                 11 июня — 19 июля · 48 команд · 12 групп · 104 матча
               </p>
             </div>
           </div>
+
+          <div className="hidden shrink-0 self-center md:block">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-neutral-500">
+              Хозяева
+            </div>
+            <ul className="mt-2 space-y-1.5">
+              {HOSTS.map((h) => (
+                <li
+                  key={h.code}
+                  className="flex items-center gap-2 text-xs uppercase tracking-wider text-neutral-300"
+                >
+                  <Flag code={h.code} size={16} />
+                  {h.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <Link
             href="/"
             className="hidden shrink-0 self-start whitespace-nowrap rounded-full border border-white/15 px-3 py-1.5 text-xs font-medium text-neutral-300 transition-colors hover:bg-white/5 hover:text-white sm:inline-block"
