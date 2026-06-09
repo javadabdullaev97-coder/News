@@ -12,10 +12,6 @@
   --fg: #f5f5f5;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 html,
 body {
   background: var(--bg);
