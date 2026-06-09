@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AdSlot } from "@/components/AdSlot";
 import { articles, feedDate, getRubric, type Article } from "@/lib/data";
+import { LoadMoreList } from "./LoadMoreList";
 
 export const metadata: Metadata = {
   title: "Все новости — LEAP",
@@ -105,13 +105,16 @@ export default function AllPage() {
             </div>
           </div>
 
-          <div className="divide-y divide-neutral-200 dark:divide-neutral-800">
-            {sorted.map((a) => (
-              <Fragment key={a.slug}>
-                {a.featured ? <FeatureRow article={a} /> : <ListRow article={a} />}
-              </Fragment>
-            ))}
-          </div>
+          <LoadMoreList
+            pageSize={100}
+            items={sorted.map((a) =>
+              a.featured ? (
+                <FeatureRow key={a.slug} article={a} />
+              ) : (
+                <ListRow key={a.slug} article={a} />
+              ),
+            )}
+          />
         </div>
 
         <aside>
