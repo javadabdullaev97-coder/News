@@ -16,8 +16,6 @@ import { AdSlot } from "@/components/AdSlot";
 import { BookmarkButton } from "@/components/BookmarkButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { InlineSubscribe } from "@/components/InlineSubscribe";
-import { CurrencyWidget } from "@/components/CurrencyWidget";
-import { WeatherWidget } from "@/components/WeatherWidget";
 import { ShareButtons } from "@/components/ShareButtons";
 
 function renderInline(text: string): React.ReactNode[] {
@@ -91,10 +89,16 @@ export default async function ArticlePage({
   if (!article) notFound();
 
   const rubric = getRubric(article.rubric);
-  const related = getArticlesByRubric(article.rubric)
-    .filter((a) => a.slug !== article.slug)
-    .slice(0, 3);
-  const popular = articles.filter((a) => a.slug !== article.slug).slice(0, 5);
+  const sameRubric = getArticlesByRubric(article.rubric).filter(
+    (a) => a.slug !== article.slug,
+  );
+  const related = sameRubric.slice(0, 3);
+  const popular = [
+    ...sameRubric,
+    ...articles.filter(
+      (a) => a.slug !== article.slug && a.rubric !== article.rubric,
+    ),
+  ].slice(0, 5);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -259,10 +263,6 @@ export default async function ArticlePage({
                 ))}
               </ol>
             </div>
-
-            <WeatherWidget />
-
-            <CurrencyWidget />
 
             <div className="sticky top-[140px]">
               <AdSlot
