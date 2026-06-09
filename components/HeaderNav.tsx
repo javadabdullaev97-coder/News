@@ -11,12 +11,14 @@ export function HeaderNav() {
     <nav className="hidden flex-1 items-center justify-center gap-0.5 text-sm font-medium lg:flex">
       <Link
         href="/all"
-        className={`relative rounded-md px-2.5 py-1.5 font-semibold text-brand transition-colors hover:bg-brand/10 ${
-          isAllActive ? "bg-brand/10" : ""
+        aria-current={isAllActive ? "page" : undefined}
+        className={`rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider transition-colors ${
+          isAllActive
+            ? "bg-brand text-white"
+            : "bg-brand/10 text-brand hover:bg-brand/15"
         }`}
       >
         Все
-        <span className="absolute inset-x-2.5 -bottom-px h-0.5 rounded-full bg-brand" />
       </Link>
       <span
         aria-hidden
