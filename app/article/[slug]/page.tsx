@@ -8,7 +8,6 @@ import {
   formatDate,
   getArticle,
   getArticlesByRubric,
-  getAuthor,
   getRubric,
   timeAgo,
 } from "@/lib/data";
@@ -33,12 +32,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const article = getArticle(slug);
   if (!article) return {};
-  const author = getAuthor(article.authorSlug);
   const url = `/article/${article.slug}`;
   return {
     title: article.title,
     description: article.lead,
-    authors: [{ name: author.name }],
     openGraph: {
       type: "article",
       title: article.title,
@@ -46,7 +43,6 @@ export async function generateMetadata({
       url,
       images: [{ url: article.cover, width: 1600, height: 900, alt: article.title }],
       publishedTime: article.publishedAt,
-      authors: [author.name],
       tags: article.tags,
       siteName: "LEAP",
     },
@@ -70,7 +66,6 @@ export default async function ArticlePage({
   if (!article) notFound();
 
   const rubric = getRubric(article.rubric);
-  const author = getAuthor(article.authorSlug);
   const related = getArticlesByRubric(article.rubric)
     .filter((a) => a.slug !== article.slug)
     .slice(0, 3);
@@ -84,7 +79,7 @@ export default async function ArticlePage({
     image: [article.cover],
     datePublished: article.publishedAt,
     dateModified: article.publishedAt,
-    author: [{ "@type": "Person", name: author.name }],
+    author: [{ "@type": "Organization", name: "LEAP News" }],
     publisher: {
       "@type": "Organization",
       name: "LEAP",

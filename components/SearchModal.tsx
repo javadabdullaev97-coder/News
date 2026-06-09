@@ -4,7 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { articles, rubrics, getAuthor, getRubric, timeAgo } from "@/lib/data";
+import { articles, rubrics, getRubric, timeAgo } from "@/lib/data";
 
 type SearchCtx = { open: boolean; setOpen: (v: boolean) => void };
 const Ctx = createContext<SearchCtx>({ open: false, setOpen: () => {} });
@@ -38,8 +38,7 @@ export function SearchProvider({ children }: { children: React.ReactNode }) {
 
 type ResultItem =
   | { kind: "article"; slug: string; title: string; rubric?: string; cover: string; publishedAt: string }
-  | { kind: "rubric"; slug: string; title: string }
-  | { kind: "author"; slug: string; name: string };
+  | { kind: "rubric"; slug: string; title: string };
 
 function SearchModal() {
   const { open, setOpen } = useSearch();
@@ -85,14 +84,7 @@ function SearchModal() {
       .filter((r) => r.title.toLowerCase().includes(q))
       .map((r) => ({ kind: "rubric" as const, slug: r.slug, title: r.title }));
 
-    const authorSlugs = new Set<string>();
-    articles.forEach((a) => authorSlugs.add(a.authorSlug));
-    const authorHits = Array.from(authorSlugs)
-      .map((slug) => getAuthor(slug))
-      .filter((a) => a.name.toLowerCase().includes(q))
-      .map((a) => ({ kind: "author" as const, slug: a.slug, name: a.name }));
-
-    return [...articleHits, ...rubricHits, ...authorHits];
+    return [...articleHits, ...rubricHits];
   }, [query]);
 
   useEffect(() => setActiveIdx(0), [query]);
@@ -211,12 +203,8 @@ function Results({
     const rubricItems = items
       .map((item, idx) => ({ item, idx }))
       .filter(({ item }) => item.kind === "rubric");
-    const authorItems = items
-      .map((item, idx) => ({ item, idx }))
-      .filter(({ item }) => item.kind === "author");
     if (articleItems.length) g.push({ label: "Статьи", items: articleItems });
     if (rubricItems.length) g.push({ label: "Рубрики", items: rubricItems });
-    if (authorItems.length) g.push({ label: "Авторы", items: authorItems });
     return g;
   }, [items]);
 
@@ -280,33 +268,18 @@ function ResultRow({
       </Link>
     );
   }
-  if (item.kind === "rubric") {
-    return (
-      <Link
-        href={`/rubric/${item.slug}`}
-        onClick={onClick}
-        onMouseEnter={onMouseEnter}
-        className={cls}
-      >
-        <span className="grid h-10 w-10 place-items-center rounded bg-neutral-100 text-base dark:bg-neutral-800">
-          📂
-        </span>
-        <div className="min-w-0 flex-1 text-sm font-medium">{item.title}</div>
-      </Link>
-    );
-  }
   return (
-    <div onMouseEnter={onMouseEnter} className={cls + " cursor-default"}>
-      <span className="grid h-10 w-10 place-items-center rounded-full bg-neutral-100 text-xs font-bold dark:bg-neutral-800">
-        {item.name
-          .split(" ")
-          .map((p) => p[0])
-          .join("")
-          .slice(0, 2)
-          .toUpperCase()}
+    <Link
+      href={`/rubric/${item.slug}`}
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      className={cls}
+    >
+      <span className="grid h-10 w-10 place-items-center rounded bg-neutral-100 text-base dark:bg-neutral-800">
+        📂
       </span>
-      <div className="min-w-0 flex-1 text-sm font-medium">{item.name}</div>
-    </div>
+      <div className="min-w-0 flex-1 text-sm font-medium">{item.title}</div>
+    </Link>
   );
 }
 

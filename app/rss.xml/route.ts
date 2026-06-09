@@ -1,4 +1,4 @@
-import { articles, getAuthor, getRubric } from "@/lib/data";
+import { articles, getRubric } from "@/lib/data";
 
 export const dynamic = "force-static";
 
@@ -21,7 +21,6 @@ export function GET() {
         new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
     )
     .map((a) => {
-      const author = getAuthor(a.authorSlug);
       const rubric = getRubric(a.rubric);
       return `<item>
   <title>${escape(a.title)}</title>
@@ -29,7 +28,7 @@ export function GET() {
   <guid isPermaLink="true">${SITE}/article/${a.slug}</guid>
   <pubDate>${new Date(a.publishedAt).toUTCString()}</pubDate>
   <description>${escape(a.lead)}</description>
-  <author>noreply@leap.uz (${escape(author.name)})</author>
+  <author>noreply@leap.uz (LEAP News)</author>
   ${rubric ? `<category>${escape(rubric.title)}</category>` : ""}
   <enclosure url="${escape(a.cover)}" type="image/jpeg" />
 </item>`;
