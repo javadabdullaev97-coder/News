@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AdSlot } from "@/components/AdSlot";
-import { articles, formatDateTime, getRubric, type Article } from "@/lib/data";
+import { articles, feedDate, getRubric, type Article } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Все новости — LEAP",
@@ -15,7 +15,7 @@ function FeedMeta({ article }: { article: Article }) {
   const rubric = getRubric(article.rubric);
   return (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-neutral-500 dark:text-neutral-400">
-      <time dateTime={article.publishedAt}>{formatDateTime(article.publishedAt)}</time>
+      <time dateTime={article.publishedAt}>{feedDate(article.publishedAt)}</time>
       {rubric && (
         <span className={`text-xs font-semibold ${rubric.textColor}`}>
           {rubric.title}
@@ -25,13 +25,10 @@ function FeedMeta({ article }: { article: Article }) {
   );
 }
 
-function FeatureCard({ article }: { article: Article }) {
+function FeatureRow({ article }: { article: Article }) {
   const href = `/article/${article.slug}`;
   return (
-    <Link
-      href={href}
-      className="group block rounded-xl bg-white p-5 ring-1 ring-neutral-200/60 transition-all duration-200 hover:ring-brand/40 hover:shadow-md dark:bg-neutral-950 dark:ring-neutral-800 md:p-6"
-    >
+    <Link href={href} className="group block py-6">
       <FeedMeta article={article} />
       <h2 className="mt-2 font-serif text-2xl font-bold leading-[1.2] tracking-tight transition-colors group-hover:text-brand md:text-3xl">
         {article.title}
@@ -39,7 +36,7 @@ function FeatureCard({ article }: { article: Article }) {
       <p className="mt-3 max-w-3xl text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
         {article.lead}
       </p>
-      <div className="relative mt-5 aspect-[16/9] overflow-hidden rounded-lg">
+      <div className="relative mt-4 aspect-[16/9] overflow-hidden rounded-lg">
         <Image
           src={article.cover}
           alt=""
@@ -52,13 +49,10 @@ function FeatureCard({ article }: { article: Article }) {
   );
 }
 
-function RowCard({ article }: { article: Article }) {
+function ListRow({ article }: { article: Article }) {
   const href = `/article/${article.slug}`;
   return (
-    <Link
-      href={href}
-      className="group block rounded-xl bg-white p-5 ring-1 ring-neutral-200/60 transition-all duration-200 hover:ring-brand/40 hover:shadow-md dark:bg-neutral-950 dark:ring-neutral-800 md:p-6"
-    >
+    <Link href={href} className="group block py-6">
       <FeedMeta article={article} />
       <div className="mt-2 flex gap-5">
         <div className="min-w-0 flex-1">
@@ -111,34 +105,21 @@ export default function AllPage() {
             </div>
           </div>
 
-          <div className="mt-6 flex flex-col gap-4">
-            {sorted.map((a, i) => (
+          <div className="divide-y divide-neutral-200 dark:divide-neutral-800">
+            {sorted.map((a) => (
               <Fragment key={a.slug}>
-                {a.featured ? <FeatureCard article={a} /> : <RowCard article={a} />}
-                {i === 6 && (
-                  <AdSlot
-                    id="all-inline-leaderboard"
-                    size="970x90"
-                    label="В ленте «Все»"
-                    className="my-2"
-                  />
-                )}
+                {a.featured ? <FeatureRow article={a} /> : <ListRow article={a} />}
               </Fragment>
             ))}
           </div>
         </div>
 
-        <aside className="space-y-6">
-          <div className="sticky top-[140px] space-y-6">
-            <AdSlot
-              id="all-sidebar-rect"
-              size="300x250"
-              label="Сайдбар · все новости"
-            />
+        <aside>
+          <div className="sticky top-[140px]">
             <AdSlot
               id="all-sidebar-tall"
               size="300x600"
-              label="Сайдбар · все новости · tall"
+              label="Сайдбар · все новости"
             />
           </div>
         </aside>

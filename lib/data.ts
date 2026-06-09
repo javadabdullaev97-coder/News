@@ -570,6 +570,21 @@ export function formatDateTime(iso: string) {
   return `${date}, ${time}`;
 }
 
+export function feedDate(iso: string) {
+  const d = new Date(iso);
+  const diffMs = Date.now() - d.getTime();
+  const minutes = Math.floor(diffMs / 60000);
+  if (minutes < 1) return "только что";
+  if (minutes < 60) return `${minutes} мин назад`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours} ${pluralRu(hours, "час", "часа", "часов")} назад`;
+  const days = Math.floor(hours / 24);
+  if (days <= 3) return `${days} ${pluralRu(days, "день", "дня", "дней")} назад`;
+  return d
+    .toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" })
+    .replace(" г.", "");
+}
+
 export function timeAgo(iso: string) {
   const seconds = Math.floor((Date.now() - new Date(iso).getTime()) / 1000);
   if (seconds < 60) return "только что";
