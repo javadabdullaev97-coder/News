@@ -18,7 +18,7 @@ jobs:
       - name: Checkout production branch
         uses: actions/checkout@v4
         with:
-          ref: claude/leap-news-website-pvk7C
+          ref: main
           fetch-depth: 0
 
       - name: Create empty commit to trigger Cloudflare rebuild
@@ -27,4 +27,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           DATE_TASHKENT=$(TZ='Asia/Tashkent' date '+%d.%m.%Y %H:%M')
           git commit --allow-empty -m "chore: daily CBU rate refresh (${DATE_TASHKENT} Ташкента)"
-          git push origin claude/leap-news-website-pvk7C
+          git push origin main
