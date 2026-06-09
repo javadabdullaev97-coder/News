@@ -188,6 +188,30 @@ export default async function ArticlePage({
               ))}
             </div>
 
+            {article.sources && article.sources.length > 0 && (
+              <div className="mt-10 border-t border-neutral-200 pt-6 dark:border-neutral-800">
+                <div className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
+                  Источники
+                </div>
+                <ul className="mt-3 space-y-2">
+                  {article.sources.map((s, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm">
+                      <span aria-hidden className="mt-1 h-1 w-1 shrink-0 rounded-full bg-brand" />
+                      <a
+                        href={s.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-neutral-700 transition-colors hover:text-brand hover:underline dark:text-neutral-300"
+                      >
+                        {s.name}
+                        <span aria-hidden className="ml-1 text-xs text-neutral-400">↗</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             <div className="mt-8 flex flex-wrap gap-2">
               {article.tags.map((t) => (
                 <Link
