@@ -28,7 +28,7 @@ export default function WCLayout({ children }: { children: React.ReactNode }) {
                 alt="FIFA World Cup 2026"
                 fill
                 sizes="(max-width: 768px) 96px, 128px"
-                className="scale-[1.1] object-cover"
+                className="object-contain p-1"
                 priority
               />
             </div>
