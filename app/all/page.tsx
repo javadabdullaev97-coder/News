@@ -1,14 +1,87 @@
 import type { Metadata } from "next";
 import { Fragment } from "react";
-import { ArticleCard } from "@/components/ArticleCard";
+import Image from "next/image";
+import Link from "next/link";
 import { AdSlot } from "@/components/AdSlot";
-import { articles } from "@/lib/data";
+import { articles, formatDateTime, getRubric, type Article } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Все новости — LEAP",
   description:
     "Единая лента всех материалов LEAP: политика, экономика, бизнес, общество, спорт, мир, технологии и культура.",
 };
+
+function FeedMeta({ article }: { article: Article }) {
+  const rubric = getRubric(article.rubric);
+  return (
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-neutral-500 dark:text-neutral-400">
+      <time dateTime={article.publishedAt}>{formatDateTime(article.publishedAt)}</time>
+      {rubric && (
+        <span className={`text-xs font-semibold ${rubric.textColor}`}>
+          {rubric.title}
+        </span>
+      )}
+    </div>
+  );
+}
+
+function FeatureCard({ article }: { article: Article }) {
+  const href = `/article/${article.slug}`;
+  return (
+    <Link
+      href={href}
+      className="group block rounded-xl bg-white p-5 ring-1 ring-neutral-200/60 transition-all duration-200 hover:ring-brand/40 hover:shadow-md dark:bg-neutral-950 dark:ring-neutral-800 md:p-6"
+    >
+      <FeedMeta article={article} />
+      <h2 className="mt-2 font-serif text-2xl font-bold leading-[1.2] tracking-tight transition-colors group-hover:text-brand md:text-3xl">
+        {article.title}
+      </h2>
+      <p className="mt-3 max-w-3xl text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
+        {article.lead}
+      </p>
+      <div className="relative mt-5 aspect-[16/9] overflow-hidden rounded-lg">
+        <Image
+          src={article.cover}
+          alt=""
+          fill
+          sizes="(max-width: 1024px) 100vw, 800px"
+          className="object-cover"
+        />
+      </div>
+    </Link>
+  );
+}
+
+function RowCard({ article }: { article: Article }) {
+  const href = `/article/${article.slug}`;
+  return (
+    <Link
+      href={href}
+      className="group block rounded-xl bg-white p-5 ring-1 ring-neutral-200/60 transition-all duration-200 hover:ring-brand/40 hover:shadow-md dark:bg-neutral-950 dark:ring-neutral-800 md:p-6"
+    >
+      <FeedMeta article={article} />
+      <div className="mt-2 flex gap-5">
+        <div className="min-w-0 flex-1">
+          <h3 className="font-serif text-xl font-bold leading-snug tracking-tight transition-colors group-hover:text-brand md:text-2xl">
+            {article.title}
+          </h3>
+          <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-base">
+            {article.lead}
+          </p>
+        </div>
+        <div className="relative h-24 w-32 shrink-0 overflow-hidden rounded-lg sm:h-28 sm:w-40 md:h-32 md:w-48">
+          <Image
+            src={article.cover}
+            alt=""
+            fill
+            sizes="(max-width: 768px) 128px, 192px"
+            className="object-cover"
+          />
+        </div>
+      </div>
+    </Link>
+  );
+}
 
 export default function AllPage() {
   const sorted = [...articles].sort(
@@ -41,13 +114,7 @@ export default function AllPage() {
           <div className="mt-6 flex flex-col gap-4">
             {sorted.map((a, i) => (
               <Fragment key={a.slug}>
-                {a.featured ? (
-                  <div className="my-2">
-                    <ArticleCard article={a} variant="hero" />
-                  </div>
-                ) : (
-                  <ArticleCard article={a} variant="compact" />
-                )}
+                {a.featured ? <FeatureCard article={a} /> : <RowCard article={a} />}
                 {i === 6 && (
                   <AdSlot
                     id="all-inline-leaderboard"

@@ -556,6 +556,20 @@ export function formatDate(iso: string) {
   });
 }
 
+export function formatDateTime(iso: string) {
+  const d = new Date(iso);
+  const date = d.toLocaleDateString("ru-RU", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).replace(" г.", "");
+  const time = d.toLocaleTimeString("ru-RU", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  return `${date}, ${time}`;
+}
+
 export function timeAgo(iso: string) {
   const seconds = Math.floor((Date.now() - new Date(iso).getTime()) / 1000);
   if (seconds < 60) return "только что";
