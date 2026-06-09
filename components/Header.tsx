@@ -7,7 +7,7 @@ import { HeaderNav } from "./HeaderNav";
 import { SearchButton } from "./SearchModal";
 import { MobileMenuButton } from "./MobileDrawer";
 
-export function Header() {
+export async function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white/85 backdrop-blur dark:bg-neutral-950/85">
       <TopStrip />
