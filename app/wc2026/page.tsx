@@ -4,90 +4,145 @@ import { Flag } from "@/components/wc2026/Flag";
 import { articles, feedDate } from "@/lib/data";
 import {
   WC_MATCHES,
-  kickoffTashkent,
+  getMatchStatus,
   readableRef,
+  timeTashkent,
   type WCMatch,
 } from "@/lib/wc2026";
 
-const STAGE_LABEL: Record<WCMatch["stage"], string> = {
-  group: "Группа",
-  r32: "1/16 финала",
-  r16: "1/8 финала",
-  qf: "1/4 финала",
-  sf: "1/2 финала",
-  third: "Матч за 3-е",
-  final: "Финал",
+type MatchWithStatus = {
+  m: WCMatch;
+  status: "scheduled" | "live" | "finished";
+  minute?: number;
+  when: number;
 };
 
-function dayLabelTashkent(iso: string) {
-  return new Date(iso).toLocaleDateString("ru-RU", {
-    day: "numeric",
-    month: "long",
-    weekday: "short",
-    timeZone: "Asia/Tashkent",
-  });
+function StatusPill({
+  status,
+  minute,
+  dateLocal,
+}: {
+  status: "scheduled" | "live" | "finished";
+  minute?: number;
+  dateLocal: string;
+}) {
+  if (status === "finished") {
+    return (
+      <span className="text-[10px] uppercase tracking-wider text-neutral-500">
+        завершён
+      </span>
+    );
+  }
+  if (status === "live") {
+    return (
+      <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-red-400">
+        <span className="relative inline-flex h-2 w-2">
+          <span className="absolute inset-0 animate-ping rounded-full bg-red-500 opacity-75" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
+        </span>
+        live{minute ? `, ${minute}'` : ""}
+      </span>
+    );
+  }
+  return (
+    <span className="text-[11px] font-bold tabular-nums text-brand">
+      {timeTashkent(dateLocal)}
+    </span>
+  );
 }
 
-function MatchTile({ m }: { m: WCMatch }) {
+function MatchRow({ item }: { item: MatchWithStatus }) {
+  const { m, status, minute } = item;
   const home = readableRef(m.homeRef);
   const away = readableRef(m.awayRef);
   const isUz = m.homeRef === "UZB" || m.awayRef === "UZB";
+  const score =
+    status === "finished" && m.score
+      ? `${m.score.home}:${m.score.away}`
+      : status === "live" && m.score
+        ? `${m.score.home}:${m.score.away}`
+        : "—:—";
+
   return (
     <div
-      className={`rounded-xl border p-4 ${
+      className={`flex items-center gap-3 rounded-lg border px-3 py-2.5 ${
         isUz ? "border-brand/40 bg-brand/5" : "border-white/10 bg-white/5"
       }`}
     >
-      <div className="flex items-center justify-between gap-2 text-[10px] uppercase tracking-wider text-neutral-500">
-        <span className="font-bold text-neutral-300">
-          {m.stage === "group" && m.group
-            ? `Группа ${m.group}`
-            : STAGE_LABEL[m.stage]}
+      <div className="w-14 shrink-0">
+        <StatusPill
+          status={status}
+          minute={minute}
+          dateLocal={m.dateLocal}
+        />
+      </div>
+      <div className="flex min-w-0 flex-1 items-center justify-end gap-2">
+        <span
+          className="truncate text-right text-sm font-semibold text-white"
+          title={home.long}
+        >
+          {home.team?.name ?? home.short}
         </span>
-        {isUz && (
-          <span className="rounded-full bg-brand px-2 py-0.5 text-[9px] font-bold text-white">
-            Узбекистан
-          </span>
-        )}
+        <Flag code={home.team?.code ?? "_tbd"} size={20} />
       </div>
-      <div className="mt-3 flex items-center justify-between gap-3">
-        <div className="flex min-w-0 flex-1 items-center gap-2">
-          <Flag code={home.team?.code ?? "_tbd"} size={26} />
-          <span className="truncate text-sm font-semibold">
-            {home.team?.name ?? home.short}
-          </span>
-        </div>
-        <span className="shrink-0 text-xs font-bold text-neutral-500">—</span>
-        <div className="flex min-w-0 flex-1 items-center justify-end gap-2">
-          <span className="truncate text-right text-sm font-semibold">
-            {away.team?.name ?? away.short}
-          </span>
-          <Flag code={away.team?.code ?? "_tbd"} size={26} />
-        </div>
+      <div
+        className={`min-w-[44px] shrink-0 text-center font-mono text-sm font-bold tabular-nums ${
+          status === "finished"
+            ? "text-white"
+            : status === "live"
+              ? "text-red-300"
+              : "text-neutral-500"
+        }`}
+      >
+        {score}
       </div>
-      <div className="mt-3 flex items-center justify-between gap-2 border-t border-white/5 pt-2 text-[11px] text-neutral-500">
-        <span>{kickoffTashkent(m.dateLocal)} (Tashkent)</span>
-        <span className="truncate text-right">{m.cityRu}</span>
+      <div className="flex min-w-0 flex-1 items-center gap-2">
+        <Flag code={away.team?.code ?? "_tbd"} size={20} />
+        <span
+          className="truncate text-sm font-semibold text-white"
+          title={away.long}
+        >
+          {away.team?.name ?? away.short}
+        </span>
       </div>
     </div>
   );
 }
 
+function pickMatchCenter(now: number): MatchWithStatus[] {
+  const day = 24 * 60 * 60 * 1000;
+  const all = WC_MATCHES.map((m): MatchWithStatus => {
+    const st = getMatchStatus(m, now);
+    return {
+      m,
+      status: st.status,
+      minute: st.minute,
+      when: new Date(m.dateLocal).getTime(),
+    };
+  });
+
+  const live = all.filter((x) => x.status === "live");
+  const recent = all
+    .filter((x) => x.status === "finished" && now - x.when < day + 3 * 3600 * 1000)
+    .sort((a, b) => b.when - a.when);
+  const upcoming = all
+    .filter((x) => x.status === "scheduled" && x.when - now < day)
+    .sort((a, b) => a.when - b.when);
+
+  const inWindow = [...live, ...recent.slice(0, 4), ...upcoming.slice(0, 8)];
+  if (inWindow.length > 0) return inWindow.slice(0, 9);
+
+  // Window пустой (например, межтуровый день или до старта турнира) —
+  // покажем шесть ближайших по календарю.
+  return all
+    .filter((x) => x.status === "scheduled")
+    .sort((a, b) => a.when - b.when)
+    .slice(0, 6);
+}
+
 export default function WCHomePage() {
   const now = Date.now();
-  const upcoming = [...WC_MATCHES]
-    .filter((m) => new Date(m.dateLocal).getTime() >= now)
-    .sort(
-      (a, b) =>
-        new Date(a.dateLocal).getTime() - new Date(b.dateLocal).getTime(),
-    );
-  const uzNext = upcoming.find(
-    (m) => m.homeRef === "UZB" || m.awayRef === "UZB",
-  );
-  const nextMatches = upcoming.slice(0, 6);
-  const firstUpcomingDay = upcoming[0]
-    ? dayLabelTashkent(upcoming[0].dateLocal)
-    : null;
+  const matchCenter = pickMatchCenter(now);
 
   const wcNews = articles
     .filter((a) => a.tags.includes("ЧМ-2026"))
@@ -100,76 +155,27 @@ export default function WCHomePage() {
 
   return (
     <div className="space-y-12">
-      {/* Матч-центр: ближайший матч Уз. + ближайшие игры турнира */}
-      {uzNext && (
+      {/* Матч-центр: последние сутки + лайв + ближайшие сутки */}
+      {matchCenter.length > 0 && (
         <section>
           <div className="mb-3 flex items-baseline justify-between">
             <h2 className="text-lg font-bold uppercase tracking-wider text-white">
-              Ближайший матч сборной
+              Матч-центр
             </h2>
             <Link
-              href="/wc2026/uzbekistan"
+              href="/wc2026/schedule"
               className="text-xs font-medium text-brand hover:underline"
             >
-              Соперники по группе K →
+              Все матчи →
             </Link>
           </div>
-          <div className="grid gap-4 md:grid-cols-[2fr_3fr]">
-            <MatchTile m={uzNext} />
-            <div className="rounded-xl border border-white/10 bg-white/5 p-4 text-sm leading-relaxed text-neutral-300">
-              Сборная Узбекистана впервые в истории сыграет на чемпионате
-              мира. В группе K — Португалия, Колумбия и ДР Конго. В плей-офф
-              проходят первые два места и восемь лучших третьих мест.
-              <div className="mt-3 flex flex-wrap gap-2 text-xs">
-                <Link
-                  href="/wc2026/uzbekistan"
-                  className="rounded-full border border-brand/40 bg-brand/10 px-3 py-1 font-medium text-brand transition-colors hover:bg-brand hover:text-white"
-                >
-                  Соперники Узбекистана
-                </Link>
-                <Link
-                  href="/wc2026/groups"
-                  className="rounded-full border border-white/15 px-3 py-1 font-medium text-neutral-300 transition-colors hover:bg-white/5"
-                >
-                  Группы и лучшие 3-и места
-                </Link>
-                <Link
-                  href="/wc2026/bracket"
-                  className="rounded-full border border-white/15 px-3 py-1 font-medium text-neutral-300 transition-colors hover:bg-white/5"
-                >
-                  Сетка плей-офф
-                </Link>
-              </div>
-            </div>
+          <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+            {matchCenter.map((item) => (
+              <MatchRow key={item.m.id} item={item} />
+            ))}
           </div>
         </section>
       )}
-
-      <section>
-        <div className="mb-3 flex items-baseline justify-between">
-          <h2 className="text-lg font-bold uppercase tracking-wider text-white">
-            Ближайшие матчи
-          </h2>
-          {firstUpcomingDay && (
-            <span className="text-xs text-neutral-500">
-              старт: {firstUpcomingDay} (Tashkent)
-            </span>
-          )}
-        </div>
-        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-          {nextMatches.map((m) => (
-            <MatchTile key={m.id} m={m} />
-          ))}
-        </div>
-        <div className="mt-4">
-          <Link
-            href="/wc2026/schedule"
-            className="text-xs font-medium text-brand hover:underline"
-          >
-            Все 104 матча →
-          </Link>
-        </div>
-      </section>
 
       {/* Лента новостей */}
       {wcNews.length > 0 && (

@@ -28,6 +28,8 @@ export type WCTeam = {
 
 export type WCStage = "group" | "r32" | "r16" | "qf" | "sf" | "third" | "final";
 
+export type WCMatchStatus = "scheduled" | "live" | "finished";
+
 export type WCMatch = {
   id: string;            // M01..M104, нумерация ФИФА
   stage: WCStage;
@@ -40,6 +42,7 @@ export type WCMatch = {
   cityRu: string;
   country: "US" | "CA" | "MX";
   feedsInto?: string;    // ID следующего матча в сетке плей-офф
+  score?: { home: number; away: number };  // присутствие = матч завершён
 };
 
 export const WC_TEAMS: WCTeam[] = [
@@ -395,6 +398,31 @@ export function getMatchPreview(matchId: string): string | undefined {
 export function flagUrl(code: string, size: 40 | 80 | 160 = 80): string {
   if (!code || code === "_tbd") return "";
   return `https://flagcdn.com/w${size}/${code}.png`;
+}
+
+// Статус матча по текущему моменту:
+// — score есть → finished
+// — kickoff в будущем → scheduled
+// — kickoff в прошлом, score нет → live (с расчётной минутой)
+// На статике "сейчас" фиксируется временем последнего ребилда.
+export function getMatchStatus(
+  m: WCMatch,
+  now: number = Date.now(),
+): { status: WCMatchStatus; minute?: number } {
+  if (m.score) return { status: "finished" };
+  const start = new Date(m.dateLocal).getTime();
+  if (now < start) return { status: "scheduled" };
+  const minute = Math.max(1, Math.min(120, Math.floor((now - start) / 60000)));
+  return { status: "live", minute };
+}
+
+// Только время по Ташкенту: «09:00». Для статус-пилюль матч-центра.
+export function timeTashkent(dateLocal: string): string {
+  return new Date(dateLocal).toLocaleTimeString("ru-RU", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Asia/Tashkent",
+  });
 }
 
 // Старт матча по Ташкенту: «18 июня, 09:00». Считается от dateLocal —
