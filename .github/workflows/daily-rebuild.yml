@@ -1,0 +1,30 @@
+name: Daily CBU rebuild
+
+# Каждый день в 14:00 UTC = 19:00 Ташкента
+# (после стандартной публикации курсов ЦБ в 17–18:00)
+on:
+  schedule:
+    - cron: "0 14 * * *"
+  # Позволяет запустить вручную через UI GitHub Actions
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  trigger-rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout production branch
+        uses: actions/checkout@v4
+        with:
+          ref: claude/leap-news-website-pvk7C
+          fetch-depth: 0
+
+      - name: Create empty commit to trigger Cloudflare rebuild
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          DATE_TASHKENT=$(TZ='Asia/Tashkent' date '+%d.%m.%Y %H:%M')
+          git commit --allow-empty -m "chore: daily CBU rate refresh (${DATE_TASHKENT} Ташкента)"
+          git push origin claude/leap-news-website-pvk7C
