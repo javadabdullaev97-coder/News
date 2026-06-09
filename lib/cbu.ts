@@ -7,6 +7,11 @@ export type CbuRate = {
   date: string;
 };
 
+export type CbuSnapshot = {
+  rates: CbuRate[];
+  fetchedAt: string;
+};
+
 const ALL_WANTED = ["USD", "EUR", "RUB", "GBP", "JPY", "CHF", "CNY", "KZT"] as const;
 
 const FALLBACK: CbuRate[] = [
@@ -28,7 +33,8 @@ type CbuApiItem = {
   Date: string;
 };
 
-export async function fetchCbuRates(): Promise<CbuRate[]> {
+export async function fetchCbuSnapshot(): Promise<CbuSnapshot> {
+  const fetchedAt = new Date().toISOString();
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 8000);
@@ -39,7 +45,7 @@ export async function fetchCbuRates(): Promise<CbuRate[]> {
     });
     clearTimeout(timeout);
 
-    if (!res.ok) return FALLBACK;
+    if (!res.ok) return { rates: FALLBACK, fetchedAt };
     const data = (await res.json()) as CbuApiItem[];
 
     const rates: CbuRate[] = [];
@@ -57,9 +63,11 @@ export async function fetchCbuRates(): Promise<CbuRate[]> {
         date: found.Date,
       });
     }
-    return rates.length >= 3 ? rates : FALLBACK;
+    return rates.length >= 3
+      ? { rates, fetchedAt }
+      : { rates: FALLBACK, fetchedAt };
   } catch {
-    return FALLBACK;
+    return { rates: FALLBACK, fetchedAt };
   }
 }
 
@@ -74,4 +82,17 @@ export function formatRate(n: number): string {
     return n.toLocaleString("ru-RU", { maximumFractionDigits: 0 });
   }
   return n.toLocaleString("ru-RU", { maximumFractionDigits: 2 });
+}
+
+export function formatFetchedAt(iso: string): string {
+  if (!iso) return "";
+  return new Intl.DateTimeFormat("ru-RU", {
+    timeZone: "Asia/Tashkent",
+    day: "numeric",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+  })
+    .format(new Date(iso))
+    .replace(",", " ·");
 }
