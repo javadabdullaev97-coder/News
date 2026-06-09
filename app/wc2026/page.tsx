@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Flag } from "@/components/wc2026/Flag";
 import { articles, feedDate } from "@/lib/data";
 import {
-  WC_GROUP_K_PREVIEW,
   WC_MATCHES,
   getGroupTeams,
   getMatchPreview,
@@ -123,9 +122,6 @@ export default function WCOverviewPage() {
             Полное расписание →
           </Link>
         </div>
-        <p className="mt-3 text-sm leading-relaxed text-neutral-300">
-          {WC_GROUP_K_PREVIEW}
-        </p>
         <div className="mt-5 grid gap-4 md:grid-cols-3">
           {uzMatches.map((m, i) => (
             <OpponentCard key={m.id} m={m} index={i} />
