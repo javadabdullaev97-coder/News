@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   return [
     { url: SITE, lastModified: now, changeFrequency: "always", priority: 1 },
+    { url: `${SITE}/all`, lastModified: now, changeFrequency: "always", priority: 0.9 },
     ...rubrics.map((r) => ({
       url: `${SITE}/rubric/${r.slug}`,
       lastModified: now,

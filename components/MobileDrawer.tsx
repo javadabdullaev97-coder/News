@@ -69,7 +69,19 @@ export function MobileMenuButton() {
             </div>
 
             <nav className="flex-1 overflow-y-auto px-2 py-3">
-              <div className="px-3 pb-1 pt-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
+              <Link
+                href="/all"
+                className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors ${
+                  pathname === "/all"
+                    ? "bg-brand text-white"
+                    : "bg-brand/5 text-brand hover:bg-brand/10"
+                }`}
+              >
+                <span aria-hidden className="text-base">≡</span>
+                Все новости
+              </Link>
+
+              <div className="px-3 pb-1 pt-4 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
                 Рубрики
               </div>
               {rubrics.map((r) => {

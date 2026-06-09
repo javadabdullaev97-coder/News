@@ -8,7 +8,9 @@ import Link from "next/link";
 
 export default function HomePage() {
   const featured = articles.find((a) => a.featured) ?? articles[0];
-  const secondary = articles.filter((a) => a.featured && a.slug !== featured.slug);
+  const secondary = articles
+    .filter((a) => a.featured && a.slug !== featured.slug)
+    .slice(0, 2);
   const latest = articles.filter((a) => a.slug !== featured.slug).slice(0, 6);
   const sidebar = articles.slice(0, 5);
 
@@ -70,7 +72,7 @@ export default function HomePage() {
       <section className="mt-12">
         <div className="flex items-baseline justify-between border-b border-neutral-200 pb-3 dark:border-neutral-800">
           <h2 className="font-serif text-2xl font-bold">Главное</h2>
-          <Link href="#" className="text-sm font-medium text-brand hover:underline">
+          <Link href="/all" className="text-sm font-medium text-brand hover:underline">
             Все новости →
           </Link>
         </div>

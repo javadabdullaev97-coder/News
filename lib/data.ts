@@ -221,6 +221,7 @@ export const articles: Article[] = [
     rubric: "tech",
     publishedAt: "2026-06-08T20:00:00Z",
     cover: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=1600",
+    featured: true,
     tags: ["Apple", "Siri", "искусственный интеллект"],
   },
   {
@@ -459,6 +460,7 @@ export const articles: Article[] = [
     rubric: "society",
     publishedAt: "2026-06-06T10:00:00Z",
     cover: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600",
+    featured: true,
     tags: ["вода", "Приаралье", "сельское хозяйство"],
   },
   {
@@ -510,6 +512,7 @@ export const articles: Article[] = [
     rubric: "society",
     publishedAt: "2026-06-05T10:00:00Z",
     cover: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=1600",
+    featured: true,
     tags: ["вакцина", "наука", "искусственный интеллект"],
   },
   {
