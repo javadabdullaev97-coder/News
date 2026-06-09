@@ -6,6 +6,7 @@ import {
   WC_MATCHES,
   getGroupTeams,
   getMatchPreview,
+  getTeamByFifa,
   getUzMatches,
   readableRef,
   type WCMatch,
@@ -14,15 +15,12 @@ import {
 function MatchTile({
   m,
   highlight,
-  withPreview,
 }: {
   m: WCMatch;
   highlight?: boolean;
-  withPreview?: boolean;
 }) {
   const home = readableRef(m.homeRef);
   const away = readableRef(m.awayRef);
-  const preview = withPreview ? getMatchPreview(m.id) : undefined;
   return (
     <div
       className={`rounded-xl border p-4 ${
@@ -51,11 +49,50 @@ function MatchTile({
       <div className="mt-2 truncate text-[11px] text-neutral-500">
         {m.venueRu} · {m.cityRu}
       </div>
+    </div>
+  );
+}
+
+function OpponentCard({ m, index }: { m: WCMatch; index: number }) {
+  const opponentFifa = m.homeRef === "UZB" ? m.awayRef : m.homeRef;
+  const opponent = getTeamByFifa(opponentFifa);
+  const preview = getMatchPreview(m.id);
+
+  if (!opponent) return null;
+
+  return (
+    <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5">
+      {/* Хедер с матч-метой */}
+      <div className="flex items-center justify-between gap-3 border-b border-white/10 bg-black/30 px-4 py-3 text-[11px] uppercase tracking-wider text-neutral-400">
+        <span className="font-bold text-white">Матч {index + 1}</span>
+        <span>{m.kickoffTashkent} (Tashkent)</span>
+      </div>
+
+      {/* Хиро-зона с соперником */}
+      <div className="flex items-center gap-4 px-5 py-5">
+        <Flag code={opponent.code} size={56} />
+        <div className="min-w-0 flex-1">
+          <div className="truncate font-serif text-2xl font-bold text-white">
+            {opponent.name}
+          </div>
+          <div className="mt-1 text-[11px] uppercase tracking-wider text-neutral-400">
+            {opponent.confederation} · корзина {opponent.pot}
+          </div>
+        </div>
+      </div>
+
+      {/* Описание */}
       {preview && (
-        <p className="mt-3 border-t border-white/10 pt-3 text-sm leading-relaxed text-neutral-300">
+        <p className="border-t border-white/10 px-5 py-4 text-sm leading-relaxed text-neutral-300">
           {preview}
         </p>
       )}
+
+      {/* Футер с местом проведения */}
+      <div className="border-t border-white/10 bg-black/20 px-5 py-3 text-[11px] text-neutral-400">
+        <span aria-hidden className="mr-1.5">🏟</span>
+        {m.venueRu}, {m.cityRu}
+      </div>
     </div>
   );
 }
@@ -89,8 +126,8 @@ export default function WCOverviewPage() {
           {WC_GROUP_K_PREVIEW}
         </p>
         <div className="mt-5 grid gap-4 md:grid-cols-3">
-          {uzMatches.map((m) => (
-            <MatchTile key={m.id} m={m} highlight withPreview />
+          {uzMatches.map((m, i) => (
+            <OpponentCard key={m.id} m={m} index={i} />
           ))}
         </div>
       </section>
