@@ -1,16 +1,10 @@
-// Данные ЧМ-2026. Гипотетические группы — реальный жребий проходил в декабре 2025,
-// здесь редакторская версия с верными квалифицированными сборными и реалистичным
-// распределением по корзинам. Когда состав групп будет официально известен —
-// правится один файл и весь раздел /wc2026 подтягивается автоматически.
+// Данные ЧМ-2026 на основе официального жребия 5 декабря 2025.
+// Состав групп, расписание и слоты плей-офф — из публичных источников
+// (FIFA, AFC, международные СМИ). Лучшие третьи места — таблица ФИФА
+// раскрывается после группового этапа: пока в bracket-слотах хранится пул
+// возможных групп, например BEST3-ABCDF.
 
-export type WCTeam = {
-  name: string;
-  code: string; // ISO-3166-1 alpha-2 для флага flagcdn.com
-  fifa: string; // 3-буквенный код ФИФА для коротких отображений
-  group: WCGroupId;
-  pot: 1 | 2 | 3 | 4;
-  isUz?: boolean;
-};
+export type WCConfederation = "UEFA" | "AFC" | "CAF" | "CONMEBOL" | "CONCACAF" | "OFC";
 
 export type WCGroupId =
   | "A" | "B" | "C" | "D" | "E" | "F"
@@ -20,242 +14,368 @@ export const WC_GROUP_IDS: WCGroupId[] = [
   "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
 ];
 
-// 48 команд. Хосты — Мексика (A), Канада (B), США (D).
-// Узбекистан — группа H с Бразилией, Марокко и Камеруном.
-export const WC_TEAMS: WCTeam[] = [
-  // Group A
-  { name: "Мексика", code: "mx", fifa: "MEX", group: "A", pot: 1 },
-  { name: "Хорватия", code: "hr", fifa: "CRO", group: "A", pot: 2 },
-  { name: "Австрия", code: "at", fifa: "AUT", group: "A", pot: 3 },
-  { name: "Коста-Рика", code: "cr", fifa: "CRC", group: "A", pot: 4 },
+export type WCTeam = {
+  name: string;
+  code: string; // ISO-3166-1 alpha-2 для флага flagcdn.com
+  fifa: string; // 3-буквенный код ФИФА
+  confederation: WCConfederation;
+  group: WCGroupId;
+  pot: 1 | 2 | 3 | 4;
+  qualifiedAs?: string;
+  fifaRank?: number;
+  isUz?: boolean;
+};
 
-  // Group B
-  { name: "Канада", code: "ca", fifa: "CAN", group: "B", pot: 1 },
-  { name: "Швейцария", code: "ch", fifa: "SUI", group: "B", pot: 2 },
-  { name: "Дания", code: "dk", fifa: "DEN", group: "B", pot: 3 },
-  { name: "Новая Зеландия", code: "nz", fifa: "NZL", group: "B", pot: 4 },
-
-  // Group C
-  { name: "Аргентина", code: "ar", fifa: "ARG", group: "C", pot: 1 },
-  { name: "Южная Корея", code: "kr", fifa: "KOR", group: "C", pot: 2 },
-  { name: "Польша", code: "pl", fifa: "POL", group: "C", pot: 3 },
-  { name: "Иордания", code: "jo", fifa: "JOR", group: "C", pot: 4 },
-
-  // Group D
-  { name: "США", code: "us", fifa: "USA", group: "D", pot: 1 },
-  { name: "Япония", code: "jp", fifa: "JPN", group: "D", pot: 2 },
-  { name: "Сербия", code: "rs", fifa: "SRB", group: "D", pot: 3 },
-  { name: "Ямайка", code: "jm", fifa: "JAM", group: "D", pot: 4 },
-
-  // Group E
-  { name: "Франция", code: "fr", fifa: "FRA", group: "E", pot: 1 },
-  { name: "Иран", code: "ir", fifa: "IRN", group: "E", pot: 2 },
-  { name: "Норвегия", code: "no", fifa: "NOR", group: "E", pot: 3 },
-  { name: "Гана", code: "gh", fifa: "GHA", group: "E", pot: 4 },
-
-  // Group F
-  { name: "Испания", code: "es", fifa: "ESP", group: "F", pot: 1 },
-  { name: "Уругвай", code: "uy", fifa: "URU", group: "F", pot: 2 },
-  { name: "Турция", code: "tr", fifa: "TUR", group: "F", pot: 3 },
-  { name: "Панама", code: "pa", fifa: "PAN", group: "F", pot: 4 },
-
-  // Group G
-  { name: "Англия", code: "gb-eng", fifa: "ENG", group: "G", pot: 1 },
-  { name: "Колумбия", code: "co", fifa: "COL", group: "G", pot: 2 },
-  { name: "Нигерия", code: "ng", fifa: "NGA", group: "G", pot: 3 },
-  { name: "Саудовская Аравия", code: "sa", fifa: "KSA", group: "G", pot: 4 },
-
-  // Group H — Узбекистан
-  { name: "Бразилия", code: "br", fifa: "BRA", group: "H", pot: 1 },
-  { name: "Марокко", code: "ma", fifa: "MAR", group: "H", pot: 2 },
-  { name: "Камерун", code: "cm", fifa: "CMR", group: "H", pot: 3 },
-  { name: "Узбекистан", code: "uz", fifa: "UZB", group: "H", pot: 4, isUz: true },
-
-  // Group I
-  { name: "Португалия", code: "pt", fifa: "POR", group: "I", pot: 1 },
-  { name: "Сенегал", code: "sn", fifa: "SEN", group: "I", pot: 2 },
-  { name: "Кот-д’Ивуар", code: "ci", fifa: "CIV", group: "I", pot: 3 },
-  { name: "Алжир", code: "dz", fifa: "ALG", group: "I", pot: 4 },
-
-  // Group J
-  { name: "Нидерланды", code: "nl", fifa: "NED", group: "J", pot: 1 },
-  { name: "Эквадор", code: "ec", fifa: "ECU", group: "J", pot: 2 },
-  { name: "Тунис", code: "tn", fifa: "TUN", group: "J", pot: 3 },
-  { name: "Ирак", code: "iq", fifa: "IRQ", group: "J", pot: 4 },
-
-  // Group K
-  { name: "Бельгия", code: "be", fifa: "BEL", group: "K", pot: 1 },
-  { name: "Австралия", code: "au", fifa: "AUS", group: "K", pot: 2 },
-  { name: "Египет", code: "eg", fifa: "EGY", group: "K", pot: 3 },
-  { name: "Победитель плей-офф 1", code: "_tbd", fifa: "TBD", group: "K", pot: 4 },
-
-  // Group L
-  { name: "Германия", code: "de", fifa: "GER", group: "L", pot: 1 },
-  { name: "Италия", code: "it", fifa: "ITA", group: "L", pot: 2 },
-  { name: "Парагвай", code: "py", fifa: "PAR", group: "L", pot: 3 },
-  { name: "Победитель плей-офф 2", code: "_tbd", fifa: "TBD", group: "L", pot: 4 },
-];
+export type WCStage = "group" | "r32" | "r16" | "qf" | "sf" | "third" | "final";
 
 export type WCMatch = {
-  id: string;
-  date: string; // ISO
-  stage: "group" | "r32" | "r16" | "qf" | "sf" | "third" | "final";
-  group?: WCGroupId;
-  homeFifa: string; // FIFA code or slot like "1A" / "BEST3-1"
-  awayFifa: string;
-  venue: string;
-  score?: { home: number; away: number; status: "ft" | "ht" | "live" };
+  id: string;            // M01..M104, нумерация ФИФА
+  stage: WCStage;
+  group?: WCGroupId;     // для group-stage
+  matchday?: 1 | 2 | 3;  // для group-stage
+  dateLocal: string;     // ISO с TZ-смещением локального стадиона
+  kickoffTashkent: string; // готовая строка по Ташкенту, как в источнике
+  homeRef: string;       // FIFA-код для group, либо слот "1A" / "2B" / "BEST3-ABCDF" / "W M73" / "L M101"
+  awayRef: string;
+  venueRu: string;
+  cityRu: string;
+  country: "US" | "CA" | "MX";
+  feedsInto?: string;    // ID следующего матча в сетке плей-офф
 };
 
-// Расписание — Узбекистан и часть знаковых матчей. Полные 104 матча тащить не нужно,
-// показываем дни, в которые есть всё, что нам интересно.
+export const WC_TEAMS: WCTeam[] = [
+  // Group A
+  { name: "Мексика", code: "mx", fifa: "MEX", confederation: "CONCACAF", group: "A", pot: 1, qualifiedAs: "Хозяин турнира" },
+  { name: "Южная Корея", code: "kr", fifa: "KOR", confederation: "AFC", group: "A", pot: 2 },
+  { name: "ЮАР", code: "za", fifa: "ZAF", confederation: "CAF", group: "A", pot: 3 },
+  { name: "Чехия", code: "cz", fifa: "CZE", confederation: "UEFA", group: "A", pot: 4, qualifiedAs: "Плей-офф УЕФА, путь D" },
+
+  // Group B
+  { name: "Канада", code: "ca", fifa: "CAN", confederation: "CONCACAF", group: "B", pot: 1, qualifiedAs: "Хозяин турнира" },
+  { name: "Швейцария", code: "ch", fifa: "SUI", confederation: "UEFA", group: "B", pot: 2 },
+  { name: "Катар", code: "qa", fifa: "QAT", confederation: "AFC", group: "B", pot: 3 },
+  { name: "Босния и Герцеговина", code: "ba", fifa: "BIH", confederation: "UEFA", group: "B", pot: 4, qualifiedAs: "Плей-офф УЕФА, путь A" },
+
+  // Group C
+  { name: "Бразилия", code: "br", fifa: "BRA", confederation: "CONMEBOL", group: "C", pot: 1 },
+  { name: "Марокко", code: "ma", fifa: "MAR", confederation: "CAF", group: "C", pot: 2 },
+  { name: "Шотландия", code: "gb-sct", fifa: "SCO", confederation: "UEFA", group: "C", pot: 3 },
+  { name: "Гаити", code: "ht", fifa: "HAI", confederation: "CONCACAF", group: "C", pot: 4 },
+
+  // Group D
+  { name: "США", code: "us", fifa: "USA", confederation: "CONCACAF", group: "D", pot: 1, qualifiedAs: "Хозяин турнира" },
+  { name: "Турция", code: "tr", fifa: "TUR", confederation: "UEFA", group: "D", pot: 2, qualifiedAs: "Плей-офф УЕФА, путь C" },
+  { name: "Парагвай", code: "py", fifa: "PAR", confederation: "CONMEBOL", group: "D", pot: 3 },
+  { name: "Австралия", code: "au", fifa: "AUS", confederation: "AFC", group: "D", pot: 4 },
+
+  // Group E
+  { name: "Германия", code: "de", fifa: "GER", confederation: "UEFA", group: "E", pot: 1 },
+  { name: "Эквадор", code: "ec", fifa: "ECU", confederation: "CONMEBOL", group: "E", pot: 2 },
+  { name: "Кот-д’Ивуар", code: "ci", fifa: "CIV", confederation: "CAF", group: "E", pot: 3 },
+  { name: "Кюрасао", code: "cw", fifa: "CUW", confederation: "CONCACAF", group: "E", pot: 4 },
+
+  // Group F
+  { name: "Нидерланды", code: "nl", fifa: "NED", confederation: "UEFA", group: "F", pot: 1 },
+  { name: "Япония", code: "jp", fifa: "JPN", confederation: "AFC", group: "F", pot: 2 },
+  { name: "Швеция", code: "se", fifa: "SWE", confederation: "UEFA", group: "F", pot: 3, qualifiedAs: "Плей-офф УЕФА, путь B" },
+  { name: "Тунис", code: "tn", fifa: "TUN", confederation: "CAF", group: "F", pot: 4 },
+
+  // Group G
+  { name: "Бельгия", code: "be", fifa: "BEL", confederation: "UEFA", group: "G", pot: 1 },
+  { name: "Египет", code: "eg", fifa: "EGY", confederation: "CAF", group: "G", pot: 2 },
+  { name: "Иран", code: "ir", fifa: "IRN", confederation: "AFC", group: "G", pot: 3 },
+  { name: "Новая Зеландия", code: "nz", fifa: "NZL", confederation: "OFC", group: "G", pot: 4, qualifiedAs: "Межконтинентальный плей-офф" },
+
+  // Group H
+  { name: "Испания", code: "es", fifa: "ESP", confederation: "UEFA", group: "H", pot: 1 },
+  { name: "Уругвай", code: "uy", fifa: "URU", confederation: "CONMEBOL", group: "H", pot: 2 },
+  { name: "Саудовская Аравия", code: "sa", fifa: "KSA", confederation: "AFC", group: "H", pot: 3 },
+  { name: "Кабо-Верде", code: "cv", fifa: "CPV", confederation: "CAF", group: "H", pot: 4 },
+
+  // Group I
+  { name: "Франция", code: "fr", fifa: "FRA", confederation: "UEFA", group: "I", pot: 1 },
+  { name: "Сенегал", code: "sn", fifa: "SEN", confederation: "CAF", group: "I", pot: 2 },
+  { name: "Норвегия", code: "no", fifa: "NOR", confederation: "UEFA", group: "I", pot: 3 },
+  { name: "Ирак", code: "iq", fifa: "IRQ", confederation: "AFC", group: "I", pot: 4, qualifiedAs: "Межконтинентальный плей-офф, путь 2" },
+
+  // Group J
+  { name: "Аргентина", code: "ar", fifa: "ARG", confederation: "CONMEBOL", group: "J", pot: 1 },
+  { name: "Алжир", code: "dz", fifa: "ALG", confederation: "CAF", group: "J", pot: 2 },
+  { name: "Австрия", code: "at", fifa: "AUT", confederation: "UEFA", group: "J", pot: 3 },
+  { name: "Иордания", code: "jo", fifa: "JOR", confederation: "AFC", group: "J", pot: 4 },
+
+  // Group K — Узбекистан
+  { name: "Португалия", code: "pt", fifa: "POR", confederation: "UEFA", group: "K", pot: 1 },
+  { name: "Колумбия", code: "co", fifa: "COL", confederation: "CONMEBOL", group: "K", pot: 2 },
+  { name: "ДР Конго", code: "cd", fifa: "COD", confederation: "CAF", group: "K", pot: 3, qualifiedAs: "Межконтинентальный плей-офф, путь 1" },
+  { name: "Узбекистан", code: "uz", fifa: "UZB", confederation: "AFC", group: "K", pot: 3, fifaRank: 57, isUz: true },
+
+  // Group L
+  { name: "Англия", code: "gb-eng", fifa: "ENG", confederation: "UEFA", group: "L", pot: 1 },
+  { name: "Хорватия", code: "hr", fifa: "CRO", confederation: "UEFA", group: "L", pot: 2 },
+  { name: "Гана", code: "gh", fifa: "GHA", confederation: "CAF", group: "L", pot: 3 },
+  { name: "Панама", code: "pa", fifa: "PAN", confederation: "CONCACAF", group: "L", pot: 4 },
+];
+
+// 104 матча. Группа (matchday 1–3) → 1/16 финала (R32) → 1/8 → 1/4 → 1/2 → матч за 3-е + финал.
 export const WC_MATCHES: WCMatch[] = [
-  // Открытие — Мексика играет первой
-  { id: "m1", date: "2026-06-11T20:00:00-05:00", stage: "group", group: "A", homeFifa: "MEX", awayFifa: "CRO", venue: "Эстадио Ацтека, Мехико" },
-  // США — стартовый матч хозяев
-  { id: "m4", date: "2026-06-12T20:00:00-04:00", stage: "group", group: "D", homeFifa: "USA", awayFifa: "JPN", venue: "СоФай Стэдиум, Лос-Анджелес" },
-  // Канада старт
-  { id: "m6", date: "2026-06-12T19:00:00-04:00", stage: "group", group: "B", homeFifa: "CAN", awayFifa: "SUI", venue: "БМО Филд, Торонто" },
+  // ─── Matchday 1 ───
+  { id: "M01", stage: "group", group: "A", matchday: 1, dateLocal: "2026-06-11T15:00:00-06:00", kickoffTashkent: "12 июня, 02:00", homeRef: "MEX", awayRef: "ZAF", venueRu: "Эстадио Ацтека", cityRu: "Мехико", country: "MX" },
+  { id: "M02", stage: "group", group: "A", matchday: 1, dateLocal: "2026-06-11T20:00:00-06:00", kickoffTashkent: "12 июня, 07:00", homeRef: "KOR", awayRef: "CZE", venueRu: "Эстадио Акрон", cityRu: "Гвадалахара", country: "MX" },
+  { id: "M03", stage: "group", group: "B", matchday: 1, dateLocal: "2026-06-12T15:00:00-04:00", kickoffTashkent: "12 июня, 23:00", homeRef: "CAN", awayRef: "BIH", venueRu: "БМО Филд", cityRu: "Торонто", country: "CA" },
+  { id: "M04", stage: "group", group: "D", matchday: 1, dateLocal: "2026-06-12T18:00:00-07:00", kickoffTashkent: "13 июня, 06:00", homeRef: "USA", awayRef: "PAR", venueRu: "СоФай Стэдиум", cityRu: "Лос-Анджелес", country: "US" },
+  { id: "M05", stage: "group", group: "B", matchday: 1, dateLocal: "2026-06-13T12:00:00-07:00", kickoffTashkent: "14 июня, 00:00", homeRef: "QAT", awayRef: "SUI", venueRu: "Левис Стэдиум", cityRu: "Санта-Клара", country: "US" },
+  { id: "M06", stage: "group", group: "C", matchday: 1, dateLocal: "2026-06-13T18:00:00-04:00", kickoffTashkent: "14 июня, 03:00", homeRef: "BRA", awayRef: "MAR", venueRu: "МетЛайф Стэдиум", cityRu: "Нью-Йорк/Нью-Джерси", country: "US" },
+  { id: "M07", stage: "group", group: "C", matchday: 1, dateLocal: "2026-06-13T21:00:00-04:00", kickoffTashkent: "14 июня, 06:00", homeRef: "HAI", awayRef: "SCO", venueRu: "Жиллет Стэдиум", cityRu: "Бостон", country: "US" },
+  { id: "M08", stage: "group", group: "D", matchday: 1, dateLocal: "2026-06-14T00:00:00-07:00", kickoffTashkent: "14 июня, 12:00", homeRef: "AUS", awayRef: "TUR", venueRu: "БиСи Плейс", cityRu: "Ванкувер", country: "CA" },
+  { id: "M09", stage: "group", group: "E", matchday: 1, dateLocal: "2026-06-14T13:00:00-05:00", kickoffTashkent: "14 июня, 23:00", homeRef: "GER", awayRef: "CUW", venueRu: "НРГ Стэдиум", cityRu: "Хьюстон", country: "US" },
+  { id: "M10", stage: "group", group: "F", matchday: 1, dateLocal: "2026-06-14T16:00:00-05:00", kickoffTashkent: "15 июня, 02:00", homeRef: "NED", awayRef: "JPN", venueRu: "АТ&Т Стэдиум", cityRu: "Даллас", country: "US" },
+  { id: "M11", stage: "group", group: "E", matchday: 1, dateLocal: "2026-06-14T19:00:00-05:00", kickoffTashkent: "15 июня, 05:00", homeRef: "CIV", awayRef: "ECU", venueRu: "Линкольн Файненшл Филд", cityRu: "Филадельфия", country: "US" },
+  { id: "M12", stage: "group", group: "F", matchday: 1, dateLocal: "2026-06-14T22:00:00-06:00", kickoffTashkent: "15 июня, 09:00", homeRef: "SWE", awayRef: "TUN", venueRu: "Эстадио ББВА", cityRu: "Монтеррей", country: "MX" },
+  { id: "M13", stage: "group", group: "H", matchday: 1, dateLocal: "2026-06-15T12:00:00-04:00", kickoffTashkent: "15 июня, 21:00", homeRef: "ESP", awayRef: "CPV", venueRu: "Мерседес-Бенц Стэдиум", cityRu: "Атланта", country: "US" },
+  { id: "M14", stage: "group", group: "G", matchday: 1, dateLocal: "2026-06-15T15:00:00-07:00", kickoffTashkent: "16 июня, 03:00", homeRef: "BEL", awayRef: "EGY", venueRu: "Люмен Филд", cityRu: "Сиэтл", country: "US" },
+  { id: "M15", stage: "group", group: "H", matchday: 1, dateLocal: "2026-06-15T18:00:00-04:00", kickoffTashkent: "16 июня, 03:00", homeRef: "KSA", awayRef: "URU", venueRu: "Хард Рок Стэдиум", cityRu: "Майами", country: "US" },
+  { id: "M16", stage: "group", group: "G", matchday: 1, dateLocal: "2026-06-15T21:00:00-07:00", kickoffTashkent: "16 июня, 09:00", homeRef: "IRN", awayRef: "NZL", venueRu: "СоФай Стэдиум", cityRu: "Лос-Анджелес", country: "US" },
+  { id: "M17", stage: "group", group: "I", matchday: 1, dateLocal: "2026-06-16T15:00:00-04:00", kickoffTashkent: "17 июня, 00:00", homeRef: "FRA", awayRef: "SEN", venueRu: "МетЛайф Стэдиум", cityRu: "Нью-Йорк/Нью-Джерси", country: "US" },
+  { id: "M18", stage: "group", group: "I", matchday: 1, dateLocal: "2026-06-16T18:00:00-04:00", kickoffTashkent: "17 июня, 03:00", homeRef: "IRQ", awayRef: "NOR", venueRu: "Жиллет Стэдиум", cityRu: "Бостон", country: "US" },
+  { id: "M19", stage: "group", group: "J", matchday: 1, dateLocal: "2026-06-16T21:00:00-05:00", kickoffTashkent: "17 июня, 07:00", homeRef: "ARG", awayRef: "ALG", venueRu: "Арроухед Стэдиум", cityRu: "Канзас-Сити", country: "US" },
+  { id: "M20", stage: "group", group: "J", matchday: 1, dateLocal: "2026-06-17T00:00:00-07:00", kickoffTashkent: "17 июня, 12:00", homeRef: "AUT", awayRef: "JOR", venueRu: "Левис Стэдиум", cityRu: "Санта-Клара", country: "US" },
+  { id: "M21", stage: "group", group: "K", matchday: 1, dateLocal: "2026-06-17T13:00:00-05:00", kickoffTashkent: "17 июня, 23:00", homeRef: "POR", awayRef: "COD", venueRu: "НРГ Стэдиум", cityRu: "Хьюстон", country: "US" },
+  { id: "M22", stage: "group", group: "L", matchday: 1, dateLocal: "2026-06-17T16:00:00-05:00", kickoffTashkent: "18 июня, 02:00", homeRef: "ENG", awayRef: "CRO", venueRu: "АТ&Т Стэдиум", cityRu: "Даллас", country: "US" },
+  { id: "M23", stage: "group", group: "L", matchday: 1, dateLocal: "2026-06-17T19:00:00-04:00", kickoffTashkent: "18 июня, 04:00", homeRef: "GHA", awayRef: "PAN", venueRu: "БМО Филд", cityRu: "Торонто", country: "CA" },
+  { id: "M24", stage: "group", group: "K", matchday: 1, dateLocal: "2026-06-17T22:00:00-06:00", kickoffTashkent: "18 июня, 09:00", homeRef: "UZB", awayRef: "COL", venueRu: "Эстадио Ацтека", cityRu: "Мехико", country: "MX" },
 
-  // Узбекистан — все три матча группы H
-  {
-    id: "uz-1",
-    date: "2026-06-14T19:00:00-04:00",
-    stage: "group",
-    group: "H",
-    homeFifa: "BRA",
-    awayFifa: "UZB",
-    venue: "МетЛайф Стэдиум, Нью-Йорк/Нью-Джерси",
-  },
-  {
-    id: "uz-2",
-    date: "2026-06-19T16:00:00-05:00",
-    stage: "group",
-    group: "H",
-    homeFifa: "UZB",
-    awayFifa: "CMR",
-    venue: "Аррохэд Стэдиум, Канзас-Сити",
-  },
-  {
-    id: "uz-3",
-    date: "2026-06-24T18:00:00-05:00",
-    stage: "group",
-    group: "H",
-    homeFifa: "UZB",
-    awayFifa: "MAR",
-    venue: "АТ&Т Стэдиум, Даллас",
-  },
+  // ─── Matchday 2 ───
+  { id: "M25", stage: "group", group: "A", matchday: 2, dateLocal: "2026-06-18T12:00:00-04:00", kickoffTashkent: "18 июня, 21:00", homeRef: "CZE", awayRef: "ZAF", venueRu: "Мерседес-Бенц Стэдиум", cityRu: "Атланта", country: "US" },
+  { id: "M26", stage: "group", group: "B", matchday: 2, dateLocal: "2026-06-18T15:00:00-07:00", kickoffTashkent: "19 июня, 03:00", homeRef: "SUI", awayRef: "BIH", venueRu: "СоФай Стэдиум", cityRu: "Лос-Анджелес", country: "US" },
+  { id: "M27", stage: "group", group: "B", matchday: 2, dateLocal: "2026-06-18T18:00:00-07:00", kickoffTashkent: "19 июня, 06:00", homeRef: "CAN", awayRef: "QAT", venueRu: "БиСи Плейс", cityRu: "Ванкувер", country: "CA" },
+  { id: "M28", stage: "group", group: "A", matchday: 2, dateLocal: "2026-06-18T21:00:00-06:00", kickoffTashkent: "19 июня, 08:00", homeRef: "MEX", awayRef: "KOR", venueRu: "Эстадио Акрон", cityRu: "Гвадалахара", country: "MX" },
+  { id: "M29", stage: "group", group: "D", matchday: 2, dateLocal: "2026-06-19T00:00:00-07:00", kickoffTashkent: "19 июня, 12:00", homeRef: "TUR", awayRef: "PAR", venueRu: "Левис Стэдиум", cityRu: "Санта-Клара", country: "US" },
+  { id: "M30", stage: "group", group: "D", matchday: 2, dateLocal: "2026-06-19T15:00:00-07:00", kickoffTashkent: "20 июня, 03:00", homeRef: "USA", awayRef: "AUS", venueRu: "Люмен Филд", cityRu: "Сиэтл", country: "US" },
+  { id: "M31", stage: "group", group: "C", matchday: 2, dateLocal: "2026-06-19T18:00:00-04:00", kickoffTashkent: "20 июня, 03:00", homeRef: "SCO", awayRef: "MAR", venueRu: "Жиллет Стэдиум", cityRu: "Бостон", country: "US" },
+  { id: "M32", stage: "group", group: "C", matchday: 2, dateLocal: "2026-06-19T20:30:00-04:00", kickoffTashkent: "20 июня, 05:30", homeRef: "BRA", awayRef: "HAI", venueRu: "Линкольн Файненшл Филд", cityRu: "Филадельфия", country: "US" },
+  { id: "M33", stage: "group", group: "F", matchday: 2, dateLocal: "2026-06-20T13:00:00-05:00", kickoffTashkent: "20 июня, 23:00", homeRef: "NED", awayRef: "SWE", venueRu: "НРГ Стэдиум", cityRu: "Хьюстон", country: "US" },
+  { id: "M34", stage: "group", group: "E", matchday: 2, dateLocal: "2026-06-20T16:00:00-04:00", kickoffTashkent: "21 июня, 01:00", homeRef: "GER", awayRef: "CIV", venueRu: "БМО Филд", cityRu: "Торонто", country: "CA" },
+  { id: "M35", stage: "group", group: "E", matchday: 2, dateLocal: "2026-06-20T20:00:00-05:00", kickoffTashkent: "21 июня, 06:00", homeRef: "ECU", awayRef: "CUW", venueRu: "Арроухед Стэдиум", cityRu: "Канзас-Сити", country: "US" },
+  { id: "M36", stage: "group", group: "F", matchday: 2, dateLocal: "2026-06-21T00:00:00-06:00", kickoffTashkent: "21 июня, 11:00", homeRef: "TUN", awayRef: "JPN", venueRu: "Эстадио ББВА", cityRu: "Монтеррей", country: "MX" },
+  { id: "M37", stage: "group", group: "H", matchday: 2, dateLocal: "2026-06-21T12:00:00-04:00", kickoffTashkent: "21 июня, 21:00", homeRef: "ESP", awayRef: "KSA", venueRu: "Мерседес-Бенц Стэдиум", cityRu: "Атланта", country: "US" },
+  { id: "M38", stage: "group", group: "G", matchday: 2, dateLocal: "2026-06-21T15:00:00-07:00", kickoffTashkent: "22 июня, 03:00", homeRef: "BEL", awayRef: "IRN", venueRu: "СоФай Стэдиум", cityRu: "Лос-Анджелес", country: "US" },
+  { id: "M39", stage: "group", group: "H", matchday: 2, dateLocal: "2026-06-21T18:00:00-04:00", kickoffTashkent: "22 июня, 03:00", homeRef: "URU", awayRef: "CPV", venueRu: "Хард Рок Стэдиум", cityRu: "Майами", country: "US" },
+  { id: "M40", stage: "group", group: "G", matchday: 2, dateLocal: "2026-06-21T21:00:00-07:00", kickoffTashkent: "22 июня, 09:00", homeRef: "NZL", awayRef: "EGY", venueRu: "БиСи Плейс", cityRu: "Ванкувер", country: "CA" },
+  { id: "M41", stage: "group", group: "J", matchday: 2, dateLocal: "2026-06-22T13:00:00-05:00", kickoffTashkent: "22 июня, 23:00", homeRef: "ARG", awayRef: "AUT", venueRu: "АТ&Т Стэдиум", cityRu: "Даллас", country: "US" },
+  { id: "M42", stage: "group", group: "I", matchday: 2, dateLocal: "2026-06-22T17:00:00-04:00", kickoffTashkent: "23 июня, 02:00", homeRef: "FRA", awayRef: "IRQ", venueRu: "Линкольн Файненшл Филд", cityRu: "Филадельфия", country: "US" },
+  { id: "M43", stage: "group", group: "I", matchday: 2, dateLocal: "2026-06-22T20:00:00-04:00", kickoffTashkent: "23 июня, 05:00", homeRef: "NOR", awayRef: "SEN", venueRu: "МетЛайф Стэдиум", cityRu: "Нью-Йорк/Нью-Джерси", country: "US" },
+  { id: "M44", stage: "group", group: "J", matchday: 2, dateLocal: "2026-06-22T23:00:00-07:00", kickoffTashkent: "23 июня, 11:00", homeRef: "JOR", awayRef: "ALG", venueRu: "Левис Стэдиум", cityRu: "Санта-Клара", country: "US" },
+  { id: "M45", stage: "group", group: "K", matchday: 2, dateLocal: "2026-06-23T13:00:00-05:00", kickoffTashkent: "23 июня, 23:00", homeRef: "POR", awayRef: "UZB", venueRu: "НРГ Стэдиум", cityRu: "Хьюстон", country: "US" },
+  { id: "M46", stage: "group", group: "L", matchday: 2, dateLocal: "2026-06-23T16:00:00-04:00", kickoffTashkent: "24 июня, 01:00", homeRef: "ENG", awayRef: "GHA", venueRu: "Жиллет Стэдиум", cityRu: "Бостон", country: "US" },
+  { id: "M47", stage: "group", group: "L", matchday: 2, dateLocal: "2026-06-23T19:00:00-04:00", kickoffTashkent: "24 июня, 04:00", homeRef: "PAN", awayRef: "CRO", venueRu: "БМО Филд", cityRu: "Торонто", country: "CA" },
+  { id: "M48", stage: "group", group: "K", matchday: 2, dateLocal: "2026-06-23T22:00:00-06:00", kickoffTashkent: "24 июня, 09:00", homeRef: "COL", awayRef: "COD", venueRu: "Эстадио Акрон", cityRu: "Гвадалахара", country: "MX" },
 
-  // Бразилия — Марокко и Камерун — Марокко в группе H
-  {
-    id: "m-h-2",
-    date: "2026-06-14T22:00:00-05:00",
-    stage: "group",
-    group: "H",
-    homeFifa: "MAR",
-    awayFifa: "CMR",
-    venue: "Левис Стэдиум, Сан-Франциско",
-  },
-  {
-    id: "m-h-5",
-    date: "2026-06-19T20:00:00-04:00",
-    stage: "group",
-    group: "H",
-    homeFifa: "BRA",
-    awayFifa: "MAR",
-    venue: "Линкольн Файнэншл Филд, Филадельфия",
-  },
-  {
-    id: "m-h-6",
-    date: "2026-06-24T18:00:00-04:00",
-    stage: "group",
-    group: "H",
-    homeFifa: "BRA",
-    awayFifa: "CMR",
-    venue: "Хард-Рок Стэдиум, Майами",
-  },
+  // ─── Matchday 3 ───
+  { id: "M49", stage: "group", group: "B", matchday: 3, dateLocal: "2026-06-24T15:00:00-07:00", kickoffTashkent: "25 июня, 03:00", homeRef: "SUI", awayRef: "CAN", venueRu: "БиСи Плейс", cityRu: "Ванкувер", country: "CA" },
+  { id: "M50", stage: "group", group: "B", matchday: 3, dateLocal: "2026-06-24T15:00:00-07:00", kickoffTashkent: "25 июня, 03:00", homeRef: "BIH", awayRef: "QAT", venueRu: "Люмен Филд", cityRu: "Сиэтл", country: "US" },
+  { id: "M51", stage: "group", group: "C", matchday: 3, dateLocal: "2026-06-24T18:00:00-04:00", kickoffTashkent: "25 июня, 03:00", homeRef: "SCO", awayRef: "BRA", venueRu: "Хард Рок Стэдиум", cityRu: "Майами", country: "US" },
+  { id: "M52", stage: "group", group: "C", matchday: 3, dateLocal: "2026-06-24T18:00:00-04:00", kickoffTashkent: "25 июня, 03:00", homeRef: "MAR", awayRef: "HAI", venueRu: "Мерседес-Бенц Стэдиум", cityRu: "Атланта", country: "US" },
+  { id: "M53", stage: "group", group: "A", matchday: 3, dateLocal: "2026-06-24T21:00:00-06:00", kickoffTashkent: "25 июня, 08:00", homeRef: "CZE", awayRef: "MEX", venueRu: "Эстадио Ацтека", cityRu: "Мехико", country: "MX" },
+  { id: "M54", stage: "group", group: "A", matchday: 3, dateLocal: "2026-06-24T21:00:00-06:00", kickoffTashkent: "25 июня, 08:00", homeRef: "ZAF", awayRef: "KOR", venueRu: "Эстадио ББВА", cityRu: "Монтеррей", country: "MX" },
+  { id: "M55", stage: "group", group: "E", matchday: 3, dateLocal: "2026-06-25T16:00:00-04:00", kickoffTashkent: "26 июня, 01:00", homeRef: "CUW", awayRef: "CIV", venueRu: "Линкольн Файненшл Филд", cityRu: "Филадельфия", country: "US" },
+  { id: "M56", stage: "group", group: "E", matchday: 3, dateLocal: "2026-06-25T16:00:00-04:00", kickoffTashkent: "26 июня, 01:00", homeRef: "ECU", awayRef: "GER", venueRu: "МетЛайф Стэдиум", cityRu: "Нью-Йорк/Нью-Джерси", country: "US" },
+  { id: "M57", stage: "group", group: "F", matchday: 3, dateLocal: "2026-06-25T19:00:00-05:00", kickoffTashkent: "26 июня, 05:00", homeRef: "JPN", awayRef: "SWE", venueRu: "АТ&Т Стэдиум", cityRu: "Даллас", country: "US" },
+  { id: "M58", stage: "group", group: "F", matchday: 3, dateLocal: "2026-06-25T19:00:00-05:00", kickoffTashkent: "26 июня, 05:00", homeRef: "TUN", awayRef: "NED", venueRu: "Арроухед Стэдиум", cityRu: "Канзас-Сити", country: "US" },
+  { id: "M59", stage: "group", group: "D", matchday: 3, dateLocal: "2026-06-25T22:00:00-07:00", kickoffTashkent: "26 июня, 10:00", homeRef: "TUR", awayRef: "USA", venueRu: "СоФай Стэдиум", cityRu: "Лос-Анджелес", country: "US" },
+  { id: "M60", stage: "group", group: "D", matchday: 3, dateLocal: "2026-06-25T22:00:00-07:00", kickoffTashkent: "26 июня, 10:00", homeRef: "PAR", awayRef: "AUS", venueRu: "Левис Стэдиум", cityRu: "Санта-Клара", country: "US" },
+  { id: "M61", stage: "group", group: "I", matchday: 3, dateLocal: "2026-06-26T15:00:00-04:00", kickoffTashkent: "27 июня, 00:00", homeRef: "NOR", awayRef: "FRA", venueRu: "Жиллет Стэдиум", cityRu: "Бостон", country: "US" },
+  { id: "M62", stage: "group", group: "I", matchday: 3, dateLocal: "2026-06-26T15:00:00-04:00", kickoffTashkent: "27 июня, 00:00", homeRef: "SEN", awayRef: "IRQ", venueRu: "БМО Филд", cityRu: "Торонто", country: "CA" },
+  { id: "M63", stage: "group", group: "H", matchday: 3, dateLocal: "2026-06-26T20:00:00-05:00", kickoffTashkent: "27 июня, 06:00", homeRef: "CPV", awayRef: "KSA", venueRu: "НРГ Стэдиум", cityRu: "Хьюстон", country: "US" },
+  { id: "M64", stage: "group", group: "H", matchday: 3, dateLocal: "2026-06-26T20:00:00-06:00", kickoffTashkent: "27 июня, 07:00", homeRef: "URU", awayRef: "ESP", venueRu: "Эстадио Акрон", cityRu: "Гвадалахара", country: "MX" },
+  { id: "M65", stage: "group", group: "G", matchday: 3, dateLocal: "2026-06-26T23:00:00-07:00", kickoffTashkent: "27 июня, 11:00", homeRef: "EGY", awayRef: "IRN", venueRu: "Люмен Филд", cityRu: "Сиэтл", country: "US" },
+  { id: "M66", stage: "group", group: "G", matchday: 3, dateLocal: "2026-06-26T23:00:00-07:00", kickoffTashkent: "27 июня, 11:00", homeRef: "NZL", awayRef: "BEL", venueRu: "БиСи Плейс", cityRu: "Ванкувер", country: "CA" },
+  { id: "M67", stage: "group", group: "L", matchday: 3, dateLocal: "2026-06-27T17:00:00-04:00", kickoffTashkent: "28 июня, 02:00", homeRef: "PAN", awayRef: "ENG", venueRu: "МетЛайф Стэдиум", cityRu: "Нью-Йорк/Нью-Джерси", country: "US" },
+  { id: "M68", stage: "group", group: "L", matchday: 3, dateLocal: "2026-06-27T17:00:00-04:00", kickoffTashkent: "28 июня, 02:00", homeRef: "CRO", awayRef: "GHA", venueRu: "Линкольн Файненшл Филд", cityRu: "Филадельфия", country: "US" },
+  { id: "M69", stage: "group", group: "K", matchday: 3, dateLocal: "2026-06-27T19:30:00-04:00", kickoffTashkent: "28 июня, 04:30", homeRef: "COL", awayRef: "POR", venueRu: "Хард Рок Стэдиум", cityRu: "Майами", country: "US" },
+  { id: "M70", stage: "group", group: "K", matchday: 3, dateLocal: "2026-06-27T19:30:00-04:00", kickoffTashkent: "28 июня, 04:30", homeRef: "COD", awayRef: "UZB", venueRu: "Мерседес-Бенц Стэдиум", cityRu: "Атланта", country: "US" },
+  { id: "M71", stage: "group", group: "J", matchday: 3, dateLocal: "2026-06-27T22:00:00-05:00", kickoffTashkent: "28 июня, 08:00", homeRef: "ALG", awayRef: "AUT", venueRu: "Арроухед Стэдиум", cityRu: "Канзас-Сити", country: "US" },
+  { id: "M72", stage: "group", group: "J", matchday: 3, dateLocal: "2026-06-27T22:00:00-05:00", kickoffTashkent: "28 июня, 08:00", homeRef: "JOR", awayRef: "ARG", venueRu: "АТ&Т Стэдиум", cityRu: "Даллас", country: "US" },
 
-  // Несколько знаковых матчей других групп
-  { id: "m-c", date: "2026-06-13T21:00:00-04:00", stage: "group", group: "C", homeFifa: "ARG", awayFifa: "KOR", venue: "Жиллет Стэдиум, Бостон" },
-  { id: "m-e", date: "2026-06-13T15:00:00-05:00", stage: "group", group: "E", homeFifa: "FRA", awayFifa: "IRN", venue: "Эстадио Монтеррей, Монтеррей" },
-  { id: "m-g", date: "2026-06-14T15:00:00-05:00", stage: "group", group: "G", homeFifa: "ENG", awayFifa: "COL", venue: "Артур Эш / NRG Стэдиум, Хьюстон" },
-  { id: "m-l", date: "2026-06-15T18:00:00-04:00", stage: "group", group: "L", homeFifa: "GER", awayFifa: "ITA", venue: "Мерседес-Бенц Стэдиум, Атланта" },
+  // ─── 1/16 финала (Round of 32) ───
+  { id: "M73", stage: "r32", dateLocal: "2026-06-28T15:00:00-07:00", kickoffTashkent: "29 июня, 03:00", homeRef: "2A", awayRef: "2B", venueRu: "СоФай Стэдиум", cityRu: "Лос-Анджелес", country: "US", feedsInto: "M90" },
+  { id: "M74", stage: "r32", dateLocal: "2026-06-29T16:30:00-04:00", kickoffTashkent: "30 июня, 01:30", homeRef: "1E", awayRef: "BEST3-ABCDF", venueRu: "Жиллет Стэдиум", cityRu: "Бостон", country: "US", feedsInto: "M89" },
+  { id: "M75", stage: "r32", dateLocal: "2026-06-29T21:00:00-05:00", kickoffTashkent: "30 июня, 07:00", homeRef: "1F", awayRef: "2C", venueRu: "Эстадио ББВА", cityRu: "Монтеррей", country: "MX", feedsInto: "M90" },
+  { id: "M76", stage: "r32", dateLocal: "2026-06-29T13:00:00-05:00", kickoffTashkent: "29 июня, 23:00", homeRef: "1C", awayRef: "2F", venueRu: "НРГ Стэдиум", cityRu: "Хьюстон", country: "US", feedsInto: "M91" },
+  { id: "M77", stage: "r32", dateLocal: "2026-06-30T17:00:00-04:00", kickoffTashkent: "1 июля, 02:00", homeRef: "1I", awayRef: "BEST3-CDFGH", venueRu: "МетЛайф Стэдиум", cityRu: "Нью-Йорк/Нью-Джерси", country: "US", feedsInto: "M89" },
+  { id: "M78", stage: "r32", dateLocal: "2026-06-30T13:00:00-05:00", kickoffTashkent: "30 июня, 23:00", homeRef: "2E", awayRef: "2I", venueRu: "АТ&Т Стэдиум", cityRu: "Даллас", country: "US", feedsInto: "M91" },
+  { id: "M79", stage: "r32", dateLocal: "2026-06-30T21:00:00-06:00", kickoffTashkent: "1 июля, 08:00", homeRef: "1A", awayRef: "BEST3-CEFHI", venueRu: "Эстадио Ацтека", cityRu: "Мехико", country: "MX", feedsInto: "M92" },
+  { id: "M80", stage: "r32", dateLocal: "2026-07-01T12:00:00-04:00", kickoffTashkent: "1 июля, 21:00", homeRef: "1L", awayRef: "BEST3-EHIJK", venueRu: "Мерседес-Бенц Стэдиум", cityRu: "Атланта", country: "US", feedsInto: "M92" },
+  { id: "M81", stage: "r32", dateLocal: "2026-07-01T20:00:00-07:00", kickoffTashkent: "2 июля, 08:00", homeRef: "1D", awayRef: "BEST3-BEFIJ", venueRu: "Левис Стэдиум", cityRu: "Санта-Клара", country: "US", feedsInto: "M94" },
+  { id: "M82", stage: "r32", dateLocal: "2026-07-01T16:00:00-07:00", kickoffTashkent: "2 июля, 04:00", homeRef: "1G", awayRef: "BEST3-AEHIJ", venueRu: "Люмен Филд", cityRu: "Сиэтл", country: "US", feedsInto: "M94" },
+  { id: "M83", stage: "r32", dateLocal: "2026-07-02T19:00:00-04:00", kickoffTashkent: "3 июля, 04:00", homeRef: "2K", awayRef: "2L", venueRu: "БМО Филд", cityRu: "Торонто", country: "CA", feedsInto: "M93" },
+  { id: "M84", stage: "r32", dateLocal: "2026-07-02T15:00:00-07:00", kickoffTashkent: "3 июля, 03:00", homeRef: "1H", awayRef: "2J", venueRu: "СоФай Стэдиум", cityRu: "Лос-Анджелес", country: "US", feedsInto: "M93" },
+  { id: "M85", stage: "r32", dateLocal: "2026-07-02T23:00:00-07:00", kickoffTashkent: "3 июля, 11:00", homeRef: "1B", awayRef: "BEST3-EFGIJ", venueRu: "БиСи Плейс", cityRu: "Ванкувер", country: "CA", feedsInto: "M96" },
+  { id: "M86", stage: "r32", dateLocal: "2026-07-03T18:00:00-04:00", kickoffTashkent: "4 июля, 03:00", homeRef: "1J", awayRef: "2H", venueRu: "Хард Рок Стэдиум", cityRu: "Майами", country: "US", feedsInto: "M95" },
+  { id: "M87", stage: "r32", dateLocal: "2026-07-03T21:30:00-05:00", kickoffTashkent: "4 июля, 07:30", homeRef: "1K", awayRef: "BEST3-DEIJL", venueRu: "Арроухед Стэдиум", cityRu: "Канзас-Сити", country: "US", feedsInto: "M96" },
+  { id: "M88", stage: "r32", dateLocal: "2026-07-03T14:00:00-05:00", kickoffTashkent: "3 июля, 23:00", homeRef: "2D", awayRef: "2G", venueRu: "АТ&Т Стэдиум", cityRu: "Даллас", country: "US", feedsInto: "M95" },
+
+  // ─── 1/8 финала (Round of 16) ───
+  { id: "M89", stage: "r16", dateLocal: "2026-07-04T17:00:00-04:00", kickoffTashkent: "5 июля, 02:00", homeRef: "W M74", awayRef: "W M77", venueRu: "Линкольн Файненшл Филд", cityRu: "Филадельфия", country: "US", feedsInto: "M97" },
+  { id: "M90", stage: "r16", dateLocal: "2026-07-04T13:00:00-05:00", kickoffTashkent: "4 июля, 23:00", homeRef: "W M73", awayRef: "W M75", venueRu: "НРГ Стэдиум", cityRu: "Хьюстон", country: "US", feedsInto: "M97" },
+  { id: "M91", stage: "r16", dateLocal: "2026-07-05T16:00:00-04:00", kickoffTashkent: "6 июля, 01:00", homeRef: "W M76", awayRef: "W M78", venueRu: "МетЛайф Стэдиум", cityRu: "Нью-Йорк/Нью-Джерси", country: "US", feedsInto: "M99" },
+  { id: "M92", stage: "r16", dateLocal: "2026-07-05T20:00:00-06:00", kickoffTashkent: "6 июля, 07:00", homeRef: "W M79", awayRef: "W M80", venueRu: "Эстадио Ацтека", cityRu: "Мехико", country: "MX", feedsInto: "M99" },
+  { id: "M93", stage: "r16", dateLocal: "2026-07-06T15:00:00-05:00", kickoffTashkent: "7 июля, 01:00", homeRef: "W M83", awayRef: "W M84", venueRu: "АТ&Т Стэдиум", cityRu: "Даллас", country: "US", feedsInto: "M98" },
+  { id: "M94", stage: "r16", dateLocal: "2026-07-06T20:00:00-07:00", kickoffTashkent: "7 июля, 08:00", homeRef: "W M81", awayRef: "W M82", venueRu: "Люмен Филд", cityRu: "Сиэтл", country: "US", feedsInto: "M98" },
+  { id: "M95", stage: "r16", dateLocal: "2026-07-07T12:00:00-04:00", kickoffTashkent: "7 июля, 21:00", homeRef: "W M86", awayRef: "W M88", venueRu: "Мерседес-Бенц Стэдиум", cityRu: "Атланта", country: "US", feedsInto: "M100" },
+  { id: "M96", stage: "r16", dateLocal: "2026-07-07T16:00:00-07:00", kickoffTashkent: "8 июля, 04:00", homeRef: "W M85", awayRef: "W M87", venueRu: "БиСи Плейс", cityRu: "Ванкувер", country: "CA", feedsInto: "M100" },
+
+  // ─── 1/4 финала ───
+  { id: "M97", stage: "qf", dateLocal: "2026-07-09T16:00:00-04:00", kickoffTashkent: "10 июля, 01:00", homeRef: "W M89", awayRef: "W M90", venueRu: "Жиллет Стэдиум", cityRu: "Бостон", country: "US", feedsInto: "M101" },
+  { id: "M98", stage: "qf", dateLocal: "2026-07-10T15:00:00-07:00", kickoffTashkent: "11 июля, 03:00", homeRef: "W M93", awayRef: "W M94", venueRu: "СоФай Стэдиум", cityRu: "Лос-Анджелес", country: "US", feedsInto: "M101" },
+  { id: "M99", stage: "qf", dateLocal: "2026-07-11T17:00:00-04:00", kickoffTashkent: "12 июля, 02:00", homeRef: "W M91", awayRef: "W M92", venueRu: "Хард Рок Стэдиум", cityRu: "Майами", country: "US", feedsInto: "M102" },
+  { id: "M100", stage: "qf", dateLocal: "2026-07-11T21:00:00-05:00", kickoffTashkent: "12 июля, 07:00", homeRef: "W M95", awayRef: "W M96", venueRu: "Арроухед Стэдиум", cityRu: "Канзас-Сити", country: "US", feedsInto: "M102" },
+
+  // ─── 1/2 финала ───
+  { id: "M101", stage: "sf", dateLocal: "2026-07-14T15:00:00-05:00", kickoffTashkent: "15 июля, 01:00", homeRef: "W M97", awayRef: "W M98", venueRu: "АТ&Т Стэдиум", cityRu: "Даллас", country: "US", feedsInto: "M104" },
+  { id: "M102", stage: "sf", dateLocal: "2026-07-15T15:00:00-04:00", kickoffTashkent: "16 июля, 00:00", homeRef: "W M99", awayRef: "W M100", venueRu: "Мерседес-Бенц Стэдиум", cityRu: "Атланта", country: "US", feedsInto: "M104" },
+
+  // ─── Матч за 3-е место + Финал ───
+  { id: "M103", stage: "third", dateLocal: "2026-07-18T17:00:00-04:00", kickoffTashkent: "19 июля, 02:00", homeRef: "L M101", awayRef: "L M102", venueRu: "Хард Рок Стэдиум", cityRu: "Майами", country: "US" },
+  { id: "M104", stage: "final", dateLocal: "2026-07-19T15:00:00-04:00", kickoffTashkent: "20 июля, 00:00", homeRef: "W M101", awayRef: "W M102", venueRu: "МетЛайф Стэдиум", cityRu: "Нью-Йорк/Нью-Джерси", country: "US" },
 ];
 
-// Описание плей-офф сетки для формата 48 команд: 16 команд из первых мест,
-// 16 — со вторых, 8 лучших третьих мест. Все 32 в раунде на вылет.
-// Пары R32 — стандартная схема FIFA (упрощённо).
-export type BracketSlot = string; // "1A", "2B", "3A/B/D/E", "W1", "W2"...
+// ─── Узбекистан-фокус ────────────────────────────────────────────────────
 
-export type BracketMatch = {
-  id: string; // R32-1, R16-1, QF-1, ...
-  round: "r32" | "r16" | "qf" | "sf" | "third" | "final";
-  home: BracketSlot;
-  away: BracketSlot;
-  feedsInto?: string; // id следующего матча
-  date?: string; // ISO
+export const WC_HEAD_COACH = {
+  nameRu: "Фабио Каннаваро",
+  nameEn: "Fabio Cannavaro",
+  appointed: "2025-10-06",
+  note: "Чемпион мира 2006 в составе сборной Италии, обладатель «Золотого мяча».",
 };
 
-export const WC_BRACKET: BracketMatch[] = [
-  // R32 — пары распределены по сетке FIFA для 48-команд формата
-  { id: "R32-1", round: "r32", home: "1A", away: "2B", feedsInto: "R16-1", date: "2026-06-28" },
-  { id: "R32-2", round: "r32", home: "1C", away: "BEST3-1", feedsInto: "R16-2", date: "2026-06-28" },
-  { id: "R32-3", round: "r32", home: "1E", away: "2F", feedsInto: "R16-3", date: "2026-06-29" },
-  { id: "R32-4", round: "r32", home: "1G", away: "BEST3-2", feedsInto: "R16-4", date: "2026-06-29" },
-  { id: "R32-5", round: "r32", home: "1B", away: "BEST3-3", feedsInto: "R16-5", date: "2026-06-30" },
-  { id: "R32-6", round: "r32", home: "1D", away: "2A", feedsInto: "R16-6", date: "2026-06-30" },
-  { id: "R32-7", round: "r32", home: "1F", away: "BEST3-4", feedsInto: "R16-7", date: "2026-07-01" },
-  { id: "R32-8", round: "r32", home: "1H", away: "2G", feedsInto: "R16-8", date: "2026-07-01" },
-  { id: "R32-9", round: "r32", home: "1I", away: "2J", feedsInto: "R16-9", date: "2026-07-02" },
-  { id: "R32-10", round: "r32", home: "1K", away: "BEST3-5", feedsInto: "R16-10", date: "2026-07-02" },
-  { id: "R32-11", round: "r32", home: "1J", away: "2I", feedsInto: "R16-11", date: "2026-07-03" },
-  { id: "R32-12", round: "r32", home: "1L", away: "BEST3-6", feedsInto: "R16-12", date: "2026-07-03" },
-  { id: "R32-13", round: "r32", home: "2C", away: "2E", feedsInto: "R16-13", date: "2026-06-28" },
-  { id: "R32-14", round: "r32", home: "2D", away: "BEST3-7", feedsInto: "R16-14", date: "2026-06-29" },
-  { id: "R32-15", round: "r32", home: "2H", away: "2K", feedsInto: "R16-15", date: "2026-07-01" },
-  { id: "R32-16", round: "r32", home: "2L", away: "BEST3-8", feedsInto: "R16-16", date: "2026-07-02" },
+export const WC_QUALIFICATION = {
+  whenIso: "2025-06-05",
+  where: "Абу-Даби, ОАЭ",
+  match: "ОАЭ — Узбекистан, 0:0 — путёвка по итогам группы A отборочного турнира АФК",
+  primarySourceUrl:
+    "https://www.the-afc.com/en/national/world_cup_qual/2026/news/uzbekistan-jordan-qualify-world-cup-first-time",
+  note: "Узбекистан впервые в истории квалифицировался на чемпионат мира.",
+};
 
-  // R16
-  { id: "R16-1", round: "r16", home: "W R32-1", away: "W R32-2", feedsInto: "QF-1", date: "2026-07-04" },
-  { id: "R16-2", round: "r16", home: "W R32-3", away: "W R32-4", feedsInto: "QF-1", date: "2026-07-04" },
-  { id: "R16-3", round: "r16", home: "W R32-5", away: "W R32-6", feedsInto: "QF-2", date: "2026-07-05" },
-  { id: "R16-4", round: "r16", home: "W R32-7", away: "W R32-8", feedsInto: "QF-2", date: "2026-07-05" },
-  { id: "R16-5", round: "r16", home: "W R32-9", away: "W R32-10", feedsInto: "QF-3", date: "2026-07-06" },
-  { id: "R16-6", round: "r16", home: "W R32-11", away: "W R32-12", feedsInto: "QF-3", date: "2026-07-06" },
-  { id: "R16-7", round: "r16", home: "W R32-13", away: "W R32-14", feedsInto: "QF-4", date: "2026-07-07" },
-  { id: "R16-8", round: "r16", home: "W R32-15", away: "W R32-16", feedsInto: "QF-4", date: "2026-07-07" },
+export const WC_BASE_CAMP = {
+  cityRu: "Мариетта (штат Джорджия)",
+  facility: "Тренировочный центр Atlanta United",
+  note: "Матч с ДР Конго 27 июня — тут же в Атланте, на «Мерседес-Бенц Стэдиум».",
+};
 
-  // QF
-  { id: "QF-1", round: "qf", home: "W R16-1", away: "W R16-2", feedsInto: "SF-1", date: "2026-07-09" },
-  { id: "QF-2", round: "qf", home: "W R16-3", away: "W R16-4", feedsInto: "SF-1", date: "2026-07-10" },
-  { id: "QF-3", round: "qf", home: "W R16-5", away: "W R16-6", feedsInto: "SF-2", date: "2026-07-11" },
-  { id: "QF-4", round: "qf", home: "W R16-7", away: "W R16-8", feedsInto: "SF-2", date: "2026-07-11" },
+export const WC_GROUP_K_PREVIEW = `Узбекистан попал в группу K вместе с Португалией, Колумбией и ДР Конго. Португалия и Колумбия — фавориты, однако новый формат на 48 команд (с выходом восьми лучших третьих мест) оставляет реальный шанс продолжить турнир. Матч с Конго 27 июня в Атланте — наиболее вероятный шанс на очки или победу.`;
 
-  // SF
-  { id: "SF-1", round: "sf", home: "W QF-1", away: "W QF-2", feedsInto: "FINAL", date: "2026-07-14" },
-  { id: "SF-2", round: "sf", home: "W QF-3", away: "W QF-4", feedsInto: "FINAL", date: "2026-07-15" },
+export type WCMatchPreview = {
+  matchId: string;
+  text: string;
+};
 
-  // Матч за 3-е место и финал
-  { id: "THIRD", round: "third", home: "L SF-1", away: "L SF-2", date: "2026-07-18" },
-  { id: "FINAL", round: "final", home: "W SF-1", away: "W SF-2", date: "2026-07-19" },
+export const WC_UZ_MATCH_PREVIEWS: WCMatchPreview[] = [
+  {
+    matchId: "M24",
+    text: "Дебютный матч на ЧМ. У Колумбии (13-е место в рейтинге ФИФА) — Хамес Родригес и Луис Диас. Каннаваро сделает ставку на компактную оборону и быстрые контратаки. Высота Мехико (2240 м над уровнем моря) — отдельный фактор: тренерский штаб специально не приехал заранее для акклиматизации.",
+  },
+  {
+    matchId: "M45",
+    text: "Португалия — один из главных претендентов на трофей, в составе Роналду, Бруно Фернандеш и Рафаэль Леан. Для Узбекистана это самый сложный матч группы, расчёт — максимально плотная оборонительная организация.",
+  },
+  {
+    matchId: "M70",
+    text: "Ключевой матч за плей-офф. ДР Конго пробилась через межконтинентальный плей-офф, в составе Йоан Висса и Аксель Туанзебе из АПЛ. База сборной всё время турнира — в Мариетте, поэтому игра в Атланте по факту почти домашняя.",
+  },
 ];
+
+export type WCSquadPlayer = {
+  nameRu: string;
+  position: "вратарь" | "защитник" | "полузащитник" | "нападающий";
+  clubRu: string;
+  clubCountry: string; // ISO-3166-1 alpha-3 страны клуба
+};
+
+export const WC_SQUAD: WCSquadPlayer[] = [
+  // Вратари
+  { nameRu: "Уткир Юсупов", position: "вратарь", clubRu: "Навбахор", clubCountry: "UZB" },
+  { nameRu: "Абдувохид Нематов", position: "вратарь", clubRu: "Насаф", clubCountry: "UZB" },
+  { nameRu: "Ботирали Эргашев", position: "вратарь", clubRu: "Нефтчи", clubCountry: "UZB" },
+
+  // Защитники
+  { nameRu: "Абдукодир Хусанов", position: "защитник", clubRu: "Манчестер Сити", clubCountry: "ENG" },
+  { nameRu: "Рустамжон Ашурматов", position: "защитник", clubRu: "Эстегляль", clubCountry: "IRN" },
+  { nameRu: "Умрбек Эшмуродов", position: "защитник", clubRu: "Насаф", clubCountry: "UZB" },
+  { nameRu: "Авазбек Улмасалиев", position: "защитник", clubRu: "АГМК", clubCountry: "UZB" },
+  { nameRu: "Жахонгир Урозов", position: "защитник", clubRu: "Динамо Самарканд", clubCountry: "UZB" },
+  { nameRu: "Хожиакбар Алижонов", position: "защитник", clubRu: "Пахтакор", clubCountry: "UZB" },
+  { nameRu: "Шерзод Насруллаев", position: "защитник", clubRu: "Насаф", clubCountry: "UZB" },
+  { nameRu: "Абдулла Абдуллаев", position: "защитник", clubRu: "Дибба", clubCountry: "UAE" },
+  { nameRu: "Фаррух Сайфиев", position: "защитник", clubRu: "Нефтчи", clubCountry: "UZB" },
+  { nameRu: "Бехруз Каримов", position: "защитник", clubRu: "Сурхон", clubCountry: "UZB" },
+
+  // Полузащитники
+  { nameRu: "Аббосбек Файзуллаев", position: "полузащитник", clubRu: "Истанбул Башакшехир", clubCountry: "TUR" },
+  { nameRu: "Отабек Шукуров", position: "полузащитник", clubRu: "Банияс", clubCountry: "UAE" },
+  { nameRu: "Жалолиддин Машарипов", position: "полузащитник", clubRu: "Эстегляль", clubCountry: "IRN" },
+  { nameRu: "Одилжон Хамробеков", position: "полузащитник", clubRu: "Трактор", clubCountry: "IRN" },
+  { nameRu: "Остон Урунов", position: "полузащитник", clubRu: "Персеполис", clubCountry: "IRN" },
+  { nameRu: "Акмал Мозговой", position: "полузащитник", clubRu: "Пахтакор", clubCountry: "UZB" },
+  { nameRu: "Жамшид Искандеров", position: "полузащитник", clubRu: "Нефтчи", clubCountry: "UZB" },
+  { nameRu: "Достонбек Хамдамов", position: "полузащитник", clubRu: "Пахтакор", clubCountry: "UZB" },
+  { nameRu: "Азизжон Ганиев", position: "полузащитник", clubRu: "Аль-Батаа", clubCountry: "UAE" },
+  { nameRu: "Шерзод Эсанов", position: "полузащитник", clubRu: "Бухара", clubCountry: "UZB" },
+
+  // Нападающие
+  { nameRu: "Элдор Шомуродов", position: "нападающий", clubRu: "Истанбул Башакшехир (аренда из «Ромы»)", clubCountry: "TUR" },
+  { nameRu: "Игорь Сергеев", position: "нападающий", clubRu: "Персеполис", clubCountry: "IRN" },
+  { nameRu: "Азизбек Амонов", position: "нападающий", clubRu: "Бухара", clubCountry: "UZB" },
+];
+
+export const WC_SQUAD_ANNOUNCED_ISO = "2026-06-02";
+export const WC_SQUAD_SOURCE_URL =
+  "https://www.beinsports.com/en-us/soccer/fifa-world-cup-2026/articles/fabio-cannavaro-s-official-squad-for-uzbekistan-at-the-2026-fifa-world-cup-2026-06-02";
+
+// ─── Регламент ───────────────────────────────────────────────────────────
 
 export const WC_TIEBREAKERS = [
   "Очки во всех матчах группы",
-  "Разница забитых и пропущенных мячей во всех матчах группы",
-  "Забитые мячи во всех матчах группы",
+  "Разница мячей во всех матчах группы",
+  "Количество забитых мячей во всех матчах группы",
   "Очки в личных встречах между командами с равными показателями",
   "Разница мячей в личных встречах между командами с равными показателями",
-  "Забитые мячи в личных встречах между командами с равными показателями",
-  "Очки fair-play (по жёлтым/красным карточкам)",
-  "Жребий, проводимый ФИФА",
+  "Количество забитых мячей в личных встречах",
+  "Оценка fair-play (по жёлтым и красным карточкам)",
+  "Положение в рейтинге ФИФА на 10 июня 2026 года",
+];
+
+export const WC_TIEBREAKERS_BEST_THIRDS = [
+  "Очки во всех матчах группы",
+  "Разница мячей во всех матчах группы",
+  "Количество забитых мячей",
+  "Оценка fair-play",
+  "Положение в рейтинге ФИФА на 10 июня 2026 года",
 ];
 
 export const WC_BEST_THIRDS_RULES = [
   "Из 12 групп в плей-офф проходят 8 лучших третьих мест.",
-  "Сравнение по тем же тай-брейкерам: очки → разница мячей → забитые → fair-play → жребий.",
-  "Конкретный слот плей-офф (на чью половину сетки попадёт «третий») зависит от того, из каких групп вышли восемь лучших третьих мест — для этого у ФИФА есть таблица соответствий.",
+  "Сравнение между группами — по критериям выше, строго по порядку.",
+  "Конкретный слот плей-офф (на чью половину сетки попадает «третий») зависит от того, из каких именно групп вышли восемь лучших третьих мест. У ФИФА для этого опубликована отдельная таблица соответствий — она будет применена сразу после окончания группового этапа.",
 ];
+
+export const WC_FAIR_PLAY = {
+  yellow: -1,
+  indirectRed: -3, // вторая жёлтая
+  directRed: -4,
+  yellowThenRed: -5,
+};
+
+export const WC_FORMAT_SUMMARY = [
+  "48 команд, 12 групп по 4. Каждая команда играет в группе 3 матча.",
+  "В плей-офф проходят по две лучшие команды из каждой группы плюс восемь лучших третьих мест по сумме всех групп.",
+  "Раунд 1/16 финала (Round of 32) — новый для ЧМ: до этого минимальной стадией плей-офф была 1/8.",
+  "Всего 104 матча за 39 дней (11 июня — 19 июля 2026) в 16 городах США, Канады и Мексики.",
+  "Финал — 19 июля на стадионе «МетЛайф» в Нью-Йорке/Нью-Джерси, вместимость 82 500.",
+];
+
+// ─── Helpers ──────────────────────────────────────────────────────────────
 
 export function getGroupTeams(g: WCGroupId): WCTeam[] {
   return WC_TEAMS.filter((t) => t.group === g);
@@ -266,10 +386,50 @@ export function getTeamByFifa(code: string): WCTeam | undefined {
 }
 
 export function getUzMatches(): WCMatch[] {
-  return WC_MATCHES.filter((m) => m.homeFifa === "UZB" || m.awayFifa === "UZB");
+  return WC_MATCHES.filter((m) => m.homeRef === "UZB" || m.awayRef === "UZB");
+}
+
+export function getMatchPreview(matchId: string): string | undefined {
+  return WC_UZ_MATCH_PREVIEWS.find((p) => p.matchId === matchId)?.text;
 }
 
 export function flagUrl(code: string, size: 40 | 80 | 160 = 80): string {
-  if (code === "_tbd") return "";
+  if (!code || code === "_tbd") return "";
   return `https://flagcdn.com/w${size}/${code}.png`;
+}
+
+// Расшифровка реф-слота в плей-офф. Возвращает короткий лейбл и при возможности команду.
+export function readableRef(ref: string): {
+  short: string;
+  long: string;
+  team?: WCTeam;
+} {
+  const team = getTeamByFifa(ref);
+  if (team) return { short: team.fifa, long: team.name, team };
+
+  const groupSlot = ref.match(/^([12])([A-L])$/);
+  if (groupSlot) {
+    const place = groupSlot[1] === "1" ? "Победитель" : "Второе место";
+    return {
+      short: ref,
+      long: `${place} группы ${groupSlot[2]}`,
+    };
+  }
+
+  const best3 = ref.match(/^BEST3-([A-L]+)$/);
+  if (best3) {
+    const groups = best3[1].split("").join("/");
+    return {
+      short: `3-е ${best3[1]}`,
+      long: `Лучшее 3-е место — одна из групп ${groups}`,
+    };
+  }
+
+  const win = ref.match(/^W (M\d+)$/);
+  if (win) return { short: `Поб. ${win[1]}`, long: `Победитель матча ${win[1]}` };
+
+  const lose = ref.match(/^L (M\d+)$/);
+  if (lose) return { short: `Проигр. ${lose[1]}`, long: `Проигравший матча ${lose[1]}` };
+
+  return { short: ref, long: ref };
 }

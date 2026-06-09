@@ -2,47 +2,39 @@ import Link from "next/link";
 import { Flag } from "@/components/wc2026/Flag";
 import { articles, feedDate } from "@/lib/data";
 import {
+  WC_BASE_CAMP,
+  WC_GROUP_K_PREVIEW,
+  WC_HEAD_COACH,
   WC_MATCHES,
+  WC_QUALIFICATION,
   getGroupTeams,
+  getMatchPreview,
   getTeamByFifa,
   getUzMatches,
+  readableRef,
+  type WCMatch,
 } from "@/lib/wc2026";
 
-function formatMatchDate(iso: string) {
-  return new Date(iso).toLocaleString("ru-RU", {
-    day: "numeric",
-    month: "long",
-    timeZone: "Asia/Tashkent",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-}
-
 function MatchTile({
-  homeFifa,
-  awayFifa,
-  date,
-  venue,
+  m,
   highlight,
+  withPreview,
 }: {
-  homeFifa: string;
-  awayFifa: string;
-  date: string;
-  venue: string;
+  m: WCMatch;
   highlight?: boolean;
+  withPreview?: boolean;
 }) {
-  const home = getTeamByFifa(homeFifa);
-  const away = getTeamByFifa(awayFifa);
+  const home = readableRef(m.homeRef);
+  const away = readableRef(m.awayRef);
+  const preview = withPreview ? getMatchPreview(m.id) : undefined;
   return (
     <div
       className={`rounded-xl border p-4 ${
-        highlight
-          ? "border-brand/40 bg-brand/5"
-          : "border-white/10 bg-white/5"
+        highlight ? "border-brand/40 bg-brand/5" : "border-white/10 bg-white/5"
       }`}
     >
       <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-neutral-400">
-        <span>{formatMatchDate(date)} (Tashkent)</span>
+        <span>{m.kickoffTashkent} (Tashkent)</span>
         {highlight && (
           <span className="rounded-full bg-brand px-2 py-0.5 text-[10px] font-bold text-white">
             Узбекистан
@@ -51,25 +43,32 @@ function MatchTile({
       </div>
       <div className="mt-3 flex items-center justify-between gap-3">
         <div className="flex min-w-0 flex-1 items-center gap-2">
-          <Flag code={home?.code ?? "_tbd"} size={28} />
-          <span className="truncate text-sm font-semibold">{home?.name ?? homeFifa}</span>
+          <Flag code={home.team?.code ?? "_tbd"} size={28} />
+          <span className="truncate text-sm font-semibold">{home.long}</span>
         </div>
         <span className="text-xs font-bold text-neutral-500">VS</span>
         <div className="flex min-w-0 flex-1 items-center justify-end gap-2">
-          <span className="truncate text-right text-sm font-semibold">{away?.name ?? awayFifa}</span>
-          <Flag code={away?.code ?? "_tbd"} size={28} />
+          <span className="truncate text-right text-sm font-semibold">{away.long}</span>
+          <Flag code={away.team?.code ?? "_tbd"} size={28} />
         </div>
       </div>
-      <div className="mt-2 truncate text-[11px] text-neutral-500">{venue}</div>
+      <div className="mt-2 truncate text-[11px] text-neutral-500">
+        {m.venueRu} · {m.cityRu}
+      </div>
+      {preview && (
+        <p className="mt-3 border-t border-white/10 pt-3 text-sm leading-relaxed text-neutral-300">
+          {preview}
+        </p>
+      )}
     </div>
   );
 }
 
 export default function WCOverviewPage() {
   const uzMatches = getUzMatches();
-  const groupH = getGroupTeams("H");
+  const groupK = getGroupTeams("K");
   const upcoming = [...WC_MATCHES]
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+    .filter((m) => m.stage === "group")
     .slice(0, 6);
   const wcNews = articles
     .filter((a) => a.tags.includes("ЧМ-2026"))
@@ -77,11 +76,63 @@ export default function WCOverviewPage() {
 
   return (
     <div className="space-y-10">
-      {/* Уз-фокус */}
+      {/* Уз-фокус: тренер + путёвка + база */}
+      <section className="grid gap-4 md:grid-cols-3">
+        <div className="rounded-xl border border-brand/40 bg-brand/5 p-5">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-brand">
+            Главный тренер
+          </div>
+          <div className="mt-2 text-xl font-bold">{WC_HEAD_COACH.nameRu}</div>
+          <div className="mt-1 text-xs text-neutral-400">
+            Назначен{" "}
+            {new Date(WC_HEAD_COACH.appointed).toLocaleDateString("ru-RU", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
+          </div>
+          <p className="mt-3 text-sm text-neutral-300">{WC_HEAD_COACH.note}</p>
+        </div>
+
+        <div className="rounded-xl border border-white/10 bg-white/5 p-5">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-neutral-400">
+            Путёвка
+          </div>
+          <div className="mt-2 text-xl font-bold">Впервые в истории</div>
+          <div className="mt-1 text-xs text-neutral-400">
+            {new Date(WC_QUALIFICATION.whenIso).toLocaleDateString("ru-RU", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}{" "}
+            · {WC_QUALIFICATION.where}
+          </div>
+          <p className="mt-3 text-sm text-neutral-300">{WC_QUALIFICATION.match}</p>
+          <a
+            href={WC_QUALIFICATION.primarySourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-block text-xs font-medium text-brand hover:underline"
+          >
+            Сообщение AFC →
+          </a>
+        </div>
+
+        <div className="rounded-xl border border-white/10 bg-white/5 p-5">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-neutral-400">
+            База на турнире
+          </div>
+          <div className="mt-2 text-xl font-bold">{WC_BASE_CAMP.cityRu}</div>
+          <div className="mt-1 text-xs text-neutral-400">{WC_BASE_CAMP.facility}</div>
+          <p className="mt-3 text-sm text-neutral-300">{WC_BASE_CAMP.note}</p>
+        </div>
+      </section>
+
+      {/* Матчи Узбекистана с превью */}
       <section>
         <div className="flex items-baseline justify-between">
           <h2 className="text-lg font-bold uppercase tracking-wider text-white">
-            Сборная Узбекистана
+            Сборная Узбекистана · группа K
           </h2>
           <Link
             href="/wc2026/schedule"
@@ -90,26 +141,21 @@ export default function WCOverviewPage() {
             Полное расписание →
           </Link>
         </div>
-
-        <div className="mt-4 grid gap-4 md:grid-cols-3">
+        <p className="mt-3 text-sm leading-relaxed text-neutral-300">
+          {WC_GROUP_K_PREVIEW}
+        </p>
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
           {uzMatches.map((m) => (
-            <MatchTile
-              key={m.id}
-              homeFifa={m.homeFifa}
-              awayFifa={m.awayFifa}
-              date={m.date}
-              venue={m.venue}
-              highlight
-            />
+            <MatchTile key={m.id} m={m} highlight withPreview />
           ))}
         </div>
       </section>
 
-      {/* Группа H — мини-таблица */}
+      {/* Таблица группы K */}
       <section>
         <div className="flex items-baseline justify-between">
           <h2 className="text-lg font-bold uppercase tracking-wider text-white">
-            Группа H
+            Группа K
           </h2>
           <Link
             href="/wc2026/groups"
@@ -133,7 +179,7 @@ export default function WCOverviewPage() {
               </tr>
             </thead>
             <tbody>
-              {groupH.map((t, i) => (
+              {groupK.map((t, i) => (
                 <tr
                   key={t.fifa}
                   className={`border-t border-white/5 ${
@@ -163,11 +209,11 @@ export default function WCOverviewPage() {
         </div>
       </section>
 
-      {/* Ближайшие матчи */}
+      {/* Стартовые матчи турнира */}
       <section>
         <div className="flex items-baseline justify-between">
           <h2 className="text-lg font-bold uppercase tracking-wider text-white">
-            Ближайшие матчи
+            Старт турнира
           </h2>
           <Link
             href="/wc2026/schedule"
@@ -180,11 +226,8 @@ export default function WCOverviewPage() {
           {upcoming.map((m) => (
             <MatchTile
               key={m.id}
-              homeFifa={m.homeFifa}
-              awayFifa={m.awayFifa}
-              date={m.date}
-              venue={m.venue}
-              highlight={m.homeFifa === "UZB" || m.awayFifa === "UZB"}
+              m={m}
+              highlight={m.homeRef === "UZB" || m.awayRef === "UZB"}
             />
           ))}
         </div>

@@ -1,5 +1,5 @@
 import { Flag } from "@/components/wc2026/Flag";
-import { WC_MATCHES, getTeamByFifa, type WCMatch } from "@/lib/wc2026";
+import { WC_MATCHES, readableRef, type WCMatch } from "@/lib/wc2026";
 
 export const metadata = {
   title: "Расписание — ЧМ-2026 — LEAP",
@@ -14,7 +14,7 @@ function dayKey(iso: string) {
   });
 }
 
-function timeKey(iso: string) {
+function tashkentTime(iso: string) {
   return new Date(iso).toLocaleTimeString("ru-RU", {
     hour: "2-digit",
     minute: "2-digit",
@@ -22,43 +22,57 @@ function timeKey(iso: string) {
   });
 }
 
+const STAGE_LABELS: Record<string, string> = {
+  group: "Группа",
+  r32: "1/16",
+  r16: "1/8",
+  qf: "1/4",
+  sf: "1/2",
+  third: "За 3-е",
+  final: "Финал",
+};
+
 function MatchRow({ m }: { m: WCMatch }) {
-  const home = getTeamByFifa(m.homeFifa);
-  const away = getTeamByFifa(m.awayFifa);
-  const isUz = m.homeFifa === "UZB" || m.awayFifa === "UZB";
+  const home = readableRef(m.homeRef);
+  const away = readableRef(m.awayRef);
+  const isUz = m.homeRef === "UZB" || m.awayRef === "UZB";
   return (
     <div
       className={`flex items-center gap-3 rounded-xl border px-4 py-3 ${
-        isUz
-          ? "border-brand/40 bg-brand/10"
-          : "border-white/10 bg-white/5"
+        isUz ? "border-brand/40 bg-brand/10" : "border-white/10 bg-white/5"
       }`}
     >
       <div className="w-16 shrink-0 text-sm font-bold tabular-nums text-neutral-200">
-        {timeKey(m.date)}
+        {tashkentTime(m.dateLocal)}
       </div>
-      {m.group && (
-        <span className="hidden shrink-0 rounded-md bg-white/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-neutral-300 sm:inline-block">
-          Гр. {m.group}
-        </span>
-      )}
-      <div className="flex flex-1 items-center justify-center gap-3 truncate">
+      <span className="hidden shrink-0 rounded-md bg-white/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-neutral-300 sm:inline-block">
+        {m.stage === "group" && m.group
+          ? `Гр. ${m.group}`
+          : STAGE_LABELS[m.stage] ?? m.stage}
+      </span>
+      <div className="flex flex-1 items-center justify-center gap-3">
         <div className="flex min-w-0 flex-1 items-center justify-end gap-2">
-          <span className="truncate text-right text-sm font-semibold text-white">
-            {home?.name ?? m.homeFifa}
+          <span
+            className="truncate text-right text-sm font-semibold text-white"
+            title={home.long}
+          >
+            {home.team?.name ?? home.long}
           </span>
-          <Flag code={home?.code ?? "_tbd"} size={22} />
+          <Flag code={home.team?.code ?? "_tbd"} size={22} />
         </div>
         <span className="text-xs font-bold text-neutral-500">—</span>
         <div className="flex min-w-0 flex-1 items-center gap-2">
-          <Flag code={away?.code ?? "_tbd"} size={22} />
-          <span className="truncate text-sm font-semibold text-white">
-            {away?.name ?? m.awayFifa}
+          <Flag code={away.team?.code ?? "_tbd"} size={22} />
+          <span
+            className="truncate text-sm font-semibold text-white"
+            title={away.long}
+          >
+            {away.team?.name ?? away.long}
           </span>
         </div>
       </div>
-      <div className="hidden w-48 shrink-0 truncate text-right text-[11px] text-neutral-500 lg:block">
-        {m.venue}
+      <div className="hidden w-56 shrink-0 truncate text-right text-[11px] text-neutral-500 lg:block">
+        {m.venueRu} · {m.cityRu}
       </div>
     </div>
   );
@@ -66,12 +80,12 @@ function MatchRow({ m }: { m: WCMatch }) {
 
 export default function WCSchedulePage() {
   const sorted = [...WC_MATCHES].sort(
-    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+    (a, b) => new Date(a.dateLocal).getTime() - new Date(b.dateLocal).getTime(),
   );
 
   const byDay = new Map<string, WCMatch[]>();
   for (const m of sorted) {
-    const key = dayKey(m.date);
+    const key = dayKey(m.dateLocal);
     const list = byDay.get(key) ?? [];
     list.push(m);
     byDay.set(key, list);
@@ -80,9 +94,9 @@ export default function WCSchedulePage() {
   return (
     <div className="space-y-8">
       <p className="max-w-2xl text-sm text-neutral-400">
-        Время указано по Ташкенту. Жёлтым выделены матчи сборной Узбекистана.
-        В расписании — все матчи группы H и часть знаковых игр других групп;
-        полная сетка пополняется ближе к старту турнира.
+        Все 104 матча турнира. Время — по Ташкенту. Матчи сборной Узбекистана
+        выделены. С 28 июня начинается плей-офф: слоты команд (1A, 2B, 3-е
+        ABCDF…) заменяются на реальные сборные по итогам группового этапа.
       </p>
 
       {[...byDay.entries()].map(([day, matches]) => (

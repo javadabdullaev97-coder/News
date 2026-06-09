@@ -14,7 +14,7 @@ export default function WCGroupsPage() {
       <p className="max-w-2xl text-sm text-neutral-400">
         Все 12 групп турнира. Из каждой в плей-офф выходят первые два места +
         восемь лучших третьих мест по сумме всех групп. Команды узбекской группы
-        H подсвечены.
+        K подсвечены.
       </p>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -24,7 +24,7 @@ export default function WCGroupsPage() {
             <div
               key={g}
               className={`overflow-hidden rounded-xl border ${
-                g === "H"
+                g === "K"
                   ? "border-brand/40 bg-brand/5"
                   : "border-white/10 bg-white/5"
               }`}
@@ -33,7 +33,7 @@ export default function WCGroupsPage() {
                 <div className="flex items-center gap-2">
                   <span
                     className={`grid h-7 w-7 place-items-center rounded-md text-xs font-bold ${
-                      g === "H" ? "bg-brand text-white" : "bg-white/10 text-white"
+                      g === "K" ? "bg-brand text-white" : "bg-white/10 text-white"
                     }`}
                   >
                     {g}
@@ -42,7 +42,7 @@ export default function WCGroupsPage() {
                     Группа
                   </span>
                 </div>
-                {g === "H" && (
+                {g === "K" && (
                   <span className="rounded-full bg-brand/20 px-2 py-0.5 text-[10px] font-bold uppercase text-brand">
                     Узбекистан
                   </span>
