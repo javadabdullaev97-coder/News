@@ -46,7 +46,7 @@ export function ArticleCard({
               {article.lead}
             </p>
             <div className="mt-3 text-xs text-neutral-300">
-              {timeAgo(article.publishedAt)} · {article.readingTime} мин чтения
+              {timeAgo(article.publishedAt)}
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@ export function ArticleCard({
           {article.lead}
         </p>
         <div className="mt-2 text-xs text-neutral-500">
-          {timeAgo(article.publishedAt)} · {article.readingTime} мин
+          {timeAgo(article.publishedAt)}
         </div>
       </div>
     </Link>

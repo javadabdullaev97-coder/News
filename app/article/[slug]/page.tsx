@@ -171,11 +171,6 @@ export default async function ArticlePage({
                 <span aria-hidden className="text-neutral-400">🕐</span>
                 {timeAgo(article.publishedAt)}
               </time>
-              <span aria-hidden className="text-neutral-300 dark:text-neutral-700">·</span>
-              <span className="inline-flex items-center gap-1.5">
-                <span aria-hidden className="text-neutral-400">📖</span>
-                {article.readingTime} мин чтения
-              </span>
               <div className="ml-auto flex items-center gap-2">
                 <ShareButtons title={article.title} />
                 <BookmarkButton slug={article.slug} variant="labelled" />
