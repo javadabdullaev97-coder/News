@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Flag } from "@/components/wc2026/Flag";
 import { readableRef, timeTashkent, type WCMatch } from "@/lib/wc2026";
@@ -111,9 +112,10 @@ function MatchRow({ item }: { item: LiveMatchItem }) {
       : "—:—";
 
   return (
-    <div
-      className={`flex items-center gap-2 rounded-md border px-2 py-1.5 text-xs ${
-        isUz ? "border-brand/40 bg-brand/5" : "border-white/10 bg-white/5"
+    <Link
+      href={`/wc2026/match/${m.id}`}
+      className={`flex items-center gap-2 rounded-md border px-2 py-1.5 text-xs transition-colors hover:border-white/25 hover:bg-white/10 ${
+        isUz ? "border-brand/40 bg-brand/5 hover:border-brand/60" : "border-white/10 bg-white/5"
       }`}
     >
       <div className="w-10 shrink-0">
@@ -148,7 +150,7 @@ function MatchRow({ item }: { item: LiveMatchItem }) {
           {away.team?.name ?? away.short}
         </span>
       </div>
-    </div>
+    </Link>
   );
 }
 

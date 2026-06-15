@@ -6,6 +6,7 @@ import {
   LiveMatchCenter,
   type LiveMatchItem,
 } from "@/components/wc2026/LiveMatchCenter";
+import { ScorersBlock } from "@/components/wc2026/ScorersBlock";
 
 function pickMatchCenter(now: number): LiveMatchItem[] {
   const day = 24 * 60 * 60 * 1000;
@@ -87,6 +88,9 @@ export default function WCHomePage() {
           />
         </section>
       )}
+
+      {/* Бомбардиры */}
+      <ScorersBlock />
 
       {/* Лента новостей */}
       {wcNews.length > 0 && (

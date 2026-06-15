@@ -23,9 +23,14 @@ if (NOW < TOURNAMENT_START || NOW > TOURNAMENT_END) {
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const SCORES_FILE = path.join(ROOT, "lib", "wc2026-scores.json");
+const SCORERS_FILE = path.join(ROOT, "lib", "wc2026-scorers.json");
+const DETAILS_FILE = path.join(ROOT, "lib", "wc2026-match-details.json");
 const MATCHES_FILE = path.join(ROOT, "lib", "wc2026.ts");
 
 const existingScores = JSON.parse(fs.readFileSync(SCORES_FILE, "utf8"));
+const existingDetails = JSON.parse(fs.readFileSync(DETAILS_FILE, "utf8"));
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // FD-кодов, которые отличаются от наших FIFA-кодов (или просто запасные варианты).
 // Если в логах увидим непривязанные матчи — дописываем сюда.
@@ -85,6 +90,7 @@ const STATUS_MAP = {
 const newScores = { ...existingScores };
 let changed = 0;
 const unmatched = [];
+const fdIdByOurId = {}; // M01 → 12345 (FD match id) — нужно для запроса деталей
 
 function sameUtc(a, b) {
   if (!a || !b) return false;
@@ -110,6 +116,8 @@ for (const fd of apiMatches) {
     unmatched.push(`${fdHome} vs ${fdAway} @ ${fd.utcDate}`);
     continue;
   }
+
+  fdIdByOurId[mine.id] = fd.id;
 
   const ourStatus = STATUS_MAP[fd.status];
   const prev = existingScores[mine.id] ?? {};
@@ -154,13 +162,131 @@ if (unmatched.length > 0) {
   for (const u of unmatched) console.warn(`  · ${u}`);
 }
 
-if (changed === 0) {
-  console.log("Изменений нет.");
-  process.exit(0);
+if (changed > 0) {
+  const ordered = Object.fromEntries(
+    Object.entries(newScores).sort(([a], [b]) => a.localeCompare(b)),
+  );
+  fs.writeFileSync(SCORES_FILE, JSON.stringify(ordered, null, 2) + "\n");
+  console.log(`Записано в ${SCORES_FILE}, обновлено ${changed} матчей`);
+} else {
+  console.log("Счёты — изменений нет.");
 }
 
-const ordered = Object.fromEntries(
-  Object.entries(newScores).sort(([a], [b]) => a.localeCompare(b)),
-);
-fs.writeFileSync(SCORES_FILE, JSON.stringify(ordered, null, 2) + "\n");
-console.log(`Записано в ${SCORES_FILE}, обновлено ${changed} матчей`);
+// ─── Бомбардиры турнира ────────────────────────────────────────────────
+// Меняется только когда забит гол, поэтому достаточно тащить раз за прогон.
+try {
+  const scorersRes = await fetch(
+    "https://api.football-data.org/v4/competitions/WC/scorers?limit=20",
+    { headers: { "X-Auth-Token": TOKEN } },
+  );
+  if (scorersRes.ok) {
+    const scorersData = await scorersRes.json();
+    const scorersPayload = {
+      updatedAt: new Date().toISOString(),
+      scorers: (scorersData.scorers ?? []).map((s) => ({
+        playerName: s.player?.name ?? null,
+        playerNationality: s.player?.nationality ?? null,
+        teamName: s.team?.name ?? null,
+        teamTla: s.team?.tla ?? null,
+        goals: s.goals ?? 0,
+        assists: s.assists ?? 0,
+        penalties: s.penalties ?? 0,
+        playedMatches: s.playedMatches ?? 0,
+      })),
+    };
+    fs.writeFileSync(
+      SCORERS_FILE,
+      JSON.stringify(scorersPayload, null, 2) + "\n",
+    );
+    console.log(`Бомбардиров: ${scorersPayload.scorers.length}`);
+  } else {
+    console.warn(`scorers: ${scorersRes.status} ${scorersRes.statusText}`);
+  }
+} catch (err) {
+  console.warn(`scorers: ошибка ${err?.message ?? err}`);
+}
+
+// ─── Детали завершённых матчей ─────────────────────────────────────────
+// Завершённые не меняются — тянем один раз навсегда. Ограничиваем
+// количеством за прогон, чтобы не упереться в 10 req/min.
+const MAX_DETAILS_PER_RUN = 5;
+const newDetails = { ...existingDetails };
+let detailsAdded = 0;
+const finishedToFetch = [];
+
+for (const [ourId, fdId] of Object.entries(fdIdByOurId)) {
+  if (existingDetails[ourId]) continue;
+  const scoreEntry = newScores[ourId];
+  if (scoreEntry?.status !== "finished") continue;
+  finishedToFetch.push({ ourId, fdId });
+}
+
+for (const { ourId, fdId } of finishedToFetch.slice(0, MAX_DETAILS_PER_RUN)) {
+  // 7-секундный gap между запросами держит нас в бюджете (8.5 req/min).
+  if (detailsAdded > 0) await sleep(7000);
+  try {
+    const detRes = await fetch(
+      `https://api.football-data.org/v4/matches/${fdId}`,
+      { headers: { "X-Auth-Token": TOKEN } },
+    );
+    if (!detRes.ok) {
+      console.warn(`details ${ourId}: ${detRes.status} ${detRes.statusText}`);
+      continue;
+    }
+    const det = await detRes.json();
+    newDetails[ourId] = {
+      fdId,
+      fetchedAt: new Date().toISOString(),
+      goals: (det.goals ?? []).map((g) => ({
+        minute: g.minute ?? null,
+        injuryTime: g.injuryTime ?? null,
+        type: g.type ?? null,
+        team: g.team?.tla ?? null,
+        scorer: g.scorer?.name ?? null,
+        assist: g.assist?.name ?? null,
+        score: g.score ?? null,
+      })),
+      bookings: (det.bookings ?? []).map((b) => ({
+        minute: b.minute ?? null,
+        team: b.team?.tla ?? null,
+        player: b.player?.name ?? null,
+        card: b.card ?? null,
+      })),
+      substitutions: (det.substitutions ?? []).map((s) => ({
+        minute: s.minute ?? null,
+        team: s.team?.tla ?? null,
+        playerIn: s.playerIn?.name ?? null,
+        playerOut: s.playerOut?.name ?? null,
+      })),
+      referees: (det.referees ?? []).map((r) => ({
+        name: r.name ?? null,
+        role: r.role ?? null,
+        nationality: r.nationality ?? null,
+      })),
+    };
+    detailsAdded++;
+    console.log(
+      `details ${ourId}: ${newDetails[ourId].goals.length} голов, ${newDetails[ourId].bookings.length} карточек`,
+    );
+  } catch (err) {
+    console.warn(`details ${ourId}: ошибка ${err?.message ?? err}`);
+  }
+}
+
+if (detailsAdded > 0) {
+  const orderedDetails = Object.fromEntries(
+    Object.entries(newDetails).sort(([a], [b]) => a.localeCompare(b)),
+  );
+  fs.writeFileSync(
+    DETAILS_FILE,
+    JSON.stringify(orderedDetails, null, 2) + "\n",
+  );
+  console.log(`Записано ${detailsAdded} новых деталей в ${DETAILS_FILE}`);
+  if (finishedToFetch.length > MAX_DETAILS_PER_RUN) {
+    console.log(
+      `Осталось ${finishedToFetch.length - MAX_DETAILS_PER_RUN} деталей — догоним в следующих прогонах.`,
+    );
+  }
+} else {
+  console.log("Детали — новых завершённых матчей нет.");
+}

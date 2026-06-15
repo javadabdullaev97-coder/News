@@ -6,8 +6,11 @@
 //
 // Счета матчей хранятся отдельно в lib/wc2026-scores.json — этот файл
 // обновляется GitHub Action раз в 15 минут из football-data.org API.
+// Туда же ходит за scorers и деталями завершённых матчей.
 
 import LIVE_SCORES_RAW from "./wc2026-scores.json";
+import SCORERS_RAW from "./wc2026-scorers.json";
+import MATCH_DETAILS_RAW from "./wc2026-match-details.json";
 
 type LiveScoreEntry = {
   home?: number;
@@ -16,6 +19,71 @@ type LiveScoreEntry = {
   utcDate?: string; // абсолютный UTC-момент от football-data — пересиливает dateLocal
 };
 const LIVE_SCORES = LIVE_SCORES_RAW as Record<string, LiveScoreEntry>;
+
+export type WCScorer = {
+  playerName: string | null;
+  playerNationality: string | null;
+  teamName: string | null;
+  teamTla: string | null;
+  goals: number;
+  assists: number;
+  penalties: number;
+  playedMatches: number;
+};
+
+export type WCScorersPayload = {
+  updatedAt: string | null;
+  scorers: WCScorer[];
+};
+
+export const WC_SCORERS = SCORERS_RAW as WCScorersPayload;
+
+export type WCMatchGoal = {
+  minute: number | null;
+  injuryTime: number | null;
+  type: string | null;
+  team: string | null;
+  scorer: string | null;
+  assist: string | null;
+  score: { home: number; away: number } | null;
+};
+
+export type WCMatchBooking = {
+  minute: number | null;
+  injuryTime?: number | null;
+  team: string | null;
+  player: string | null;
+  card: string | null; // YELLOW | RED | YELLOW_RED
+};
+
+export type WCMatchSub = {
+  minute: number | null;
+  injuryTime?: number | null;
+  team: string | null;
+  playerIn: string | null;
+  playerOut: string | null;
+};
+
+export type WCMatchReferee = {
+  name: string | null;
+  role: string | null;
+  nationality: string | null;
+};
+
+export type WCMatchDetails = {
+  fdId: number;
+  fetchedAt: string;
+  goals: WCMatchGoal[];
+  bookings: WCMatchBooking[];
+  substitutions: WCMatchSub[];
+  referees: WCMatchReferee[];
+};
+
+const MATCH_DETAILS = MATCH_DETAILS_RAW as Record<string, WCMatchDetails>;
+
+export function getMatchDetails(matchId: string): WCMatchDetails | undefined {
+  return MATCH_DETAILS[matchId];
+}
 
 export type WCConfederation = "UEFA" | "AFC" | "CAF" | "CONMEBOL" | "CONCACAF" | "OFC";
 
