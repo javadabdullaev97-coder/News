@@ -2,48 +2,15 @@ import { Flag } from "@/components/wc2026/Flag";
 import {
   WC_GROUP_IDS,
   WC_TIEBREAKERS_BEST_THIRDS,
-  getGroupTeams,
+  buildGroupStandings,
+  compareStandings,
+  type Standing,
   type WCGroupId,
-  type WCTeam,
 } from "@/lib/wc2026";
 
 export const metadata = {
   title: "Группы — ЧМ-2026 — LEAP",
 };
-
-// Тип строки турнирной таблицы. После старта турнира числа считаются из
-// результатов матчей. Сейчас все обнулены — placeholder.
-type Standing = {
-  team: WCTeam;
-  p: number;
-  w: number;
-  d: number;
-  l: number;
-  gf: number;
-  ga: number;
-  pts: number;
-  fairPlay: number;
-};
-
-function emptyStanding(team: WCTeam): Standing {
-  return { team, p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0, fairPlay: 0 };
-}
-
-// Применяет критерии ФИФА: Pts → GD → GF → FairPlay → рейтинг ФИФА.
-// Используется и для строк групп, и для таблицы лучших третьих мест.
-function compareStandings(a: Standing, b: Standing): number {
-  if (b.pts !== a.pts) return b.pts - a.pts;
-  const gdA = a.gf - a.ga;
-  const gdB = b.gf - b.ga;
-  if (gdB !== gdA) return gdB - gdA;
-  if (b.gf !== a.gf) return b.gf - a.gf;
-  if (b.fairPlay !== a.fairPlay) return b.fairPlay - a.fairPlay;
-  return (a.team.fifaRank ?? 999) - (b.team.fifaRank ?? 999);
-}
-
-function buildGroupStandings(g: WCGroupId): Standing[] {
-  return getGroupTeams(g).map(emptyStanding).sort(compareStandings);
-}
 
 function GroupCard({ g }: { g: WCGroupId }) {
   const standings = buildGroupStandings(g);

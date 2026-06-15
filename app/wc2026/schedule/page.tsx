@@ -1,5 +1,10 @@
 import { Flag } from "@/components/wc2026/Flag";
-import { WC_MATCHES, readableRef, type WCMatch } from "@/lib/wc2026";
+import {
+  WC_MATCHES,
+  getMatchStatus,
+  readableRef,
+  type WCMatch,
+} from "@/lib/wc2026";
 
 export const metadata = {
   title: "Расписание — ЧМ-2026 — LEAP",
@@ -36,14 +41,47 @@ function MatchRow({ m }: { m: WCMatch }) {
   const home = readableRef(m.homeRef);
   const away = readableRef(m.awayRef);
   const isUz = m.homeRef === "UZB" || m.awayRef === "UZB";
+  const status = getMatchStatus(m).status;
+  const score = m.score;
+  const middleText =
+    score && (status === "finished" || status === "live")
+      ? `${score.home} : ${score.away}`
+      : "—";
+  const middleClass =
+    status === "live"
+      ? "text-red-300"
+      : status === "finished"
+        ? "text-white"
+        : "text-neutral-500";
+
   return (
     <div
       className={`flex items-center gap-3 rounded-xl border px-4 py-3 ${
         isUz ? "border-brand/40 bg-brand/10" : "border-white/10 bg-white/5"
       }`}
     >
-      <div className="w-16 shrink-0 text-sm font-bold tabular-nums text-neutral-200">
-        {tashkentTime(m.dateLocal)}
+      <div className="w-16 shrink-0">
+        <div
+          className={`text-sm font-bold tabular-nums ${
+            status === "finished" ? "text-neutral-500" : "text-neutral-200"
+          }`}
+        >
+          {tashkentTime(m.dateLocal)}
+        </div>
+        {status === "live" && (
+          <div className="mt-0.5 inline-flex items-center gap-1 text-[10px] font-bold text-red-400">
+            <span className="relative inline-flex h-1.5 w-1.5">
+              <span className="absolute inset-0 animate-ping rounded-full bg-red-500 opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-red-500" />
+            </span>
+            live
+          </div>
+        )}
+        {status === "finished" && (
+          <div className="mt-0.5 text-[9px] uppercase tracking-wider text-neutral-500">
+            завершён
+          </div>
+        )}
       </div>
       <span className="hidden shrink-0 rounded-md bg-white/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-neutral-300 sm:inline-block">
         {m.stage === "group" && m.group
@@ -60,7 +98,11 @@ function MatchRow({ m }: { m: WCMatch }) {
           </span>
           <Flag code={home.team?.code ?? "_tbd"} size={22} />
         </div>
-        <span className="text-xs font-bold text-neutral-500">—</span>
+        <span
+          className={`min-w-[42px] text-center font-mono text-sm font-bold tabular-nums ${middleClass}`}
+        >
+          {middleText}
+        </span>
         <div className="flex min-w-0 flex-1 items-center gap-2">
           <Flag code={away.team?.code ?? "_tbd"} size={22} />
           <span

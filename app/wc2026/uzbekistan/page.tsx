@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Flag } from "@/components/wc2026/Flag";
 import { articles, feedDate } from "@/lib/data";
 import {
-  getGroupTeams,
+  buildGroupStandings,
   getMatchPreview,
   getTeamByFifa,
   getUzMatches,
@@ -56,7 +56,7 @@ function OpponentCard({ m, index }: { m: WCMatch; index: number }) {
 
 export default function WCUzbekistanPage() {
   const uzMatches = getUzMatches();
-  const groupK = getGroupTeams("K");
+  const groupK = buildGroupStandings("K");
   const wcNews = articles
     .filter(
       (a) =>
@@ -117,33 +117,44 @@ export default function WCUzbekistanPage() {
               </tr>
             </thead>
             <tbody>
-              {groupK.map((t, i) => (
-                <tr
-                  key={t.fifa}
-                  className={`border-t border-white/5 ${
-                    t.isUz ? "bg-brand/10 font-semibold text-white" : "text-neutral-200"
-                  }`}
-                >
-                  <td className="px-4 py-3 text-left text-neutral-500">{i + 1}</td>
-                  <td className="px-2 py-3">
-                    <div className="flex items-center gap-2">
-                      <Flag code={t.code} size={20} />
-                      <span>{t.name}</span>
-                    </div>
-                  </td>
-                  <td className="px-2 py-3 text-center text-neutral-400">0</td>
-                  <td className="px-2 py-3 text-center text-neutral-400">0</td>
-                  <td className="px-2 py-3 text-center text-neutral-400">0</td>
-                  <td className="px-2 py-3 text-center text-neutral-400">0</td>
-                  <td className="px-2 py-3 text-center text-neutral-400">0</td>
-                  <td className="px-4 py-3 text-center font-bold">0</td>
-                </tr>
-              ))}
+              {groupK.map((s, i) => {
+                const position = i + 1;
+                const qualifies = position <= 2;
+                return (
+                  <tr
+                    key={s.team.fifa}
+                    className={`border-t border-white/5 ${
+                      s.team.isUz
+                        ? "bg-brand/10 font-semibold text-white"
+                        : "text-neutral-200"
+                    }`}
+                  >
+                    <td className="relative px-4 py-3 text-left tabular-nums text-neutral-500">
+                      {qualifies && (
+                        <span
+                          aria-hidden
+                          className="absolute inset-y-1 left-0 w-1 rounded-full bg-emerald-500"
+                        />
+                      )}
+                      {position}
+                    </td>
+                    <td className="px-2 py-3">
+                      <div className="flex items-center gap-2">
+                        <Flag code={s.team.code} size={20} />
+                        <span>{s.team.name}</span>
+                      </div>
+                    </td>
+                    <td className="px-2 py-3 text-center tabular-nums text-neutral-400">{s.p}</td>
+                    <td className="px-2 py-3 text-center tabular-nums text-neutral-400">{s.w}</td>
+                    <td className="px-2 py-3 text-center tabular-nums text-neutral-400">{s.d}</td>
+                    <td className="px-2 py-3 text-center tabular-nums text-neutral-400">{s.l}</td>
+                    <td className="px-2 py-3 text-center tabular-nums text-neutral-400">{s.gf - s.ga}</td>
+                    <td className="px-4 py-3 text-center font-bold tabular-nums">{s.pts}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
-          <p className="border-t border-white/10 bg-white/5 px-4 py-2 text-[11px] text-neutral-500">
-            Турнир ещё не стартовал — таблица заполняется по ходу матчей.
-          </p>
         </div>
       </section>
 

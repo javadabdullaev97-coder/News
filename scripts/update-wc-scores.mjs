@@ -85,21 +85,24 @@ const newScores = { ...existingScores };
 let changed = 0;
 const unmatched = [];
 
-for (const fd of apiMatches) {
-  const ourStatus = STATUS_MAP[fd.status];
-  if (!ourStatus) continue; // SCHEDULED / POSTPONED / прочее — не трогаем
+function sameUtc(a, b) {
+  if (!a || !b) return false;
+  return new Date(a).getTime() === new Date(b).getTime();
+}
 
+for (const fd of apiMatches) {
   const fdHome = fdToOurs(fd.homeTeam?.tla);
   const fdAway = fdToOurs(fd.awayTeam?.tla);
   if (!fdHome || !fdAway) continue;
 
   const fdWhen = new Date(fd.utcDate).getTime();
 
-  // Сопоставляем по обеим командам и дате ±18 часов
-  // (часовые пояса разных стадионов отличаются до ~3 часов).
+  // Сопоставляем по обеим командам и дате ±36 часов
+  // (часовые пояса разных стадионов отличаются до 3ч, плюс возможны
+  // переносы — даём широкое окно).
   const mine = ourMatches.find((om) => {
     if (om.homeRef !== fdHome || om.awayRef !== fdAway) return false;
-    return Math.abs(om.when - fdWhen) < 18 * 3600 * 1000;
+    return Math.abs(om.when - fdWhen) < 36 * 3600 * 1000;
   });
 
   if (!mine) {
@@ -107,22 +110,41 @@ for (const fd of apiMatches) {
     continue;
   }
 
-  const home = fd.score?.fullTime?.home ?? fd.score?.halfTime?.home ?? 0;
-  const away = fd.score?.fullTime?.away ?? fd.score?.halfTime?.away ?? 0;
-  const entry = { home, away, status: ourStatus };
+  const ourStatus = STATUS_MAP[fd.status];
+  const prev = existingScores[mine.id] ?? {};
+  const next = { ...prev };
+  let entryChanged = false;
 
-  const prev = existingScores[mine.id];
-  if (
-    !prev ||
-    prev.home !== entry.home ||
-    prev.away !== entry.away ||
-    prev.status !== entry.status
-  ) {
-    newScores[mine.id] = entry;
+  // Тайминг — всегда синхронизируем с API (единый источник истины).
+  if (!sameUtc(prev.utcDate, fd.utcDate)) {
+    next.utcDate = fd.utcDate;
+    entryChanged = true;
+  }
+
+  // Счёт — только для активных/завершённых матчей.
+  if (ourStatus) {
+    const home = fd.score?.fullTime?.home ?? fd.score?.halfTime?.home ?? 0;
+    const away = fd.score?.fullTime?.away ?? fd.score?.halfTime?.away ?? 0;
+    if (
+      prev.home !== home ||
+      prev.away !== away ||
+      prev.status !== ourStatus
+    ) {
+      next.home = home;
+      next.away = away;
+      next.status = ourStatus;
+      entryChanged = true;
+    }
+  }
+
+  if (entryChanged) {
+    newScores[mine.id] = next;
     changed++;
-    console.log(
-      `→ ${mine.id}: ${fdHome} ${home}:${away} ${fdAway} (${ourStatus})`,
-    );
+    const desc =
+      ourStatus
+        ? `${fdHome} ${next.home}:${next.away} ${fdAway} (${ourStatus})`
+        : `${fdHome} vs ${fdAway} @ ${fd.utcDate}`;
+    console.log(`→ ${mine.id}: ${desc}`);
   }
 }
 

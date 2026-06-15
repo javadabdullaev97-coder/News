@@ -9,7 +9,12 @@
 
 import LIVE_SCORES_RAW from "./wc2026-scores.json";
 
-type LiveScoreEntry = { home: number; away: number; status: "live" | "finished" };
+type LiveScoreEntry = {
+  home?: number;
+  away?: number;
+  status?: "live" | "finished";
+  utcDate?: string; // абсолютный UTC-момент от football-data — пересиливает dateLocal
+};
 const LIVE_SCORES = LIVE_SCORES_RAW as Record<string, LiveScoreEntry>;
 
 export type WCConfederation = "UEFA" | "AFC" | "CAF" | "CONMEBOL" | "CONCACAF" | "OFC";
@@ -252,13 +257,17 @@ const WC_MATCHES_RAW: WCMatch[] = [
   { id: "M104", stage: "final", dateLocal: "2026-07-19T15:00:00-04:00", homeRef: "W M101", awayRef: "W M102", venueRu: "МетЛайф Стэдиум", cityRu: "Нью-Йорк/Нью-Джерси", country: "US" },
 ];
 
-// Накладываем live-счета из JSON: GitHub Action перезаписывает файл,
-// при следующем ребилде Cloudflare счета подхватываются автоматически.
+// Накладываем live-данные (тайминг + счёт) из JSON. GitHub Action раз
+// в 15 минут пишет туда правду от football-data.org; Cloudflare пересобирает.
 export const WC_MATCHES: WCMatch[] = WC_MATCHES_RAW.map((m) => {
   const live = LIVE_SCORES[m.id];
-  return live
-    ? { ...m, score: { home: live.home, away: live.away, status: live.status } }
-    : m;
+  if (!live) return m;
+  const next: WCMatch = { ...m };
+  if (live.utcDate) next.dateLocal = live.utcDate;
+  if (typeof live.home === "number" && typeof live.away === "number") {
+    next.score = { home: live.home, away: live.away, status: live.status };
+  }
+  return next;
 });
 
 // ─── Узбекистан-фокус ────────────────────────────────────────────────────
@@ -417,6 +426,76 @@ export function getMatchPreview(matchId: string): string | undefined {
 export function flagUrl(code: string, size: 40 | 80 | 160 = 80): string {
   if (!code || code === "_tbd") return "";
   return `https://flagcdn.com/w${size}/${code}.png`;
+}
+
+// ─── Турнирные таблицы ──────────────────────────────────────────────────
+
+export type Standing = {
+  team: WCTeam;
+  p: number;
+  w: number;
+  d: number;
+  l: number;
+  gf: number;
+  ga: number;
+  pts: number;
+  fairPlay: number;
+};
+
+export function emptyStanding(team: WCTeam): Standing {
+  return { team, p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0, fairPlay: 0 };
+}
+
+// Критерии ФИФА: очки → разница мячей → забитые → fair-play → рейтинг ФИФА.
+export function compareStandings(a: Standing, b: Standing): number {
+  if (b.pts !== a.pts) return b.pts - a.pts;
+  const gdA = a.gf - a.ga;
+  const gdB = b.gf - b.ga;
+  if (gdB !== gdA) return gdB - gdA;
+  if (b.gf !== a.gf) return b.gf - a.gf;
+  if (b.fairPlay !== a.fairPlay) return b.fairPlay - a.fairPlay;
+  return (a.team.fifaRank ?? 999) - (b.team.fifaRank ?? 999);
+}
+
+// Считаем строки группы по сыгранным (finished) матчам.
+// Live-матчи не учитываются — счёт ещё может меняться.
+export function buildGroupStandings(g: WCGroupId): Standing[] {
+  const teams = getGroupTeams(g);
+  const byFifa = new Map<string, Standing>();
+  for (const t of teams) byFifa.set(t.fifa, emptyStanding(t));
+
+  for (const m of WC_MATCHES) {
+    if (m.stage !== "group" || m.group !== g) continue;
+    if (m.score?.status !== "finished") continue;
+    const home = byFifa.get(m.homeRef);
+    const away = byFifa.get(m.awayRef);
+    if (!home || !away) continue;
+
+    const hg = m.score.home;
+    const ag = m.score.away;
+    home.p++;
+    away.p++;
+    home.gf += hg;
+    home.ga += ag;
+    away.gf += ag;
+    away.ga += hg;
+    if (hg > ag) {
+      home.w++;
+      home.pts += 3;
+      away.l++;
+    } else if (hg < ag) {
+      away.w++;
+      away.pts += 3;
+      home.l++;
+    } else {
+      home.d++;
+      home.pts += 1;
+      away.d++;
+      away.pts += 1;
+    }
+  }
+
+  return [...byFifa.values()].sort(compareStandings);
 }
 
 // Статус матча по текущему моменту:
