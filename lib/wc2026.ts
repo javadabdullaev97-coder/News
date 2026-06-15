@@ -10,7 +10,6 @@
 
 import LIVE_SCORES_RAW from "./wc2026-scores.json";
 import SCORERS_RAW from "./wc2026-scorers.json";
-import MATCH_DETAILS_RAW from "./wc2026-match-details.json";
 
 type LiveScoreEntry = {
   home?: number;
@@ -37,53 +36,6 @@ export type WCScorersPayload = {
 };
 
 export const WC_SCORERS = SCORERS_RAW as WCScorersPayload;
-
-export type WCMatchGoal = {
-  minute: number | null;
-  injuryTime: number | null;
-  type: string | null;
-  team: string | null;
-  scorer: string | null;
-  assist: string | null;
-  score: { home: number; away: number } | null;
-};
-
-export type WCMatchBooking = {
-  minute: number | null;
-  injuryTime?: number | null;
-  team: string | null;
-  player: string | null;
-  card: string | null; // YELLOW | RED | YELLOW_RED
-};
-
-export type WCMatchSub = {
-  minute: number | null;
-  injuryTime?: number | null;
-  team: string | null;
-  playerIn: string | null;
-  playerOut: string | null;
-};
-
-export type WCMatchReferee = {
-  name: string | null;
-  role: string | null;
-  nationality: string | null;
-};
-
-export type WCMatchDetails = {
-  fdId: number;
-  fetchedAt: string;
-  goals: WCMatchGoal[];
-  bookings: WCMatchBooking[];
-  substitutions: WCMatchSub[];
-  referees: WCMatchReferee[];
-};
-
-const MATCH_DETAILS = MATCH_DETAILS_RAW as Record<string, WCMatchDetails>;
-
-export function getMatchDetails(matchId: string): WCMatchDetails | undefined {
-  return MATCH_DETAILS[matchId];
-}
 
 export type WCConfederation = "UEFA" | "AFC" | "CAF" | "CONMEBOL" | "CONCACAF" | "OFC";
 
