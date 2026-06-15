@@ -3,6 +3,14 @@
 // (FIFA, AFC, международные СМИ). Лучшие третьи места — таблица ФИФА
 // раскрывается после группового этапа: пока в bracket-слотах хранится пул
 // возможных групп, например BEST3-ABCDF.
+//
+// Счета матчей хранятся отдельно в lib/wc2026-scores.json — этот файл
+// обновляется GitHub Action раз в 15 минут из football-data.org API.
+
+import LIVE_SCORES_RAW from "./wc2026-scores.json";
+
+type LiveScoreEntry = { home: number; away: number; status: "live" | "finished" };
+const LIVE_SCORES = LIVE_SCORES_RAW as Record<string, LiveScoreEntry>;
 
 export type WCConfederation = "UEFA" | "AFC" | "CAF" | "CONMEBOL" | "CONCACAF" | "OFC";
 
@@ -42,7 +50,9 @@ export type WCMatch = {
   cityRu: string;
   country: "US" | "CA" | "MX";
   feedsInto?: string;    // ID следующего матча в сетке плей-офф
-  score?: { home: number; away: number };  // присутствие = матч завершён
+  score?: { home: number; away: number; status?: "live" | "finished" };
+  // status="live" → матч идёт, счёт на экран; "finished" → матч сыгран
+  // без status или без score → определяем по времени старта
 };
 
 export const WC_TEAMS: WCTeam[] = [
@@ -120,7 +130,7 @@ export const WC_TEAMS: WCTeam[] = [
 ];
 
 // 104 матча. Группа (matchday 1–3) → 1/16 финала (R32) → 1/8 → 1/4 → 1/2 → матч за 3-е + финал.
-export const WC_MATCHES: WCMatch[] = [
+const WC_MATCHES_RAW: WCMatch[] = [
   // ─── Matchday 1 ───
   { id: "M01", stage: "group", group: "A", matchday: 1, dateLocal: "2026-06-11T15:00:00-06:00", homeRef: "MEX", awayRef: "ZAF", venueRu: "Эстадио Ацтека", cityRu: "Мехико", country: "MX" },
   { id: "M02", stage: "group", group: "A", matchday: 1, dateLocal: "2026-06-11T20:00:00-06:00", homeRef: "KOR", awayRef: "CZE", venueRu: "Эстадио Акрон", cityRu: "Гвадалахара", country: "MX" },
@@ -241,6 +251,15 @@ export const WC_MATCHES: WCMatch[] = [
   { id: "M103", stage: "third", dateLocal: "2026-07-18T17:00:00-04:00", homeRef: "L M101", awayRef: "L M102", venueRu: "Хард Рок Стэдиум", cityRu: "Майами", country: "US" },
   { id: "M104", stage: "final", dateLocal: "2026-07-19T15:00:00-04:00", homeRef: "W M101", awayRef: "W M102", venueRu: "МетЛайф Стэдиум", cityRu: "Нью-Йорк/Нью-Джерси", country: "US" },
 ];
+
+// Накладываем live-счета из JSON: GitHub Action перезаписывает файл,
+// при следующем ребилде Cloudflare счета подхватываются автоматически.
+export const WC_MATCHES: WCMatch[] = WC_MATCHES_RAW.map((m) => {
+  const live = LIVE_SCORES[m.id];
+  return live
+    ? { ...m, score: { home: live.home, away: live.away, status: live.status } }
+    : m;
+});
 
 // ─── Узбекистан-фокус ────────────────────────────────────────────────────
 
@@ -401,16 +420,24 @@ export function flagUrl(code: string, size: 40 | 80 | 160 = 80): string {
 }
 
 // Статус матча по текущему моменту:
-// — score есть → finished
-// — kickoff в будущем → scheduled
-// — kickoff в прошлом, score нет → live (с расчётной минутой)
+// — score.status === "finished" → finished (счёт фиксируем)
+// — score.status === "live"     → live + расчётная минута
+// — score без status             → finished (легаси)
+// — score нет, kickoff в будущем → scheduled
+// — score нет, kickoff в прошлом → live (расчётная минута, ждём API)
 // На статике "сейчас" фиксируется временем последнего ребилда.
 export function getMatchStatus(
   m: WCMatch,
   now: number = Date.now(),
 ): { status: WCMatchStatus; minute?: number } {
-  if (m.score) return { status: "finished" };
   const start = new Date(m.dateLocal).getTime();
+  if (m.score) {
+    if (m.score.status === "live") {
+      const minute = Math.max(1, Math.min(120, Math.floor((now - start) / 60000)));
+      return { status: "live", minute };
+    }
+    return { status: "finished" };
+  }
   if (now < start) return { status: "scheduled" };
   const minute = Math.max(1, Math.min(120, Math.floor((now - start) / 60000)));
   return { status: "live", minute };

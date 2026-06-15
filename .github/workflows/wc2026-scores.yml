@@ -1,0 +1,49 @@
+name: Update WC-2026 scores
+
+on:
+  schedule:
+    # Каждые 15 минут. Скрипт сам пропустит, если вне турнирного окна.
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wc-scores
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch scores from football-data.org
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+        run: node scripts/update-wc-scores.mjs
+
+      - name: Commit and push if changed
+        run: |
+          if [[ -z $(git status --porcelain lib/wc2026-scores.json) ]]; then
+            echo "Без изменений, ничего не коммитим."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          STAMP=$(TZ='Asia/Tashkent' date '+%H:%M %d.%m')
+          git add lib/wc2026-scores.json
+          git commit -m "chore(wc): обновление счетов ($STAMP Ташкента)"
+          git push origin main
