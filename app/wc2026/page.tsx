@@ -1,140 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Flag } from "@/components/wc2026/Flag";
 import { articles, feedDate } from "@/lib/data";
+import { WC_MATCHES, getMatchStatus, type WCMatch } from "@/lib/wc2026";
 import {
-  WC_MATCHES,
-  getMatchStatus,
-  readableRef,
-  timeTashkent,
-  type WCMatch,
-} from "@/lib/wc2026";
+  LiveMatchCenter,
+  type LiveMatchItem,
+} from "@/components/wc2026/LiveMatchCenter";
 
-type MatchWithStatus = {
-  m: WCMatch;
-  status: "scheduled" | "live" | "finished";
-  minute?: number;
-  when: number;
-};
-
-// «2026-06-15» по Asia/Tashkent — стабильный ключ дня для группировки.
-function tashkentDayKey(iso: string): string {
-  return new Date(iso).toLocaleDateString("en-CA", {
-    timeZone: "Asia/Tashkent",
-  });
-}
-
-function dayLabel(iso: string, todayKey: string): string {
-  const key = tashkentDayKey(iso);
-  const dayDate = new Date(`${key}T12:00:00+05:00`).getTime();
-  const todayDate = new Date(`${todayKey}T12:00:00+05:00`).getTime();
-  const diff = Math.round((dayDate - todayDate) / (24 * 3600 * 1000));
-  if (diff === -1) return "Вчера";
-  if (diff === 0) return "Сегодня";
-  if (diff === 1) return "Завтра";
-  return new Date(iso).toLocaleDateString("ru-RU", {
-    day: "numeric",
-    month: "long",
-    weekday: "long",
-    timeZone: "Asia/Tashkent",
-  });
-}
-
-function StatusPill({
-  status,
-  minute,
-  dateLocal,
-}: {
-  status: "scheduled" | "live" | "finished";
-  minute?: number;
-  dateLocal: string;
-}) {
-  if (status === "finished") {
-    return (
-      <span className="text-[9px] uppercase tracking-wider text-neutral-500">
-        завершён
-      </span>
-    );
-  }
-  if (status === "live") {
-    return (
-      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-red-400">
-        <span className="relative inline-flex h-1.5 w-1.5">
-          <span className="absolute inset-0 animate-ping rounded-full bg-red-500 opacity-75" />
-          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-red-500" />
-        </span>
-        {minute ? `${minute}'` : "live"}
-      </span>
-    );
-  }
-  return (
-    <span className="text-[10px] font-bold tabular-nums text-brand">
-      {timeTashkent(dateLocal)}
-    </span>
-  );
-}
-
-function MatchRow({ item }: { item: MatchWithStatus }) {
-  const { m, status, minute } = item;
-  const home = readableRef(m.homeRef);
-  const away = readableRef(m.awayRef);
-  const isUz = m.homeRef === "UZB" || m.awayRef === "UZB";
-  const score =
-    status === "finished" && m.score
-      ? `${m.score.home}:${m.score.away}`
-      : status === "live" && m.score
-        ? `${m.score.home}:${m.score.away}`
-        : "—:—";
-
-  return (
-    <div
-      className={`flex items-center gap-2 rounded-md border px-2 py-1.5 text-xs ${
-        isUz ? "border-brand/40 bg-brand/5" : "border-white/10 bg-white/5"
-      }`}
-    >
-      <div className="w-10 shrink-0">
-        <StatusPill
-          status={status}
-          minute={minute}
-          dateLocal={m.dateLocal}
-        />
-      </div>
-      <div className="flex min-w-0 flex-1 items-center justify-end gap-1.5">
-        <span
-          className="truncate text-right font-semibold text-white"
-          title={home.long}
-        >
-          {home.team?.name ?? home.short}
-        </span>
-        <Flag code={home.team?.code ?? "_tbd"} size={16} />
-      </div>
-      <div
-        className={`min-w-[34px] shrink-0 text-center font-mono font-bold tabular-nums ${
-          status === "finished"
-            ? "text-white"
-            : status === "live"
-              ? "text-red-300"
-              : "text-neutral-500"
-        }`}
-      >
-        {score}
-      </div>
-      <div className="flex min-w-0 flex-1 items-center gap-1.5">
-        <Flag code={away.team?.code ?? "_tbd"} size={16} />
-        <span
-          className="truncate font-semibold text-white"
-          title={away.long}
-        >
-          {away.team?.name ?? away.short}
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function pickMatchCenter(now: number): MatchWithStatus[] {
+function pickMatchCenter(now: number): LiveMatchItem[] {
   const day = 24 * 60 * 60 * 1000;
-  const all = WC_MATCHES.map((m): MatchWithStatus => {
+  const all = WC_MATCHES.map((m): LiveMatchItem => {
     const st = getMatchStatus(m, now);
     return {
       m,
@@ -153,38 +28,32 @@ function pickMatchCenter(now: number): MatchWithStatus[] {
     .sort((a, b) => a.when - b.when);
 
   const inWindow = [...live, ...recent.slice(0, 4), ...upcoming.slice(0, 8)];
-  if (inWindow.length > 0) return inWindow.slice(0, 9);
+  if (inWindow.length > 0) return inWindow.slice(0, 12);
 
-  // Window пустой (например, межтуровый день или до старта турнира) —
-  // покажем шесть ближайших по календарю.
   return all
     .filter((x) => x.status === "scheduled")
     .sort((a, b) => a.when - b.when)
     .slice(0, 6);
 }
 
+// «HOME|AWAY|UTC» → внутренний ID матча. Передаём в client-компонент,
+// чтобы он мог быстро понять, какой live-апдейт куда патчить.
+function buildLookup(items: LiveMatchItem[]): Record<string, string> {
+  const lookup: Record<string, string> = {};
+  for (const item of items) {
+    const utc = new Date(item.m.dateLocal).toISOString();
+    lookup[`${item.m.homeRef}|${item.m.awayRef}|${utc}`] = item.m.id;
+  }
+  return lookup;
+}
+
 export default function WCHomePage() {
   const now = Date.now();
   const matchCenter = pickMatchCenter(now);
+  const lookup = buildLookup(matchCenter);
   const todayKey = new Date(now).toLocaleDateString("en-CA", {
     timeZone: "Asia/Tashkent",
   });
-
-  // Группировка матч-центра по дням Ташкента, в хронологическом порядке.
-  const dayMap = new Map<string, MatchWithStatus[]>();
-  for (const item of matchCenter) {
-    const key = tashkentDayKey(item.m.dateLocal);
-    const list = dayMap.get(key) ?? [];
-    list.push(item);
-    dayMap.set(key, list);
-  }
-  const matchCenterByDay = [...dayMap.entries()]
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([dayKey, items]) => ({
-      dayKey,
-      label: dayLabel(items[0].m.dateLocal, todayKey),
-      items: items.sort((a, b) => a.when - b.when),
-    }));
 
   const wcNews = articles
     .filter((a) => a.tags.includes("ЧМ-2026"))
@@ -211,29 +80,11 @@ export default function WCHomePage() {
               Все матчи →
             </Link>
           </div>
-          <div className="space-y-4">
-            {matchCenterByDay.map(({ dayKey, label, items }) => (
-              <div key={dayKey}>
-                <div className="mb-1.5 flex items-baseline gap-2 border-b border-white/10 pb-1">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-white">
-                    {label}
-                  </h3>
-                  <span className="text-[10px] text-neutral-500">
-                    {new Date(items[0].m.dateLocal).toLocaleDateString("ru-RU", {
-                      day: "numeric",
-                      month: "long",
-                      timeZone: "Asia/Tashkent",
-                    })}
-                  </span>
-                </div>
-                <div className="grid gap-1.5 md:grid-cols-2 lg:grid-cols-3">
-                  {items.map((item) => (
-                    <MatchRow key={item.m.id} item={item} />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+          <LiveMatchCenter
+            initialItems={matchCenter}
+            lookup={lookup}
+            todayKey={todayKey}
+          />
         </section>
       )}
 

@@ -18,6 +18,9 @@ interface ExecutionCtx {
   passThroughOnException(): void;
 }
 
+// football-data использует ISO alpha-3 для большинства команд, но
+// часть кодов отличается от ФИФА. Список расширяем, если в response
+// видим неизвестный код.
 const FD_TO_OURS: Record<string, string> = {
   SAU: "KSA",
   RSA: "ZAF",
@@ -25,6 +28,7 @@ const FD_TO_OURS: Record<string, string> = {
   CHE: "SUI",
   HRV: "CRO",
   DEU: "GER",
+  URY: "URU", // Uruguay
 };
 
 type LiveEntry = {

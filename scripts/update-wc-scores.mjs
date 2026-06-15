@@ -38,6 +38,7 @@ const FD_CODE_MAP = {
   COD: "COD",
   HRV: "CRO",
   DEU: "GER",
+  URY: "URU", // Uruguay
 };
 function fdToOurs(tla) {
   return FD_CODE_MAP[tla] ?? tla;
