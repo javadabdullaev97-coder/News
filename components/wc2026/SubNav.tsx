@@ -9,7 +9,6 @@ const TABS: { href: string; label: string }[] = [
   { href: "/wc2026/groups", label: "Группы" },
   { href: "/wc2026/bracket", label: "Сетка плей-офф" },
   { href: "/wc2026/schedule", label: "Расписание" },
-  { href: "/wc2026/scorers", label: "Бомбардиры" },
   { href: "/wc2026/rules", label: "Регламент" },
 ];
 

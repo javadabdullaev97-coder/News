@@ -23,14 +23,9 @@ if (NOW < TOURNAMENT_START || NOW > TOURNAMENT_END) {
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const SCORES_FILE = path.join(ROOT, "lib", "wc2026-scores.json");
-const SCORERS_FILE = path.join(ROOT, "lib", "wc2026-scorers.json");
-const DETAILS_FILE = path.join(ROOT, "lib", "wc2026-match-details.json");
 const MATCHES_FILE = path.join(ROOT, "lib", "wc2026.ts");
 
 const existingScores = JSON.parse(fs.readFileSync(SCORES_FILE, "utf8"));
-const existingDetails = JSON.parse(fs.readFileSync(DETAILS_FILE, "utf8"));
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // FD-кодов, которые отличаются от наших FIFA-кодов (или просто запасные варианты).
 // Если в логах увидим непривязанные матчи — дописываем сюда.
@@ -170,40 +165,6 @@ if (changed > 0) {
   console.log(`Записано в ${SCORES_FILE}, обновлено ${changed} матчей`);
 } else {
   console.log("Счёты — изменений нет.");
-}
-
-// ─── Бомбардиры турнира ────────────────────────────────────────────────
-// Меняется только когда забит гол, поэтому достаточно тащить раз за прогон.
-try {
-  const scorersRes = await fetch(
-    "https://api.football-data.org/v4/competitions/WC/scorers?limit=20",
-    { headers: { "X-Auth-Token": TOKEN } },
-  );
-  if (scorersRes.ok) {
-    const scorersData = await scorersRes.json();
-    const scorersPayload = {
-      updatedAt: new Date().toISOString(),
-      scorers: (scorersData.scorers ?? []).map((s) => ({
-        playerName: s.player?.name ?? null,
-        playerNationality: s.player?.nationality ?? null,
-        teamName: s.team?.name ?? null,
-        teamTla: s.team?.tla ?? null,
-        goals: s.goals ?? 0,
-        assists: s.assists ?? 0,
-        penalties: s.penalties ?? 0,
-        playedMatches: s.playedMatches ?? 0,
-      })),
-    };
-    fs.writeFileSync(
-      SCORERS_FILE,
-      JSON.stringify(scorersPayload, null, 2) + "\n",
-    );
-    console.log(`Бомбардиров: ${scorersPayload.scorers.length}`);
-  } else {
-    console.warn(`scorers: ${scorersRes.status} ${scorersRes.statusText}`);
-  }
-} catch (err) {
-  console.warn(`scorers: ошибка ${err?.message ?? err}`);
 }
 
 // Детали матчей (/v4/matches/{id}) на free-тарифе football-data возвращают

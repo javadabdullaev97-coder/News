@@ -9,7 +9,6 @@
 // Туда же ходит за scorers и деталями завершённых матчей.
 
 import LIVE_SCORES_RAW from "./wc2026-scores.json";
-import SCORERS_RAW from "./wc2026-scorers.json";
 
 type LiveScoreEntry = {
   home?: number;
@@ -19,23 +18,6 @@ type LiveScoreEntry = {
 };
 const LIVE_SCORES = LIVE_SCORES_RAW as Record<string, LiveScoreEntry>;
 
-export type WCScorer = {
-  playerName: string | null;
-  playerNationality: string | null;
-  teamName: string | null;
-  teamTla: string | null;
-  goals: number;
-  assists: number;
-  penalties: number;
-  playedMatches: number;
-};
-
-export type WCScorersPayload = {
-  updatedAt: string | null;
-  scorers: WCScorer[];
-};
-
-export const WC_SCORERS = SCORERS_RAW as WCScorersPayload;
 
 export type WCConfederation = "UEFA" | "AFC" | "CAF" | "CONMEBOL" | "CONCACAF" | "OFC";
 
