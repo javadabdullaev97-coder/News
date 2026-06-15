@@ -12,8 +12,8 @@
     "utcDate": "2026-06-12T02:00:00Z"
   },
   "M03": {
-    "home": 1,
-    "away": 1,
+    "home": 0,
+    "away": 0,
     "status": "finished",
     "utcDate": "2026-06-12T19:00:00Z"
   },
@@ -74,11 +74,14 @@
   "M13": {
     "home": 0,
     "away": 0,
-    "status": "live",
+    "status": "finished",
     "utcDate": "2026-06-15T16:00:00Z"
   },
   "M14": {
-    "utcDate": "2026-06-15T19:00:00Z"
+    "utcDate": "2026-06-15T19:00:00Z",
+    "home": 0,
+    "away": 1,
+    "status": "live"
   },
   "M15": {
     "utcDate": "2026-06-15T22:00:00Z"
