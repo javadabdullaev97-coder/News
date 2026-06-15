@@ -1,1 +1,67 @@
-{}
+{
+  "M01": {
+    "home": 2,
+    "away": 0,
+    "status": "finished"
+  },
+  "M02": {
+    "home": 2,
+    "away": 1,
+    "status": "finished"
+  },
+  "M03": {
+    "home": 1,
+    "away": 1,
+    "status": "finished"
+  },
+  "M04": {
+    "home": 4,
+    "away": 1,
+    "status": "finished"
+  },
+  "M05": {
+    "home": 1,
+    "away": 1,
+    "status": "finished"
+  },
+  "M06": {
+    "home": 1,
+    "away": 1,
+    "status": "finished"
+  },
+  "M07": {
+    "home": 0,
+    "away": 1,
+    "status": "finished"
+  },
+  "M08": {
+    "home": 2,
+    "away": 0,
+    "status": "finished"
+  },
+  "M09": {
+    "home": 7,
+    "away": 1,
+    "status": "finished"
+  },
+  "M10": {
+    "home": 2,
+    "away": 2,
+    "status": "finished"
+  },
+  "M11": {
+    "home": 1,
+    "away": 0,
+    "status": "finished"
+  },
+  "M12": {
+    "home": 5,
+    "away": 1,
+    "status": "finished"
+  },
+  "M13": {
+    "home": 0,
+    "away": 0,
+    "status": "live"
+  }
+}
