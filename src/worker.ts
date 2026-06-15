@@ -34,8 +34,9 @@ const FD_TO_OURS: Record<string, string> = {
 type LiveEntry = {
   home?: number;
   away?: number;
-  status?: "live" | "finished";
+  status?: "live" | "finished" | "halftime";
   utcDate?: string;
+  minute?: number; // если API отдаёт реальную минуту, на free-тарифе обычно null
 };
 
 const CACHE_SECONDS = 7;
@@ -106,9 +107,10 @@ async function handleLive(
 
     const entry: LiveEntry = { utcDate: fd.utcDate };
     if (fd.status === "IN_PLAY" || fd.status === "PAUSED") {
-      entry.status = "live";
+      entry.status = fd.status === "PAUSED" ? "halftime" : "live";
       entry.home = fd.score?.fullTime?.home ?? fd.score?.halfTime?.home ?? 0;
       entry.away = fd.score?.fullTime?.away ?? fd.score?.halfTime?.away ?? 0;
+      if (typeof fd.minute === "number") entry.minute = fd.minute;
     } else if (fd.status === "FINISHED") {
       entry.status = "finished";
       entry.home = fd.score?.fullTime?.home ?? 0;

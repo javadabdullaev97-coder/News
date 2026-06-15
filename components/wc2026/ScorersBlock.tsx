@@ -9,7 +9,21 @@ function teamCodeByTla(tla: string | null): string {
 
 export function ScorersBlock({ limit = 10 }: { limit?: number }) {
   const list = WC_SCORERS.scorers.slice(0, limit);
-  if (list.length === 0) return null;
+  if (list.length === 0) {
+    return (
+      <section>
+        <div className="mb-3 flex items-baseline justify-between">
+          <h2 className="text-lg font-bold uppercase tracking-wider text-white">
+            Бомбардиры
+          </h2>
+        </div>
+        <div className="rounded-xl border border-white/10 bg-white/5 p-6 text-center text-sm text-neutral-400">
+          Таблица заполнится после первых голов турнира. Источник —
+          football-data.org, обновляется каждые 15 минут.
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section>

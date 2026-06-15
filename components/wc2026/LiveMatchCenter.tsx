@@ -16,9 +16,10 @@ export type LiveMatchItem = {
 
 type LiveEntry = {
   utcDate?: string;
-  status?: "live" | "finished";
+  status?: "live" | "finished" | "halftime";
   home?: number;
   away?: number;
+  minute?: number;
 };
 
 type LiveResponse = {
@@ -28,6 +29,16 @@ type LiveResponse = {
 
 const POLL_INTERVAL_MS = 7_000;
 
+// Та же логика, что в lib/wc2026.ts → computeLiveMinute.
+// Дублируем здесь, чтобы клиент не тащил всю lib для одного хелпера.
+function computeLiveMinute(start: number, now: number): number {
+  const wall = Math.floor((now - start) / 60000);
+  if (wall <= 0) return 1;
+  if (wall <= 45) return wall;
+  if (wall < 60) return 45; // перерыв
+  return Math.max(46, Math.min(120, wall - 15));
+}
+
 function recomputeStatus(
   m: WCMatch,
   now: number,
@@ -35,14 +46,12 @@ function recomputeStatus(
   const start = new Date(m.dateLocal).getTime();
   if (m.score) {
     if (m.score.status === "live") {
-      const minute = Math.max(1, Math.min(120, Math.floor((now - start) / 60000)));
-      return { status: "live", minute };
+      return { status: "live", minute: computeLiveMinute(start, now) };
     }
     return { status: "finished" };
   }
   if (now < start) return { status: "scheduled" };
-  const minute = Math.max(1, Math.min(120, Math.floor((now - start) / 60000)));
-  return { status: "live", minute };
+  return { status: "live", minute: computeLiveMinute(start, now) };
 }
 
 function tashkentDayKey(iso: string): string {
@@ -195,12 +204,23 @@ export function LiveMatchCenter({
                 return item;
               return { ...item, ...status };
             }
+            // halftime — это live с фиксированной минутой 45'
+            const apiStatus =
+              u.status === "halftime" ? "live" : u.status;
             const nextScore =
               typeof u.home === "number" && typeof u.away === "number"
-                ? { home: u.home, away: u.away, status: u.status }
+                ? { home: u.home, away: u.away, status: apiStatus }
                 : item.m.score;
             const nextMatch: WCMatch = { ...item.m, score: nextScore };
             const status = recomputeStatus(nextMatch, now);
+            // Если API явно сказал «перерыв» — фиксируем 45', не расчётом.
+            if (u.status === "halftime") {
+              return { ...item, m: nextMatch, status: "live", minute: 45 };
+            }
+            // Если API отдал минуту — пересиливаем расчёт.
+            if (typeof u.minute === "number" && status.status === "live") {
+              return { ...item, m: nextMatch, status: "live", minute: u.minute };
+            }
             return { ...item, m: nextMatch, ...status };
           }),
         );

@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/wc2026/groups`, lastModified: now, changeFrequency: "daily", priority: 0.7 },
     { url: `${SITE}/wc2026/bracket`, lastModified: now, changeFrequency: "daily", priority: 0.7 },
     { url: `${SITE}/wc2026/schedule`, lastModified: now, changeFrequency: "daily", priority: 0.7 },
+    { url: `${SITE}/wc2026/scorers`, lastModified: now, changeFrequency: "hourly", priority: 0.7 },
     { url: `${SITE}/wc2026/rules`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     ...rubrics.map((r) => ({
       url: `${SITE}/rubric/${r.slug}`,

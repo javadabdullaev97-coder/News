@@ -518,6 +518,19 @@ export function buildGroupStandings(g: WCGroupId): Standing[] {
   return [...byFifa.values()].sort(compareStandings);
 }
 
+// Текущая минута live-матча. Учитываем 15-минутный перерыв между таймами:
+// — 0–45  wall-clock → первый тайм, минута = wall-clock
+// — 45–60 wall-clock → перерыв, показываем 45'
+// — 60+   wall-clock → второй тайм, минута = wall-clock − 15
+// Это приближение; football-data на free-тарифе не отдаёт реальную минуту.
+export function computeLiveMinute(start: number, now: number): number {
+  const wall = Math.floor((now - start) / 60000);
+  if (wall <= 0) return 1;
+  if (wall <= 45) return wall;
+  if (wall < 60) return 45; // перерыв
+  return Math.max(46, Math.min(120, wall - 15));
+}
+
 // Статус матча по текущему моменту:
 // — score.status === "finished" → finished (счёт фиксируем)
 // — score.status === "live"     → live + расчётная минута
@@ -532,14 +545,12 @@ export function getMatchStatus(
   const start = new Date(m.dateLocal).getTime();
   if (m.score) {
     if (m.score.status === "live") {
-      const minute = Math.max(1, Math.min(120, Math.floor((now - start) / 60000)));
-      return { status: "live", minute };
+      return { status: "live", minute: computeLiveMinute(start, now) };
     }
     return { status: "finished" };
   }
   if (now < start) return { status: "scheduled" };
-  const minute = Math.max(1, Math.min(120, Math.floor((now - start) / 60000)));
-  return { status: "live", minute };
+  return { status: "live", minute: computeLiveMinute(start, now) };
 }
 
 // Только время по Ташкенту: «09:00». Для статус-пилюль матч-центра.
