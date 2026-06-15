@@ -37,13 +37,14 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          if [[ -z $(git status --porcelain lib/wc2026-scores.json) ]]; then
+          TRACKED='lib/wc2026-scores.json lib/wc2026-scorers.json lib/wc2026-match-details.json'
+          if [[ -z $(git status --porcelain $TRACKED) ]]; then
             echo "Без изменений, ничего не коммитим."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           STAMP=$(TZ='Asia/Tashkent' date '+%H:%M %d.%m')
-          git add lib/wc2026-scores.json
-          git commit -m "chore(wc): обновление счетов ($STAMP Ташкента)"
+          git add $TRACKED
+          git commit -m "chore(wc): обновление данных ЧМ ($STAMP Ташкента)"
           git push origin main
