@@ -96,7 +96,10 @@
     "status": "finished"
   },
   "M17": {
-    "utcDate": "2026-06-16T19:00:00Z"
+    "utcDate": "2026-06-16T19:00:00Z",
+    "home": 0,
+    "away": 0,
+    "status": "live"
   },
   "M18": {
     "utcDate": "2026-06-16T22:00:00Z"
