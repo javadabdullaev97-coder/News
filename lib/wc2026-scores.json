@@ -122,8 +122,8 @@
   "M21": {
     "utcDate": "2026-06-17T17:00:00Z",
     "home": 1,
-    "away": 0,
-    "status": "live"
+    "away": 1,
+    "status": "finished"
   },
   "M22": {
     "utcDate": "2026-06-17T20:00:00Z"
