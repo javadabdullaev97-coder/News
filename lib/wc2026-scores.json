@@ -126,7 +126,10 @@
     "status": "finished"
   },
   "M22": {
-    "utcDate": "2026-06-17T20:00:00Z"
+    "utcDate": "2026-06-17T20:00:00Z",
+    "home": 3,
+    "away": 2,
+    "status": "live"
   },
   "M23": {
     "utcDate": "2026-06-17T23:00:00Z"
