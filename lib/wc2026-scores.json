@@ -151,12 +151,15 @@
   },
   "M26": {
     "utcDate": "2026-06-18T19:00:00Z",
-    "home": 0,
-    "away": 0,
-    "status": "live"
+    "home": 4,
+    "away": 1,
+    "status": "finished"
   },
   "M27": {
-    "utcDate": "2026-06-18T22:00:00Z"
+    "utcDate": "2026-06-18T22:00:00Z",
+    "home": 2,
+    "away": 0,
+    "status": "live"
   },
   "M28": {
     "utcDate": "2026-06-19T01:00:00Z"
