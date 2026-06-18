@@ -138,7 +138,10 @@
     "status": "finished"
   },
   "M24": {
-    "utcDate": "2026-06-18T02:00:00Z"
+    "utcDate": "2026-06-18T02:00:00Z",
+    "home": 1,
+    "away": 3,
+    "status": "finished"
   },
   "M25": {
     "utcDate": "2026-06-18T16:00:00Z"
