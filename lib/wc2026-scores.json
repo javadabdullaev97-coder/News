@@ -144,7 +144,10 @@
     "status": "finished"
   },
   "M25": {
-    "utcDate": "2026-06-18T16:00:00Z"
+    "utcDate": "2026-06-18T16:00:00Z",
+    "home": 1,
+    "away": 1,
+    "status": "live"
   },
   "M26": {
     "utcDate": "2026-06-18T19:00:00Z"
