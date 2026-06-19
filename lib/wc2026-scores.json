@@ -162,7 +162,10 @@
     "status": "finished"
   },
   "M28": {
-    "utcDate": "2026-06-19T01:00:00Z"
+    "utcDate": "2026-06-19T01:00:00Z",
+    "home": 1,
+    "away": 0,
+    "status": "finished"
   },
   "M29": {
     "utcDate": "2026-06-20T03:00:00Z"
