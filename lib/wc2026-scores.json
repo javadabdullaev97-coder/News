@@ -177,7 +177,10 @@
     "status": "finished"
   },
   "M31": {
-    "utcDate": "2026-06-19T22:00:00Z"
+    "utcDate": "2026-06-19T22:00:00Z",
+    "home": 0,
+    "away": 1,
+    "status": "live"
   },
   "M32": {
     "utcDate": "2026-06-20T00:30:00Z"
