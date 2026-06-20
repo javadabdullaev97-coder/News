@@ -180,10 +180,13 @@
     "utcDate": "2026-06-19T22:00:00Z",
     "home": 0,
     "away": 1,
-    "status": "live"
+    "status": "finished"
   },
   "M32": {
-    "utcDate": "2026-06-20T00:30:00Z"
+    "utcDate": "2026-06-20T00:30:00Z",
+    "home": 3,
+    "away": 0,
+    "status": "live"
   },
   "M33": {
     "utcDate": "2026-06-20T17:00:00Z"
