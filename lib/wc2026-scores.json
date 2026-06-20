@@ -198,7 +198,10 @@
     "status": "finished"
   },
   "M34": {
-    "utcDate": "2026-06-20T20:00:00Z"
+    "utcDate": "2026-06-20T20:00:00Z",
+    "home": 0,
+    "away": 1,
+    "status": "live"
   },
   "M35": {
     "utcDate": "2026-06-21T00:00:00Z"
