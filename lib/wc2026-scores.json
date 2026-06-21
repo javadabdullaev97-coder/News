@@ -219,10 +219,13 @@
     "utcDate": "2026-06-21T16:00:00Z",
     "home": 5,
     "away": 0,
-    "status": "live"
+    "status": "finished"
   },
   "M38": {
-    "utcDate": "2026-06-21T19:00:00Z"
+    "utcDate": "2026-06-21T19:00:00Z",
+    "home": 0,
+    "away": 0,
+    "status": "live"
   },
   "M39": {
     "utcDate": "2026-06-21T22:00:00Z"
