@@ -217,7 +217,7 @@
   },
   "M37": {
     "utcDate": "2026-06-21T16:00:00Z",
-    "home": 5,
+    "home": 4,
     "away": 0,
     "status": "finished"
   },
@@ -225,7 +225,7 @@
     "utcDate": "2026-06-21T19:00:00Z",
     "home": 0,
     "away": 0,
-    "status": "live"
+    "status": "finished"
   },
   "M39": {
     "utcDate": "2026-06-21T22:00:00Z"
