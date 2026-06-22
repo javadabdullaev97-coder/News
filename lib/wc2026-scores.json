@@ -234,7 +234,10 @@
     "status": "finished"
   },
   "M40": {
-    "utcDate": "2026-06-22T01:00:00Z"
+    "utcDate": "2026-06-22T01:00:00Z",
+    "home": 1,
+    "away": 3,
+    "status": "finished"
   },
   "M41": {
     "utcDate": "2026-06-22T17:00:00Z"
