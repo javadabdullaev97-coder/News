@@ -240,7 +240,10 @@
     "status": "finished"
   },
   "M41": {
-    "utcDate": "2026-06-22T17:00:00Z"
+    "utcDate": "2026-06-22T17:00:00Z",
+    "home": 0,
+    "away": 0,
+    "status": "live"
   },
   "M42": {
     "utcDate": "2026-06-22T21:00:00Z"
