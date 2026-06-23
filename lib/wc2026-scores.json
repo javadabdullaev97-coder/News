@@ -260,8 +260,8 @@
   "M44": {
     "utcDate": "2026-06-23T03:00:00Z",
     "home": 1,
-    "away": 0,
-    "status": "live"
+    "away": 2,
+    "status": "finished"
   },
   "M45": {
     "utcDate": "2026-06-23T17:00:00Z"
