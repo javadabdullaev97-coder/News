@@ -247,15 +247,21 @@
   },
   "M42": {
     "utcDate": "2026-06-22T21:00:00Z",
+    "home": 3,
+    "away": 0,
+    "status": "finished"
+  },
+  "M43": {
+    "utcDate": "2026-06-23T00:00:00Z",
+    "home": 3,
+    "away": 2,
+    "status": "finished"
+  },
+  "M44": {
+    "utcDate": "2026-06-23T03:00:00Z",
     "home": 1,
     "away": 0,
     "status": "live"
-  },
-  "M43": {
-    "utcDate": "2026-06-23T00:00:00Z"
-  },
-  "M44": {
-    "utcDate": "2026-06-23T03:00:00Z"
   },
   "M45": {
     "utcDate": "2026-06-23T17:00:00Z"
