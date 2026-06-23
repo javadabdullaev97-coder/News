@@ -264,7 +264,10 @@
     "status": "finished"
   },
   "M45": {
-    "utcDate": "2026-06-23T17:00:00Z"
+    "utcDate": "2026-06-23T17:00:00Z",
+    "home": 5,
+    "away": 0,
+    "status": "live"
   },
   "M46": {
     "utcDate": "2026-06-23T20:00:00Z"
