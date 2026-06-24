@@ -288,10 +288,16 @@
     "status": "finished"
   },
   "M49": {
-    "utcDate": "2026-06-24T19:00:00Z"
+    "utcDate": "2026-06-24T19:00:00Z",
+    "home": 0,
+    "away": 0,
+    "status": "live"
   },
   "M50": {
-    "utcDate": "2026-06-24T19:00:00Z"
+    "utcDate": "2026-06-24T19:00:00Z",
+    "home": 0,
+    "away": 0,
+    "status": "live"
   },
   "M51": {
     "utcDate": "2026-06-24T22:00:00Z"
