@@ -300,10 +300,16 @@
     "status": "finished"
   },
   "M51": {
-    "utcDate": "2026-06-24T22:00:00Z"
+    "utcDate": "2026-06-24T22:00:00Z",
+    "home": 0,
+    "away": 3,
+    "status": "live"
   },
   "M52": {
-    "utcDate": "2026-06-24T22:00:00Z"
+    "utcDate": "2026-06-24T22:00:00Z",
+    "home": 3,
+    "away": 2,
+    "status": "live"
   },
   "M53": {
     "utcDate": "2026-06-25T01:00:00Z"
