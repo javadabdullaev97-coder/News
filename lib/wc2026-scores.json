@@ -276,7 +276,10 @@
     "status": "finished"
   },
   "M47": {
-    "utcDate": "2026-06-23T23:00:00Z"
+    "utcDate": "2026-06-23T23:00:00Z",
+    "home": 0,
+    "away": 1,
+    "status": "finished"
   },
   "M48": {
     "utcDate": "2026-06-24T02:00:00Z"
