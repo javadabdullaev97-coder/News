@@ -540,6 +540,40 @@ export function buildBestThirds(): BestThirdRow[] {
 //   "W M73" / "L M73"        → победитель/проигравший матча (если сыгран)
 // Стандинги пересчитываются при каждом ребилде, так что после Action-cron
 // раз в 15 минут сетка автоматически обновляется свежими командами.
+// Жадное назначение «один игрок — один слот» для BEST3-XXXX.
+// Без этого одна и та же команда (например, лучшая третья из E)
+// попадала бы во все BEST3-слоты, чей пул содержит E.
+// Идём по BEST3-слотам в порядке появления в сетке и каждый раз
+// берём лучшую неоткаленную команду из пула; уже использованную команду
+// больше не выдаём.
+let _best3Cache: Map<string, WCTeam> | null = null;
+function getBest3Assignments(): Map<string, WCTeam> {
+  if (_best3Cache) return _best3Cache;
+  const assignments = new Map<string, WCTeam>();
+  const claimedFifa = new Set<string>();
+  const slots: string[] = [];
+  for (const m of WC_MATCHES_RAW) {
+    for (const ref of [m.homeRef, m.awayRef]) {
+      if (ref.startsWith("BEST3-") && !slots.includes(ref)) slots.push(ref);
+    }
+  }
+  const thirds = buildBestThirds();
+  for (const slot of slots) {
+    const poolMatch = slot.match(/^BEST3-([A-L]+)$/);
+    if (!poolMatch) continue;
+    const pool = new Set(poolMatch[1].split(""));
+    const pick = thirds.find(
+      (t) => pool.has(t.group) && !claimedFifa.has(t.standing.team.fifa),
+    );
+    if (pick) {
+      assignments.set(slot, pick.standing.team);
+      claimedFifa.add(pick.standing.team.fifa);
+    }
+  }
+  _best3Cache = assignments;
+  return assignments;
+}
+
 // Помечает резолвенную команду как «предварительную», если у группы,
 // из которой она вышла, ещё не сыграны все матчи.
 export function isSlotPreliminary(slot: string): boolean {
@@ -573,13 +607,10 @@ export function resolveBracketSlot(
     return standings[placeIdx]?.team;
   }
 
-  // "BEST3-ABCDF" — лучшая третья команда из пула групп
-  const best3 = slot.match(/^BEST3-([A-L]+)$/);
-  if (best3) {
-    const pool = new Set(best3[1].split("") as WCGroupId[]);
-    const thirds = buildBestThirds();
-    const best = thirds.find((t) => pool.has(t.group));
-    return best?.standing.team;
+  // "BEST3-ABCDF" — берём из глобального назначения, чтобы команда
+  // не дублировалась между несколькими BEST3-слотами.
+  if (slot.startsWith("BEST3-")) {
+    return getBest3Assignments().get(slot);
   }
 
   // "W M73" / "L M73" — победитель/проигравший матча
