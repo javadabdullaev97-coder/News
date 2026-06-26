@@ -360,10 +360,16 @@
     "status": "finished"
   },
   "M61": {
-    "utcDate": "2026-06-26T19:00:00Z"
+    "utcDate": "2026-06-26T19:00:00Z",
+    "home": 1,
+    "away": 3,
+    "status": "live"
   },
   "M62": {
-    "utcDate": "2026-06-26T19:00:00Z"
+    "utcDate": "2026-06-26T19:00:00Z",
+    "home": 1,
+    "away": 0,
+    "status": "live"
   },
   "M63": {
     "utcDate": "2026-06-27T00:00:00Z"
