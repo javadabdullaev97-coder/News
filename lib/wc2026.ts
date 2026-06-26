@@ -13,8 +13,9 @@ import LIVE_SCORES_RAW from "./wc2026-scores.json";
 type LiveScoreEntry = {
   home?: number;
   away?: number;
-  status?: "live" | "finished";
+  status?: "live" | "finished" | "halftime";
   utcDate?: string; // абсолютный UTC-момент от football-data — пересиливает dateLocal
+  penalties?: { home: number; away: number };
 };
 const LIVE_SCORES = LIVE_SCORES_RAW as Record<string, LiveScoreEntry>;
 
@@ -57,7 +58,12 @@ export type WCMatch = {
   cityRu: string;
   country: "US" | "CA" | "MX";
   feedsInto?: string;    // ID следующего матча в сетке плей-офф
-  score?: { home: number; away: number; status?: "live" | "finished" };
+  score?: {
+    home: number;
+    away: number;
+    status?: "live" | "finished";
+    penalties?: { home: number; away: number };
+  };
   // status="live" → матч идёт, счёт на экран; "finished" → матч сыгран
   // без status или без score → определяем по времени старта
 };
@@ -267,7 +273,13 @@ export const WC_MATCHES: WCMatch[] = WC_MATCHES_RAW.map((m) => {
   const next: WCMatch = { ...m };
   if (live.utcDate) next.dateLocal = live.utcDate;
   if (typeof live.home === "number" && typeof live.away === "number") {
-    next.score = { home: live.home, away: live.away, status: live.status };
+    const status = live.status === "halftime" ? "live" : live.status;
+    next.score = {
+      home: live.home,
+      away: live.away,
+      status,
+      ...(live.penalties ? { penalties: live.penalties } : {}),
+    };
   }
   return next;
 });
@@ -500,6 +512,13 @@ export function buildGroupStandings(g: WCGroupId): Standing[] {
   return [...byFifa.values()].sort(compareStandings);
 }
 
+// Все ли матчи группы сыграны (каждая команда провела свои 3 матча).
+// Нужно, чтобы понимать, является ли позиция в стандингах окончательной.
+export function isGroupComplete(g: WCGroupId): boolean {
+  const standings = buildGroupStandings(g);
+  return standings.every((s) => s.p >= 3);
+}
+
 // Считаем все 12 строк «третьего места» — одну на группу — и сортируем
 // между собой по тем же критериям. Используется для резолва BEST3-XXXX
 // в сетке плей-офф.
@@ -521,6 +540,21 @@ export function buildBestThirds(): BestThirdRow[] {
 //   "W M73" / "L M73"        → победитель/проигравший матча (если сыгран)
 // Стандинги пересчитываются при каждом ребилде, так что после Action-cron
 // раз в 15 минут сетка автоматически обновляется свежими командами.
+// Помечает резолвенную команду как «предварительную», если у группы,
+// из которой она вышла, ещё не сыграны все матчи.
+export function isSlotPreliminary(slot: string): boolean {
+  const groupSlot = slot.match(/^([12])([A-L])$/);
+  if (groupSlot) return !isGroupComplete(groupSlot[2] as WCGroupId);
+  const best3 = slot.match(/^BEST3-([A-L]+)$/);
+  if (best3) {
+    const pool = best3[1].split("") as WCGroupId[];
+    return pool.some((g) => !isGroupComplete(g));
+  }
+  // Для W/L matchId — победитель определяется не стандингами, а самим
+  // матчем, который уже сыгран; не "preliminary".
+  return false;
+}
+
 export function resolveBracketSlot(
   slot: string,
   depth = 0,
@@ -558,8 +592,13 @@ export function resolveBracketSlot(
     const isWin = winLose[1] === "W";
     if (m.score.home > m.score.away) return isWin ? home : away;
     if (m.score.away > m.score.home) return isWin ? away : home;
-    // ничья в плей-офф → серия пенальти, free-tier football-data
-    // не отдаёт результат серии, так что показываем «?»
+    // Ничья в плей-офф — победителя определяет серия пенальти.
+    // football-data отдаёт её в score.penalties для FINISHED-матчей.
+    const pk = m.score.penalties;
+    if (pk && pk.home !== pk.away) {
+      const homeWonPk = pk.home > pk.away;
+      return homeWonPk === isWin ? home : away;
+    }
     return undefined;
   }
 

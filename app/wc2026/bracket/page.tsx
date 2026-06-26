@@ -1,6 +1,7 @@
 import { Flag } from "@/components/wc2026/Flag";
 import {
   WC_MATCHES,
+  isSlotPreliminary,
   readableRef,
   resolveBracketSlot,
   type WCMatch,
@@ -23,17 +24,23 @@ function SlotRow({ slot }: { slot: string }) {
   // Если слот прямой код команды — r.team уже заполнен.
   // Иначе пытаемся резолвить по текущим стандингам / результатам матчей.
   const resolved = r.team ?? resolveBracketSlot(slot);
+  const preliminary = resolved && !r.team && isSlotPreliminary(slot);
   const title = resolved
-    ? `${r.long} → ${resolved.name} (по текущим результатам)`
+    ? preliminary
+      ? `${r.long} → ${resolved.name} (предварительно, групповой этап не завершён)`
+      : `${r.long} → ${resolved.name}`
     : r.long;
+  // Окраска шрифта:
+  // — белый: команда точно определена (стандарт + 3 матча сыграны или
+  //   уже определилась победа в плей-офф),
+  // — серый: предварительно (вышла на место в группе, но матчи ещё идут)
+  //   или ещё не резолвится.
+  const textCls =
+    resolved && !preliminary ? "text-neutral-100" : "text-neutral-400";
   return (
     <div className="flex items-center gap-1.5 truncate" title={title}>
       <Flag code={resolved?.code ?? r.team?.code ?? "_tbd"} size={14} />
-      <span
-        className={`truncate text-[10px] font-semibold ${
-          resolved ? "text-neutral-100" : "text-neutral-400"
-        }`}
-      >
+      <span className={`truncate text-[10px] font-semibold ${textCls}`}>
         {resolved?.name ?? r.short}
       </span>
     </div>
@@ -161,9 +168,10 @@ export default function WCBracketPage() {
           место. <b>1A/2B</b> — победитель и второе место групп;{" "}
           <b>3-е ABCDF</b> — лучшее третье место из пула групп. Имена команд
           подставляются автоматически по текущим стандингам — обновляются при
-          каждом коммите счетов (≈ раз в 15 минут). Серым показаны слоты,
-          которые ещё не определились. Наведи курсор на слот — увидишь
-          расшифровку.
+          каждом коммите счетов (≈ раз в 15 минут). Белым — команды, чьи
+          места уже окончательны; серым — предварительные позиции (группа
+          не доиграна) и ещё не определившиеся слоты. Наведи курсор —
+          увидишь расшифровку.
         </p>
       </div>
 

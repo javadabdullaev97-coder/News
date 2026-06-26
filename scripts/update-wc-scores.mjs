@@ -127,16 +127,34 @@ for (const fd of apiMatches) {
 
   // Счёт — только для активных/завершённых матчей.
   if (ourStatus) {
-    const home = fd.score?.fullTime?.home ?? fd.score?.halfTime?.home ?? 0;
-    const away = fd.score?.fullTime?.away ?? fd.score?.halfTime?.away ?? 0;
+    const ft = fd.score?.fullTime;
+    const et = fd.score?.extraTime;
+    const pk = fd.score?.penalties;
+    // Если матч пошёл в ET — итоговый счёт там, иначе берём fullTime.
+    const hasEt = !!et && (et.home != null || et.away != null);
+    const home = hasEt
+      ? et.home ?? ft?.home ?? 0
+      : ft?.home ?? fd.score?.halfTime?.home ?? 0;
+    const away = hasEt
+      ? et.away ?? ft?.away ?? 0
+      : ft?.away ?? fd.score?.halfTime?.away ?? 0;
+    const hasPk = !!pk && (pk.home != null || pk.away != null);
+
+    const pkChanged = hasPk
+      ? prev.penalties?.home !== pk.home || prev.penalties?.away !== pk.away
+      : !!prev.penalties;
+
     if (
       prev.home !== home ||
       prev.away !== away ||
-      prev.status !== ourStatus
+      prev.status !== ourStatus ||
+      pkChanged
     ) {
       next.home = home;
       next.away = away;
       next.status = ourStatus;
+      if (hasPk) next.penalties = { home: pk.home, away: pk.away };
+      else if (next.penalties) delete next.penalties;
       entryChanged = true;
     }
   }
