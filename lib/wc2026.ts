@@ -9,6 +9,7 @@
 // Туда же ходит за scorers и деталями завершённых матчей.
 
 import LIVE_SCORES_RAW from "./wc2026-scores.json";
+import BEST_THIRDS_TABLE_RAW from "./wc2026-best-thirds-table.json";
 
 type LiveScoreEntry = {
   home?: number;
@@ -540,38 +541,68 @@ export function buildBestThirds(): BestThirdRow[] {
 //   "W M73" / "L M73"        → победитель/проигравший матча (если сыгран)
 // Стандинги пересчитываются при каждом ребилде, так что после Action-cron
 // раз в 15 минут сетка автоматически обновляется свежими командами.
-// Жадное назначение «один игрок — один слот» для BEST3-XXXX.
-// Без этого одна и та же команда (например, лучшая третья из E)
-// попадала бы во все BEST3-слоты, чей пул содержит E.
-// Идём по BEST3-слотам в порядке появления в сетке и каждый раз
-// берём лучшую неоткаленную команду из пула; уже использованную команду
-// больше не выдаём.
+// Точная таблица ФИФА из Annexe C Regulations (FWC26): 495 строк,
+// по одной на каждую возможную комбинацию 8 квалифицировавшихся
+// третьих мест из 12. Ключ строки — отсортированная строка из 8 букв
+// групп; значения — какой группе третий идёт в матч против победителей
+// групп 1A / 1B / 1D / 1E / 1G / 1I / 1K / 1L.
+type Best3Row = {
+  g: string;
+  "1A": WCGroupId;
+  "1B": WCGroupId;
+  "1D": WCGroupId;
+  "1E": WCGroupId;
+  "1G": WCGroupId;
+  "1I": WCGroupId;
+  "1K": WCGroupId;
+  "1L": WCGroupId;
+};
+const BEST3_TABLE: Map<string, Best3Row> = new Map(
+  (BEST_THIRDS_TABLE_RAW as Best3Row[]).map((r) => [r.g, r]),
+);
+
+// Назначение «лучших третьих» на слоты BEST3-XXXX по официальной таблице.
+// Логика:
+//   1. Берём 12 третьих мест, сортируем по тай-брейкерам ФИФА (buildBestThirds).
+//   2. Топ-8 квалифицируются.
+//   3. Их группы (отсортированные) — ключ в таблице ФИФА.
+//   4. Для каждого нашего BEST3-слота известно, против какого «1X» он играет
+//      (домашний слот матча). В строке таблицы по колонке «1X» получаем
+//      группу, чей третий идёт сюда.
+// Если top-8 не сошлось (например, из-за равенства команды на 8-9 местах
+// сейчас — тут таблица ФИФА не определит однозначно), возвращаем пустую
+// мапу — резолвер отдаст серый слот.
 let _best3Cache: Map<string, WCTeam> | null = null;
 function getBest3Assignments(): Map<string, WCTeam> {
   if (_best3Cache) return _best3Cache;
-  const assignments = new Map<string, WCTeam>();
-  const claimedFifa = new Set<string>();
-  const slots: string[] = [];
-  for (const m of WC_MATCHES_RAW) {
-    for (const ref of [m.homeRef, m.awayRef]) {
-      if (ref.startsWith("BEST3-") && !slots.includes(ref)) slots.push(ref);
-    }
-  }
+  const map = new Map<string, WCTeam>();
   const thirds = buildBestThirds();
-  for (const slot of slots) {
-    const poolMatch = slot.match(/^BEST3-([A-L]+)$/);
-    if (!poolMatch) continue;
-    const pool = new Set(poolMatch[1].split(""));
-    const pick = thirds.find(
-      (t) => pool.has(t.group) && !claimedFifa.has(t.standing.team.fifa),
-    );
-    if (pick) {
-      assignments.set(slot, pick.standing.team);
-      claimedFifa.add(pick.standing.team.fifa);
-    }
+  const top8 = thirds.slice(0, 8);
+  if (top8.length < 8) return (_best3Cache = map);
+  const groupsKey = top8
+    .map((t) => t.group)
+    .sort()
+    .join("");
+  const row = BEST3_TABLE.get(groupsKey);
+  if (!row) return (_best3Cache = map);
+
+  for (const m of WC_MATCHES_RAW) {
+    const slot = m.awayRef.startsWith("BEST3-")
+      ? m.awayRef
+      : m.homeRef.startsWith("BEST3-")
+        ? m.homeRef
+        : null;
+    if (!slot) continue;
+    const seed = m.awayRef === slot ? m.homeRef : m.awayRef;
+    const seedKey = seed as "1A" | "1B" | "1D" | "1E" | "1G" | "1I" | "1K" | "1L";
+    const group = row[seedKey];
+    if (!group) continue;
+    const standings = buildGroupStandings(group);
+    const third = standings[2]?.team;
+    if (third) map.set(slot, third);
   }
-  _best3Cache = assignments;
-  return assignments;
+  _best3Cache = map;
+  return map;
 }
 
 // Помечает резолвенную команду как «предварительную», если у группы,
