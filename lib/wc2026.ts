@@ -500,11 +500,73 @@ export function buildGroupStandings(g: WCGroupId): Standing[] {
   return [...byFifa.values()].sort(compareStandings);
 }
 
+// Считаем все 12 строк «третьего места» — одну на группу — и сортируем
+// между собой по тем же критериям. Используется для резолва BEST3-XXXX
+// в сетке плей-офф.
+export type BestThirdRow = { group: WCGroupId; standing: Standing };
+export function buildBestThirds(): BestThirdRow[] {
+  const list: BestThirdRow[] = WC_GROUP_IDS.map((g) => {
+    const standings = buildGroupStandings(g);
+    return { group: g, standing: standings[2] }; // 3-я строка
+  });
+  list.sort((a, b) => compareStandings(a.standing, b.standing));
+  return list;
+}
+
+// Резолвит выражение слота в команду, если она уже определима по текущим
+// результатам. Возвращает undefined, если ещё рано:
+//   "MEX" / "USA"            → команда напрямую
+//   "1A" / "2A"              → 1-е/2-е место группы по текущим стандингам
+//   "BEST3-ABCDF"            → лучшая из 3-х мест указанного пула групп
+//   "W M73" / "L M73"        → победитель/проигравший матча (если сыгран)
+// Стандинги пересчитываются при каждом ребилде, так что после Action-cron
+// раз в 15 минут сетка автоматически обновляется свежими командами.
+export function resolveBracketSlot(
+  slot: string,
+  depth = 0,
+): WCTeam | undefined {
+  if (depth > 6) return undefined; // защита от рекурсии
+
+  // Прямой FIFA-код
+  const direct = getTeamByFifa(slot);
+  if (direct) return direct;
+
+  // "1A" / "2B" — позиция в группе
+  const groupSlot = slot.match(/^([12])([A-L])$/);
+  if (groupSlot) {
+    const placeIdx = Number(groupSlot[1]) - 1;
+    const standings = buildGroupStandings(groupSlot[2] as WCGroupId);
+    return standings[placeIdx]?.team;
+  }
+
+  // "BEST3-ABCDF" — лучшая третья команда из пула групп
+  const best3 = slot.match(/^BEST3-([A-L]+)$/);
+  if (best3) {
+    const pool = new Set(best3[1].split("") as WCGroupId[]);
+    const thirds = buildBestThirds();
+    const best = thirds.find((t) => pool.has(t.group));
+    return best?.standing.team;
+  }
+
+  // "W M73" / "L M73" — победитель/проигравший матча
+  const winLose = slot.match(/^([WL]) (M\d+)$/);
+  if (winLose) {
+    const m = WC_MATCHES.find((x) => x.id === winLose[2]);
+    if (!m || m.score?.status !== "finished") return undefined;
+    const home = resolveBracketSlot(m.homeRef, depth + 1);
+    const away = resolveBracketSlot(m.awayRef, depth + 1);
+    const isWin = winLose[1] === "W";
+    if (m.score.home > m.score.away) return isWin ? home : away;
+    if (m.score.away > m.score.home) return isWin ? away : home;
+    // ничья в плей-офф → серия пенальти, free-tier football-data
+    // не отдаёт результат серии, так что показываем «?»
+    return undefined;
+  }
+
+  return undefined;
+}
+
 // Текущая минута live-матча. Учитываем 15-минутный перерыв между таймами:
-// — 0–45  wall-clock → первый тайм, минута = wall-clock
-// — 45–60 wall-clock → перерыв, показываем 45'
-// — 60+   wall-clock → второй тайм, минута = wall-clock − 15
-// Это приближение; football-data на free-тарифе не отдаёт реальную минуту.
 export function computeLiveMinute(start: number, now: number): number {
   const wall = Math.floor((now - start) / 60000);
   if (wall <= 0) return 1;

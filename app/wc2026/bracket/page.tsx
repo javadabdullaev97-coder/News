@@ -1,5 +1,10 @@
 import { Flag } from "@/components/wc2026/Flag";
-import { WC_MATCHES, readableRef, type WCMatch } from "@/lib/wc2026";
+import {
+  WC_MATCHES,
+  readableRef,
+  resolveBracketSlot,
+  type WCMatch,
+} from "@/lib/wc2026";
 
 export const metadata = {
   title: "Сетка плей-офф — ЧМ-2026 — LEAP",
@@ -15,11 +20,21 @@ function shortDate(iso: string) {
 
 function SlotRow({ slot }: { slot: string }) {
   const r = readableRef(slot);
+  // Если слот прямой код команды — r.team уже заполнен.
+  // Иначе пытаемся резолвить по текущим стандингам / результатам матчей.
+  const resolved = r.team ?? resolveBracketSlot(slot);
+  const title = resolved
+    ? `${r.long} → ${resolved.name} (по текущим результатам)`
+    : r.long;
   return (
-    <div className="flex items-center gap-1.5 truncate" title={r.long}>
-      <Flag code={r.team?.code ?? "_tbd"} size={14} />
-      <span className="truncate text-[10px] font-semibold text-neutral-100">
-        {r.team?.name ?? r.short}
+    <div className="flex items-center gap-1.5 truncate" title={title}>
+      <Flag code={resolved?.code ?? r.team?.code ?? "_tbd"} size={14} />
+      <span
+        className={`truncate text-[10px] font-semibold ${
+          resolved ? "text-neutral-100" : "text-neutral-400"
+        }`}
+      >
+        {resolved?.name ?? r.short}
       </span>
     </div>
   );
@@ -144,8 +159,11 @@ export default function WCBracketPage() {
         <p className="mt-2 text-xs text-neutral-400 md:text-sm">
           Слева и справа — две половины сетки, в центре финал и матч за 3-е
           место. <b>1A/2B</b> — победитель и второе место групп;{" "}
-          <b>3-е ABCDF</b> — лучшее третье место из пула групп. Наведи курсор
-          на слот — увидишь расшифровку.
+          <b>3-е ABCDF</b> — лучшее третье место из пула групп. Имена команд
+          подставляются автоматически по текущим стандингам — обновляются при
+          каждом коммите счетов (≈ раз в 15 минут). Серым показаны слоты,
+          которые ещё не определились. Наведи курсор на слот — увидишь
+          расшифровку.
         </p>
       </div>
 
