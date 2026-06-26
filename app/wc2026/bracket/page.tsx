@@ -148,14 +148,29 @@ export default function WCBracketPage() {
   const finalMatch = WC_MATCHES.find((m) => m.stage === "final")!;
   const thirdMatch = WC_MATCHES.find((m) => m.stage === "third")!;
 
-  const leftR32 = r32.slice(0, 8);
-  const rightR32 = r32.slice(8, 16);
-  const leftR16 = r16.slice(0, 4);
-  const rightR16 = r16.slice(4, 8);
-  const leftQF = qf.slice(0, 2);
-  const rightQF = qf.slice(2, 4);
-  const leftSF = sf.slice(0, 1);
-  const rightSF = sf.slice(1, 2);
+  // Раскладка по официальной структуре ФИФА (Regs §§12.6-12.11):
+  //   SF1 (M101) питается из QF M97 (=R16 M89+M90) и QF M98 (=R16 M93+M94)
+  //   SF2 (M102) питается из QF M99 (=R16 M91+M92) и QF M100 (=R16 M95+M96)
+  // Из этого следует, какие именно R32 идут на какую визуальную половину.
+  // Иначе Бразилия (1C → M76 → M91 → M99 → SF2) и Аргентина (1J → M86 →
+  // M95 → M100 → SF2) оказываются на разных сторонах рисунка, хотя
+  // турнирно они в одной половине.
+  const pick = (ids: string[]) =>
+    ids
+      .map((id) => WC_MATCHES.find((m) => m.id === id))
+      .filter((m): m is WCMatch => !!m);
+  const leftR32 = pick([
+    "M74", "M77", "M73", "M75", "M83", "M84", "M81", "M82",
+  ]);
+  const rightR32 = pick([
+    "M76", "M78", "M79", "M80", "M86", "M88", "M85", "M87",
+  ]);
+  const leftR16 = pick(["M89", "M90", "M93", "M94"]);
+  const rightR16 = pick(["M91", "M92", "M95", "M96"]);
+  const leftQF = pick(["M97", "M98"]);
+  const rightQF = pick(["M99", "M100"]);
+  const leftSF = pick(["M101"]);
+  const rightSF = pick(["M102"]);
 
   return (
     <div className="space-y-6">
