@@ -12,8 +12,8 @@
     "utcDate": "2026-06-12T02:00:00Z"
   },
   "M03": {
-    "home": 0,
-    "away": 0,
+    "home": 1,
+    "away": 1,
     "status": "finished",
     "utcDate": "2026-06-12T19:00:00Z"
   },
@@ -337,21 +337,27 @@
   },
   "M57": {
     "utcDate": "2026-06-25T23:00:00Z",
-    "home": 0,
-    "away": 0,
-    "status": "live"
+    "home": 1,
+    "away": 1,
+    "status": "finished"
   },
   "M58": {
     "utcDate": "2026-06-25T23:00:00Z",
-    "home": 0,
-    "away": 2,
-    "status": "live"
+    "home": 1,
+    "away": 3,
+    "status": "finished"
   },
   "M59": {
-    "utcDate": "2026-06-26T02:00:00Z"
+    "utcDate": "2026-06-26T02:00:00Z",
+    "home": 3,
+    "away": 2,
+    "status": "finished"
   },
   "M60": {
-    "utcDate": "2026-06-26T02:00:00Z"
+    "utcDate": "2026-06-26T02:00:00Z",
+    "home": 0,
+    "away": 0,
+    "status": "finished"
   },
   "M61": {
     "utcDate": "2026-06-26T19:00:00Z"
