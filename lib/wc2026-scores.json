@@ -398,11 +398,14 @@
   "M67": {
     "utcDate": "2026-06-27T21:00:00Z",
     "home": 0,
-    "away": 0,
+    "away": 2,
     "status": "live"
   },
   "M68": {
-    "utcDate": "2026-06-27T21:00:00Z"
+    "utcDate": "2026-06-27T21:00:00Z",
+    "home": 1,
+    "away": 1,
+    "status": "live"
   },
   "M69": {
     "utcDate": "2026-06-27T23:30:00Z"
