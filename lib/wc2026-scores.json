@@ -399,13 +399,13 @@
     "utcDate": "2026-06-27T21:00:00Z",
     "home": 0,
     "away": 2,
-    "status": "live"
+    "status": "finished"
   },
   "M68": {
     "utcDate": "2026-06-27T21:00:00Z",
     "home": 2,
     "away": 1,
-    "status": "live"
+    "status": "finished"
   },
   "M69": {
     "utcDate": "2026-06-27T23:30:00Z"
