@@ -372,16 +372,28 @@
     "status": "finished"
   },
   "M63": {
-    "utcDate": "2026-06-27T00:00:00Z"
+    "utcDate": "2026-06-27T00:00:00Z",
+    "home": 0,
+    "away": 0,
+    "status": "finished"
   },
   "M64": {
-    "utcDate": "2026-06-27T00:00:00Z"
+    "utcDate": "2026-06-27T00:00:00Z",
+    "home": 0,
+    "away": 1,
+    "status": "finished"
   },
   "M65": {
-    "utcDate": "2026-06-27T03:00:00Z"
+    "utcDate": "2026-06-27T03:00:00Z",
+    "home": 1,
+    "away": 1,
+    "status": "live"
   },
   "M66": {
-    "utcDate": "2026-06-27T03:00:00Z"
+    "utcDate": "2026-06-27T03:00:00Z",
+    "home": 0,
+    "away": 3,
+    "status": "live"
   },
   "M67": {
     "utcDate": "2026-06-27T21:00:00Z"
