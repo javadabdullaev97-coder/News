@@ -408,10 +408,16 @@
     "status": "finished"
   },
   "M69": {
-    "utcDate": "2026-06-27T23:30:00Z"
+    "utcDate": "2026-06-27T23:30:00Z",
+    "home": 0,
+    "away": 0,
+    "status": "finished"
   },
   "M70": {
-    "utcDate": "2026-06-27T23:30:00Z"
+    "utcDate": "2026-06-27T23:30:00Z",
+    "home": 3,
+    "away": 1,
+    "status": "live"
   },
   "M71": {
     "utcDate": "2026-06-28T02:00:00Z"
