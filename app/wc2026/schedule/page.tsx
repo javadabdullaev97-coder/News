@@ -3,6 +3,7 @@ import {
   WC_MATCHES,
   getMatchStatus,
   readableRef,
+  resolveBracketSlot,
   type WCMatch,
 } from "@/lib/wc2026";
 
@@ -40,6 +41,10 @@ const STAGE_LABELS: Record<string, string> = {
 function MatchRow({ m }: { m: WCMatch }) {
   const home = readableRef(m.homeRef);
   const away = readableRef(m.awayRef);
+  // Для плей-офф слотов («1A» / «BEST3-X» / «W M73») — пробуем подставить
+  // конкретную команду по текущим результатам, если уже определилась.
+  const homeResolved = home.team ?? resolveBracketSlot(m.homeRef);
+  const awayResolved = away.team ?? resolveBracketSlot(m.awayRef);
   const isUz = m.homeRef === "UZB" || m.awayRef === "UZB";
   const status = getMatchStatus(m).status;
   const score = m.score;
@@ -94,9 +99,9 @@ function MatchRow({ m }: { m: WCMatch }) {
             className="truncate text-right text-sm font-semibold text-white"
             title={home.long}
           >
-            {home.team?.name ?? home.long}
+            {homeResolved?.name ?? home.long}
           </span>
-          <Flag code={home.team?.code ?? "_tbd"} size={22} />
+          <Flag code={homeResolved?.code ?? "_tbd"} size={22} />
         </div>
         <span
           className={`min-w-[42px] text-center font-mono text-sm font-bold tabular-nums ${middleClass}`}
@@ -104,12 +109,12 @@ function MatchRow({ m }: { m: WCMatch }) {
           {middleText}
         </span>
         <div className="flex min-w-0 flex-1 items-center gap-2">
-          <Flag code={away.team?.code ?? "_tbd"} size={22} />
+          <Flag code={awayResolved?.code ?? "_tbd"} size={22} />
           <span
             className="truncate text-sm font-semibold text-white"
             title={away.long}
           >
-            {away.team?.name ?? away.long}
+            {awayResolved?.name ?? away.long}
           </span>
         </div>
       </div>
