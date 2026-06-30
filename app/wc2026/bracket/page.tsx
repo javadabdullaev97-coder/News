@@ -66,11 +66,23 @@ function Column({
   label,
   matches,
   grow = 1,
+  paired = false,
 }: {
   label: string;
   matches: WCMatch[];
   grow?: number;
+  paired?: boolean;
 }) {
+  // Если paired=true (для R32), группируем матчи по 2 — каждая пара
+  // вертикально близко (gap-0.5), пары распределяются равномерно через
+  // justify-around. Это гарантирует, что R16-карточка визуально сидит
+  // ровно между парой R32, которая её питает.
+  const groups: WCMatch[][] = paired
+    ? Array.from({ length: Math.ceil(matches.length / 2) }, (_, i) =>
+        matches.slice(i * 2, i * 2 + 2),
+      )
+    : matches.map((m) => [m]);
+
   return (
     <div
       className="flex min-w-[88px] flex-col"
@@ -79,9 +91,13 @@ function Column({
       <div className="mb-2 border-b border-white/10 pb-1.5 text-center text-[9px] font-bold uppercase tracking-wider text-neutral-400">
         {label}
       </div>
-      <div className="flex flex-1 flex-col justify-around gap-1.5">
-        {matches.map((m) => (
-          <MatchCard key={m.id} m={m} />
+      <div className="flex flex-1 flex-col justify-around">
+        {groups.map((group, idx) => (
+          <div key={idx} className="flex flex-col gap-0.5">
+            {group.map((m) => (
+              <MatchCard key={m.id} m={m} />
+            ))}
+          </div>
         ))}
       </div>
     </div>
@@ -195,15 +211,15 @@ export default function WCBracketPage() {
           className="flex min-w-[880px] items-stretch gap-1 md:min-w-0 md:gap-1.5"
           style={{ minHeight: 580 }}
         >
-          <Column label="1/16" matches={leftR32} />
-          <Column label="1/8" matches={leftR16} />
+          <Column label="1/16" matches={leftR32} paired />
+          <Column label="1/8" matches={leftR16} paired />
           <Column label="1/4" matches={leftQF} />
           <Column label="1/2" matches={leftSF} grow={1.05} />
           <CenterColumn finalMatch={finalMatch} thirdMatch={thirdMatch} />
           <Column label="1/2" matches={rightSF} grow={1.05} />
           <Column label="1/4" matches={rightQF} />
-          <Column label="1/8" matches={rightR16} />
-          <Column label="1/16" matches={rightR32} />
+          <Column label="1/8" matches={rightR16} paired />
+          <Column label="1/16" matches={rightR32} paired />
         </div>
       </div>
     </div>
