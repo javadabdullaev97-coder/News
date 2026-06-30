@@ -19,7 +19,15 @@ function shortDate(iso: string) {
   });
 }
 
-function SlotRow({ slot }: { slot: string }) {
+function SlotRow({
+  slot,
+  score,
+  isWinner,
+}: {
+  slot: string;
+  score?: number;
+  isWinner?: boolean;
+}) {
   const r = readableRef(slot);
   // Если слот прямой код команды — r.team уже заполнен.
   // Иначе пытаемся резолвить по текущим стандингам / результатам матчей.
@@ -30,24 +38,41 @@ function SlotRow({ slot }: { slot: string }) {
       ? `${r.long} → ${resolved.name} (предварительно, групповой этап не завершён)`
       : `${r.long} → ${resolved.name}`
     : r.long;
-  // Окраска шрифта:
-  // — белый: команда точно определена (стандарт + 3 матча сыграны или
-  //   уже определилась победа в плей-офф),
-  // — серый: предварительно (вышла на место в группе, но матчи ещё идут)
-  //   или ещё не резолвится.
   const textCls =
     resolved && !preliminary ? "text-neutral-100" : "text-neutral-400";
   return (
     <div className="flex items-center gap-1.5 truncate" title={title}>
       <Flag code={resolved?.code ?? r.team?.code ?? "_tbd"} size={14} />
-      <span className={`truncate text-[10px] font-semibold ${textCls}`}>
+      <span
+        className={`flex-1 truncate text-[10px] font-semibold ${textCls} ${
+          isWinner ? "" : score != null ? "opacity-60" : ""
+        }`}
+      >
         {resolved?.name ?? r.short}
       </span>
+      {score != null && (
+        <span
+          className={`shrink-0 font-mono text-[10px] font-bold tabular-nums ${
+            isWinner ? "text-white" : "text-neutral-400"
+          }`}
+        >
+          {score}
+        </span>
+      )}
     </div>
   );
 }
 
 function MatchCard({ m }: { m: WCMatch }) {
+  const score = m.score;
+  const homeWon =
+    !!score && (score.home > score.away ||
+      (score.home === score.away &&
+        (score.penalties?.home ?? 0) > (score.penalties?.away ?? 0)));
+  const awayWon =
+    !!score && (score.away > score.home ||
+      (score.home === score.away &&
+        (score.penalties?.away ?? 0) > (score.penalties?.home ?? 0)));
   return (
     <div className="flex h-[58px] flex-col justify-between rounded-md border border-white/10 bg-white/5 px-1.5 py-1">
       <div className="flex items-center justify-between gap-1 text-[8px] uppercase tracking-wider text-neutral-500">
@@ -55,8 +80,16 @@ function MatchCard({ m }: { m: WCMatch }) {
         <span className="truncate">{shortDate(m.dateLocal)}</span>
       </div>
       <div className="space-y-0.5">
-        <SlotRow slot={m.homeRef} />
-        <SlotRow slot={m.awayRef} />
+        <SlotRow
+          slot={m.homeRef}
+          score={score?.home}
+          isWinner={homeWon}
+        />
+        <SlotRow
+          slot={m.awayRef}
+          score={score?.away}
+          isWinner={awayWon}
+        />
       </div>
     </div>
   );

@@ -76,6 +76,13 @@ const FD_STAGE_MAP = {
   FINAL: "final",
 };
 
+// Множество наших match id, уже забранных в этом прогоне.
+// Нужно потому что в R32+ нет уникального ключа по командам (наши слоты
+// "1A"/"BEST3-X" не сравниваются с реальными командами FD), и матчинг
+// идёт по stage+дата. Без дедупа FD-матч с близкой датой к двум нашим
+// уехал бы в первый попавшийся.
+const claimedMineIds = new Set();
+
 // Качаем API. На WC у football-data код "WC", альтернативно — числовой id 2000.
 const apiUrl = "https://api.football-data.org/v4/competitions/WC/matches";
 const apiRes = await fetch(apiUrl, {
@@ -127,16 +134,33 @@ for (const fd of apiMatches) {
       return Math.abs(om.when - fdWhen) < 36 * 3600 * 1000;
     });
   } else {
-    mine = ourMatches.find((om) => {
+    // Сначала ищем точное совпадение по дате (±30 минут) — это надёжно,
+    // и matches наша M89/M90 точно с FD одноимёнными.
+    // Если не нашли, расширяем окно до 2 часов на случай переноса.
+    // claimedMineIds защищает от того что один FD-матч съест двух наших.
+    const candidates = ourMatches.filter((om) => {
       if (om.stage !== fdStage) return false;
-      return Math.abs(om.when - fdWhen) < 12 * 3600 * 1000;
+      if (claimedMineIds.has(om.id)) return false;
+      return true;
     });
+    const tightWindow = 30 * 60 * 1000; // ±30 минут
+    const looseWindow = 2 * 3600 * 1000; // ±2 часа
+    mine =
+      candidates.find((om) => Math.abs(om.when - fdWhen) < tightWindow) ??
+      candidates
+        .filter((om) => Math.abs(om.when - fdWhen) < looseWindow)
+        // если несколько — берём ближайший
+        .sort(
+          (a, b) => Math.abs(a.when - fdWhen) - Math.abs(b.when - fdWhen),
+        )[0];
   }
 
   if (!mine) {
     unmatched.push(`${fdHome} vs ${fdAway} @ ${fd.utcDate} [${fdStage}]`);
     continue;
   }
+
+  claimedMineIds.add(mine.id);
 
   fdIdByOurId[mine.id] = fd.id;
 
