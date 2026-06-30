@@ -440,36 +440,36 @@
     "status": "finished"
   },
   "M74": {
-    "utcDate": "2026-06-30T01:00:00Z",
-    "homeRef": "NED",
-    "awayRef": "MAR",
+    "utcDate": "2026-06-29T20:30:00Z",
+    "homeRef": "GER",
+    "awayRef": "PAR",
     "home": 0,
     "away": 0,
     "status": "finished",
     "penalties": {
-      "home": 2,
-      "away": 3
+      "home": 3,
+      "away": 4
     }
   },
   "M77": {
-    "utcDate": "2026-07-01T01:00:00Z",
-    "homeRef": "MEX",
-    "awayRef": "ECU"
+    "utcDate": "2026-06-30T21:00:00Z",
+    "homeRef": "FRA",
+    "awayRef": "SWE"
   },
   "M80": {
-    "utcDate": "2026-07-02T00:00:00Z",
-    "homeRef": "USA",
-    "awayRef": "BIH"
+    "utcDate": "2026-07-01T20:00:00Z",
+    "homeRef": "BEL",
+    "awayRef": "SEN"
   },
   "M83": {
-    "utcDate": "2026-07-03T03:00:00Z",
-    "homeRef": "SUI",
-    "awayRef": "ALG"
+    "utcDate": "2026-07-02T23:00:00Z",
+    "homeRef": "POR",
+    "awayRef": "CRO"
   },
   "M86": {
-    "utcDate": "2026-07-04T01:30:00Z",
-    "homeRef": "COL",
-    "awayRef": "GHA"
+    "utcDate": "2026-07-03T22:00:00Z",
+    "homeRef": "ARG",
+    "awayRef": "CPV"
   },
   "M89": {
     "utcDate": "2026-07-04T17:00:00Z",
