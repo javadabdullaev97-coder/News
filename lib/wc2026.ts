@@ -17,6 +17,8 @@ type LiveScoreEntry = {
   status?: "live" | "finished" | "halftime";
   utcDate?: string; // абсолютный UTC-момент от football-data — пересиливает dateLocal
   penalties?: { home: number; away: number };
+  homeRef?: string; // реальный FIFA-код, перебивающий слот ("1A" → "MEX")
+  awayRef?: string;
 };
 const LIVE_SCORES = LIVE_SCORES_RAW as Record<string, LiveScoreEntry>;
 
@@ -273,6 +275,10 @@ export const WC_MATCHES: WCMatch[] = WC_MATCHES_RAW.map((m) => {
   if (!live) return m;
   const next: WCMatch = { ...m };
   if (live.utcDate) next.dateLocal = live.utcDate;
+  // Override slot expressions with real FIFA codes when API knows them
+  // (for knockout matches after group stage ends).
+  if (live.homeRef) next.homeRef = live.homeRef;
+  if (live.awayRef) next.awayRef = live.awayRef;
   if (typeof live.home === "number" && typeof live.away === "number") {
     const status = live.status === "halftime" ? "live" : live.status;
     next.score = {

@@ -48,19 +48,33 @@ function fdToOurs(tla) {
 // Альтернатива — динамический импорт TS, но он тянет за собой целую тулчейн.
 const wcSource = fs.readFileSync(MATCHES_FILE, "utf8");
 const matchRegex =
-  /\{\s*id:\s*"(M\d+)"[^}]*?dateLocal:\s*"([^"]+)"[^}]*?homeRef:\s*"([^"]+)"[^}]*?awayRef:\s*"([^"]+)"[^}]*?\}/g;
+  /\{\s*id:\s*"(M\d+)",\s*stage:\s*"(\w+)"[^}]*?dateLocal:\s*"([^"]+)"[^}]*?homeRef:\s*"([^"]+)"[^}]*?awayRef:\s*"([^"]+)"[^}]*?\}/g;
 const ourMatches = [];
 let match;
 while ((match = matchRegex.exec(wcSource))) {
-  const [, id, dateLocal, homeRef, awayRef] = match;
+  const [, id, stage, dateLocal, homeRef, awayRef] = match;
   ourMatches.push({
     id,
+    stage,
     homeRef,
     awayRef,
     when: new Date(dateLocal).getTime(),
   });
 }
 console.log(`Найдено ${ourMatches.length} матчей в lib/wc2026.ts`);
+
+// football-data stage → наш stage
+const FD_STAGE_MAP = {
+  GROUP_STAGE: "group",
+  LAST_32: "r32",
+  ROUND_OF_32: "r32",
+  LAST_16: "r16",
+  ROUND_OF_16: "r16",
+  QUARTER_FINALS: "qf",
+  SEMI_FINALS: "sf",
+  THIRD_PLACE: "third",
+  FINAL: "final",
+};
 
 // Качаем API. На WC у football-data код "WC", альтернативно — числовой id 2000.
 const apiUrl = "https://api.football-data.org/v4/competitions/WC/matches";
@@ -98,17 +112,29 @@ for (const fd of apiMatches) {
   if (!fdHome || !fdAway) continue;
 
   const fdWhen = new Date(fd.utcDate).getTime();
+  const fdStage = FD_STAGE_MAP[fd.stage] ?? "group";
 
-  // Сопоставляем по обеим командам и дате ±36 часов
-  // (часовые пояса разных стадионов отличаются до 3ч, плюс возможны
-  // переносы — даём широкое окно).
-  const mine = ourMatches.find((om) => {
-    if (om.homeRef !== fdHome || om.awayRef !== fdAway) return false;
-    return Math.abs(om.when - fdWhen) < 36 * 3600 * 1000;
-  });
+  // Стратегия матчинга зависит от стадии:
+  //   group  → по обеим командам + дата ±36 часов (наши homeRef/awayRef
+  //            это реальные FIFA-коды)
+  //   r32+   → по stage + дата ±12 часов (наши homeRef/awayRef это слоты
+  //            "1A"/"2B"/"BEST3-X", их не сравнить с реальными
+  //            командами от football-data)
+  let mine;
+  if (fdStage === "group") {
+    mine = ourMatches.find((om) => {
+      if (om.homeRef !== fdHome || om.awayRef !== fdAway) return false;
+      return Math.abs(om.when - fdWhen) < 36 * 3600 * 1000;
+    });
+  } else {
+    mine = ourMatches.find((om) => {
+      if (om.stage !== fdStage) return false;
+      return Math.abs(om.when - fdWhen) < 12 * 3600 * 1000;
+    });
+  }
 
   if (!mine) {
-    unmatched.push(`${fdHome} vs ${fdAway} @ ${fd.utcDate}`);
+    unmatched.push(`${fdHome} vs ${fdAway} @ ${fd.utcDate} [${fdStage}]`);
     continue;
   }
 
@@ -123,6 +149,18 @@ for (const fd of apiMatches) {
   if (!sameUtc(prev.utcDate, fd.utcDate)) {
     next.utcDate = fd.utcDate;
     entryChanged = true;
+  }
+
+  // Для плей-офф пишем реальные команды, чтобы перебить слоты "1A"/"BEST3-X".
+  if (fdStage !== "group") {
+    if (prev.homeRef !== fdHome) {
+      next.homeRef = fdHome;
+      entryChanged = true;
+    }
+    if (prev.awayRef !== fdAway) {
+      next.awayRef = fdAway;
+      entryChanged = true;
+    }
   }
 
   // Счёт — только для активных/завершённых матчей.
