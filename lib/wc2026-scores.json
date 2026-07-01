@@ -512,8 +512,8 @@
     "utcDate": "2026-07-01T20:00:00Z",
     "homeRef": "BEL",
     "awayRef": "SEN",
-    "home": 0,
-    "away": 2,
+    "home": 1,
+    "away": 0,
     "status": "live"
   },
   "M83": {
