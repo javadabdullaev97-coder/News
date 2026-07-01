@@ -3,7 +3,12 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Flag } from "@/components/wc2026/Flag";
-import { readableRef, timeTashkent, type WCMatch } from "@/lib/wc2026";
+import {
+  readableRef,
+  resolveBracketSlot,
+  timeTashkent,
+  type WCMatch,
+} from "@/lib/wc2026";
 
 type MatchStatus = "scheduled" | "live" | "finished";
 
@@ -114,6 +119,8 @@ function MatchRow({ item }: { item: LiveMatchItem }) {
   const { m, status, minute } = item;
   const home = readableRef(m.homeRef);
   const away = readableRef(m.awayRef);
+  const homeResolved = home.team ?? resolveBracketSlot(m.homeRef);
+  const awayResolved = away.team ?? resolveBracketSlot(m.awayRef);
   const isUz = m.homeRef === "UZB" || m.awayRef === "UZB";
   const score =
     (status === "finished" || status === "live") && m.score
@@ -135,9 +142,9 @@ function MatchRow({ item }: { item: LiveMatchItem }) {
           className="truncate text-right font-semibold text-white"
           title={home.long}
         >
-          {home.team?.name ?? home.short}
+          {homeResolved?.name ?? home.short}
         </span>
-        <Flag code={home.team?.code ?? "_tbd"} size={16} />
+        <Flag code={homeResolved?.code ?? "_tbd"} size={16} />
       </div>
       <div
         className={`min-w-[34px] shrink-0 text-center font-mono font-bold tabular-nums ${
@@ -151,12 +158,12 @@ function MatchRow({ item }: { item: LiveMatchItem }) {
         {score}
       </div>
       <div className="flex min-w-0 flex-1 items-center gap-1.5">
-        <Flag code={away.team?.code ?? "_tbd"} size={16} />
+        <Flag code={awayResolved?.code ?? "_tbd"} size={16} />
         <span
           className="truncate font-semibold text-white"
           title={away.long}
         >
-          {away.team?.name ?? away.short}
+          {awayResolved?.name ?? away.short}
         </span>
       </div>
     </Link>

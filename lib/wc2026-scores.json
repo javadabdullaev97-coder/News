@@ -433,16 +433,12 @@
   },
   "M73": {
     "utcDate": "2026-06-28T19:00:00Z",
-    "homeRef": "ZAF",
-    "awayRef": "CAN",
     "home": 0,
     "away": 1,
     "status": "finished"
   },
   "M74": {
     "utcDate": "2026-06-29T20:30:00Z",
-    "homeRef": "GER",
-    "awayRef": "PAR",
     "home": 0,
     "away": 0,
     "status": "finished",
@@ -453,8 +449,6 @@
   },
   "M75": {
     "utcDate": "2026-06-30T01:00:00Z",
-    "homeRef": "NED",
-    "awayRef": "MAR",
     "home": 0,
     "away": 0,
     "status": "finished",
@@ -465,66 +459,44 @@
   },
   "M76": {
     "utcDate": "2026-06-29T17:00:00Z",
-    "homeRef": "BRA",
-    "awayRef": "JPN",
     "home": 2,
     "away": 1,
     "status": "finished"
   },
   "M77": {
     "utcDate": "2026-06-30T21:00:00Z",
-    "homeRef": "FRA",
-    "awayRef": "SWE",
     "home": 3,
     "away": 0,
     "status": "finished"
   },
   "M78": {
     "utcDate": "2026-06-30T17:00:00Z",
-    "homeRef": "CIV",
-    "awayRef": "NOR",
     "home": 1,
     "away": 2,
     "status": "finished"
   },
   "M80": {
-    "utcDate": "2026-07-01T16:00:00Z",
-    "homeRef": "ENG",
-    "awayRef": "COD"
+    "utcDate": "2026-07-01T16:00:00Z"
   },
   "M82": {
-    "utcDate": "2026-07-02T00:00:00Z",
-    "homeRef": "USA",
-    "awayRef": "BIH"
+    "utcDate": "2026-07-02T00:00:00Z"
   },
   "M83": {
-    "utcDate": "2026-07-02T23:00:00Z",
-    "homeRef": "POR",
-    "awayRef": "CRO"
+    "utcDate": "2026-07-02T23:00:00Z"
   },
   "M86": {
-    "utcDate": "2026-07-03T22:00:00Z",
-    "homeRef": "ARG",
-    "awayRef": "CPV"
+    "utcDate": "2026-07-03T22:00:00Z"
   },
   "M87": {
-    "utcDate": "2026-07-04T01:30:00Z",
-    "homeRef": "COL",
-    "awayRef": "GHA"
+    "utcDate": "2026-07-04T01:30:00Z"
   },
   "M88": {
-    "utcDate": "2026-07-03T18:00:00Z",
-    "homeRef": "AUS",
-    "awayRef": "EGY"
+    "utcDate": "2026-07-03T18:00:00Z"
   },
   "M89": {
-    "utcDate": "2026-07-04T17:00:00Z",
-    "homeRef": "CAN",
-    "awayRef": "MAR"
+    "utcDate": "2026-07-04T17:00:00Z"
   },
   "M90": {
-    "utcDate": "2026-07-04T17:00:00Z",
-    "homeRef": "CAN",
-    "awayRef": "MAR"
+    "utcDate": "2026-07-04T17:00:00Z"
   }
 }

@@ -48,20 +48,143 @@ function fdToOurs(tla) {
 // Альтернатива — динамический импорт TS, но он тянет за собой целую тулчейн.
 const wcSource = fs.readFileSync(MATCHES_FILE, "utf8");
 const matchRegex =
-  /\{\s*id:\s*"(M\d+)",\s*stage:\s*"(\w+)"[^}]*?dateLocal:\s*"([^"]+)"[^}]*?homeRef:\s*"([^"]+)"[^}]*?awayRef:\s*"([^"]+)"[^}]*?\}/g;
+  /\{\s*id:\s*"(M\d+)",\s*stage:\s*"(\w+)"(?:,\s*group:\s*"([A-L])")?[^}]*?dateLocal:\s*"([^"]+)"[^}]*?homeRef:\s*"([^"]+)"[^}]*?awayRef:\s*"([^"]+)"[^}]*?\}/g;
 const ourMatches = [];
 let match;
 while ((match = matchRegex.exec(wcSource))) {
-  const [, id, stage, dateLocal, homeRef, awayRef] = match;
+  const [, id, stage, group, dateLocal, homeRef, awayRef] = match;
   ourMatches.push({
     id,
     stage,
+    group,
     homeRef,
     awayRef,
     when: new Date(dateLocal).getTime(),
   });
 }
 console.log(`Найдено ${ourMatches.length} матчей в lib/wc2026.ts`);
+
+// Парсим WC_TEAMS для standings (потом нужно сопоставлять команды по группам).
+const teamRegex =
+  /\{\s*name:\s*"[^"]+",\s*code:\s*"[^"]+",\s*fifa:\s*"([A-Z]+)"[^}]*?group:\s*"([A-L])"[^}]*?\}/g;
+const teamsByGroup = {};
+let tm;
+while ((tm = teamRegex.exec(wcSource))) {
+  const [, fifa, gr] = tm;
+  if (!teamsByGroup[gr]) teamsByGroup[gr] = [];
+  teamsByGroup[gr].push(fifa);
+}
+
+// Стандинги для каждой группы: считаем от завершённых матчей.
+function compareStandings(a, b) {
+  if (b.pts !== a.pts) return b.pts - a.pts;
+  const gdA = a.gf - a.ga;
+  const gdB = b.gf - b.ga;
+  if (gdB !== gdA) return gdB - gdA;
+  if (b.gf !== a.gf) return b.gf - a.gf;
+  if (b.fairPlay !== a.fairPlay) return b.fairPlay - a.fairPlay;
+  return (a.fifaRank ?? 999) - (b.fifaRank ?? 999);
+}
+
+function buildStandings() {
+  const st = {};
+  for (const g of Object.keys(teamsByGroup)) {
+    st[g] = teamsByGroup[g].map((fifa) => ({
+      fifa,
+      p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0, fairPlay: 0,
+      fifaRank: fifa === "UZB" ? 57 : 999,
+    }));
+  }
+  for (const om of ourMatches) {
+    if (om.stage !== "group") continue;
+    const sc = existingScores[om.id];
+    if (sc?.status !== "finished") continue;
+    const g = st[om.group];
+    if (!g) continue;
+    const home = g.find((t) => t.fifa === om.homeRef);
+    const away = g.find((t) => t.fifa === om.awayRef);
+    if (!home || !away) continue;
+    home.p++; away.p++;
+    home.gf += sc.home; home.ga += sc.away;
+    away.gf += sc.away; away.ga += sc.home;
+    if (sc.home > sc.away) { home.w++; home.pts += 3; away.l++; }
+    else if (sc.away > sc.home) { away.w++; away.pts += 3; home.l++; }
+    else { home.d++; away.d++; home.pts += 1; away.pts += 1; }
+  }
+  for (const g of Object.keys(st)) st[g].sort(compareStandings);
+  return st;
+}
+
+// Assignments для BEST3-XYZ слотов через таблицу Annexe C ФИФА.
+const best3Table = JSON.parse(
+  fs.readFileSync(path.join(ROOT, "lib", "wc2026-best-thirds-table.json"), "utf8"),
+);
+const best3TableMap = new Map(best3Table.map((r) => [r.g, r]));
+
+function getBest3Assignments(standings) {
+  const thirds = Object.keys(standings)
+    .map((g) => ({ g, team: standings[g][2] }))
+    .filter((t) => t.team);
+  thirds.sort((a, b) => compareStandings(a.team, b.team));
+  const top8 = thirds.slice(0, 8);
+  if (top8.length < 8) return {};
+  const groupsKey = top8.map((t) => t.g).sort().join("");
+  const row = best3TableMap.get(groupsKey);
+  if (!row) return {};
+
+  // Для каждого BEST3-XXX слота в наших R32 матчах — по паре (сид, BEST3),
+  // смотрим row[сид] → группа → third-place команда.
+  const assignments = {};
+  for (const om of ourMatches) {
+    if (om.stage !== "r32") continue;
+    const best3Slot = om.homeRef.startsWith("BEST3-")
+      ? om.homeRef
+      : om.awayRef.startsWith("BEST3-")
+        ? om.awayRef
+        : null;
+    if (!best3Slot) continue;
+    const seed = om.homeRef.startsWith("BEST3-") ? om.awayRef : om.homeRef;
+    const gr = row[seed];
+    if (gr) assignments[best3Slot] = standings[gr][2]?.fifa;
+  }
+  return assignments;
+}
+
+// Резолвер слота в FIFA-код: "1A" / "2B" / "BEST3-XYZ" → "MEX".
+// Для "W Mxx" / "L Mxx" нужны score того матча.
+function resolveSlot(slot, standings, best3, scoresMap) {
+  if (/^[A-Z]{3}$/.test(slot)) return slot;
+  const gs = slot.match(/^([12])([A-L])$/);
+  if (gs) return standings[gs[2]]?.[gs[1] === "1" ? 0 : 1]?.fifa;
+  if (slot.startsWith("BEST3-")) return best3[slot];
+  const wl = slot.match(/^([WL]) (M\d+)$/);
+  if (wl) {
+    const [, kind, mid] = wl;
+    const om = ourMatches.find((m) => m.id === mid);
+    if (!om) return null;
+    const sc = scoresMap[mid];
+    if (sc?.status !== "finished") return null;
+    // Определяем home/away — приоритет override из JSON.
+    const home = sc.homeRef ?? resolveSlot(om.homeRef, standings, best3, scoresMap);
+    const away = sc.awayRef ?? resolveSlot(om.awayRef, standings, best3, scoresMap);
+    let winner = null;
+    if (sc.home > sc.away) winner = home;
+    else if (sc.away > sc.home) winner = away;
+    else if (sc.penalties) {
+      winner = sc.penalties.home > sc.penalties.away ? home : away;
+    }
+    if (!winner) return null;
+    return kind === "W" ? winner : (winner === home ? away : home);
+  }
+  return null;
+}
+
+const standings = buildStandings();
+const best3Assignments = getBest3Assignments(standings);
+console.log(
+  `Стандинги: ${Object.keys(standings).length} групп; ` +
+  `BEST3-назначений: ${Object.keys(best3Assignments).length}`,
+);
 
 // football-data stage → наш stage
 const FD_STAGE_MAP = {
@@ -134,25 +257,37 @@ for (const fd of apiMatches) {
       return Math.abs(om.when - fdWhen) < 36 * 3600 * 1000;
     });
   } else {
-    // Сначала ищем точное совпадение по дате (±30 минут) — это надёжно,
-    // и matches наша M89/M90 точно с FD одноимёнными.
-    // Если не нашли, расширяем окно до 2 часов на случай переноса.
-    // claimedMineIds защищает от того что один FD-матч съест двух наших.
-    const candidates = ourMatches.filter((om) => {
+    // Для плей-офф — сначала пробуем сопоставить по КОМАНДАМ через
+    // slot-резолвинг из наших стандингов + таблицы Annexe C. Это стабильно
+    // независимо от разницы в датах между нашим hardcoded schedule и FD.
+    // Если резолвинг не сработал (например, W Mxx где Mxx ещё не сыгран),
+    // fallback на дату ±2 часа с уже-claimed дедупом.
+    const teamMatched = ourMatches.find((om) => {
       if (om.stage !== fdStage) return false;
       if (claimedMineIds.has(om.id)) return false;
-      return true;
+      const expHome = resolveSlot(
+        om.homeRef, standings, best3Assignments, newScores,
+      );
+      const expAway = resolveSlot(
+        om.awayRef, standings, best3Assignments, newScores,
+      );
+      return expHome === fdHome && expAway === fdAway;
     });
-    const tightWindow = 30 * 60 * 1000; // ±30 минут
-    const looseWindow = 2 * 3600 * 1000; // ±2 часа
-    mine =
-      candidates.find((om) => Math.abs(om.when - fdWhen) < tightWindow) ??
-      candidates
+    if (teamMatched) {
+      mine = teamMatched;
+    } else {
+      const candidates = ourMatches.filter((om) => {
+        if (om.stage !== fdStage) return false;
+        if (claimedMineIds.has(om.id)) return false;
+        return true;
+      });
+      const looseWindow = 2 * 3600 * 1000;
+      mine = candidates
         .filter((om) => Math.abs(om.when - fdWhen) < looseWindow)
-        // если несколько — берём ближайший
         .sort(
           (a, b) => Math.abs(a.when - fdWhen) - Math.abs(b.when - fdWhen),
         )[0];
+    }
   }
 
   if (!mine) {
