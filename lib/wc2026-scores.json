@@ -513,7 +513,7 @@
     "homeRef": "BEL",
     "awayRef": "SEN",
     "home": 0,
-    "away": 1,
+    "away": 2,
     "status": "live"
   },
   "M83": {
