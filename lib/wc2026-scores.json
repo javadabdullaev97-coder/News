@@ -482,7 +482,10 @@
   "M78": {
     "utcDate": "2026-06-30T17:00:00Z",
     "homeRef": "CIV",
-    "awayRef": "NOR"
+    "awayRef": "NOR",
+    "home": 1,
+    "away": 2,
+    "status": "finished"
   },
   "M80": {
     "utcDate": "2026-07-01T16:00:00Z",
