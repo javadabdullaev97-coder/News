@@ -498,7 +498,10 @@
   "M80": {
     "utcDate": "2026-07-01T16:00:00Z",
     "homeRef": "ENG",
-    "awayRef": "COD"
+    "awayRef": "COD",
+    "home": 0,
+    "away": 1,
+    "status": "live"
   },
   "M81": {
     "utcDate": "2026-07-02T00:00:00Z",
