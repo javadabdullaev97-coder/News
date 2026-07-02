@@ -522,7 +522,10 @@
   "M83": {
     "utcDate": "2026-07-02T23:00:00Z",
     "homeRef": "POR",
-    "awayRef": "CRO"
+    "awayRef": "CRO",
+    "home": 0,
+    "away": 0,
+    "status": "live"
   },
   "M84": {
     "utcDate": "2026-07-02T19:00:00Z",
