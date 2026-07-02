@@ -527,7 +527,10 @@
   "M84": {
     "utcDate": "2026-07-02T19:00:00Z",
     "homeRef": "ESP",
-    "awayRef": "AUT"
+    "awayRef": "AUT",
+    "home": 2,
+    "away": 0,
+    "status": "live"
   },
   "M85": {
     "utcDate": "2026-07-03T03:00:00Z",
