@@ -506,7 +506,10 @@
   "M81": {
     "utcDate": "2026-07-02T00:00:00Z",
     "homeRef": "USA",
-    "awayRef": "BIH"
+    "awayRef": "BIH",
+    "home": 0,
+    "away": 0,
+    "status": "live"
   },
   "M82": {
     "utcDate": "2026-07-01T20:00:00Z",
