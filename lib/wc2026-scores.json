@@ -548,7 +548,7 @@
     "homeRef": "ARG",
     "awayRef": "CPV",
     "home": 1,
-    "away": 0,
+    "away": 1,
     "status": "live"
   },
   "M87": {
