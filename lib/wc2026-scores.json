@@ -524,7 +524,7 @@
     "homeRef": "POR",
     "awayRef": "CRO",
     "home": 2,
-    "away": 2,
+    "away": 1,
     "status": "finished"
   },
   "M84": {
@@ -538,7 +538,10 @@
   "M85": {
     "utcDate": "2026-07-03T03:00:00Z",
     "homeRef": "SUI",
-    "awayRef": "ALG"
+    "awayRef": "ALG",
+    "home": 1,
+    "away": 0,
+    "status": "live"
   },
   "M86": {
     "utcDate": "2026-07-03T22:00:00Z",
