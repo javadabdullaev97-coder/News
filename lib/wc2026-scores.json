@@ -556,7 +556,10 @@
   "M88": {
     "utcDate": "2026-07-03T18:00:00Z",
     "homeRef": "AUS",
-    "awayRef": "EGY"
+    "awayRef": "EGY",
+    "home": 0,
+    "away": 1,
+    "status": "live"
   },
   "M89": {
     "utcDate": "2026-07-04T21:00:00Z",
