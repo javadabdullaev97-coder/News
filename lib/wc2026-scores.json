@@ -557,9 +557,13 @@
     "utcDate": "2026-07-03T18:00:00Z",
     "homeRef": "AUS",
     "awayRef": "EGY",
-    "home": 1,
-    "away": 1,
-    "status": "live"
+    "home": 0,
+    "away": 0,
+    "status": "finished",
+    "penalties": {
+      "home": 4,
+      "away": 4
+    }
   },
   "M89": {
     "utcDate": "2026-07-04T21:00:00Z",
