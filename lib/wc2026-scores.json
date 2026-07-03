@@ -557,7 +557,7 @@
     "utcDate": "2026-07-03T18:00:00Z",
     "homeRef": "AUS",
     "awayRef": "EGY",
-    "home": 0,
+    "home": 1,
     "away": 1,
     "status": "live"
   },
