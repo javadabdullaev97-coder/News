@@ -574,7 +574,10 @@
   "M89": {
     "utcDate": "2026-07-04T21:00:00Z",
     "homeRef": "PAR",
-    "awayRef": "FRA"
+    "awayRef": "FRA",
+    "home": 0,
+    "away": 0,
+    "status": "live"
   },
   "M90": {
     "utcDate": "2026-07-04T17:00:00Z",
