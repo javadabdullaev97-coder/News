@@ -554,7 +554,10 @@
   "M87": {
     "utcDate": "2026-07-04T01:30:00Z",
     "homeRef": "COL",
-    "awayRef": "GHA"
+    "awayRef": "GHA",
+    "home": 1,
+    "away": 0,
+    "status": "finished"
   },
   "M88": {
     "utcDate": "2026-07-03T18:00:00Z",
