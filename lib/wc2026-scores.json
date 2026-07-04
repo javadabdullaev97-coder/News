@@ -567,7 +567,7 @@
     "away": 0,
     "status": "finished",
     "penalties": {
-      "home": 4,
+      "home": 2,
       "away": 4
     }
   },
@@ -591,9 +591,24 @@
     "homeRef": "MEX",
     "awayRef": "ENG"
   },
+  "M93": {
+    "utcDate": "2026-07-06T19:00:00Z",
+    "homeRef": "POR",
+    "awayRef": "ESP"
+  },
   "M94": {
     "utcDate": "2026-07-07T00:00:00Z",
     "homeRef": "USA",
     "awayRef": "BEL"
+  },
+  "M95": {
+    "utcDate": "2026-07-07T16:00:00Z",
+    "homeRef": "ARG",
+    "awayRef": "EGY"
+  },
+  "M96": {
+    "utcDate": "2026-07-07T20:00:00Z",
+    "homeRef": "SUI",
+    "awayRef": "COL"
   }
 }
