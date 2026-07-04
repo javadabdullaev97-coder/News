@@ -547,8 +547,8 @@
     "utcDate": "2026-07-03T22:00:00Z",
     "homeRef": "ARG",
     "awayRef": "CPV",
-    "home": 1,
-    "away": 1,
+    "home": 0,
+    "away": 0,
     "status": "live"
   },
   "M87": {
