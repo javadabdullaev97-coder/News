@@ -576,8 +576,8 @@
     "homeRef": "PAR",
     "awayRef": "FRA",
     "home": 0,
-    "away": 0,
-    "status": "live"
+    "away": 1,
+    "status": "finished"
   },
   "M90": {
     "utcDate": "2026-07-04T17:00:00Z",
