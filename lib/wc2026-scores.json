@@ -590,7 +590,10 @@
   "M91": {
     "utcDate": "2026-07-05T20:00:00Z",
     "homeRef": "BRA",
-    "awayRef": "NOR"
+    "awayRef": "NOR",
+    "home": 0,
+    "away": 0,
+    "status": "live"
   },
   "M92": {
     "utcDate": "2026-07-06T00:00:00Z",
