@@ -591,9 +591,9 @@
     "utcDate": "2026-07-05T20:00:00Z",
     "homeRef": "BRA",
     "awayRef": "NOR",
-    "home": 0,
-    "away": 0,
-    "status": "live"
+    "home": 1,
+    "away": 2,
+    "status": "finished"
   },
   "M92": {
     "utcDate": "2026-07-06T00:00:00Z",
