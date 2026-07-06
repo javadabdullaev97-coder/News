@@ -599,9 +599,9 @@
     "utcDate": "2026-07-06T01:00:00Z",
     "homeRef": "MEX",
     "awayRef": "ENG",
-    "home": 0,
-    "away": 0,
-    "status": "live"
+    "home": 2,
+    "away": 3,
+    "status": "finished"
   },
   "M93": {
     "utcDate": "2026-07-06T19:00:00Z",
