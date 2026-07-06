@@ -606,7 +606,10 @@
   "M93": {
     "utcDate": "2026-07-06T19:00:00Z",
     "homeRef": "POR",
-    "awayRef": "ESP"
+    "awayRef": "ESP",
+    "home": 0,
+    "away": 0,
+    "status": "live"
   },
   "M94": {
     "utcDate": "2026-07-07T00:00:00Z",
