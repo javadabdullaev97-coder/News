@@ -623,9 +623,9 @@
     "utcDate": "2026-07-07T16:00:00Z",
     "homeRef": "ARG",
     "awayRef": "EGY",
-    "home": 0,
+    "home": 3,
     "away": 2,
-    "status": "live"
+    "status": "finished"
   },
   "M96": {
     "utcDate": "2026-07-07T20:00:00Z",
