@@ -634,6 +634,11 @@
     "homeRef": "FRA",
     "awayRef": "MAR"
   },
+  "M98": {
+    "utcDate": "2026-07-10T19:00:00Z",
+    "homeRef": "ESP",
+    "awayRef": "BEL"
+  },
   "M99": {
     "utcDate": "2026-07-11T21:00:00Z",
     "homeRef": "NOR",
