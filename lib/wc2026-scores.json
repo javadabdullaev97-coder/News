@@ -616,8 +616,8 @@
     "homeRef": "USA",
     "awayRef": "BEL",
     "home": 1,
-    "away": 2,
-    "status": "live"
+    "away": 4,
+    "status": "finished"
   },
   "M95": {
     "utcDate": "2026-07-07T16:00:00Z",
