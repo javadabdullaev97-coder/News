@@ -630,7 +630,10 @@
   "M96": {
     "utcDate": "2026-07-07T20:00:00Z",
     "homeRef": "SUI",
-    "awayRef": "COL"
+    "awayRef": "COL",
+    "home": 0,
+    "away": 0,
+    "status": "live"
   },
   "M97": {
     "utcDate": "2026-07-09T20:00:00Z",
