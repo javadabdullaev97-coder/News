@@ -633,7 +633,11 @@
     "awayRef": "COL",
     "home": 0,
     "away": 0,
-    "status": "live"
+    "status": "finished",
+    "penalties": {
+      "home": 3,
+      "away": 3
+    }
   },
   "M97": {
     "utcDate": "2026-07-09T20:00:00Z",
