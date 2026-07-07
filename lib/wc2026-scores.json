@@ -614,7 +614,10 @@
   "M94": {
     "utcDate": "2026-07-07T00:00:00Z",
     "homeRef": "USA",
-    "awayRef": "BEL"
+    "awayRef": "BEL",
+    "home": 1,
+    "away": 2,
+    "status": "live"
   },
   "M95": {
     "utcDate": "2026-07-07T16:00:00Z",
