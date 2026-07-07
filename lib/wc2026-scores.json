@@ -622,7 +622,10 @@
   "M95": {
     "utcDate": "2026-07-07T16:00:00Z",
     "homeRef": "ARG",
-    "awayRef": "EGY"
+    "awayRef": "EGY",
+    "home": 0,
+    "away": 2,
+    "status": "live"
   },
   "M96": {
     "utcDate": "2026-07-07T20:00:00Z",
