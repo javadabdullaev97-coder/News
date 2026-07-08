@@ -59,6 +59,11 @@
     "status": "finished",
     "utcDate": "2026-06-14T20:00:00Z"
   },
+  "M100": {
+    "utcDate": "2026-07-12T01:00:00Z",
+    "homeRef": "ARG",
+    "awayRef": "SUI"
+  },
   "M11": {
     "home": 1,
     "away": 0,
@@ -635,7 +640,7 @@
     "away": 0,
     "status": "finished",
     "penalties": {
-      "home": 3,
+      "home": 4,
       "away": 3
     }
   },
