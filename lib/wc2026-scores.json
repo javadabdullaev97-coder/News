@@ -647,7 +647,10 @@
   "M97": {
     "utcDate": "2026-07-09T20:00:00Z",
     "homeRef": "FRA",
-    "awayRef": "MAR"
+    "awayRef": "MAR",
+    "home": 0,
+    "away": 0,
+    "status": "live"
   },
   "M98": {
     "utcDate": "2026-07-10T19:00:00Z",
