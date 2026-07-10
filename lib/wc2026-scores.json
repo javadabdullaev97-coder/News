@@ -656,9 +656,9 @@
     "utcDate": "2026-07-10T19:00:00Z",
     "homeRef": "ESP",
     "awayRef": "BEL",
-    "home": 1,
+    "home": 2,
     "away": 1,
-    "status": "live"
+    "status": "finished"
   },
   "M99": {
     "utcDate": "2026-07-11T21:00:00Z",
