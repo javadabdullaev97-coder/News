@@ -669,7 +669,7 @@
     "utcDate": "2026-07-11T21:00:00Z",
     "homeRef": "NOR",
     "awayRef": "ENG",
-    "home": 2,
+    "home": 0,
     "away": 1,
     "status": "live"
   }
