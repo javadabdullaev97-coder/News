@@ -669,8 +669,8 @@
     "utcDate": "2026-07-11T21:00:00Z",
     "homeRef": "NOR",
     "awayRef": "ENG",
-    "home": 0,
-    "away": 0,
+    "home": 2,
+    "away": 1,
     "status": "live"
   }
 }
