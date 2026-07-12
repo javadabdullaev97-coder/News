@@ -63,9 +63,9 @@
     "utcDate": "2026-07-12T01:00:00Z",
     "homeRef": "ARG",
     "awayRef": "SUI",
-    "home": 0,
+    "home": 2,
     "away": 0,
-    "status": "live"
+    "status": "finished"
   },
   "M101": {
     "utcDate": "2026-07-14T19:00:00Z",
