@@ -72,6 +72,11 @@
     "homeRef": "FRA",
     "awayRef": "ESP"
   },
+  "M102": {
+    "utcDate": "2026-07-15T19:00:00Z",
+    "homeRef": "ENG",
+    "awayRef": "ARG"
+  },
   "M11": {
     "home": 1,
     "away": 0,
