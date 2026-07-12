@@ -62,7 +62,10 @@
   "M100": {
     "utcDate": "2026-07-12T01:00:00Z",
     "homeRef": "ARG",
-    "awayRef": "SUI"
+    "awayRef": "SUI",
+    "home": 0,
+    "away": 0,
+    "status": "live"
   },
   "M101": {
     "utcDate": "2026-07-14T19:00:00Z",
@@ -671,6 +674,6 @@
     "awayRef": "ENG",
     "home": 0,
     "away": 1,
-    "status": "live"
+    "status": "finished"
   }
 }
