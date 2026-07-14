@@ -73,7 +73,7 @@
     "awayRef": "ESP",
     "home": 0,
     "away": 2,
-    "status": "live"
+    "status": "finished"
   },
   "M102": {
     "utcDate": "2026-07-15T19:00:00Z",
