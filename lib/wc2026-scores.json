@@ -79,9 +79,9 @@
     "utcDate": "2026-07-15T19:00:00Z",
     "homeRef": "ENG",
     "awayRef": "ARG",
-    "home": 0,
-    "away": 0,
-    "status": "live"
+    "home": 1,
+    "away": 2,
+    "status": "finished"
   },
   "M11": {
     "home": 1,
