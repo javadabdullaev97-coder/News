@@ -78,7 +78,10 @@
   "M102": {
     "utcDate": "2026-07-15T19:00:00Z",
     "homeRef": "ENG",
-    "awayRef": "ARG"
+    "awayRef": "ARG",
+    "home": 0,
+    "away": 0,
+    "status": "live"
   },
   "M11": {
     "home": 1,
