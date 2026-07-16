@@ -83,6 +83,16 @@
     "away": 2,
     "status": "finished"
   },
+  "M103": {
+    "utcDate": "2026-07-18T21:00:00Z",
+    "homeRef": "FRA",
+    "awayRef": "ENG"
+  },
+  "M104": {
+    "utcDate": "2026-07-19T19:00:00Z",
+    "homeRef": "ESP",
+    "awayRef": "ARG"
+  },
   "M11": {
     "home": 1,
     "away": 0,
