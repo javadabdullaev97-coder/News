@@ -87,9 +87,9 @@
     "utcDate": "2026-07-18T21:00:00Z",
     "homeRef": "FRA",
     "awayRef": "ENG",
-    "home": 2,
-    "away": 4,
-    "status": "live"
+    "home": 4,
+    "away": 6,
+    "status": "finished"
   },
   "M104": {
     "utcDate": "2026-07-19T19:00:00Z",
