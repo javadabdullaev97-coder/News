@@ -95,9 +95,9 @@
     "utcDate": "2026-07-19T19:00:00Z",
     "homeRef": "ESP",
     "awayRef": "ARG",
-    "home": 0,
+    "home": 1,
     "away": 0,
-    "status": "live"
+    "status": "finished"
   },
   "M11": {
     "home": 1,
