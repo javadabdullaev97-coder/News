@@ -1,0 +1,5 @@
+# Отчёты редакционного цикла:
+# - reporter-notes-<slug>.md — лог research'а корреспондента
+# - fact-check-<slug>.md — отчёт fact-checker'а
+# - editor-verdict-<slug>.md — решение редактора
+# Живут постоянно, привязаны к каждой статье. Ревьюишь PR — читаешь их.
