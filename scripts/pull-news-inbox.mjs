@@ -103,6 +103,7 @@ async function fetchOne(src) {
         sourceName: src.name,
         sourceType: src.type,
         sourcePriority: src.priority,
+        sourceKind: "rss",
         title: cleanText(item.title),
         link: item.link,
         pubDate: item.isoDate || item.pubDate || null,

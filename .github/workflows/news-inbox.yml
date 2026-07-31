@@ -46,6 +46,16 @@ jobs:
             ARGS="--priority=${{ github.event.inputs.priority }}"
           fi
           node scripts/pull-news-inbox.mjs $ARGS
+        continue-on-error: true
+
+      - name: Pull Telegram inbox
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.priority }}" ]; then
+            ARGS="--priority=${{ github.event.inputs.priority }}"
+          fi
+          node scripts/pull-telegram-inbox.mjs $ARGS
+        continue-on-error: true
 
       - name: Commit and push if changed
         run: |
@@ -56,9 +66,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           STAMP=$(TZ='Asia/Tashkent' date '+%H:%M %d.%m')
-          COUNT=$(git diff --cached --stat content/inbox 2>/dev/null | tail -1 || echo "")
           git add content/inbox
-          git commit -m "inbox(rss): $STAMP Ташкента"
+          git commit -m "inbox: $STAMP Ташкента"
           # Retry with exponential backoff on network errors
           for i in 1 2 3 4; do
             if git push origin main; then
