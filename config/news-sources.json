@@ -1,0 +1,523 @@
+{
+  "$schema": "./news-sources.schema.json",
+  "version": 1,
+  "generated": "2026-07-31",
+  "note": "Каталог веб-источников для скрипта scripts/pull-news-inbox.mjs. См. docs/media-landscape-2026.md — там пояснения, аудитория, редполитика.",
+  "excluded": [
+    { "domain": "ozodlik.org", "reason": "редакционное решение" },
+    { "domain": "currenttime.tv", "reason": "редакционное решение" },
+    { "domain": "azon.uz", "reason": "прекратил работу, редакционное исключение всей группы" }
+  ],
+  "priorities": {
+    "P0": "критично, опрашивать каждые 5 мин",
+    "P1": "высокий, каждые 10-15 мин",
+    "P2": "средний, каждые 30 мин",
+    "P3": "низкий, раз в час"
+  },
+  "types": {
+    "signal": "конкурентное СМИ, читаем как сигнал, НЕ цитируем в статьях",
+    "source": "первоисточник, разрешён как ссылка в статье",
+    "context": "международный/региональный источник для внешнего контекста"
+  },
+  "rss": [
+    {
+      "id": "gazeta-uz",
+      "name": "Gazeta.uz",
+      "url": "https://www.gazeta.uz/ru/rss/",
+      "type": "signal",
+      "priority": "P0",
+      "language": "ru",
+      "audience": 3000000,
+      "requiresPlaywright": false,
+      "focus": "аналитика, урбанистика, общество"
+    },
+    {
+      "id": "kun-uz",
+      "name": "Kun.uz",
+      "url": "https://kun.uz/news/rss",
+      "type": "signal",
+      "priority": "P0",
+      "language": "uz",
+      "audience": 8500000,
+      "requiresPlaywright": false,
+      "focus": "универсальное, крупнейшее СМИ страны"
+    },
+    {
+      "id": "spot-uz",
+      "name": "Spot.uz",
+      "url": "https://www.spot.uz/ru/rss/",
+      "type": "signal",
+      "priority": "P1",
+      "language": "ru",
+      "audience": 700000,
+      "requiresPlaywright": false,
+      "focus": "бизнес, IT, финтех, налоги"
+    },
+    {
+      "id": "podrobno-uz",
+      "name": "Podrobno.uz",
+      "url": "https://podrobno.uz/rss/",
+      "type": "signal",
+      "priority": "P1",
+      "language": "ru",
+      "audience": 1600000,
+      "requiresPlaywright": false,
+      "focus": "Ташкент, политика, соцсфера"
+    },
+    {
+      "id": "daryo-uz",
+      "name": "Daryo.uz",
+      "url": "https://daryo.uz/rss/",
+      "type": "signal",
+      "priority": "P1",
+      "language": "uz",
+      "audience": 4500000,
+      "requiresPlaywright": false,
+      "focus": "универсальное, регионы, ЧП"
+    },
+    {
+      "id": "repost-uz",
+      "name": "Repost.uz",
+      "url": "https://repost.uz/rss",
+      "type": "signal",
+      "priority": "P2",
+      "language": "ru",
+      "audience": 1800000,
+      "requiresPlaywright": true,
+      "focus": "молодёжка, вирус, эксклюзивы",
+      "notes": "Cloudflare + reCAPTCHA"
+    },
+    {
+      "id": "kapital-uz",
+      "name": "Kapital.uz",
+      "url": "https://kapital.uz/feed/",
+      "type": "signal",
+      "priority": "P2",
+      "language": "ru",
+      "audience": 400000,
+      "requiresPlaywright": false,
+      "focus": "финансы, инвестиции, банки"
+    },
+    {
+      "id": "anhor-uz",
+      "name": "Anhor.uz",
+      "url": "https://anhor.uz/feed/",
+      "type": "signal",
+      "priority": "P2",
+      "language": "ru",
+      "audience": 200000,
+      "requiresPlaywright": false,
+      "focus": "урбанистика, расследования"
+    },
+    {
+      "id": "nuz-uz",
+      "name": "Nuz.uz",
+      "url": "https://nuz.uz/feed/",
+      "type": "signal",
+      "priority": "P2",
+      "language": "ru",
+      "audience": 400000,
+      "requiresPlaywright": false,
+      "focus": "общество, политика, культура"
+    },
+    {
+      "id": "yuz-uz",
+      "name": "Yuz.uz",
+      "url": "https://yuz.uz/rss",
+      "type": "signal",
+      "priority": "P2",
+      "language": "ru",
+      "audience": 500000,
+      "requiresPlaywright": false,
+      "focus": "полугосударственный, официальная трактовка НПА"
+    },
+    {
+      "id": "afisha-uz",
+      "name": "Afisha.uz",
+      "url": "https://www.afisha.uz/rss/",
+      "type": "signal",
+      "priority": "P3",
+      "language": "ru",
+      "audience": 800000,
+      "requiresPlaywright": false,
+      "focus": "lifestyle, культура, HoReCa"
+    },
+    {
+      "id": "hook-report",
+      "name": "Hook.report",
+      "url": "https://hook.report/feed/",
+      "type": "signal",
+      "priority": "P2",
+      "language": "ru",
+      "audience": 120000,
+      "requiresPlaywright": false,
+      "focus": "соцаналитика, лонгриды"
+    },
+    {
+      "id": "tribuna-uz",
+      "name": "Tribuna.uz",
+      "url": "https://tribuna.uz/rss",
+      "type": "signal",
+      "priority": "P2",
+      "language": "ru",
+      "audience": 400000,
+      "requiresPlaywright": false,
+      "focus": "спорт"
+    },
+    {
+      "id": "cbu-rss",
+      "name": "Центральный банк РУз — RSS",
+      "url": "https://cbu.uz/ru/arkhiv-kursov-valyut/rss/",
+      "type": "source",
+      "priority": "P0",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "курсы валют, пресс-релизы ЦБ"
+    },
+    {
+      "id": "stat-uz",
+      "name": "Агентство статистики РУз",
+      "url": "https://stat.uz/ru/?option=com_content&view=featured&format=feed&type=rss",
+      "type": "source",
+      "priority": "P1",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "макростатистика, ВВП, инфляция, ВЭД"
+    },
+    {
+      "id": "digital-uz",
+      "name": "Министерство цифровых технологий",
+      "url": "https://digital.uz/ru/rss",
+      "type": "source",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "цифровизация, IT-Park, госуслуги"
+    },
+
+    {
+      "id": "reuters",
+      "name": "Reuters",
+      "url": "https://www.reutersagency.com/feed/",
+      "type": "context",
+      "priority": "P1",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "макроэкономика, энергетика ЦА"
+    },
+    {
+      "id": "bbc-uzbek",
+      "name": "BBC Uzbek",
+      "url": "https://www.bbc.com/uzbek/index.xml",
+      "type": "context",
+      "priority": "P2",
+      "language": "uz",
+      "requiresPlaywright": false,
+      "focus": "соц-политический анализ, реформы"
+    },
+    {
+      "id": "aljazeera",
+      "name": "Al Jazeera",
+      "url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "type": "context",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "внешняя политика, логистические коридоры"
+    },
+    {
+      "id": "dw-ru",
+      "name": "Deutsche Welle (RU)",
+      "url": "https://rss.dw.com/xml/rss-ru-all",
+      "type": "context",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "связи ЕС–Узбекистан, экология, Арал"
+    },
+    {
+      "id": "ft",
+      "name": "Financial Times",
+      "url": "https://www.ft.com/?format=rss",
+      "type": "context",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "коридор Север-Юг, сырьё"
+    },
+    {
+      "id": "tass",
+      "name": "ТАСС",
+      "url": "https://tass.ru/rss/v2.xml",
+      "type": "context",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "РФ–РУз, ЕАЭС, ШОС"
+    },
+    {
+      "id": "ria",
+      "name": "РИА Новости",
+      "url": "https://ria.ru/export/rss2/archive/index.xml",
+      "type": "context",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "региональная безопасность, миграция"
+    },
+    {
+      "id": "interfax",
+      "name": "Интерфакс",
+      "url": "https://www.interfax.ru/rss.asp",
+      "type": "context",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "корпораты, газ, энергетика"
+    },
+    {
+      "id": "rbc",
+      "name": "РБК",
+      "url": "https://rssexport.rbc.ru/rbcnews/news/30/full.rss",
+      "type": "context",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "банки, релокация бизнеса"
+    },
+    {
+      "id": "kommersant",
+      "name": "Коммерсантъ",
+      "url": "https://www.kommersant.ru/RSS/news.xml",
+      "type": "context",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "промкооперация, торговля"
+    },
+    {
+      "id": "vedomosti",
+      "name": "Ведомости",
+      "url": "https://www.vedomosti.ru/rss/news",
+      "type": "context",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "рынки капитала, логистика ЦА"
+    },
+    {
+      "id": "kazinform",
+      "name": "Kazinform (KZ)",
+      "url": "https://www.inform.kz/rss/rss.xml",
+      "type": "context",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "граница KZ-UZ, вода, ОТГ"
+    },
+    {
+      "id": "sputnik-kg",
+      "name": "Sputnik Кыргызстан",
+      "url": "https://ru.sputnik.kg/export/rss2/archive/index.xml",
+      "type": "context",
+      "priority": "P3",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "трансграничная торговля"
+    },
+    {
+      "id": "kabar-kg",
+      "name": "Kabar (KG)",
+      "url": "http://kabar.kg/rss/",
+      "type": "context",
+      "priority": "P3",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "Памир, энергетика ЦА"
+    },
+    {
+      "id": "trend-az",
+      "name": "Trend (AZ)",
+      "url": "https://ru.trend.az/rss/index.rss",
+      "type": "context",
+      "priority": "P3",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "Middle Corridor"
+    },
+    {
+      "id": "turkmenportal",
+      "name": "Turkmenportal (TM)",
+      "url": "https://turkmenportal.com/rss",
+      "type": "context",
+      "priority": "P3",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "газ, транзит, порты"
+    },
+    {
+      "id": "eurasianet",
+      "name": "Eurasianet",
+      "url": "https://eurasianet.org/rss.xml",
+      "type": "context",
+      "priority": "P1",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "глубокая экон-аналитика ЦА"
+    },
+    {
+      "id": "fergana",
+      "name": "Fergana.agency",
+      "url": "https://fergana.agency/rss/",
+      "type": "context",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "права человека, миграция"
+    },
+    {
+      "id": "cabar",
+      "name": "CABAR.asia",
+      "url": "https://cabar.asia/feed/",
+      "type": "context",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "аналитический портал ЦА"
+    },
+    {
+      "id": "the-diplomat",
+      "name": "The Diplomat",
+      "url": "https://thediplomat.com/feed/",
+      "type": "context",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "стратегический анализ ЦА"
+    }
+  ],
+  "api": [
+    {
+      "id": "cbu-json",
+      "name": "ЦБ РУз — курсы валют JSON",
+      "url": "https://cbu.uz/ru/arkhiv-kursov-valyut/json/",
+      "type": "source",
+      "priority": "P0",
+      "language": "ru",
+      "focus": "официальные курсы валют без авторизации"
+    },
+    {
+      "id": "tasnif-soliq",
+      "name": "Tasnif Soliq — классификатор",
+      "url": "https://tasnif.soliq.uz",
+      "type": "source",
+      "priority": "P3",
+      "language": "ru",
+      "focus": "коды классификации товаров и услуг"
+    }
+  ],
+  "scrape": [
+    {
+      "id": "president-uz",
+      "name": "Президент РУз",
+      "url": "https://president.uz/ru/news/list",
+      "type": "source",
+      "priority": "P0",
+      "language": "ru",
+      "requiresPlaywright": true,
+      "focus": "указы, назначения, визиты",
+      "notes": "Cloudflare — использовать Playwright; часто дублирует @shmirziyoyev с задержкой"
+    },
+    {
+      "id": "gov-uz",
+      "name": "Кабинет Министров РУз",
+      "url": "https://gov.uz/ru/news",
+      "type": "source",
+      "priority": "P1",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "постановления Кабмина"
+    },
+    {
+      "id": "mvd-uz",
+      "name": "МВД РУз",
+      "url": "https://mvd.uz/ru/news",
+      "type": "source",
+      "priority": "P1",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "заявления МВД, кибербезопасность, ЧП"
+    },
+    {
+      "id": "adliya-uz",
+      "name": "Министерство юстиции",
+      "url": "https://adliya.uz/ru/news",
+      "type": "source",
+      "priority": "P1",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "НПА (дублирует @huquqiyaxborot с задержкой)"
+    },
+    {
+      "id": "mfa-uz",
+      "name": "МИД РУз",
+      "url": "https://mfa.uz/ru/press/news",
+      "type": "source",
+      "priority": "P1",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "внешняя политика, визы, ноты"
+    },
+    {
+      "id": "soliq-uz",
+      "name": "Государственный налоговый комитет",
+      "url": "https://soliq.uz/news",
+      "type": "source",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": true,
+      "focus": "налоговое администрирование, ККТ",
+      "notes": "Cloudflare"
+    },
+    {
+      "id": "prokuratura-uz",
+      "name": "Генеральная прокуратура",
+      "url": "https://prokuratura.uz/ru/news",
+      "type": "source",
+      "priority": "P1",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "уголовные дела, надзор"
+    },
+    {
+      "id": "suds-uz",
+      "name": "Верховный суд",
+      "url": "https://suds.uz/ru/news",
+      "type": "source",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "судебная практика, разъяснения"
+    },
+    {
+      "id": "mf-uz",
+      "name": "Министерство экономики и финансов",
+      "url": "https://gov.uz/imv/news",
+      "type": "source",
+      "priority": "P1",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "бюджет, госдолг, аукционы"
+    },
+    {
+      "id": "tashkent-uz",
+      "name": "Хокимият Ташкента",
+      "url": "https://tashkent.uz",
+      "type": "source",
+      "priority": "P1",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "коммуналка, транспорт, строительство"
+    }
+  ]
+}
