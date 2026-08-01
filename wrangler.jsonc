@@ -2,6 +2,15 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "leap",
   "main": "src/worker.ts",
+  // Cloudflare Workers Builds запускает `wrangler deploy` без отдельного шага
+  // сборки, поэтому каталог `out/` к моменту деплоя не существует и wrangler
+  // падает на "assets.directory does not exist". Кастомный build выполняется
+  // самим wrangler перед деплоем и закрывает этот разрыв.
+  // `npm run build` тянет за собой prebuild -> scripts/build-posts.mjs,
+  // который собирает статьи из content/posts/**/*.mdx.
+  "build": {
+    "command": "npm run build"
+  },
   "compatibility_date": "2025-01-01",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
