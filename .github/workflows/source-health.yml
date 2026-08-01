@@ -1,0 +1,47 @@
+name: Source health check
+
+# Раз в сутки проверяем, что ленты из config/news-sources.json живы.
+#
+# Повод: 1 августа 2026 обнаружилось, что 13 источников из 36 мертвы, причём
+# давно. Фетчер молча пропускает упавшую ленту, и вместе с ней тихо исчез весь
+# международный слой — Reuters, Eurasianet, Fergana, CABAR, Kazinform. Планёрки
+# работали на одних узбекских сигналах, считая, что видят мировой контекст.
+#
+# Workflow не чинит конфиг, он поднимает шум: падает, если сломано больше двух
+# лент, и печатает список.
+
+on:
+  schedule:
+    # 03:20 UTC = 08:20 Ташкента — до первой дневной планёрки.
+    - cron: "20 3 * * *"
+  workflow_dispatch:
+    inputs:
+      max_dead:
+        description: "Порог: сколько сломанных лент терпим"
+        required: false
+        default: "2"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: source-health
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Check every feed in config/news-sources.json
+        run: |
+          MAX_DEAD="${{ github.event.inputs.max_dead || '2' }}"
+          node scripts/check-sources.mjs --max-dead="$MAX_DEAD"

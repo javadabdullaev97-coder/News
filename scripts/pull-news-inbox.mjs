@@ -30,7 +30,9 @@ const INBOX_DIR = join(ROOT, "content/inbox");
 const SEEN_PATH = join(INBOX_DIR, "seen.json");
 
 const CONCURRENCY = 8;
-const FETCH_TIMEOUT_MS = 20_000;
+// 20с не хватало медленным площадкам: cabar.asia стабильно упирался в таймаут,
+// хотя фид живой. 35с — компромисс между полнотой и временем прогона.
+const FETCH_TIMEOUT_MS = 35_000;
 const MAX_SEEN = 20_000; // храним последние N URL, чтобы файл не рос вечно
 const SNIPPET_MAX = 500;
 
@@ -54,7 +56,11 @@ function matches(src) {
 }
 
 const config = JSON.parse(readFileSync(CONFIG_PATH, "utf8"));
-const sources = config.rss.filter((s) => !s.requiresPlaywright && matches(s));
+// disabled — источники с мёртвыми фидами. Запись в конфиге сохранена вместе
+// с разбором в notes, чтобы не искать заново, но в фетч они не идут.
+const sources = config.rss.filter(
+  (s) => !s.requiresPlaywright && !s.disabled && matches(s),
+);
 
 if (!sources.length) {
   console.error("No sources matched filters — nothing to do.");
@@ -69,7 +75,11 @@ const seen = existsSync(SEEN_PATH)
 const parser = new Parser({
   timeout: FETCH_TIMEOUT_MS,
   headers: {
-    "User-Agent": "LEAP-News-Aggregator/1.0 (+https://leap.uz)",
+    // Браузерный UA — вынужденно. На "LEAP-News-Aggregator/1.0" gazeta.uz рвёт
+    // HTTP/2-соединение (PROTOCOL_ERROR, curl 92), а часть площадок отдаёт 403.
+    // Проверено 01.08.2026: с этим UA gazeta.uz возвращает 200 и 20 items.
+    "User-Agent":
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36",
     Accept: "application/rss+xml, application/atom+xml, application/xml;q=0.9, */*;q=0.5",
   },
   customFields: {

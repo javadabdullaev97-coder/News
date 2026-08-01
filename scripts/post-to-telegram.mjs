@@ -90,6 +90,31 @@ function parseFrontmatter(text) {
       .map((s) => s.trim().replace(/^["']|["']$/g, ""))
       .filter(Boolean);
   }
+
+  // Отдельный проход для sources — список объектов:
+  //   sources:
+  //     - name: "Пресс-релиз ЦБ"
+  //       url: "https://..."
+  // Общий проход выше их не видит: строка начинается с «- », а его regexp
+  // ждёт «ключ:». Раньше fm.sources молча оставался пустым объектом.
+  const srcBlock = m[1].match(/^sources:\s*\n((?:[ \t]+.*\n?)*)/m);
+  if (srcBlock) {
+    const items = [];
+    let cur = null;
+    for (const line of srcBlock[1].split("\n")) {
+      const item = line.match(/^\s*-\s*([a-zA-Z][\w]*):\s*(.*)$/);
+      if (item) {
+        if (cur) items.push(cur);
+        cur = { [item[1]]: parseScalar(item[2].trim()) };
+        continue;
+      }
+      const kv = line.match(/^\s+([a-zA-Z][\w]*):\s*(.*)$/);
+      if (kv && cur) cur[kv[1]] = parseScalar(kv[2].trim());
+    }
+    if (cur) items.push(cur);
+    if (items.length) fm.sources = items;
+  }
+
   return fm;
 }
 
@@ -160,16 +185,103 @@ function escapeHTML(s) {
     .replace(/>/g, "&gt;");
 }
 
-// Пост в канал: заголовок, лид, ссылка. Без хештегов — решение редакции.
-// frontmatter.tags при этом остаётся: он нужен сайту для рубрикации и поиска,
-// в Telegram просто не выводится.
-function buildMessage(fm, lede, url) {
+// ─── Оформление поста ───
+//
+// Без эмодзи и без хештегов — решение редакции. Узнаваемость строится на трёх
+// вещах, каждая из которых работает и в ленте, и в пересылке:
+//
+//   1. Кикер «РУБРИКА · дата» — постоянная первая строка. В ленте, где
+//      превью режется до пары строк, читатель опознаёт канал раньше, чем
+//      дочитает заголовок.
+//   2. Строка первоисточника. Позиционирование LEAP — «факты из первых рук»,
+//      а не пересказ. Конкуренты этой строки не ставят, потому что у них
+//      источник это чаще всего другое СМИ. У нас в sources лежит госорган —
+//      это и есть главный брендовый актив, и в посте он должен быть виден.
+//   3. Постоянный футер со ссылкой. Всегда одна и та же формулировка,
+//      всегда в одном месте.
+//
+// frontmatter.tags не выводим — он нужен сайту для рубрикации и поиска.
+
+const CATEGORY_KICKER = {
+  economy: "ЭКОНОМИКА",
+  politics: "ПОЛИТИКА",
+  society: "ОБЩЕСТВО",
+  tech: "ТЕХНОЛОГИИ",
+  culture: "КУЛЬТУРА",
+  sport: "СПОРТ",
+};
+
+const MONTHS_GEN = [
+  "января", "февраля", "марта", "апреля", "мая", "июня",
+  "июля", "августа", "сентября", "октября", "ноября", "декабря",
+];
+
+function humanDate(isoDate) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(isoDate || "");
+  if (!m) return null;
+  return `${Number(m[3])} ${MONTHS_GEN[Number(m[2]) - 1]}`;
+}
+
+// Первый источник из frontmatter.sources — им подписываем пост.
+// Имя чистим от уточнений в скобках и от хвоста после тире: в sources
+// они нужны фактчекеру («ЦБ РУз — курс доллара на 31 июля»), в канале
+// читателю нужно только ведомство.
+function primarySourceName(fm) {
+  const raw = fm.sources?.[0]?.name;
+  if (!raw) return null;
+  return decodeEntities(String(raw))
+    .replace(/\s*[—–-]\s*.*$/, "")
+    .replace(/\s*\([^)]*\)\s*$/, "")
+    .trim();
+}
+
+function buildMessage(fm, lede, url, { ledeLimit = 600 } = {}) {
   const title = escapeHTML(decodeEntities(fm.title || ""));
+
+  const parts = [];
+
+  // 1. Кикер
+  const kicker = CATEGORY_KICKER[fm.category] || "НОВОСТИ";
+  const date = humanDate(fm.publishedAt);
+  const urgent = fm.urgency === "breaking";
+  const kickerLine = [urgent ? "СРОЧНО" : null, kicker, date]
+    .filter(Boolean)
+    .join(" · ");
+  parts.push(`<b>${escapeHTML(kickerLine)}</b>`);
+
+  // 2. Заголовок
+  parts.push(`<b>${title}</b>`);
+
+  // 3. Лид
   const plainLede = decodeEntities(lede);
-  const shortLede = escapeHTML(
-    plainLede.length > 500 ? plainLede.slice(0, 497) + "…" : plainLede,
-  );
-  return `<b>${title}</b>\n\n${shortLede}\n\n<a href="${url}">Читать на leap.uz →</a>`;
+  const shortLede =
+    plainLede.length > ledeLimit
+      ? plainLede.slice(0, ledeLimit - 1).replace(/\s+\S*$/, "") + "…"
+      : plainLede;
+  parts.push(escapeHTML(shortLede));
+
+  // 4. Первоисточник
+  const src = primarySourceName(fm);
+  if (src) parts.push(`<i>Источник: ${escapeHTML(src)}</i>`);
+
+  // 5. Футер
+  parts.push(`<a href="${url}">Читать полностью на leap.uz</a>`);
+
+  return parts.join("\n\n");
+}
+
+// Telegram режет caption на 1024 символах. Раньше при переполнении код молча
+// откатывался на sendMessage — картинка терялась целиком. Вместо этого
+// подрезаем лид, пока подпись не влезет: заголовок и первоисточник важнее
+// последних двух предложений лида.
+const CAPTION_LIMIT = 1024;
+
+function buildCaption(fm, lede, url) {
+  for (const limit of [600, 450, 320, 220, 140]) {
+    const text = buildMessage(fm, lede, url, { ledeLimit: limit });
+    if (text.length <= CAPTION_LIMIT) return text;
+  }
+  return null; // даже без лида не влезло — уходим на sendMessage
 }
 
 async function tgApi(method, body) {
@@ -207,13 +319,15 @@ async function postArticle(mdxPath, fm) {
   }
 
   if (hasImage) {
-    // sendPhoto с caption (лимит caption 1024, если длиннее — sendMessage after)
-    if (text.length <= 1024) {
+    // Подпись подрезаем под лимит 1024, а не откатываемся на текстовое
+    // сообщение: картинка в ленте стоит дороже двух последних предложений лида.
+    const caption = buildCaption(fm, lede, url);
+    if (caption) {
       const buf = readFileSync(imageAbs);
       const form = new FormData();
       form.append("chat_id", TELEGRAM_CHANNEL);
       form.append("photo", new Blob([buf]), `${slug}.jpg`);
-      form.append("caption", text);
+      form.append("caption", caption);
       form.append("parse_mode", "HTML");
       const res = await fetch(
         `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`,
