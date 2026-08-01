@@ -59,6 +59,46 @@
     "status": "finished",
     "utcDate": "2026-06-14T20:00:00Z"
   },
+  "M100": {
+    "utcDate": "2026-07-12T01:00:00Z",
+    "homeRef": "ARG",
+    "awayRef": "SUI",
+    "home": 2,
+    "away": 0,
+    "status": "finished"
+  },
+  "M101": {
+    "utcDate": "2026-07-14T19:00:00Z",
+    "homeRef": "FRA",
+    "awayRef": "ESP",
+    "home": 0,
+    "away": 2,
+    "status": "finished"
+  },
+  "M102": {
+    "utcDate": "2026-07-15T19:00:00Z",
+    "homeRef": "ENG",
+    "awayRef": "ARG",
+    "home": 1,
+    "away": 2,
+    "status": "finished"
+  },
+  "M103": {
+    "utcDate": "2026-07-18T21:00:00Z",
+    "homeRef": "FRA",
+    "awayRef": "ENG",
+    "home": 4,
+    "away": 6,
+    "status": "finished"
+  },
+  "M104": {
+    "utcDate": "2026-07-19T19:00:00Z",
+    "homeRef": "ESP",
+    "awayRef": "ARG",
+    "home": 1,
+    "away": 0,
+    "status": "finished"
+  },
   "M11": {
     "home": 1,
     "away": 0,
@@ -435,7 +475,9 @@
     "utcDate": "2026-06-28T19:00:00Z",
     "home": 0,
     "away": 1,
-    "status": "finished"
+    "status": "finished",
+    "homeRef": "ZAF",
+    "awayRef": "CAN"
   },
   "M74": {
     "utcDate": "2026-06-29T20:30:00Z",
@@ -445,7 +487,9 @@
     "penalties": {
       "home": 3,
       "away": 4
-    }
+    },
+    "homeRef": "GER",
+    "awayRef": "PAR"
   },
   "M75": {
     "utcDate": "2026-06-30T01:00:00Z",
@@ -455,42 +499,208 @@
     "penalties": {
       "home": 2,
       "away": 3
-    }
+    },
+    "homeRef": "NED",
+    "awayRef": "MAR"
   },
   "M76": {
     "utcDate": "2026-06-29T17:00:00Z",
     "home": 2,
     "away": 1,
-    "status": "finished"
+    "status": "finished",
+    "homeRef": "BRA",
+    "awayRef": "JPN"
   },
   "M77": {
     "utcDate": "2026-06-30T21:00:00Z",
     "home": 3,
     "away": 0,
-    "status": "finished"
+    "status": "finished",
+    "homeRef": "FRA",
+    "awayRef": "SWE"
   },
   "M78": {
     "utcDate": "2026-06-30T17:00:00Z",
     "home": 1,
     "away": 2,
+    "status": "finished",
+    "homeRef": "CIV",
+    "awayRef": "NOR"
+  },
+  "M79": {
+    "utcDate": "2026-07-01T02:00:00Z",
+    "homeRef": "MEX",
+    "awayRef": "ECU",
+    "home": 2,
+    "away": 0,
     "status": "finished"
   },
   "M80": {
-    "utcDate": "2026-07-01T16:00:00Z"
+    "utcDate": "2026-07-01T16:00:00Z",
+    "homeRef": "ENG",
+    "awayRef": "COD",
+    "home": 2,
+    "away": 1,
+    "status": "finished"
+  },
+  "M81": {
+    "utcDate": "2026-07-02T00:00:00Z",
+    "homeRef": "USA",
+    "awayRef": "BIH",
+    "home": 2,
+    "away": 0,
+    "status": "finished"
   },
   "M82": {
-    "utcDate": "2026-07-02T00:00:00Z"
+    "utcDate": "2026-07-01T20:00:00Z",
+    "homeRef": "BEL",
+    "awayRef": "SEN",
+    "home": 1,
+    "away": 0,
+    "status": "finished"
   },
   "M83": {
-    "utcDate": "2026-07-02T23:00:00Z"
+    "utcDate": "2026-07-02T23:00:00Z",
+    "homeRef": "POR",
+    "awayRef": "CRO",
+    "home": 2,
+    "away": 1,
+    "status": "finished"
+  },
+  "M84": {
+    "utcDate": "2026-07-02T19:00:00Z",
+    "homeRef": "ESP",
+    "awayRef": "AUT",
+    "home": 3,
+    "away": 0,
+    "status": "finished"
+  },
+  "M85": {
+    "utcDate": "2026-07-03T03:00:00Z",
+    "homeRef": "SUI",
+    "awayRef": "ALG",
+    "home": 2,
+    "away": 0,
+    "status": "finished"
   },
   "M86": {
-    "utcDate": "2026-07-03T22:00:00Z"
+    "utcDate": "2026-07-03T22:00:00Z",
+    "homeRef": "ARG",
+    "awayRef": "CPV",
+    "home": 2,
+    "away": 1,
+    "status": "finished"
   },
   "M87": {
-    "utcDate": "2026-07-04T01:30:00Z"
+    "utcDate": "2026-07-04T01:30:00Z",
+    "homeRef": "COL",
+    "awayRef": "GHA",
+    "home": 1,
+    "away": 0,
+    "status": "finished"
   },
   "M88": {
-    "utcDate": "2026-07-03T18:00:00Z"
+    "utcDate": "2026-07-03T18:00:00Z",
+    "homeRef": "AUS",
+    "awayRef": "EGY",
+    "home": 0,
+    "away": 0,
+    "status": "finished",
+    "penalties": {
+      "home": 2,
+      "away": 4
+    }
+  },
+  "M89": {
+    "utcDate": "2026-07-04T21:00:00Z",
+    "homeRef": "PAR",
+    "awayRef": "FRA",
+    "home": 0,
+    "away": 1,
+    "status": "finished"
+  },
+  "M90": {
+    "utcDate": "2026-07-04T17:00:00Z",
+    "homeRef": "CAN",
+    "awayRef": "MAR",
+    "home": 0,
+    "away": 3,
+    "status": "finished"
+  },
+  "M91": {
+    "utcDate": "2026-07-05T20:00:00Z",
+    "homeRef": "BRA",
+    "awayRef": "NOR",
+    "home": 1,
+    "away": 2,
+    "status": "finished"
+  },
+  "M92": {
+    "utcDate": "2026-07-06T01:00:00Z",
+    "homeRef": "MEX",
+    "awayRef": "ENG",
+    "home": 2,
+    "away": 3,
+    "status": "finished"
+  },
+  "M93": {
+    "utcDate": "2026-07-06T19:00:00Z",
+    "homeRef": "POR",
+    "awayRef": "ESP",
+    "home": 0,
+    "away": 1,
+    "status": "finished"
+  },
+  "M94": {
+    "utcDate": "2026-07-07T00:00:00Z",
+    "homeRef": "USA",
+    "awayRef": "BEL",
+    "home": 1,
+    "away": 4,
+    "status": "finished"
+  },
+  "M95": {
+    "utcDate": "2026-07-07T16:00:00Z",
+    "homeRef": "ARG",
+    "awayRef": "EGY",
+    "home": 3,
+    "away": 2,
+    "status": "finished"
+  },
+  "M96": {
+    "utcDate": "2026-07-07T20:00:00Z",
+    "homeRef": "SUI",
+    "awayRef": "COL",
+    "home": 0,
+    "away": 0,
+    "status": "finished",
+    "penalties": {
+      "home": 4,
+      "away": 3
+    }
+  },
+  "M97": {
+    "utcDate": "2026-07-09T20:00:00Z",
+    "homeRef": "FRA",
+    "awayRef": "MAR",
+    "home": 2,
+    "away": 0,
+    "status": "finished"
+  },
+  "M98": {
+    "utcDate": "2026-07-10T19:00:00Z",
+    "homeRef": "ESP",
+    "awayRef": "BEL",
+    "home": 2,
+    "away": 1,
+    "status": "finished"
+  },
+  "M99": {
+    "utcDate": "2026-07-11T21:00:00Z",
+    "homeRef": "NOR",
+    "awayRef": "ENG",
+    "home": 0,
+    "away": 1,
+    "status": "finished"
   }
 }
