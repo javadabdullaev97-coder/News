@@ -18,6 +18,15 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { InlineSubscribe } from "@/components/InlineSubscribe";
 import { ShareButtons } from "@/components/ShareButtons";
 
+/**
+ * Инлайновые ссылки `[якорь](url)` из тела статьи.
+ *
+ * Открываются в той же вкладке — §3 редполитики. Ссылка здесь сноска
+ * на первоисточник, а не выход с сайта: читатель идёт сверить цифру
+ * в постановлении и возвращается кнопкой «назад». Кому нужна новая
+ * вкладка, сделает cmd/ctrl+click — принудительный target="_blank"
+ * такую возможность не добавляет, а отнимает выбор.
+ */
 function renderInline(text: string): React.ReactNode[] {
   const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
   const out: React.ReactNode[] = [];
@@ -30,8 +39,6 @@ function renderInline(text: string): React.ReactNode[] {
       <a
         key={`l-${key++}`}
         href={m[2]}
-        target="_blank"
-        rel="noopener noreferrer"
         className="text-brand underline decoration-brand/30 decoration-2 underline-offset-4 transition-colors hover:decoration-brand"
       >
         {m[1]}
@@ -261,8 +268,6 @@ export default async function ArticlePage({
                       </span>
                       <a
                         href={s.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="text-brand underline decoration-brand/30 decoration-2 underline-offset-4 transition-colors hover:decoration-brand"
                       >
                         {s.name}
