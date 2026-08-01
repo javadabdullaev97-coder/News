@@ -40,14 +40,20 @@ jobs:
           TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
         run: node scripts/editor-queue.mjs collect
 
+      - name: Remind about unanswered items
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
+        run: node scripts/editor-queue.mjs remind
+
       - name: Commit collected input
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- content/state/editor-queue.json .review/; then
+          if git diff --quiet -- content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/; then
             echo "Ответов нет — коммитить нечего."
             exit 0
           fi
-          git add content/state/editor-queue.json .review/
+          git add content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/
           git commit -m "newsroom: ответы редактора из Telegram"
           git push origin main

@@ -32,8 +32,11 @@ import {
   readFileSync,
   writeFileSync,
   mkdirSync,
+  readdirSync,
+  unlinkSync,
   createWriteStream,
 } from "node:fs";
+import { spawnSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { Readable } from "node:stream";
@@ -47,10 +50,11 @@ const { TELEGRAM_BOT_TOKEN, TELEGRAM_EDITOR_CHAT_ID, DRY_RUN } = process.env;
 const dryRun = DRY_RUN === "1" || DRY_RUN === "true";
 
 const mode = process.argv[2];
-if (!["push", "collect"].includes(mode)) {
+if (!["push", "collect", "remind"].includes(mode)) {
   console.error("Использование: editor-queue.mjs push|collect [опции]");
   console.error("  push --slug=<slug> --reason=<код> --question=<текст> [--image=<путь>]");
   console.error("  collect");
+  console.error("  remind   — напомнить о зависших без ответа");
   process.exit(1);
 }
 
@@ -60,8 +64,22 @@ function arg(name, fallback = null) {
 }
 
 function loadQueue() {
-  if (!existsSync(QUEUE_PATH)) return { pending: [], resolved: [] };
-  return JSON.parse(readFileSync(QUEUE_PATH, "utf8"));
+  const empty = { pending: [], resolved: [], updateOffset: 0 };
+  if (!existsSync(QUEUE_PATH)) return empty;
+  let parsed;
+  try {
+    parsed = JSON.parse(readFileSync(QUEUE_PATH, "utf8"));
+  } catch {
+    console.error("[queue] файл очереди не читается как JSON — начинаю с пустой");
+    return empty;
+  }
+  // Нормализуем: файл мог быть создан руками или обрезан, и тогда
+  // отсутствующий pending роняет весь прогон.
+  return {
+    pending: Array.isArray(parsed.pending) ? parsed.pending : [],
+    resolved: Array.isArray(parsed.resolved) ? parsed.resolved : [],
+    updateOffset: Number(parsed.updateOffset) || 0,
+  };
 }
 
 function saveQueue(q) {
@@ -181,6 +199,91 @@ async function downloadTelegramFile(fileId, destAbs) {
   return destAbs;
 }
 
+
+// ─── Применение ответа к материалу ───
+
+function findArticle(slug) {
+  const base = join(ROOT, "content/posts");
+  if (!existsSync(base)) return null;
+  for (const day of readdirSync(base)) {
+    const f = join(base, day, `${slug}.mdx`);
+    if (existsSync(f)) return f;
+  }
+  return null;
+}
+
+function setFrontmatterField(text, key, value) {
+  const re = new RegExp(`^${key}:.*$`, "m");
+  if (re.test(text)) return text.replace(re, `${key}: ${value}`);
+  return text.replace(/^---\n/, `---\n${key}: ${value}\n`);
+}
+
+function dropFrontmatterField(text, key) {
+  return text.replace(new RegExp(`^${key}:.*\\n`, "m"), "");
+}
+
+async function applyAnswer(item, answer) {
+  const file = findArticle(item.slug);
+  if (!file) {
+    console.error(`[queue] ${item.slug}: файл статьи не найден — применять нечего`);
+    return "article-not-found";
+  }
+  let text = readFileSync(file, "utf8");
+
+  if (answer.kind === "photo") {
+    // Прогоняем присланное фото через тот же конвейер, что и любой исходник:
+    // кадр 1600×900, без апскейла, с умным кропом.
+    const month = (file.match(/(\d{4})-(\d{2})-\d{2}/) || [])
+      .slice(1, 3)
+      .join("-");
+    const res = spawnSync(
+      "python3",
+      [
+        join(ROOT, "scripts/prepare-image.py"),
+        join(ROOT, answer.file),
+        item.slug,
+        `--month=${month}`,
+      ],
+      { cwd: ROOT, encoding: "utf8" },
+    );
+    if (res.status !== 0) {
+      console.error(`[queue] ${item.slug}: prepare-image отверг фото — ${res.stdout}`);
+      return "image-rejected";
+    }
+    const report = JSON.parse(res.stdout);
+    const url = report.output.url;
+    text = text.replace(
+      /^image:\n(?:  .*\n)*/m,
+      `image:\n  url: "${url}"\n  alt: "${(answer.note || "Фотография к материалу").replace(/"/g, "'")}"\n  credit: "LEAP News"\n`,
+    );
+    text = dropFrontmatterField(text, "awaitingEditor");
+    writeFileSync(file, text);
+    console.error(`[queue] ${item.slug}: фото применено → ${url}, материал разблокирован`);
+    return "image-applied";
+  }
+
+  if (answer.kind === "approve") {
+    text = dropFrontmatterField(text, "awaitingEditor");
+    writeFileSync(file, text);
+    console.error(`[queue] ${item.slug}: разблокирован, публикуется как есть`);
+    return "unblocked";
+  }
+
+  if (answer.kind === "reject") {
+    mkdirSync(join(ROOT, "content/rejected"), { recursive: true });
+    const dest = join(ROOT, "content/rejected", `${item.slug}.md`);
+    writeFileSync(dest, text);
+    unlinkSync(file);
+    console.error(`[queue] ${item.slug}: снят по решению владельца → content/rejected/`);
+    return "rejected";
+  }
+
+  // Комментарий не снимает блокировку: владелец что-то попросил поправить,
+  // значит материал ещё не готов. Остаётся в очереди до «ок» или фото.
+  console.error(`[queue] ${item.slug}: комментарий сохранён, материал остаётся в очереди`);
+  return "comment-saved";
+}
+
 async function collect() {
   const q = loadQueue();
   if (!q.pending.length) {
@@ -234,8 +337,13 @@ async function collect() {
       continue;
     }
 
+    // Ответ получен — доводим материал до публикуемого состояния.
+    // Без этого шага статья так и осталась бы с awaitingEditor и никогда
+    // не вышла бы: очередь копила бы ответы, а материал стоял.
+    answer.applied = await applyAnswer(item, answer);
+
     q.resolved.push({ ...item, answer });
-    q.pending.splice(idx, 1);
+    if (answer.kind !== "comment") q.pending.splice(idx, 1);
     applied++;
   }
 
@@ -252,4 +360,47 @@ if (!dryRun && (!TELEGRAM_BOT_TOKEN || !TELEGRAM_EDITOR_CHAT_ID)) {
   process.exit(1);
 }
 
-await (mode === "push" ? push() : collect());
+async function remind() {
+  // Материал, поставленный в очередь, физически не может выйти на сайт.
+  // Значит молчание владельца — это не «опубликуем как есть», а «материал
+  // стоит». Чтобы он не стоял незамеченным, напоминаем.
+  const q = loadQueue();
+  const now = Date.now();
+  const REMIND_AFTER_H = 2;
+  const STALE_AFTER_H = 24;
+  let sent = 0;
+
+  for (const item of q.pending) {
+    const ageH = (now - new Date(item.askedAt).getTime()) / 3600000;
+    const lastPing = item.remindedAt ? new Date(item.remindedAt).getTime() : 0;
+    const sinceLastH = (now - lastPing) / 3600000;
+    if (ageH < REMIND_AFTER_H || sinceLastH < REMIND_AFTER_H) continue;
+
+    const stale = ageH >= STALE_AFTER_H;
+    const text = stale
+      ? `<b>Материал стоит больше суток</b>\n\n<b>${item.title}</b>\n\n` +
+        `Ждёт вашего ответа с ${item.askedAt.slice(0, 16).replace("T", " ")} UTC. ` +
+        `Пока ответа нет, он не выйдет ни на сайт, ни в канал. ` +
+        `Если тема уже неактуальна — ответьте «стоп», и я сниму её.`
+      : `<b>Напоминание</b>\n\n<b>${item.title}</b>\n\n` +
+        `Ждёт вашего решения ${Math.round(ageH)} ч. Материал не публикуется, пока не ответите.`;
+
+    if (dryRun) {
+      console.log("-".repeat(50));
+      console.log(text.replace(/<[^>]+>/g, ""));
+    } else {
+      await tg("sendMessage", {
+        chat_id: TELEGRAM_EDITOR_CHAT_ID,
+        text,
+        parse_mode: "HTML",
+        reply_to_message_id: item.messageId,
+      });
+      item.remindedAt = new Date().toISOString();
+    }
+    sent++;
+  }
+  if (!dryRun) saveQueue(q);
+  console.error(`[queue] напоминаний отправлено: ${sent}, в очереди: ${q.pending.length}`);
+}
+
+await (mode === "push" ? push() : mode === "collect" ? collect() : remind());
