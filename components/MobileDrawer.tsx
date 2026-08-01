@@ -77,17 +77,6 @@ export function MobileMenuButton() {
             <span aria-hidden className="text-base">≡</span>
             Все новости
           </Link>
-          <Link
-            href="/wc2026"
-            className={`mt-2 flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors ${
-              pathname === "/wc2026" || pathname.startsWith("/wc2026/")
-                ? "bg-brand text-white"
-                : "bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900"
-            }`}
-          >
-            <span aria-hidden className="text-base">🏆</span>
-            ЧМ-2026
-          </Link>
 
           <div className="px-3 pb-1 pt-4 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
             Рубрики
