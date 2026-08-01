@@ -103,11 +103,16 @@ function parseScalar(v) {
 }
 
 // Извлечь первый абзац после frontmatter — это лид.
+// Markdown-разметку ссылок снимаем, оставляя якорь: в Telegram «[текст](url)»
+// ушло бы в канал как есть.
 function extractLede(text) {
   const body = text.replace(/^---[\s\S]*?---\n/, "").trim();
   const firstBlank = body.indexOf("\n\n");
   const lede = firstBlank === -1 ? body : body.slice(0, firstBlank);
-  return lede.trim();
+  return lede
+    .trim()
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+    .replace(/\s*\n\s*/g, " ");
 }
 
 // Слаг из пути: content/posts/2026-07-31/cb-rate-hike-15pct.mdx → cb-rate-hike-15pct
@@ -121,9 +126,30 @@ function dateFromPath(p) {
   return m ? m[1] : null;
 }
 
-// Публичный URL статьи. Соответствует структуре Next.js-роутера leap.uz.
+// Публичный URL статьи. Обязан совпадать с роутером Next.js: единственный
+// маршрут статьи в приложении — app/article/[slug]/page.tsx, то есть
+// /article/<slug>. Дата в путь не входит.
 function articleUrl(date, slug) {
-  return `${SITE_URL.replace(/\/$/, "")}/posts/${date}/${slug}`;
+  return `${SITE_URL.replace(/\/$/, "")}/article/${slug}`;
+}
+
+// Сущности, которые редакция пишет в MDX (неразрывный пробел в числах и т.д.).
+// Раскрываем до escapeHTML, иначе «1&nbsp;000» уедет в канал как «1&amp;nbsp;000».
+const ENTITIES = {
+  "&nbsp;": " ",
+  "&mdash;": "—",
+  "&ndash;": "–",
+  "&laquo;": "«",
+  "&raquo;": "»",
+  "&quot;": '"',
+  "&#39;": "'",
+  "&apos;": "'",
+};
+
+function decodeEntities(s) {
+  let out = s;
+  for (const [ent, ch] of Object.entries(ENTITIES)) out = out.split(ent).join(ch);
+  return out.split("&amp;").join("&");
 }
 
 // HTML для Telegram Bot API (parse_mode=HTML)
@@ -134,12 +160,33 @@ function escapeHTML(s) {
     .replace(/>/g, "&gt;");
 }
 
+/**
+ * Тег редакции → хештег Telegram. Клиент обрывает хештег на первом символе,
+ * не входящем в [\w], поэтому «ПОД/ФТ» дал бы «#ПОД», а «my.gov.uz» — «#my».
+ * Разделители схлопываем в подчёркивание, остальное выкидываем.
+ */
+function toHashtag(tag) {
+  const cleaned = tag
+    .trim()
+    .replace(/[\s/\\.,:;+—–-]+/gu, "_")
+    .replace(/[^\p{L}\p{N}_]/gu, "")
+    .replace(/_{2,}/g, "_")
+    .replace(/^_+|_+$/g, "");
+  // Хештег не может начинаться с цифры — Telegram такой не подсветит.
+  if (!cleaned || /^\d/.test(cleaned)) return null;
+  return `#${cleaned}`;
+}
+
 function buildMessage(fm, lede, url) {
-  const title = escapeHTML(fm.title || "");
-  const shortLede = escapeHTML(lede.length > 500 ? lede.slice(0, 497) + "…" : lede);
-  const tagsLine = Array.isArray(fm.tags) && fm.tags.length
-    ? "\n\n" + fm.tags.map((t) => `#${t.replace(/\s+/g, "_")}`).join(" ")
-    : "";
+  const title = escapeHTML(decodeEntities(fm.title || ""));
+  const plainLede = decodeEntities(lede);
+  const shortLede = escapeHTML(
+    plainLede.length > 500 ? plainLede.slice(0, 497) + "…" : plainLede,
+  );
+  const hashtags = Array.isArray(fm.tags)
+    ? [...new Set(fm.tags.map(toHashtag).filter(Boolean))]
+    : [];
+  const tagsLine = hashtags.length ? "\n\n" + hashtags.join(" ") : "";
   return `<b>${title}</b>\n\n${shortLede}\n\n<a href="${url}">Читать на leap.uz →</a>${tagsLine}`;
 }
 

@@ -1,9 +1,7 @@
-export type Rubric = {
-  slug: string;
-  title: string;
-  color: string;
-  textColor: string;
-};
+import type { Article, Rubric } from "./types";
+import { mdxArticles } from "./generated-posts";
+
+export type { Article, ArticleSource, Rubric } from "./types";
 
 export const rubrics: Rubric[] = [
   { slug: "politics", title: "Политика", color: "bg-blue-500", textColor: "text-blue-500" },
@@ -16,19 +14,11 @@ export const rubrics: Rubric[] = [
   { slug: "culture", title: "Культура", color: "bg-pink-500", textColor: "text-pink-500" },
 ];
 
-export type Article = {
-  slug: string;
-  title: string;
-  lead: string;
-  body: string[];
-  rubric: string;
-  publishedAt: string;
-  cover: string;
-  featured?: boolean;
-  tags: string[];
-};
-
-export const articles: Article[] = [
+/**
+ * Демонстрационный корпус, с которого начинался сайт. Живые материалы редакции
+ * приходят из content/posts/**\/*.mdx через lib/generated-posts.ts.
+ */
+const demoArticles: Article[] = [
   {
     slug: "uzbekistan-nuclear-plant-construction-starts",
     title: "В Джизакской области началось строительство первой АЭС Узбекистана",
@@ -658,6 +648,19 @@ export const articles: Article[] = [
     tags: ["ЧМ-2026", "Хусанов", "Манчестер Сити", "сборная Узбекистана", "легионеры"],
   },
 ];
+
+/**
+ * Единая лента сайта: материалы редакции из MDX плюс демо-корпус, свежие сверху.
+ *
+ * Слаг из MDX побеждает демо-статью с тем же именем — так материал редакции
+ * всегда можно опубликовать поверх заглушки, не редактируя этот файл.
+ */
+export const articles: Article[] = (() => {
+  const mdxSlugs = new Set(mdxArticles.map((a) => a.slug));
+  return [...mdxArticles, ...demoArticles.filter((a) => !mdxSlugs.has(a.slug))].sort(
+    (a, b) => (a.publishedAt < b.publishedAt ? 1 : -1),
+  );
+})();
 
 export function getArticle(slug: string) {
   return articles.find((a) => a.slug === slug);

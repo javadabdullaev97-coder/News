@@ -5,3 +5,8 @@ out
 .DS_Store
 next-env.d.ts
 *.tsbuildinfo
+
+# Собирается из content/posts/**/*.mdx через scripts/build-posts.mjs
+# (npm-хуки postinstall / predev / prebuild / prelint). В git не хранится,
+# чтобы не расходиться с исходными .mdx.
+lib/generated-posts.ts

@@ -18,6 +18,15 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { InlineSubscribe } from "@/components/InlineSubscribe";
 import { ShareButtons } from "@/components/ShareButtons";
 
+/**
+ * Инлайновые ссылки `[якорь](url)` из тела статьи.
+ *
+ * Открываются в той же вкладке — §3 редполитики. Ссылка здесь сноска
+ * на первоисточник, а не выход с сайта: читатель идёт сверить цифру
+ * в постановлении и возвращается кнопкой «назад». Кому нужна новая
+ * вкладка, сделает cmd/ctrl+click — принудительный target="_blank"
+ * такую возможность не добавляет, а отнимает выбор.
+ */
 function renderInline(text: string): React.ReactNode[] {
   const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
   const out: React.ReactNode[] = [];
@@ -30,8 +39,6 @@ function renderInline(text: string): React.ReactNode[] {
       <a
         key={`l-${key++}`}
         href={m[2]}
-        target="_blank"
-        rel="noopener noreferrer"
         className="text-brand underline decoration-brand/30 decoration-2 underline-offset-4 transition-colors hover:decoration-brand"
       >
         {m[1]}
@@ -41,6 +48,41 @@ function renderInline(text: string): React.ReactNode[] {
   }
   if (last < text.length) out.push(text.slice(last));
   return out;
+}
+
+/**
+ * Блок тела статьи → элемент. Тип блока определяется markdown-префиксом,
+ * который проставляет генератор (см. scripts/build-posts.mjs и lib/types.ts).
+ * Демо-статьи из lib/data.ts префиксов не содержат и попадают в ветку абзаца.
+ */
+function renderBlock(block: string, key: number): React.ReactNode {
+  if (block.startsWith("#### ")) {
+    return <h4 key={key}>{renderInline(block.slice(5))}</h4>;
+  }
+  if (block.startsWith("### ")) {
+    return <h3 key={key}>{renderInline(block.slice(4))}</h3>;
+  }
+  if (block.startsWith("## ")) {
+    return <h2 key={key}>{renderInline(block.slice(3))}</h2>;
+  }
+  if (block.startsWith("> ")) {
+    return (
+      <blockquote key={key}>
+        <p>{renderInline(block.slice(2))}</p>
+      </blockquote>
+    );
+  }
+  if (block.startsWith("- ")) {
+    const items = block.split("\n").map((l) => l.replace(/^-\s+/, ""));
+    return (
+      <ul key={key}>
+        {items.map((item, i) => (
+          <li key={i}>{renderInline(item)}</li>
+        ))}
+      </ul>
+    );
+  }
+  return <p key={key}>{renderInline(block)}</p>;
 }
 
 export function generateStaticParams() {
@@ -58,11 +100,11 @@ export async function generateMetadata({
   const url = `/article/${article.slug}`;
   return {
     title: article.title,
-    description: article.lead,
+    description: article.description ?? article.lead,
     openGraph: {
       type: "article",
       title: article.title,
-      description: article.lead,
+      description: article.description ?? article.lead,
       url,
       images: [{ url: article.cover, width: 1600, height: 900, alt: article.title }],
       publishedTime: article.publishedAt,
@@ -72,7 +114,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: article.title,
-      description: article.lead,
+      description: article.description ?? article.lead,
       images: [article.cover],
     },
     alternates: { canonical: url },
@@ -104,7 +146,7 @@ export default async function ArticlePage({
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     headline: article.title,
-    description: article.lead,
+    description: article.description ?? article.lead,
     image: [article.cover],
     datePublished: article.publishedAt,
     dateModified: article.publishedAt,
@@ -162,7 +204,7 @@ export default async function ArticlePage({
                 {article.title}
               </h1>
               <p className="mt-4 text-base leading-relaxed text-neutral-700 md:mt-5 md:text-xl lg:text-2xl dark:text-neutral-300">
-                {article.lead}
+                {article.leadRich ? renderInline(article.leadRich) : article.lead}
               </p>
             </div>
 
@@ -185,7 +227,7 @@ export default async function ArticlePage({
               <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
                 <Image
                   src={article.cover}
-                  alt={article.title}
+                  alt={article.coverAlt ?? article.title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 850px"
                   className="object-cover"
@@ -193,7 +235,10 @@ export default async function ArticlePage({
                 />
               </div>
               <figcaption className="mt-2 text-xs text-neutral-500">
-                Фото: {rubric?.title.toLowerCase()} · {timeAgo(article.publishedAt)}
+                {article.coverCredit
+                  ? `Фото: ${article.coverCredit}`
+                  : `Фото: ${rubric?.title.toLowerCase()}`}{" "}
+                · {timeAgo(article.publishedAt)}
               </figcaption>
             </figure>
 
@@ -207,10 +252,31 @@ export default async function ArticlePage({
             </aside>
 
             <div className="prose prose-neutral mt-10 max-w-[68ch] text-[19px] leading-[1.75] tracking-[-0.005em] dark:prose-invert prose-p:my-5 prose-blockquote:my-8 prose-blockquote:border-l-4 prose-blockquote:border-brand prose-blockquote:bg-neutral-50 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:not-italic prose-blockquote:font-medium dark:prose-blockquote:bg-neutral-900">
-              {article.body.map((p, i) => (
-                <p key={i}>{renderInline(p)}</p>
-              ))}
+              {article.body.map((block, i) => renderBlock(block, i))}
             </div>
+
+            {article.sources && article.sources.length > 0 && (
+              <section className="mt-10 rounded-xl border border-neutral-200 px-5 py-4 dark:border-neutral-800">
+                <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-500">
+                  Источники
+                </h2>
+                <ol className="mt-3 space-y-2 text-sm">
+                  {article.sources.map((s) => (
+                    <li key={s.url} className="flex gap-2">
+                      <span aria-hidden className="text-neutral-400">
+                        ↗
+                      </span>
+                      <a
+                        href={s.url}
+                        className="text-brand underline decoration-brand/30 decoration-2 underline-offset-4 transition-colors hover:decoration-brand"
+                      >
+                        {s.name}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            )}
 
             <div className="mt-8 flex flex-wrap gap-2">
               {article.tags.map((t) => (

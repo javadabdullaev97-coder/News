@@ -3,9 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "posts:build": "node scripts/build-posts.mjs",
+    "postinstall": "node scripts/build-posts.mjs",
+    "predev": "node scripts/build-posts.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/build-posts.mjs",
     "build": "next build",
     "start": "next start",
+    "prelint": "node scripts/build-posts.mjs",
     "lint": "next lint"
   },
   "dependencies": {
