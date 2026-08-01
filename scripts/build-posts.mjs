@@ -258,6 +258,30 @@ function build() {
       );
     }
 
+    // Утечка служебной разметки агента в текст статьи.
+    // Реальный случай 01.08.2026: материал о плотности предпринимательства
+    // ушёл в main и на сайт с литеральным «</content></invoke>» в последнем
+    // абзаце — хвост tool-call'а, который агент дописал в файл. Ни фактчекер,
+    // ни editor, ни SEO этого не заметили: они читают смысл, а не разметку.
+    // Поэтому проверка здесь, в сборке, где её нельзя пропустить.
+    const LEAK_PATTERNS = [
+      "</invoke>",
+      "<invoke",
+      "</content>",
+      "<function_calls>",
+      "</function_calls>",
+      "antml:",
+      "<parameter",
+    ];
+    const raw = readFileSync(file, "utf8");
+    const leaks = LEAK_PATTERNS.filter((sig) => raw.includes(sig));
+    if (leaks.length) {
+      problems.push(
+        `${rel}: в текст просочилась служебная разметка агента (${leaks.join(", ")}) — ` +
+          `это попадёт на сайт как есть, статью нужно вычистить`,
+      );
+    }
+
     const image = fm.image && typeof fm.image === "object" ? fm.image : {};
     if (!image.url) {
       problems.push(`${rel}: не заполнен image.url — статью нечем показать в карточке`);
