@@ -1,0 +1,41 @@
+name: Preview Telegram formats
+
+# Отправляет владельцу в личку варианты оформления поста на реальных статьях.
+# Нужен, чтобы выбирать формат, глядя на то, как он рендерится в клиенте,
+# а не на описание в переписке.
+#
+# В канал ничего не уходит: адресат — TELEGRAM_EDITOR_CHAT_ID, приватный чат.
+
+on:
+  workflow_dispatch:
+    inputs:
+      articles:
+        description: "Пути к .mdx через пробел. Пусто — подберу сам (одна с цитатой, одна со списком)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: preview-formats
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Send format variants to editor chat
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
+        run: node scripts/preview-telegram-formats.mjs ${{ github.event.inputs.articles }}
