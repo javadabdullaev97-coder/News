@@ -200,21 +200,53 @@ function isRelevant(item) {
   return REGION_TERMS.some((term) => blob.includes(term));
 }
 
-const relevant = allItems.filter(isRelevant);
-const droppedIrrelevant = allItems.length - relevant.length;
+const relevantSet = new Set(allItems.filter(isRelevant));
+const relevant = [...relevantSet];
+
+// ─── Вторая линия: важные мировые новости сами по себе ───
+//
+// Всё, что не прошло фильтр региона, не выбрасывается, а уходит в отдельный
+// файл world-YYYY-MM-DD.jsonl. Основной инбокс остаётся чистым, а планёрка
+// может отдельно посмотреть, не случилось ли в мире чего-то настолько
+// крупного, что это стоит опубликовать без узбекской привязки.
+//
+// Порог «очень важного» планёрка считает не по числу лент, а по числу
+// НЕЗАВИСИМЫХ БЛОКОВ (поле bloc в конфиге). Причина в замере от 01.08.2026:
+// при подсчёте по лентам топ «мировых» сюжетов состоял из беспилотника над
+// Тамбовом и пожара в Нижнекамске — просто потому, что о них синхронно писали
+// ТАСС, РИА, Интерфакс, Коммерсантъ и РБК. Пять лент, но одна юрисдикция и
+// одна редакционная позиция. Правило блоков это отсекает.
+
+const worldCandidates = allItems
+  .filter((it) => !relevantSet.has(it))
+  .map((it) => {
+    const src = relevantById.get(it.sourceId);
+    return { ...it, bloc: src?.bloc || "unknown" };
+  })
+  .filter((it) => it.bloc !== "unknown" && it.link && !seen.has(it.link));
 
 const fresh = relevant.filter((it) => it.link && !seen.has(it.link));
+const droppedIrrelevant = allItems.length - relevant.length;
 
-// Ссылки отсеянных тоже помечаем виденными: иначе каждый следующий прогон
-// будет заново тянуть и заново отбрасывать те же полторы тысячи заголовков.
+// Ссылки отсеянных помечаем виденными только ПОСЛЕ того, как отложили их
+// в мировую линию — иначе второй прогон уже не увидит мировой сюжет.
 for (const it of allItems) {
-  if (it.link && !relevant.includes(it)) seen.add(it.link);
+  if (!relevantSet.has(it) && it.link) seen.add(it.link);
 }
 
 // Ротация файла по дню Ташкента (UTC+5), чтобы сутки соответствовали редакции.
 const nowTashkent = new Date(Date.now() + 5 * 3600 * 1000);
 const today = nowTashkent.toISOString().slice(0, 10);
 const dayFile = join(INBOX_DIR, `${today}.jsonl`);
+
+// Мировая линия — свой файл, чтобы объём не мешал основному инбоксу.
+if (worldCandidates.length) {
+  const worldFile = join(INBOX_DIR, `world-${today}.jsonl`);
+  appendFileSync(
+    worldFile,
+    worldCandidates.map((x) => JSON.stringify(x)).join("\n") + "\n",
+  );
+}
 
 if (fresh.length) {
   const lines = fresh.map((x) => JSON.stringify(x)).join("\n") + "\n";
@@ -228,7 +260,8 @@ if (fresh.length) {
 // Отчёт
 console.error(
   `[news-inbox] fetched ${allItems.length}, ` +
-    `отсеяно как нерелевантное ${droppedIrrelevant}, fresh ${fresh.length}, ` +
+    `вне региона ${droppedIrrelevant} (в мировую линию ${worldCandidates.length}), ` +
+    `fresh ${fresh.length}, ` +
     `failed ${failed.length}/${sources.length}, day=${today}`,
 );
 

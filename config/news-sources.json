@@ -248,7 +248,8 @@
       "focus": "макроэкономика, энергетика ЦА",
       "disabled": true,
       "notes": "ОТКЛЮЧЁН 01.08.2026: 404. Публичных RSS у Reuters нет с 2020 года, reutersagency.com/feed отдаёт 404. Белый список редполитики на Reuters опирается, но фетчить его нечем — нужен либо платный доступ, либо Google News RSS как прокси.",
-      "citable": true
+      "citable": true,
+      "bloc": "anglo"
     },
     {
       "id": "bbc-uzbek",
@@ -260,7 +261,8 @@
       "requiresPlaywright": false,
       "focus": "соц-политический анализ, реформы",
       "regionDedicated": true,
-      "citable": true
+      "citable": true,
+      "bloc": "anglo"
     },
     {
       "id": "aljazeera",
@@ -271,7 +273,8 @@
       "language": "en",
       "requiresPlaywright": false,
       "focus": "внешняя политика, логистические коридоры",
-      "citable": true
+      "citable": true,
+      "bloc": "mena"
     },
     {
       "id": "dw-ru",
@@ -282,7 +285,8 @@
       "language": "ru",
       "requiresPlaywright": false,
       "focus": "связи ЕС–Узбекистан, экология, Арал",
-      "citable": true
+      "citable": true,
+      "bloc": "euro"
     },
     {
       "id": "ft",
@@ -293,7 +297,8 @@
       "language": "en",
       "requiresPlaywright": false,
       "focus": "коридор Север-Юг, сырьё",
-      "citable": true
+      "citable": true,
+      "bloc": "anglo"
     },
     {
       "id": "tass",
@@ -305,7 +310,8 @@
       "requiresPlaywright": false,
       "focus": "РФ–РУз, ЕАЭС, ШОС",
       "citable": "restricted",
-      "citableNote": "§2: только для фиксации официальной позиции РФ, не как самостоятельный первоисточник."
+      "citableNote": "§2: только для фиксации официальной позиции РФ, не как самостоятельный первоисточник.",
+      "bloc": "ru-state"
     },
     {
       "id": "ria",
@@ -317,7 +323,8 @@
       "requiresPlaywright": false,
       "focus": "региональная безопасность, миграция",
       "citable": "restricted",
-      "citableNote": "§2: только для фиксации официальной позиции РФ, не как самостоятельный первоисточник."
+      "citableNote": "§2: только для фиксации официальной позиции РФ, не как самостоятельный первоисточник.",
+      "bloc": "ru-state"
     },
     {
       "id": "interfax",
@@ -328,7 +335,8 @@
       "language": "ru",
       "requiresPlaywright": false,
       "focus": "корпораты, газ, энергетика",
-      "citable": true
+      "citable": true,
+      "bloc": "ru-business"
     },
     {
       "id": "rbc",
@@ -339,7 +347,8 @@
       "language": "ru",
       "requiresPlaywright": false,
       "focus": "банки, релокация бизнеса",
-      "citable": true
+      "citable": true,
+      "bloc": "ru-business"
     },
     {
       "id": "kommersant",
@@ -350,7 +359,8 @@
       "language": "ru",
       "requiresPlaywright": false,
       "focus": "промкооперация, торговля",
-      "citable": true
+      "citable": true,
+      "bloc": "ru-business"
     },
     {
       "id": "vedomosti",
@@ -361,7 +371,8 @@
       "language": "ru",
       "requiresPlaywright": false,
       "focus": "рынки капитала, логистика ЦА",
-      "citable": true
+      "citable": true,
+      "bloc": "ru-business"
     },
     {
       "id": "kazinform",
@@ -375,7 +386,8 @@
       "disabled": true,
       "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/rss.xml, /rss, /ru/rss. Требует поиска актуального адреса.",
       "regionDedicated": true,
-      "citable": true
+      "citable": true,
+      "bloc": "ca-regional"
     },
     {
       "id": "sputnik-kg",
@@ -388,7 +400,8 @@
       "focus": "трансграничная торговля",
       "regionDedicated": true,
       "citable": "restricted",
-      "citableNote": "§2: только для фиксации официальной позиции РФ, не как самостоятельный первоисточник."
+      "citableNote": "§2: только для фиксации официальной позиции РФ, не как самостоятельный первоисточник.",
+      "bloc": "ru-state"
     },
     {
       "id": "kabar-kg",
@@ -402,7 +415,8 @@
       "disabled": true,
       "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/ и /rss/all/.",
       "regionDedicated": true,
-      "citable": true
+      "citable": true,
+      "bloc": "ca-regional"
     },
     {
       "id": "trend-az",
@@ -414,7 +428,8 @@
       "requiresPlaywright": false,
       "focus": "Middle Corridor",
       "regionDedicated": true,
-      "citable": true
+      "citable": true,
+      "bloc": "ca-regional"
     },
     {
       "id": "turkmenportal",
@@ -427,7 +442,8 @@
       "focus": "газ, транзит, порты",
       "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026",
       "regionDedicated": true,
-      "citable": true
+      "citable": true,
+      "bloc": "ca-regional"
     },
     {
       "id": "eurasianet",
@@ -440,7 +456,8 @@
       "focus": "глубокая экон-аналитика ЦА",
       "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026",
       "regionDedicated": true,
-      "citable": true
+      "citable": true,
+      "bloc": "ca-regional"
     },
     {
       "id": "fergana",
@@ -454,7 +471,8 @@
       "disabled": true,
       "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/, /rss.xml, /feed/ и на fergana.ru. Фид, похоже, снят. Требует ручной проверки сайта.",
       "regionDedicated": true,
-      "citable": true
+      "citable": true,
+      "bloc": "ca-regional"
     },
     {
       "id": "cabar",
@@ -466,7 +484,8 @@
       "requiresPlaywright": false,
       "focus": "аналитический портал ЦА",
       "regionDedicated": true,
-      "citable": true
+      "citable": true,
+      "bloc": "ca-regional"
     },
     {
       "id": "the-diplomat",
@@ -478,7 +497,8 @@
       "requiresPlaywright": false,
       "focus": "стратегический анализ ЦА",
       "regionDedicated": true,
-      "citable": true
+      "citable": true,
+      "bloc": "asia"
     },
     {
       "id": "bbc-russian",
@@ -489,7 +509,8 @@
       "language": "ru",
       "requiresPlaywright": false,
       "focus": "мировые новости на русском, BBC в белом списке редполитики",
-      "citable": true
+      "citable": true,
+      "bloc": "anglo"
     },
     {
       "id": "wto",
@@ -500,7 +521,8 @@
       "language": "en",
       "requiresPlaywright": false,
       "focus": "первоисточник по вступлению Узбекистана в ВТО",
-      "citable": true
+      "citable": true,
+      "bloc": "intl-org"
     },
     {
       "id": "nikkei-asia",
@@ -511,7 +533,8 @@
       "language": "en",
       "requiresPlaywright": false,
       "focus": "Азия, инвестиции, инфраструктура; в белом списке редполитики",
-      "citable": true
+      "citable": true,
+      "bloc": "asia"
     },
     {
       "id": "guardian-world",
@@ -523,7 +546,8 @@
       "requiresPlaywright": false,
       "focus": "мировая повестка, широкое покрытие Центральной Азии",
       "citable": false,
-      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена."
+      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена.",
+      "bloc": "anglo"
     },
     {
       "id": "anadolu-ru",
@@ -535,7 +559,8 @@
       "requiresPlaywright": false,
       "focus": "турецкий угол — значим для Узбекистана, Организация тюркских государств",
       "citable": false,
-      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена."
+      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена.",
+      "bloc": "mena"
     },
     {
       "id": "un-news-ru",
@@ -546,7 +571,8 @@
       "language": "ru",
       "requiresPlaywright": false,
       "focus": "первоисточник по программам ООН в Узбекистане, Арал, климат",
-      "citable": true
+      "citable": true,
+      "bloc": "intl-org"
     },
     {
       "id": "astana-times",
@@ -559,7 +585,8 @@
       "focus": "Казахстан и региональная повестка ЦА",
       "regionDedicated": true,
       "citable": false,
-      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена."
+      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена.",
+      "bloc": "ca-regional"
     },
     {
       "id": "times-ca",
@@ -572,7 +599,8 @@
       "focus": "региональное агентство по всей Центральной Азии",
       "regionDedicated": true,
       "citable": false,
-      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена."
+      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена.",
+      "bloc": "ca-regional"
     },
     {
       "id": "kursiv-kz",
@@ -584,7 +612,8 @@
       "requiresPlaywright": false,
       "focus": "деловая повестка Казахстана, банки, сырьё",
       "citable": false,
-      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена."
+      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена.",
+      "bloc": "ca-regional"
     },
     {
       "id": "bloomberg",
@@ -595,7 +624,8 @@
       "language": "en",
       "requiresPlaywright": false,
       "focus": "в белом списке редполитики; сырьё, ЦА, санкционная повестка",
-      "citable": true
+      "citable": true,
+      "bloc": "anglo"
     },
     {
       "id": "sputnik-uz",
@@ -609,7 +639,82 @@
       "focus": "лента целиком про Узбекистан",
       "notes": "Госмедиа РФ. По §2 редполитики режим как у ТАСС/РИА: только для фиксации официальной позиции российской стороны, не как самостоятельный первоисточник. Как сигнал о повестке — полезен.",
       "citable": "restricted",
-      "citableNote": "§2: только для фиксации официальной позиции РФ, не как самостоятельный первоисточник."
+      "citableNote": "§2: только для фиксации официальной позиции РФ, не как самостоятельный первоисточник.",
+      "bloc": "ru-state"
+    },
+    {
+      "id": "nyt-world",
+      "name": "The New York Times — World",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "bloc": "anglo",
+      "focus": "мировая повестка, независимый блок для подтверждения сюжетов",
+      "type": "context",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "citable": true
+    },
+    {
+      "id": "bbc-world-en",
+      "name": "BBC News — World",
+      "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+      "bloc": "anglo",
+      "focus": "мировая повестка на английском",
+      "type": "context",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "citable": true
+    },
+    {
+      "id": "aljazeera-en",
+      "name": "Al Jazeera English",
+      "url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "bloc": "mena",
+      "focus": "взгляд вне западного и российского блоков",
+      "type": "context",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "citable": true
+    },
+    {
+      "id": "dw-en",
+      "name": "Deutsche Welle — World",
+      "url": "https://rss.dw.com/rdf/rss-en-world",
+      "bloc": "euro",
+      "focus": "европейский блок",
+      "type": "context",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "citable": true
+    },
+    {
+      "id": "scmp",
+      "name": "South China Morning Post",
+      "url": "https://www.scmp.com/rss/91/feed",
+      "bloc": "asia",
+      "focus": "Китай и Азия — значимо для повестки Узбекистана",
+      "type": "context",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "citable": false,
+      "citableNote": "Вне белого списка §2 — читаем и используем как подтверждающий блок, ссылку в статье не ставим."
+    },
+    {
+      "id": "economist-intl",
+      "name": "The Economist — International",
+      "url": "https://www.economist.com/international/rss.xml",
+      "bloc": "anglo",
+      "focus": "аналитика; высокий объём, идёт только как подтверждающий блок",
+      "type": "context",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "citable": false,
+      "citableNote": "Вне белого списка §2 — читаем и используем как подтверждающий блок, ссылку в статье не ставим."
     }
   ],
   "api": [
@@ -740,5 +845,15 @@
     "true": "разрешено ставить ссылку в статье",
     "false": "читаем, но ссылку не ставим",
     "restricted": "только для фиксации официальной позиции стороны-издателя"
+  },
+  "blocs": {
+    "ru-state": "госмедиа РФ — одна редакционная позиция, сколько бы лент ни совпало",
+    "ru-business": "российские деловые СМИ",
+    "anglo": "англоязычные международные издания",
+    "euro": "континентальная Европа",
+    "mena": "Ближний Восток и Турция",
+    "asia": "Азия",
+    "intl-org": "международные организации",
+    "ca-regional": "Центральная Азия"
   }
 }
