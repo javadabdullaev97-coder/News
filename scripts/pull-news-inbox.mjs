@@ -149,7 +149,67 @@ const failed = results.filter((r) => !r.ok);
 const ok = results.filter((r) => r.ok);
 
 const allItems = ok.flatMap((r) => r.items);
-const fresh = allItems.filter((it) => it.link && !seen.has(it.link));
+
+// ─── Фильтр релевантности для международных лент ───
+//
+// Замер на инбоксе за 01.08.2026: из 1 608 items типа `context` про Узбекистан
+// и Центральную Азию было 18 — это 1,1%. При этом международный слой давал 77%
+// всего объёма инбокса. То есть планёрка каждый раз просеивала полторы тысячи
+// заголовков про американские выборы и европейский футбол, чтобы найти
+// полтора десятка полезных.
+//
+// Поэтому у `context`-лент общего профиля берём только то, что упоминает регион.
+// Ленты, целиком посвящённые Центральной Азии (`regionDedicated: true`),
+// проходят без фильтра — там релевантно всё по определению.
+//
+// На `source` и `signal` фильтр не распространяется: госорганы и узбекские СМИ
+// пишут про Узбекистан по определению, а отсечь по ключевым словам пост
+// Минюста о поправке в НК — прямой путь потерять первоисточник.
+
+const REGION_TERMS = [
+  "узбек", "uzbek", "o‘zbek", "oʻzbek", "ozbek", "o'zbek",
+  "ташкент", "tashkent", "toshkent",
+  "мирзиёев", "мирзиеев", "mirziyo",
+  "самарканд", "samarkand", "samarqand",
+  "бухар", "bukhara", "buxoro",
+  "ферган", "fergana", "farg",
+  "каракалпак", "karakalpak", "qoraqalpog",
+  "хорезм", "khorezm", "xorazm",
+  "андижан", "andijan", "andijon",
+  "наманган", "namangan",
+  "сурхандар", "surkhandarya",
+  "кашкадар", "kashkadarya", "qashqadaryo",
+  "джизак", "jizzakh", "jizzax",
+  "навои", "navoi", "navoiy",
+  "сырдар", "syrdarya", "sirdaryo",
+  "центральной азии", "центральная азия", "central asia", "markaziy osiyo",
+  // «арал» без уточнения ловит «паралимпийский» и «парализовать» —
+  // проверено на реальном инбоксе, оба ложных срабатывания.
+  "аральск", "аральско", "приаралье", "aral sea",
+  "ташкентск",
+];
+
+const relevantById = new Map(sources.map((s) => [s.id, s]));
+
+function isRelevant(item) {
+  const src = relevantById.get(item.sourceId);
+  if (!src) return true;
+  if (src.type !== "context") return true;      // source и signal — без фильтра
+  if (src.regionDedicated) return true;          // лента целиком про регион
+  const blob = `${item.title || ""} ${item.snippet || ""}`.toLowerCase();
+  return REGION_TERMS.some((term) => blob.includes(term));
+}
+
+const relevant = allItems.filter(isRelevant);
+const droppedIrrelevant = allItems.length - relevant.length;
+
+const fresh = relevant.filter((it) => it.link && !seen.has(it.link));
+
+// Ссылки отсеянных тоже помечаем виденными: иначе каждый следующий прогон
+// будет заново тянуть и заново отбрасывать те же полторы тысячи заголовков.
+for (const it of allItems) {
+  if (it.link && !relevant.includes(it)) seen.add(it.link);
+}
 
 // Ротация файла по дню Ташкента (UTC+5), чтобы сутки соответствовали редакции.
 const nowTashkent = new Date(Date.now() + 5 * 3600 * 1000);
@@ -167,7 +227,8 @@ if (fresh.length) {
 
 // Отчёт
 console.error(
-  `[news-inbox] fetched ${allItems.length}, fresh ${fresh.length}, ` +
+  `[news-inbox] fetched ${allItems.length}, ` +
+    `отсеяно как нерелевантное ${droppedIrrelevant}, fresh ${fresh.length}, ` +
     `failed ${failed.length}/${sources.length}, day=${today}`,
 );
 

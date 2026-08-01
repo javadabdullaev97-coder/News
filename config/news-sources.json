@@ -26,7 +26,7 @@
   "types": {
     "signal": "конкурентное СМИ, читаем как сигнал, НЕ цитируем в статьях",
     "source": "первоисточник, разрешён как ссылка в статье",
-    "context": "международный/региональный источник для внешнего контекста"
+    "context": "международный/региональный источник для внешнего контекста. ВНИМАНИЕ: «фетчим» не равно «цитируем». Право на ссылку в статье определяет поле citable, а не тип: белый список §2 редполитики уже и включает не все ленты, которые мы читаем."
   },
   "rss": [
     {
@@ -38,7 +38,9 @@
       "language": "ru",
       "audience": 3000000,
       "requiresPlaywright": false,
-      "focus": "аналитика, урбанистика, общество"
+      "focus": "аналитика, урбанистика, общество",
+      "citable": false,
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
       "id": "kun-uz",
@@ -49,7 +51,9 @@
       "language": "uz",
       "audience": 8500000,
       "requiresPlaywright": false,
-      "focus": "универсальное, крупнейшее СМИ страны"
+      "focus": "универсальное, крупнейшее СМИ страны",
+      "citable": false,
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
       "id": "spot-uz",
@@ -60,7 +64,9 @@
       "language": "ru",
       "audience": 700000,
       "requiresPlaywright": false,
-      "focus": "бизнес, IT, финтех, налоги"
+      "focus": "бизнес, IT, финтех, налоги",
+      "citable": false,
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
       "id": "podrobno-uz",
@@ -71,7 +77,9 @@
       "language": "ru",
       "audience": 1600000,
       "requiresPlaywright": false,
-      "focus": "Ташкент, политика, соцсфера"
+      "focus": "Ташкент, политика, соцсфера",
+      "citable": false,
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
       "id": "daryo-uz",
@@ -83,7 +91,9 @@
       "audience": 4500000,
       "requiresPlaywright": true,
       "focus": "универсальное, регионы, ЧП",
-      "notes": "HTTP 200, но 0 items — фид рендерится на JS, проверено 01.08.2026"
+      "notes": "HTTP 200, но 0 items — фид рендерится на JS, проверено 01.08.2026",
+      "citable": false,
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
       "id": "repost-uz",
@@ -95,7 +105,9 @@
       "audience": 1800000,
       "requiresPlaywright": true,
       "focus": "молодёжка, вирус, эксклюзивы",
-      "notes": "Cloudflare + reCAPTCHA"
+      "notes": "Cloudflare + reCAPTCHA",
+      "citable": false,
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
       "id": "kapital-uz",
@@ -106,7 +118,9 @@
       "language": "ru",
       "audience": 400000,
       "requiresPlaywright": false,
-      "focus": "финансы, инвестиции, банки"
+      "focus": "финансы, инвестиции, банки",
+      "citable": false,
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
       "id": "anhor-uz",
@@ -117,7 +131,9 @@
       "language": "ru",
       "audience": 200000,
       "requiresPlaywright": false,
-      "focus": "урбанистика, расследования"
+      "focus": "урбанистика, расследования",
+      "citable": false,
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
       "id": "nuz-uz",
@@ -128,7 +144,9 @@
       "language": "ru",
       "audience": 400000,
       "requiresPlaywright": false,
-      "focus": "общество, политика, культура"
+      "focus": "общество, политика, культура",
+      "citable": false,
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
       "id": "yuz-uz",
@@ -141,7 +159,9 @@
       "requiresPlaywright": false,
       "focus": "полугосударственный, официальная трактовка НПА",
       "disabled": true,
-      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss и /ru/rss."
+      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss и /ru/rss.",
+      "citable": false,
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
       "id": "afisha-uz",
@@ -152,7 +172,9 @@
       "language": "ru",
       "audience": 800000,
       "requiresPlaywright": false,
-      "focus": "lifestyle, культура, HoReCa"
+      "focus": "lifestyle, культура, HoReCa",
+      "citable": false,
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
       "id": "hook-report",
@@ -163,7 +185,9 @@
       "language": "ru",
       "audience": 120000,
       "requiresPlaywright": false,
-      "focus": "соцаналитика, лонгриды"
+      "focus": "соцаналитика, лонгриды",
+      "citable": false,
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
       "id": "tribuna-uz",
@@ -175,7 +199,9 @@
       "audience": 400000,
       "requiresPlaywright": true,
       "focus": "спорт",
-      "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026"
+      "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026",
+      "citable": false,
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
       "id": "cbu-rss",
@@ -185,7 +211,8 @@
       "priority": "P0",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "курсы валют, пресс-релизы ЦБ"
+      "focus": "курсы валют, пресс-релизы ЦБ",
+      "citable": true
     },
     {
       "id": "stat-uz",
@@ -195,7 +222,8 @@
       "priority": "P1",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "макростатистика, ВВП, инфляция, ВЭД"
+      "focus": "макростатистика, ВВП, инфляция, ВЭД",
+      "citable": true
     },
     {
       "id": "digital-uz",
@@ -206,7 +234,8 @@
       "language": "ru",
       "requiresPlaywright": true,
       "focus": "цифровизация, IT-Park, госуслуги",
-      "notes": "HTTP 200, но 0 items — фид рендерится на JS, проверено 01.08.2026"
+      "notes": "HTTP 200, но 0 items — фид рендерится на JS, проверено 01.08.2026",
+      "citable": true
     },
     {
       "id": "reuters",
@@ -218,7 +247,8 @@
       "requiresPlaywright": false,
       "focus": "макроэкономика, энергетика ЦА",
       "disabled": true,
-      "notes": "ОТКЛЮЧЁН 01.08.2026: 404. Публичных RSS у Reuters нет с 2020 года, reutersagency.com/feed отдаёт 404. Белый список редполитики на Reuters опирается, но фетчить его нечем — нужен либо платный доступ, либо Google News RSS как прокси."
+      "notes": "ОТКЛЮЧЁН 01.08.2026: 404. Публичных RSS у Reuters нет с 2020 года, reutersagency.com/feed отдаёт 404. Белый список редполитики на Reuters опирается, но фетчить его нечем — нужен либо платный доступ, либо Google News RSS как прокси.",
+      "citable": true
     },
     {
       "id": "bbc-uzbek",
@@ -228,7 +258,9 @@
       "priority": "P2",
       "language": "uz",
       "requiresPlaywright": false,
-      "focus": "соц-политический анализ, реформы"
+      "focus": "соц-политический анализ, реформы",
+      "regionDedicated": true,
+      "citable": true
     },
     {
       "id": "aljazeera",
@@ -238,7 +270,8 @@
       "priority": "P2",
       "language": "en",
       "requiresPlaywright": false,
-      "focus": "внешняя политика, логистические коридоры"
+      "focus": "внешняя политика, логистические коридоры",
+      "citable": true
     },
     {
       "id": "dw-ru",
@@ -248,7 +281,8 @@
       "priority": "P2",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "связи ЕС–Узбекистан, экология, Арал"
+      "focus": "связи ЕС–Узбекистан, экология, Арал",
+      "citable": true
     },
     {
       "id": "ft",
@@ -258,7 +292,8 @@
       "priority": "P2",
       "language": "en",
       "requiresPlaywright": false,
-      "focus": "коридор Север-Юг, сырьё"
+      "focus": "коридор Север-Юг, сырьё",
+      "citable": true
     },
     {
       "id": "tass",
@@ -268,7 +303,9 @@
       "priority": "P2",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "РФ–РУз, ЕАЭС, ШОС"
+      "focus": "РФ–РУз, ЕАЭС, ШОС",
+      "citable": "restricted",
+      "citableNote": "§2: только для фиксации официальной позиции РФ, не как самостоятельный первоисточник."
     },
     {
       "id": "ria",
@@ -278,7 +315,9 @@
       "priority": "P2",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "региональная безопасность, миграция"
+      "focus": "региональная безопасность, миграция",
+      "citable": "restricted",
+      "citableNote": "§2: только для фиксации официальной позиции РФ, не как самостоятельный первоисточник."
     },
     {
       "id": "interfax",
@@ -288,7 +327,8 @@
       "priority": "P2",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "корпораты, газ, энергетика"
+      "focus": "корпораты, газ, энергетика",
+      "citable": true
     },
     {
       "id": "rbc",
@@ -298,7 +338,8 @@
       "priority": "P2",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "банки, релокация бизнеса"
+      "focus": "банки, релокация бизнеса",
+      "citable": true
     },
     {
       "id": "kommersant",
@@ -308,7 +349,8 @@
       "priority": "P2",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "промкооперация, торговля"
+      "focus": "промкооперация, торговля",
+      "citable": true
     },
     {
       "id": "vedomosti",
@@ -318,7 +360,8 @@
       "priority": "P2",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "рынки капитала, логистика ЦА"
+      "focus": "рынки капитала, логистика ЦА",
+      "citable": true
     },
     {
       "id": "kazinform",
@@ -330,7 +373,9 @@
       "requiresPlaywright": false,
       "focus": "граница KZ-UZ, вода, ОТГ",
       "disabled": true,
-      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/rss.xml, /rss, /ru/rss. Требует поиска актуального адреса."
+      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/rss.xml, /rss, /ru/rss. Требует поиска актуального адреса.",
+      "regionDedicated": true,
+      "citable": true
     },
     {
       "id": "sputnik-kg",
@@ -340,7 +385,10 @@
       "priority": "P3",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "трансграничная торговля"
+      "focus": "трансграничная торговля",
+      "regionDedicated": true,
+      "citable": "restricted",
+      "citableNote": "§2: только для фиксации официальной позиции РФ, не как самостоятельный первоисточник."
     },
     {
       "id": "kabar-kg",
@@ -352,7 +400,9 @@
       "requiresPlaywright": false,
       "focus": "Памир, энергетика ЦА",
       "disabled": true,
-      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/ и /rss/all/."
+      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/ и /rss/all/.",
+      "regionDedicated": true,
+      "citable": true
     },
     {
       "id": "trend-az",
@@ -362,7 +412,9 @@
       "priority": "P3",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "Middle Corridor"
+      "focus": "Middle Corridor",
+      "regionDedicated": true,
+      "citable": true
     },
     {
       "id": "turkmenportal",
@@ -373,7 +425,9 @@
       "language": "ru",
       "requiresPlaywright": true,
       "focus": "газ, транзит, порты",
-      "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026"
+      "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026",
+      "regionDedicated": true,
+      "citable": true
     },
     {
       "id": "eurasianet",
@@ -384,7 +438,9 @@
       "language": "en",
       "requiresPlaywright": true,
       "focus": "глубокая экон-аналитика ЦА",
-      "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026"
+      "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026",
+      "regionDedicated": true,
+      "citable": true
     },
     {
       "id": "fergana",
@@ -396,7 +452,9 @@
       "requiresPlaywright": false,
       "focus": "права человека, миграция",
       "disabled": true,
-      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/, /rss.xml, /feed/ и на fergana.ru. Фид, похоже, снят. Требует ручной проверки сайта."
+      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/, /rss.xml, /feed/ и на fergana.ru. Фид, похоже, снят. Требует ручной проверки сайта.",
+      "regionDedicated": true,
+      "citable": true
     },
     {
       "id": "cabar",
@@ -406,7 +464,9 @@
       "priority": "P2",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "аналитический портал ЦА"
+      "focus": "аналитический портал ЦА",
+      "regionDedicated": true,
+      "citable": true
     },
     {
       "id": "the-diplomat",
@@ -416,7 +476,9 @@
       "priority": "P2",
       "language": "en",
       "requiresPlaywright": false,
-      "focus": "стратегический анализ ЦА"
+      "focus": "стратегический анализ ЦА",
+      "regionDedicated": true,
+      "citable": true
     },
     {
       "id": "bbc-russian",
@@ -426,7 +488,8 @@
       "priority": "P1",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "мировые новости на русском, BBC в белом списке редполитики"
+      "focus": "мировые новости на русском, BBC в белом списке редполитики",
+      "citable": true
     },
     {
       "id": "wto",
@@ -436,7 +499,8 @@
       "priority": "P1",
       "language": "en",
       "requiresPlaywright": false,
-      "focus": "первоисточник по вступлению Узбекистана в ВТО"
+      "focus": "первоисточник по вступлению Узбекистана в ВТО",
+      "citable": true
     },
     {
       "id": "nikkei-asia",
@@ -446,7 +510,8 @@
       "priority": "P2",
       "language": "en",
       "requiresPlaywright": false,
-      "focus": "Азия, инвестиции, инфраструктура; в белом списке редполитики"
+      "focus": "Азия, инвестиции, инфраструктура; в белом списке редполитики",
+      "citable": true
     },
     {
       "id": "guardian-world",
@@ -456,7 +521,9 @@
       "priority": "P2",
       "language": "en",
       "requiresPlaywright": false,
-      "focus": "мировая повестка, широкое покрытие Центральной Азии"
+      "focus": "мировая повестка, широкое покрытие Центральной Азии",
+      "citable": false,
+      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена."
     },
     {
       "id": "anadolu-ru",
@@ -466,7 +533,9 @@
       "priority": "P2",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "турецкий угол — значим для Узбекистана, Организация тюркских государств"
+      "focus": "турецкий угол — значим для Узбекистана, Организация тюркских государств",
+      "citable": false,
+      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена."
     },
     {
       "id": "un-news-ru",
@@ -476,7 +545,8 @@
       "priority": "P2",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "первоисточник по программам ООН в Узбекистане, Арал, климат"
+      "focus": "первоисточник по программам ООН в Узбекистане, Арал, климат",
+      "citable": true
     },
     {
       "id": "astana-times",
@@ -486,7 +556,10 @@
       "priority": "P2",
       "language": "en",
       "requiresPlaywright": false,
-      "focus": "Казахстан и региональная повестка ЦА"
+      "focus": "Казахстан и региональная повестка ЦА",
+      "regionDedicated": true,
+      "citable": false,
+      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена."
     },
     {
       "id": "times-ca",
@@ -496,7 +569,10 @@
       "priority": "P2",
       "language": "en",
       "requiresPlaywright": false,
-      "focus": "региональное агентство по всей Центральной Азии"
+      "focus": "региональное агентство по всей Центральной Азии",
+      "regionDedicated": true,
+      "citable": false,
+      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена."
     },
     {
       "id": "kursiv-kz",
@@ -506,7 +582,34 @@
       "priority": "P2",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "деловая повестка Казахстана, банки, сырьё"
+      "focus": "деловая повестка Казахстана, банки, сырьё",
+      "citable": false,
+      "citableNote": "Фетчим как контекст, но в белом списке §2 редполитики издания нет — ссылку в статье ставить нельзя, пока редполитика не дополнена."
+    },
+    {
+      "id": "bloomberg",
+      "name": "Bloomberg — Politics",
+      "url": "https://feeds.bloomberg.com/politics/news.rss",
+      "type": "context",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "в белом списке редполитики; сырьё, ЦА, санкционная повестка",
+      "citable": true
+    },
+    {
+      "id": "sputnik-uz",
+      "name": "Sputnik Узбекистан",
+      "url": "https://uz.sputniknews.ru/export/rss2/archive/index.xml",
+      "type": "context",
+      "priority": "P3",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "regionDedicated": true,
+      "focus": "лента целиком про Узбекистан",
+      "notes": "Госмедиа РФ. По §2 редполитики режим как у ТАСС/РИА: только для фиксации официальной позиции российской стороны, не как самостоятельный первоисточник. Как сигнал о повестке — полезен.",
+      "citable": "restricted",
+      "citableNote": "§2: только для фиксации официальной позиции РФ, не как самостоятельный первоисточник."
     }
   ],
   "api": [
@@ -632,5 +735,10 @@
       "requiresPlaywright": false,
       "focus": "коммуналка, транспорт, строительство"
     }
-  ]
+  ],
+  "citableLegend": {
+    "true": "разрешено ставить ссылку в статье",
+    "false": "читаем, но ссылку не ставим",
+    "restricted": "только для фиксации официальной позиции стороны-издателя"
+  }
 }
