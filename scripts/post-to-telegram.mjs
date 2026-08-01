@@ -160,34 +160,16 @@ function escapeHTML(s) {
     .replace(/>/g, "&gt;");
 }
 
-/**
- * Тег редакции → хештег Telegram. Клиент обрывает хештег на первом символе,
- * не входящем в [\w], поэтому «ПОД/ФТ» дал бы «#ПОД», а «my.gov.uz» — «#my».
- * Разделители схлопываем в подчёркивание, остальное выкидываем.
- */
-function toHashtag(tag) {
-  const cleaned = tag
-    .trim()
-    .replace(/[\s/\\.,:;+—–-]+/gu, "_")
-    .replace(/[^\p{L}\p{N}_]/gu, "")
-    .replace(/_{2,}/g, "_")
-    .replace(/^_+|_+$/g, "");
-  // Хештег не может начинаться с цифры — Telegram такой не подсветит.
-  if (!cleaned || /^\d/.test(cleaned)) return null;
-  return `#${cleaned}`;
-}
-
+// Пост в канал: заголовок, лид, ссылка. Без хештегов — решение редакции.
+// frontmatter.tags при этом остаётся: он нужен сайту для рубрикации и поиска,
+// в Telegram просто не выводится.
 function buildMessage(fm, lede, url) {
   const title = escapeHTML(decodeEntities(fm.title || ""));
   const plainLede = decodeEntities(lede);
   const shortLede = escapeHTML(
     plainLede.length > 500 ? plainLede.slice(0, 497) + "…" : plainLede,
   );
-  const hashtags = Array.isArray(fm.tags)
-    ? [...new Set(fm.tags.map(toHashtag).filter(Boolean))]
-    : [];
-  const tagsLine = hashtags.length ? "\n\n" + hashtags.join(" ") : "";
-  return `<b>${title}</b>\n\n${shortLede}\n\n<a href="${url}">Читать на leap.uz →</a>${tagsLine}`;
+  return `<b>${title}</b>\n\n${shortLede}\n\n<a href="${url}">Читать на leap.uz →</a>`;
 }
 
 async function tgApi(method, body) {
