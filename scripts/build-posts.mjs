@@ -32,6 +32,9 @@ const KNOWN_RUBRICS = new Set([
   "culture",
 ]);
 
+// Уровни срочности. Источник истины — config/newsroom-policy.json, секция urgency.
+const KNOWN_URGENCY = new Set(["breaking", "standard", "deferred"]);
+
 function collectMdx(dir) {
   const out = [];
   if (!existsSync(dir)) return out;
@@ -260,6 +263,18 @@ function build() {
       problems.push(`${rel}: не заполнен image.url — статью нечем показать в карточке`);
     }
 
+    // urgency задаёт срок годности материала: его читает Telegram-постер
+    // (кикер «СРОЧНО») и логика прямой публикации в config/newsroom-policy.json.
+    // Пустое значение — не ошибка, это standard по умолчанию; ошибка — опечатка,
+    // из-за которой breaking молча уехал бы в обычную очередь.
+    const urgency =
+      typeof fm.urgency === "string" && fm.urgency ? fm.urgency : "standard";
+    if (!KNOWN_URGENCY.has(urgency)) {
+      problems.push(
+        `${rel}: urgency "${urgency}" не из списка ${[...KNOWN_URGENCY].join(" | ")} — материал будет обработан как standard`,
+      );
+    }
+
     articles.push({
       slug,
       title: fm.title || slug,
@@ -267,6 +282,7 @@ function build() {
       leadRich: leadRich !== lead ? leadRich : undefined,
       body,
       rubric,
+      urgency: KNOWN_URGENCY.has(urgency) ? urgency : "standard",
       publishedAt: fm.publishedAt || "",
       cover: image.url || "",
       tags: Array.isArray(fm.tags) ? fm.tags : [],

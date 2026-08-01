@@ -1,12 +1,21 @@
 {
   "$schema": "./news-sources.schema.json",
   "version": 1,
-  "generated": "2026-07-31",
+  "generated": "2026-08-01",
   "note": "Каталог веб-источников для скрипта scripts/pull-news-inbox.mjs. См. docs/media-landscape-2026.md — там пояснения, аудитория, редполитика.",
   "excluded": [
-    { "domain": "ozodlik.org", "reason": "редакционное решение" },
-    { "domain": "currenttime.tv", "reason": "редакционное решение" },
-    { "domain": "azon.uz", "reason": "прекратил работу, редакционное исключение всей группы" }
+    {
+      "domain": "ozodlik.org",
+      "reason": "редакционное решение"
+    },
+    {
+      "domain": "currenttime.tv",
+      "reason": "редакционное решение"
+    },
+    {
+      "domain": "azon.uz",
+      "reason": "прекратил работу, редакционное исключение всей группы"
+    }
   ],
   "priorities": {
     "P0": "критично, опрашивать каждые 5 мин",
@@ -72,8 +81,9 @@
       "priority": "P1",
       "language": "uz",
       "audience": 4500000,
-      "requiresPlaywright": false,
-      "focus": "универсальное, регионы, ЧП"
+      "requiresPlaywright": true,
+      "focus": "универсальное, регионы, ЧП",
+      "notes": "HTTP 200, но 0 items — фид рендерится на JS, проверено 01.08.2026"
     },
     {
       "id": "repost-uz",
@@ -129,7 +139,9 @@
       "language": "ru",
       "audience": 500000,
       "requiresPlaywright": false,
-      "focus": "полугосударственный, официальная трактовка НПА"
+      "focus": "полугосударственный, официальная трактовка НПА",
+      "disabled": true,
+      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss и /ru/rss."
     },
     {
       "id": "afisha-uz",
@@ -161,8 +173,9 @@
       "priority": "P2",
       "language": "ru",
       "audience": 400000,
-      "requiresPlaywright": false,
-      "focus": "спорт"
+      "requiresPlaywright": true,
+      "focus": "спорт",
+      "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026"
     },
     {
       "id": "cbu-rss",
@@ -191,10 +204,10 @@
       "type": "source",
       "priority": "P2",
       "language": "ru",
-      "requiresPlaywright": false,
-      "focus": "цифровизация, IT-Park, госуслуги"
+      "requiresPlaywright": true,
+      "focus": "цифровизация, IT-Park, госуслуги",
+      "notes": "HTTP 200, но 0 items — фид рендерится на JS, проверено 01.08.2026"
     },
-
     {
       "id": "reuters",
       "name": "Reuters",
@@ -203,7 +216,9 @@
       "priority": "P1",
       "language": "en",
       "requiresPlaywright": false,
-      "focus": "макроэкономика, энергетика ЦА"
+      "focus": "макроэкономика, энергетика ЦА",
+      "disabled": true,
+      "notes": "ОТКЛЮЧЁН 01.08.2026: 404. Публичных RSS у Reuters нет с 2020 года, reutersagency.com/feed отдаёт 404. Белый список редполитики на Reuters опирается, но фетчить его нечем — нужен либо платный доступ, либо Google News RSS как прокси."
     },
     {
       "id": "bbc-uzbek",
@@ -313,7 +328,9 @@
       "priority": "P2",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "граница KZ-UZ, вода, ОТГ"
+      "focus": "граница KZ-UZ, вода, ОТГ",
+      "disabled": true,
+      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/rss.xml, /rss, /ru/rss. Требует поиска актуального адреса."
     },
     {
       "id": "sputnik-kg",
@@ -333,12 +350,14 @@
       "priority": "P3",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "Памир, энергетика ЦА"
+      "focus": "Памир, энергетика ЦА",
+      "disabled": true,
+      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/ и /rss/all/."
     },
     {
       "id": "trend-az",
       "name": "Trend (AZ)",
-      "url": "https://ru.trend.az/rss/index.rss",
+      "url": "https://www.trend.az/feeds/index.rss",
       "type": "context",
       "priority": "P3",
       "language": "ru",
@@ -352,8 +371,9 @@
       "type": "context",
       "priority": "P3",
       "language": "ru",
-      "requiresPlaywright": false,
-      "focus": "газ, транзит, порты"
+      "requiresPlaywright": true,
+      "focus": "газ, транзит, порты",
+      "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026"
     },
     {
       "id": "eurasianet",
@@ -362,8 +382,9 @@
       "type": "context",
       "priority": "P1",
       "language": "en",
-      "requiresPlaywright": false,
-      "focus": "глубокая экон-аналитика ЦА"
+      "requiresPlaywright": true,
+      "focus": "глубокая экон-аналитика ЦА",
+      "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026"
     },
     {
       "id": "fergana",
@@ -373,12 +394,14 @@
       "priority": "P2",
       "language": "ru",
       "requiresPlaywright": false,
-      "focus": "права человека, миграция"
+      "focus": "права человека, миграция",
+      "disabled": true,
+      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/, /rss.xml, /feed/ и на fergana.ru. Фид, похоже, снят. Требует ручной проверки сайта."
     },
     {
       "id": "cabar",
       "name": "CABAR.asia",
-      "url": "https://cabar.asia/feed/",
+      "url": "https://cabar.asia/ru/feed",
       "type": "context",
       "priority": "P2",
       "language": "ru",
@@ -394,6 +417,96 @@
       "language": "en",
       "requiresPlaywright": false,
       "focus": "стратегический анализ ЦА"
+    },
+    {
+      "id": "bbc-russian",
+      "name": "BBC News Русская служба",
+      "url": "https://feeds.bbci.co.uk/russian/rss.xml",
+      "type": "context",
+      "priority": "P1",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "мировые новости на русском, BBC в белом списке редполитики"
+    },
+    {
+      "id": "wto",
+      "name": "World Trade Organization",
+      "url": "https://www.wto.org/library/rss/latest_news_e.xml",
+      "type": "source",
+      "priority": "P1",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "первоисточник по вступлению Узбекистана в ВТО"
+    },
+    {
+      "id": "nikkei-asia",
+      "name": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/rss/feed/nar",
+      "type": "context",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "Азия, инвестиции, инфраструктура; в белом списке редполитики"
+    },
+    {
+      "id": "guardian-world",
+      "name": "The Guardian — World",
+      "url": "https://www.theguardian.com/world/rss",
+      "type": "context",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "мировая повестка, широкое покрытие Центральной Азии"
+    },
+    {
+      "id": "anadolu-ru",
+      "name": "Anadolu Agency (RU)",
+      "url": "https://www.aa.com.tr/ru/rss/default?cat=guncel",
+      "type": "context",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "турецкий угол — значим для Узбекистана, Организация тюркских государств"
+    },
+    {
+      "id": "un-news-ru",
+      "name": "ООН — Новости",
+      "url": "https://news.un.org/feed/subscribe/ru/news/all/rss.xml",
+      "type": "source",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "первоисточник по программам ООН в Узбекистане, Арал, климат"
+    },
+    {
+      "id": "astana-times",
+      "name": "The Astana Times",
+      "url": "https://astanatimes.com/feed/",
+      "type": "context",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "Казахстан и региональная повестка ЦА"
+    },
+    {
+      "id": "times-ca",
+      "name": "The Times of Central Asia",
+      "url": "https://timesca.com/feed/",
+      "type": "context",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "региональное агентство по всей Центральной Азии"
+    },
+    {
+      "id": "kursiv-kz",
+      "name": "Kursiv Media (KZ)",
+      "url": "https://kz.kursiv.media/feed/",
+      "type": "context",
+      "priority": "P2",
+      "language": "ru",
+      "requiresPlaywright": false,
+      "focus": "деловая повестка Казахстана, банки, сырьё"
     }
   ],
   "api": [

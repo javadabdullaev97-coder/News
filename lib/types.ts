@@ -36,6 +36,16 @@ export type Article = {
    */
   body: string[];
   rubric: string;
+  /**
+   * Срок годности материала, а не его важность. Задаётся планёркой,
+   * валидируется в scripts/build-posts.mjs, правила — в
+   * config/newsroom-policy.json (секция urgency).
+   *
+   * breaking — публикуется немедленно и отдельно от остальных тем;
+   * standard — обычная новость дня (значение по умолчанию);
+   * deferred — не портится, выходит в спокойные часы.
+   */
+  urgency?: "breaking" | "standard" | "deferred";
   publishedAt: string;
   cover: string;
   featured?: boolean;
