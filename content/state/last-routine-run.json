@@ -1,0 +1,8 @@
+{
+  "lastRunAt": "2026-08-01T08:14:00+05:00",
+  "topicsProcessed": 6,
+  "published": 0,
+  "rejected": 0,
+  "needsVerification": 6,
+  "blocker": "egress-policy: proxy returns 403 on CONNECT for all hosts; primary sources unreachable, fact-check impossible"
+}
