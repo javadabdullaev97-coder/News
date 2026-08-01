@@ -4,9 +4,18 @@
   "generated": "2026-07-31",
   "note": "Каталог Telegram-каналов для скрипта scripts/pull-telegram-inbox.mjs. Парсинг через t.me/s/<slug> без API-ключей. См. docs/media-landscape-2026.md.",
   "excluded": [
-    { "handle": "@ozodlikradiosi", "reason": "редакционное решение" },
-    { "handle": "@currenttimetv", "reason": "редакционное решение" },
-    { "handle": "@azon_uz", "reason": "прекратил работу, редакционное исключение всей группы" }
+    {
+      "handle": "@ozodlikradiosi",
+      "reason": "редакционное решение"
+    },
+    {
+      "handle": "@currenttimetv",
+      "reason": "редакционное решение"
+    },
+    {
+      "handle": "@azon_uz",
+      "reason": "прекратил работу, редакционное исключение всей группы"
+    }
   ],
   "priorities": {
     "P0": "критично, опрашивать каждые 3-5 мин",
@@ -131,6 +140,17 @@
       "subscribers": 50000,
       "publishRate": "10-15/day",
       "notes": "Ключевой исток ЧП по Ташкенту"
+    },
+    {
+      "id": "codd_tashkent",
+      "handle": "@codd_tashkent",
+      "url": "https://t.me/s/codd_tashkent",
+      "name": "ЦОДД Ташкента",
+      "type": "source",
+      "priority": "P1",
+      "subscribers": null,
+      "publishRate": "1-3/day",
+      "notes": "Центр организации дорожного движения при хокимияте Ташкента — профильный орган по ограничениям движения в столице. Статус органа подтверждён tashkent.uz/ru/news/7306 и ПП-368 от 04.12.2025. ВНИМАНИЕ: принадлежность канала органу подтверждена косвенно — прямой ссылки с гос-домена на хендл найти не удалось; совпадение постов канала с публикациями хокимията (пост 287 ↔ tashkent.uz/ru/news/7362 от 29.07.2026). Добавлен 01.08.2026, требует подтверждения при появлении официальной ссылки"
     },
     {
       "id": "mfa_uz",
@@ -393,7 +413,6 @@
       "subscribers": 150000,
       "publishRate": "3-5/day"
     },
-
     {
       "id": "toshvilpress",
       "handle": "@toshvilpress",
@@ -518,13 +537,13 @@
       "id": "joqargikenes",
       "handle": "@joqargikenes",
       "url": "https://t.me/s/joqargikenes",
-      "name": "Совет Министров Каракалпакстана",
+      "name": "Жоқарғы Кеңес Каракалпакстана",
       "type": "source",
       "priority": "P2",
       "subscribers": 45000,
-      "publishRate": "5-8/day"
+      "publishRate": "5-8/day",
+      "notes": "Верховный Совет Республики Каракалпакстан. Самоописание канала: «Қарақалпақстан Республикасы Жоқарғы Кеңеси». Ранее в конфиге числился как Совет Министров — исправлено 01.08.2026"
     },
-
     {
       "id": "uzrailways",
       "handle": "@uzrailways",
@@ -586,7 +605,6 @@
       "publishRate": "3-5/day",
       "notes": "Погода, штормовые предупреждения"
     },
-
     {
       "id": "kunuzofficial",
       "handle": "@kunuzofficial",
@@ -737,7 +755,6 @@
       "subscribers": 15000,
       "publishRate": "5-10/day"
     },
-
     {
       "id": "davletovuz",
       "handle": "@davletovuz",

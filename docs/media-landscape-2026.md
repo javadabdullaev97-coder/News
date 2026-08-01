@@ -161,7 +161,7 @@ Gazeta.uz, Daryo.uz и Repost.uz**.
 
 | Регион | Сайт | Telegram |
 |---|---|---|
-| Ташкент (город) | tashkent.uz | `@tashkentpressuz` (90K) |
+| Ташкент (город) | tashkent.uz | `@tashkentpressuz` (90K), `@codd_tashkent` — ЦОДД при хокимияте, ограничения движения |
 | Ташкентская обл. | toshvil.uz | `@toshvilpress` (35K) |
 | Самарканд | samarkand.uz | `@samarkandpress` (40K) |
 | Фергана | fergana.uz | `@ferganapress` (30K) |
@@ -174,7 +174,7 @@ Gazeta.uz, Daryo.uz и Repost.uz**.
 | Джизак | jizzax.uz | `@jizzaxpress` (15K) |
 | Сырдарья | sirdaryo.uz | `@sirdaryopress` (12K) |
 | Навои | navoi.uz | `@navoipress` (15K) |
-| Каракалпакстан | karakalpakstan.uz | `@joqargikenes` (45K, Совмин) |
+| Каракалпакстан | karakalpakstan.uz | `@joqargikenes` (45K, Жоқарғы Кеңес — Верховный Совет) |
 
 ### 2.7. Госкомпании и отраслевые монополии
 

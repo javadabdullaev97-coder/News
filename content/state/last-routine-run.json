@@ -1,14 +1,15 @@
 {
-  "lastRunAt": "2026-08-01T11:00:00+05:00",
+  "lastRunAt": "2026-08-01T12:00:00+05:00",
   "topicsProcessed": 5,
-  "published": 4,
+  "published": 2,
   "rejected": 0,
-  "needsVerification": 1,
+  "needsVerification": 0,
+  "duplicatesDropped": 3,
   "inbox": {
     "file": "content/inbox/2026-08-01.jsonl",
-    "itemsTotal": 2031,
-    "itemsFresh": 245,
-    "firstRun": false
+    "itemsTotal": 2093,
+    "itemsFresh": 273,
+    "prevRunAt": "2026-08-01T09:25:00+05:00"
   },
-  "notes": "Планёрка 11:00. На старте свежих items не было: cron news-inbox.yml до 05:42 UTC ни разу не отрабатывал по расписанию (только 2 запуска вручную), последний фетч — 02:50 UTC. Inbox обновлён вручную прогоном фетчеров (245 свежих items). Штатный scripts/pull-news-inbox.mjs в песочнице виснет: rss-parser ходит через node:https и игнорирует HTTPS_PROXY; scripts/pull-telegram-inbox.mjs работает при NODE_USE_ENV_PROXY=1. Изменения content/inbox в PR НЕ включены — этот каталог пишет бот в main."
+  "notes": "Планёрка 12:00. ВНИМАНИЕ: гонка состояний. На старте в main лежал lastRunAt=09:25 — планёрка 11:00 (PR #11) на тот момент ещё не была смержена, поэтому её 13 хешей не были видны и три темы из пяти были обработаны повторно. Дубли (плотность предпринимательства, приём в 1 класс, Speko/Y Combinator) сняты при мерже в пользу уже влитых версий с main. Опубликовано из этой планёрки: ЦОДД и субсидии за солнечную энергию. seen-topics — объединение обоих прогонов. Чтобы гонка не повторилась: планёрка должна читать состояние из origin/main непосредственно перед отбором тем, а не полагаться на снапшот ветки."
 }
