@@ -100,6 +100,72 @@ def blurred_backdrop(im, size):
     return Image.blend(back, Image.new("RGB", (tw, th), edge_color(src)), 0.45)
 
 
+def smart_crop_offset(im, target_w, target_h):
+    """Выбирает окно кропа по содержимому кадра, а не по центру.
+
+    Центральный кроп ломается ровно там, где смысловой центр не совпадает
+    с геометрическим. Живой пример: фотография коровы с биркой в ухе —
+    голова занимает верхние две трети кадра, центр приходится на шею, и
+    обрезка по центру срезает морду. Формально всё правильно, смотреть
+    невозможно.
+
+    Как считаем. Строим карту градиентов яркости и сворачиваем её в одномерный
+    профиль вдоль оси обрезки: где деталей много — там предмет съёмки (морда,
+    лицо, текст на схеме), где мало — фон: небо, трава, размытие. Дальше берём
+    **центр масс** этого профиля и ставим окно серединой на него.
+
+    Важно, что именно центр масс, а не максимум. Первая версия двигала окно и
+    выбирала положение с наибольшей суммарной энергией — и на тестовом кадре
+    уехала в самый верх, к фактурным ушам, обрезав низ головы. Максимум тянет
+    окно к самой контрастной полосе, а центр масс ставит его посередине
+    объекта целиком. Для кадра с животным это разница между «голова целиком»
+    и «голова без морды».
+    """
+    w, h = im.size
+    horizontal = w > target_w
+    span = (w - target_w) if horizontal else (h - target_h)
+    if span <= 0:
+        return max(0, (w - target_w) // 2), max(0, (h - target_h) // 2)
+
+    # Карта градиентов на уменьшенной копии — по полному кадру считать незачем.
+    SCALE_TO = 320
+    k = min(1.0, SCALE_TO / max(w, h))
+    sw, sh = max(2, int(w * k)), max(2, int(h * k))
+    edges = im.convert("L").resize((sw, sh), Image.BILINEAR).filter(ImageFilter.FIND_EDGES)
+    px = edges.load()
+
+    # Одномерный профиль энергии вдоль оси обрезки.
+    n = sw if horizontal else sh
+    profile = [0.0] * n
+    for i in range(n):
+        s = 0
+        if horizontal:
+            for y in range(sh):
+                s += px[i, y]
+        else:
+            for x in range(sw):
+                s += px[x, i]
+        profile[i] = float(s)
+
+    # Слабые значения — это фон; вычитаем медиану, чтобы он не тянул центр масс
+    # к геометрической середине кадра.
+    ordered = sorted(profile)
+    base = ordered[len(ordered) // 2]
+    weights = [max(0.0, v - base) for v in profile]
+    total = sum(weights)
+    if total <= 0:
+        return ((span // 2, (h - target_h) // 2) if horizontal
+                else ((w - target_w) // 2, span // 2))
+
+    com_small = sum(i * wt for i, wt in enumerate(weights)) / total
+    com_full = com_small / k                       # обратно в координаты кадра
+    window = target_w if horizontal else target_h
+    off = int(round(com_full - window / 2))
+    off = max(0, min(span, off))                   # не вылезать за пределы
+
+    return (off, (h - target_h) // 2) if horizontal else ((w - target_w) // 2, off)
+
+
 def prepare(src_path, slug, month=None, out_root="public/images/posts"):
     im = Image.open(src_path)
     if im.mode not in ("RGB", "L"):
@@ -142,13 +208,14 @@ def prepare(src_path, slug, month=None, out_root="public/images/posts"):
         scale = cover_scale
         nw, nh = max(1, round(ow * scale)), max(1, round(oh * scale))
         resized = im.resize((nw, nh), Image.LANCZOS)
-        left, top = (nw - TARGET_W) // 2, (nh - TARGET_H) // 2
+        left, top = smart_crop_offset(resized, TARGET_W, TARGET_H)
         canvas = resized.crop((left, top, left + TARGET_W, top + TARGET_H))
         report["fit"] = {
             "mode": "cover",
             "scale": round(scale, 4),
             "cropLoss": round(crop_loss, 4),
-            "note": f"обрезано {crop_loss:.0%} по {crop_axis}",
+            "offset": [left, top],
+            "note": f"обрезано {crop_loss:.0%} по {crop_axis}; окно кропа выбрано по содержимому",
         }
     else:
         mode = "contain"

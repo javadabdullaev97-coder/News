@@ -149,12 +149,104 @@ const failed = results.filter((r) => !r.ok);
 const ok = results.filter((r) => r.ok);
 
 const allItems = ok.flatMap((r) => r.items);
-const fresh = allItems.filter((it) => it.link && !seen.has(it.link));
+
+// ─── Фильтр релевантности для международных лент ───
+//
+// Замер на инбоксе за 01.08.2026: из 1 608 items типа `context` про Узбекистан
+// и Центральную Азию было 18 — это 1,1%. При этом международный слой давал 77%
+// всего объёма инбокса. То есть планёрка каждый раз просеивала полторы тысячи
+// заголовков про американские выборы и европейский футбол, чтобы найти
+// полтора десятка полезных.
+//
+// Поэтому у `context`-лент общего профиля берём только то, что упоминает регион.
+// Ленты, целиком посвящённые Центральной Азии (`regionDedicated: true`),
+// проходят без фильтра — там релевантно всё по определению.
+//
+// На `source` и `signal` фильтр не распространяется: госорганы и узбекские СМИ
+// пишут про Узбекистан по определению, а отсечь по ключевым словам пост
+// Минюста о поправке в НК — прямой путь потерять первоисточник.
+
+const REGION_TERMS = [
+  "узбек", "uzbek", "o‘zbek", "oʻzbek", "ozbek", "o'zbek",
+  "ташкент", "tashkent", "toshkent",
+  "мирзиёев", "мирзиеев", "mirziyo",
+  "самарканд", "samarkand", "samarqand",
+  "бухар", "bukhara", "buxoro",
+  "ферган", "fergana", "farg",
+  "каракалпак", "karakalpak", "qoraqalpog",
+  "хорезм", "khorezm", "xorazm",
+  "андижан", "andijan", "andijon",
+  "наманган", "namangan",
+  "сурхандар", "surkhandarya",
+  "кашкадар", "kashkadarya", "qashqadaryo",
+  "джизак", "jizzakh", "jizzax",
+  "навои", "navoi", "navoiy",
+  "сырдар", "syrdarya", "sirdaryo",
+  "центральной азии", "центральная азия", "central asia", "markaziy osiyo",
+  // «арал» без уточнения ловит «паралимпийский» и «парализовать» —
+  // проверено на реальном инбоксе, оба ложных срабатывания.
+  "аральск", "аральско", "приаралье", "aral sea",
+  "ташкентск",
+];
+
+const relevantById = new Map(sources.map((s) => [s.id, s]));
+
+function isRelevant(item) {
+  const src = relevantById.get(item.sourceId);
+  if (!src) return true;
+  if (src.type !== "context") return true;      // source и signal — без фильтра
+  if (src.regionDedicated) return true;          // лента целиком про регион
+  const blob = `${item.title || ""} ${item.snippet || ""}`.toLowerCase();
+  return REGION_TERMS.some((term) => blob.includes(term));
+}
+
+const relevantSet = new Set(allItems.filter(isRelevant));
+const relevant = [...relevantSet];
+
+// ─── Вторая линия: важные мировые новости сами по себе ───
+//
+// Всё, что не прошло фильтр региона, не выбрасывается, а уходит в отдельный
+// файл world-YYYY-MM-DD.jsonl. Основной инбокс остаётся чистым, а планёрка
+// может отдельно посмотреть, не случилось ли в мире чего-то настолько
+// крупного, что это стоит опубликовать без узбекской привязки.
+//
+// Порог «очень важного» планёрка считает не по числу лент, а по числу
+// НЕЗАВИСИМЫХ БЛОКОВ (поле bloc в конфиге). Причина в замере от 01.08.2026:
+// при подсчёте по лентам топ «мировых» сюжетов состоял из беспилотника над
+// Тамбовом и пожара в Нижнекамске — просто потому, что о них синхронно писали
+// ТАСС, РИА, Интерфакс, Коммерсантъ и РБК. Пять лент, но одна юрисдикция и
+// одна редакционная позиция. Правило блоков это отсекает.
+
+const worldCandidates = allItems
+  .filter((it) => !relevantSet.has(it))
+  .map((it) => {
+    const src = relevantById.get(it.sourceId);
+    return { ...it, bloc: src?.bloc || "unknown" };
+  })
+  .filter((it) => it.bloc !== "unknown" && it.link && !seen.has(it.link));
+
+const fresh = relevant.filter((it) => it.link && !seen.has(it.link));
+const droppedIrrelevant = allItems.length - relevant.length;
+
+// Ссылки отсеянных помечаем виденными только ПОСЛЕ того, как отложили их
+// в мировую линию — иначе второй прогон уже не увидит мировой сюжет.
+for (const it of allItems) {
+  if (!relevantSet.has(it) && it.link) seen.add(it.link);
+}
 
 // Ротация файла по дню Ташкента (UTC+5), чтобы сутки соответствовали редакции.
 const nowTashkent = new Date(Date.now() + 5 * 3600 * 1000);
 const today = nowTashkent.toISOString().slice(0, 10);
 const dayFile = join(INBOX_DIR, `${today}.jsonl`);
+
+// Мировая линия — свой файл, чтобы объём не мешал основному инбоксу.
+if (worldCandidates.length) {
+  const worldFile = join(INBOX_DIR, `world-${today}.jsonl`);
+  appendFileSync(
+    worldFile,
+    worldCandidates.map((x) => JSON.stringify(x)).join("\n") + "\n",
+  );
+}
 
 if (fresh.length) {
   const lines = fresh.map((x) => JSON.stringify(x)).join("\n") + "\n";
@@ -167,7 +259,9 @@ if (fresh.length) {
 
 // Отчёт
 console.error(
-  `[news-inbox] fetched ${allItems.length}, fresh ${fresh.length}, ` +
+  `[news-inbox] fetched ${allItems.length}, ` +
+    `вне региона ${droppedIrrelevant} (в мировую линию ${worldCandidates.length}), ` +
+    `fresh ${fresh.length}, ` +
     `failed ${failed.length}/${sources.length}, day=${today}`,
 );
 

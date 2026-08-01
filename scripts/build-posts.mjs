@@ -234,6 +234,7 @@ function build() {
   const files = collectMdx(POSTS_DIR);
   const articles = [];
   const problems = [];
+  const held = [];
 
   for (const file of files) {
     const rel = relative(ROOT, file).replace(/\\/g, "/");
@@ -256,6 +257,51 @@ function build() {
       problems.push(
         `${rel}: категория "${rubric}" отсутствует в rubrics (lib/data.ts) — статья не попадёт в раздел`,
       );
+    }
+
+    // Утечка служебной разметки агента в текст статьи.
+    // Реальный случай 01.08.2026: материал о плотности предпринимательства
+    // ушёл в main и на сайт с литеральным «</content></invoke>» в последнем
+    // абзаце — хвост tool-call'а, который агент дописал в файл. Ни фактчекер,
+    // ни editor, ни SEO этого не заметили: они читают смысл, а не разметку.
+    // Поэтому проверка здесь, в сборке, где её нельзя пропустить.
+    const LEAK_PATTERNS = [
+      "</invoke>",
+      "<invoke",
+      "</content>",
+      "<function_calls>",
+      "</function_calls>",
+      "antml:",
+      "<parameter",
+    ];
+    const raw = readFileSync(file, "utf8");
+    const leaks = LEAK_PATTERNS.filter((sig) => raw.includes(sig));
+    if (leaks.length) {
+      problems.push(
+        `${rel}: в текст просочилась служебная разметка агента (${leaks.join(", ")}) — ` +
+          `это попадёт на сайт как есть, статью нужно вычистить`,
+      );
+    }
+
+    // Материал ждёт ответа владельца — на сайт он не идёт.
+    //
+    // Это жёсткая гарантия, а не соглашение. Раньше правило звучало так:
+    // «картинка не подобралась — статья публикуется без картинки». То есть
+    // если у бильда возник вопрос и владелец не успел ответить, материал
+    // всё равно выходил, причём выходил в худшем виде. Спрашивать и при этом
+    // публиковать не дожидаясь ответа — бессмысленно.
+    //
+    // Теперь статья с awaitingEditor физически не попадает в
+    // lib/generated-posts.ts, а значит не может появиться ни на сайте,
+    // ни в Telegram.
+    // parseFrontmatter отдаёт скаляры строками, поэтому «true» приходит
+    // как "true", а не как boolean. Сравниваем с обеими формами: иначе
+    // проверка молча не срабатывает — ровно так и вышло при первом прогоне.
+    const awaiting =
+      fm.awaitingEditor === true || fm.awaitingEditor === "true";
+    if (awaiting) {
+      held.push(`${rel}: ждёт ответа владельца — на сайт не выпущен`);
+      continue;
     }
 
     const image = fm.image && typeof fm.image === "object" ? fm.image : {};
@@ -333,6 +379,7 @@ function build() {
   const rel = relative(ROOT, OUT_PATH);
   console.log(`[posts] ${articles.length} статей из ${files.length} .mdx → ${rel}`);
   for (const p of problems) console.warn(`[posts] ⚠ ${p}`);
+  for (const h of held) console.warn(`[posts] ⏸ ${h}`);
 
   // Проблемы не роняют сборку: планёрка не должна вставать из-за одной
   // статьи с кривым frontmatter. Но в логе они видны.

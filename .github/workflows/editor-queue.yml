@@ -1,0 +1,59 @@
+name: Collect editor replies
+
+# Забирает ответы владельца из Telegram и применяет их к материалам,
+# ожидающим подтверждения.
+#
+# Планёрка не может ждать человека: она отрабатывает и завершается. Поэтому
+# петля разомкнута — планёрка кладёт материал в очередь и уходит, а этот
+# workflow периодически проверяет, не ответил ли владелец, и подтягивает
+# присланное фото или комментарий в репозиторий.
+
+on:
+  schedule:
+    # Каждые 10 минут в рабочие часы Ташкента (07:00–23:00 = 02:00–18:00 UTC).
+    - cron: "*/10 2-18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: editor-queue
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Collect replies from Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
+        run: node scripts/editor-queue.mjs collect
+
+      - name: Remind about unanswered items
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
+        run: node scripts/editor-queue.mjs remind
+
+      - name: Commit collected input
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/; then
+            echo "Ответов нет — коммитить нечего."
+            exit 0
+          fi
+          git add content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/
+          git commit -m "newsroom: ответы редактора из Telegram"
+          git push origin main
