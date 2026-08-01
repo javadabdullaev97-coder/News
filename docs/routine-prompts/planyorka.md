@@ -44,8 +44,8 @@
 3. `docs/media-landscape-2026.md` — карта источников
 4. `config/news-sources.json` и `config/telegram-channels.json` — исключённые
    источники (не публиковать никогда) и приоритеты
-5. `.claude/agents/reporter.md`, `.claude/agents/fact-checker.md`, `.claude/agents/editor.md` —
-   инструкции subagent-ов, которых будешь вызывать
+5. `.claude/agents/reporter.md`, `.claude/agents/fact-checker.md`, `.claude/agents/editor.md`,
+   `.claude/agents/bild.md`, `.claude/agents/seo.md` — инструкции subagent-ов, которых будешь вызывать
 6. `content/state/last-routine-run.json` — время последнего запуска (если существует)
 7. `content/state/seen-topics.json` — уже обработанные темы (если существует)
 
@@ -148,12 +148,20 @@ Fact-checker и editor зависят от reporter'а по своей теме 
 
 затем для каждого результата editor:
     если status == "publish":
-        драфт остаётся в content/posts/{TODAY}/<slug>.mdx (уже там)
+        параллельно (одним сообщением):
+            вызови subagent(bild, {DRAFT_PATH, NOTES_PATH, VERDICT_PATH})
+            вызови subagent(seo, {DRAFT_PATH, VERDICT_PATH})
+        драфт остаётся в content/posts/{TODAY}/<slug>.mdx с обновлёнными
+        frontmatter.image и frontmatter.{description, tags, category}
     иначе если status == "killed":
         двигай в content/rejected/, приложи editor-verdict
     иначе если status == "back-to-reporter":
         одиночная итерация с reporter (не гоняй бесконечно)
 ```
+
+**Bild может вернуть `STATUS: fallback-needed`** — картинка не подобралась. В этом случае
+статья публикуется без картинки (frontmatter.image остаётся с null-ями), в PR описании
+пометь `⚠️ без иллюстрации`. Читатель-редактор при мерже решит: добавить руками или мержить как есть.
 
 Если у тебя всего 3 темы — можно и последовательно, экономнее по контексту. Начиная
 с 4-х — обязательно параллельно.
