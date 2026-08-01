@@ -1,0 +1,772 @@
+{
+  "$schema": "./telegram-channels.schema.json",
+  "version": 1,
+  "generated": "2026-07-31",
+  "note": "Каталог Telegram-каналов для скрипта scripts/pull-telegram-inbox.mjs. Парсинг через t.me/s/<slug> без API-ключей. См. docs/media-landscape-2026.md.",
+  "excluded": [
+    { "handle": "@ozodlikradiosi", "reason": "редакционное решение" },
+    { "handle": "@currenttimetv", "reason": "редакционное решение" },
+    { "handle": "@azon_uz", "reason": "прекратил работу, редакционное исключение всей группы" }
+  ],
+  "priorities": {
+    "P0": "критично, опрашивать каждые 3-5 мин",
+    "P1": "высокий, каждые 10 мин",
+    "P2": "средний, каждые 30 мин",
+    "P3": "низкий, раз в час"
+  },
+  "types": {
+    "signal": "конкурентное СМИ, читаем как сигнал, НЕ цитируем",
+    "source": "официальный первоисточник, разрешён как ссылка",
+    "influencer": "авторский канал эксперта, читаем как сигнал/контекст"
+  },
+  "channels": [
+    {
+      "id": "huquqiyaxborot",
+      "handle": "@huquqiyaxborot",
+      "url": "https://t.me/s/huquqiyaxborot",
+      "name": "Минюст РУз — правовая информация",
+      "type": "source",
+      "priority": "P0",
+      "subscribers": 400000,
+      "publishRate": "5-10/day",
+      "notes": "КРИТИЧНО: публикует тексты НПА в течение минут после подписания, опережая ведомственные сайты"
+    },
+    {
+      "id": "shmirziyoyev",
+      "handle": "@shmirziyoyev",
+      "url": "https://t.me/s/shmirziyoyev",
+      "name": "Пресс-служба Президента",
+      "type": "source",
+      "priority": "P0",
+      "subscribers": 240000,
+      "publishRate": "5-10/day"
+    },
+    {
+      "id": "centralbankuzbekistan",
+      "handle": "@centralbankuzbekistan",
+      "url": "https://t.me/s/centralbankuzbekistan",
+      "name": "Центральный банк РУз",
+      "type": "source",
+      "priority": "P0",
+      "subscribers": 60000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "tashkentpressuz",
+      "handle": "@tashkentpressuz",
+      "url": "https://t.me/s/tashkentpressuz",
+      "name": "Хокимият Ташкента",
+      "type": "source",
+      "priority": "P0",
+      "subscribers": 90000,
+      "publishRate": "15-20/day"
+    },
+    {
+      "id": "portal_gov_uz",
+      "handle": "@portal_gov_uz",
+      "url": "https://t.me/s/portal_gov_uz",
+      "name": "Правительственный портал",
+      "type": "source",
+      "priority": "P1",
+      "subscribers": 750,
+      "publishRate": "1-3/day"
+    },
+    {
+      "id": "senat_uz",
+      "handle": "@senat_uz",
+      "url": "https://t.me/s/senat_uz",
+      "name": "Сенат Олий Мажлиса",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 18000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "parliamentuz",
+      "handle": "@parliamentuz",
+      "url": "https://t.me/s/parliamentuz",
+      "name": "Законодательная палата",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 12000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "prokuraturauz",
+      "handle": "@prokuraturauz",
+      "url": "https://t.me/s/prokuraturauz",
+      "name": "Генеральная прокуратура",
+      "type": "source",
+      "priority": "P1",
+      "subscribers": 85000,
+      "publishRate": "5-10/day"
+    },
+    {
+      "id": "sud_uz",
+      "handle": "@sud_uz",
+      "url": "https://t.me/s/sud_uz",
+      "name": "Верховный суд",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 25000,
+      "publishRate": "2-4/day"
+    },
+    {
+      "id": "mvd_uz",
+      "handle": "@mvd_uz",
+      "url": "https://t.me/s/mvd_uz",
+      "name": "МВД РУз",
+      "type": "source",
+      "priority": "P1",
+      "subscribers": 110000,
+      "publishRate": "5-10/day"
+    },
+    {
+      "id": "iibb_uz",
+      "handle": "@iibb_uz",
+      "url": "https://t.me/s/iibb_uz",
+      "name": "ГУВД города Ташкента",
+      "type": "source",
+      "priority": "P1",
+      "subscribers": 50000,
+      "publishRate": "10-15/day",
+      "notes": "Ключевой исток ЧП по Ташкенту"
+    },
+    {
+      "id": "mfa_uz",
+      "handle": "@mfa_uz",
+      "url": "https://t.me/s/mfa_uz",
+      "name": "МИД РУз",
+      "type": "source",
+      "priority": "P1",
+      "subscribers": 35000,
+      "publishRate": "2-5/day"
+    },
+    {
+      "id": "ssvuz",
+      "handle": "@ssvuz",
+      "url": "https://t.me/s/ssvuz",
+      "name": "Министерство здравоохранения",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 120000,
+      "publishRate": "5-10/day"
+    },
+    {
+      "id": "mineconomy_uz",
+      "handle": "@mineconomy_uz",
+      "url": "https://t.me/s/mineconomy_uz",
+      "name": "Министерство экономики и финансов",
+      "type": "source",
+      "priority": "P1",
+      "subscribers": 30000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "digitaluzbekistan",
+      "handle": "@digitaluzbekistan",
+      "url": "https://t.me/s/digitaluzbekistan",
+      "name": "Министерство цифровых технологий",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 25000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "eduuz",
+      "handle": "@eduuz",
+      "url": "https://t.me/s/eduuz",
+      "name": "Мин. высшего образования, науки и инноваций",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 250000,
+      "publishRate": "5-10/day"
+    },
+    {
+      "id": "uzedu",
+      "handle": "@uzedu",
+      "url": "https://t.me/s/uzedu",
+      "name": "Мин. дошкольного и школьного образования",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 300000,
+      "publishRate": "5-10/day"
+    },
+    {
+      "id": "mudofaavazirliqi",
+      "handle": "@mudofaavazirliqi",
+      "url": "https://t.me/s/mudofaavazirliqi",
+      "name": "Министерство обороны",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 40000,
+      "publishRate": "1-3/day"
+    },
+    {
+      "id": "miituz",
+      "handle": "@miituz",
+      "url": "https://t.me/s/miituz",
+      "name": "Мин. инвестиций, промышленности и торговли",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 20000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "mintrans_uz",
+      "handle": "@Mintrans_uz",
+      "url": "https://t.me/s/Mintrans_uz",
+      "name": "Министерство транспорта",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 15000,
+      "publishRate": "2-4/day"
+    },
+    {
+      "id": "minenergy_uz",
+      "handle": "@minenergy_uz",
+      "url": "https://t.me/s/minenergy_uz",
+      "name": "Министерство энергетики",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 50000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "agrouz",
+      "handle": "@agrouz",
+      "url": "https://t.me/s/agrouz",
+      "name": "Министерство сельского хозяйства",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": 18000,
+      "publishRate": "2-4/day"
+    },
+    {
+      "id": "mcu_uz",
+      "handle": "@mcu_uz",
+      "url": "https://t.me/s/mcu_uz",
+      "name": "Мин. строительства и ЖКХ",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 22000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "mehnatvazirligi",
+      "handle": "@mehnatvazirligi",
+      "url": "https://t.me/s/mehnatvazirligi",
+      "name": "Мин. занятости и сокращения бедности",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 40000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "madaniyatvazirligi",
+      "handle": "@madaniyatvazirligi",
+      "url": "https://t.me/s/madaniyatvazirligi",
+      "name": "Министерство культуры",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": 12000,
+      "publishRate": "2-4/day"
+    },
+    {
+      "id": "ecogovuz",
+      "handle": "@ecogovuz",
+      "url": "https://t.me/s/ecogovuz",
+      "name": "Министерство экологии",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 18000,
+      "publishRate": "2-4/day"
+    },
+    {
+      "id": "minsportuz",
+      "handle": "@minsportuz",
+      "url": "https://t.me/s/minsportuz",
+      "name": "Министерство спорта",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": 15000,
+      "publishRate": "2-4/day"
+    },
+    {
+      "id": "soliquz",
+      "handle": "@soliquz",
+      "url": "https://t.me/s/soliquz",
+      "name": "Государственный налоговый комитет",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 90000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "customsuz",
+      "handle": "@customsuz",
+      "url": "https://t.me/s/customsuz",
+      "name": "Государственный таможенный комитет",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 45000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "uzstataxborot",
+      "handle": "@uzstataxborot",
+      "url": "https://t.me/s/uzstataxborot",
+      "name": "Агентство статистики",
+      "type": "source",
+      "priority": "P1",
+      "subscribers": 30000,
+      "publishRate": "1-3/day"
+    },
+    {
+      "id": "antimon_uz",
+      "handle": "@antimon_uz",
+      "url": "https://t.me/s/antimon_uz",
+      "name": "Комитет по развитию конкуренции",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": 12000,
+      "publishRate": "1-3/day"
+    },
+    {
+      "id": "anti_corruption_uz",
+      "handle": "@anti_corruption_uz",
+      "url": "https://t.me/s/anti_corruption_uz",
+      "name": "Агентство по противодействию коррупции",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 20000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "davaktivuz",
+      "handle": "@davaktivuz",
+      "url": "https://t.me/s/davaktivuz",
+      "name": "Агентство по управлению госактивами",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 25000,
+      "publishRate": "2-4/day"
+    },
+    {
+      "id": "napp_uz",
+      "handle": "@napp_uz",
+      "url": "https://t.me/s/napp_uz",
+      "name": "Национальное агентство перспективных проектов",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 15000,
+      "publishRate": "2-4/day",
+      "notes": "Регулятор крипто и финтеха"
+    },
+    {
+      "id": "itpark_uz",
+      "handle": "@itpark_uz",
+      "url": "https://t.me/s/itpark_uz",
+      "name": "IT-Park Uzbekistan",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 40000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "ihmauz",
+      "handle": "@ihmauz",
+      "url": "https://t.me/s/ihmauz",
+      "name": "Нац. агентство социальной защиты",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 35000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "mygovuz",
+      "handle": "@mygovuz",
+      "url": "https://t.me/s/mygovuz",
+      "name": "Единый портал госуслуг (my.gov.uz)",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 150000,
+      "publishRate": "3-5/day"
+    },
+
+    {
+      "id": "toshvilpress",
+      "handle": "@toshvilpress",
+      "url": "https://t.me/s/toshvilpress",
+      "name": "Хокимият Ташкентской области",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 35000,
+      "publishRate": "5-10/day"
+    },
+    {
+      "id": "samarkandpress",
+      "handle": "@samarkandpress",
+      "url": "https://t.me/s/samarkandpress",
+      "name": "Хокимият Самаркандской области",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 40000,
+      "publishRate": "5-8/day"
+    },
+    {
+      "id": "ferganapress",
+      "handle": "@ferganapress",
+      "url": "https://t.me/s/ferganapress",
+      "name": "Хокимият Ферганской области",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 30000,
+      "publishRate": "5-8/day"
+    },
+    {
+      "id": "andijannews",
+      "handle": "@andijannews",
+      "url": "https://t.me/s/andijannews",
+      "name": "Хокимият Андижанской области",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 50000,
+      "publishRate": "8-12/day"
+    },
+    {
+      "id": "namanganpress",
+      "handle": "@namanganpress",
+      "url": "https://t.me/s/namanganpress",
+      "name": "Хокимият Наманганской области",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": 25000,
+      "publishRate": "5-8/day"
+    },
+    {
+      "id": "bukharapress",
+      "handle": "@bukharapress",
+      "url": "https://t.me/s/bukharapress",
+      "name": "Хокимият Бухарской области",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": 20000,
+      "publishRate": "4-6/day"
+    },
+    {
+      "id": "xorazmpress",
+      "handle": "@xorazmpress",
+      "url": "https://t.me/s/xorazmpress",
+      "name": "Хокимият Хорезмской области",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": 18000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "qashpress",
+      "handle": "@qashpress",
+      "url": "https://t.me/s/qashpress",
+      "name": "Хокимият Кашкадарьинской области",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": 35000,
+      "publishRate": "5-8/day"
+    },
+    {
+      "id": "surxondaryopress",
+      "handle": "@surxondaryopress",
+      "url": "https://t.me/s/surxondaryopress",
+      "name": "Хокимият Сурхандарьинской области",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": 22000,
+      "publishRate": "4-6/day"
+    },
+    {
+      "id": "jizzaxpress",
+      "handle": "@jizzaxpress",
+      "url": "https://t.me/s/jizzaxpress",
+      "name": "Хокимият Джизакской области",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": 15000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "sirdaryopress",
+      "handle": "@sirdaryopress",
+      "url": "https://t.me/s/sirdaryopress",
+      "name": "Хокимият Сырдарьинской области",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": 12000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "navoipress",
+      "handle": "@navoipress",
+      "url": "https://t.me/s/navoipress",
+      "name": "Хокимият Навоийской области",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": 15000,
+      "publishRate": "3-5/day"
+    },
+    {
+      "id": "joqargikenes",
+      "handle": "@joqargikenes",
+      "url": "https://t.me/s/joqargikenes",
+      "name": "Совет Министров Каракалпакстана",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 45000,
+      "publishRate": "5-8/day"
+    },
+
+    {
+      "id": "uzrailways",
+      "handle": "@uzrailways",
+      "url": "https://t.me/s/uzrailways",
+      "name": "O'zbekiston Temir Yo'llari",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 35000,
+      "publishRate": "2-4/day"
+    },
+    {
+      "id": "uzbekistanairways",
+      "handle": "@uzbekistanairways",
+      "url": "https://t.me/s/uzbekistanairways",
+      "name": "Uzbekistan Airways",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 50000,
+      "publishRate": "2-4/day"
+    },
+    {
+      "id": "uzbekneftegaz",
+      "handle": "@uzbekneftegaz",
+      "url": "https://t.me/s/uzbekneftegaz",
+      "name": "Узбекнефтегаз",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 25000,
+      "publishRate": "2-4/day"
+    },
+    {
+      "id": "uzavtosanoat_official",
+      "handle": "@uzavtosanoat_official",
+      "url": "https://t.me/s/uzavtosanoat_official",
+      "name": "Узавтосаноат",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 30000,
+      "publishRate": "2-4/day"
+    },
+    {
+      "id": "uzatom_official",
+      "handle": "@uzatom_official",
+      "url": "https://t.me/s/uzatom_official",
+      "name": "Узатом",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": 8000,
+      "publishRate": "1-2/day"
+    },
+    {
+      "id": "uzhydromet",
+      "handle": "@uzhydromet",
+      "url": "https://t.me/s/uzhydromet",
+      "name": "Узгидромет",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 60000,
+      "publishRate": "3-5/day",
+      "notes": "Погода, штормовые предупреждения"
+    },
+
+    {
+      "id": "kunuzofficial",
+      "handle": "@kunuzofficial",
+      "url": "https://t.me/s/kunuzofficial",
+      "name": "Kun.uz",
+      "type": "signal",
+      "priority": "P0",
+      "subscribers": 1170000,
+      "publishRate": "100-150/day"
+    },
+    {
+      "id": "gazetauz",
+      "handle": "@gazetauz",
+      "url": "https://t.me/s/gazetauz",
+      "name": "Gazeta.uz",
+      "type": "signal",
+      "priority": "P0",
+      "subscribers": 87000,
+      "publishRate": "40-60/day"
+    },
+    {
+      "id": "daryo_ru",
+      "handle": "@daryo_ru",
+      "url": "https://t.me/s/daryo_ru",
+      "name": "Daryo.uz (RU)",
+      "type": "signal",
+      "priority": "P1",
+      "subscribers": 350000,
+      "publishRate": "80-120/day"
+    },
+    {
+      "id": "spotug",
+      "handle": "@spotug",
+      "url": "https://t.me/s/spotug",
+      "name": "Spot.uz",
+      "type": "signal",
+      "priority": "P1",
+      "subscribers": 45000,
+      "publishRate": "15-25/day"
+    },
+    {
+      "id": "podrobno",
+      "handle": "@podrobno",
+      "url": "https://t.me/s/podrobno",
+      "name": "Podrobno.uz",
+      "type": "signal",
+      "priority": "P1",
+      "subscribers": 60000,
+      "publishRate": "30-50/day"
+    },
+    {
+      "id": "repostuz",
+      "handle": "@repostuz",
+      "url": "https://t.me/s/repostuz",
+      "name": "Repost.uz",
+      "type": "signal",
+      "priority": "P2",
+      "subscribers": 84000,
+      "publishRate": "40-70/day"
+    },
+    {
+      "id": "uznews",
+      "handle": "@uznews",
+      "url": "https://t.me/s/uznews",
+      "name": "UzNews.uz",
+      "type": "signal",
+      "priority": "P2",
+      "subscribers": 120000,
+      "publishRate": "30-50/day"
+    },
+    {
+      "id": "yuz_official",
+      "handle": "@yuz_official",
+      "url": "https://t.me/s/yuz_official",
+      "name": "Yuz.uz",
+      "type": "signal",
+      "priority": "P2",
+      "subscribers": 30000,
+      "publishRate": "30-40/day"
+    },
+    {
+      "id": "tribuna_uz",
+      "handle": "@tribuna_uz",
+      "url": "https://t.me/s/tribuna_uz",
+      "name": "Tribuna.uz",
+      "type": "signal",
+      "priority": "P2",
+      "subscribers": 80000,
+      "publishRate": "20-30/day"
+    },
+    {
+      "id": "kapitaluz",
+      "handle": "@kapitaluz",
+      "url": "https://t.me/s/kapitaluz",
+      "name": "Kapital.uz",
+      "type": "signal",
+      "priority": "P2",
+      "subscribers": 25000,
+      "publishRate": "15-20/day"
+    },
+    {
+      "id": "afishauz",
+      "handle": "@afishauz",
+      "url": "https://t.me/s/afishauz",
+      "name": "Afisha.uz",
+      "type": "signal",
+      "priority": "P3",
+      "subscribers": 20000,
+      "publishRate": "10-20/day"
+    },
+    {
+      "id": "anhoruz",
+      "handle": "@anhoruz",
+      "url": "https://t.me/s/anhoruz",
+      "name": "Anhor.uz",
+      "type": "signal",
+      "priority": "P2",
+      "subscribers": 15000,
+      "publishRate": "10-15/day"
+    },
+    {
+      "id": "hook_report",
+      "handle": "@hook_report",
+      "url": "https://t.me/s/hook_report",
+      "name": "Hook.report",
+      "type": "signal",
+      "priority": "P2",
+      "subscribers": 12000,
+      "publishRate": "2-5/day"
+    },
+    {
+      "id": "nuzuz",
+      "handle": "@nuzuz",
+      "url": "https://t.me/s/nuzuz",
+      "name": "Nuz.uz",
+      "type": "signal",
+      "priority": "P2",
+      "subscribers": 20000,
+      "publishRate": "15-25/day"
+    },
+    {
+      "id": "moveruz",
+      "handle": "@moveruz",
+      "url": "https://t.me/s/moveruz",
+      "name": "Mover.uz",
+      "type": "signal",
+      "priority": "P3",
+      "subscribers": 15000,
+      "publishRate": "5-10/day"
+    },
+
+    {
+      "id": "davletovuz",
+      "handle": "@davletovuz",
+      "url": "https://t.me/s/davletovuz",
+      "name": "Давлетов",
+      "type": "influencer",
+      "priority": "P2",
+      "publishRate": "5-10/day",
+      "notes": "Политический обозреватель, законопроекты и назначения"
+    },
+    {
+      "id": "kurbanov",
+      "handle": "@KurbanovTelegram",
+      "url": "https://t.me/s/KurbanovTelegram",
+      "name": "Бахтиёр Курбанов (Bakiroo)",
+      "type": "influencer",
+      "priority": "P2",
+      "publishRate": "3-7/day",
+      "notes": "Экономический обозреватель, ЦБ и тарифы"
+    },
+    {
+      "id": "allamjonov_ki",
+      "handle": "@allamjonov_ki",
+      "url": "https://t.me/s/allamjonov_ki",
+      "name": "Комил Алламжонов",
+      "type": "influencer",
+      "priority": "P3",
+      "publishRate": "1-3/day",
+      "notes": "Медиа-инфлюенсер, свобода слова"
+    }
+  ]
+}
