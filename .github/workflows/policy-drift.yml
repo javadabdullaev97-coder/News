@@ -1,0 +1,64 @@
+name: Policy drift check
+
+# Раз в сутки сверяет опубликованные статьи с актуальным
+# config/newsroom-policy.json и §2/§5 SKILL. Ловит дрейф:
+# policy декларирует одно, статьи идут другим путём.
+#
+# Что проверяем:
+#   - категория валидна
+#   - urgency проставлен и из списка breaking|standard|deferred
+#   - нет ссылок на источники из чёрного списка
+#   - все frontmatter.sources цитируются в теле (балласт)
+#   - дневной кап по категории не превышен
+
+on:
+  schedule:
+    # 04:00 UTC = 09:00 Ташкента — после первой планёрки дня.
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "За сколько дней проверять"
+        required: false
+        default: "7"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: policy-drift
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Install deps (для lib/frontmatter.mjs)
+        run: npm install --no-audit --no-fund --no-save
+
+      - name: Check drift
+        run: |
+          DAYS="${{ github.event.inputs.days || '7' }}"
+          node scripts/check-policy-drift.mjs --days="$DAYS" --verbose
+        continue-on-error: true
+
+      - name: Commit drift report
+        run: |
+          if [[ -z $(git status --porcelain content/state/policy-drift.md) ]]; then
+            echo "Отчёт не менялся."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/state/policy-drift.md
+          git commit -m "drift: daily policy check"
+          bash .github/scripts/git-push-with-rebase.sh
