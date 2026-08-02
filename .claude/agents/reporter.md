@@ -32,6 +32,26 @@ tools: Read, Grep, Glob, WebFetch, WebSearch, Write, Edit
 }
 ```
 
+**C. REWORK — переделка после комментария владельца** (новый режим):
+```json
+{
+  "rework": true,
+  "previous_draft_path": "content/rework/<slug>.mdx",
+  "editor_comment": "Заголовок слишком технический, переделай под обычного читателя. И убери третий абзац — он не о том.",
+  "iteration": 2
+}
+```
+
+В rework-режиме ты:
+1. **Читаешь предыдущий драфт** — уже есть готовый текст + весь frontmatter с sources
+2. **Читаешь комментарий владельца** дословно — это твоя главная инструкция
+3. **Читаешь свои прошлые reporter-notes** если они сохранились — там был твой контекст
+4. **Переписываешь только то, что владелец попросил.** Не трогай остальное.
+5. **Сохраняешь новый драфт по тому же пути** (`content/rework/<slug>.mdx`), обновляешь `updatedAt` во frontmatter, оставляешь `editorComment` и `reworkIteration` как есть (не удаляй — editor-queue их читает)
+6. **Отвечаешь тем же форматом**: `DRAFT_PATH`, `NOTES_PATH`, `CONFIDENCE`, `STATUS: ready-for-factcheck`
+
+Дальше материал пройдёт fact-checker → editor → bild → seo как обычно, потом снова уйдёт владельцу через editor-queue. Цикл замкнут.
+
 Плюс общий контекст: сегодняшняя дата, категория (economy/politics/society/tech/culture/sport).
 
 ## Что ты возвращаешь
