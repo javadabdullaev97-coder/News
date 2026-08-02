@@ -179,20 +179,42 @@ node scripts/editor-queue.mjs push \
 
 Что делать дальше: **не жди ответа, но и не выпускай материал.**
 
-1. Поставь во frontmatter `awaitingEditor: true` — это блокировка. Статья
-   с этим полем физически не попадает в `lib/generated-posts.ts`, значит
-   не может выйти ни на сайт, ни в Telegram. Гарантия, а не соглашение.
-2. Оставь `frontmatter.image` с `null`-ами.
+Материал уходит в очередь **двухшагово** — ты не имеешь доступа к секретам TG
+(они только внутри GitHub Actions), поэтому вызывать `editor-queue.mjs push`
+напрямую бесполезно (падает на `Missing TELEGRAM_BOT_TOKEN`, проверено в
+живом прогоне 03.08.2026).
+
+Вместо этого:
+
+1. **Перемести файл статьи** из `content/posts/<день>/<slug>.mdx` в
+   `content/needs-verification/<slug>.mdx`. Это критично: `scan-pending`
+   ищет вопросы именно там (плюс в `content/rework/`), а не в `content/posts/`.
+   Если оставишь в `content/posts/` — материал будет висеть с
+   `awaitingEditor: true` навсегда, вопрос владельцу не уйдёт.
+
+2. **Обнови frontmatter**:
+   ```yaml
+   awaitingEditor: true
+   pendingEditorQuestion:
+     reason: "crop-risky"    # или no-image / stock-render / source-doubt
+     question: "cropLoss 0.15+, лицо в кадре может обрезаться. Подтвердить кадр или прислать другой?"
+     image: "public/images/posts/2026-08/<slug>-01.jpg"   # опционально
+   ```
+
 3. Верни `STATUS: fallback-needed` и укажи в notes, что материал в очереди.
 
-Планёрка не стоит и не ждёт — она продолжает с остальными темами. Ответ
-владельца подтянет workflow `editor-queue.yml`: фото прогонится через
-`prepare-image.py`, встанет в статью, `awaitingEditor` снимется, материал
-выйдет. Если владелец молчит — напоминание через 2 часа и через сутки.
+Дальше workflow `editor-queue.yml` (крутится каждые 10 мин) через `scan-pending`
+найдёт материал, запушит вопрос владельцу в TG, добавит запись в очередь.
+После ответа владельца `promoteToPosts()` вернёт материал в
+`content/posts/<день>/`.
+
+Планёрка не стоит и не ждёт — она продолжает с остальными темами.
+Если владелец молчит — напоминание через 2 часа и через сутки.
 **Молчание никогда не означает «публикуй как есть».**
 
 Присланное владельцем фото окажется в `.review/editor-photo-<slug>.jpg` —
-его нужно прогнать через `prepare-image.py` как обычный исходник.
+`prepare-image.py` внутри `editor-queue.mjs` прогонит его как обычный исходник
+и вставит в статью.
 
 ### Шаг 4 — Заполни frontmatter
 

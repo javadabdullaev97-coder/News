@@ -564,11 +564,37 @@ async function remind() {
 
 import { parseFrontmatter } from "../lib/frontmatter.mjs";
 
+// Собрать все .mdx-файлы из директории (рекурсивно). Нужен потому что
+// content/posts/ имеет вложенные папки по дням: content/posts/2026-08-03/*.mdx.
+function collectMdxFiles(dir) {
+  const out = [];
+  if (!existsSync(dir)) return out;
+  for (const name of readdirSync(dir, { withFileTypes: true })) {
+    const full = join(dir, name.name);
+    if (name.isDirectory()) {
+      out.push(...collectMdxFiles(full));
+    } else if (name.isFile() && name.name.endsWith(".mdx")) {
+      out.push(full);
+    }
+  }
+  return out;
+}
+
 async function scanPending() {
   const q = loadQueue();
+  // Три места ищем:
+  // - content/needs-verification/ — где планёрка кладёт материалы <70% confidence
+  // - content/rework/ — материалы на переделке по комментарию
+  // - content/posts/<день>/ — safety net. Bild-агент по прошлой спецификации
+  //   ставил awaitingEditor:true прямо здесь и звал editor-queue.mjs push, но
+  //   push из песочницы не работает (нет TG-секретов). Без этого сканирования
+  //   такие материалы застревали навсегда — обнаружено в планёрке 03.08 02:35,
+  //   4 материала (вода в Ташкенте, школьная безопасность, Иран-Оман, Хамас)
+  //   висели без вопроса владельцу. Теперь ловим и здесь тоже.
   const dirs = [
     join(ROOT, "content/needs-verification"),
     join(ROOT, "content/rework"),
+    join(ROOT, "content/posts"),
   ];
   const alreadyInQueue = new Set(q.pending.map((x) => x.slug));
 
@@ -577,32 +603,50 @@ async function scanPending() {
 
   for (const dir of dirs) {
     if (!existsSync(dir)) continue;
-    for (const name of readdirSync(dir)) {
-      if (!name.endsWith(".mdx")) continue;
+    // recursive scan для content/posts/, обычный readdir для двух других
+    const files =
+      dir.endsWith("/posts") || dir.endsWith("\\posts")
+        ? collectMdxFiles(dir)
+        : readdirSync(dir)
+            .filter((n) => n.endsWith(".mdx"))
+            .map((n) => join(dir, n));
+
+    for (const file of files) {
+      const name = file.split(/[/\\]/).pop();
       const slug = name.replace(/\.mdx$/, "");
       if (alreadyInQueue.has(slug)) continue;
-
-      const file = join(dir, name);
       const raw = readFileSync(file, "utf8");
       const fm = parseFrontmatter(raw);
 
-      // Не наш случай: не ждёт редактора ИЛИ вопрос уже уехал
+      // Не наш случай: не ждёт редактора
       if (!(fm.awaitingEditor === true || fm.awaitingEditor === "true")) {
         continue;
       }
       const q_ = fm.pendingEditorQuestion;
-      if (!q_ || typeof q_ !== "object") {
-        skipped++;
-        console.error(
-          `[queue:scan] ${slug}: awaitingEditor=true, но нет pendingEditorQuestion — пропускаю`,
-        );
-        continue;
-      }
 
-      const reason = q_.reason || "source-doubt";
-      const question = q_.question || "";
-      const title = fm.title || slug;
-      const imagePath = q_.image || fm.image?.url?.replace(/^\/+/, "") || null;
+      let reason, question, title, imagePath;
+      title = fm.title || slug;
+      imagePath = fm.image?.url?.replace(/^\/+/, "") || null;
+
+      if (q_ && typeof q_ === "object") {
+        // Нормальный случай — планёрка положила pendingEditorQuestion
+        reason = q_.reason || "source-doubt";
+        question = q_.question || "";
+        imagePath = q_.image || imagePath;
+      } else {
+        // Legacy: awaitingEditor:true без pendingEditorQuestion. Такое
+        // случается со статьями, положенными в очередь до внедрения
+        // scan-pending (примерно до 03.08.2026). Шлём generic-вопрос,
+        // чтобы разгрести — иначе они бы висели бесконечно.
+        reason = "source-doubt";
+        question =
+          "Этот материал застрял в очереди до внедрения бота-очереди. " +
+          "Что с ним делать: «ок» → опубликовать, «стоп» → снять, " +
+          "любой другой текст → переделать по комментарию.";
+        console.error(
+          `[queue:scan] ${slug}: legacy stuck (нет pendingEditorQuestion) — шлю generic вопрос`,
+        );
+      }
       // Приводим к формату push()
       const args = [
         `--slug=${slug}`,
