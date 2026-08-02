@@ -99,7 +99,15 @@
     "https://leap.uz/article/us-deportation-18-uzbek-citizens": {
       "messageId": 31,
       "postedAt": "2026-08-02T13:50:17.423Z"
+    },
+    "https://leap.uz/article/ceuta-migrant-crisis-death-toll": {
+      "messageId": 32,
+      "postedAt": "2026-08-02T13:55:13.593Z"
+    },
+    "https://leap.uz/article/uzhydromet-wind-dust-storm-warning": {
+      "messageId": 33,
+      "postedAt": "2026-08-02T13:55:15.893Z"
     }
   },
-  "updatedAt": "2026-08-02T13:50:17.423Z"
+  "updatedAt": "2026-08-02T13:55:15.893Z"
 }
