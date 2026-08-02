@@ -6,7 +6,10 @@
 //
 // Что проверяем (пока):
 //   1. Категория из frontmatter входит в известный список
-//   2. urgency проставлен и валиден (breaking/standard/deferred)
+//   2. urgency если проставлен — валиден (breaking/standard/deferred).
+//      Отсутствие urgency НЕ считается ошибкой: 03.08.2026 плашка «СРОЧНО»
+//      в TG-посте убрана, читатель уровня срочности не видит, а планёрка
+//      публикует всё через один PR-поток — заполнять поле необязательно.
 //   3. Дневной кап по категории (diversity.maxPerCategory сегодня)
 //   4. Все sources из frontmatter реально цитируются в теле статьи
 //      (балластные записи — сигнал, что fact-checker не проверял их)
@@ -115,10 +118,9 @@ for (const file of files) {
     perDayCategory[day][fm.category] = (perDayCategory[day][fm.category] || 0) + 1;
   }
 
-  // 2. urgency
-  if (!fm.urgency) {
-    warns.push({ rel, msg: "urgency не проставлен (спецификация Planyorka требует)" });
-  } else if (!knownUrgency.has(fm.urgency)) {
+  // 2. urgency: заполнять необязательно. Если поле есть — оно должно быть
+  // из известного списка. Пусто — норма, публикуется как обычная новость.
+  if (fm.urgency && !knownUrgency.has(fm.urgency)) {
     errors.push({ rel, msg: `urgency "${fm.urgency}" не из ${[...knownUrgency].join("|")}` });
   }
 
