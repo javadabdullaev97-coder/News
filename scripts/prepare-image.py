@@ -103,10 +103,14 @@ def edge_color(im):
 
 
 def blurred_backdrop(im, size):
-    """Подложка из самого кадра: растянуть, размыть, притушить.
+    """[Устарело — не используется с 03.08.2026.]
 
-    Используется, когда исходник заметно у́же или ниже кадра. Читается как
-    осознанный приём, а не как дыра в вёрстке, и не тащит в макет чужой цвет.
+    Раньше пустое пространство вокруг вписанного фото заполнялось размытой
+    версией самого фото. Владелец: «Фотографии смотри обрезанные и на сайте
+    и в тг с блюром вокруг фото. Мне это не нравится».
+
+    Функция оставлена для истории и на случай отката. Активный fill —
+    solid_backdrop, см. ниже.
     """
     tw, th = size
     src = im.convert("RGB")
@@ -116,8 +120,18 @@ def blurred_backdrop(im, size):
     left, top = (bw - tw) // 2, (bh - th) // 2
     back = back.crop((left, top, left + tw, top + th))
     back = back.filter(ImageFilter.GaussianBlur(radius=max(12, tw // 60)))
-    # притушить, чтобы основной кадр читался поверх
     return Image.blend(back, Image.new("RGB", (tw, th), edge_color(src)), 0.45)
+
+
+# Тёмно-графитовый фон в тон бренду. Синхронизирован с
+# config/newsroom-policy.json → imagery.backgroundFill.color.
+# Если поменяешь тон бренда — поправь и там.
+SOLID_BG_COLOR = (0x1A, 0x1A, 0x1A)
+
+
+def solid_backdrop(size):
+    """Однотонный фон для contain-режима — чище чем блюр."""
+    return Image.new("RGB", size, SOLID_BG_COLOR)
 
 
 def smart_crop_offset(im, target_w, target_h):
@@ -251,7 +265,10 @@ def prepare(src_path, slug, month=None, out_root="public/images/posts"):
         scale = min(contain_scale, 1.0)
         nw, nh = max(1, round(ow * scale)), max(1, round(oh * scale))
         resized = im.resize((nw, nh), Image.LANCZOS) if scale < 1.0 else im.copy()
-        canvas = blurred_backdrop(im, (TARGET_W, TARGET_H))
+        # solid_backdrop (тёмно-графитовый бренд) вместо блюра — решение владельца
+        # 03.08.2026. Летербоксинг виден, но чище — блюр вокруг мелкого фото
+        # выглядел дёшево.
+        canvas = solid_backdrop((TARGET_W, TARGET_H))
         canvas.paste(resized, ((TARGET_W - nw) // 2, (TARGET_H - nh) // 2))
         why = []
         if is_portrait:
@@ -270,7 +287,7 @@ def prepare(src_path, slug, month=None, out_root="public/images/posts"):
             "mode": "contain",
             "scale": round(scale, 4),
             "placed": [nw, nh],
-            "note": "вписано целиком на размытую подложку из самого кадра; "
+            "note": "вписано целиком на solid тёмно-графитовый фон бренда; "
             + "; ".join(why),
         }
 
