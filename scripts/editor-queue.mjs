@@ -132,6 +132,10 @@ const REASONS = {
     "нашлась только рисованная 3D-заготовка из стока, а не живая фотография",
   "source-doubt": "есть сомнение в источнике или в трактовке факта",
   "policy-edge": "тема на границе редполитики, нужен человек",
+  "low-confidence":
+    "fact-checker дал confidence ниже порога 70% — материал не публикуется напрямую в main без вашего решения",
+  "rework-ready":
+    "материал переделан по вашему комментарию — проверьте, стало ли лучше",
 };
 
 async function push() {
@@ -224,13 +228,39 @@ async function downloadTelegramFile(fileId, destAbs) {
 // ─── Применение ответа к материалу ───
 
 function findArticle(slug) {
-  const base = join(ROOT, "content/posts");
-  if (!existsSync(base)) return null;
-  for (const day of readdirSync(base)) {
-    const f = join(base, day, `${slug}.mdx`);
+  // Ищем в трёх местах:
+  // 1. content/posts/<day>/<slug>.mdx — опубликованные (могут быть awaitingEditor)
+  // 2. content/needs-verification/<slug>.mdx — материалы с confidence<70,
+  //    ждущие ответа владельца
+  // 3. content/rework/<slug>.mdx — на переделке после комментария
+  const posts = join(ROOT, "content/posts");
+  if (existsSync(posts)) {
+    for (const day of readdirSync(posts)) {
+      const f = join(posts, day, `${slug}.mdx`);
+      if (existsSync(f)) return f;
+    }
+  }
+  for (const dir of ["content/needs-verification", "content/rework"]) {
+    const f = join(ROOT, dir, `${slug}.mdx`);
     if (existsSync(f)) return f;
   }
   return null;
+}
+
+// Переместить статью в content/posts/<день>/ — используется когда владелец
+// ответил «ок» на материал из needs-verification или rework: он получает
+// нормальный путь и попадает на сайт.
+function promoteToPosts(file, slug) {
+  if (file.includes("/content/posts/")) return file; // уже там
+  const day = new Date(Date.now() + 5 * 3600 * 1000).toISOString().slice(0, 10);
+  const destDir = join(ROOT, "content/posts", day);
+  mkdirSync(destDir, { recursive: true });
+  const dest = join(destDir, `${slug}.mdx`);
+  const text = readFileSync(file, "utf8");
+  writeFileSync(dest, text);
+  unlinkSync(file);
+  console.error(`[queue] ${slug}: перемещён в ${dest.replace(ROOT + "/", "")}`);
+  return dest;
 }
 
 function setFrontmatterField(text, key, value) {
@@ -279,14 +309,17 @@ async function applyAnswer(item, answer) {
     );
     text = dropFrontmatterField(text, "awaitingEditor");
     writeFileSync(file, text);
-    console.error(`[queue] ${item.slug}: фото применено → ${url}, материал разблокирован`);
+    // Фото применено — материал разблокирован, промотим на сайт если он в needs-verification/rework
+    const promoted = promoteToPosts(file, item.slug);
+    console.error(`[queue] ${item.slug}: фото применено → ${url}, материал разблокирован (${promoted.replace(ROOT + "/", "")})`);
     return "image-applied";
   }
 
   if (answer.kind === "approve") {
     text = dropFrontmatterField(text, "awaitingEditor");
     writeFileSync(file, text);
-    console.error(`[queue] ${item.slug}: разблокирован, публикуется как есть`);
+    const promoted = promoteToPosts(file, item.slug);
+    console.error(`[queue] ${item.slug}: одобрен, публикуется как есть (${promoted.replace(ROOT + "/", "")})`);
     return "unblocked";
   }
 
@@ -299,10 +332,44 @@ async function applyAnswer(item, answer) {
     return "rejected";
   }
 
-  // Комментарий не снимает блокировку: владелец что-то попросил поправить,
-  // значит материал ещё не готов. Остаётся в очереди до «ок» или фото.
-  console.error(`[queue] ${item.slug}: комментарий сохранён, материал остаётся в очереди`);
-  return "comment-saved";
+  // Комментарий: материал уходит в content/rework/ с editorComment во frontmatter.
+  // Планёрка на следующем прогоне подхватит rework/ ПЕРЕД тем как брать новые темы,
+  // reporter переделает драфт с учётом замечания, снова придёт к владельцу.
+  if (answer.kind === "comment") {
+    mkdirSync(join(ROOT, "content/rework"), { recursive: true });
+    const dest = join(ROOT, "content/rework", `${item.slug}.mdx`);
+    // Читаем текущий счётчик итераций (если это уже rework файла из rework/)
+    const currentIter = Number(
+      (text.match(/^reworkIteration:\s*(\d+)/m) || [])[1] || 0,
+    );
+    const nextIter = currentIter + 1;
+    // Экранируем YAML: заменяем " и \n
+    const commentSafe = answer.text
+      .replace(/\\/g, "\\\\")
+      .replace(/"/g, '\\"')
+      .replace(/\n/g, "\\n");
+    // Вставляем/обновляем editorComment и reworkIteration во frontmatter
+    text = text.replace(/^editorComment:.*(\r?\n(  .*\r?\n)*)?/m, "");
+    text = text.replace(/^reworkIteration:.*(\r?\n)/m, "");
+    text = text.replace(
+      /^---\n/,
+      `---\neditorComment: "${commentSafe}"\nreworkIteration: ${nextIter}\n`,
+    );
+    // awaitingEditor остаётся true — материал ждёт переделки, потом снова к владельцу
+    if (!/^awaitingEditor:/m.test(text)) {
+      text = text.replace(/^---\n/, `---\nawaitingEditor: true\n`);
+    }
+    writeFileSync(dest, text);
+    // Если исходник был в другом месте — удаляем
+    if (file !== dest) unlinkSync(file);
+    console.error(
+      `[queue] ${item.slug}: комментарий сохранён → content/rework/${item.slug}.mdx (итерация ${nextIter})`,
+    );
+    return `rework-iteration-${nextIter}`;
+  }
+
+  console.error(`[queue] ${item.slug}: неизвестный тип ответа`);
+  return "unknown-answer";
 }
 
 async function collect() {
@@ -410,7 +477,9 @@ async function collect() {
     }
 
     q.resolved.push({ ...item, answer });
-    if (answer.kind !== "comment") q.pending.splice(idx, 1);
+    // Комментарий переводит материал в rework/ — из pending его тоже убираем,
+    // на следующей планёрке он вернётся через новый push после переделки.
+    q.pending.splice(idx, 1);
     if (u.update_id >= (q.updateOffset || 0)) q.updateOffset = u.update_id + 1;
     applied++;
   }
