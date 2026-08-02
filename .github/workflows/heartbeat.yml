@@ -1,0 +1,58 @@
+name: Heartbeat
+
+# Раз в час смотрит state-файлы конвейера и алертит в Telegram, если
+# что-то молчит слишком долго. Спасает от «зелёной галочки при
+# сломанной системе»: continue-on-error в других воркфлоу скрывает
+# массовые 403/429; heartbeat смотрит на факт — mtime файлов.
+
+on:
+  schedule:
+    # Каждый час на :17, чтобы не сталкиваться с пиками /15 мин
+    # у news-inbox и /10 мин у editor-queue.
+    - cron: "17 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "1 = только показать что заалертил бы"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: heartbeat
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Run heartbeat
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: node scripts/heartbeat.mjs
+
+      - name: Commit anti-spam state
+        if: github.event.inputs.dry_run != '1'
+        run: |
+          if [[ -z $(git status --porcelain content/state/heartbeat-alerts.json) ]]; then
+            echo "Ничего не менялось."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/state/heartbeat-alerts.json
+          git commit -m "heartbeat: alerts state"
+          bash .github/scripts/git-push-with-rebase.sh
