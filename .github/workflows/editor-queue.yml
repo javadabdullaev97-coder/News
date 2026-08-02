@@ -39,6 +39,11 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
+          # Comma-separated список Telegram user ID, кому разрешено отвечать
+          # в очередь. Пусто = принимаем всех (WARN в логе). Настоятельно
+          # рекомендуется задать: без whitelist кто угодно, у кого есть
+          # доступ к чату-очереди, может прислать фото → оно уходит в прод.
+          TELEGRAM_EDITOR_USER_IDS: ${{ secrets.TELEGRAM_EDITOR_USER_IDS }}
         run: node scripts/editor-queue.mjs collect
 
       - name: Remind about unanswered items
