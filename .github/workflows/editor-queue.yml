@@ -35,6 +35,22 @@ jobs:
         with:
           node-version: "24"
 
+      # editor-queue.mjs с mode=scan-pending импортирует lib/frontmatter.mjs,
+      # которому нужен npm-пакет `yaml`. Без install падает на ERR_MODULE_NOT_FOUND.
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund --no-save
+
+      # Планёрка в песочнице Claude Code не имеет доступа к секретам TG и не
+      # может сама вызвать push. Вместо этого она пишет pendingEditorQuestion
+      # во frontmatter материала в content/needs-verification/ или
+      # content/rework/. scan-pending находит их и пушит в TG на этом runner-е,
+      # где секреты есть.
+      - name: Push pending questions to owner
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
+        run: node scripts/editor-queue.mjs scan-pending
+
       - name: Collect replies from Telegram
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -57,10 +73,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # git diff --quiet не видит untracked-файлы. status --porcelain видит.
-          if [[ -z $(git status --porcelain -- content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/) ]]; then
+          # content/needs-verification/ и content/rework/ добавлены: scan-pending
+          # чистит pendingEditorQuestion из frontmatter после успешного push —
+          # это тоже надо коммитить, иначе следующий scan снова его увидит
+          # (для рабоспособности хватит queue.json, но dual-defense).
+          if [[ -z $(git status --porcelain -- content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/) ]]; then
             echo "Ответов нет — коммитить нечего."
             exit 0
           fi
-          git add content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/
+          git add content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/
           git commit -m "newsroom: ответы редактора из Telegram"
           bash .github/scripts/git-push-with-rebase.sh

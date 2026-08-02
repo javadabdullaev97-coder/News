@@ -71,11 +71,15 @@ function isAllowedSender(userId) {
 }
 
 const mode = process.argv[2];
-if (!["push", "collect", "remind"].includes(mode)) {
-  console.error("Использование: editor-queue.mjs push|collect [опции]");
+if (!["push", "collect", "remind", "scan-pending"].includes(mode)) {
+  console.error("Использование: editor-queue.mjs push|collect|remind|scan-pending [опции]");
   console.error("  push --slug=<slug> --reason=<код> --question=<текст> [--image=<путь>]");
-  console.error("  collect");
-  console.error("  remind   — напомнить о зависших без ответа");
+  console.error("  collect        — забрать ответы владельца");
+  console.error("  remind         — напомнить о зависших без ответа");
+  console.error("  scan-pending   — найти материалы в content/needs-verification/ с");
+  console.error("                   pendingEditorQuestion во frontmatter и запушить их");
+  console.error("                   в TG. Нужен для Planyorka: она не имеет доступа");
+  console.error("                   к секретам TG и не может пушить напрямую.");
   process.exit(1);
 }
 
@@ -543,4 +547,104 @@ async function remind() {
   console.error(`[queue] напоминаний отправлено: ${sent}, в очереди: ${q.pending.length}`);
 }
 
-await (mode === "push" ? push() : mode === "collect" ? collect() : remind());
+// scan-pending — вызывается из workflow до collect. Находит материалы,
+// которые планёрка положила в content/needs-verification/ или content/rework/
+// с awaitingEditor:true и pendingEditorQuestion в frontmatter, и пушит их
+// в TG. Планёрка сама этого сделать не может — у неё нет секретов TG.
+//
+// pendingEditorQuestion во frontmatter — это структура, которую пишет
+// планёрка:
+//   pendingEditorQuestion:
+//     reason: "low-confidence" | "no-image" | "crop-risky" | ...
+//     question: "текст вопроса владельцу"
+//     image: "public/images/posts/2026-08/<slug>-01.jpg"   # опционально
+//
+// После успешного пуша поле pendingEditorQuestion очищается — материал
+// теперь в queue.pending, следующий scan его не тронет.
+
+import { parseFrontmatter } from "../lib/frontmatter.mjs";
+
+async function scanPending() {
+  const q = loadQueue();
+  const dirs = [
+    join(ROOT, "content/needs-verification"),
+    join(ROOT, "content/rework"),
+  ];
+  const alreadyInQueue = new Set(q.pending.map((x) => x.slug));
+
+  let pushed = 0;
+  let skipped = 0;
+
+  for (const dir of dirs) {
+    if (!existsSync(dir)) continue;
+    for (const name of readdirSync(dir)) {
+      if (!name.endsWith(".mdx")) continue;
+      const slug = name.replace(/\.mdx$/, "");
+      if (alreadyInQueue.has(slug)) continue;
+
+      const file = join(dir, name);
+      const raw = readFileSync(file, "utf8");
+      const fm = parseFrontmatter(raw);
+
+      // Не наш случай: не ждёт редактора ИЛИ вопрос уже уехал
+      if (!(fm.awaitingEditor === true || fm.awaitingEditor === "true")) {
+        continue;
+      }
+      const q_ = fm.pendingEditorQuestion;
+      if (!q_ || typeof q_ !== "object") {
+        skipped++;
+        console.error(
+          `[queue:scan] ${slug}: awaitingEditor=true, но нет pendingEditorQuestion — пропускаю`,
+        );
+        continue;
+      }
+
+      const reason = q_.reason || "source-doubt";
+      const question = q_.question || "";
+      const title = fm.title || slug;
+      const imagePath = q_.image || fm.image?.url?.replace(/^\/+/, "") || null;
+      // Приводим к формату push()
+      const args = [
+        `--slug=${slug}`,
+        `--title=${title}`,
+        `--reason=${reason}`,
+        `--question=${question}`,
+      ];
+      if (imagePath) args.push(`--image=${imagePath}`);
+
+      // Вместо форка процесса выполняем push() inline через process.argv:
+      // сохраняем оригинал, подменяем на нужные аргументы, вызываем push()
+      const origArgv = process.argv;
+      process.argv = ["node", "editor-queue.mjs", "push", ...args];
+      try {
+        await push();
+        pushed++;
+        // Убираем pendingEditorQuestion из frontmatter, иначе следующий scan
+        // отправит вопрос повторно (queue.pending уже содержит запись, поэтому
+        // alreadyInQueue его отфильтрует, но это дублирующая защита — если
+        // queue.json будет удалён/сломан, поле в файле не даст ошибке размножиться).
+        const cleaned = raw.replace(
+          /^pendingEditorQuestion:\n(?:  .*\n)+/m,
+          "",
+        );
+        writeFileSync(file, cleaned);
+      } catch (err) {
+        console.error(`[queue:scan] ${slug}: push упал — ${err.message}`);
+      } finally {
+        process.argv = origArgv;
+      }
+    }
+  }
+
+  console.error(
+    `[queue:scan] pushed=${pushed}, skipped=${skipped}, already in queue=${alreadyInQueue.size}`,
+  );
+}
+
+await (mode === "push"
+  ? push()
+  : mode === "collect"
+    ? collect()
+    : mode === "scan-pending"
+      ? scanPending()
+      : remind());

@@ -409,16 +409,26 @@ def factCheckSkippable(draft):
   в `needs-verification` и там оставалось навсегда;
 - **тема на границе редполитики.**
 
-```bash
-node scripts/editor-queue.mjs push --slug=<slug> --title="<заголовок>" \
-  --reason=crop-risky --question="<что смущает>" --image=<текущий вариант>
+**Ты не можешь пушить в TG напрямую** — секреты бота живут только внутри
+GitHub Actions runner-ов, у песочницы Planyorka их нет. Вместо этого
+пропиши во frontmatter материала (в `content/needs-verification/<slug>.mdx`)
+поле `pendingEditorQuestion`:
+
+```yaml
+awaitingEditor: true
+pendingEditorQuestion:
+  reason: "crop-risky"
+  question: "что смущает — 1–2 предложения"
+  image: "public/images/posts/2026-08/<slug>-01.jpg"   # опционально
 ```
 
+Коммит + push. Всё. Workflow `editor-queue.yml` через `scan-pending`
+подхватит и запушит в TG на своём следующем tick'е (каждые 10 мин
+в 07:00–23:00 Ташкента).
+
 **Не жди ответа.** Планёрка отрабатывает и завершается — стоять и ждать
-человека она не может. Материал уходит в очередь, `frontmatter.image`
-остаётся `null`, планёрка продолжает с остальными темами. Ответ владельца
-подтянет workflow `editor-queue.yml`, который проверяет Telegram каждые
-10 минут в рабочие часы.
+человека она не может. Материал уходит в очередь, планёрка продолжает
+с остальными темами. Ответ владельца подтянет тот же workflow.
 
 Владелец отвечает реплаем: фото — станет картинкой, «ок» — публиковать как
 есть, «стоп» — снять материал, любой другой текст — комментарий уйдёт
@@ -480,20 +490,41 @@ node scripts/editor-queue.mjs push --slug=<slug> --title="<заголовок>" 
 
 #### Дорога 2. Confidence < 70% ИЛИ ворота не пройдены → editor-queue
 
-Материал НЕ уходит на сайт. Вместо этого:
+Материал НЕ уходит на сайт. Ты **не имеешь доступа к секретам Telegram**
+(они живут только внутри GitHub Actions runner-ов), поэтому вызывать
+`editor-queue.mjs push` напрямую **бесполезно** — падает на отсутствии
+`TELEGRAM_BOT_TOKEN`. Вместо этого — асинхронный флоу через файловую очередь:
 
-1. Клади статью в `content/needs-verification/<slug>.mdx` с `awaitingEditor: true` во frontmatter (site-build его исключает автоматически)
-2. Вызови `scripts/editor-queue.mjs push` с флагами:
-   - `--slug=<slug>`
-   - `--title=<заголовок>`
-   - `--reason=low-confidence` (или другой из bild — они уже определены)
-   - `--question=<конкретно что тебя смущает — 1–2 предложения>`
-   - `--image=<путь если картинка есть>`
-3. Скрипт отправит владельцу в приватный TG-чат текст заголовка, лид, картинку и твой вопрос
-4. Владелец ответит **реплаем**:
-   - `ок` → материал уходит на сайт (снимаем `awaitingEditor`, коммитим в `content/posts/<TODAY>/`)
+1. Клади статью в `content/needs-verification/<slug>.mdx` с полями во frontmatter:
+
+   ```yaml
+   awaitingEditor: true
+   pendingEditorQuestion:
+     reason: "low-confidence"
+     question: "конкретно что тебя смущает — 1–2 предложения"
+     image: "public/images/posts/2026-08/<slug>-01.jpg"   # опционально, если есть
+   ```
+
+   Валидные значения `reason`: `low-confidence`, `no-image`, `crop-risky`,
+   `stock-render`, `source-doubt`, `policy-edge`, `rework-ready`.
+
+2. Коммит + push. Больше ничего не делаешь.
+
+3. Workflow `editor-queue.yml` (крутится каждые 10 мин в 07:00–23:00 Ташкента)
+   на своём tick'е:
+   - Найдёт материал через `scripts/editor-queue.mjs scan-pending`
+   - Пушит вопрос владельцу в приватный TG-чат
+   - Убирает `pendingEditorQuestion` из frontmatter (флаг «уже отправили»)
+   - Добавляет запись в очередь `content/state/editor-queue.json`
+
+4. Владелец отвечает **реплаем** на сообщение бота:
+   - `ок` → материал уходит на сайт (снимаем `awaitingEditor`, коммит в `content/posts/<TODAY>/`)
    - `стоп` → в `content/rejected/<slug>.md`
    - **любой другой текст (комментарий)** → rework-цикл (см. ниже)
+
+Задержка от «планёрка отдала» до «вопрос улетел владельцу» — максимум 10 минут.
+Приемлемо: конвейер асинхронный, планёрка всё равно завершается и вопрос
+ждать не может.
 
 #### Rework-цикл (Дорога 2, ответ комментарием)
 
