@@ -13,6 +13,7 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
+import { parseFrontmatterStrict, decodeEntities } from "../lib/frontmatter.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(HERE);
@@ -48,132 +49,6 @@ function collectMdx(dir) {
   return out;
 }
 
-// HTML-сущности, которые редакция реально пишет в MDX. Без декодирования
-// «1&nbsp;000» отрендерилось бы читателю буквально, вместе с амперсандом.
-const ENTITIES = {
-  "&nbsp;": " ",
-  "&mdash;": "—",
-  "&ndash;": "–",
-  "&laquo;": "«",
-  "&raquo;": "»",
-  "&quot;": '"',
-  "&#39;": "'",
-  "&apos;": "'",
-  "&lt;": "<",
-  "&gt;": ">",
-};
-
-export function decodeEntities(s) {
-  let out = s;
-  for (const [ent, ch] of Object.entries(ENTITIES)) {
-    out = out.split(ent).join(ch);
-  }
-  // &amp; последним, иначе «&amp;nbsp;» превратился бы в неразрывный пробел.
-  return out.split("&amp;").join("&");
-}
-
-function stripQuotes(v) {
-  const t = v.trim();
-  if (
-    (t.startsWith('"') && t.endsWith('"') && t.length > 1) ||
-    (t.startsWith("'") && t.endsWith("'") && t.length > 1)
-  ) {
-    return t.slice(1, -1);
-  }
-  return t;
-}
-
-// Разбор inline-массива: ["a", "b"] → ["a", "b"]
-function parseInlineArray(v) {
-  const t = v.trim();
-  if (!t.startsWith("[")) return null;
-  const inner = t.slice(1, t.lastIndexOf("]"));
-  if (!inner.trim()) return [];
-  const items = [];
-  let cur = "";
-  let quote = null;
-  for (const ch of inner) {
-    if (quote) {
-      if (ch === quote) quote = null;
-      else cur += ch;
-    } else if (ch === '"' || ch === "'") {
-      quote = ch;
-    } else if (ch === ",") {
-      items.push(cur.trim());
-      cur = "";
-    } else {
-      cur += ch;
-    }
-  }
-  if (cur.trim()) items.push(cur.trim());
-  return items.map((s) => decodeEntities(stripQuotes(s)));
-}
-
-/**
- * Минимальный парсер того подмножества YAML, которое реально встречается
- * во frontmatter LEAP: скаляры, inline-массивы, список объектов (sources)
- * и одноуровневый вложенный объект (image).
- */
-function parseFrontmatter(text, rel) {
-  const m = text.match(/^---\n([\s\S]*?)\n---/);
-  if (!m) throw new Error(`нет frontmatter в ${rel}`);
-  const lines = m[1].split("\n");
-  const fm = {};
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    if (!line.trim() || line.trimStart().startsWith("#")) continue;
-    if (/^\s/.test(line)) continue; // вложенные строки разбираются ниже, по ключу
-
-    const km = line.match(/^([A-Za-z_][\w-]*):\s*(.*)$/);
-    if (!km) continue;
-    const key = km[1];
-    const rawValue = km[2];
-
-    if (rawValue.trim() === "") {
-      // Блок: либо список объектов (sources), либо вложенный объект (image).
-      const block = [];
-      let j = i + 1;
-      while (j < lines.length && (/^\s+\S/.test(lines[j]) || !lines[j].trim())) {
-        block.push(lines[j]);
-        j++;
-      }
-      i = j - 1;
-
-      if (block.some((l) => /^\s*-\s/.test(l))) {
-        const list = [];
-        let cur = null;
-        for (const l of block) {
-          const item = l.match(/^\s*-\s*(\S+):\s*(.*)$/);
-          if (item) {
-            if (cur) list.push(cur);
-            cur = { [item[1]]: decodeEntities(stripQuotes(item[2])) };
-            continue;
-          }
-          const prop = l.match(/^\s+(\S+):\s*(.*)$/);
-          if (prop && cur) cur[prop[1]] = decodeEntities(stripQuotes(prop[2]));
-        }
-        if (cur) list.push(cur);
-        fm[key] = list;
-      } else {
-        const obj = {};
-        for (const l of block) {
-          const prop = l.match(/^\s+([A-Za-z_][\w-]*):\s*(.*)$/);
-          if (!prop) continue;
-          const v = prop[2].trim();
-          obj[prop[1]] = v === "null" || v === "" ? null : decodeEntities(stripQuotes(v));
-        }
-        fm[key] = obj;
-      }
-      continue;
-    }
-
-    const arr = parseInlineArray(rawValue);
-    fm[key] = arr !== null ? arr : decodeEntities(stripQuotes(rawValue));
-  }
-
-  return fm;
-}
 
 /**
  * Тело MDX → массив блоков. Блок сохраняет markdown-префикс (`## `, `> `, `- `),
@@ -240,7 +115,7 @@ function build() {
     const rel = relative(ROOT, file).replace(/\\/g, "/");
     let fm;
     try {
-      fm = parseFrontmatter(readFileSync(file, "utf8"), rel);
+      fm = parseFrontmatterStrict(readFileSync(file, "utf8"), rel);
     } catch (err) {
       problems.push(`${rel}: ${err.message}`);
       continue;
@@ -294,9 +169,9 @@ function build() {
     // Теперь статья с awaitingEditor физически не попадает в
     // lib/generated-posts.ts, а значит не может появиться ни на сайте,
     // ни в Telegram.
-    // parseFrontmatter отдаёт скаляры строками, поэтому «true» приходит
-    // как "true", а не как boolean. Сравниваем с обеими формами: иначе
-    // проверка молча не срабатывает — ровно так и вышло при первом прогоне.
+    // yaml даёт настоящий boolean, но сохраняем "true"-строку как страховку
+    // от статей, где кто-то написал awaitingEditor в кавычках. И то и другое
+    // должно тормозить публикацию.
     const awaiting =
       fm.awaitingEditor === true || fm.awaitingEditor === "true";
     if (awaiting) {

@@ -28,7 +28,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-          fetch-depth: 1
+          # rebase на свежий origin/main требует полной истории.
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -38,6 +39,11 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
+          # Comma-separated список Telegram user ID, кому разрешено отвечать
+          # в очередь. Пусто = принимаем всех (WARN в логе). Настоятельно
+          # рекомендуется задать: без whitelist кто угодно, у кого есть
+          # доступ к чату-очереди, может прислать фото → оно уходит в прод.
+          TELEGRAM_EDITOR_USER_IDS: ${{ secrets.TELEGRAM_EDITOR_USER_IDS }}
         run: node scripts/editor-queue.mjs collect
 
       - name: Remind about unanswered items
@@ -50,10 +56,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/; then
+          # git diff --quiet не видит untracked-файлы. status --porcelain видит.
+          if [[ -z $(git status --porcelain -- content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/) ]]; then
             echo "Ответов нет — коммитить нечего."
             exit 0
           fi
           git add content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/
           git commit -m "newsroom: ответы редактора из Telegram"
-          git push origin main
+          bash .github/scripts/git-push-with-rebase.sh

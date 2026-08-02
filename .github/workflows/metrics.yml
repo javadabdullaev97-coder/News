@@ -1,0 +1,56 @@
+name: Collect TG post metrics
+
+# Раз в час собирает счётчик просмотров каждого TG-поста в
+# content/state/metrics-daily.json. База для калибровки policy:
+# видно, какие категории/темы реально читают, а какие проваливаются.
+
+on:
+  schedule:
+    # Каждый час на :42, чтобы не совпадать с news-inbox (:5, :20, :35, :50)
+    # и telegram-autopost (реагирует на push, но не по расписанию).
+    - cron: "42 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "1 = только показать топ, ничего не писать"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: metrics
+  cancel-in-progress: true
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Collect views from t.me public embed
+        env:
+          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: node scripts/collect-metrics.mjs
+
+      - name: Commit metrics
+        if: github.event.inputs.dry_run != '1'
+        run: |
+          if [[ -z $(git status --porcelain content/state/metrics-daily.json) ]]; then
+            echo "Метрики не менялись."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/state/metrics-daily.json
+          git commit -m "metrics: TG views snapshot"
+          bash .github/scripts/git-push-with-rebase.sh

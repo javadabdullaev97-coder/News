@@ -68,11 +68,4 @@ jobs:
           STAMP=$(TZ='Asia/Tashkent' date '+%H:%M %d.%m')
           git add content/inbox
           git commit -m "inbox: $STAMP Ташкента"
-          # Retry with exponential backoff on network errors
-          for i in 1 2 3 4; do
-            if git push origin main; then
-              exit 0
-            fi
-            sleep $((2 ** i))
-          done
-          exit 1
+          bash .github/scripts/git-push-with-rebase.sh

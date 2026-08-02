@@ -21,6 +21,12 @@ import {
 } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  parseFrontmatter,
+  extractLede,
+  decodeEntities,
+  escapeHTML,
+} from "../lib/frontmatter.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(HERE);
@@ -53,92 +59,10 @@ function collectMdx(dir) {
   return out;
 }
 
-// Простой YAML-парсер frontmatter: только то что нам нужно.
-function parseFrontmatter(text) {
-  const m = text.match(/^---\n([\s\S]*?)\n---/);
-  if (!m) return {};
-  const fm = {};
-  const lines = m[1].split("\n");
-  let currentKey = null;
-  let currentObj = null;
-  for (let i = 0; i < lines.length; i++) {
-    const raw = lines[i];
-    if (!raw.trim()) continue;
-    const topMatch = raw.match(/^([a-zA-Z][\w]*):\s*(.*)$/);
-    if (topMatch) {
-      currentKey = topMatch[1];
-      const val = topMatch[2].trim();
-      if (val === "" || val === "|") {
-        // multi-line or object follows
-        fm[currentKey] = {};
-        currentObj = fm[currentKey];
-      } else {
-        fm[currentKey] = parseScalar(val);
-        currentObj = null;
-      }
-    } else if (currentObj && raw.startsWith("  ")) {
-      const kv = raw.trim().match(/^([a-zA-Z][\w]*):\s*(.*)$/);
-      if (kv) currentObj[kv[1]] = parseScalar(kv[2].trim());
-    }
-    // arrays handled crudely — только для tags, читаем как одну строку
-  }
-  // Отдельный проход для массивов ["a", "b"]
-  const tagsMatch = m[1].match(/^tags:\s*\[(.*?)\]/m);
-  if (tagsMatch) {
-    fm.tags = tagsMatch[1]
-      .split(",")
-      .map((s) => s.trim().replace(/^["']|["']$/g, ""))
-      .filter(Boolean);
-  }
-
-  // Отдельный проход для sources — список объектов:
-  //   sources:
-  //     - name: "Пресс-релиз ЦБ"
-  //       url: "https://..."
-  // Общий проход выше их не видит: строка начинается с «- », а его regexp
-  // ждёт «ключ:». Раньше fm.sources молча оставался пустым объектом.
-  const srcBlock = m[1].match(/^sources:\s*\n((?:[ \t]+.*\n?)*)/m);
-  if (srcBlock) {
-    const items = [];
-    let cur = null;
-    for (const line of srcBlock[1].split("\n")) {
-      const item = line.match(/^\s*-\s*([a-zA-Z][\w]*):\s*(.*)$/);
-      if (item) {
-        if (cur) items.push(cur);
-        cur = { [item[1]]: parseScalar(item[2].trim()) };
-        continue;
-      }
-      const kv = line.match(/^\s+([a-zA-Z][\w]*):\s*(.*)$/);
-      if (kv && cur) cur[kv[1]] = parseScalar(kv[2].trim());
-    }
-    if (cur) items.push(cur);
-    if (items.length) fm.sources = items;
-  }
-
-  return fm;
-}
-
-function parseScalar(v) {
-  if (v.startsWith('"') && v.endsWith('"')) return v.slice(1, -1);
-  if (v === "true") return true;
-  if (v === "false") return false;
-  if (v === "null") return null;
-  if (/^-?\d+(\.\d+)?$/.test(v)) return Number(v);
-  return v;
-}
-
-// Извлечь первый абзац после frontmatter — это лид.
-// Markdown-разметку ссылок снимаем, оставляя якорь: в Telegram «[текст](url)»
-// ушло бы в канал как есть.
-function extractLede(text) {
-  const body = text.replace(/^---[\s\S]*?---\n/, "").trim();
-  const firstBlank = body.indexOf("\n\n");
-  const lede = firstBlank === -1 ? body : body.slice(0, firstBlank);
-  return lede
-    .trim()
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
-    .replace(/\s*\n\s*/g, " ");
-}
+// parseFrontmatter, extractLede, decodeEntities, escapeHTML — из lib/frontmatter.mjs.
+// Единый парсер на базе `yaml` npm-пакета, полное соответствие YAML 1.2.
+// До этого здесь жил самодельный regex-парсер с частичной поддержкой
+// массивов объектов (sources) и без числовых entity — теперь всё в одном месте.
 
 // Слаг из пути: content/posts/2026-07-31/cb-rate-hike-15pct.mdx → cb-rate-hike-15pct
 function slugFromPath(p) {
@@ -158,32 +82,6 @@ function articleUrl(date, slug) {
   return `${SITE_URL.replace(/\/$/, "")}/article/${slug}`;
 }
 
-// Сущности, которые редакция пишет в MDX (неразрывный пробел в числах и т.д.).
-// Раскрываем до escapeHTML, иначе «1&nbsp;000» уедет в канал как «1&amp;nbsp;000».
-const ENTITIES = {
-  "&nbsp;": " ",
-  "&mdash;": "—",
-  "&ndash;": "–",
-  "&laquo;": "«",
-  "&raquo;": "»",
-  "&quot;": '"',
-  "&#39;": "'",
-  "&apos;": "'",
-};
-
-function decodeEntities(s) {
-  let out = s;
-  for (const [ent, ch] of Object.entries(ENTITIES)) out = out.split(ent).join(ch);
-  return out.split("&amp;").join("&");
-}
-
-// HTML для Telegram Bot API (parse_mode=HTML)
-function escapeHTML(s) {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-}
 
 // ─── Оформление поста ───
 //

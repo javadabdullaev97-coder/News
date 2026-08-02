@@ -32,4 +32,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           DATE_TASHKENT=$(TZ='Asia/Tashkent' date '+%d.%m.%Y %H:%M')
           git commit --allow-empty -m "chore: daily CBU rate refresh (${DATE_TASHKENT} Ташкента)"
-          git push origin main
+          bash .github/scripts/git-push-with-rebase.sh

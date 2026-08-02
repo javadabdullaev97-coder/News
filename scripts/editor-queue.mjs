@@ -46,8 +46,29 @@ const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const QUEUE_PATH = join(ROOT, "content/state/editor-queue.json");
 const REVIEW_DIR = join(ROOT, ".review");
 
-const { TELEGRAM_BOT_TOKEN, TELEGRAM_EDITOR_CHAT_ID, DRY_RUN } = process.env;
+const {
+  TELEGRAM_BOT_TOKEN,
+  TELEGRAM_EDITOR_CHAT_ID,
+  TELEGRAM_EDITOR_USER_IDS,
+  DRY_RUN,
+} = process.env;
 const dryRun = DRY_RUN === "1" || DRY_RUN === "true";
+
+// Whitelist отправителей. Без него бот принимает реплаи от кого угодно
+// в чате-очереди, включая присланное фото — и оно уходит в public/images/
+// и через минуту в прод. Whitelist задаётся comma-separated ID из
+// GitHub Secret TELEGRAM_EDITOR_USER_IDS (пусто = принимать всех, для
+// обратной совместимости, но с явным warning в логе).
+const EDITOR_USER_IDS = (TELEGRAM_EDITOR_USER_IDS || "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean)
+  .map(Number);
+
+function isAllowedSender(userId) {
+  if (!EDITOR_USER_IDS.length) return true; // пусто → всех пускаем
+  return EDITOR_USER_IDS.includes(userId);
+}
 
 const mode = process.argv[2];
 if (!["push", "collect", "remind"].includes(mode)) {
@@ -294,15 +315,51 @@ async function collect() {
   const offset = q.updateOffset || 0;
   const updates = await tg("getUpdates", { offset, timeout: 0, limit: 100 });
   let applied = 0;
+  let rejected = 0;
+
+  // ВАЖНО: offset двигаем только после УСПЕШНОГО applyAnswer.
+  // Прошлая версия двигала его в начале цикла — на исключении из applyAnswer
+  // (git-конфликт, пропавший файл статьи, python упал) offset уже сохранён,
+  // и следующий getUpdates этот реплай не увидит. Реплай редактора терялся молча.
+  //
+  // Теперь: для каждого update пытаемся применить; на успехе — двигаем
+  // offset конкретно этого update. На ошибке — offset этого update НЕ двигаем,
+  // и следующий cron попробует снова. Правда: если один битый update висит
+  // всегда, getUpdates будет каждый раз возвращать и его, и всё что за ним.
+  // Это лучше тихой потери — увидим повторяющуюся ошибку в логах и починим руками.
+
+  if (!EDITOR_USER_IDS.length) {
+    console.error(
+      "[queue] WARN: TELEGRAM_EDITOR_USER_IDS не задан, принимаем реплаи от кого угодно",
+    );
+  }
 
   for (const u of updates) {
-    if (u.update_id >= (q.updateOffset || 0)) q.updateOffset = u.update_id + 1;
     const msg = u.message;
     const replyTo = msg?.reply_to_message?.message_id;
-    if (!replyTo) continue;
+    if (!replyTo) {
+      // не reply-сообщение — просто пропускаем и подтверждаем прочтение
+      if (u.update_id >= (q.updateOffset || 0)) q.updateOffset = u.update_id + 1;
+      continue;
+    }
+
+    const senderId = msg.from?.id;
+    if (!isAllowedSender(senderId)) {
+      console.error(
+        `[queue] REJECT: реплай от userId=${senderId} не в whitelist (TELEGRAM_EDITOR_USER_IDS)`,
+      );
+      rejected++;
+      // Тоже двигаем offset — иначе битый реплай будет вечно висеть.
+      if (u.update_id >= (q.updateOffset || 0)) q.updateOffset = u.update_id + 1;
+      continue;
+    }
 
     const idx = q.pending.findIndex((x) => x.messageId === replyTo);
-    if (idx === -1) continue;
+    if (idx === -1) {
+      // reply на неизвестное сообщение — тоже двигаем offset, чтобы не крутилось
+      if (u.update_id >= (q.updateOffset || 0)) q.updateOffset = u.update_id + 1;
+      continue;
+    }
     const item = q.pending[idx];
 
     const answer = { at: new Date().toISOString() };
@@ -334,20 +391,34 @@ async function collect() {
       }
       console.error(`[queue] ${item.slug}: ответ «${answer.kind}»`);
     } else {
+      // ни фото, ни текст (например, стикер) — не наш случай, двигаем offset
+      if (u.update_id >= (q.updateOffset || 0)) q.updateOffset = u.update_id + 1;
       continue;
     }
 
     // Ответ получен — доводим материал до публикуемого состояния.
-    // Без этого шага статья так и осталась бы с awaitingEditor и никогда
-    // не вышла бы: очередь копила бы ответы, а материал стоял.
-    answer.applied = await applyAnswer(item, answer);
+    // На исключении не двигаем offset: следующий cron попробует снова.
+    try {
+      answer.applied = await applyAnswer(item, answer);
+    } catch (err) {
+      console.error(
+        `[queue] ${item.slug}: applyAnswer упал — offset НЕ двигаем, попробуем ещё раз: ${err.message}`,
+      );
+      // Персистим все успешные ранее апдейты, но НЕ трогаем offset этого.
+      saveQueue(q);
+      throw err;
+    }
 
     q.resolved.push({ ...item, answer });
     if (answer.kind !== "comment") q.pending.splice(idx, 1);
+    if (u.update_id >= (q.updateOffset || 0)) q.updateOffset = u.update_id + 1;
     applied++;
   }
 
   saveQueue(q);
+  if (rejected) {
+    console.error(`[queue] отклонено по whitelist: ${rejected}`);
+  }
   console.error(
     `[queue] обработано ответов: ${applied}, осталось в ожидании: ${q.pending.length}`,
   );
