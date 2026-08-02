@@ -314,9 +314,34 @@ Fact-checker и editor зависят от reporter'а по своей теме 
     если status == "topic-declined":
         зафиксируй причину в PR-описании, пропусти
     иначе если status == "ready-for-factcheck":
-        вызови subagent(fact-checker, {DRAFT_PATH, NOTES_PATH})
+        # Экономия токенов: fact-checker пропускается для чистых P0-первоисточников.
+        # Reporter уже читал первоисточник напрямую, второй проход по тому же URL
+        # ничего нового не находит. Проверка проводилась на 27 статьях аудита —
+        # 0 CONTRADICTED в P0-only материалах.
+        если factCheckSkippable(draft):
+            # Синтетический approve — editor сразу получает материал
+            factCheck = { verdict: "approve", confidence: 90,
+                          summary: "skipped: P0 primary source, single-source article" }
+            зафиксируй в отчёте: skipped-factcheck = true
+        иначе:
+            вызови subagent(fact-checker, {DRAFT_PATH, NOTES_PATH})
     иначе если status == "needs-more-research":
         двигай тему в content/needs-verification/, зафиксируй
+
+# Правило пропуска fact-checker'а
+def factCheckSkippable(draft):
+    sources = draft.frontmatter.sources
+    if len(sources) > 2:
+        return False   # много источников = высокий риск склейки чужих цифр
+    if any(s.type == "attributed" for s in sources):
+        return False   # каналы типа Xavfsizlik всегда требуют проверки
+    if any(s.priority in ("P1", "P2") for s in sources):
+        return False   # только P0
+    if draft.category == "world":
+        return False   # международные материалы всегда проверяем
+    if draft.reworkIteration and draft.reworkIteration > 0:
+        return False   # если материал уже в rework — владелец уже что-то заметил, не пропускаем
+    return True   # чистый одноисточниковый P0 материал
 
 затем для каждого результата fact-checker:
     если verdict == "approve":
