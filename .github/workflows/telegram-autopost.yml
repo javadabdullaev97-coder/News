@@ -34,6 +34,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "24"
+          cache: "npm"
+
+      # post-to-telegram.mjs импортирует lib/frontmatter.mjs, а тот — пакет
+      # `yaml`. Без установки зависимостей шаг падает на ERR_MODULE_NOT_FOUND
+      # ещё до первого поста, то есть автопост не работает вообще ни для одной
+      # статьи. Шаг скопирован с news-inbox.yml и policy-drift.yml, где он есть.
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund --no-save
 
       - name: Post new articles to Telegram
         env:
