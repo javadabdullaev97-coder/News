@@ -663,15 +663,20 @@ async function scanPending() {
       try {
         await push();
         pushed++;
-        // Убираем pendingEditorQuestion из frontmatter, иначе следующий scan
-        // отправит вопрос повторно (queue.pending уже содержит запись, поэтому
-        // alreadyInQueue его отфильтрует, но это дублирующая защита — если
-        // queue.json будет удалён/сломан, поле в файле не даст ошибке размножиться).
-        const cleaned = raw.replace(
-          /^pendingEditorQuestion:\n(?:  .*\n)+/m,
-          "",
-        );
-        writeFileSync(file, cleaned);
+        // В DRY_RUN не трогаем файлы — иначе dry-run молча уничтожает
+        // pendingEditorQuestion из проверяемых материалов (обнаружено
+        // на живом прогоне 03.08: dry-run стёр поле у 4 материалов).
+        if (!dryRun) {
+          // Убираем pendingEditorQuestion из frontmatter, иначе следующий scan
+          // отправит вопрос повторно (queue.pending уже содержит запись, поэтому
+          // alreadyInQueue его отфильтрует, но это дублирующая защита — если
+          // queue.json будет удалён/сломан, поле в файле не даст ошибке размножиться).
+          const cleaned = raw.replace(
+            /^pendingEditorQuestion:\n(?:  .*\n)+/m,
+            "",
+          );
+          writeFileSync(file, cleaned);
+        }
       } catch (err) {
         console.error(`[queue:scan] ${slug}: push упал — ${err.message}`);
       } finally {
