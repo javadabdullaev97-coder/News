@@ -251,6 +251,19 @@ for (const mdxPath of allMdx) {
     continue;
   }
 
+  // Не всё что на сайте — в TG. SEO-агент вычисляет tgScore и ставит broadcast.
+  // По умолчанию (если поле отсутствует) — считаем как broadcast:true, чтобы
+  // legacy-статьи без флага не потерялись. Через 1–2 недели можно переключить
+  // default на false и требовать явного включения.
+  const broadcast =
+    fm.broadcast === true ||
+    fm.broadcast === "true" ||
+    fm.broadcast === undefined; // legacy default
+  if (!broadcast) {
+    console.error(`[skip] ${rel}: broadcast:false (tgScore ${fm.tgScore ?? "?"}) — только сайт`);
+    continue;
+  }
+
   const date = dateFromPath(mdxPath);
   const slug = slugFromPath(mdxPath);
   const url = articleUrl(date, slug);
@@ -262,9 +275,16 @@ for (const mdxPath of allMdx) {
 
 console.error(`[tg] ${pending.length} new post(s) to publish`);
 
+// Интервал между постами. Раньше был 1,2 сек — при пачке из 10 постов лента
+// читалась как спам. По решению владельца — 15 минут в базовом режиме, чтобы
+// в TG-канал уходили только реально сильные материалы разнесённо во времени.
+// Если статей много — задержки суммируются, но подписчики видят разумный ритм.
+const MIN_GAP_MS = 15 * 60 * 1000;
+
 let ok = 0;
 let failed = 0;
-for (const p of pending) {
+for (let i = 0; i < pending.length; i++) {
+  const p = pending[i];
   try {
     const result = await postArticle(p.mdxPath, p.fm);
     if (!dryRun) {
@@ -272,7 +292,6 @@ for (const p of pending) {
         messageId: result.messageId,
         postedAt: new Date().toISOString(),
       };
-      // сохраняем после каждого поста — если упадём, не потеряем прогресс
       writeFileSync(
         STATE_PATH,
         JSON.stringify({ posted, updatedAt: new Date().toISOString() }, null, 2),
@@ -284,8 +303,15 @@ for (const p of pending) {
     failed++;
     console.error(`  ✗ ${p.rel}: ${err.message}`);
   }
-  // Не флудим — Telegram лимит 30 сообщений/сек, но для каналов рекомендуют 1/сек
-  if (pending.length > 1) await new Promise((r) => setTimeout(r, 1200));
+  // Между постами MIN_GAP_MS. Между запусками воркфлоу этот sleep не сохраняется —
+  // защита от залпов работает только внутри одного прогона post-to-telegram.mjs.
+  // Реальная защита от «5 постов за секунду» — в том, что теперь публикация из
+  // main идёт по одной статье за коммит, и триггер telegram-autopost срабатывает
+  // на каждый push отдельно (см. .github/workflows/telegram-autopost.yml).
+  if (i < pending.length - 1 && !dryRun) {
+    console.error(`[tg] жду ${MIN_GAP_MS / 60000} мин до следующего поста`);
+    await new Promise((r) => setTimeout(r, MIN_GAP_MS));
+  }
 }
 
 console.error(`[tg] posted ${ok}, failed ${failed}`);
