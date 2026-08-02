@@ -1,0 +1,1 @@
+{"_comment": "Кандидаты в config/telegram-channels.json. Reporter при чтении статей конкурентов замечает интересные TG-каналы (гос/крупные) и добавляет сюда одной JSONL-строкой. Владелец периодически смотрит и решает какие промотировать. Формат: {handle, spottedIn, spottedAt, spottedBy, context, sampleUrl, notes}. Файл append-only — не переписывай, только дописывай."}
