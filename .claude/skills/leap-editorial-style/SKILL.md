@@ -246,7 +246,7 @@ title: "Точный заголовок 60-90 симв"
 description: "Meta-description 140-160 симв, для SEO и превью в соцсетях"
 publishedAt: "2026-07-31T14:30:00+05:00"
 updatedAt: "2026-07-31T14:30:00+05:00"
-category: "economy"           # economy | politics | society | tech | culture | sport
+category: "economy"           # economy | business | politics | society | tech | culture | sport | world
 tags: ["ЦБ", "ставка", "инфляция"]
 authors: ["editor"]           # "editor" | "reporter" | "auto"
 sources:

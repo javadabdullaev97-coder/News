@@ -186,7 +186,7 @@ Gazeta.uz, Daryo.uz и Repost.uz**.
 | Узбекгидроэнерго | uzhydropower.uz | `@uzuzhydro` (10K) |
 | Узавтосаноат | uzavtosanoat.uz | `@uzavtosanoat_official` (30K) |
 | Узатом | uzatom.uz | `@uzatom_official` (8K) |
-| Узгидромет | meteo.uz | `@uzhydromet` (60K) |
+| Узгидромет | hydromet.uz | `@uzgydromet` (7,1K) — через `g`; `@uzhydromet` через `h` это сквоттер |
 
 ## Раздел 3 — Международные и региональные источники
 
