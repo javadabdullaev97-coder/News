@@ -624,14 +624,14 @@
     },
     {
       "id": "uzhydromet",
-      "handle": "@uzhydromet",
-      "url": "https://t.me/s/uzhydromet",
+      "handle": "@uzgydromet",
+      "url": "https://t.me/s/uzgydromet",
       "name": "Узгидромет",
       "type": "source",
       "priority": "P2",
-      "subscribers": 60000,
+      "subscribers": 7140,
       "publishRate": "3-5/day",
-      "notes": "Погода, штормовые предупреждения"
+      "notes": "Агентство гидрометеорологической службы при Национальном комитете РУз по экологии и изменению климата. Погода, штормовые предупреждения. ВНИМАНИЕ: рабочий хендл — @uzgydromet (через g), отображаемое имя канала «Hydromet.uz», verified-бейдж, содержание независимо дублирует @ecogovuz. Похожий @uzhydromet (через h), который стоял здесь раньше, — сквоттер: 11 подписчиков, без верификации, посты про торговлю юзернеймами. Сайты hydromet.uz и meteo.uz в проверках 02.08.2026 не отвечали (HTTP 500 и ECONNREFUSED), Telegram — единственный рабочий канал к первоисточнику."
     },
     {
       "id": "kunuzofficial",
