@@ -10,3 +10,11 @@ next-env.d.ts
 # (npm-хуки postinstall / predev / prebuild / prelint). В git не хранится,
 # чтобы не расходиться с исходными .mdx.
 lib/generated-posts.ts
+
+# Постраничный рендер PDF-актов lex.uz — техническая распечатка для чтения,
+# не редакционный артефакт
+.review/act425-pages/
+
+# Питоновский кеш скриптов — регенерируется на каждом прогоне
+scripts/__pycache__/
+__pycache__/
