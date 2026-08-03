@@ -19,6 +19,7 @@ import {
   ROOT as REPO_ROOT,
   hashLink,
   loadSeenHashes,
+  loadJournal,
   readInbox,
   selectFresh,
   dedupeByLink,
@@ -346,6 +347,137 @@ check("местный и мировой потоки не смешиваются
   });
   eq(readInbox(root, { at: NOON }).items.map((i) => i.link), ["local"], "местный");
   eq(readInbox(root, { world: true, at: NOON }).items.map((i) => i.link), ["world"], "мировой");
+});
+
+// ─── 11. Журнал тем и бронь ───
+// Блок появился вместе с параллельными планёрками. Проверено на модели двух
+// клонов: две планёрки, дописавшие по хешу в общий seen-topics.json, дают
+// конфликт при rebase, а git-push-with-rebase.sh на конфликте прерывается —
+// журнал проигравшего теряется молча, и его темы возвращаются как новые.
+
+function journalFixture(records, extra = {}) {
+  const files = { ...extra };
+  files[`content/state/seen/${TODAY}-testrun.jsonl`] =
+    records.map((r) => JSON.stringify(r)).join("\n") + "\n";
+  return fixture(files);
+}
+
+check("живая бронь блокирует тему для соседней планёрки", () => {
+  const link = "https://uza.uz/claimed";
+  const root = journalFixture([
+    {
+      h: hashLink(link),
+      s: "тема-в-работе",
+      st: "claimed",
+      at: new Date(NOON - 5 * 60000).toISOString(),
+      exp: new Date(NOON + 40 * 60000).toISOString(),
+    },
+  ]);
+  const j = loadJournal(root, NOON);
+  eq(j.claimed.size, 1, "живых броней");
+  const { fresh, stats } = selectFresh(
+    [{ link, fetchedAt: new Date(NOON - HOUR).toISOString() }],
+    { seen: j.blocked, claimed: j.claimed, at: NOON },
+  );
+  eq(fresh.length, 0, "отобрано");
+  eq(stats.claimedByOther, 1, "учтено как занятое соседом");
+});
+
+check("протухшая бронь возвращает тему в пул", () => {
+  // Прогон может умереть на середине. Вечная бронь похоронила бы тему
+  // навсегда, и это было бы неотличимо от «темы просто нет».
+  const link = "https://uza.uz/abandoned";
+  const root = journalFixture([
+    {
+      h: hashLink(link),
+      s: "брошенная",
+      st: "claimed",
+      at: new Date(NOON - 2 * HOUR).toISOString(),
+      exp: new Date(NOON - HOUR).toISOString(),
+    },
+  ]);
+  const j = loadJournal(root, NOON);
+  eq(j.claimed.size, 0, "живых броней");
+  const { fresh } = selectFresh(
+    [{ link, fetchedAt: new Date(NOON - 30 * 60000).toISOString() }],
+    { seen: j.blocked, claimed: j.claimed, at: NOON },
+  );
+  eq(fresh.length, 1, "тема вернулась в пул");
+});
+
+check("done блокирует навсегда, независимо от брони", () => {
+  const link = "https://uza.uz/published";
+  const root = journalFixture([
+    { h: hashLink(link), s: "вышла", st: "claimed", at: "2026-08-03T00:00:00Z", exp: "2026-08-03T00:45:00Z" },
+    { h: hashLink(link), s: "вышла", st: "done", at: "2026-08-03T00:20:00Z" },
+  ]);
+  const j = loadJournal(root, NOON);
+  eq(j.done.has(hashLink(link)), true, "в обработанных");
+  eq(j.claimed.size, 0, "бронь снята");
+});
+
+check("release возвращает тему до истечения брони", () => {
+  const link = "https://uza.uz/given-back";
+  const root = journalFixture([
+    { h: hashLink(link), s: "отдана", st: "claimed", at: "2026-08-03T00:00:00Z", exp: "2035-01-01T00:00:00Z" },
+    { h: hashLink(link), s: "отдана", st: "released", at: "2026-08-03T00:10:00Z" },
+  ]);
+  const j = loadJournal(root, NOON);
+  eq(j.claimed.size, 0, "живых броней");
+  eq(j.blocked.has(hashLink(link)), false, "тема свободна");
+});
+
+check("исторический seen-topics.json продолжает работать вместе с журналом", () => {
+  const oldLink = "https://uza.uz/legacy";
+  const newLink = "https://uza.uz/fresh";
+  const root = journalFixture(
+    [{ h: hashLink(newLink), s: "новая", st: "done", at: "2026-08-03T00:00:00Z" }],
+    { "content/state/seen-topics.json": JSON.stringify({ hashes: [hashLink(oldLink)] }) },
+  );
+  const j = loadJournal(root, NOON);
+  eq(j.done.has(hashLink(oldLink)), true, "старый хеш из seen-topics.json");
+  eq(j.done.has(hashLink(newLink)), true, "новый хеш из пофайлового журнала");
+  eq(j.legacyCount, 1, "счётчик исторических");
+});
+
+check("файлы разных прогонов объединяются, а не перетирают друг друга", () => {
+  // Ровно то, ради чего пофайловая схема и сделана: две планёрки пишут
+  // одновременно, и обе записи должны уцелеть.
+  const a = "https://uza.uz/by-a";
+  const b = "https://uza.uz/by-b";
+  const root = fixture({
+    [`content/state/seen/${TODAY}-A.jsonl`]:
+      JSON.stringify({ h: hashLink(a), s: "тема-A", st: "done", at: "2026-08-03T00:00:00Z" }) + "\n",
+    [`content/state/seen/${TODAY}-B.jsonl`]:
+      JSON.stringify({ h: hashLink(b), s: "тема-B", st: "done", at: "2026-08-03T00:01:00Z" }) + "\n",
+  });
+  const j = loadJournal(root, NOON);
+  eq(j.done.size, 2, "обе записи уцелели");
+});
+
+check("битая строка журнала не роняет чтение", () => {
+  const root = fixture({
+    [`content/state/seen/${TODAY}-x.jsonl`]:
+      JSON.stringify({ h: "sha256:ok", st: "done", at: "2026-08-03T00:00:00Z" }) +
+      "\n{ оборванная\n" +
+      JSON.stringify({ st: "done", at: "2026-08-03T00:00:00Z" }) + // без h
+      "\n",
+  });
+  const j = loadJournal(root, NOON);
+  eq(j.done.size, 1, "прочитано записей");
+  eq(j.badLines, 2, "битых строк");
+});
+
+check("бронь без срока не считается живой", () => {
+  // Запись без exp — либо старый формат, либо сбой писателя. Считать её
+  // вечной броней нельзя: одна такая строка выключила бы тему навсегда.
+  const link = "https://uza.uz/no-exp";
+  const root = journalFixture([
+    { h: hashLink(link), s: "без срока", st: "claimed", at: "2026-08-03T00:00:00Z" },
+  ]);
+  const j = loadJournal(root, NOON);
+  eq(j.claimed.size, 0, "живых броней");
+  eq(j.blocked.has(hashLink(link)), false, "тема свободна");
 });
 
 // ─── итог ───

@@ -34,7 +34,7 @@
 
 import {
   ROOT,
-  loadSeenHashes,
+  loadJournal,
   readInbox,
   selectFresh,
   tashkentDay,
@@ -107,12 +107,13 @@ function compact(item) {
   return out;
 }
 
-const seen = loadSeenHashes(ROOT);
+const journal = loadJournal(ROOT, at);
 
 function build(world) {
   const raw = readInbox(ROOT, { world, at });
   const sel = selectFresh(raw.items, {
-    seen: seen.hashes,
+    seen: journal.blocked,
+    claimed: journal.claimed,
     at,
     maxAgeHours: world ? maxAgeWorldHours : maxAgeHours,
   });
@@ -163,9 +164,13 @@ const expandSpec = opt("expand", null);
 const result = {
   tashkentDay: tashkentDay(at),
   generatedAt: new Date(at).toISOString(),
-  seenTopics: { count: seen.hashes.size, ok: seen.ok },
+  journal: {
+    done: journal.done.size,
+    claimedByOthers: journal.claimed.size,
+    ok: journal.ok,
+  },
 };
-if (!seen.ok) result.warning = seen.note;
+if (!journal.ok) result.warning = journal.note;
 
 if (both) {
   result.local = build(false);
@@ -226,7 +231,9 @@ for (const key of ["local", "world"]) {
   const s = part.stats;
   console.error(
     `[inbox-select:${key}] ${s.returned} кандидат(ов) из ${s.raw} сырых · ` +
-      `повторов ${s.duplicates} · уже обработано ${s.alreadySeen} · старше ${part.maxAgeHours}ч ${s.stale}` +
+      `повторов ${s.duplicates} · уже обработано ${s.alreadySeen}` +
+      (s.claimedByOther ? ` · занято соседом ${s.claimedByOther}` : "") +
+      ` · старше ${part.maxAgeHours}ч ${s.stale}` +
       (s.ageUnknown ? ` · без даты ${s.ageUnknown} (взяты)` : "") +
       (s.truncated ? ` · срезано потолком ${s.truncated}` : ""),
   );

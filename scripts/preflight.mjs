@@ -21,7 +21,7 @@
 
 import {
   ROOT,
-  loadSeenHashes,
+  loadJournal,
   readInbox,
   selectFresh,
   listRework,
@@ -32,11 +32,11 @@ import {
 const human = process.argv.includes("--human");
 const at = Date.now();
 
-const seen = loadSeenHashes(ROOT);
+const journal = loadJournal(ROOT, at);
 const local = readInbox(ROOT, { world: false, at });
 const world = readInbox(ROOT, { world: true, at });
-const localSel = selectFresh(local.items, { seen: seen.hashes, at });
-const worldSel = selectFresh(world.items, { seen: seen.hashes, at });
+const localSel = selectFresh(local.items, { seen: journal.blocked, claimed: journal.claimed, at });
+const worldSel = selectFresh(world.items, { seen: journal.blocked, claimed: journal.claimed, at });
 const rework = listRework(ROOT);
 const cards = listMaturedCards(ROOT, at);
 
@@ -50,7 +50,8 @@ if (cards.matured.length) reasons.push(`needs-verification: ${cards.matured.leng
 if (localSel.stats.fresh) reasons.push(`inbox: ${localSel.stats.fresh} новых item(ов)`);
 
 const warnings = [];
-if (!seen.ok) warnings.push(seen.note);
+if (!journal.ok) warnings.push(journal.note);
+if (journal.badLines) warnings.push(`журнал: ${journal.badLines} битых строк пропущено`);
 if (local.badLines) warnings.push(`inbox: ${local.badLines} битых строк пропущено`);
 if (world.badLines) warnings.push(`world-inbox: ${world.badLines} битых строк пропущено`);
 if (!local.files.length) warnings.push("инбокса за сегодня и вчера нет — фетчер молчит?");
@@ -77,7 +78,12 @@ const report = {
       ? Math.min(...cards.waiting.map((c) => c.inHours))
       : null,
   },
-  seenTopics: { count: seen.hashes.size, ok: seen.ok },
+  journal: {
+    done: journal.done.size,
+    claimedByOthers: journal.claimed.size,
+    runFiles: journal.files.length,
+    ok: journal.ok,
+  },
   warnings,
 };
 
@@ -89,7 +95,8 @@ if (human) {
     `[preflight] ${report.hasWork ? "РАБОТА ЕСТЬ" : "работы нет"} · ` +
       `inbox ${l.fresh} новых из ${l.raw} (дублей ${l.duplicates}, виденных ${l.alreadySeen}, старых ${l.stale}) · ` +
       `world ${report.world.fresh} новых из ${report.world.raw} · ` +
-      `rework ${rework.length} · карточек созрело ${cards.matured.length}, ждёт ${cards.waiting.length}`,
+      `rework ${rework.length} · карточек созрело ${cards.matured.length}, ждёт ${cards.waiting.length}` +
+      (journal.claimed.size ? ` · занято соседом ${journal.claimed.size} ссыл.` : ""),
   );
   for (const w of warnings) console.error(`[preflight] WARN: ${w}`);
 }
