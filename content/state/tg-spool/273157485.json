@@ -1,0 +1,54 @@
+{
+  "message": {
+    "chat": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "last_name": "Abdullaev",
+      "type": "private",
+      "username": "javad_abdullaev"
+    },
+    "date": 1785743632,
+    "from": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "is_bot": false,
+      "is_premium": true,
+      "language_code": "en",
+      "last_name": "Abdullaev",
+      "username": "javad_abdullaev"
+    },
+    "message_id": 66,
+    "reply_to_message": {
+      "chat": {
+        "first_name": "Javad",
+        "id": 1104500,
+        "last_name": "Abdullaev",
+        "type": "private",
+        "username": "javad_abdullaev"
+      },
+      "date": 1785743613,
+      "entities": [
+        {
+          "length": 11,
+          "offset": 0,
+          "type": "bold"
+        },
+        {
+          "length": 62,
+          "offset": 13,
+          "type": "bold"
+        }
+      ],
+      "from": {
+        "first_name": "LEAP News - ADMIN",
+        "id": 8652303606,
+        "is_bot": true,
+        "username": "leap_news_bot"
+      },
+      "message_id": 64,
+      "text": "Напоминание\n\nКабмин утвердил правила охраны школ и вузов: вход по биометрии\n\nЖдёт вашего решения 2 ч. Материал не публикуется, пока не ответите."
+    },
+    "text": "Ок"
+  },
+  "update_id": 273157485
+}
