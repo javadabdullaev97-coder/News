@@ -71,13 +71,15 @@ function isAllowedSender(userId) {
 }
 
 const mode = process.argv[2];
-if (!["push", "collect", "remind", "scan-pending", "apply-update"].includes(mode)) {
-  console.error("Использование: editor-queue.mjs push|collect|remind|scan-pending|apply-update [опции]");
+if (!["push", "collect", "remind", "scan-pending", "apply-update", "spool-update"].includes(mode)) {
+  console.error("Использование: editor-queue.mjs push|collect|remind|scan-pending|apply-update|spool-update");
   console.error("  push --slug=<slug> --reason=<код> --question=<текст> [--image=<путь>]");
   console.error("  collect        — забрать ответы владельца");
   console.error("  remind         — напомнить о зависших без ответа");
-  console.error("  apply-update   — применить обновление из вебхука (TELEGRAM_UPDATE_JSON)");
-  console.error("                   и разобрать накопившийся спул content/state/tg-spool/");
+  console.error("  spool-update   — положить обновление из вебхука (TELEGRAM_UPDATE_JSON)");
+  console.error("                   в content/state/tg-spool/, НЕ применяя. Коммитится отдельно,");
+  console.error("                   чтобы пережить отмену или падение джоба.");
+  console.error("  apply-update   — разобрать накопившийся спул и применить ответы");
   console.error("  scan-pending   — найти материалы в content/needs-verification/ с");
   console.error("                   pendingEditorQuestion во frontmatter и запушить их");
   console.error("                   в TG. Нужен для Planyorka: она не имеет доступа");
@@ -868,21 +870,36 @@ async function scanPending() {
 // по крону) возьмёт его снова.
 const SPOOL_DIR = join(ROOT, "content/state/tg-spool");
 
+// spool-update — ТОЛЬКО положить обновление в спул, ничего не применяя.
+//
+// Вынесено в отдельный шаг, чтобы между «получили» и «применили» встал
+// коммит. Раньше и запись, и применение шли одним шагом, а коммит был
+// в конце джоба: если джоб падал или его отменяли на любом этапе, файл
+// спула исчезал вместе с рабочим каталогом — ровно та потеря, от которой
+// спул и заводился.
+//
+// Имя файла — update_id, оно уникально. Два параллельных запуска пишут
+// разные файлы и при rebase не конфликтуют никогда.
+function spoolUpdate() {
+  const raw = process.env.TELEGRAM_UPDATE_JSON;
+  if (!raw) {
+    console.error("[queue] TELEGRAM_UPDATE_JSON пуст — класть в спул нечего");
+    return;
+  }
+  mkdirSync(SPOOL_DIR, { recursive: true });
+  try {
+    const parsed = JSON.parse(raw);
+    const update = parsed.update ?? parsed;
+    const id = update?.update_id ?? `noid-${Date.now()}`;
+    writeFileSync(join(SPOOL_DIR, `${id}.json`), JSON.stringify(update, null, 2) + "\n");
+    console.error(`[queue] обновление ${id} положено в спул`);
+  } catch (err) {
+    console.error(`[queue] TELEGRAM_UPDATE_JSON не разбирается: ${err.message}`);
+  }
+}
+
 async function applyUpdate() {
   mkdirSync(SPOOL_DIR, { recursive: true });
-
-  const raw = process.env.TELEGRAM_UPDATE_JSON;
-  if (raw) {
-    try {
-      const parsed = JSON.parse(raw);
-      const update = parsed.update ?? parsed;
-      const id = update?.update_id ?? `noid-${Date.now()}`;
-      writeFileSync(join(SPOOL_DIR, `${id}.json`), JSON.stringify(update, null, 2) + "\n");
-      console.error(`[queue] обновление ${id} положено в спул`);
-    } catch (err) {
-      console.error(`[queue] TELEGRAM_UPDATE_JSON не разбирается: ${err.message}`);
-    }
-  }
 
   const files = existsSync(SPOOL_DIR)
     ? readdirSync(SPOOL_DIR).filter((n) => n.endsWith(".json")).sort()
@@ -925,4 +942,6 @@ await (mode === "push"
       ? scanPending()
       : mode === "apply-update"
         ? applyUpdate()
-        : remind());
+        : mode === "spool-update"
+          ? spoolUpdate()
+          : remind());

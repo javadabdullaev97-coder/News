@@ -47,7 +47,29 @@ permissions:
   contents: write
 
 concurrency:
-  group: editor-queue
+  # Своя группа на каждое обновление из вебхука — иначе GitHub их отменяет.
+  #
+  # Проверено на живом прогоне 03.08.2026: Telegram дослал разом семь
+  # накопившихся сообщений, GitHub создал семь запусков за две секунды —
+  # и ПЯТЬ ИЗ НИХ ОТМЕНИЛ. При общей группе он держит в очереди только
+  # самый свежий ожидающий запуск, а остальные ожидающие снимает. Каждый
+  # отменённый запуск уносил с собой своё обновление: Telegram его уже
+  # доставил и повторять не станет.
+  #
+  # Внешне это выглядело безобидно — «дубли отсеклись». На деле терялись
+  # разные ответы владельца, просто пришедшие подряд. Ровно тот сценарий,
+  # который случается после каждого перерыва в работе.
+  #
+  # Теперь у каждого update_id своя группа: разные ответы идут параллельно,
+  # а повторная доставка одного и того же обновления по-прежнему схлопывается.
+  # Для остальных событий (крон, пуш, ручной запуск) группа общая — там
+  # параллелить нечего.
+  group: >-
+    editor-queue-${{
+      github.event_name == 'repository_dispatch'
+        && github.event.client_payload.update.update_id
+        || 'shared'
+    }}
   cancel-in-progress: false
 
 jobs:
@@ -89,19 +111,39 @@ jobs:
           TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
         run: node scripts/editor-queue.mjs scan-pending
 
-      # Вебхучный путь. Обновление приходит в payload события и СНАЧАЛА
-      # ложится файлом в content/state/tg-spool/, и только потом
-      # применяется: воркер отвечает Telegram «доставлено» в момент, когда
-      # GitHub принял dispatch, задолго до применения. Упади этот запуск —
-      # Telegram повторять уже не станет, и ответ пропал бы молча. Спул
-      # держит его до следующей попытки.
-      - name: Apply webhook update
+      # ШАГ 1 из двух: положить обновление в спул и СРАЗУ закоммитить.
+      #
+      # Между «получили ответ» и «применили ответ» обязан стоять коммит.
+      # Воркер отвечает Telegram «доставлено» в момент, когда GitHub принял
+      # dispatch, — то есть задолго до применения. Если джоб после этого
+      # упадёт или его отменят, Telegram повторять не станет: для него всё
+      # доставлено. Отдельный ранний коммит делает ответ переживающим
+      # любой последующий отказ.
+      #
+      # Имя файла — update_id, оно уникально, поэтому параллельные запуски
+      # при rebase не конфликтуют.
+      - name: Spool webhook update
+        if: github.event_name == 'repository_dispatch'
+        env:
+          TELEGRAM_UPDATE_JSON: ${{ toJSON(github.event.client_payload) }}
+        run: |
+          node scripts/editor-queue.mjs spool-update
+          if [[ -n $(git status --porcelain -- content/state/tg-spool/) ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add content/state/tg-spool/
+            git commit -m "queue: ответ владельца принят в спул"
+            bash .github/scripts/git-push-with-rebase.sh
+          fi
+
+      # ШАГ 2: разобрать спул целиком — и своё обновление, и всё, что
+      # осталось от прошлых неудачных попыток.
+      - name: Apply spooled updates
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
           TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
           TELEGRAM_EDITOR_USER_IDS: ${{ secrets.TELEGRAM_EDITOR_USER_IDS }}
-          TELEGRAM_UPDATE_JSON: ${{ toJSON(github.event.client_payload) }}
         run: node scripts/editor-queue.mjs apply-update
 
       - name: Collect replies from Telegram
