@@ -6,7 +6,8 @@
       "reason": "policy-edge",
       "question": "Проверила канал @tashkentpressuz по твоей просьбе — хендл не резолвится в публичный канал (заглушка Telegram, не лента постов). Настоящий официальный канал хокимията Ташкента — это @poytaxt_uz, он уже указан первым источником в статье; апдейтов там с прошлой проверки не появилось (ни имени пострадавшего, ни причины происшествия, ни итогов проверки). Публиковать как есть, с текущими источниками (Poytaxt.uz + прокуратура Ташкента), или ждать ещё?",
       "messageId": 37,
-      "askedAt": "2026-08-03T05:44:13.014Z"
+      "askedAt": "2026-08-03T05:44:13.014Z",
+      "remindedAt": "2026-08-03T07:53:33.193Z"
     },
     {
       "slug": "school-security-requirements-425",
@@ -14,7 +15,8 @@
       "reason": "no-image",
       "question": "Подобрал стоковое фото биометрии для статьи про постановление №425 — подходит?",
       "messageId": 38,
-      "askedAt": "2026-08-03T05:44:13.990Z"
+      "askedAt": "2026-08-03T05:44:13.990Z",
+      "remindedAt": "2026-08-03T07:53:33.879Z"
     },
     {
       "slug": "heating-tariff-social-norm-clarification",
@@ -22,7 +24,8 @@
       "reason": "low-confidence",
       "question": "Fact-checker вернул needs-fix (confidence 55): overclaim «опроверг» в заголовке/лиде и неверная цитата первоисточника (CONTRADICTED). Editor поправил формулировки на точные («не подтвердил», «назвал односторонней») без нового research — правки точечные, ни один из трёх editor-ограничений не сработал (подробности в .review/editor-verdict-heating-tariff-social-norm-clarification.md). Повторный fact-check не проводился, поэтому вердикт формально остаётся needs-fix и directPublish.gates.factCheckVerdict (требует approve) не проходит ни при каком confidence. Опубликовать текст как есть (ответ «ок») или отправить на повторный fact-check?",
       "messageId": 40,
-      "askedAt": "2026-08-03T05:46:47.059Z"
+      "askedAt": "2026-08-03T05:46:47.059Z",
+      "remindedAt": "2026-08-03T07:53:34.218Z"
     }
   ],
   "resolved": [
