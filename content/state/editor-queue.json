@@ -23,6 +23,14 @@
       "question": "Подобрал стоковое фото биометрии для статьи про постановление №425 — подходит?",
       "messageId": 38,
       "askedAt": "2026-08-03T05:44:13.990Z"
+    },
+    {
+      "slug": "heating-tariff-social-norm-clarification",
+      "title": "Институт при Минэкономфине не подтвердил рост тарифов на отопление в пять раз",
+      "reason": "low-confidence",
+      "question": "Fact-checker вернул needs-fix (confidence 55): overclaim «опроверг» в заголовке/лиде и неверная цитата первоисточника (CONTRADICTED). Editor поправил формулировки на точные («не подтвердил», «назвал односторонней») без нового research — правки точечные, ни один из трёх editor-ограничений не сработал (подробности в .review/editor-verdict-heating-tariff-social-norm-clarification.md). Повторный fact-check не проводился, поэтому вердикт формально остаётся needs-fix и directPublish.gates.factCheckVerdict (требует approve) не проходит ни при каком confidence. Опубликовать текст как есть (ответ «ок») или отправить на повторный fact-check?",
+      "messageId": 40,
+      "askedAt": "2026-08-03T05:46:47.059Z"
     }
   ],
   "resolved": [
