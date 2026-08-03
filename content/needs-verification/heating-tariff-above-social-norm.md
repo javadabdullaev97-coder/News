@@ -1,7 +1,7 @@
 ---
 recheckAt: null
-status: draft-ready-for-factcheck
-resolvedDraftPath: "content/posts/2026-08-03/heating-tariff-social-norm-clarification.mdx"
+status: superseded
+resolvedDraftPath: "content/needs-verification/heating-tariff-social-norm-clarification.mdx"
 ---
 
 # Предложение брать базовый тариф за отопление сверх социальной нормы
