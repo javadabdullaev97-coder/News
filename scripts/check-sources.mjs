@@ -116,15 +116,39 @@ const results = await pool(config.rss, check, CONCURRENCY);
 // Полный разбор (заголовки, дедуп, потолки) — забота самого скрейпера;
 // здесь важен один вопрос, ломающийся первым: находит ли шаблон хоть что-то.
 async function checkScrape(rule) {
-  const base = { id: rule.id, name: rule.name, url: rule.listUrl, kind: "scrape" };
+  const base = {
+    id: rule.id,
+    name: rule.name,
+    url: rule.apiUrl || rule.listUrl,
+    kind: rule.apiUrl ? "api" : "scrape",
+  };
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
   try {
-    const res = await fetch(rule.listUrl, {
+    const res = await fetch(rule.apiUrl || rule.listUrl, {
       redirect: "follow",
       signal: ctrl.signal,
       headers: { "User-Agent": UA, "Accept-Language": "ru-RU,ru;q=0.9,en;q=0.8" },
     });
+
+    // Источник с JSON-API проверяется по своим правилам: считаем записи
+    // в массиве, а не ссылки в разметке. Без этой ветки проверка падала
+    // на отсутствующем listUrl и каждый день докладывала о поломке живого
+    // источника — ровно та ложная тревога, из-за которой перестают
+    // смотреть на отчёт вообще.
+    if (rule.apiUrl) {
+      let data;
+      try {
+        data = JSON.parse(await res.text());
+      } catch {
+        return { ...base, status: res.status, items: 0, healthy: false, error: "ответ не JSON" };
+      }
+      let arr = data;
+      for (const key of (rule.itemsPath ?? "").split(".").filter(Boolean)) arr = arr?.[key];
+      const n = Array.isArray(arr) ? arr.length : 0;
+      return { ...base, status: res.status, items: n, healthy: res.ok && n > 0 };
+    }
+
     const html = await res.text();
     const origin = new URL(rule.listUrl).origin;
     const linkRe = new RegExp(rule.linkPattern);
@@ -166,13 +190,17 @@ if (asJson) {
   );
   if (scrapeResults.length) {
     console.log(
-      `Сайтов без RSS (скрейп) ${scrapeResults.length} · сломано ${scrapeBroken.length}`,
+      `Источников без RSS ${scrapeResults.length} · сломано ${scrapeBroken.length}`,
     );
     for (const r of scrapeResults) {
       const mark = r.healthy ? "  ok  " : "  ✗   ";
       console.log(
         `${mark}${r.id.padEnd(16)} ${String(r.status).padEnd(8)} ссылок по шаблону: ${r.items}` +
-          (r.healthy ? "" : "  ← шаблон адреса перестал находить статьи"),
+          (r.healthy
+            ? ""
+            : r.kind === "api"
+              ? "  ← API отвечает, но записей нет: проверь itemsPath"
+              : "  ← шаблон адреса перестал находить статьи"),
       );
     }
   }

@@ -201,7 +201,83 @@ function stripListingMeta(s) {
   return m ? s.slice(0, m.index).trim() : s;
 }
 
+/**
+ * Источник с открытым JSON-API.
+ *
+ * Отдельная ветка, а не разбор HTML, потому что так надёжнее во всём:
+ * сайт отдаёт заголовок, дату и слаг готовыми полями, и они не зависят
+ * ни от вёрстки, ни от классов, ни от того, где на карточке лежит время.
+ * Разбирать HTML там, где есть API, — значит выбирать более хрупкий путь
+ * из двух доступных.
+ *
+ * Так устроен ifs.imv.uz: список новостей на странице рисуется скриптом,
+ * в разметке ссылок нет вообще, и HTML-скрейпер нашёл бы ноль. Зато
+ * /api/v1/news отдаёт двадцать записей с title_ru и published_date.
+ */
+async function fetchJsonApi(rule) {
+  let data;
+  try {
+    data = JSON.parse(await getText(rule.apiUrl));
+  } catch (err) {
+    return { rule, ok: false, error: err.message, items: [] };
+  }
+
+  // itemsPath — путь до массива внутри ответа, точками: "items", "data.list".
+  let arr = data;
+  for (const key of (rule.itemsPath ?? "").split(".").filter(Boolean)) {
+    arr = arr?.[key];
+  }
+  if (!Array.isArray(arr)) {
+    return { rule, ok: true, found: 0, freshCount: 0, items: [] };
+  }
+
+  const f = rule.fields ?? {};
+  const candidates = [];
+  for (const raw of arr) {
+    const slug = raw?.[f.slug ?? "slug"];
+    const title = clean(raw?.[f.title ?? "title"]);
+    if (!slug || title.length < (rule.minTitleLength ?? 20)) continue;
+    const link = rule.linkTemplate.replace("{slug}", slug);
+
+    // Дата у API есть — значит и отсечка по возрасту возможна, в отличие
+    // от HTML-списков, где её приходится брать из адреса или не брать вовсе.
+    const dateRaw = f.date ? raw?.[f.date] : null;
+    const ts = dateRaw ? Date.parse(dateRaw) : NaN;
+    if (Number.isFinite(ts) && rule.maxAgeDays) {
+      if ((Date.now() - ts) / 86400000 > rule.maxAgeDays) continue;
+    }
+    candidates.push({
+      link,
+      title,
+      snippet: clean(f.snippet ? raw?.[f.snippet] : "").slice(0, SNIPPET_MAX),
+      pubDate: Number.isFinite(ts) ? new Date(ts).toISOString() : null,
+    });
+  }
+
+  const fresh = dryRun ? candidates : candidates.filter((c) => !seen.has(c.link));
+  const capped = seedMode ? fresh : fresh.slice(0, rule.maxPerRun ?? 25);
+  return {
+    rule,
+    ok: true,
+    found: candidates.length,
+    freshCount: fresh.length,
+    items: capped.map((c) => ({
+      sourceId: rule.id,
+      sourceName: rule.name,
+      sourceType: rule.type,
+      sourcePriority: rule.priority,
+      sourceKind: "api",
+      title: c.title,
+      link: c.link,
+      pubDate: c.pubDate,
+      snippet: c.snippet,
+      fetchedAt: new Date().toISOString(),
+    })),
+  };
+}
+
 async function scrapeOne(rule) {
+  if (rule.apiUrl) return fetchJsonApi(rule);
   const origin = new URL(rule.listUrl).origin;
   let html;
   try {
@@ -317,11 +393,13 @@ for (const r of results) {
     continue;
   }
   if (r.found === 0) {
-    // Не «сегодня новостей нет», а сломанный шаблон: у живого новостного
-    // сайта на главной всегда есть ссылки на статьи.
+    // Не «сегодня новостей нет», а сломанное правило: у живого источника
+    // на странице списка всегда есть материалы.
     console.error(
-      `  ✗ ${r.rule.id.padEnd(16)} НОЛЬ ССЫЛОК по шаблону ${r.rule.linkPattern} — ` +
-        "похоже, сайт сменил структуру адресов, шаблон надо чинить",
+      `  ✗ ${r.rule.id.padEnd(16)} НИ ОДНОЙ ЗАПИСИ — ` +
+        (r.rule.apiUrl
+          ? `API ${r.rule.apiUrl} ответил, но нужных полей нет: проверь itemsPath и fields`
+          : `шаблон ${r.rule.linkPattern} ничего не нашёл: похоже, сайт сменил структуру адресов`),
     );
     broken++;
     continue;
