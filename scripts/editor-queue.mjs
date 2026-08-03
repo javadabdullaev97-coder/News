@@ -71,11 +71,13 @@ function isAllowedSender(userId) {
 }
 
 const mode = process.argv[2];
-if (!["push", "collect", "remind", "scan-pending"].includes(mode)) {
-  console.error("Использование: editor-queue.mjs push|collect|remind|scan-pending [опции]");
+if (!["push", "collect", "remind", "scan-pending", "apply-update"].includes(mode)) {
+  console.error("Использование: editor-queue.mjs push|collect|remind|scan-pending|apply-update [опции]");
   console.error("  push --slug=<slug> --reason=<код> --question=<текст> [--image=<путь>]");
   console.error("  collect        — забрать ответы владельца");
   console.error("  remind         — напомнить о зависших без ответа");
+  console.error("  apply-update   — применить обновление из вебхука (TELEGRAM_UPDATE_JSON)");
+  console.error("                   и разобрать накопившийся спул content/state/tg-spool/");
   console.error("  scan-pending   — найти материалы в content/needs-verification/ с");
   console.error("                   pendingEditorQuestion во frontmatter и запушить их");
   console.error("                   в TG. Нужен для Planyorka: она не имеет доступа");
@@ -277,6 +279,54 @@ function dropFrontmatterField(text, key) {
   return text.replace(new RegExp(`^${key}:.*\\n`, "m"), "");
 }
 
+// Отзыв уже вышедшего материала.
+//
+// Это опора всего ночного автомата. Ночью цена молчания выше цены ошибки:
+// про отключение воды с утра лучше выпустить сухую заметку по сообщению
+// ведомства, чем разбудить владельца и ждать. Но такое право конвейеру можно
+// давать только вместе с возможностью отменить — иначе это не «публикуем
+// быстро», а «публикуем без тормозов».
+//
+// Поэтому уведомление о ночной публикации приходит владельцу не как вопрос
+// «можно?», а как факт «вышло» — с возможностью ответить «стоп». Ответ
+// снимает материал с сайта И удаляет пост из канала.
+//
+// Ограничение, о котором надо знать: Telegram разрешает боту удалять свои
+// сообщения только 48 часов. Позже пост из канала уже не убрать — останется
+// снятие с сайта, а в канале при необходимости придётся давать уточнение
+// отдельным сообщением. Об этом сказано в тексте уведомления, чтобы
+// ограничение не выяснялось в момент, когда оно мешает.
+async function revokeFromChannel(slug, articleUrl) {
+  const statePath = join(ROOT, "content/state/telegram-posted.json");
+  if (!existsSync(statePath)) return "нет состояния telegram-posted";
+  let state;
+  try {
+    state = JSON.parse(readFileSync(statePath, "utf8"));
+  } catch {
+    return "telegram-posted не читается";
+  }
+  const posted = state.posted || {};
+  const entry = posted[articleUrl];
+  if (!entry?.messageId) return "в канал не отправлялся";
+
+  const channel = process.env.TELEGRAM_CHANNEL;
+  if (!channel) return "TELEGRAM_CHANNEL не задан — из канала не удалить";
+
+  try {
+    await tg("deleteMessage", { chat_id: channel, message_id: entry.messageId });
+  } catch (err) {
+    // Чаще всего это «message can't be deleted» — прошло больше 48 часов.
+    // Не бросаем: снятие с сайта важнее и должно произойти в любом случае.
+    return `из канала удалить не удалось (${err.message})`;
+  }
+  posted[articleUrl] = { ...entry, revokedAt: new Date().toISOString() };
+  writeFileSync(
+    statePath,
+    JSON.stringify({ ...state, posted, updatedAt: new Date().toISOString() }, null, 2) + "\n",
+  );
+  return "удалён из канала";
+}
+
 async function applyAnswer(item, answer) {
   const file = findArticle(item.slug);
   if (!file) {
@@ -284,6 +334,30 @@ async function applyAnswer(item, answer) {
     return "article-not-found";
   }
   let text = readFileSync(file, "utf8");
+
+  // Материал уже опубликован, а владелец говорит «стоп» — это отзыв, а не
+  // отклонение черновика. Разница принципиальная: черновик просто не выходит,
+  // а вышедший надо ещё и убрать оттуда, куда он успел попасть.
+  if (item.kind === "revocable" && answer.kind === "reject") {
+    const slugName = item.slug;
+    const url = `https://leap.uz/article/${slugName}`;
+    const channelResult = await revokeFromChannel(slugName, url);
+
+    mkdirSync(join(ROOT, "content/rejected"), { recursive: true });
+    writeFileSync(join(ROOT, "content/rejected", `${slugName}.md`), text);
+    unlinkSync(file);
+    console.error(
+      `[queue] ${slugName}: ОТОЗВАН владельцем — снят с сайта, ${channelResult}`,
+    );
+    return `revoked (${channelResult})`;
+  }
+
+  // «Ок» и любой другой ответ на уже вышедший материал ничего не меняют:
+  // он и так на сайте. Молча закрываем — переспрашивать не о чем.
+  if (item.kind === "revocable" && answer.kind === "approve") {
+    console.error(`[queue] ${item.slug}: подтверждён владельцем, остаётся как есть`);
+    return "confirmed";
+  }
 
   if (answer.kind === "photo") {
     // Прогоняем присланное фото через тот же конвейер, что и любой исходник:
@@ -390,15 +464,37 @@ async function applyAnswer(item, answer) {
   return "unknown-answer";
 }
 
-async function collect() {
+// injectedUpdates — обновления, пришедшие вебхуком через repository_dispatch.
+// Когда они переданы, Telegram не опрашиваем: при установленном вебхуке
+// getUpdates отвечает 409 Conflict, это несовместимые режимы.
+//
+// update_id у вебхучных обновлений настоящий, поэтому offset двигается так же,
+// как при опросе, — и остаётся верным, если вебхук когда-нибудь снимут.
+async function collect(injectedUpdates = null) {
   const q = loadQueue();
   if (!q.pending.length) {
     console.error("[queue] очередь пуста");
     return;
   }
 
-  const offset = q.updateOffset || 0;
-  const updates = await tg("getUpdates", { offset, timeout: 0, limit: 100 });
+  let updates;
+  if (injectedUpdates) {
+    updates = injectedUpdates;
+  } else {
+    const offset = q.updateOffset || 0;
+    try {
+      updates = await tg("getUpdates", { offset, timeout: 0, limit: 100 });
+    } catch (err) {
+      if (/conflict|webhook/i.test(err.message)) {
+        // Штатная ситуация после включения вебхука: ответы приходят
+        // мгновенно через него, а этот вызов остаётся только страховкой
+        // и здесь ему делать нечего. Не ошибка.
+        console.error("[queue] вебхук активен — опрос пропущен, ответы идут через него");
+        return;
+      }
+      throw err;
+    }
+  }
   let applied = 0;
   let rejected = 0;
 
@@ -632,6 +728,58 @@ async function scanPending() {
       const raw = readFileSync(file, "utf8");
       const fm = parseFrontmatter(raw);
 
+      // Уведомление о материале, который УЖЕ вышел без подтверждения
+      // (ночная полоса ЧП). Это не вопрос, а факт с правом отзыва, поэтому
+      // проверяется раньше awaitingEditor: такой материал по определению
+      // не заблокирован, иначе он бы не вышел.
+      const notice = fm.publishedNotice;
+      if (notice && typeof notice === "object") {
+        const title = fm.title || slug;
+        const lines = [
+          "<b>ВЫШЛО БЕЗ ПОДТВЕРЖДЕНИЯ</b>",
+          "",
+          `<b>${title}</b>`,
+          "",
+          notice.why ? String(notice.why) : "Материал прошёл полосу срочных публикаций.",
+          "",
+          `Источник: ${notice.source ?? "—"}`,
+          `На сайте: https://leap.uz/article/${slug}`,
+          "",
+          "<i>Отвечать не нужно, материал уже опубликован. Если он не должен был "
+            + "выйти — ответьте «стоп» реплаем: сниму с сайта и удалю пост из канала. "
+            + "Удаление из канала работает 48 часов, дальше только снятие с сайта.</i>",
+        ];
+        if (dryRun) {
+          console.log("=".repeat(60));
+          console.log(lines.join("\n").replace(/<[^>]+>/g, ""));
+          continue;
+        }
+        try {
+          const msg = await tg("sendMessage", {
+            chat_id: TELEGRAM_EDITOR_CHAT_ID,
+            text: lines.join("\n"),
+            parse_mode: "HTML",
+            disable_web_page_preview: true,
+          });
+          q.pending.push({
+            slug,
+            title,
+            kind: "revocable",
+            reason: notice.reason ?? "night-auto",
+            messageId: msg.message_id,
+            askedAt: new Date().toISOString(),
+          });
+          saveQueue(q);
+          alreadyInQueue.add(slug);
+          // Снимаем метку — уведомление отправлено, повторять не нужно.
+          writeFileSync(file, raw.replace(/^publishedNotice:\n(?:  .*\n)+/m, ""));
+          pushed++;
+        } catch (err) {
+          console.error(`[queue:scan] ${slug}: уведомление не ушло — ${err.message}`);
+        }
+        continue;
+      }
+
       // Не наш случай: не ждёт редактора
       if (!(fm.awaitingEditor === true || fm.awaitingEditor === "true")) {
         continue;
@@ -704,10 +852,77 @@ async function scanPending() {
   );
 }
 
+// apply-update — вход для вебхука. Вызывается workflow'ом по
+// repository_dispatch, обновление приходит в TELEGRAM_UPDATE_JSON.
+//
+// ПОЧЕМУ ЧЕРЕЗ ФАЙЛОВЫЙ СПУЛ, А НЕ НАПРЯМУЮ. Воркер отвечает Telegram «ок»
+// в момент, когда GitHub принял dispatch, — то есть задолго до того, как
+// ответ владельца реально применён. Если после этого workflow упадёт
+// (не установился Pillow, конфликт при пуше, что угодно), Telegram повторять
+// уже не будет: для него всё доставлено. Ответ пропал бы молча — ровно тот
+// класс отказов, из-за которого 3 августа потерялись два присланных фото.
+//
+// Поэтому обновление СНАЧАЛА ложится файлом в content/state/tg-spool/ и
+// коммитится, и только потом применяется. Применилось — файл удаляется.
+// Не применилось — остаётся, и следующий запуск (хоть по вебхуку, хоть
+// по крону) возьмёт его снова.
+const SPOOL_DIR = join(ROOT, "content/state/tg-spool");
+
+async function applyUpdate() {
+  mkdirSync(SPOOL_DIR, { recursive: true });
+
+  const raw = process.env.TELEGRAM_UPDATE_JSON;
+  if (raw) {
+    try {
+      const parsed = JSON.parse(raw);
+      const update = parsed.update ?? parsed;
+      const id = update?.update_id ?? `noid-${Date.now()}`;
+      writeFileSync(join(SPOOL_DIR, `${id}.json`), JSON.stringify(update, null, 2) + "\n");
+      console.error(`[queue] обновление ${id} положено в спул`);
+    } catch (err) {
+      console.error(`[queue] TELEGRAM_UPDATE_JSON не разбирается: ${err.message}`);
+    }
+  }
+
+  const files = existsSync(SPOOL_DIR)
+    ? readdirSync(SPOOL_DIR).filter((n) => n.endsWith(".json")).sort()
+    : [];
+  if (!files.length) {
+    console.error("[queue] спул пуст");
+    return;
+  }
+
+  let done = 0;
+  let stuck = 0;
+  for (const name of files) {
+    const path = join(SPOOL_DIR, name);
+    let update;
+    try {
+      update = JSON.parse(readFileSync(path, "utf8"));
+    } catch {
+      console.error(`[queue] ${name}: не читается как JSON — удаляю, чинить нечего`);
+      unlinkSync(path);
+      continue;
+    }
+    try {
+      await collect([update]);
+      unlinkSync(path);
+      done++;
+    } catch (err) {
+      // Оставляем в спуле: следующий запуск попробует снова.
+      console.error(`[queue] ${name}: применить не удалось, остаётся в спуле — ${err.message}`);
+      stuck++;
+    }
+  }
+  console.error(`[queue] спул: применено ${done}, осталось ${stuck}`);
+}
+
 await (mode === "push"
   ? push()
   : mode === "collect"
     ? collect()
     : mode === "scan-pending"
       ? scanPending()
-      : remind());
+      : mode === "apply-update"
+        ? applyUpdate()
+        : remind());

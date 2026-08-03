@@ -31,6 +31,10 @@ on:
       - "content/needs-verification/**"
       - "content/rework/**"
       - "content/posts/**"
+  # Ответ владельца прилетает вебхуком: Telegram → воркер leap.uz →
+  # repository_dispatch → этот запуск. Секунды вместо тика будильника.
+  repository_dispatch:
+    types: [telegram-update]
   schedule:
     # Круглосуточно, без окон. Тихих часов в системе нет нигде:
     # publishing.incremental.quietHours = null, все воркфлоу идут 24/7.
@@ -85,6 +89,21 @@ jobs:
           TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
         run: node scripts/editor-queue.mjs scan-pending
 
+      # Вебхучный путь. Обновление приходит в payload события и СНАЧАЛА
+      # ложится файлом в content/state/tg-spool/, и только потом
+      # применяется: воркер отвечает Telegram «доставлено» в момент, когда
+      # GitHub принял dispatch, задолго до применения. Упади этот запуск —
+      # Telegram повторять уже не станет, и ответ пропал бы молча. Спул
+      # держит его до следующей попытки.
+      - name: Apply webhook update
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
+          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          TELEGRAM_EDITOR_USER_IDS: ${{ secrets.TELEGRAM_EDITOR_USER_IDS }}
+          TELEGRAM_UPDATE_JSON: ${{ toJSON(github.event.client_payload) }}
+        run: node scripts/editor-queue.mjs apply-update
+
       - name: Collect replies from Telegram
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -94,6 +113,9 @@ jobs:
           # рекомендуется задать: без whitelist кто угодно, у кого есть
           # доступ к чату-очереди, может прислать фото → оно уходит в прод.
           TELEGRAM_EDITOR_USER_IDS: ${{ secrets.TELEGRAM_EDITOR_USER_IDS }}
+          # Нужен, чтобы ответ «стоп» на уже вышедший материал мог удалить
+          # пост из канала, а не только снять статью с сайта.
+          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
         run: node scripts/editor-queue.mjs collect
 
       - name: Remind about unanswered items
@@ -112,13 +134,13 @@ jobs:
           # чистит pendingEditorQuestion из frontmatter после успешного push —
           # это тоже надо коммитить, иначе следующий scan снова его увидит
           # (для рабоспособности хватит queue.json, но dual-defense).
-          if [[ -z $(git status --porcelain -- content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/) ]]; then
+          if [[ -z $(git status --porcelain -- content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/ content/state/tg-spool/) ]]; then
             echo "Ответов нет — коммитить нечего."
             echo "applied=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           echo "applied=true" >> "$GITHUB_OUTPUT"
-          git add content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/
+          git add content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/ content/state/tg-spool/ content/state/telegram-posted.json
           git commit -m "newsroom: ответы редактора из Telegram"
           bash .github/scripts/git-push-with-rebase.sh
 
