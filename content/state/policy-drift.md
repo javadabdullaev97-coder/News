@@ -1,7 +1,7 @@
-# Policy drift check — 2026-08-02T20:25:32.147Z
+# Policy drift check — 2026-08-03T07:26:40.126Z
 
-Проверено: 30 .mdx за последние 7 дней
-Ошибок: 0, предупреждений: 13
+Проверено: 33 .mdx за последние 7 дней
+Ошибок: 0, предупреждений: 14
 
 ## ⚠️ Предупреждения
 
@@ -18,9 +18,10 @@
 - **content/posts/2026-08-01/uzbekistan-wto-accession-2026.mdx** — sources[].url «https://www.wto.org/english/news_e/news26_e/acc_09mar26_316_e.htm» не цитируется в теле — балласт
 - **content/posts/2026-08-02/agmk-1h2026-profit-doubles.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/json/USD/2026-06-30/» не цитируется в теле — балласт
 - **content/posts/2026-08-02/opec-plus-september-quota-188k-bpd.mdx** — sources[].url «https://www.kommersant.ru/doc/8860901» не цитируется в теле — балласт
+- **content/posts/2026-08-03/uzbekistan-wto-accession-2026-goal.mdx** — sources[].url «https://www.wto.org/English/thewto_e/acc_e/a1_ouzbekistan_e.htm» не цитируется в теле — балласт
 
 ## Распределение по дням и категориям
 
 - **2026-08-01** (18): society 5, sport 1, economy 8, tech 2, politics 2
-- **2026-08-02** (11): economy 2, world 3, society 6
-- **2026-08-03** (1): world 1
+- **2026-08-02** (9): economy 2, world 3, society 4
+- **2026-08-03** (6): economy 2, world 3, society 1
