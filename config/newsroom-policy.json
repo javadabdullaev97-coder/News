@@ -102,10 +102,17 @@
   "directPublish": {
     "$comment": "ВКЛЮЧЕНО ПОВТОРНО 03.08.2026 по решению владельца: конвейер работает быстро, вручную мержить PR-ы неудобно. Теперь материалы с confidence >= 70% пушатся напрямую в main. Ниже порога — идут в editor-queue на подтверждение через бота в TG. Обход человека компенсируется: жёсткий confidence gate, все sources P0/P1, editor обязан явно вернуть publish, отдельная запись в PushNotification владельцу с ссылкой на статью и вердиктами.",
     "enabled": true,
-    "onlyForUrgency": ["standard", "breaking"],
+    "onlyForUrgency": [
+      "standard",
+      "breaking"
+    ],
     "gates": {
-      "factCheckVerdict": ["approve"],
-      "editorStatus": ["publish"],
+      "factCheckVerdict": [
+        "approve"
+      ],
+      "editorStatus": [
+        "publish"
+      ],
       "minFactCheckConfidence": 70,
       "requiresPrimarySource": true,
       "requiresImage": false,
@@ -117,7 +124,9 @@
         "межнациональные и религиозные конфликты",
         "здоровье первых лиц"
       ],
-      "forbiddenSourceTypes": ["attributed"],
+      "forbiddenSourceTypes": [
+        "attributed"
+      ],
       "$forbiddenSourceTypesReason": "Каналы с неподтверждённой принадлежностью ведомству (config/telegram-channels.json → type:attributed). Публикация без человека для неподтверждённого силового источника не допускается ни при какой срочности."
     },
     "belowThreshold": {
@@ -203,7 +212,7 @@
       "$comment": "Приоритетные правила поверх tiers.",
       "uzbekAthleteAnywhere": "Любой узбекский спортсмен на международной арене — mustPublish, независимо от tier. Пример: Хусанов забил в АПЛ, Абдулхамидов на US Open.",
       "centralAsiaAthlete": "Спортсмен из ЦА (Казахстан, Кыргызстан, Туркменистан, Таджикистан) на крупном турнире (Grand Slam, ЧМ, ОИ, финал ЛЧ) — publishIfQuality.",
-      "namedActorMention": "Если тема упоминает named actor (см. telegram.namedActors) — минимальный tier = publishIfQuality, даже если формально попадает в publishIfQuiet."
+      "namedActorMention": "Если тема упоминает named actor — минимальный tier = publishIfQuality, даже если формально попадает в publishIfQuiet. Список имён — config/telegram-scoring.json → namedActors; читай его по требованию, когда мировая тема встала на границе tier'ов, а не на каждом заходе."
     },
     "clustering": {
       "$comment": "Кластеризацию делает планёрка, а не фетчер. Причина: подбор по словам заголовка не свяжет «Россия нанесла удар по Киеву» с «Russia strikes Kyiv» — блоки говорят на разных языках, и именно кросс-языковое сопоставление скрипт делать не умеет, а модель умеет.",
@@ -278,102 +287,8 @@
     }
   },
   "telegram": {
-    "$comment": "Не всё что попадает на сайт публикуется в TG-канал. Сайт получает много новостей (наполнение ленты), в TG идут только те что прошли scoring-барьер — иначе подписчики отписываются от количества постов. Порог tgScore>=50.",
-    "broadcastThreshold": 50,
-    "minGapBetweenPostsMinutes": 15,
-    "$minGapReason": "Иначе лента читается как спам. При заполнении конвейера очередь копится, посты уходят с интервалом.",
-    "score": {
-      "$comment": "SEO-агент вычисляет tgScore для каждой статьи по этой таблице и ставит frontmatter.broadcast:true если сумма >=50.",
-      "byCategory": {
-        "politics": 25,
-        "economy": 25,
-        "world": 25,
-        "tech": 15,
-        "business": 15,
-        "society": 10,
-        "culture": 5,
-        "sport": 5
-      },
-      "byPrimarySource": {
-        "P0": 20,
-        "P1": 10,
-        "P2": 5
-      },
-      "affectsEveryone": 20,
-      "affectsEveryoneHint": "Тарифы, налоги, курс, ПДД, ЖКХ, транспорт, паспорта, пенсии — то что каждый читатель почувствует.",
-      "actionable": 15,
-      "actionableHint": "Читателю нужно что-то сделать и есть срок.",
-      "money": 10,
-      "moneyHint": "Конкретная сумма, ставка, тариф.",
-      "impactUzbekistan": 15,
-      "impactUzbekistanHint": "Международное событие с прямыми последствиями для Узбекистана: санкции, экспорт, миграция, курсы валют, крупные торговые партнёры.",
-      "namedActorGlobal": 15,
-      "namedActorGlobalHint": "Упоминание одной из глобально узнаваемых персон/сущностей (см. namedActors ниже).",
-      "namedClubGlobal": 15,
-      "namedClubGlobalHint": "Крупный мировой футбольный клуб (Реал, Барса, Ман Сити и т.д.). Не niche для узб. аудитории.",
-      "exclusive": 10,
-      "exclusiveHint": "Первоисточник есть, а конкуренты ещё не написали.",
-      "historicalImportance": 10,
-      "historicalImportanceHint": "Впервые за N лет, рекорд, единственный случай.",
-      "ephemeral": -15,
-      "ephemeralHint": "Короткая жизнь темы: разовый концерт, погодная сводка на день, локальное происшествие без последствий.",
-      "trulyNiche": -10,
-      "trulyNicheHint": "Малоизвестная сущность, интересная <5% аудитории. НЕ применяется к крупным клубам/фигурам — они не niche."
-    },
-    "namedActors": {
-      "$comment": "Список глобально узнаваемых персон и сущностей. Упоминание любой = +15 к tgScore. Обновляй по мере появления новых громких имён.",
-      "politicians": [
-        "Трамп", "Дональд Трамп", "Путин", "Владимир Путин", "Си Цзиньпин",
-        "Байден", "Джо Байден", "Макрон", "Эммануэль Макрон",
-        "Меркель", "Мерц", "Медведев", "Дмитрий Медведев",
-        "Пауэлл", "Джером Пауэлл", "Лагард", "Кристин Лагард",
-        "Ким Чен Ын", "Нетаньяху", "Зеленский", "Эрдоган",
-        "Токаев", "Пашинян", "Алиев"
-      ],
-      "techInfluencers": [
-        "Илон Маск", "Elon Musk", "Сэм Альтман", "Sam Altman",
-        "Марк Цукерберг", "Mark Zuckerberg", "Джефф Безос",
-        "Тим Кук", "Сундар Пичаи", "Сатья Наделла",
-        "Дарио Амодеи", "Dario Amodei", "Демис Хассабис",
-        "Дженсен Хуанг", "Nvidia", "OpenAI", "Anthropic", "Google DeepMind",
-        "Apple", "Meta", "Microsoft", "Amazon", "Tesla", "SpaceX",
-        "Coinbase", "Binance"
-      ],
-      "sportStars": [
-        "Криштиану Роналду", "Cristiano Ronaldo", "Лионель Месси", "Lionel Messi",
-        "Килиан Мбаппе", "Kylian Mbappe", "Неймар", "Neymar",
-        "Эрлинг Холанд", "Erling Haaland", "Мохамед Салах", "Mohamed Salah",
-        "Робер Левандовски", "Кевин Де Брюйне", "Винисиус",
-        "Абдукадир Хусанов", "Kudus", "Педри", "Ямаль",
-        "Новак Джокович", "Карлос Алькарас", "Янник Синнер",
-        "Леброн Джеймс", "Стеф Карри", "Никола Йокич",
-        "Макс Ферстаппен", "Льюис Хэмилтон"
-      ],
-      "footballClubs": [
-        "Реал Мадрид", "Real Madrid", "Барселона", "Barcelona", "Барса",
-        "Манчестер Юнайтед", "Manchester United", "Ман Юнайтед",
-        "Манчестер Сити", "Manchester City", "Ман Сити",
-        "Ливерпуль", "Liverpool", "Арсенал", "Arsenal",
-        "Челси", "Chelsea", "Тоттенхэм", "Tottenham",
-        "ПСЖ", "Paris Saint-Germain", "Бавария", "Bayern",
-        "Ювентус", "Juventus", "Милан", "Milan", "Интер", "Inter",
-        "Атлетико Мадрид", "Atletico Madrid", "Боруссия Дортмунд"
-      ],
-      "awards": [
-        "Оскар", "Oscar", "Академия киноискусств",
-        "Нобелевская премия", "Nobel Prize",
-        "Каннский кинофестиваль", "Cannes", "Золотая пальмовая ветвь",
-        "Грэмми", "Grammy",
-        "Золотой мяч", "Ballon d'Or",
-        "Пулитцеровская премия", "Pulitzer",
-        "Berlinale", "Венецианский кинофестиваль"
-      ],
-      "showbiz": [
-        "Тейлор Свифт", "Taylor Swift", "Билли Айлиш", "Billie Eilish",
-        "Тимоти Шаламе", "Timothée Chalamet", "Марго Робби",
-        "Дуа Липа", "Dua Lipa", "The Weeknd", "Weeknd",
-        "K-pop", "BTS", "Blackpink"
-      ]
-    }
+    "$comment": "Секция вынесена в config/telegram-scoring.json — см. файл. Здесь оставлен указатель, чтобы поиск по 'telegram' в политике не приводил в пустоту.",
+    "$movedTo": "config/telegram-scoring.json",
+    "$whoReadsIt": ".claude/agents/seo.md — считает tgScore и ставит frontmatter.broadcast"
   }
 }
