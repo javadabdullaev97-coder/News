@@ -112,8 +112,14 @@ if (!existsSync(join(ROOT, "node_modules/rss-parser"))) {
 // RSS и Telegram ломаются по разным причинам — блокировки, таймауты,
 // смена вёрстки, — и терять оба потока из-за одного нельзя.
 const ran = [];
-for (const script of ["pull-news-inbox.mjs", "pull-telegram-inbox.mjs"]) {
-  const r = spawnSync("node", [join(ROOT, "scripts", script), `--priority=${priority}`], {
+for (const script of ["pull-news-inbox.mjs", "pull-telegram-inbox.mjs", "pull-scrape-inbox.mjs"]) {
+  // Скрейперу приоритеты не передаём: сайтов всего четыре, обход занимает
+  // секунды, а daryo и repost — крупные узбекские издания, терять их
+  // в аварийном режиме бессмысленно.
+  const args = script === "pull-scrape-inbox.mjs"
+    ? [join(ROOT, "scripts", script)]
+    : [join(ROOT, "scripts", script), `--priority=${priority}`];
+  const r = spawnSync("node", args, {
     cwd: ROOT,
     encoding: "utf8",
     stdio: ["ignore", "ignore", "inherit"],

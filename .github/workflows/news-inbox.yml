@@ -76,6 +76,15 @@ jobs:
           node scripts/pull-telegram-inbox.mjs $ARGS
         continue-on-error: true
 
+      # Сайты без работающего RSS: daryo, repost, turkmenportal, eurasianet.
+      # Разбираются по форме адреса из HTML — подробности в скрипте.
+      - name: Scrape sites without RSS
+        run: node scripts/pull-scrape-inbox.mjs
+        # Не роняем сбор новостей из-за одного переехавшего сайта: скрипт
+        # возвращает ненулевой код, когда шаблон перестал находить ссылки,
+        # и это надо видеть в логе, но не ценой всего инбокса.
+        continue-on-error: true
+
       # Сторож ЧП. Смотрит на то, что фетчер только что принёс, и при
       # совпадении «тревожное слово + узбекский топоним» шлёт владельцу
       # сигнал в Telegram.

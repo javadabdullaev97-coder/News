@@ -58,6 +58,11 @@ const sources = [
   ...(news.api ?? []).map((s) => entry(s, { kind: "api" })),
   ...(news.scrape ?? []).map((s) => entry(s, { kind: "scrape" })),
   ...(tg.channels ?? []).map((s) => entry(s, { kind: "telegram", handle: s.handle })),
+  // Сайты без работающего RSS — их разбирает pull-scrape-inbox.mjs.
+  // Без этой строки планёрка встречала бы в инбоксе sourceId, которого нет
+  // в индексе, и не могла бы понять ни приоритет источника, ни можно ли
+  // на него ссылаться.
+  ...(news.htmlScrape ?? []).map((s) => entry(s, { kind: "scrape" })),
 ];
 
 const index = {

@@ -93,7 +93,9 @@
       "focus": "универсальное, регионы, ЧП",
       "notes": "HTTP 200, но 0 items — фид рендерится на JS, проверено 01.08.2026",
       "citable": false,
-      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда.",
+      "disabled": true,
+      "$disabledReason": "RSS не работает: см. проверку 03.08.2026. Источник не потерян — он переехал в секцию htmlScrape и разбирается scripts/pull-scrape-inbox.mjs по форме адреса. Запись оставлена, чтобы никто не завёл его заново как ленту."
     },
     {
       "id": "repost-uz",
@@ -107,7 +109,9 @@
       "focus": "молодёжка, вирус, эксклюзивы",
       "notes": "Cloudflare + reCAPTCHA",
       "citable": false,
-      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда.",
+      "disabled": true,
+      "$disabledReason": "RSS не работает: см. проверку 03.08.2026. Источник не потерян — он переехал в секцию htmlScrape и разбирается scripts/pull-scrape-inbox.mjs по форме адреса. Запись оставлена, чтобы никто не завёл его заново как ленту."
     },
     {
       "id": "kapital-uz",
@@ -201,7 +205,9 @@
       "focus": "спорт",
       "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026",
       "citable": false,
-      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
+      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда.",
+      "disabled": true,
+      "$disabledReason": "Требует настоящего браузера, и это проверено 03.08.2026: у tribuna.uz Cloudflare-заглушка (403 на любой запрос), у digital.uz новости отрисовываются скриптом — в HTML статических ссылок на них нет. Остальные четыре источника из этой группы обошлись без браузера и переехали в htmlScrape. Ради этих двух тянуть Playwright в каждый прогон несоразмерно: полторы-две минуты на установку при обходе в секунды."
     },
     {
       "id": "cbu-rss",
@@ -235,7 +241,9 @@
       "requiresPlaywright": true,
       "focus": "цифровизация, IT-Park, госуслуги",
       "notes": "HTTP 200, но 0 items — фид рендерится на JS, проверено 01.08.2026",
-      "citable": true
+      "citable": true,
+      "disabled": true,
+      "$disabledReason": "Требует настоящего браузера, и это проверено 03.08.2026: у tribuna.uz Cloudflare-заглушка (403 на любой запрос), у digital.uz новости отрисовываются скриптом — в HTML статических ссылок на них нет. Остальные четыре источника из этой группы обошлись без браузера и переехали в htmlScrape. Ради этих двух тянуть Playwright в каждый прогон несоразмерно: полторы-две минуты на установку при обходе в секунды."
     },
     {
       "id": "reuters",
@@ -443,7 +451,9 @@
       "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026",
       "regionDedicated": true,
       "citable": true,
-      "bloc": "ca-regional"
+      "bloc": "ca-regional",
+      "disabled": true,
+      "$disabledReason": "RSS не работает: см. проверку 03.08.2026. Источник не потерян — он переехал в секцию htmlScrape и разбирается scripts/pull-scrape-inbox.mjs по форме адреса. Запись оставлена, чтобы никто не завёл его заново как ленту."
     },
     {
       "id": "eurasianet",
@@ -457,7 +467,9 @@
       "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026",
       "regionDedicated": true,
       "citable": true,
-      "bloc": "ca-regional"
+      "bloc": "ca-regional",
+      "disabled": true,
+      "$disabledReason": "RSS не работает: см. проверку 03.08.2026. Источник не потерян — он переехал в секцию htmlScrape и разбирается scripts/pull-scrape-inbox.mjs по форме адреса. Запись оставлена, чтобы никто не завёл его заново как ленту."
     },
     {
       "id": "fergana",
@@ -1079,5 +1091,70 @@
     "asia": "Азия",
     "intl-org": "международные организации",
     "ca-regional": "Центральная Азия"
-  }
+  },
+  "$htmlScrapeNote": "Секция htmlScrape — источники, у которых RSS исчез или закрыт, а сами страницы открыты обычным HTTP. Их разбирает scripts/pull-scrape-inbox.mjs. Опора на ФОРМУ АДРЕСА, а не на CSS-классы: классы меняются при каждом редизайне, структура адресов живёт годами. Проверено 03.08.2026 по robots.txt каждого — новости разрешены; у eurasianet общее правило Allow: /, а Disallow: / относится отдельно к Amazonbot и на нас не распространяется.",
+  "htmlScrape": [
+    {
+      "id": "daryo-uz",
+      "name": "Daryo.uz",
+      "listUrl": "https://daryo.uz/",
+      "type": "signal",
+      "priority": "P1",
+      "language": "uz",
+      "citable": false,
+      "linkPattern": "^/\\d{4}/\\d{2}/\\d{2}/[a-z0-9\\-]+$",
+      "dateFromUrl": "^/(\\d{4})/(\\d{2})/(\\d{2})/",
+      "maxAgeDays": 3,
+      "maxPerRun": 25,
+      "note": "Крупное узбекское издание. RSS отдаёт HTML вместо ленты — фида больше нет. Дата прямо в адресе, поэтому старое отсекается без единого лишнего запроса: на главной висят статьи с июня, и без этой отсечки первый же прогон завалил бы планёрку протухшими темами. citable=false — конкурентное СМИ, читаем как сигнал, ссылку в статье не ставим.",
+      "titleFrom": [
+        "img-alt",
+        "heading",
+        "title-attr",
+        "text"
+      ],
+      "$titleFromReason": "alt поставлен первым намеренно: у daryo он содержит чистый заголовок, а текст ссылки включает рубрику и время. У eurasianet, наоборот, alt — подпись к фотографии («A woman in Russia watches a Wildberries warehouse burn»), и там он последний в очереди. Поэтому порядок и вынесен в конфиг: универсального правила нет."
+    },
+    {
+      "id": "repost-uz",
+      "name": "Repost.uz",
+      "listUrl": "https://repost.uz/",
+      "type": "signal",
+      "priority": "P2",
+      "language": "ru",
+      "citable": false,
+      "linkPattern": "^/(sport/|life/)?[a-z0-9\\-]{12,}$",
+      "excludePattern": "^/(sport|life|search|tag|audio|admin|api|app)$|^/hammaga-katta-rahmat$",
+      "maxPerRun": 25,
+      "note": "Русскоязычное узбекское издание. Старый адрес RSS отдаёт 404. Даты в адресе нет, поэтому от наплыва защищает только журнал seen.json и потолок за прогон. citable=false — конкурентное СМИ.",
+      "$excludeReason": "hammaga-katta-rahmat — постоянный значок «Лучшее интернет-СМИ 2025» в шапке сайта. По форме адреса он неотличим от статьи, и без явного исключения попадал в инбокс на каждом прогоне."
+    },
+    {
+      "id": "turkmenportal",
+      "name": "Turkmenportal",
+      "listUrl": "https://turkmenportal.com/ru",
+      "type": "context",
+      "priority": "P2",
+      "language": "ru",
+      "bloc": "ca-regional",
+      "citable": true,
+      "linkPattern": "^/ru/news/[a-z0-9\\-]+$",
+      "maxPerRun": 20,
+      "note": "Туркменистан: газ, транзит, порты — темы с прямым выходом на Узбекистан. RSS отдаёт 403, страницы открыты. robots.txt разрешает /news явным Allow. Самая чистая структура адресов из всех четырёх: раздел новостей отделён от объявлений и афиши."
+    },
+    {
+      "id": "eurasianet",
+      "name": "Eurasianet",
+      "listUrl": "https://eurasianet.org/",
+      "type": "context",
+      "priority": "P1",
+      "language": "en",
+      "bloc": "ca-regional",
+      "citable": true,
+      "linkPattern": "^/[a-z0-9\\-]{15,}$",
+      "excludePattern": "^/(topic|region|author|about|donate|newsletter|search|tag)(/|$)",
+      "maxPerRun": 20,
+      "note": "Аналитика по Центральной Азии, которой у нас нет больше нигде. RSS отдаёт 403. Адреса статей — слаг в корне, поэтому обязателен excludePattern: без него в инбокс полезли бы разделы /topic/ и /region/, выглядящие точно так же."
+    }
+  ]
 }
