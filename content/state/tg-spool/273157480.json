@@ -1,0 +1,74 @@
+{
+  "message": {
+    "chat": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "last_name": "Abdullaev",
+      "type": "private",
+      "username": "javad_abdullaev"
+    },
+    "date": 1785739144,
+    "from": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "is_bot": false,
+      "is_premium": true,
+      "language_code": "en",
+      "last_name": "Abdullaev",
+      "username": "javad_abdullaev"
+    },
+    "message_id": 53,
+    "reply_to_message": {
+      "chat": {
+        "first_name": "Javad",
+        "id": 1104500,
+        "last_name": "Abdullaev",
+        "type": "private",
+        "username": "javad_abdullaev"
+      },
+      "date": 1785736376,
+      "entities": [
+        {
+          "length": 18,
+          "offset": 0,
+          "type": "bold"
+        },
+        {
+          "length": 79,
+          "offset": 20,
+          "type": "bold"
+        },
+        {
+          "length": 14,
+          "offset": 406,
+          "type": "url"
+        },
+        {
+          "length": 14,
+          "offset": 646,
+          "type": "url"
+        },
+        {
+          "length": 14,
+          "offset": 766,
+          "type": "url"
+        },
+        {
+          "length": 34,
+          "offset": 823,
+          "type": "italic"
+        }
+      ],
+      "from": {
+        "first_name": "LEAP News - ADMIN",
+        "id": 8652303606,
+        "is_bot": true,
+        "username": "leap_news_bot"
+      },
+      "message_id": 43,
+      "text": "НУЖНО ВАШЕ РЕШЕНИЕ\n\nМодернистскую архитектуру Ташкента включили в список Всемирного наследия ЮНЕСКО\n\nПочему спрашиваю: fact-checker дал confidence ниже порога 70% — материал не публикуется напрямую в main без вашего решения.\n\nFact-checker вернул needs-fix (confidence 58): даты построек (1960-е—1990, было ошибочно «1960-е—1980-е»), критерий (iv) и цитата «по описанию ЮНЕСКО» — не подтверждались, так как whc.unesco.org весь сеанс отдавал HTTP 403. Editor убрал неподтверждаемые детали, оставил только то, что дословно подтверждено ACDF (Фонд развития культуры и искусства Узбекистана, готовил номинационное досье) — но саму страницу объекта на whc.unesco.org никто не смог открыть и свериться напрямую. Опубликовать текст как есть (ответ «ок») или подождать, пока whc.unesco.org снова станет доступен для прямой сверки?\n\nОтветьте реплаем на это сообщение:\n• пришлите фото — оно станет главной картинкой\n• «ок» — публиковать как есть\n• «стоп» — снять материал\n• любой другой текст — уйдёт в правку как комментарий"
+    },
+    "text": "Ок"
+  },
+  "update_id": 273157480
+}
