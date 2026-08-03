@@ -64,15 +64,6 @@
       "remindedAt": "2026-08-03T13:24:14.413Z"
     },
     {
-      "slug": "communications-it-services-volume-h1-2026",
-      "title": "Объём услуг связи и IT в Узбекистане вырос на 22,1% за полугодие",
-      "reason": "low-confidence",
-      "question": "Fact-check дал needs-fix (confidence 72%) — по правилам это исключает прямую публикацию, даже после правки. Editor исправил всё (расчётные проценты долей помечены, округление Нацкомстата пояснено) и одобрил публикацию. Публикуем?",
-      "messageId": 81,
-      "askedAt": "2026-08-03T11:15:46.599Z",
-      "remindedAt": "2026-08-03T13:24:15.036Z"
-    },
-    {
       "slug": "tashkent-bus-routes-gross-contract-monitoring",
       "title": "Минтранс сообщил о снижении нарушений на маршрутах Ташкента по брутто-контракту",
       "reason": "low-confidence",
@@ -371,7 +362,21 @@
         "text": "Возьми любое другое фото мед студентов",
         "applied": "rework-iteration-1"
       }
+    },
+    {
+      "slug": "communications-it-services-volume-h1-2026",
+      "title": "Объём услуг связи и IT в Узбекистане вырос на 22,1% за полугодие",
+      "reason": "low-confidence",
+      "question": "Fact-check дал needs-fix (confidence 72%) — по правилам это исключает прямую публикацию, даже после правки. Editor исправил всё (расчётные проценты долей помечены, округление Нацкомстата пояснено) и одобрил публикацию. Публикуем?",
+      "messageId": 81,
+      "askedAt": "2026-08-03T11:15:46.599Z",
+      "remindedAt": "2026-08-03T13:24:15.036Z",
+      "answer": {
+        "at": "2026-08-03T14:12:44.860Z",
+        "kind": "approve",
+        "applied": "unblocked"
+      }
     }
   ],
-  "updateOffset": 273157498
+  "updateOffset": 273157499
 }
