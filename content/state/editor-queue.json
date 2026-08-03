@@ -1,5 +1,14 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "slug": "hashish-seizure-namangan-tashkent",
+      "title": "«Xavfsizlik» сообщил об изъятии 11,7 кг гашиша в Наманганской и Ташкентской областях",
+      "reason": "source-doubt",
+      "question": "Единственный источник — атрибутированный канал Xavfsizlik (связывают с СГБ), официального подтверждения МВД/Генпрокуратуры/ГТК нет. Публиковать по неподтверждённому силовому источнику?",
+      "messageId": 35,
+      "askedAt": "2026-08-03T05:35:26.899Z"
+    }
+  ],
   "resolved": [
     {
       "slug": "hamas-disarmament-deal-gaza-strikes-continue",
