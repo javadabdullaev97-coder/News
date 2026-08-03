@@ -252,15 +252,26 @@ for (const mdxPath of allMdx) {
   }
 
   // Не всё что на сайте — в TG. SEO-агент вычисляет tgScore и ставит broadcast.
-  // По умолчанию (если поле отсутствует) — считаем как broadcast:true, чтобы
-  // legacy-статьи без флага не потерялись. Через 1–2 недели можно переключить
-  // default на false и требовать явного включения.
-  const broadcast =
-    fm.broadcast === true ||
-    fm.broadcast === "true" ||
-    fm.broadcast === undefined; // legacy default
+  //
+  // Раньше отсутствующее поле считалось за broadcast:true («legacy default»),
+  // чтобы старые статьи без флага не потерялись. Это умолчание дважды отправило
+  // в канал материал, который туда не собирался:
+  //   2 августа — постановление № 425 о школах, ждало ответа владельца;
+  //   3 августа — черновик об Олмазоре, попал в main до конца редакционного цикла.
+  // В обоих случаях поля broadcast во frontmatter просто ещё не было: его
+  // проставляет SEO-агент в конце цикла, а материал оказывался в content/posts
+  // раньше. То есть умолчание срабатывало ровно на недоделанных материалах —
+  // на тех, которые рассылать нельзя.
+  //
+  // Теперь умолчание fail-closed: рассылаем только по явному broadcast:true.
+  // Потерять уже опубликованное это не может — вышедшие статьи записаны
+  // в content/state/telegram-posted.json и повторно не отправляются, а новые
+  // получают флаг от SEO-агента. Цена ошибки несимметрична: не отправить
+  // вовремя — досадно, отправить непроверенное — уже случилось дважды.
+  const broadcast = fm.broadcast === true || fm.broadcast === "true";
   if (!broadcast) {
-    console.error(`[skip] ${rel}: broadcast:false (tgScore ${fm.tgScore ?? "?"}) — только сайт`);
+    const why = fm.broadcast === undefined ? "поля broadcast нет" : "broadcast:false";
+    console.error(`[skip] ${rel}: ${why} (tgScore ${fm.tgScore ?? "?"}) — только сайт`);
     continue;
   }
 
