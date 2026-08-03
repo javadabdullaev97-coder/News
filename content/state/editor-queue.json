@@ -28,15 +28,6 @@
       "remindedAt": "2026-08-03T14:02:02.046Z"
     },
     {
-      "slug": "japan-kumamoto-earthquake-aftermath",
-      "title": "Землетрясение магнитудой 7,1 в Японии: 34 погибших, свыше 9 тысяч — в эвакопунктах",
-      "reason": "rework-ready",
-      "question": "Поставила фото Reuters (спасатели разбирают завалы Aeon Mall, Kumamoto, 30 июля) с credit Reuters/Kim Kyung-Hoon, как ты просил. Публиковать?",
-      "messageId": 74,
-      "askedAt": "2026-08-03T09:50:33.542Z",
-      "remindedAt": "2026-08-03T14:02:02.225Z"
-    },
-    {
       "slug": "cbu-extends-fx-exchange-trading-hours",
       "title": "ЦБ РУз продлит торговые сессии на валютной бирже до 17:00 с 10 августа",
       "reason": "crop-risky",
@@ -386,7 +377,21 @@
         "kind": "approve",
         "applied": "unblocked"
       }
+    },
+    {
+      "slug": "japan-kumamoto-earthquake-aftermath",
+      "title": "Землетрясение магнитудой 7,1 в Японии: 34 погибших, свыше 9 тысяч — в эвакопунктах",
+      "reason": "rework-ready",
+      "question": "Поставила фото Reuters (спасатели разбирают завалы Aeon Mall, Kumamoto, 30 июля) с credit Reuters/Kim Kyung-Hoon, как ты просил. Публиковать?",
+      "messageId": 74,
+      "askedAt": "2026-08-03T09:50:33.542Z",
+      "remindedAt": "2026-08-03T14:02:02.225Z",
+      "answer": {
+        "at": "2026-08-03T14:13:53.298Z",
+        "kind": "approve",
+        "applied": "unblocked"
+      }
     }
   ],
-  "updateOffset": 273157501
+  "updateOffset": 273157502
 }
