@@ -55,15 +55,6 @@
       "remindedAt": "2026-08-03T12:59:07.074Z"
     },
     {
-      "slug": "uzbekistan-airways-installment-yandex-split",
-      "title": "Uzbekistan Airways запустила рассрочку на билеты через Yandex Split",
-      "reason": "crop-risky",
-      "question": "Нашёл официальное фото Boeing 787 Uzbekistan Airways (герой-баннер uzairways.com) — subject-first, живая брендовая съёмка. Но кадр очень панорамный (1920×809): заливка 1600×900 обрезает 25% по ширине (порог 15%). На кропе самолёт остаётся в кадре целиком — нос, кабина, хвост, оба двигателя, надпись «UZBEKISTAN» — обрезано только небо слева. Подтвердить этот кадр или прислать другое фото самолёта/интерфейса оплаты?",
-      "messageId": 80,
-      "askedAt": "2026-08-03T11:14:08.054Z",
-      "remindedAt": "2026-08-03T13:24:14.413Z"
-    },
-    {
       "slug": "tashkent-bus-routes-gross-contract-monitoring",
       "title": "Минтранс сообщил о снижении нарушений на маршрутах Ташкента по брутто-контракту",
       "reason": "low-confidence",
@@ -376,7 +367,21 @@
         "kind": "approve",
         "applied": "unblocked"
       }
+    },
+    {
+      "slug": "uzbekistan-airways-installment-yandex-split",
+      "title": "Uzbekistan Airways запустила рассрочку на билеты через Yandex Split",
+      "reason": "crop-risky",
+      "question": "Нашёл официальное фото Boeing 787 Uzbekistan Airways (герой-баннер uzairways.com) — subject-first, живая брендовая съёмка. Но кадр очень панорамный (1920×809): заливка 1600×900 обрезает 25% по ширине (порог 15%). На кропе самолёт остаётся в кадре целиком — нос, кабина, хвост, оба двигателя, надпись «UZBEKISTAN» — обрезано только небо слева. Подтвердить этот кадр или прислать другое фото самолёта/интерфейса оплаты?",
+      "messageId": 80,
+      "askedAt": "2026-08-03T11:14:08.054Z",
+      "remindedAt": "2026-08-03T13:24:14.413Z",
+      "answer": {
+        "at": "2026-08-03T14:12:58.976Z",
+        "kind": "approve",
+        "applied": "unblocked"
+      }
     }
   ],
-  "updateOffset": 273157499
+  "updateOffset": 273157500
 }
