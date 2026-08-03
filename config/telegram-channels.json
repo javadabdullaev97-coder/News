@@ -223,13 +223,13 @@
       "publishRate": "5-10/day"
     },
     {
-      "id": "mineconomy_uz",
-      "handle": "@mineconomy_uz",
-      "url": "https://t.me/s/mineconomy_uz",
+      "id": "minecofinuz",
+      "handle": "@minecofinuz",
+      "url": "https://t.me/s/minecofinuz",
       "name": "Министерство экономики и финансов",
       "type": "source",
       "priority": "P1",
-      "subscribers": 30000,
+      "subscribers": 26400,
       "publishRate": "3-5/day"
     },
     {

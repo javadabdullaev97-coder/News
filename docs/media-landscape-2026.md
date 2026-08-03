@@ -103,7 +103,7 @@ Gazeta.uz, Daryo.uz и Repost.uz**.
 | МВД | mvd.uz | Нет | `@mvd_uz` (110K) |
 | Обороны | mudofaa.uz | Нет | `@mudofaavazirliqi` (40K) |
 | **Юстиции** | adliya.uz | Нет | **`@huquqiyaxborot` (400K+, критично)** |
-| Экономики и финансов | mf.uz / gov.uz/imv | Нет | `@mineconomy_uz` (30K) |
+| Экономики и финансов | mf.uz / gov.uz/imv | Нет | `@minecofinuz` (26,4K) |
 | Цифровых технологий | digital.uz | **Да** | `@digitaluzbekistan` (25K) |
 | Здравоохранения | ssv.uz | Нет | `@ssvuz` (120K) |
 | Высшего образования | edu.uz | Нет | `@eduuz` (250K) |
@@ -141,7 +141,7 @@ Gazeta.uz, Daryo.uz и Repost.uz**.
 | Орган | Сайт | RSS/API | Telegram (подп.) |
 |---|---|---|---|
 | **Центральный банк** | cbu.uz (Cloudflare) | **RSS + JSON API курсов** | `@centralbankuzbekistan` (60K) |
-| Минэкономфин | mf.uz | Нет | `@mineconomy_uz` (30K) |
+| Минэкономфин | mf.uz | Нет | `@minecofinuz` (26,4K) |
 | Респ. фондовая биржа «Toshkent» | uzse.uz | API котировок | `@rse_tashkent` (8K) |
 | Центральный депозитарий | deponet.uz | Нет | `@deponet_uz` (3K) |
 | Национальный банк ВЭД (NBU) | nbu.uz | Нет | `@nbu_official` (20K) |
