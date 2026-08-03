@@ -23,16 +23,15 @@ import {
 } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadSeenLinks, saveSeenLinks } from "../lib/inbox-core.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(HERE);
 const CONFIG_PATH = join(ROOT, "config/telegram-channels.json");
 const INBOX_DIR = join(ROOT, "content/inbox");
-const SEEN_PATH = join(INBOX_DIR, "seen.json");
 
 const CONCURRENCY = 6; // мягче чем на RSS, чтобы Telegram не начал 429
 const FETCH_TIMEOUT_MS = 20_000;
-const MAX_SEEN = 20_000;
 const SNIPPET_MAX = 800;
 const TITLE_MAX = 140;
 
@@ -64,9 +63,7 @@ if (!channels.length) {
 }
 
 mkdirSync(INBOX_DIR, { recursive: true });
-const seen = existsSync(SEEN_PATH)
-  ? new Set(JSON.parse(readFileSync(SEEN_PATH, "utf8")))
-  : new Set();
+const seen = loadSeenLinks(ROOT);
 
 function normalizeText(s) {
   if (!s) return "";
@@ -220,8 +217,7 @@ if (fresh.length) {
   appendFileSync(dayFile, lines);
 
   for (const it of fresh) seen.add(it.link);
-  const trimmed = [...seen].slice(-MAX_SEEN);
-  writeFileSync(SEEN_PATH, JSON.stringify(trimmed));
+  saveSeenLinks(seen, ROOT);
 }
 
 console.error(

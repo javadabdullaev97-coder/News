@@ -1,0 +1,20 @@
+# Append-only потоки редакции сливаются объединением, а не конфликтом.
+#
+# ЗАЧЕМ. В main одновременно пишут news-inbox.yml, telegram-autopost,
+# editor-queue, вебхук бота и три планёрки. Файлы инбокса и журнала только
+# дописываются в конец — но для git две дописанные концовки это конфликт,
+# и git-push-with-rebase.sh по нему делает abort. Раннер эфемерный, поэтому
+# отменённый коммит пропадает вместе с собранными новостями.
+#
+# Это не теория. 03.08.2026 в 06:09 UTC прогон news-inbox собрал новости,
+# упёрся в конфликт ровно по этим файлам и выбросил всю пачку:
+#   CONFLICT (content): Merge conflict in content/inbox/2026-08-03.jsonl
+#   [git-push] rebase conflict — aborting rebase and reporting
+#   ##[error]Process completed with exit code 2
+#
+# merge=union склеивает обе стороны построчно. Для JSONL это ровно то, что
+# нужно: строка — самостоятельный item, порядок не значим, а дубли снимает
+# dedupeByLink при чтении. Безопасно потому, что все три фетчера пишут эти
+# файлы строго через appendFileSync — переписывания целиком нет нигде.
+content/inbox/*.jsonl        merge=union
+content/state/seen/*.jsonl   merge=union

@@ -22,18 +22,17 @@ import {
 } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadSeenLinks, saveSeenLinks } from "../lib/inbox-core.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(HERE);
 const CONFIG_PATH = join(ROOT, "config/news-sources.json");
 const INBOX_DIR = join(ROOT, "content/inbox");
-const SEEN_PATH = join(INBOX_DIR, "seen.json");
 
 const CONCURRENCY = 8;
 // 20с не хватало медленным площадкам: cabar.asia стабильно упирался в таймаут,
 // хотя фид живой. 35с — компромисс между полнотой и временем прогона.
 const FETCH_TIMEOUT_MS = 35_000;
-const MAX_SEEN = 20_000; // храним последние N URL, чтобы файл не рос вечно
 const SNIPPET_MAX = 500;
 
 const argv = process.argv.slice(2);
@@ -68,9 +67,7 @@ if (!sources.length) {
 }
 
 mkdirSync(INBOX_DIR, { recursive: true });
-const seen = existsSync(SEEN_PATH)
-  ? new Set(JSON.parse(readFileSync(SEEN_PATH, "utf8")))
-  : new Set();
+const seen = loadSeenLinks(ROOT);
 
 const parser = new Parser({
   timeout: FETCH_TIMEOUT_MS,
@@ -253,8 +250,7 @@ if (fresh.length) {
   appendFileSync(dayFile, lines);
 
   for (const it of fresh) seen.add(it.link);
-  const trimmed = [...seen].slice(-MAX_SEEN);
-  writeFileSync(SEEN_PATH, JSON.stringify(trimmed));
+  saveSeenLinks(seen, ROOT);
 }
 
 // Отчёт

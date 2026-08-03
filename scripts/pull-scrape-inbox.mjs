@@ -36,18 +36,17 @@ import { parse as parseHTML } from "node-html-parser";
 import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadSeenLinks, saveSeenLinks } from "../lib/inbox-core.mjs";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const CONFIG_PATH = join(ROOT, "config/news-sources.json");
 const INBOX_DIR = join(ROOT, "content/inbox");
-const SEEN_PATH = join(INBOX_DIR, "seen.json");
 
 // Тот же браузерный UA, что у RSS-фетчера. Расхождение здесь стоило бы дорого:
 // сегодня NPR и ESPN прошли проверку одним агентом и провалились на другом.
 const UA =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
 const TIMEOUT_MS = 20_000;
-const MAX_SEEN = 20_000;
 const SNIPPET_MAX = 500;
 // Пауза между запросами к одному сайту. Crawl-delay ни у кого не задан, но
 // брать по десятку страниц в секунду с чужого сервера некрасиво независимо
@@ -81,9 +80,7 @@ if (!rules.length) {
 }
 
 mkdirSync(INBOX_DIR, { recursive: true });
-const seen = existsSync(SEEN_PATH)
-  ? new Set(JSON.parse(readFileSync(SEEN_PATH, "utf8")))
-  : new Set();
+const seen = loadSeenLinks(ROOT);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -427,7 +424,7 @@ if (seedMode) {
   // и отдать их все значит завалить планёрку протухшими темами. Поэтому
   // первый заход только запоминает увиденное.
   for (const r of results) for (const it of r.items) seen.add(it.link);
-  writeFileSync(SEEN_PATH, JSON.stringify([...seen].slice(-MAX_SEEN)));
+  saveSeenLinks(seen, ROOT);
   console.error(`[scrape] seed: запомнено ${allItems.length} ссылок, в инбокс ничего не отдано`);
   process.exit(broken ? 1 : 0);
 }
@@ -438,7 +435,7 @@ if (allItems.length) {
     allItems.map((x) => JSON.stringify(x)).join("\n") + "\n",
   );
   for (const it of allItems) seen.add(it.link);
-  writeFileSync(SEEN_PATH, JSON.stringify([...seen].slice(-MAX_SEEN)));
+  saveSeenLinks(seen, ROOT);
 }
 
 console.error(
