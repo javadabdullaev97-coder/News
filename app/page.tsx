@@ -1,5 +1,5 @@
 import { ArticleCard } from "@/components/ArticleCard";
-import { AdSlot, NativeAdCard } from "@/components/AdSlot";
+import { AdSlot } from "@/components/AdSlot";
 import { RubricSection } from "@/components/RubricSection";
 import { CurrencyWidget } from "@/components/CurrencyWidget";
 import { WeatherWidget } from "@/components/WeatherWidget";
@@ -77,11 +77,7 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {latest.slice(0, 2).map((a) => (
-            <ArticleCard key={a.slug} article={a} />
-          ))}
-          <NativeAdCard id="home-feed-native-1" brand="Hamkorbank" />
-          {latest.slice(2).map((a) => (
+          {latest.map((a) => (
             <ArticleCard key={a.slug} article={a} />
           ))}
         </div>

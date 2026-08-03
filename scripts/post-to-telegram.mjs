@@ -275,6 +275,25 @@ for (const mdxPath of allMdx) {
     continue;
   }
 
+  // Картинка обязательна для broadcast — та же логика fail-closed, что и
+  // для поля broadcast выше. Раньше её отсутствие молча откатывало пост на
+  // sendMessage (текст + превью по og:image), и материал сразу же попадал
+  // в telegram-posted.json — то есть терял картинку навсегда: bild мог
+  // прислать её следующим коммитом минуту спустя, но постер это уже не видел,
+  // а повторной отправки дедуп не допускает. Так в канал ушли без фото
+  // «Жара и пожары в Европе и США» и «Узбекнефтегаз H1 2026» 3 августа —
+  // оба на момент прогона имели image.url пустым, картинка появилась в
+  // материале позже отдельным коммитом. Теперь ждём: не постим и не
+  // отмечаем как отправленное, следующий push (коммит bild с картинкой)
+  // подхватит статью автоматически.
+  const imageAbs = fm.image?.url
+    ? join(ROOT, "public", fm.image.url.replace(/^\/+/, ""))
+    : null;
+  if (!imageAbs || !existsSync(imageAbs)) {
+    console.error(`[skip] ${rel}: broadcast:true, но нет картинки — ждём bild, не постим без фото`);
+    continue;
+  }
+
   const date = dateFromPath(mdxPath);
   const slug = slugFromPath(mdxPath);
   const url = articleUrl(date, slug);

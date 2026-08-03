@@ -1,8 +1,7 @@
-import { Fragment } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArticleCard } from "@/components/ArticleCard";
-import { AdSlot, NativeAdCard } from "@/components/AdSlot";
+import { AdSlot } from "@/components/AdSlot";
 import { LeapTag } from "@/components/LeapTag";
 import { CurrencyWidget } from "@/components/CurrencyWidget";
 import { WeatherWidget } from "@/components/WeatherWidget";
@@ -51,16 +50,8 @@ export default async function RubricPage({
             </p>
           ) : (
             <div className="mt-8 grid gap-8 sm:grid-cols-2">
-              {list.map((a, i) => (
-                <Fragment key={a.slug}>
-                  <ArticleCard article={a} />
-                  {i === 3 && (
-                    <NativeAdCard
-                      id={`rubric-${slug}-native-1`}
-                      brand="Рекламодатель"
-                    />
-                  )}
-                </Fragment>
+              {list.map((a) => (
+                <ArticleCard key={a.slug} article={a} />
               ))}
             </div>
           )}
