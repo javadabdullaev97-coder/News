@@ -45,19 +45,22 @@
         "description": "Событие идёт сейчас и меняет поведение читателя сегодня. ЧП с пострадавшими, отключения света и воды по городу, экстренные решения ЦБ по ставке или курсу, закрытие границ и аэропорта, эвакуация, отмена рейсов, штормовое предупреждение, отставка или назначение первого уровня.",
         "requiresPrimarySource": true,
         "pipeline": "reporter -> fact-checker -> editor -> bild+seo, без ожидания остальных тем",
-        "publishRoute": "pr-hot",
-        "publishRouteHint": "PR со striped-меткой newsroom:hot. SLA владельца — 15 минут на ручной аппрув. Раньше здесь был `direct` (публикация в main без человека), но directPublish отключён — см. секцию directPublish."
+        "publishRoute": "breaking-lane",
+        "publishRouteHint": "Полоса ЧП: см. секцию breakingLane. Материал выходит БЕЗ подтверждения владельца, если сходятся все её условия, и уведомление приходит фактом с правом отзыва. Не сошлись — обычная дорога: directPublish при confidence>=70, иначе editor-queue.",
+        "$staleHintFixed": "03.08.2026. Здесь стояло «PR со striped-меткой newsroom:hot, SLA владельца — 15 минут на ручной аппрув; directPublish отключён». Всё три утверждения устарели: directPublish включён с 03.08, PR-цикл перестал быть основным путём, а ручной аппрув для ЧП заменён полосой breakingLane. Расхождение опасное — оно описывало срочным материалам маршрут, которого больше нет."
       },
       "standard": {
         "publishWithin": "PT4H",
         "description": "Обычная новость дня: решение ведомства, статистика, старт приёма заявлений, приговор, международная встреча.",
         "requiresPrimarySource": true,
-        "publishRoute": "pr"
+        "publishRoute": "direct-or-queue",
+        "publishRouteHint": "directPublish при confidence>=70 и пройденных воротах, иначе editor-queue."
       },
       "deferred": {
         "publishWithin": "P1D",
         "description": "Не портится: объясняющий материал, разбор нормы, обзор рынка, культура, спорт вне матчей. Копится и выходит в спокойные часы, чтобы не забивать ленту в пик.",
-        "publishRoute": "pr"
+        "publishRoute": "direct-or-queue",
+        "publishRouteHint": "То же, что standard. Отдельного PR-маршрута больше нет."
       }
     },
     "defaultTier": "standard",
