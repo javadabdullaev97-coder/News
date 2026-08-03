@@ -76,9 +76,33 @@ jobs:
           node scripts/pull-telegram-inbox.mjs $ARGS
         continue-on-error: true
 
+      # Сторож ЧП. Смотрит на то, что фетчер только что принёс, и при
+      # совпадении «тревожное слово + узбекский топоним» шлёт владельцу
+      # сигнал в Telegram.
+      #
+      # Здесь, а не отдельным воркфлоу по расписанию: данные уже на диске,
+      # свежее момента сразу после фетча не будет, и лишний запуск не нужен.
+      # Планёрка придёт максимум через 20 минут и возьмёт тему в работу —
+      # сторож только сокращает время до того, как о событии станет известно.
+      #
+      # Индекс источников нужен, чтобы отличить официальное подтверждение
+      # от перепечатки; он производный и собирается тут же.
+      - name: Build source index
+        run: node scripts/build-source-index.mjs
+        continue-on-error: true
+
+      - name: Watch for emergencies
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
+        run: node scripts/breaking-watch.mjs
+        # Сторож не должен ронять фетч: инбокс важнее сигнала. Но и молча
+        # умирать ему нельзя — падение будет видно в логе шага.
+        continue-on-error: true
+
       - name: Commit and push if changed
         run: |
-          if [[ -z $(git status --porcelain content/inbox) ]]; then
+          if [[ -z $(git status --porcelain content/inbox content/state/breaking-alerts.json) ]]; then
             echo "Ничего нового — не коммитим."
             exit 0
           fi
@@ -86,5 +110,9 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           STAMP=$(TZ='Asia/Tashkent' date '+%H:%M %d.%m')
           git add content/inbox
+          # Состояние сторожа: по нему он не шлёт семь сообщений об одном
+          # землетрясении. Без коммита каждый следующий запуск считал бы,
+          # что ещё не сигналил.
+          git add content/state/breaking-alerts.json 2>/dev/null || true
           git commit -m "inbox: $STAMP Ташкента"
           bash .github/scripts/git-push-with-rebase.sh
