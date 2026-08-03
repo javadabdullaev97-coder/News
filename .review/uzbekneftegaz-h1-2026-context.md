@@ -1,0 +1,1 @@
+(diagnostic file, superseded — see notes-uzbekneftegaz-h1-2026-report.md for actual reporter notes)
