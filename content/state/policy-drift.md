@@ -1,6 +1,6 @@
-# Policy drift check — 2026-08-03T07:26:40.126Z
+# Policy drift check — 2026-08-03T07:29:17.323Z
 
-Проверено: 33 .mdx за последние 7 дней
+Проверено: 34 .mdx за последние 7 дней
 Ошибок: 0, предупреждений: 14
 
 ## ⚠️ Предупреждения
@@ -24,4 +24,4 @@
 
 - **2026-08-01** (18): society 5, sport 1, economy 8, tech 2, politics 2
 - **2026-08-02** (9): economy 2, world 3, society 4
-- **2026-08-03** (6): economy 2, world 3, society 1
+- **2026-08-03** (7): economy 2, world 3, culture 1, society 1

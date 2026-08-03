@@ -281,8 +281,24 @@ function findArticle(slug) {
 function articleReadiness(text) {
   const missing = [];
   if (!/^publishedAt:\s*\S/m.test(text)) missing.push("нет publishedAt");
-  if (/^status:\s*["']?needs-verification/m.test(text)) {
-    missing.push("status: needs-verification — это карточка, а не статья");
+  // ОСТАТОЧНЫЙ status САМ ПО СЕБЕ КАРТОЧКОЙ НЕ ДЕЛАЕТ.
+  //
+  // Поле `status: needs-verification` остаётся во frontmatter от папки,
+  // в которой материал лежал, и переживает превращение карточки в статью.
+  // Считать по нему — судить по прописке, а не по содержимому.
+  //
+  // 3 августа на этом встал материал про ЮНЕСКО: полноценная статья
+  // с заголовком, лидом, датой и тремя источниками (включая сам UNESCO),
+  // владелец ответил «ок» — и получил отказ «это карточка». Ответ при этом
+  // съедался, файл оставался заблокированным, сканер слал вопрос заново,
+  // и так по кругу, пока владелец не пожаловался.
+  //
+  // Признак статьи — наличие того, что нужно читателю: заголовок, дата
+  // выпуска, источники. Остаточное поле при публикации просто снимается.
+  const hasTitle = /^title:\s*\S/m.test(text);
+  const hasSources = /^sources:/m.test(text);
+  if (/^status:\s*["']?needs-verification/m.test(text) && !(hasTitle && hasSources)) {
+    missing.push("status: needs-verification и нет заголовка или источников — это карточка, а не статья");
   }
   if (/^draftAt:\s*\S/m.test(text) && !/^publishedAt:\s*\S/m.test(text)) {
     missing.push("draftAt вместо publishedAt");
@@ -296,7 +312,12 @@ function promoteToPosts(file, slug) {
   const destDir = join(ROOT, "content/posts", day);
   mkdirSync(destDir, { recursive: true });
   const dest = join(destDir, `${slug}.mdx`);
-  const text = readFileSync(file, "utf8");
+  // Снимаем служебные поля папки-источника: в опубликованной статье
+  // им места нет, а `status: needs-verification` вдобавок заставляет
+  // проверку считать материал карточкой при следующем касании.
+  const text = readFileSync(file, "utf8")
+    .replace(/^status:\s*["']?needs-verification["']?\s*\n/m, "")
+    .replace(/^recheckAt:.*\n/m, "");
   writeFileSync(dest, text);
   unlinkSync(file);
   console.error(`[queue] ${slug}: перемещён в ${dest.replace(ROOT + "/", "")}`);
@@ -787,6 +808,9 @@ async function scanPending() {
     join(ROOT, "content/posts"),
   ];
   const alreadyInQueue = new Set(q.pending.map((x) => x.slug));
+  // Материалы, о которых владельца уже спрашивали и он уже ответил.
+  // Их нельзя переспрашивать типовым вопросом — см. ветку ниже.
+  const askedBefore = new Set((q.resolved ?? []).map((x) => x.slug));
 
   let pushed = 0;
   let skipped = 0;
@@ -906,6 +930,26 @@ async function scanPending() {
         reason = q_.reason || "source-doubt";
         question = q_.question || "";
         imagePath = q_.image || imagePath;
+      } else if (askedBefore.has(slug)) {
+        // ПРО ЭТОТ МАТЕРИАЛ УЖЕ СПРАШИВАЛИ, И ОТВЕТ ПОЛУЧЕН.
+        //
+        // Повторный generic-вопрос здесь — не забота, а спам, и владелец
+        // от него бессилен: он отвечает «ок», ответ применяется, а материал
+        // всё равно остаётся заблокированным по другой причине — и вопрос
+        // приходит снова. 3 августа так закольцевался материал про ЮНЕСКО:
+        // владелец пробовал и «ок», и «стоп», сообщение возвращалось.
+        //
+        // Если материал завис после ответа — это работа для редакции
+        // (планёрка доведёт его до состояния статьи), а не повод дёргать
+        // человека по кругу тем же вопросом. Новый вопрос допустим только
+        // явный: планёрка ставит pendingEditorQuestion, когда ей правда
+        // есть что спросить.
+        console.error(
+          `[queue:scan] ${slug}: вопрос уже задавался и ответ получен — не переспрашиваю. ` +
+            `Материал ждёт редакцию, а не владельца.`,
+        );
+        skipped++;
+        continue;
       } else {
         // Legacy: awaitingEditor:true без pendingEditorQuestion. Такое
         // случается со статьями, положенными в очередь до внедрения
