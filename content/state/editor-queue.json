@@ -26,6 +26,14 @@
       "messageId": 40,
       "askedAt": "2026-08-03T05:46:47.059Z",
       "remindedAt": "2026-08-03T07:53:34.218Z"
+    },
+    {
+      "slug": "japan-kumamoto-earthquake-aftermath",
+      "title": "Землетрясение магнитудой 7,1 в Японии: 34 погибших, свыше 9 тысяч — в эвакопунктах",
+      "reason": "rework-ready",
+      "question": "Поставила фото Reuters (спасатели разбирают завалы Aeon Mall, Kumamoto, 30 июля) с credit Reuters/Kim Kyung-Hoon, как ты просил. Публиковать?",
+      "messageId": 74,
+      "askedAt": "2026-08-03T09:50:33.542Z"
     }
   ],
   "resolved": [
