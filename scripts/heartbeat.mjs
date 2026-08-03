@@ -48,11 +48,21 @@ const INBOX_STALE_HOURS = 2;
 const ROUTINE_STALE_HOURS = 6;
 const QUEUE_STALE_HOURS = 24;
 
-// Ночные часы Ташкента — не алертим по инбоксу (планёрка спит, RSS-лениво,
-// это нормально). 23:00–07:00 Ташкента = 18:00–02:00 UTC.
-function isTashkentQuietNow(now = Date.now()) {
-  const utcHour = new Date(now).getUTCHours();
-  return utcHour >= 18 || utcHour < 2;
+// Раньше здесь была функция isTashkentQuietNow(): с 23:00 до 07:00 Ташкента
+// алерты по инбоксу глушились с обоснованием «планёрка спит, RSS лениво».
+// Обоснование неверно — ничего не спит: планёрка запускается раз в час
+// круглосуточно, фетчер ходит каждые полчаса (news-inbox.yml, "5,35" и
+// "20,50" без ограничения по часам). Владелец подтвердил 3 августа: окон нет,
+// работаем 24/7. Ценой глушилки был молчащий ночной сбой фетчера — до восьми
+// часов без единого сигнала.
+//
+// Осталась единственная законная поблажка: сразу после полуночи Ташкента
+// файла за новый день ещё физически нет, пока не отработал первый тик
+// фетчера. Ждём час, дальше это уже сбой.
+const NEW_DAY_GRACE_HOURS = 1;
+
+function tashkentHourNow(now = Date.now()) {
+  return new Date(now + 5 * 3600 * 1000).getUTCHours();
 }
 
 function tashkentDayKey(now = Date.now()) {
@@ -128,8 +138,9 @@ function checkInbox() {
   const today = tashkentDayKey();
   const file = join(ROOT, `content/inbox/${today}.jsonl`);
   if (!existsSync(file)) {
-    // Файла нет — фетчер сегодня ещё не отработал. В ночные часы норма.
-    if (isTashkentQuietNow()) return null;
+    // Файла нет — фетчер за сегодня ещё не отработал. Нормально только
+    // в первый час после полуночи Ташкента, дальше это сбой.
+    if (tashkentHourNow() < NEW_DAY_GRACE_HOURS) return null;
     return {
       channel: "inbox-missing",
       severity: "warn",
@@ -137,7 +148,7 @@ function checkInbox() {
     };
   }
   const age = hoursSince(statSync(file).mtimeMs);
-  if (age > INBOX_STALE_HOURS && !isTashkentQuietNow()) {
+  if (age > INBOX_STALE_HOURS) {
     return {
       channel: "inbox-stale",
       severity: "warn",
