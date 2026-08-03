@@ -105,17 +105,77 @@ async function pool(items, worker, limit) {
 // об этом узнать, а не держать запись отключённой вечно.
 const results = await pool(config.rss, check, CONCURRENCY);
 
+// ─── Сайты без RSS, которые разбирает pull-scrape-inbox.mjs ───
+//
+// Их отказ выглядит иначе, чем у ленты: страница открывается, но шаблон
+// адреса перестаёт находить ссылки. Снаружи это неотличимо от «сегодня
+// новостей нет», поэтому в ежедневный отчёт они обязаны попадать наравне
+// с фидами — иначе рубрика тихо опустеет и заметят это через неделю.
+//
+// Проверяем упрощённо: сколько ссылок на странице подходит под шаблон.
+// Полный разбор (заголовки, дедуп, потолки) — забота самого скрейпера;
+// здесь важен один вопрос, ломающийся первым: находит ли шаблон хоть что-то.
+async function checkScrape(rule) {
+  const base = { id: rule.id, name: rule.name, url: rule.listUrl, kind: "scrape" };
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
+  try {
+    const res = await fetch(rule.listUrl, {
+      redirect: "follow",
+      signal: ctrl.signal,
+      headers: { "User-Agent": UA, "Accept-Language": "ru-RU,ru;q=0.9,en;q=0.8" },
+    });
+    const html = await res.text();
+    const origin = new URL(rule.listUrl).origin;
+    const linkRe = new RegExp(rule.linkPattern);
+    const excludeRe = rule.excludePattern ? new RegExp(rule.excludePattern) : null;
+    const hits = new Set();
+    for (const m of html.matchAll(/href="([^"]+)"/g)) {
+      let abs;
+      try { abs = new URL(m[1], rule.listUrl); } catch { continue; }
+      if (abs.origin !== origin) continue;
+      const path = abs.pathname.replace(/\/+$/, "") || "/";
+      if (!linkRe.test(path)) continue;
+      if (excludeRe && excludeRe.test(path)) continue;
+      hits.add(path);
+    }
+    return { ...base, status: res.status, items: hits.size, healthy: res.ok && hits.size > 0 };
+  } catch (err) {
+    return { ...base, status: "error", items: 0, healthy: false, error: err.message };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+const scrapeRules = (config.htmlScrape ?? []).filter((r) => !r.disabled);
+const scrapeResults = scrapeRules.length
+  ? await pool(scrapeRules, checkScrape, CONCURRENCY)
+  : [];
+const scrapeBroken = scrapeResults.filter((r) => !r.healthy);
+
 const active = results.filter((r) => !r.disabled && !r.requiresPlaywright);
 const broken = active.filter((r) => !r.healthy);
 const revived = results.filter((r) => r.disabled && r.healthy);
 const neverFetched = results.filter((r) => r.requiresPlaywright && !r.disabled);
 
 if (asJson) {
-  console.log(JSON.stringify({ results, broken, revived, neverFetched }, null, 2));
+  console.log(JSON.stringify({ results, broken, revived, neverFetched, scrapeResults, scrapeBroken }, null, 2));
 } else {
   console.log(
     `Проверено ${results.length} лент · активных ${active.length} · сломано ${broken.length}`,
   );
+  if (scrapeResults.length) {
+    console.log(
+      `Сайтов без RSS (скрейп) ${scrapeResults.length} · сломано ${scrapeBroken.length}`,
+    );
+    for (const r of scrapeResults) {
+      const mark = r.healthy ? "  ok  " : "  ✗   ";
+      console.log(
+        `${mark}${r.id.padEnd(16)} ${String(r.status).padEnd(8)} ссылок по шаблону: ${r.items}` +
+          (r.healthy ? "" : "  ← шаблон адреса перестал находить статьи"),
+      );
+    }
+  }
 
   if (broken.length) {
     console.log("\nСЛОМАНЫ (идут в фетч, но ничего не отдают):");
