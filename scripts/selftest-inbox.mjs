@@ -481,6 +481,41 @@ check("бронь без срока не считается живой", () => {
   eq(j.blocked.has(hashLink(link)), false, "тема свободна");
 });
 
+// ─── 11б. Карточки с завершённым статусом ───
+
+check("карточка с завершённым статусом не считается созревшей", () => {
+  // Тема уже разошлась по своей дороге, карточка осталась надгробием.
+  // Срок у таких обычно `recheckAt: null`, а нечитаемый срок мы намеренно
+  // трактуем как «пора» — иначе карточка без срока лежала бы вечно.
+  // Два правила столкнулись и дали вечный двигатель: планёрка каждые
+  // двадцать минут поднимала Opus, чтобы выяснить, что делать нечего.
+  for (const st of ["superseded", "resolved", "published", "rejected"]) {
+    const root = fixture({
+      [`content/needs-verification/dead-${st}.md`]: `---\nrecheckAt: null\nstatus: ${st}\n---\n`,
+    });
+    const r = listMaturedCards(root, NOON);
+    eq(r.matured.length, 0, `созревших при status: ${st}`);
+    eq(r.waiting.length, 0, `ждущих при status: ${st}`);
+  }
+});
+
+check("живая карточка без срока по-прежнему созревает", () => {
+  // Fail-open здесь обязателен: карточка без машиночитаемого срока — это
+  // та самая, что два дня лежала незамеченной. Правило про закрытые статусы
+  // не должно её задеть.
+  const root = fixture({
+    "content/needs-verification/open.md": "---\nstatus: needs-verification\n---\n",
+  });
+  eq(listMaturedCards(root, NOON).matured.length, 1, "созревших");
+});
+
+check("recheckAt: null у живой карточки читается как «пора»", () => {
+  const root = fixture({
+    "content/needs-verification/nulldate.md": "---\nrecheckAt: null\nstatus: needs-verification\n---\n",
+  });
+  eq(listMaturedCards(root, NOON).matured.length, 1, "созревших");
+});
+
 // ─── 12. Свежесть инбокса и даты из будущего ───
 
 check("дата из будущего не выдаётся за свежесть", () => {
