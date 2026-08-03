@@ -40,11 +40,15 @@ import { spawnSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadPosted } from "../lib/telegram-posted.mjs";
+import {
+  loadQueue as loadQueueLog,
+  saveQueue as saveQueueLog,
+  snapshot as snapshotQueue,
+} from "../lib/editor-queue-log.mjs";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
-const QUEUE_PATH = join(ROOT, "content/state/editor-queue.json");
 const REVIEW_DIR = join(ROOT, ".review");
 
 const {
@@ -93,28 +97,20 @@ function arg(name, fallback = null) {
   return p ? p.slice(name.length + 3) : fallback;
 }
 
+// Снимок состояния на момент чтения. saveQueue сравнивает с ним текущую
+// очередь и дописывает в журнал только разницу — так вызывающий код не
+// меняется, а на диск больше не уезжает файл целиком (см. lib/editor-queue-log.mjs).
+let queueSnapshot = { pending: [], resolved: [], updateOffset: 0 };
+
 function loadQueue() {
-  const empty = { pending: [], resolved: [], updateOffset: 0 };
-  if (!existsSync(QUEUE_PATH)) return empty;
-  let parsed;
-  try {
-    parsed = JSON.parse(readFileSync(QUEUE_PATH, "utf8"));
-  } catch {
-    console.error("[queue] файл очереди не читается как JSON — начинаю с пустой");
-    return empty;
-  }
-  // Нормализуем: файл мог быть создан руками или обрезан, и тогда
-  // отсутствующий pending роняет весь прогон.
-  return {
-    pending: Array.isArray(parsed.pending) ? parsed.pending : [],
-    resolved: Array.isArray(parsed.resolved) ? parsed.resolved : [],
-    updateOffset: Number(parsed.updateOffset) || 0,
-  };
+  const q = loadQueueLog(ROOT);
+  queueSnapshot = snapshotQueue(q);
+  return q;
 }
 
 function saveQueue(q) {
-  mkdirSync(dirname(QUEUE_PATH), { recursive: true });
-  writeFileSync(QUEUE_PATH, JSON.stringify(q, null, 2) + "\n");
+  const written = saveQueueLog(ROOT, queueSnapshot, q);
+  if (written) queueSnapshot = snapshotQueue(q);
 }
 
 async function tg(method, body) {

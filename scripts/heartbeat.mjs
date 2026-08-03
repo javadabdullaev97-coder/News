@@ -35,6 +35,7 @@ import {
 } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadQueue } from "../lib/editor-queue-log.mjs";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const STATE_DIR = join(ROOT, "content/state");
@@ -175,21 +176,16 @@ function checkRoutine() {
 }
 
 function checkEditorQueue() {
-  const file = join(STATE_DIR, "editor-queue.json");
-  if (!existsSync(file)) return null;
-  let queue;
-  try {
-    queue = JSON.parse(readFileSync(file, "utf8"));
-  } catch {
-    return {
-      channel: "queue-corrupt",
-      severity: "error",
-      message: `❌ <b>editor-queue.json не парсится как JSON</b>. Смотри вручную.`,
-    };
-  }
-  const pending = Array.isArray(queue.pending) ? queue.pending : [];
+  // Очередь читается сворачиванием журнала (lib/editor-queue-log.mjs), а не
+  // разбором JSON — файл состояния стал append-only.
+  //
+  // Поле времени — askedAt. Раньше здесь стояло pushedAt, которого в записях
+  // очереди нет никогда: условие `item.pushedAt && ...` всегда ложно, поэтому
+  // сторож молчал с самого начала. Обнаружено 04.08.2026, когда в очереди
+  // висело семь материалов, часть — больше суток.
+  const { pending } = loadQueue(ROOT);
   const stale = pending.filter(
-    (item) => item.pushedAt && hoursSince(new Date(item.pushedAt).getTime()) > QUEUE_STALE_HOURS,
+    (item) => item.askedAt && hoursSince(new Date(item.askedAt).getTime()) > QUEUE_STALE_HOURS,
   );
   if (stale.length) {
     const list = stale.slice(0, 5).map((x) => `— <code>${x.slug}</code>`).join("\n");

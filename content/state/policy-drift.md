@@ -1,7 +1,12 @@
-# Policy drift check — 2026-08-03T17:44:00.309Z
+# Policy drift check — 2026-08-03T21:02:05.010Z
 
-Проверено: 53 .mdx за последние 7 дней
-Ошибок: 0, предупреждений: 21
+Проверено: 56 .mdx за последние 7 дней
+Ошибок: 2, предупреждений: 26
+
+## ❌ Ошибки
+
+- **content/posts/2026-08-04/tashkent-contraband-medicine-bust-aug2026.mdx** — publishedAt на 8 ч в будущем (2026-08-04T10:00:00+05:00). Похоже, смещение +05:00 применено дважды: правильную дату даёт TZ=Asia/Tashkent date '+%Y-%m-%dT%H:%M:00+05:00'
+- **content/posts/2026-08-04/uzbekistan-usd-rate-rising-aug2026.mdx** — publishedAt на 7 ч в будущем (2026-08-04T09:00:00+05:00). Похоже, смещение +05:00 применено дважды: правильную дату даёт TZ=Asia/Tashkent date '+%Y-%m-%dT%H:%M:00+05:00'
 
 ## ⚠️ Предупреждения
 
@@ -26,9 +31,15 @@
 - **content/posts/2026-08-03/targeted-mortgage-deposits-pilot-first-results.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/json/all/2026-08-03/» не цитируется в теле — балласт
 - **content/posts/2026-08-03/uzbekistan-wto-accession-2026-goal.mdx** — sources[].url «https://www.wto.org/English/thewto_e/acc_e/a1_ouzbekistan_e.htm» не цитируется в теле — балласт
 - **content/posts/2026-08-03/uzbekneftegaz-h1-2026-report.mdx** — sources[].url «https://t.me/shmirziyoyev/35003» не цитируется в теле — балласт
+- **content/posts/2026-08-04/social-protection-reform-2026.mdx** — sources[].url «https://t.me/shmirziyoyev/35007» не цитируется в теле — балласт
+- **content/posts/2026-08-04/uzbekistan-usd-rate-rising-aug2026.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/json/USD/2026-07-29/» не цитируется в теле — балласт
+- **content/posts/2026-08-04/uzbekistan-usd-rate-rising-aug2026.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/json/USD/2026-07-30/» не цитируется в теле — балласт
+- **content/posts/2026-08-04/uzbekistan-usd-rate-rising-aug2026.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/json/USD/2026-07-31/» не цитируется в теле — балласт
+- **content/posts/2026-08-04/uzbekistan-usd-rate-rising-aug2026.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/json/USD/2026-07-28/» не цитируется в теле — балласт
 
 ## Распределение по дням и категориям
 
 - **2026-08-01** (18): society 5, sport 1, economy 8, tech 2, politics 2
 - **2026-08-02** (9): economy 2, world 3, society 4
 - **2026-08-03** (26): society 8, economy 8, world 7, tech 1, culture 1, business 1
+- **2026-08-04** (3): society 2, economy 1

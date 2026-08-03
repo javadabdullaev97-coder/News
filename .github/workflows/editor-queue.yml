@@ -176,13 +176,13 @@ jobs:
           # чистит pendingEditorQuestion из frontmatter после успешного push —
           # это тоже надо коммитить, иначе следующий scan снова его увидит
           # (для рабоспособности хватит queue.json, но dual-defense).
-          if [[ -z $(git status --porcelain -- content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/ content/state/tg-spool/) ]]; then
+          if [[ -z $(git status --porcelain -- content/state/editor-queue.jsonl .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/ content/state/tg-spool/) ]]; then
             echo "Ответов нет — коммитить нечего."
             echo "applied=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           echo "applied=true" >> "$GITHUB_OUTPUT"
-          git add content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/ content/state/tg-spool/ content/state/telegram-posted.jsonl
+          git add content/state/editor-queue.jsonl .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/ content/state/tg-spool/ content/state/telegram-posted.jsonl
           git commit -m "newsroom: ответы редактора из Telegram"
           bash .github/scripts/git-push-with-rebase.sh
 
