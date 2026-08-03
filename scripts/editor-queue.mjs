@@ -302,8 +302,22 @@ async function applyAnswer(item, answer) {
       { cwd: ROOT, encoding: "utf8" },
     );
     if (res.status !== 0) {
-      console.error(`[queue] ${item.slug}: prepare-image отверг фото — ${res.stdout}`);
-      return "image-rejected";
+      // ВАЖНО: это НЕ обычный возврат. Раньше здесь стоял `return
+      // "image-rejected"`, и collect() воспринимал его как успех: материал
+      // уезжал в resolved, вычёркивался из pending, offset двигался — а сам
+      // он оставался с awaitingEditor:true и пустой картинкой, и владельцу
+      // об этом никто не говорил. Он присылал фото и считал вопрос закрытым.
+      //
+      // Так 3 августа встали два материала: Pillow не был установлен в
+      // workflow, prepare-image.py отдавал {"error": "Pillow не установлен"}
+      // и выходил с 1. Оба ответа фотографией были приняты и потеряны.
+      //
+      // Теперь бросаем: collect() поймает, НЕ сдвинет offset для этого
+      // update и оставит материал в pending — следующий тик попробует снова.
+      const detail = (res.stdout || res.stderr || "").trim().slice(0, 300);
+      throw new Error(
+        `prepare-image отверг фото (exit ${res.status}): ${detail || "вывода нет"}`,
+      );
     }
     const report = JSON.parse(res.stdout);
     const url = report.output.url;

@@ -52,6 +52,15 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund --no-save
 
+      # Ответ владельца фотографией обрабатывает scripts/prepare-image.py, а ему
+      # нужен Pillow. Его тут не было НИКОГДА, поэтому любое присланное фото
+      # падало: скрипт отдавал {"error": "Pillow не установлен"} и выходил с 1.
+      # Виден баг не был, потому что editor-queue.mjs на такой отказ не бросал
+      # исключение — материал уходил в resolved, оставаясь заблокированным.
+      # Так 3 августа встали два материала, включая отключение воды с дедлайном.
+      - name: Install Pillow for image processing
+        run: python3 -m pip install --quiet Pillow
+
       # Планёрка в песочнице Claude Code не имеет доступа к секретам TG и не
       # может сама вызвать push. Вместо этого она пишет pendingEditorQuestion
       # во frontmatter материала в content/needs-verification/ или
