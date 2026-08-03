@@ -609,7 +609,27 @@ async function collect(injectedUpdates = null) {
   );
 }
 
-if (!dryRun && (!TELEGRAM_BOT_TOKEN || !TELEGRAM_EDITOR_CHAT_ID)) {
+// Секреты нужны не всем режимам, и требовать их у всех — дорого.
+//
+// Так был потерян первый же ответ владельца после включения вебхука.
+// Режим spool-update только кладёт полученное обновление в файл и ни разу
+// не обращается к Telegram, поэтому секретов ему в workflow не передавали —
+// по принципу наименьших прав. Но проверка стояла на верхнем уровне модуля,
+// до разбора режима, и роняла процесс с кодом 1 ещё до записи в спул.
+//
+// Внешне это выглядело как «бот молчит»: сообщение владельца доходило
+// до GitHub, запуск стартовал и падал на первом шаге, а сам ответ пропадал
+// безвозвратно — Telegram уже получил от воркера подтверждение доставки
+// и повторять не станет. Шесть ответов подряд ушли в никуда.
+const MODES_NEEDING_TELEGRAM = new Set([
+  "push",
+  "collect",
+  "remind",
+  "scan-pending",
+  "apply-update",
+]);
+
+if (!dryRun && MODES_NEEDING_TELEGRAM.has(mode) && (!TELEGRAM_BOT_TOKEN || !TELEGRAM_EDITOR_CHAT_ID)) {
   console.error(
     "Нужны TELEGRAM_BOT_TOKEN и TELEGRAM_EDITOR_CHAT_ID. Для проверки: DRY_RUN=1",
   );
