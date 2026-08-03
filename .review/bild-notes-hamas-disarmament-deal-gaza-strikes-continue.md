@@ -152,3 +152,21 @@ WFP с явным кредитом, ни один из жёстких запре
 требует не решать пограничные случаи самостоятельно.
 
 ## STATUS: fallback-needed (материал ждёт владельца)
+
+---
+
+## UPDATE 2026-08-03 — задним числом заполнен frontmatter.image
+
+Владелец подтвердил кадр через editor-queue 2026-08-03T01:03:23Z
+(`answer.kind: approve`, `applied: unblocked`, см.
+`content/state/editor-queue.json` → `resolved`). Файл
+`public/images/posts/2026-08/hamas-disarmament-deal-gaza-strikes-continue-01.jpg`
+уже существовал на диске (386 КБ, 1600×900, проверено повторно). Из-за
+бага в прошлом прогоне (ворота не потребовали картинку) материал ушёл
+на сайт с `frontmatter.image` всё ещё `null`, хотя одобрение уже было
+получено. Правка: вписаны ранее заготовленные `url`/`alt`/`credit`
+(см. выше) в `content/posts/2026-08-03/hamas-disarmament-deal-gaza-strikes-continue.mdx`,
+текст статьи не тронут. Новый источник не искал — одобренный кадр
+уже прошёл проверку владельцем.
+
+## STATUS: attached

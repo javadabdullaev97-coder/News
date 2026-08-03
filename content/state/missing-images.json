@@ -1,10 +1,4 @@
 {
   "$comment": "Вышедшие материалы без картинки. Заведён 03.08.2026: прогон 12:40 выпустил четыре материала подряд, ни разу не вызвав бильда, потому что ворота не требовали картинки. Правило исправлено, но эти статьи уже на сайте и сами себя не починят.\nПланёрка: если список непуст и в прогоне есть свободное время после основной работы — вызови bild по каждому и обнови frontmatter.image. Удали запись из списка, когда картинка появилась. Это работа второго приоритета: свежие темы всегда важнее.",
-  "articles": [
-    "content/posts/2026-08-03/animal-cruelty-penalty-law-2026.mdx",
-    "content/posts/2026-08-03/hamas-disarmament-deal-gaza-strikes-continue.mdx",
-    "content/posts/2026-08-03/japan-kumamoto-earthquake-aftermath.mdx",
-    "content/posts/2026-08-03/minjust-fake-patent-agencies-warning.mdx",
-    "content/posts/2026-08-03/tashkent-modernist-architecture-unesco.mdx"
-  ]
+  "articles": []
 }
