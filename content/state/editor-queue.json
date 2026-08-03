@@ -89,15 +89,6 @@
       "messageId": 83,
       "askedAt": "2026-08-03T11:18:36.912Z",
       "remindedAt": "2026-08-03T13:24:15.520Z"
-    },
-    {
-      "slug": "itpark-digital-uzbekistan-germany-mission-2026",
-      "title": "IT Park принимает заявки на бизнес-миссию в Германию до 3 августа",
-      "reason": "low-confidence",
-      "question": "Fact-check дал needs-fix (confidence 84%) — по правилам это исключает прямую публикацию. Editor исправил все правки, дедлайн заявок — СЕГОДНЯ 3 августа, поэтому решение желательно принять оперативно. Фото — с прошлой (польской) миссии IT Park, честно помечено в подписи. Публикуем?",
-      "messageId": 84,
-      "askedAt": "2026-08-03T11:22:32.551Z",
-      "remindedAt": "2026-08-03T13:24:15.732Z"
     }
   ],
   "resolved": [
@@ -360,7 +351,21 @@
         "text": "Нужно поменять фото трампа чтоюы он был не портрет а landscape и заполнял серые поля вокруг.",
         "applied": "rework-iteration-1"
       }
+    },
+    {
+      "slug": "itpark-digital-uzbekistan-germany-mission-2026",
+      "title": "IT Park принимает заявки на бизнес-миссию в Германию до 3 августа",
+      "reason": "low-confidence",
+      "question": "Fact-check дал needs-fix (confidence 84%) — по правилам это исключает прямую публикацию. Editor исправил все правки, дедлайн заявок — СЕГОДНЯ 3 августа, поэтому решение желательно принять оперативно. Фото — с прошлой (польской) миссии IT Park, честно помечено в подписи. Публикуем?",
+      "messageId": 84,
+      "askedAt": "2026-08-03T11:22:32.551Z",
+      "remindedAt": "2026-08-03T13:24:15.732Z",
+      "answer": {
+        "at": "2026-08-03T14:11:58.915Z",
+        "kind": "approve",
+        "applied": "unblocked"
+      }
     }
   ],
-  "updateOffset": 273157496
+  "updateOffset": 273157497
 }
