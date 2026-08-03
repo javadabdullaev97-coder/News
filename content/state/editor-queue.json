@@ -7,7 +7,7 @@
       "question": "Проверила канал @tashkentpressuz по твоей просьбе — хендл не резолвится в публичный канал (заглушка Telegram, не лента постов). Настоящий официальный канал хокимията Ташкента — это @poytaxt_uz, он уже указан первым источником в статье; апдейтов там с прошлой проверки не появилось (ни имени пострадавшего, ни причины происшествия, ни итогов проверки). Публиковать как есть, с текущими источниками (Poytaxt.uz + прокуратура Ташкента), или ждать ещё?",
       "messageId": 37,
       "askedAt": "2026-08-03T05:44:13.014Z",
-      "remindedAt": "2026-08-03T09:57:29.263Z"
+      "remindedAt": "2026-08-03T12:00:09.500Z"
     },
     {
       "slug": "school-security-requirements-425",
@@ -16,7 +16,7 @@
       "question": "Подобрал стоковое фото биометрии для статьи про постановление №425 — подходит?",
       "messageId": 38,
       "askedAt": "2026-08-03T05:44:13.990Z",
-      "remindedAt": "2026-08-03T09:57:29.828Z"
+      "remindedAt": "2026-08-03T12:00:10.008Z"
     },
     {
       "slug": "heating-tariff-social-norm-clarification",
@@ -25,7 +25,7 @@
       "question": "Fact-checker вернул needs-fix (confidence 55): overclaim «опроверг» в заголовке/лиде и неверная цитата первоисточника (CONTRADICTED). Editor поправил формулировки на точные («не подтвердил», «назвал односторонней») без нового research — правки точечные, ни один из трёх editor-ограничений не сработал (подробности в .review/editor-verdict-heating-tariff-social-norm-clarification.md). Повторный fact-check не проводился, поэтому вердикт формально остаётся needs-fix и directPublish.gates.factCheckVerdict (требует approve) не проходит ни при каком confidence. Опубликовать текст как есть (ответ «ок») или отправить на повторный fact-check?",
       "messageId": 40,
       "askedAt": "2026-08-03T05:46:47.059Z",
-      "remindedAt": "2026-08-03T09:57:30.068Z"
+      "remindedAt": "2026-08-03T12:00:10.226Z"
     },
     {
       "slug": "japan-kumamoto-earthquake-aftermath",
@@ -33,7 +33,8 @@
       "reason": "rework-ready",
       "question": "Поставила фото Reuters (спасатели разбирают завалы Aeon Mall, Kumamoto, 30 июля) с credit Reuters/Kim Kyung-Hoon, как ты просил. Публиковать?",
       "messageId": 74,
-      "askedAt": "2026-08-03T09:50:33.542Z"
+      "askedAt": "2026-08-03T09:50:33.542Z",
+      "remindedAt": "2026-08-03T12:00:10.428Z"
     },
     {
       "slug": "cbu-extends-fx-exchange-trading-hours",
