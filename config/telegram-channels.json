@@ -171,6 +171,17 @@
       "notes": "Ключевой исток ЧП по Ташкенту"
     },
     {
+      "id": "toshkentprokuraturasi",
+      "handle": "@toshkentprokuraturasi",
+      "url": "https://t.me/s/toshkentprokuraturasi",
+      "name": "Прокуратура города Ташкента",
+      "type": "source",
+      "priority": "P1",
+      "subscribers": 6600,
+      "publishRate": "3-8/day",
+      "notes": "Добавлен 03.08.2026 планёркой — использовался как источник в нескольких материалах (olmazor-orzu-construction-incident и др.), но в конфиге отсутствовал. По городским ЧП оперативнее хокимията. Не путать с @prokuraturauz (Генпрокуратура РУз, республиканский уровень)."
+    },
+    {
       "id": "codd_tashkent",
       "handle": "@codd_tashkent",
       "url": "https://t.me/s/codd_tashkent",
