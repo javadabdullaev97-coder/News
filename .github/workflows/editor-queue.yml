@@ -9,6 +9,28 @@ name: Collect editor replies
 # присланное фото или комментарий в репозиторий.
 
 on:
+  # Планёрка положила вопрос в репозиторий — вопрос уходит владельцу СРАЗУ,
+  # а не на ближайшем тике будильника.
+  #
+  # Раньше единственным входом был cron каждые 10 минут, и к нему добавлялось
+  # обычное опоздание планировщика GitHub — на практике 10–25 минут между
+  # «планёрка засомневалась» и «владелец увидел вопрос». Для материала, чей
+  # смысл в дедлайне (отключение воды с утра, приём заявлений до даты), эта
+  # задержка съедает половину ценности.
+  #
+  # Пуш-триггер закрывает первую половину петли — вопрос К владельцу.
+  # Вторая половина — ответ ОТ владельца — по-прежнему ждёт cron: чтобы
+  # забрать реплай из Telegram, нужен либо опрос по расписанию, либо webhook.
+  #
+  # Cron ниже НЕ УБРАН и убирать его нельзя: он остаётся страховкой на случай
+  # пропущенного события и единственным входом для remind (напоминания о
+  # зависших материалах приходят по времени, а не по пушу).
+  push:
+    branches: [main]
+    paths:
+      - "content/needs-verification/**"
+      - "content/rework/**"
+      - "content/posts/**"
   schedule:
     # Каждые 10 минут круглосуточно. Раньше стояло "*/10 2-18 * * *" —
     # 07:00–23:00 Ташкента. Окно противоречило решению владельца работать
@@ -90,6 +112,7 @@ jobs:
         run: node scripts/editor-queue.mjs remind
 
       - name: Commit collected input
+        id: collected
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -100,8 +123,58 @@ jobs:
           # (для рабоспособности хватит queue.json, но dual-defense).
           if [[ -z $(git status --porcelain -- content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/) ]]; then
             echo "Ответов нет — коммитить нечего."
+            echo "applied=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+          echo "applied=true" >> "$GITHUB_OUTPUT"
           git add content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/
           git commit -m "newsroom: ответы редактора из Telegram"
+          bash .github/scripts/git-push-with-rebase.sh
+
+      # Разослать в канал то, что владелец только что одобрил.
+      #
+      # Почему прямо здесь, а не привычным путём через telegram-autopost.yml.
+      # Тот воркфлоу срабатывает на push в content/posts/**. Но GitHub НЕ
+      # запускает воркфлоу от пушей, сделанных с GITHUB_TOKEN, — это встроенная
+      # защита от рекурсии, и обойти её можно только личным токеном.
+      #
+      # То есть материал, одобренный ответом «ок», уезжал в content/posts/
+      # пушем этого джоба — и telegram-autopost на него не реагировал вовсе.
+      # На сайт статья попадала (Cloudflare собирает из main напрямую), в канал
+      # не попадала никогда. Сейчас застрявших нет только потому, что почти все
+      # публикации шли из планёрки, у которой токен другой.
+      #
+      # Скрипт идемпотентен: дедуп по content/state/telegram-posted.json,
+      # уже отправленное повторно не уйдёт. Материалы с awaitingEditor и без
+      # broadcast:true он пропускает сам.
+      #
+      # Условие — только когда ответ владельца реально применён. Иначе шаг
+      # выполнялся бы на каждом пуше в content/posts (а их теперь несколько
+      # в час), и при двух и более неразосланных материалах post-to-telegram
+      # усыплял бы джоб на 15 минут между постами, держа группу concurrency
+      # и задерживая сбор следующего ответа ровно на то время, которое мы и
+      # пытаемся убрать.
+      #
+      # success() указан явно: заданный if ОТМЕНЯЕТ неявную проверку успеха
+      # предыдущих шагов. Без него провалившийся push всё равно пропустил бы
+      # рассылку дальше — в канал ушло бы то, чего нет в main.
+      - name: Post approved articles to Telegram
+        if: success() && steps.collected.outputs.applied == 'true'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          SITE_URL: "https://leap.uz"
+        run: node scripts/post-to-telegram.mjs
+
+      - name: Commit telegram state
+        if: success() && steps.collected.outputs.applied == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [[ -z $(git status --porcelain -- content/state/telegram-posted.json) ]]; then
+            echo "В канал ничего не уходило."
+            exit 0
+          fi
+          git add content/state/telegram-posted.json
+          git commit -m "state: telegram-posted обновлён после ответа редактора"
           bash .github/scripts/git-push-with-rebase.sh
