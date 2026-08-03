@@ -258,6 +258,38 @@ function findArticle(slug) {
 // Переместить статью в content/posts/<день>/ — используется когда владелец
 // ответил «ок» на материал из needs-verification или rework: он получает
 // нормальный путь и попадает на сайт.
+/**
+ * Готов ли файл к публикации на сайте.
+ *
+ * В очереди к владельцу оказываются два разных типа файлов, и внешне они
+ * похожи: готовая статья и исследовательская карточка. У карточки вместо
+ * publishedAt стоит draftAt, живёт status: needs-verification, а текст
+ * материала спрятан внутри раздела «Готовый текст материала (для решения
+ * редактора)» — рядом со служебными пометками «Статус: черновик готов»
+ * и «Заведено: …».
+ *
+ * Без этой проверки ответ «ок» перекладывал карточку в content/posts/ как
+ * есть. Так 3 августа на сайт уехала карточка про изъятие гашиша: сборка
+ * её приняла, publishedAt оказался пустым, поэтому в списках она встала
+ * в самый конец и владельцу выглядела как «ничего не опубликовалось»,
+ * а читателю на странице показались бы внутренние заметки редакции.
+ *
+ * Поэтому «ок» больше не превращает карточку в публикацию. Решение
+ * владельца при этом не теряется — оно возвращается в работу вместе
+ * с объяснением, чего не хватает.
+ */
+function articleReadiness(text) {
+  const missing = [];
+  if (!/^publishedAt:\s*\S/m.test(text)) missing.push("нет publishedAt");
+  if (/^status:\s*["']?needs-verification/m.test(text)) {
+    missing.push("status: needs-verification — это карточка, а не статья");
+  }
+  if (/^draftAt:\s*\S/m.test(text) && !/^publishedAt:\s*\S/m.test(text)) {
+    missing.push("draftAt вместо publishedAt");
+  }
+  return missing;
+}
+
 function promoteToPosts(file, slug) {
   if (file.includes("/content/posts/")) return file; // уже там
   const day = new Date(Date.now() + 5 * 3600 * 1000).toISOString().slice(0, 10);
@@ -410,6 +442,32 @@ async function applyAnswer(item, answer) {
   }
 
   if (answer.kind === "approve") {
+    // Проверяем ДО снятия блокировки: «ок» по недоделанному материалу не
+    // должен превращаться в публикацию полуфабриката.
+    const missing = articleReadiness(text);
+    if (missing.length) {
+      console.error(
+        `[queue] ${item.slug}: «ок» принят, но материал не готов к публикации — ` +
+          missing.join("; ") + ". Оставляю на месте и сообщаю владельцу.",
+      );
+      if (!dryRun) {
+        await tg("sendMessage", {
+          chat_id: TELEGRAM_EDITOR_CHAT_ID,
+          text:
+            "<b>Ваше «ок» принято, но материал ещё не статья</b>\n\n" +
+            `<b>${item.title}</b>\n\n` +
+            `Чего не хватает: ${missing.join("; ")}.\n\n` +
+            "Это исследовательская карточка: текст в ней есть, но он не собран " +
+            "в материал — нет даты выпуска, а рядом с текстом лежат служебные " +
+            "заметки редакции. Опубликуй я её как есть, читатель увидел бы их.\n\n" +
+            "Планёрка соберёт из неё статью на ближайшем прогоне и вернёт вам " +
+            "на подтверждение. Отвечать сейчас не нужно.",
+          parse_mode: "HTML",
+          reply_to_message_id: item.messageId,
+        }).catch((e) => console.error(`[queue] не смог сообщить владельцу: ${e.message}`));
+      }
+      return "not-an-article";
+    }
     text = dropFrontmatterField(text, "awaitingEditor");
     writeFileSync(file, text);
     const promoted = promoteToPosts(file, item.slug);
