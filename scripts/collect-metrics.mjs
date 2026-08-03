@@ -36,9 +36,10 @@ import {
 } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadPosted } from "../lib/telegram-posted.mjs";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
-const POSTED_PATH = join(ROOT, "content/state/telegram-posted.json");
+
 const METRICS_PATH = join(ROOT, "content/state/metrics-daily.json");
 
 const { TELEGRAM_CHANNEL, DRY_RUN } = process.env;
@@ -50,12 +51,11 @@ if (!TELEGRAM_CHANNEL) {
 }
 const channelSlug = TELEGRAM_CHANNEL.replace(/^@/, "");
 
-if (!existsSync(POSTED_PATH)) {
-  console.error("Нет telegram-posted.json — нечего мерить");
+const posted = Object.fromEntries(loadPosted(ROOT));
+if (!Object.keys(posted).length) {
+  console.error("Реестр отправленных постов пуст — нечего мерить");
   process.exit(0);
 }
-
-const posted = JSON.parse(readFileSync(POSTED_PATH, "utf8")).posted || {};
 
 // Сколько дней назад стоит перепроверять пост. Просмотры на TG растут
 // первые ~72 часа, дальше плато — мерить дальше почти бесполезно, только

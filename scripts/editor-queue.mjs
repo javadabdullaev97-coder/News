@@ -39,6 +39,7 @@ import {
 import { spawnSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadPosted } from "../lib/telegram-posted.mjs";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
 
@@ -352,16 +353,7 @@ function dropFrontmatterField(text, key) {
 // отдельным сообщением. Об этом сказано в тексте уведомления, чтобы
 // ограничение не выяснялось в момент, когда оно мешает.
 async function revokeFromChannel(slug, articleUrl) {
-  const statePath = join(ROOT, "content/state/telegram-posted.json");
-  if (!existsSync(statePath)) return "нет состояния telegram-posted";
-  let state;
-  try {
-    state = JSON.parse(readFileSync(statePath, "utf8"));
-  } catch {
-    return "telegram-posted не читается";
-  }
-  const posted = state.posted || {};
-  const entry = posted[articleUrl];
+  const entry = loadPosted(ROOT).get(articleUrl);
   if (!entry?.messageId) return "в канал не отправлялся";
 
   const channel = process.env.TELEGRAM_CHANNEL;

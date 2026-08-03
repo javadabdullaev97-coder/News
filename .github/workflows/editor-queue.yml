@@ -182,7 +182,7 @@ jobs:
             exit 0
           fi
           echo "applied=true" >> "$GITHUB_OUTPUT"
-          git add content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/ content/state/tg-spool/ content/state/telegram-posted.json
+          git add content/state/editor-queue.json .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/ content/state/tg-spool/ content/state/telegram-posted.jsonl
           git commit -m "newsroom: ответы редактора из Telegram"
           bash .github/scripts/git-push-with-rebase.sh
 
@@ -199,7 +199,7 @@ jobs:
       # не попадала никогда. Сейчас застрявших нет только потому, что почти все
       # публикации шли из планёрки, у которой токен другой.
       #
-      # Скрипт идемпотентен: дедуп по content/state/telegram-posted.json,
+      # Скрипт идемпотентен: дедуп по content/state/telegram-posted.jsonl,
       # уже отправленное повторно не уйдёт. Материалы с awaitingEditor и без
       # broadcast:true он пропускает сам.
       #
@@ -226,10 +226,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [[ -z $(git status --porcelain -- content/state/telegram-posted.json) ]]; then
+          if [[ -z $(git status --porcelain -- content/state/telegram-posted.jsonl) ]]; then
             echo "В канал ничего не уходило."
             exit 0
           fi
-          git add content/state/telegram-posted.json
+          git add content/state/telegram-posted.jsonl
           git commit -m "state: telegram-posted обновлён после ответа редактора"
           bash .github/scripts/git-push-with-rebase.sh

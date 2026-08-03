@@ -4,7 +4,7 @@
 // content/posts/ появились по сравнению с прошлым коммитом, форматирует
 // каждую как ТГ-пост и отправляет через Bot API.
 //
-// Дедупит через content/state/telegram-posted.json (URL статьи → message_id).
+// Дедупит через content/state/telegram-posted.jsonl (URL статьи → message_id).
 //
 // ENV:
 //   TELEGRAM_BOT_TOKEN — токен бота (secret)
@@ -21,6 +21,7 @@ import {
 } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadPosted, markPosted } from "../lib/telegram-posted.mjs";
 import {
   parseFrontmatter,
   extractLede,
@@ -31,7 +32,7 @@ import {
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(HERE);
 const POSTS_DIR = join(ROOT, "content/posts");
-const STATE_PATH = join(ROOT, "content/state/telegram-posted.json");
+
 
 const {
   TELEGRAM_BOT_TOKEN,
@@ -219,11 +220,7 @@ async function postArticle(mdxPath, fm) {
 
 // ─── main ───
 const allMdx = collectMdx(POSTS_DIR).sort();
-const state = existsSync(STATE_PATH)
-  ? JSON.parse(readFileSync(STATE_PATH, "utf8"))
-  : { posted: {} };
-
-const posted = state.posted || {};
+const posted = loadPosted(ROOT);
 const pending = [];
 
 for (const mdxPath of allMdx) {
@@ -265,7 +262,7 @@ for (const mdxPath of allMdx) {
   //
   // Теперь умолчание fail-closed: рассылаем только по явному broadcast:true.
   // Потерять уже опубликованное это не может — вышедшие статьи записаны
-  // в content/state/telegram-posted.json и повторно не отправляются, а новые
+  // в content/state/telegram-posted.jsonl и повторно не отправляются, а новые
   // получают флаг от SEO-агента. Цена ошибки несимметрична: не отправить
   // вовремя — досадно, отправить непроверенное — уже случилось дважды.
   const broadcast = fm.broadcast === true || fm.broadcast === "true";
@@ -278,7 +275,7 @@ for (const mdxPath of allMdx) {
   // Картинка обязательна для broadcast — та же логика fail-closed, что и
   // для поля broadcast выше. Раньше её отсутствие молча откатывало пост на
   // sendMessage (текст + превью по og:image), и материал сразу же попадал
-  // в telegram-posted.json — то есть терял картинку навсегда: bild мог
+  // в реестре отправленных — то есть терял картинку навсегда: bild мог
   // прислать её следующим коммитом минуту спустя, но постер это уже не видел,
   // а повторной отправки дедуп не допускает. Так в канал ушли без фото
   // «Жара и пожары в Европе и США» и «Узбекнефтегаз H1 2026» 3 августа —
@@ -297,7 +294,7 @@ for (const mdxPath of allMdx) {
   const date = dateFromPath(mdxPath);
   const slug = slugFromPath(mdxPath);
   const url = articleUrl(date, slug);
-  if (posted[url]) {
+  if (posted.has(url)) {
     continue; // уже постили
   }
   pending.push({ mdxPath, fm, url, rel });
@@ -318,14 +315,8 @@ for (let i = 0; i < pending.length; i++) {
   try {
     const result = await postArticle(p.mdxPath, p.fm);
     if (!dryRun) {
-      posted[p.url] = {
-        messageId: result.messageId,
-        postedAt: new Date().toISOString(),
-      };
-      writeFileSync(
-        STATE_PATH,
-        JSON.stringify({ posted, updatedAt: new Date().toISOString() }, null, 2),
-      );
+      const rec = markPosted(ROOT, { url: p.url, messageId: result.messageId });
+      posted.set(p.url, rec);
     }
     ok++;
     console.error(`  ✓ ${p.rel}`);
