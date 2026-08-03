@@ -25,17 +25,30 @@
 // rebase прерывает пуш. Здесь гонки нет по построению: сбор и разбор идут
 // в одной сессии, последовательно.
 //
-// ПОЧЕМУ ТОЛЬКО P0/P1 В АВАРИЙНОМ РЕЖИМЕ. Полный обход стоит 11 минут,
-// а планёрке нужно ещё производить материалы до прихода следующей. P0 и P1 —
-// это госорганы и ведущие ленты, там появляется всё, ради чего стоит спешить.
-// P2 и P3 дождутся воркфлоу: их темы не портятся за полчаса.
+// ПОЧЕМУ У RSS И TELEGRAM РАЗНЫЕ ПРИОРИТЕТЫ. Изначально аварийный режим брал
+// P0/P1 у обоих: считалось, что хвост дорогой в принципе. Замер 3 августа
+// показал, что дорогой только RSS:
+//
+//   RSS P2 в одиночку        — не уложился в 7 минут (оборван по таймауту)
+//   RSS P2+P3                — не уложился в 10 минут
+//   Telegram P2+P3 целиком   — 5 секунд
+//
+// Причина в устройстве RSS-фетчера: 35 секунд таймаута на ленту при
+// восьми параллельных воркерах, а в хвосте P2/P3 много мёртвых и медленных
+// лент — каждая выкупает свои 35 секунд целиком.
+//
+// Поэтому в аварийном режиме Telegram берётся ВЕСЬ, а RSS остаётся на P0/P1.
+// Это важнее, чем кажется: узбекские ведомства публикуют в Telegram раньше,
+// чем на сайтах, так что именно телеграм-хвост закрывает дыру в покрытии,
+// когда планировщик GitHub молчит по три часа. Пять секунд за это — даром.
 //
 // Использование:
-//   node scripts/ensure-fresh-inbox.mjs                 — проверить и, если надо, собрать
-//   node scripts/ensure-fresh-inbox.mjs --max-age=25    — порог свежести, минут
-//   node scripts/ensure-fresh-inbox.mjs --priority=P0,P1,P2
-//   node scripts/ensure-fresh-inbox.mjs --force         — собрать независимо от возраста
-//   node scripts/ensure-fresh-inbox.mjs --check         — только сказать, надо ли; не собирать
+//   node scripts/ensure-fresh-inbox.mjs                    — проверить и, если надо, собрать
+//   node scripts/ensure-fresh-inbox.mjs --max-age=25       — порог свежести, минут
+//   node scripts/ensure-fresh-inbox.mjs --priority=P0,P1   — приоритеты RSS
+//   node scripts/ensure-fresh-inbox.mjs --tg-priority=P0,P1 — приоритеты Telegram (по умолчанию все)
+//   node scripts/ensure-fresh-inbox.mjs --force            — собрать независимо от возраста
+//   node scripts/ensure-fresh-inbox.mjs --check            — только сказать, надо ли; не собирать
 
 import { existsSync } from "node:fs";
 import { spawnSync } from "node:child_process";
@@ -55,6 +68,8 @@ const flag = (n) => process.argv.includes(`--${n}`);
 
 const maxAgeMin = Number(opt("max-age", 25));
 const priority = opt("priority", "P0,P1");
+// Telegram-хвост стоит 5 секунд (замер в шапке файла) — берём целиком.
+const tgPriority = opt("tg-priority", "P0,P1,P2,P3");
 const at = Date.now();
 
 function newestAgeMinutes() {
@@ -87,7 +102,9 @@ if (flag("check")) {
   process.exit(0);
 }
 
-console.error(`[fresh-inbox] ${why} — воркфлоу молчит, собираю сама (приоритеты ${priority})`);
+console.error(
+  `[fresh-inbox] ${why} — воркфлоу молчит, собираю сама (RSS ${priority}, Telegram ${tgPriority})`,
+);
 
 // Фетчерам нужен npm-пакет rss-parser. Планёрка работает в свежем клоне,
 // где node_modules может не быть: ставим только если действительно нет,
@@ -114,9 +131,11 @@ for (const script of ["pull-news-inbox.mjs", "pull-telegram-inbox.mjs", "pull-sc
   // Скрейперу приоритеты не передаём: сайтов всего четыре, обход занимает
   // секунды, а daryo и repost — крупные узбекские издания, терять их
   // в аварийном режиме бессмысленно.
+  const prio =
+    script === "pull-telegram-inbox.mjs" ? tgPriority : priority;
   const args = script === "pull-scrape-inbox.mjs"
     ? [join(ROOT, "scripts", script)]
-    : [join(ROOT, "scripts", script), `--priority=${priority}`];
+    : [join(ROOT, "scripts", script), `--priority=${prio}`];
   const r = spawnSync("node", args, {
     cwd: ROOT,
     encoding: "utf8",
@@ -136,6 +155,7 @@ process.stdout.write(
   JSON.stringify({
     fetched: true,
     priority,
+    tgPriority,
     before: { items: before.count, ageMinutes: before.age },
     after: { items: after.count, ageMinutes: after.age },
     scripts: ran,

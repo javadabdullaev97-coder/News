@@ -1,7 +1,7 @@
-# Policy drift check — 2026-08-03T07:29:17.323Z
+# Policy drift check — 2026-08-03T17:44:00.309Z
 
-Проверено: 34 .mdx за последние 7 дней
-Ошибок: 0, предупреждений: 14
+Проверено: 53 .mdx за последние 7 дней
+Ошибок: 0, предупреждений: 21
 
 ## ⚠️ Предупреждения
 
@@ -18,10 +18,17 @@
 - **content/posts/2026-08-01/uzbekistan-wto-accession-2026.mdx** — sources[].url «https://www.wto.org/english/news_e/news26_e/acc_09mar26_316_e.htm» не цитируется в теле — балласт
 - **content/posts/2026-08-02/agmk-1h2026-profit-doubles.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/json/USD/2026-06-30/» не цитируется в теле — балласт
 - **content/posts/2026-08-02/opec-plus-september-quota-188k-bpd.mdx** — sources[].url «https://www.kommersant.ru/doc/8860901» не цитируется в теле — балласт
+- **content/posts/2026-08-03/codd-green-wave-kichik-halqa-tashkent.mdx** — sources[].url «https://t.me/codd_tashkent/287» не цитируется в теле — балласт
+- **content/posts/2026-08-03/japan-kumamoto-earthquake-aftermath.mdx** — sources[].url «https://www.aljazeera.com/news/2026/7/31/death-toll-from-japan-earthquake-climbs» не цитируется в теле — балласт
+- **content/posts/2026-08-03/medworkers-children-tuition-discount-15yrs.mdx** — sources[].url «https://president.uz/ru/lists/view/8639» не цитируется в теле — балласт
+- **content/posts/2026-08-03/medworkers-children-tuition-discount-15yrs.mdx** — sources[].url «https://lex.uz/uz/docs/7553322» не цитируется в теле — балласт
+- **content/posts/2026-08-03/medworkers-children-tuition-discount-15yrs.mdx** — sources[].url «https://lex.uz/en/docs/8283656» не цитируется в теле — балласт
+- **content/posts/2026-08-03/targeted-mortgage-deposits-pilot-first-results.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/json/all/2026-08-03/» не цитируется в теле — балласт
 - **content/posts/2026-08-03/uzbekistan-wto-accession-2026-goal.mdx** — sources[].url «https://www.wto.org/English/thewto_e/acc_e/a1_ouzbekistan_e.htm» не цитируется в теле — балласт
+- **content/posts/2026-08-03/uzbekneftegaz-h1-2026-report.mdx** — sources[].url «https://t.me/shmirziyoyev/35003» не цитируется в теле — балласт
 
 ## Распределение по дням и категориям
 
 - **2026-08-01** (18): society 5, sport 1, economy 8, tech 2, politics 2
 - **2026-08-02** (9): economy 2, world 3, society 4
-- **2026-08-03** (7): economy 2, world 3, culture 1, society 1
+- **2026-08-03** (26): society 8, economy 8, world 7, tech 1, culture 1, business 1
