@@ -26,14 +26,6 @@
       "messageId": 40,
       "askedAt": "2026-08-03T05:46:47.059Z",
       "remindedAt": "2026-08-03T07:53:34.218Z"
-    },
-    {
-      "slug": "minjust-fake-patent-agencies-warning",
-      "title": "Минюст предупредил о мошенниках, выдающих себя за патентные агентства",
-      "reason": "source-doubt",
-      "question": "Единственный первоисточник — Telegram-канал @adliyangiliklari: verified-бейдж, bio дословно «Канал Министерства юстиции Республики Узбекистан», ссылка на gov.uz/oz/adliya. Fact-checker проверил лично и считает подлинным, но канал не внесён в config/telegram-channels.json как официальный source Минюста (там только @huquqiyaxborot), и дублирующей публикации на сайте нет. Публиковать как есть или подождать, пока канал добавят в конфиг?",
-      "messageId": 68,
-      "askedAt": "2026-08-03T08:05:16.503Z"
     }
   ],
   "resolved": [
@@ -172,7 +164,20 @@
         "kind": "approve",
         "applied": "not-an-article"
       }
+    },
+    {
+      "slug": "minjust-fake-patent-agencies-warning",
+      "title": "Минюст предупредил о мошенниках, выдающих себя за патентные агентства",
+      "reason": "source-doubt",
+      "question": "Единственный первоисточник — Telegram-канал @adliyangiliklari: verified-бейдж, bio дословно «Канал Министерства юстиции Республики Узбекистан», ссылка на gov.uz/oz/adliya. Fact-checker проверил лично и считает подлинным, но канал не внесён в config/telegram-channels.json как официальный source Минюста (там только @huquqiyaxborot), и дублирующей публикации на сайте нет. Публиковать как есть или подождать, пока канал добавят в конфиг?",
+      "messageId": 68,
+      "askedAt": "2026-08-03T08:05:16.503Z",
+      "answer": {
+        "at": "2026-08-03T08:06:23.681Z",
+        "kind": "approve",
+        "applied": "unblocked"
+      }
     }
   ],
-  "updateOffset": 273157487
+  "updateOffset": 273157488
 }
