@@ -40,7 +40,12 @@
 import { existsSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { join } from "node:path";
-import { ROOT, readInbox, dedupeByLink, itemAgeHours } from "../lib/inbox-core.mjs";
+import {
+  ROOT,
+  readInbox,
+  dedupeByLink,
+  inboxFreshnessMinutes,
+} from "../lib/inbox-core.mjs";
 
 function opt(name, fallback) {
   const p = process.argv.find((a) => a.startsWith(`--${name}=`));
@@ -57,14 +62,7 @@ function newestAgeMinutes() {
     ...readInbox(ROOT, { at }).items,
     ...readInbox(ROOT, { world: true, at }).items,
   ]);
-  let best = null;
-  for (const it of items) {
-    const age = itemAgeHours(it, at);
-    if (age === null) continue;
-    const min = age * 60;
-    if (best === null || min < best) best = min;
-  }
-  return { age: best === null ? null : Math.round(best), count: items.length };
+  return { age: inboxFreshnessMinutes(items, at), count: items.length };
 }
 
 const before = newestAgeMinutes();

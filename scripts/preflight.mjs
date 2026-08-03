@@ -21,7 +21,7 @@
 
 import {
   ROOT,
-  itemAgeHours,
+  inboxFreshnessMinutes,
   loadJournal,
   readInbox,
   selectFresh,
@@ -62,15 +62,7 @@ if (localSel.stats.fresh) reasons.push(`inbox: ${localSel.stats.fresh} новы�
 // Планёрка приходит по расписанию code.claude.com, независимому от GitHub.
 // Она и есть внешний наблюдатель — единственный, кто способен заметить,
 // что GitHub замолчал целиком.
-const allItems = [...local.items, ...world.items];
-let newestAgeMinutes = null;
-for (const it of allItems) {
-  const age = itemAgeHours(it, at);
-  if (age === null) continue;
-  const min = age * 60;
-  if (newestAgeMinutes === null || min < newestAgeMinutes) newestAgeMinutes = min;
-}
-newestAgeMinutes = newestAgeMinutes === null ? null : Math.round(newestAgeMinutes);
+const newestAgeMinutes = inboxFreshnessMinutes([...local.items, ...world.items], at);
 
 // Порог. Фетчер ходит по два раза в 20-минутное окно, так что при живом
 // GitHub свежесть держится в пределах получаса. Час — это уже пропущено

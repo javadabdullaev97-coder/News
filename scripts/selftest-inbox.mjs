@@ -18,6 +18,7 @@ import { join } from "node:path";
 import {
   ROOT as REPO_ROOT,
   hashLink,
+  inboxFreshnessMinutes,
   loadSeenHashes,
   loadJournal,
   readInbox,
@@ -478,6 +479,39 @@ check("бронь без срока не считается живой", () => {
   const j = loadJournal(root, NOON);
   eq(j.claimed.size, 0, "живых броней");
   eq(j.blocked.has(hashLink(link)), false, "тема свободна");
+});
+
+// ─── 12. Свежесть инбокса и даты из будущего ───
+
+check("дата из будущего не выдаётся за свежесть", () => {
+  // Источник с уехавшими часами давал возраст −60 минут. Проверка свежести
+  // устроена как «возраст больше порога», и отрицательное значение проходит
+  // её всегда: сутки не обновлявшийся инбокс выглядел бы свежим из-за одной
+  // кривой записи, а сторож молчания фетчера молчал бы вместе с ним.
+  const future = { link: "f", fetchedAt: new Date(NOON + 60 * 60000).toISOString() };
+  const stale = { link: "s", fetchedAt: new Date(NOON - 24 * HOUR).toISOString() };
+  eq(inboxFreshnessMinutes([future], NOON), null, "только запись из будущего");
+  eq(inboxFreshnessMinutes([future, stale], NOON), 1440, "будущее не перебивает старое");
+});
+
+check("свежесть считается по самому свежему item'у", () => {
+  const items = [
+    { link: "a", fetchedAt: new Date(NOON - 90 * 60000).toISOString() },
+    { link: "b", fetchedAt: new Date(NOON - 5 * 60000).toISOString() },
+  ];
+  eq(inboxFreshnessMinutes(items, NOON), 5, "минут");
+});
+
+check("мелкое расхождение часов не отбрасывает item", () => {
+  // Допуск в две минуты — на расхождение часов между машинами, а не на
+  // ошибку в часовом поясе. Запись «на минуту из будущего» законна.
+  const items = [{ link: "a", fetchedAt: new Date(NOON + 60000).toISOString() }];
+  eq(inboxFreshnessMinutes(items, NOON), 0, "минут");
+});
+
+check("пустой инбокс — свежести нет, а не ноль", () => {
+  // null и 0 значат противоположное: «данных нет» против «только что обновилось».
+  eq(inboxFreshnessMinutes([], NOON), null, "свежесть");
 });
 
 // ─── итог ───
