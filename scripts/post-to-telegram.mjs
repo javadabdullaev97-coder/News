@@ -21,7 +21,7 @@ import {
 } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { loadPostedBySlug, markPosted, slugOfUrl } from "../lib/telegram-posted.mjs";
+import { loadPostedByLangSlug, markPosted } from "../lib/telegram-posted.mjs";
 
 import {
   parseFrontmatter,
@@ -39,9 +39,31 @@ const tgConfig = JSON.parse(readFileSync(join(ROOT, "config/telegram-scoring.jso
 const {
   TELEGRAM_BOT_TOKEN,
   TELEGRAM_CHANNEL,
+  TELEGRAM_CHANNEL_UZ,
   SITE_URL = "https://leap.uz",
   DRY_RUN,
 } = process.env;
+
+// Канал на каждый язык. Русский — основной, узбекский — @leap_news_uz
+// (заведён владельцем 05.08.2026). Английский пойдёт в Twitter, своего
+// TG-канала у него нет — материалы на языке без канала просто не постятся
+// и в реестр не попадают, так что появятся в нём же, когда канал заведут.
+const CHANNEL_BY_LANG = {
+  ru: TELEGRAM_CHANNEL,
+  uz: TELEGRAM_CHANNEL_UZ,
+};
+
+// Дата, с которой канал ведётся. Материал, вышедший раньше, в него не уходит.
+//
+// Нужна ровно в момент подключения нового канала: 05.08.2026 к появлению
+// @leap_news_uz в репозитории уже лежали 37 узбекских переводов архива,
+// и без отсечки первый же прогон вывалил бы их залпом — подписчик увидел
+// бы позавчерашние новости как свежие. Правила — config/telegram-scoring.json.
+function channelStartAt(lang) {
+  const v = tgConfig.channels?.[lang]?.startAt;
+  const t = v ? Date.parse(v) : NaN;
+  return Number.isFinite(t) ? t : null;
+}
 
 const dryRun = DRY_RUN === "1" || DRY_RUN === "true";
 
@@ -50,7 +72,7 @@ if (!dryRun && (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHANNEL)) {
   process.exit(1);
 }
 
-// Найти все .mdx во всех днях — ТОЛЬКО русские версии.
+// Найти все .mdx во всех днях, включая языковые версии.
 //
 // Переводы лежат рядом с оригиналом (<slug>.uz.mdx, <slug>.en.mdx), и без
 // этой отсечки постер считал их отдельными материалами: 04.08.2026 в русский
@@ -58,22 +80,25 @@ if (!dryRun && (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHANNEL)) {
 // /ru/2026/08/04/<slug>.en — то есть ещё и мёртвыми, потому что суффикс
 // языка попадал в слаг.
 //
-// У каждого языка свой канал (решение владельца 05.08.2026): русский —
-// текущий, узбекский — отдельный, английский уходит в Twitter. Пока каналы
-// не заведены, переводы не постятся никуда.
-const TRANSLATED_SUFFIX = /\.(uz|en)\.mdx$/;
-
+// Каждая версия уходит в канал СВОЕГО языка (CHANNEL_BY_LANG), а не все
+// подряд в русский.
 function collectMdx(dir) {
   const out = [];
   if (!existsSync(dir)) return out;
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const p = join(dir, entry.name);
     if (entry.isDirectory()) out.push(...collectMdx(p));
-    else if (entry.isFile() && entry.name.endsWith(".mdx") && !TRANSLATED_SUFFIX.test(entry.name)) {
-      out.push(p);
-    }
+    else if (entry.isFile() && entry.name.endsWith(".mdx")) out.push(p);
   }
   return out;
+}
+
+// Язык версии — из суффикса имени файла: <slug>.uz.mdx → uz, <slug>.mdx → ru.
+const TRANSLATED_LANGS = new Set(["uz", "en"]);
+
+function langFromPath(p) {
+  const m = p.replace(/\.mdx$/, "").split("/").pop().match(/^.+\.([a-z]{2})$/);
+  return m && TRANSLATED_LANGS.has(m[1]) ? m[1] : "ru";
 }
 
 // parseFrontmatter, extractLede, decodeEntities, escapeHTML — из lib/frontmatter.mjs.
@@ -83,7 +108,11 @@ function collectMdx(dir) {
 
 // Слаг из пути: content/posts/2026-07-31/cb-rate-hike-15pct.mdx → cb-rate-hike-15pct
 function slugFromPath(p) {
-  return p.replace(/\.mdx$/, "").split("/").pop();
+  const base = p.replace(/\.mdx$/, "").split("/").pop();
+  const m = base.match(/^(.+)\.([a-z]{2})$/);
+  // Суффикс языка — не часть слага. Пока это не учитывалось, ссылки
+  // в постах переводов вели на /ru/…/<slug>.en, то есть в никуда.
+  return m && TRANSLATED_LANGS.has(m[2]) ? m[1] : base;
 }
 
 // Дата из пути: content/posts/2026-07-31/... → 2026-07-31
@@ -99,12 +128,12 @@ function dateFromPath(p) {
 // которому строится маршрут. Если её вдруг нет (файл лежит не в дневной
 // папке), падаем на старый адрес: он остаётся рабочим через
 // страницу-перенаправление, так что ссылка в канале в любом случае живая.
-const SITE_LANG = "ru";
+const DEFAULT_LANG = "ru";
 
-function articleUrl(date, slug) {
+function articleUrl(date, slug, lang = DEFAULT_LANG) {
   const base = SITE_URL.replace(/\/$/, "");
   if (!date) return `${base}/article/${slug}`;
-  return `${base}/${SITE_LANG}/${date.replace(/-/g, "/")}/${slug}`;
+  return `${base}/${lang}/${date.replace(/-/g, "/")}/${slug}`;
 }
 
 
@@ -214,10 +243,11 @@ async function tgApi(method, body) {
   return data.result;
 }
 
-async function postArticle(mdxPath, fm) {
+async function postArticle(mdxPath, fm, channel = TELEGRAM_CHANNEL) {
   const date = dateFromPath(mdxPath);
   const slug = slugFromPath(mdxPath);
-  const url = articleUrl(date, slug);
+  const lang = langFromPath(mdxPath);
+  const url = articleUrl(date, slug, lang);
   const raw = readFileSync(mdxPath, "utf8");
   const lede = extractLede(raw);
   const text = buildMessage(fm, lede, url);
@@ -230,6 +260,7 @@ async function postArticle(mdxPath, fm) {
   if (dryRun) {
     console.log("=".repeat(60));
     console.log("SLUG:", slug);
+    console.log("LANG:", lang, "→ канал", channel || "(не заведён — не постим)");
     console.log("URL:", url);
     console.log("IMAGE:", hasImage ? fm.image.url : "(none)");
     console.log("SILENT:", silent ? "да — ночь в Ташкенте, без звука" : "нет");
@@ -245,7 +276,7 @@ async function postArticle(mdxPath, fm) {
     if (caption) {
       const buf = readFileSync(imageAbs);
       const form = new FormData();
-      form.append("chat_id", TELEGRAM_CHANNEL);
+      form.append("chat_id", channel);
       form.append("photo", new Blob([buf]), `${slug}.jpg`);
       form.append("caption", caption);
       form.append("parse_mode", "HTML");
@@ -262,7 +293,7 @@ async function postArticle(mdxPath, fm) {
 
   // Fallback: обычное сообщение с превью URL (Telegram сам подтянет og:image)
   const msg = await tgApi("sendMessage", {
-    chat_id: TELEGRAM_CHANNEL,
+    chat_id: channel,
     text,
     parse_mode: "HTML",
     disable_web_page_preview: false,
@@ -273,10 +304,11 @@ async function postArticle(mdxPath, fm) {
 
 // ─── main ───
 const allMdx = collectMdx(POSTS_DIR).sort();
-// Дедуп по СЛАГУ, не по URL. Смена формата адреса 04.08.2026 обнулила
-// URL-дедуп и вылила в канал 36 старых статей волнами — слаг единственная
-// часть адреса, которая не меняется.
-const posted = loadPostedBySlug(ROOT);
+// Дедуп по паре ЯЗЫК + СЛАГ. По одному слагу нельзя: русская и узбекская
+// версии — разные каналы и разные подписчики, вторая отправка не дубль.
+// А по URL нельзя тем более: смена формата адреса 04.08.2026 обнулила
+// URL-дедуп и вылила в канал 36 старых статей волнами.
+const posted = loadPostedByLangSlug(ROOT);
 const pending = [];
 
 for (const mdxPath of allMdx) {
@@ -349,11 +381,26 @@ for (const mdxPath of allMdx) {
 
   const date = dateFromPath(mdxPath);
   const slug = slugFromPath(mdxPath);
-  const url = articleUrl(date, slug);
-  if (posted.has(slug)) {
-    continue; // уже постили — под любым форматом адреса
+  const lang = langFromPath(mdxPath);
+  const channel = CHANNEL_BY_LANG[lang];
+  if (!channel && !dryRun) {
+    // Языка без канала (сейчас — английский, он уйдёт в Twitter) просто
+    // не касаемся: ни отправки, ни записи в реестр. Заведут канал —
+    // материалы уедут туда с этого же места.
+    continue;
   }
-  pending.push({ mdxPath, fm, url, rel });
+  const url = articleUrl(date, slug, lang);
+  if (posted.has(`${lang} ${slug}`)) {
+    continue; // уже постили в канал ЭТОГО языка
+  }
+  const startAt = channelStartAt(lang);
+  const publishedTs = Date.parse(fm.publishedAt ?? "");
+  if (startAt && Number.isFinite(publishedTs) && publishedTs < startAt) {
+    // Материал старше канала — молча пропускаем и в реестр не пишем:
+    // захотят наполнить канал архивом, сдвинут startAt назад.
+    continue;
+  }
+  pending.push({ mdxPath, fm, url, rel, lang, channel });
 }
 
 console.error(`[tg] ${pending.length} new post(s) to publish`);
@@ -378,13 +425,13 @@ let failed = 0;
 for (let i = 0; i < pending.length; i++) {
   const p = pending[i];
   try {
-    const result = await postArticle(p.mdxPath, p.fm);
+    const result = await postArticle(p.mdxPath, p.fm, p.channel);
     if (!dryRun) {
       const rec = markPosted(ROOT, { url: p.url, messageId: result.messageId });
-      posted.set(slugOfUrl(p.url), rec);
+      posted.set(`${p.lang} ${slugFromPath(p.mdxPath)}`, rec);
     }
     ok++;
-    console.error(`  ✓ ${p.rel}`);
+    console.error(`  ✓ ${p.rel} → ${p.lang}`);
   } catch (err) {
     failed++;
     console.error(`  ✗ ${p.rel}: ${err.message}`);

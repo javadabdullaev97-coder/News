@@ -111,6 +111,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          TELEGRAM_CHANNEL_UZ: ${{ secrets.TELEGRAM_CHANNEL_UZ }}
           SITE_URL: "https://leap.uz"
         run: node scripts/post-to-telegram.mjs
 

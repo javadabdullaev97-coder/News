@@ -47,6 +47,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          TELEGRAM_CHANNEL_UZ: ${{ secrets.TELEGRAM_CHANNEL_UZ }}
           SITE_URL: "https://leap.uz"
           DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: node scripts/post-to-telegram.mjs

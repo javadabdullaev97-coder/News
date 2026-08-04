@@ -139,6 +139,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
           TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          TELEGRAM_CHANNEL_UZ: ${{ secrets.TELEGRAM_CHANNEL_UZ }}
           TELEGRAM_EDITOR_USER_IDS: ${{ secrets.TELEGRAM_EDITOR_USER_IDS }}
         run: node scripts/editor-queue.mjs apply-update
 
@@ -154,6 +155,7 @@ jobs:
           # Нужен, чтобы ответ «стоп» на уже вышедший материал мог удалить
           # пост из канала, а не только снять статью с сайта.
           TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          TELEGRAM_CHANNEL_UZ: ${{ secrets.TELEGRAM_CHANNEL_UZ }}
         run: node scripts/editor-queue.mjs collect
 
       - name: Remind about unanswered items
@@ -243,6 +245,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          TELEGRAM_CHANNEL_UZ: ${{ secrets.TELEGRAM_CHANNEL_UZ }}
           SITE_URL: "https://leap.uz"
         run: node scripts/post-to-telegram.mjs
 
