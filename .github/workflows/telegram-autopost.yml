@@ -54,6 +54,11 @@ jobs:
       - name: Commit state changes
         if: github.event.inputs.dry_run != '1'
         run: |
+          # Журналы состояния создаются только при первой записи, а `git add`
+          # на несуществующий путь падает с кодом 128 и роняет весь шаг —
+          # так 03.08.2026 четыре прогона подряд не смогли применить ответы
+          # владельца. touch делает путь существующим всегда.
+          touch content/state/telegram-posted.jsonl
           if [[ -z $(git status --porcelain content/state/telegram-posted.jsonl) ]]; then
             echo "No state changes to commit."
             exit 0
