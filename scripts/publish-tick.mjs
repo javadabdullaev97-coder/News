@@ -180,6 +180,27 @@ function stamp(raw, publishedAt) {
   return out;
 }
 
+/**
+ * Пишет подсказку для внешних часов — но только если она реально изменилась.
+ *
+ * Метки времени в этом файле нет намеренно. С ней он отличался бы от
+ * предыдущего на каждом прогоне, шаг коммита видел бы изменение и коммитил:
+ * при проверке раз в три минуты это 480 пустых коммитов в сутки. Когда
+ * узнать «когда это записали» всё-таки нужно, ответ даёт git log по файлу.
+ */
+function writePlanHint(nextDueAt, queued) {
+  const path = join(ROOT, "content/state/publish-plan.json");
+  const next = JSON.stringify({ nextDueAt, queued }, null, 2) + "\n";
+  try {
+    if (readFileSync(path, "utf8") === next) return false;
+  } catch {
+    // Файла ещё нет — пишем.
+  }
+  mkdirSync(join(ROOT, "content/state"), { recursive: true });
+  writeFileSync(path, next);
+  return true;
+}
+
 const now = Date.now();
 const all = readQueue();
 const blocked = all.map((x) => ({ item: x, why: blockedReason(x) })).filter((x) => x.why);
@@ -236,13 +257,7 @@ if (!queue.length) {
       ? `[publish] выпускать нечего: ${blocked.length} материал(ов) заблокировано`
       : "[publish] очередь пуста",
   );
-  if (!dryRun) {
-    mkdirSync(join(ROOT, "content/state"), { recursive: true });
-    writeFileSync(
-      join(ROOT, "content/state/publish-plan.json"),
-      JSON.stringify({ generatedAt: new Date(now).toISOString(), nextDueAt: null, queued: 0 }, null, 2) + "\n",
-    );
-  }
+  if (!dryRun) writePlanHint(null, 0);
   process.stdout.write(JSON.stringify({ released: [], queued: 0, nextDueAt: null }) + "\n");
   process.exit(0);
 }
@@ -297,13 +312,7 @@ for (const p of ready) {
 const pending = plan.filter((p) => !released.some((r) => r.slug === p.slug));
 const nextDueAt = pending.length ? new Date(Math.min(...pending.map((p) => p.dueAt))).toISOString() : null;
 
-if (!dryRun) {
-  mkdirSync(join(ROOT, "content/state"), { recursive: true });
-  writeFileSync(
-    join(ROOT, "content/state/publish-plan.json"),
-    JSON.stringify({ generatedAt: new Date(now).toISOString(), nextDueAt, queued: pending.length }, null, 2) + "\n",
-  );
-}
+if (!dryRun) writePlanHint(nextDueAt, pending.length);
 
 process.stdout.write(
   JSON.stringify({
