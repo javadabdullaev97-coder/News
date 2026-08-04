@@ -561,15 +561,20 @@ def factCheckSkippable(draft):
     return True   # чистый одноисточниковый P0 материал
 
 затем для каждого результата fact-checker:
-    если verdict == "approve":
+    если verdict == "approve" или "approve-with-downgrades":
         вызови subagent(editor, {DRAFT_PATH, NOTES_PATH, FACT_CHECK_PATH})
-    иначе если verdict == "needs-fix":
-        - если правки мелкие (по описанию fact-checker) — вызови editor
-          (у него хватит прав сам поправить)
-        - иначе верни reporter'у ОДИН раз (не гоняй по кругу; если и после
-          второго round'а нужны правки → двигай в needs-verification)
+        # editor сам применяет список понижений из отчёта fact-checker'а.
+        # ПОВТОРНЫЙ ФАКТЧЕК ПОСЛЕ ЭТОГО НЕ ЗАПУСКАЕТСЯ: понижение готовой
+        # формулировки не добавляет новых фактов, проверять нечего.
+        # Вердикта needs-fix больше не существует (решение владельца
+        # 04.08.2026) — не жди его и не обрабатывай.
     иначе если verdict == "reject":
         двигай в content/rejected/, зафиксируй причину
+
+    # Второй фактчек — ровно один случай: editor вернул материал reporter'у
+    # (back-to-reporter, нужно новое исследование) и reporter ДОБАВИЛ новые
+    # факты. Новые факты — новая проверка. Всё остальное — стиль, атрибуция,
+    # применение понижений — перепроверки не требует.
 
 затем для каждого результата editor:
     если status == "publish":
@@ -754,7 +759,7 @@ node -e "import('./lib/editor-queue-log.mjs').then(m => {
 #### Дорога 1. Confidence ≥ 70% и все ворота пройдены → напрямую в `main`
 
 Условия (все в `directPublish.gates`):
-- `factCheckVerdict = approve` (не `needs-fix`, даже исправленный)
+- `factCheckVerdict` = `approve` или `approve-with-downgrades` (список понижений применён editor'ом; вердикта needs-fix больше не существует)
 - `editorStatus = publish`
 - `minFactCheckConfidence ≥ 70%`
 - Есть первоисточник (`requiresPrimarySource: true`)

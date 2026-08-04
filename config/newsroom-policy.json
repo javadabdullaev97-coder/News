@@ -153,7 +153,8 @@
     ],
     "gates": {
       "factCheckVerdict": [
-        "approve"
+        "approve",
+        "approve-with-downgrades"
       ],
       "editorStatus": [
         "publish"
@@ -172,7 +173,8 @@
       "forbiddenSourceTypes": [
         "attributed"
       ],
-      "$forbiddenSourceTypesReason": "Каналы с неподтверждённой принадлежностью ведомству (config/telegram-channels.json → type:attributed). Публикация без человека для неподтверждённого силового источника не допускается ни при какой срочности."
+      "$forbiddenSourceTypesReason": "Каналы с неподтверждённой принадлежностью ведомству (config/telegram-channels.json → type:attributed). Публикация без человека для неподтверждённого силового источника не допускается ни при какой срочности.",
+      "$factCheckVerdictNote": "С 04.08.2026 вердикты fact-checker'а терминальные: approve, approve-with-downgrades, reject. needs-fix упразднён — он замыкал цикл «доработай → перепроверь → снова доработай», и 04.08 прогон дал его 6 из 6, включая поводы вне мандата фактчека (стиль, техническая правка даты). approve-with-downgrades проходит ворота при условии, что editor применил приложенный список понижений — это его штатная обязанность, отдельной перепроверки не требуется: понижение готовой формулировки не добавляет новых фактов. Подробности: лестница утверждений, раздел 10 редполитики."
     },
     "belowThreshold": {
       "$comment": "Что делать с материалами, не прошедшими confidence gate.",
