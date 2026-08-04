@@ -99,9 +99,12 @@ TRANSLATE_INPUT: {
   Требование владельца 05.08.2026: `Energy Ministry` звучит калькой,
   а официальное английское имя ведомства строится как `Ministry of Energy`,
   `Ministry of Transport`, `Ministry of Economy and Finance`,
-  `Ministry of Foreign Affairs`. Правило общее, включая министерства
-  других стран: `Iran's Ministry of Foreign Affairs`, не `Iranian Foreign
-  Ministry`.
+  `Ministry of Foreign Affairs`.
+- **Министерства других стран — идиоматичной английской формой.**
+  `Iranian Foreign Ministry`, `Iran's Foreign Ministry` — так пишут
+  агентства, и растягивать это владелец счёл лишним (05.08.2026).
+  Правило `Ministry of X` — про ведомства Узбекистана, чьё официальное
+  английское имя мы обязаны воспроизводить точно.
 - **Комитеты и агентства — наоборот, как в официальном имени**, а оно
   у них с инверсией: `State Tax Committee`, `National Statistics
   Committee`, `Cadastre Agency`. Переставлять их в `Committee of…`

@@ -65,15 +65,18 @@ const UZ_RULES = [
 // как раз с инверсией — «State Tax Committee», «National Statistics
 // Committee», «Cadastre Agency». Переставлять их значит выдумывать
 // название, которого у ведомства нет.
+// Только УЗБЕКСКИЕ ведомства. Министерства других стран правило не трогает:
+// «Iranian Foreign Ministry» — идиоматичная английская форма, и растягивать
+// её до «Iranian Ministry of Foreign Affairs» владелец счёл лишним
+// (05.08.2026). Поэтому в списке нет `Foreign`: по одному слову
+// не отличить МИД Узбекистана от чужого, а ошибиться в сторону
+// иностранных ведомств здесь дороже.
 const MINISTRIES = {
   Energy: "Energy",
   Transport: "Transport",
   Justice: "Justice",
   Health: "Health",
-  Defense: "Defense",
-  Defence: "Defence",
   Economy: "Economy and Finance",
-  Foreign: "Foreign Affairs",
 };
 
 const EN_RULES = Object.entries(MINISTRIES).map(([word, full]) => ({

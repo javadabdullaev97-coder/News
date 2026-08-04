@@ -133,10 +133,11 @@ grep -n "%" content/posts/*/*.uz.mdx   # выдача должна быть пу
 | `Energy Ministry` | `Ministry of Energy` |
 | `Transport Ministry` | `Ministry of Transport` |
 | `Uzbekistan's Economy Ministry` | `Uzbekistan's Ministry of Economy and Finance` |
-| `Iranian Foreign Ministry` | `Iranian Ministry of Foreign Affairs` |
 
-Правило распространяется и на министерства других стран — издание пишет
-их одинаково, а не по привычке англоязычных агентств.
+**Министерства других стран правило не затрагивает.** `Iranian Foreign
+Ministry` — идиоматичная английская форма, так пишут агентства; растягивать
+её не нужно. Точность обязательна там, где у ведомства есть официальное
+английское имя, которое мы воспроизводим, — то есть у ведомств Узбекистана.
 
 **Комитеты и агентства — исключение, и это не непоследовательность.**
 У них официальное английское имя как раз с инверсией: `State Tax
