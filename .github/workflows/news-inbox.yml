@@ -95,7 +95,7 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          if [[ -z $(git status --porcelain content/inbox content/state/breaking-alerts.json) ]]; then
+          if [[ -z $(git status --porcelain content/inbox content/state/breaking-alerts.json content/state/channel-candidates.jsonl) ]]; then
             echo "Ничего нового — не коммитим."
             exit 0
           fi
@@ -107,5 +107,8 @@ jobs:
           # землетрясении. Без коммита каждый следующий запуск считал бы,
           # что ещё не сигналил.
           git add content/state/breaking-alerts.json 2>/dev/null || true
+          # Кандидаты в источники: ТГ-каналы из статей конкурентов с контекстом
+          # упоминания. Копятся фетчерами, разбирает планёрка.
+          git add content/state/channel-candidates.jsonl 2>/dev/null || true
           git commit -m "inbox: $STAMP Ташкента"
           bash .github/scripts/git-push-with-rebase.sh

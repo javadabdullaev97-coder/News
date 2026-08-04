@@ -37,6 +37,7 @@ import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } fr
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadSeenLinks, saveSeenLinks } from "../lib/inbox-core.mjs";
+import { collectChannelCandidates } from "../lib/channel-candidates.mjs";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const CONFIG_PATH = join(ROOT, "config/news-sources.json");
@@ -436,6 +437,12 @@ if (allItems.length) {
   );
   for (const it of allItems) seen.add(it.link);
   saveSeenLinks(seen, ROOT);
+
+  // Кандидаты в источники из сниппетов конкурентов (правило 04.08.2026).
+  const cand = collectChannelCandidates(ROOT, allItems);
+  if (cand.appended) {
+    console.error(`[scrape] кандидаты в источники: +${cand.appended} (${cand.handles.join(", ")})`);
+  }
 }
 
 console.error(

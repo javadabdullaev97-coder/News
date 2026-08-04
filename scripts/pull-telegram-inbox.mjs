@@ -24,6 +24,7 @@ import {
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadSeenLinks, saveSeenLinks } from "../lib/inbox-core.mjs";
+import { collectChannelCandidates } from "../lib/channel-candidates.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(HERE);
@@ -218,6 +219,13 @@ if (fresh.length) {
 
   for (const it of fresh) seen.add(it.link);
   saveSeenLinks(seen, ROOT);
+
+  // Каналы часто репостят и цитируют друг друга — упоминания незнакомых
+  // handle копятся как кандидаты в источники (правило владельца 04.08.2026).
+  const cand = collectChannelCandidates(ROOT, fresh);
+  if (cand.appended) {
+    console.error(`[tg] кандидаты в источники: +${cand.appended} (${cand.handles.join(", ")})`);
+  }
 }
 
 console.error(

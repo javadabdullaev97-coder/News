@@ -23,6 +23,7 @@ import {
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadSeenLinks, saveSeenLinks } from "../lib/inbox-core.mjs";
+import { collectChannelCandidates } from "../lib/channel-candidates.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(HERE);
@@ -251,6 +252,14 @@ if (fresh.length) {
 
   for (const it of fresh) seen.add(it.link);
   saveSeenLinks(seen, ROOT);
+
+  // Пассивный сбор кандидатов в источники: ТГ-каналы, на которые ссылаются
+  // конкуренты, копятся с контекстом упоминания (правило владельца
+  // 04.08.2026). Разбор накопленного — у планёрки.
+  const cand = collectChannelCandidates(ROOT, fresh);
+  if (cand.appended) {
+    console.error(`[inbox] кандидаты в источники: +${cand.appended} (${cand.handles.join(", ")})`);
+  }
 }
 
 // Отчёт
