@@ -1,0 +1,96 @@
+{
+  "message": {
+    "chat": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "last_name": "Abdullaev",
+      "type": "private",
+      "username": "javad_abdullaev"
+    },
+    "date": 1785853625,
+    "from": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "is_bot": false,
+      "is_premium": true,
+      "language_code": "en",
+      "last_name": "Abdullaev",
+      "username": "javad_abdullaev"
+    },
+    "message_id": 252,
+    "reply_to_message": {
+      "caption": "НУЖНО ВАШЕ РЕШЕНИЕ\n\nКыргызстан и Узбекистан начали передачу сёл Чон-Гара и Таш-Добо\n\nПочему спрашиваю: есть сомнение в источнике или в трактовке факта.\n\nКлючевой факт (передача сёл Чон-Гара и Таш-Добо, начало 3 августа, ~2500 жителей) подтверждён только через Интерфакс со ссылкой на представительство президента Кыргызстана в Баткене — прямого пресс-релиза госоргана (МИД/МВД Узбекистана, представительство в Баткене, агентство «Кабар») не нашли ни reporter, ни fact-checker, несмотря на поиск на трёх языках. Fact-checker дал approve-with-downgrades с confidence 60% — ниже порога прямой публикации (70%). Понижения применены (сняты неподтверждённые имена членов комиссии, недоказанный срок «в течение 2026 года», исправлена искажённая деталь про Соха). Тема также чувствительная — передача территории соседнему государству и смена гражданства ~2500 человек. Публиковать как есть, или подождать более прямого первоисточника?\n\nОтветьте реплаем на это сообщение:\n• пришлите фото — оно станет главной кар",
+      "caption_entities": [
+        {
+          "length": 18,
+          "offset": 0,
+          "type": "bold"
+        },
+        {
+          "length": 63,
+          "offset": 20,
+          "type": "bold"
+        },
+        {
+          "length": 34,
+          "offset": 928,
+          "type": "italic"
+        }
+      ],
+      "chat": {
+        "first_name": "Javad",
+        "id": 1104500,
+        "last_name": "Abdullaev",
+        "type": "private",
+        "username": "javad_abdullaev"
+      },
+      "date": 1785853601,
+      "from": {
+        "first_name": "LEAP News - ADMIN",
+        "id": 8652303606,
+        "is_bot": true,
+        "username": "leap_news_bot"
+      },
+      "message_id": 251,
+      "photo": [
+        {
+          "file_id": "AgACAgIAAxkDAAP7anH2oaE579atlDDiap4NVej0GJMAAlEZaxtVtZFL9ecMLVodG3wBAAMCAANzAAM9BA",
+          "file_size": 1298,
+          "file_unique_id": "AQADURlrG1W1kUt4",
+          "height": 51,
+          "width": 90
+        },
+        {
+          "file_id": "AgACAgIAAxkDAAP7anH2oaE579atlDDiap4NVej0GJMAAlEZaxtVtZFL9ecMLVodG3wBAAMCAANtAAM9BA",
+          "file_size": 11055,
+          "file_unique_id": "AQADURlrG1W1kUty",
+          "height": 180,
+          "width": 320
+        },
+        {
+          "file_id": "AgACAgIAAxkDAAP7anH2oaE579atlDDiap4NVej0GJMAAlEZaxtVtZFL9ecMLVodG3wBAAMCAAN4AAM9BA",
+          "file_size": 45556,
+          "file_unique_id": "AQADURlrG1W1kUt9",
+          "height": 450,
+          "width": 800
+        },
+        {
+          "file_id": "AgACAgIAAxkDAAP7anH2oaE579atlDDiap4NVej0GJMAAlEZaxtVtZFL9ecMLVodG3wBAAMCAAN5AAM9BA",
+          "file_size": 94612,
+          "file_unique_id": "AQADURlrG1W1kUt-",
+          "height": 720,
+          "width": 1280
+        },
+        {
+          "file_id": "AgACAgIAAxkDAAP7anH2oaE579atlDDiap4NVej0GJMAAlEZaxtVtZFL9ecMLVodG3wBAAMCAAN3AAM9BA",
+          "file_size": 136318,
+          "file_unique_id": "AQADURlrG1W1kUt8",
+          "height": 900,
+          "width": 1600
+        }
+      ]
+    },
+    "text": "ок"
+  },
+  "update_id": 273157548
+}
