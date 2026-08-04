@@ -286,7 +286,19 @@ function findArticle(slug) {
  */
 function articleReadiness(text) {
   const missing = [];
-  if (!/^publishedAt:\s*\S/m.test(text)) missing.push("нет publishedAt");
+  // publishedAt НЕ проверяем — с 04.08.2026 его нет ни у кого до самого
+  // выхода: дату ставит публикатор в момент переноса из очереди на сайт.
+  // Старая проверка «нет publishedAt → это карточка» после этой перемены
+  // отвергала бы любой материал, включая полностью готовый, — владелец
+  // получал «ещё не статья» на настоящую статью.
+  //
+  // Признак статьи — то, что нужно читателю: заголовок и источники,
+  // и отсутствие служебной обвязки исследовательской карточки.
+  if (!/^title:\s*\S/m.test(text)) missing.push("нет заголовка");
+  if (!/^sources:/m.test(text)) missing.push("нет источников");
+  if (/^##?\s*Готовый текст материала/m.test(text)) {
+    missing.push("текст спрятан в разделе карточки со служебными заметками");
+  }
   // ОСТАТОЧНЫЙ status САМ ПО СЕБЕ КАРТОЧКОЙ НЕ ДЕЛАЕТ.
   //
   // Поле `status: needs-verification` остаётся во frontmatter от папки,
@@ -313,20 +325,28 @@ function articleReadiness(text) {
 }
 
 function promoteToPosts(file, slug) {
-  if (file.includes("/content/posts/")) return file; // уже там
-  const day = new Date(Date.now() + 5 * 3600 * 1000).toISOString().slice(0, 10);
-  const destDir = join(ROOT, "content/posts", day);
+  // Название историческое: с 04.08.2026 одобренный материал идёт НЕ в
+  // content/posts, а в очередь публикации. Дальше штатный путь: публикатор
+  // выпускает его по расписанию, ставит publishedAt, пуш будит автопост.
+  // Прямая укладка в content/posts обходила очередь — материал выходил
+  // без даты (её больше некому было ставить) и вне ритма ленты.
+  if (file.includes("/content/posts/") || file.includes("/content/queue/")) return file;
+  const destDir = join(ROOT, "content/queue");
   mkdirSync(destDir, { recursive: true });
   const dest = join(destDir, `${slug}.mdx`);
-  // Снимаем служебные поля папки-источника: в опубликованной статье
-  // им места нет, а `status: needs-verification` вдобавок заставляет
-  // проверку считать материал карточкой при следующем касании.
-  const text = readFileSync(file, "utf8")
+  // Снимаем служебные поля папки-источника: `status: needs-verification`
+  // заставил бы проверку считать материал карточкой при следующем касании,
+  // а без queuedAt публикатор возьмёт время из гита — ставим явно.
+  let text = readFileSync(file, "utf8")
     .replace(/^status:\s*["']?needs-verification["']?\s*\n/m, "")
     .replace(/^recheckAt:.*\n/m, "");
+  if (!/^queuedAt:/m.test(text)) {
+    const stamp = new Date(Date.now() + 5 * 3600 * 1000).toISOString().slice(0, 16) + ":00+05:00";
+    text = text.replace(/^(title:.*\n)/m, `$1queuedAt: "${stamp}"\n`);
+  }
   writeFileSync(dest, text);
   unlinkSync(file);
-  console.error(`[queue] ${slug}: перемещён в ${dest.replace(ROOT + "/", "")}`);
+  console.error(`[queue] ${slug}: одобрен → content/queue (выпустит публикатор)`);
   return dest;
 }
 
@@ -496,8 +516,8 @@ async function applyAnswer(item, answer) {
             `<b>${item.title}</b>\n\n` +
             `Чего не хватает: ${missing.join("; ")}.\n\n` +
             "Это исследовательская карточка: текст в ней есть, но он не собран " +
-            "в материал — нет даты выпуска, а рядом с текстом лежат служебные " +
-            "заметки редакции. Опубликуй я её как есть, читатель увидел бы их.\n\n" +
+            "в материал — рядом с текстом лежат служебные заметки редакции. " +
+            "Опубликуй я её как есть, читатель увидел бы их.\n\n" +
             "Планёрка соберёт из неё статью на ближайшем прогоне и вернёт вам " +
             "на подтверждение. Отвечать сейчас не нужно.",
           parse_mode: "HTML",
