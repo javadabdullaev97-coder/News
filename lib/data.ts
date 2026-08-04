@@ -684,6 +684,15 @@ export const allArticles: Article[] = (() => {
  */
 export const articles: Article[] = allArticles.filter((a) => a.lang === "ru");
 
+/**
+ * Лента конкретного языка. Для uz/en это только переведённые материалы:
+ * показывать в узбекской ленте русский текст значит обманывать читателя,
+ * который переключил язык.
+ */
+export function articlesByLang(lang: Lang): Article[] {
+  return lang === DEFAULT_LANG ? articles : allArticles.filter((a) => a.lang === lang);
+}
+
 export function getArticle(slug: string, lang: Lang = DEFAULT_LANG) {
   return (
     allArticles.find((a) => a.slug === slug && a.lang === lang) ??

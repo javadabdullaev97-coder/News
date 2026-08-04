@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArticleCard } from "./ArticleCard";
 import { LeapTag } from "./LeapTag";
-import { getArticlesByRubric, getRubric } from "@/lib/data";
+import { articlesByLang, getRubric, type Lang } from "@/lib/data";
+import { t as tr } from "@/lib/i18n";
 
 // Классы Tailwind должны быть написаны литералами: динамическая строка вида
 // `lg:grid-cols-${n}` не попадёт в сборку и колонки развалятся.
@@ -15,18 +16,21 @@ const EQUAL_GRID: Record<number, string> = {
 export function RubricSection({
   rubricSlug,
   exclude,
+  lang = "ru",
 }: {
   rubricSlug: string;
+  lang?: Lang;
   /** Слаги, уже показанные выше на странице, — чтобы блок рубрики их не повторял. */
   exclude?: ReadonlySet<string>;
 }) {
   const rubric = getRubric(rubricSlug);
-  const items = getArticlesByRubric(rubricSlug)
-    .filter((a) => !exclude?.has(a.slug))
+  const items = articlesByLang(lang)
+    .filter((a) => a.rubric === rubricSlug && !exclude?.has(a.slug))
     .slice(0, 5);
   if (!rubric || items.length === 0) return null;
 
-  const href = `/rubric/${rubric.slug}`;
+  const href =
+    lang === "ru" ? `/rubric/${rubric.slug}` : `/${lang}/rubric/${rubric.slug}`;
   const header = (
     <div className="flex items-end justify-between border-b border-neutral-200 pb-3 dark:border-neutral-800">
       <LeapTag rubricSlug={rubric.slug} size="lg" href={href} />
@@ -34,7 +38,7 @@ export function RubricSection({
         href={href}
         className="text-sm font-medium text-brand transition-colors hover:underline"
       >
-        Все материалы →
+        {tr(lang, "all")} →
       </Link>
     </div>
   );

@@ -5,12 +5,17 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { rubrics } from "@/lib/data";
+import { rubricTitle, t as tr } from "@/lib/i18n";
+import type { Lang } from "@/lib/types";
 import { useSearch } from "./SearchModal";
 
 export function MobileMenuButton() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const pathname = usePathname();
+  const pathname = usePathname() || "/";
+  const firstSeg = pathname.split("/").filter(Boolean)[0];
+  const lang: Lang = firstSeg === "uz" || firstSeg === "en" ? firstSeg : "ru";
+  const prefix = lang === "ru" ? "" : `/${lang}`;
   const { setOpen: openSearch } = useSearch();
 
   useEffect(() => {
@@ -67,22 +72,22 @@ export function MobileMenuButton() {
 
         <nav className="flex-1 overflow-y-auto px-2 py-3">
           <Link
-            href="/all"
+            href={`${prefix}/all`}
             className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors ${
-              pathname === "/all"
+              pathname === `${prefix}/all`
                 ? "bg-brand text-white"
                 : "bg-brand/5 text-brand hover:bg-brand/10"
             }`}
           >
             <span aria-hidden className="text-base">≡</span>
-            Все новости
+            {tr(lang, "all")}
           </Link>
 
           <div className="px-3 pb-1 pt-4 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
             Рубрики
           </div>
           {rubrics.map((r) => {
-            const href = `/rubric/${r.slug}`;
+            const href = `${prefix}/rubric/${r.slug}`;
             const isActive = pathname === href;
             return (
               <Link
@@ -95,7 +100,7 @@ export function MobileMenuButton() {
                 }`}
               >
                 <span className={`h-2 w-2 rounded-full ${r.color}`} />
-                {r.title}
+                {rubricTitle(r.slug, lang, r.title)}
               </Link>
             );
           })}

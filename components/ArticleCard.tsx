@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Article, articleHref, getRubric, timeAgo } from "@/lib/data";
+import { rubricTitle } from "@/lib/i18n";
 import { BookmarkButton } from "./BookmarkButton";
 
 type Variant = "hero" | "large" | "default" | "compact";
@@ -13,6 +14,11 @@ export function ArticleCard({
   variant?: Variant;
 }) {
   const rubric = getRubric(article.rubric);
+  // Подпись рубрики — на языке самого материала: карточка узбекской версии
+  // в узбекской ленте не должна кричать «ОБЩЕСТВО».
+  const rubricLabel = rubric
+    ? rubricTitle(article.rubric, article.lang, rubric.title)
+    : "";
   const href = articleHref(article);
 
   if (variant === "hero") {
@@ -36,7 +42,7 @@ export function ArticleCard({
               <span
                 className={`inline-block rounded px-2 py-0.5 text-[10px] font-semibold uppercase md:text-xs ${rubric.color}`}
               >
-                {rubric.title}
+                {rubricLabel}
               </span>
             )}
             <h2 className="mt-2 font-serif text-xl font-bold leading-tight md:mt-3 md:text-3xl lg:text-4xl">
@@ -71,7 +77,7 @@ export function ArticleCard({
         <div>
           {rubric && (
             <span className="text-[10px] font-semibold uppercase tracking-wider text-brand">
-              {rubric.title}
+              {rubricLabel}
             </span>
           )}
           <h3 className="text-sm font-semibold leading-snug transition-colors group-hover:text-brand">
@@ -103,7 +109,7 @@ export function ArticleCard({
       <div className="mt-3">
         {rubric && (
           <span className="text-xs font-semibold uppercase tracking-wider text-brand">
-            {rubric.title}
+            {rubricLabel}
           </span>
         )}
         <h3 className="mt-1 font-serif text-lg font-bold leading-snug transition-colors group-hover:text-brand">
