@@ -53,6 +53,7 @@ export interface Env {
 
 const REPO = "javadabdullaev97-coder/News";
 const HOOK_PATH = "/api/tg-hook";
+const WATCHDOG_TEST_PATH = "/api/watchdog-test";
 
 // Сколько репозиторий может молчать, прежде чем это тревога. Редакция коммитит
 // постоянно — инбокс раз в десять минут, — поэтому тишина дольше часа означает,
@@ -111,22 +112,23 @@ async function alertOwner(env: Env, text: string) {
  * heartbeat проверить не может по построению: жив ли вообще GitHub Actions.
  * Признак — свежесть последнего коммита в main.
  */
-async function watchdog(env: Env, now: number) {
+async function watchdog(env: Env, now: number, force = false): Promise<string> {
   const res = await githubApi(env, `/repos/${REPO}/commits?per_page=1`);
   if (!res.ok) {
-    await alertOwner(
-      env,
+    const msg =
       `❌ <b>Сторож не смог опросить GitHub</b>: ${res.status}. ` +
-        `Либо GitHub недоступен, либо у токена отозвано право Contents: Read.`,
-    );
-    return;
+      `Либо GitHub недоступен, либо у токена отозвано право Contents: Read.`;
+    await alertOwner(env, msg);
+    return `github ${res.status}`;
   }
   const commits = (await res.json()) as Array<{ commit: { committer: { date: string } } }>;
   const last = Date.parse(commits?.[0]?.commit?.committer?.date ?? "");
-  if (!Number.isFinite(last)) return;
+  if (!Number.isFinite(last)) return "нет даты последнего коммита";
 
   const quietMin = Math.round((now - last) / 60000);
-  if (quietMin > REPO_SILENCE_ALERT_MINUTES) {
+  const alarm = quietMin > REPO_SILENCE_ALERT_MINUTES;
+
+  if (alarm) {
     await alertOwner(
       env,
       `⚠️ <b>Редакция молчит ${quietMin} мин</b>\n\n` +
@@ -136,7 +138,19 @@ async function watchdog(env: Env, now: number) {
         `Это сообщение пришло не от GitHub Actions, а от воркера leap.uz — ` +
         `он живёт снаружи и продолжает работать, даже когда встало всё остальное.`,
     );
+  } else if (force) {
+    // Только для ручной проверки. Сторож молчит по построению, поэтому
+    // «работает» и «сломан» снаружи неотличимы — ровно та ловушка, из-за
+    // которой прежний heartbeat молчал месяцами незамеченным.
+    await alertOwner(
+      env,
+      `✅ <b>Сторож на связи</b>\n\n` +
+        `Последний коммит в main — ${quietMin} мин назад, порог тревоги ${REPO_SILENCE_ALERT_MINUTES} мин. ` +
+        `Редакция жива.\n\n` +
+        `Это ответ на ручную проверку. Сам по себе сторож пишет только когда что-то встало.`,
+    );
   }
+  return alarm ? `тревога: тишина ${quietMin} мин` : `норма: тишина ${quietMin} мин`;
 }
 
 export default {
@@ -182,6 +196,31 @@ export default {
       } catch (err) {
         console.error(`[tg-hook] dispatch упал: ${(err as Error).message}`);
         return new Response("dispatch error", { status: 502 });
+      }
+    }
+
+    // Ручная проверка сторожа. Нужна потому, что сторож молчит по построению:
+    // снаружи «работает» и «сломан» неотличимы, и прежний heartbeat именно так
+    // молчал месяцами. Здесь проверка прогоняется принудительно и присылает
+    // результат в любом случае — и когда всё хорошо, и когда тревога.
+    //
+    // Ключ обязателен: эндпоинт отправляет сообщение владельцу, без защиты
+    // его можно было бы использовать для спама в личный чат.
+    if (url.pathname === WATCHDOG_TEST_PATH) {
+      if (!env.TG_WEBHOOK_SECRET || !env.GH_DISPATCH_TOKEN) {
+        return new Response("not configured", { status: 500 });
+      }
+      const key = url.searchParams.get("key");
+      if (key !== env.TG_WEBHOOK_SECRET) {
+        return new Response("unauthorized", { status: 401 });
+      }
+      try {
+        const verdict = await watchdog(env, Date.now(), true);
+        return new Response(`сторож отработал — ${verdict}\nсообщение отправлено в Telegram\n`, {
+          headers: { "Content-Type": "text/plain; charset=utf-8" },
+        });
+      } catch (err) {
+        return new Response(`сторож упал: ${(err as Error).message}\n`, { status: 500 });
       }
     }
 

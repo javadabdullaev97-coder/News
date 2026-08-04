@@ -22,6 +22,7 @@ import {
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadPosted, markPosted } from "../lib/telegram-posted.mjs";
+
 import {
   parseFrontmatter,
   extractLede,
@@ -32,6 +33,7 @@ import {
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(HERE);
 const POSTS_DIR = join(ROOT, "content/posts");
+const tgConfig = JSON.parse(readFileSync(join(ROOT, "config/telegram-scoring.json"), "utf8"));
 
 
 const {
@@ -153,6 +155,31 @@ function buildCaption(fm, lede, url) {
   return null; // даже без лида не влезло — уходим на sendMessage
 }
 
+// ─── Беззвучная доставка ночью ───
+//
+// Планёрки работают круглосуточно, поэтому пост в канал мог прийти в четыре
+// утра и разбудить подписчиков ради материала, который спокойно ждёт до
+// завтрака. Отписка стоит дороже нескольких часов без звука.
+//
+// Это НЕ тихие часы публикации: материал выходит как обычно — и на сайт,
+// и в канал, — у сообщения снимается только звук и вибрация. Тихих часов
+// публикации в системе нет и не планируется, разбор в
+// docs/routine-prompts/planyorka-rationale.md.
+//
+// Ташкент — UTC+5 круглый год, перевода часов нет, поэтому смещение
+// константа, а не расчёт по таймзоне.
+const TASHKENT_UTC_OFFSET = 5;
+
+function silentNow(now = new Date()) {
+  const cfg = tgConfig.silentHoursTashkent;
+  if (!cfg || typeof cfg.from !== "number" || typeof cfg.to !== "number") return false;
+  const hour = (now.getUTCHours() + TASHKENT_UTC_OFFSET) % 24;
+  // Окно может пересекать полночь (например 22→7), поэтому две ветки.
+  return cfg.from <= cfg.to
+    ? hour >= cfg.from && hour < cfg.to
+    : hour >= cfg.from || hour < cfg.to;
+}
+
 async function tgApi(method, body) {
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/${method}`;
   const res = await fetch(url, {
@@ -176,12 +203,14 @@ async function postArticle(mdxPath, fm) {
     ? join(ROOT, "public", fm.image.url.replace(/^\/+/, ""))
     : null;
   const hasImage = imageAbs && existsSync(imageAbs);
+  const silent = silentNow();
 
   if (dryRun) {
     console.log("=".repeat(60));
     console.log("SLUG:", slug);
     console.log("URL:", url);
     console.log("IMAGE:", hasImage ? fm.image.url : "(none)");
+    console.log("SILENT:", silent ? "да — ночь в Ташкенте, без звука" : "нет");
     console.log("MESSAGE:");
     console.log(text);
     return { messageId: null, url, dryRun: true };
@@ -198,6 +227,7 @@ async function postArticle(mdxPath, fm) {
       form.append("photo", new Blob([buf]), `${slug}.jpg`);
       form.append("caption", caption);
       form.append("parse_mode", "HTML");
+      if (silent) form.append("disable_notification", "true");
       const res = await fetch(
         `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`,
         { method: "POST", body: form },
@@ -214,6 +244,7 @@ async function postArticle(mdxPath, fm) {
     text,
     parse_mode: "HTML",
     disable_web_page_preview: false,
+    disable_notification: silent,
   });
   return { messageId: msg.message_id, url };
 }
