@@ -214,6 +214,30 @@ jobs:
       # success() указан явно: заданный if ОТМЕНЯЕТ неявную проверку успеха
       # предыдущих шагов. Без него провалившийся push всё равно пропустил бы
       # рассылку дальше — в канал ушло бы то, чего нет в main.
+      # Выпуск из очереди — В ЭТОМ ЖЕ прогоне, а не «когда-нибудь».
+      #
+      # Пуши этого воркфлоу сделаны служебным GITHUB_TOKEN, а GitHub
+      # принципиально не даёт таким пушам запускать другие воркфлоу —
+      # защита от бесконечных циклов. Поэтому материал, попавший в
+      # content/queue после ответа владельца, push-триггер публикатора
+      # НЕ будил, а внешние часы смотрели в подсказку publish-plan.json,
+      # где со времён пустой очереди значилось «queued: 0». Замкнутый круг:
+      # 04.08.2026 владелец ответил на все вопросы — и ничего не вышло
+      # ни на сайт, ни в канал.
+      #
+      # Запуск публикатора прямо здесь разрывает круг: первый созревший
+      # материал выходит немедленно, подсказка обновляется, и дальше
+      # расписание ведут часы. Шаг стоит секунды и идемпотентен.
+      - name: Release due queue items
+        if: success() && steps.collected.outputs.applied == 'true'
+        run: |
+          node scripts/publish-tick.mjs
+          if [[ -n $(git status --porcelain -- content/queue content/posts content/state/publish-plan.json) ]]; then
+            git add content/queue content/posts content/state/publish-plan.json
+            git commit -m "publish: выпуск после ответа владельца"
+            bash .github/scripts/git-push-with-rebase.sh
+          fi
+
       - name: Post approved articles to Telegram
         if: success() && steps.collected.outputs.applied == 'true'
         env:
