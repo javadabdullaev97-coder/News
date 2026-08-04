@@ -1,0 +1,91 @@
+name: Publish from queue
+
+# Выпускает из content/queue/ то, чему пришёл срок.
+#
+# Планёрка отрабатывает пачкой и уходит. Без этого шага её материалы падали
+# на сайт залпом, а следующие полчаса не выходило ничего. Публикатор
+# разносит пачку по времени и продолжает капать, даже если очередная
+# планёрка вернулась ни с чем.
+#
+# Дальше всё уже висит на факте появления файла в content/posts:
+# Cloudflare пересобирает сайт на пуш, telegram-autopost срабатывает
+# на путь content/posts/**/*.mdx. Отдельной системы публикации нет —
+# есть управление моментом переноса.
+
+on:
+  # Планёрка положила материал в очередь — первый выпуск уходит сразу,
+  # не дожидаясь тика, и заодно записывается подсказка о следующем сроке.
+  push:
+    branches: [main]
+    paths:
+      - "content/queue/**"
+  # Внешние часы. Воркер leap.uz сам смотрит, есть ли что выпускать, и
+  # дёргает этот запуск только когда есть. Расписание GitHub здесь не
+  # используется принципиально: оно пропускает больше половины тиков,
+  # а публикация — единственное, что читатель видит напрямую.
+  repository_dispatch:
+    types: [publish-tick]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "1 = только показать план, ничего не переносить"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  # Один выпускающий за раз. Два параллельных перенесли бы один и тот же
+  # файл дважды: второй упал бы на renameSync, а до этого успел бы
+  # закоммитить половину.
+  group: publish-tick
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          # Полная глубина: git-push-with-rebase.sh делает rebase на свежий
+          # origin/main, а publish-tick.mjs достаёт время постановки в очередь
+          # из первого коммита файла, если в frontmatter его нет.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      # npm install не нужен: publish-tick.mjs и его зависимости — только
+      # node builtins и lib/ из репозитория. Это экономит восемь секунд
+      # на каждом выпуске, а выпусков десятки в сутки.
+
+      - name: Release what is due
+        id: release
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.dry_run }}" = "1" ]; then
+            ARGS="--dry-run"
+          fi
+          node scripts/publish-tick.mjs $ARGS | tee "$RUNNER_TEMP/result.json"
+
+      - name: Commit released articles
+        if: github.event.inputs.dry_run != '1'
+        run: |
+          # Каталог очереди может исчезнуть целиком, когда выпущен последний
+          # материал, поэтому git add идёт по обоим путям сразу.
+          if [[ -z $(git status --porcelain -- content/queue content/posts content/state/publish-plan.json) ]]; then
+            echo "Выпускать нечего."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          SLUGS=$(node -e "
+            const r = require('$RUNNER_TEMP/result.json');
+            process.stdout.write(r.released.map(x => x.slug).join(', ') || 'ничего');
+          ")
+          git add content/queue content/posts content/state/publish-plan.json
+          git commit -m "publish: $SLUGS"
+          bash .github/scripts/git-push-with-rebase.sh

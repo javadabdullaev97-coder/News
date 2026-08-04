@@ -127,6 +127,42 @@ async function alertOwner(env: Env, text: string): Promise<string> {
 }
 
 /**
+ * Выпуск из очереди — единственная задача, которая идёт не по расписанию,
+ * а по сроку. Публикатор после каждого прогона кладёт в репозиторий
+ * content/state/publish-plan.json с полем nextDueAt; здесь этот файл
+ * читается, и запуск дёргается только когда срок наступил.
+ *
+ * Почему не проще — «дёргать раз в три минуты, пока очередь не пуста».
+ * GitHub округляет время задачи вверх до минуты, поэтому холостой запуск
+ * стоит ровно столько же, сколько полезный. На активной очереди это
+ * десятки лишних оплаченных минут в сутки, а с подсказкой запусков ровно
+ * столько, сколько выпусков.
+ *
+ * Читается через contents API — обращения к нему минуты Actions не тратят.
+ */
+async function publishDue(env: Env, now: number) {
+  const res = await githubApi(env, `/repos/${REPO}/contents/content/state/publish-plan.json`, {
+    headers: { Accept: "application/vnd.github.raw+json" },
+  });
+  // 404 — очередь ещё ни разу не работала, выпускать нечего.
+  if (res.status === 404) return;
+  if (!res.ok) {
+    console.error(`[publish] план не прочитался: ${res.status}`);
+    return;
+  }
+  let plan: { nextDueAt?: string | null };
+  try {
+    plan = JSON.parse(await res.text());
+  } catch {
+    console.error("[publish] план не разбирается как JSON");
+    return;
+  }
+  const due = Date.parse(plan?.nextDueAt ?? "");
+  if (!Number.isFinite(due) || due > now) return;
+  await dispatch(env, "publish-tick");
+}
+
+/**
  * Сторож снаружи наблюдаемой системы. Проверяет ровно то, чего внутренний
  * heartbeat проверить не может по построению: жив ли вообще GitHub Actions.
  * Признак — свежесть последнего коммита в main.
@@ -265,6 +301,11 @@ export default {
     const h = at.getUTCHours();
     const jobs: Promise<unknown>[] = [];
 
+    // Выпуск из очереди проверяется каждую минуту — но дёргает GitHub только
+    // когда сроку пришло время (см. publishDue). Это единственное, что
+    // читатель видит напрямую, поэтому здесь частота максимальная.
+    jobs.push(publishDue(env, now));
+
     // Ответы владельца приходят вебхуком за секунды; этот тик — страховка на
     // случай пропущенной доставки и единственный вход для напоминаний.
     if (m === 8) jobs.push(dispatch(env, "editor-collect"));
@@ -304,7 +345,6 @@ export default {
     if (h === 4 && m === 0) jobs.push(dispatch(env, "policy-drift"));
     if (h === 14 && m === 0) jobs.push(dispatch(env, "daily-rebuild"));
 
-    if (!jobs.length) return;
     ctx.waitUntil(
       Promise.allSettled(jobs).then((rs) => {
         for (const r of rs) {
