@@ -43,12 +43,25 @@ jobs:
         with:
           node-version: "24"
 
-      - name: Delete translated posts from the Russian channel
+      # Задача берётся из файла-заявки:
+      #   cleanup-lang-posts — убрать переводы, ушедшие в русский канал;
+      #   revoke-lang        — снять посты одного языка ради смены формата,
+      #                        автопост отправит их заново.
+      - name: Run requested cleanup
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          TELEGRAM_CHANNEL_UZ: ${{ secrets.TELEGRAM_CHANNEL_UZ }}
           DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
-        run: node scripts/cleanup-telegram-lang-posts.mjs
+        run: |
+          TASK=$(node -e "try{console.log(require('./content/state/tg-cleanup-request.json').task||'')}catch{console.log('')}")
+          LANG_REQ=$(node -e "try{console.log(require('./content/state/tg-cleanup-request.json').lang||'uz')}catch{console.log('uz')}")
+          echo "задача: ${TASK:-cleanup-lang-posts}, язык: $LANG_REQ"
+          if [ "$TASK" = "revoke-lang" ]; then
+            LANG="$LANG_REQ" node scripts/revoke-lang-posts.mjs
+          else
+            node scripts/cleanup-telegram-lang-posts.mjs
+          fi
 
       - name: Commit registry
         if: github.event.inputs.dry_run != '1'
@@ -60,5 +73,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add content/state/telegram-posted.jsonl
-          git commit -m "state: отозваны посты переводов из русского канала"
+          git commit -m "state: посты отозваны из канала"
           bash .github/scripts/git-push-with-rebase.sh

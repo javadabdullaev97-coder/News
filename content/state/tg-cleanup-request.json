@@ -1,4 +1,6 @@
 {
-  "task": "cleanup-lang-posts",
-  "requestedAt": "2026-08-04T22:03:55Z"
+  "task": "revoke-lang",
+  "lang": "uz",
+  "reason": "формат подписи: Читать полностью на leap.uz → Batafsil →",
+  "requestedAt": "2026-08-04T22:22:58Z"
 }
