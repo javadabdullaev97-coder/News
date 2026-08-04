@@ -90,21 +90,40 @@ async function dispatchToGitHub(env: Env, update: unknown): Promise<Response> {
   return dispatch(env, "telegram-update", { update });
 }
 
-async function alertOwner(env: Env, text: string) {
+/**
+ * Отправляет тревогу владельцу и ВОЗВРАЩАЕТ РЕЗУЛЬТАТ. Ответ Telegram
+ * проверяется обязательно: сторож, который считает отправленным то, что
+ * не ушло, — это тот же мёртвый сторож, только с другой стороны. Первая
+ * версия этой функции ответ игнорировала, и ручная проверка бодро писала
+ * «сообщение отправлено» независимо от того, дошло оно или нет.
+ */
+async function alertOwner(env: Env, text: string): Promise<string> {
   if (!env.TG_BOT_TOKEN || !env.TG_ALERT_CHAT_ID) {
-    console.error("[watchdog] TG_BOT_TOKEN/TG_ALERT_CHAT_ID не заданы — тревога не отправлена");
-    return;
+    const why = "TG_BOT_TOKEN/TG_ALERT_CHAT_ID не заданы";
+    console.error(`[watchdog] ${why} — тревога не отправлена`);
+    return why;
   }
-  await fetch(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/sendMessage`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      chat_id: env.TG_ALERT_CHAT_ID,
-      text,
-      parse_mode: "HTML",
-      disable_web_page_preview: true,
-    }),
-  });
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: env.TG_ALERT_CHAT_ID,
+        text,
+        parse_mode: "HTML",
+        disable_web_page_preview: true,
+      }),
+    });
+    const data = (await res.json()) as { ok?: boolean; description?: string };
+    if (data?.ok) return "отправлено";
+    const why = `Telegram отказал: ${data?.description ?? res.status}`;
+    console.error(`[watchdog] ${why}`);
+    return why;
+  } catch (err) {
+    const why = `сеть недоступна: ${(err as Error).message}`;
+    console.error(`[watchdog] ${why}`);
+    return why;
+  }
 }
 
 /**
@@ -118,8 +137,8 @@ async function watchdog(env: Env, now: number, force = false): Promise<string> {
     const msg =
       `❌ <b>Сторож не смог опросить GitHub</b>: ${res.status}. ` +
       `Либо GitHub недоступен, либо у токена отозвано право Contents: Read.`;
-    await alertOwner(env, msg);
-    return `github ${res.status}`;
+    const sent = await alertOwner(env, msg);
+    return `github ${res.status}; тревога: ${sent}`;
   }
   const commits = (await res.json()) as Array<{ commit: { committer: { date: string } } }>;
   const last = Date.parse(commits?.[0]?.commit?.committer?.date ?? "");
@@ -128,8 +147,9 @@ async function watchdog(env: Env, now: number, force = false): Promise<string> {
   const quietMin = Math.round((now - last) / 60000);
   const alarm = quietMin > REPO_SILENCE_ALERT_MINUTES;
 
+  let sent = "не требовалось";
   if (alarm) {
-    await alertOwner(
+    sent = await alertOwner(
       env,
       `⚠️ <b>Редакция молчит ${quietMin} мин</b>\n\n` +
         `В main нет ни одного коммита с ${new Date(last).toISOString().slice(0, 16).replace("T", " ")} UTC. ` +
@@ -139,10 +159,12 @@ async function watchdog(env: Env, now: number, force = false): Promise<string> {
         `он живёт снаружи и продолжает работать, даже когда встало всё остальное.`,
     );
   } else if (force) {
+    // Ручная проверка: результат отправки попадает в ответ эндпоинта,
+    // чтобы «сообщение отправлено» нельзя было напечатать вслепую.
     // Только для ручной проверки. Сторож молчит по построению, поэтому
     // «работает» и «сломан» снаружи неотличимы — ровно та ловушка, из-за
     // которой прежний heartbeat молчал месяцами незамеченным.
-    await alertOwner(
+    sent = await alertOwner(
       env,
       `✅ <b>Сторож на связи</b>\n\n` +
         `Последний коммит в main — ${quietMin} мин назад, порог тревоги ${REPO_SILENCE_ALERT_MINUTES} мин. ` +
@@ -150,7 +172,8 @@ async function watchdog(env: Env, now: number, force = false): Promise<string> {
         `Это ответ на ручную проверку. Сам по себе сторож пишет только когда что-то встало.`,
     );
   }
-  return alarm ? `тревога: тишина ${quietMin} мин` : `норма: тишина ${quietMin} мин`;
+  const verdict = alarm ? `тревога: тишина ${quietMin} мин` : `норма: тишина ${quietMin} мин`;
+  return `${verdict}; сообщение в Telegram: ${sent}`;
 }
 
 export default {
@@ -216,7 +239,7 @@ export default {
       }
       try {
         const verdict = await watchdog(env, Date.now(), true);
-        return new Response(`сторож отработал — ${verdict}\nсообщение отправлено в Telegram\n`, {
+        return new Response(`сторож отработал — ${verdict}\n`, {
           headers: { "Content-Type": "text/plain; charset=utf-8" },
         });
       } catch (err) {
