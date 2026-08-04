@@ -5,6 +5,11 @@ on:
     branches: [main]
     paths:
       - "content/posts/**/*.mdx"
+      # Файл-заявка: сессия без прав на dispatch кладёт
+      # content/state/autopost-request.json и пушит. Нужно, чтобы запустить
+      # заливку канала руками — например при подключении нового языка,
+      # когда пуша в content/posts не предвидится.
+      - "content/state/autopost-request.json"
   workflow_dispatch:
     inputs:
       dry_run:
