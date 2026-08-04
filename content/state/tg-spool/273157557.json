@@ -1,0 +1,59 @@
+{
+  "message": {
+    "chat": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "last_name": "Abdullaev",
+      "type": "private",
+      "username": "javad_abdullaev"
+    },
+    "date": 1785887894,
+    "from": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "is_bot": false,
+      "is_premium": true,
+      "language_code": "en",
+      "last_name": "Abdullaev",
+      "username": "javad_abdullaev"
+    },
+    "message_id": 270,
+    "reply_to_message": {
+      "chat": {
+        "first_name": "Javad",
+        "id": 1104500,
+        "last_name": "Abdullaev",
+        "type": "private",
+        "username": "javad_abdullaev"
+      },
+      "date": 1785887842,
+      "entities": [
+        {
+          "length": 18,
+          "offset": 0,
+          "type": "bold"
+        },
+        {
+          "length": 66,
+          "offset": 20,
+          "type": "bold"
+        },
+        {
+          "length": 34,
+          "offset": 531,
+          "type": "italic"
+        }
+      ],
+      "from": {
+        "first_name": "LEAP News - ADMIN",
+        "id": 8652303606,
+        "is_bot": true,
+        "username": "leap_news_bot"
+      },
+      "message_id": 269,
+      "text": "НУЖНО ВАШЕ РЕШЕНИЕ\n\nБёрнем через две недели у власти сузил тюремную реформу в Британии\n\nПочему спрашиваю: есть сомнение в источнике или в трактовке факта.\n\nКартинка Бёрнема — с официального Flickr-канала No 10 Downing Street (press office премьер-министра), но страница показывает лицензию CC BY-NC-ND 4.0 (запрет коммерческого использования и производных). Bild не смог однозначно подтвердить, что на публикацию с атрибуцией распространяется более свободный Crown copyright/OGL. Публиковать с этой картинкой или прислать другую?\n\nОтветьте реплаем на это сообщение:\n• пришлите фото — оно станет главной картинкой\n• «ок» — публиковать как есть\n• «стоп» — снять материал\n• любой другой текст — уйдёт в правку как комментарий"
+    },
+    "text": "Ок"
+  },
+  "update_id": 273157557
+}
