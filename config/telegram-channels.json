@@ -104,23 +104,25 @@
     },
     {
       "id": "prokuraturauz",
-      "handle": "@prokuraturauz",
-      "url": "https://t.me/s/prokuraturauz",
-      "name": "Генеральная прокуратура",
+      "handle": "@uzbprokuratura",
+      "url": "https://t.me/s/uzbprokuratura",
+      "name": "Bosh prokuratura (Генеральная прокуратура)",
       "type": "source",
       "priority": "P1",
-      "subscribers": 85000,
-      "publishRate": "5-10/day"
+      "subscribers": 40600,
+      "publishRate": "5-10/day",
+      "notes": "Правка 04.08.2026 планёркой: старый handle @prokuraturauz резолвится в контактную/техническую страницу без постов (не публичный канал). Реальный официальный канал Генпрокуратуры — @uzbprokuratura, 40,6 тыс. подписчиков, посты есть."
     },
     {
       "id": "sud_uz",
-      "handle": "@sud_uz",
-      "url": "https://t.me/s/sud_uz",
-      "name": "Верховный суд",
+      "handle": "@oliysuduz",
+      "url": "https://t.me/s/oliysuduz",
+      "name": "Олий суд (Верховный суд)",
       "type": "source",
       "priority": "P2",
-      "subscribers": 25000,
-      "publishRate": "2-4/day"
+      "subscribers": 20200,
+      "publishRate": "2-4/day",
+      "notes": "Правка 04.08.2026 планёркой: старый handle @sud_uz — мёртвый приватный канал (4 подписчика, только приветственные сообщения). Реальный официальный канал Верховного суда — @oliysuduz, 20,2 тыс. подписчиков. Даже рабочий канал — только республиканский уровень (пленумы, международные встречи); районные приговоры (напр. Мирзо-Улугбекский районный суд) на нём не публикуются — для них первоисточника в Telegram может не быть вообще."
     },
     {
       "id": "mvd_uz",
