@@ -1,0 +1,96 @@
+{
+  "message": {
+    "chat": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "last_name": "Abdullaev",
+      "type": "private",
+      "username": "javad_abdullaev"
+    },
+    "date": 1785822463,
+    "from": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "is_bot": false,
+      "is_premium": true,
+      "language_code": "en",
+      "last_name": "Abdullaev",
+      "username": "javad_abdullaev"
+    },
+    "message_id": 187,
+    "reply_to_message": {
+      "caption": "НУЖНО ВАШЕ РЕШЕНИЕ\n\nБеспилотник ударил по пляжу под Геленджиком, погибли 7 человек\n\nПочему спрашиваю: fact-checker дал confidence ниже порога 70% — материал не публикуется напрямую в main без вашего решения.\n\nFact-check вернул needs-fix (расхождение с непроверенной хронологией жертв и неточным переводом цитаты губернатора) — editor всё исправил (убрал неподтверждённую хронологию, снял имитацию прямой цитаты, привёл цифры к финальным подтверждённым значениям SCMP+Коммерсантъ). По правилу needs-fix не даёт право на прямую публикацию даже после исправления. Тема чувствительная — среди погибших трое детей, текст сухо атрибутирует все версии сторонам конфликта без домыслов о причинах. Публикуем?\n\nОтветьте реплаем на это сообщение:\n• пришлите фото — оно станет главной картинкой\n• «ок» — публиковать как есть\n• «стоп» — снять материал\n• любой другой текст — уйдёт в правку как комментарий",
+      "caption_entities": [
+        {
+          "length": 18,
+          "offset": 0,
+          "type": "bold"
+        },
+        {
+          "length": 62,
+          "offset": 20,
+          "type": "bold"
+        },
+        {
+          "length": 34,
+          "offset": 701,
+          "type": "italic"
+        }
+      ],
+      "chat": {
+        "first_name": "Javad",
+        "id": 1104500,
+        "last_name": "Abdullaev",
+        "type": "private",
+        "username": "javad_abdullaev"
+      },
+      "date": 1785821853,
+      "from": {
+        "first_name": "LEAP News - ADMIN",
+        "id": 8652303606,
+        "is_bot": true,
+        "username": "leap_news_bot"
+      },
+      "message_id": 183,
+      "photo": [
+        {
+          "file_id": "AgACAgIAAxkDAAO3anF6nSJLxHV6ow471kNGNV00cdEAArkVaxsPdYlLsWcLxjBLBBIBAAMCAANzAAM9BA",
+          "file_size": 1110,
+          "file_unique_id": "AQADuRVrGw91iUt4",
+          "height": 51,
+          "width": 90
+        },
+        {
+          "file_id": "AgACAgIAAxkDAAO3anF6nSJLxHV6ow471kNGNV00cdEAArkVaxsPdYlLsWcLxjBLBBIBAAMCAANtAAM9BA",
+          "file_size": 17321,
+          "file_unique_id": "AQADuRVrGw91iUty",
+          "height": 180,
+          "width": 320
+        },
+        {
+          "file_id": "AgACAgIAAxkDAAO3anF6nSJLxHV6ow471kNGNV00cdEAArkVaxsPdYlLsWcLxjBLBBIBAAMCAAN4AAM9BA",
+          "file_size": 91390,
+          "file_unique_id": "AQADuRVrGw91iUt9",
+          "height": 450,
+          "width": 800
+        },
+        {
+          "file_id": "AgACAgIAAxkDAAO3anF6nSJLxHV6ow471kNGNV00cdEAArkVaxsPdYlLsWcLxjBLBBIBAAMCAAN5AAM9BA",
+          "file_size": 198437,
+          "file_unique_id": "AQADuRVrGw91iUt-",
+          "height": 720,
+          "width": 1280
+        },
+        {
+          "file_id": "AgACAgIAAxkDAAO3anF6nSJLxHV6ow471kNGNV00cdEAArkVaxsPdYlLsWcLxjBLBBIBAAMCAAN3AAM9BA",
+          "file_size": 274621,
+          "file_unique_id": "AQADuRVrGw91iUt8",
+          "height": 900,
+          "width": 1600
+        }
+      ]
+    },
+    "text": "ок"
+  },
+  "update_id": 273157520
+}
