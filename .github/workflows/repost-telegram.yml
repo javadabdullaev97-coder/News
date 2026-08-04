@@ -1,0 +1,70 @@
+name: Repost article to Telegram
+
+# Удаляет пост статьи из канала и отправляет заново с текущей картинкой.
+#
+# Нужен, когда фото в статье заменили ПОСЛЕ выхода поста: картинка в канале
+# грузится байтами в момент отправки и сама не обновится никогда. Первый
+# случай — 04.08.2026, «25 штатов»: портретный кадр с заливкой заменён
+# ландшафтным на сайте, а канал продолжал показывать старый.
+#
+# Bot API удаляет сообщения только 48 часов — старше не перепубликовать.
+
+on:
+  repository_dispatch:
+    types: [repost-telegram]
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Слаг статьи (content/posts/*/<slug>.mdx)"
+        required: true
+      dry_run:
+        description: "1 = только показать, что сделал бы"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repost-telegram
+  cancel-in-progress: false
+
+jobs:
+  repost:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      # npm install обязателен: lib/frontmatter.mjs тянет npm-пакет yaml.
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund --no-save
+
+      - name: Delete old post and send fresh one
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          SITE_URL: "https://leap.uz"
+          SLUG: ${{ github.event.inputs.slug || github.event.client_payload.slug }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
+        run: node scripts/repost-telegram.mjs
+
+      - name: Commit telegram state
+        if: github.event.inputs.dry_run != '1'
+        run: |
+          if [[ -z $(git status --porcelain -- content/state/telegram-posted.jsonl) ]]; then
+            echo "Реестр не менялся."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/state/telegram-posted.jsonl
+          git commit -m "state: перепубликация в канале (${SLUG:-repost})"
+          bash .github/scripts/git-push-with-rebase.sh
+        env:
+          SLUG: ${{ github.event.inputs.slug || github.event.client_payload.slug }}
