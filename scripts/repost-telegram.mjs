@@ -88,6 +88,9 @@ const oldIds = [
 ];
 
 // ── формат поста — копия post-to-telegram.mjs ──
+// Подпись-ссылка на языке материала — как в post-to-telegram.mjs.
+const READ_MORE = { ru: "Читать полностью →", uz: "Batafsil →", en: "Read in full →" };
+
 function buildMessage(ledeLimit) {
   const title = escapeHTML(decodeEntities(fm.title || ""));
   const plainLede = decodeEntities(extractLede(raw));
@@ -95,7 +98,7 @@ function buildMessage(ledeLimit) {
     plainLede.length > ledeLimit
       ? plainLede.slice(0, ledeLimit - 1).replace(/\s+\S*$/, "") + "…"
       : plainLede;
-  return [`<b>${title}</b>`, escapeHTML(shortLede), `<a href="${url}">Читать полностью на leap.uz</a>`].join("\n\n");
+  return [`<b>${title}</b>`, escapeHTML(shortLede), `<a href="${url}">${READ_MORE[fm.lang] ?? READ_MORE.ru}</a>`].join("\n\n");
 }
 function buildCaption() {
   for (const limit of [600, 450, 320, 220, 140]) {

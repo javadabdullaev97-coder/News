@@ -170,7 +170,17 @@ function articleUrl(date, slug, lang = DEFAULT_LANG) {
 // с кикером и строкой источника — они больше ничего не обслуживали. Если
 // правку когда-нибудь откатывают, восстанавливать нужно и их.
 
-function buildMessage(fm, lede, url, { ledeLimit = 600 } = {}) {
+// Подпись-ссылка на языке канала. Русский текст в узбекском канале
+// владелец забраковал 05.08.2026: пост целиком на узбекском, а последняя
+// строка — по-русски. Стрелка вместо слов «на leap.uz» короче и одинаково
+// читается на всех трёх языках.
+const READ_MORE = {
+  ru: "Читать полностью →",
+  uz: "Batafsil →",
+  en: "Read in full →",
+};
+
+function buildMessage(fm, lede, url, { ledeLimit = 600, lang = "ru" } = {}) {
   const title = escapeHTML(decodeEntities(fm.title || ""));
 
   const parts = [];
@@ -187,7 +197,7 @@ function buildMessage(fm, lede, url, { ledeLimit = 600 } = {}) {
   parts.push(escapeHTML(shortLede));
 
   // Футер
-  parts.push(`<a href="${url}">Читать полностью на leap.uz</a>`);
+  parts.push(`<a href="${url}">${READ_MORE[lang] ?? READ_MORE.ru}</a>`);
 
   return parts.join("\n\n");
 }
@@ -198,9 +208,9 @@ function buildMessage(fm, lede, url, { ledeLimit = 600 } = {}) {
 // последних двух предложений лида.
 const CAPTION_LIMIT = 1024;
 
-function buildCaption(fm, lede, url) {
+function buildCaption(fm, lede, url, lang = "ru") {
   for (const limit of [600, 450, 320, 220, 140]) {
-    const text = buildMessage(fm, lede, url, { ledeLimit: limit });
+    const text = buildMessage(fm, lede, url, { ledeLimit: limit, lang });
     if (text.length <= CAPTION_LIMIT) return text;
   }
   return null; // даже без лида не влезло — уходим на sendMessage
@@ -250,7 +260,7 @@ async function postArticle(mdxPath, fm, channel = TELEGRAM_CHANNEL) {
   const url = articleUrl(date, slug, lang);
   const raw = readFileSync(mdxPath, "utf8");
   const lede = extractLede(raw);
-  const text = buildMessage(fm, lede, url);
+  const text = buildMessage(fm, lede, url, { lang });
   const imageAbs = fm.image?.url
     ? join(ROOT, "public", fm.image.url.replace(/^\/+/, ""))
     : null;
@@ -272,7 +282,7 @@ async function postArticle(mdxPath, fm, channel = TELEGRAM_CHANNEL) {
   if (hasImage) {
     // Подпись подрезаем под лимит 1024, а не откатываемся на текстовое
     // сообщение: картинка в ленте стоит дороже двух последних предложений лида.
-    const caption = buildCaption(fm, lede, url);
+    const caption = buildCaption(fm, lede, url, lang);
     if (caption) {
       const buf = readFileSync(imageAbs);
       const form = new FormData();
