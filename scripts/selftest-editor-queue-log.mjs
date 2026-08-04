@@ -69,6 +69,34 @@ const item = (slug, askedAt, extra = {}) => ({ slug, askedAt, title: slug, messa
   const evs2 = diffToEvents(next, withRemind);
   ok(evs2.length === 1 && evs2[0].ev === "remind", "напоминание даёт ровно одно событие remind");
 
+  // id отправленного напоминания едет в событие и возвращается при fold:
+  // владелец отвечает реплаем на напоминание, и collect обязан найти вопрос
+  // по этому id. Потерянное «ок» по Пентагону 04.08.2026 — ровно этот случай.
+  const withRemindId = {
+    pending: [item("a", "2026-08-04T10:00:00Z", {
+      remindedAt: "2026-08-04T22:00:00Z",
+      remindMessageIds: [230],
+    })],
+    resolved: [],
+    updateOffset: 10,
+  };
+  const evs2b = diffToEvents(next, withRemindId);
+  ok(evs2b.length === 1 && evs2b[0].messageId === 230, "remind несёт messageId напоминания");
+
+  // Fold: id из событий remind собираются в remindMessageIds без дублей.
+  const root2 = fresh();
+  const q0 = loadQueue(root2);
+  const s0 = snapshot(q0);
+  q0.pending.push(item("a", "2026-08-04T10:00:00Z"));
+  saveQueue(root2, s0, q0);
+  appendFileSync(join(root2, QUEUE_LOG),
+    JSON.stringify({ ev: "remind", at: "t1", slug: "a", askedAt: "2026-08-04T10:00:00Z", remindedAt: "t1", messageId: 230 }) + "\n" +
+    JSON.stringify({ ev: "remind", at: "t2", slug: "a", askedAt: "2026-08-04T10:00:00Z", remindedAt: "t2", messageId: 231 }) + "\n" +
+    JSON.stringify({ ev: "remind", at: "t2", slug: "a", askedAt: "2026-08-04T10:00:00Z", remindedAt: "t2", messageId: 231 }) + "\n");
+  const q1 = loadQueue(root2);
+  ok(JSON.stringify(q1.pending[0].remindMessageIds) === "[230,231]",
+     "fold собирает remindMessageIds из событий remind без дублей");
+
   // Ответ переносит материал из pending в resolved.
   const answered = {
     pending: [],

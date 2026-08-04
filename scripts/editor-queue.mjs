@@ -682,9 +682,31 @@ async function collect(injectedUpdates = null) {
       continue;
     }
 
-    const idx = q.pending.findIndex((x) => x.messageId === replyTo);
+    // Ответ ищется и по карточке вопроса, и по напоминаниям о ней: владелец
+    // отвечает реплаем на то сообщение, что видит последним.
+    const idx = q.pending.findIndex(
+      (x) => x.messageId === replyTo || (x.remindMessageIds ?? []).includes(replyTo),
+    );
     if (idx === -1) {
-      // reply на неизвестное сообщение — тоже двигаем offset, чтобы не крутилось
+      // Ответ владельца, который ни к чему не привязался, — не мусор, а
+      // потерянное решение. Молчать здесь нельзя: именно так 04.08.2026
+      // пропало «ок» по Пентагону, и материал простоял лишних пять часов.
+      // Говорим владельцу сразу, чтобы он переслал ответ на нужную карточку.
+      if (msg.reply_to_message?.from?.is_bot && msg.text) {
+        await tg("sendMessage", {
+          chat_id: TELEGRAM_EDITOR_CHAT_ID,
+          text:
+            "<b>Не нашёл вопрос для этого ответа</b>\n\n" +
+            `Ваш ответ «${msg.text.slice(0, 80)}» пришёл реплаем на сообщение, ` +
+            "которое не привязано ни к одному ожидающему материалу — например, " +
+            "на служебное уведомление или на вопрос, который уже закрыт. " +
+            "Ответ не применён.\n\n" +
+            "Если решение ещё нужно — ответьте реплаем на карточку с вопросом " +
+            "или на напоминание о ней.",
+          parse_mode: "HTML",
+          reply_to_message_id: msg.message_id,
+        }).catch((e) => console.error(`[queue] не смог предупредить о непривязанном ответе: ${e.message}`));
+      }
       if (u.update_id >= (q.updateOffset || 0)) q.updateOffset = u.update_id + 1;
       continue;
     }
@@ -810,13 +832,18 @@ async function remind() {
       console.log("-".repeat(50));
       console.log(text.replace(/<[^>]+>/g, ""));
     } else {
-      await tg("sendMessage", {
+      const sent = await tg("sendMessage", {
         chat_id: TELEGRAM_EDITOR_CHAT_ID,
         text,
         parse_mode: "HTML",
         reply_to_message_id: item.messageId,
       });
       item.remindedAt = new Date().toISOString();
+      // Владелец отвечает реплаем и на напоминание, а не только на исходную
+      // карточку — id напоминания обязан попасть в очередь, иначе collect
+      // не привяжет ответ к вопросу. Ровно так 04.08.2026 потерялось «ок»
+      // по Пентагону: реплай на напоминание, id которого никто не хранил.
+      item.remindMessageIds = [...(item.remindMessageIds ?? []), sent.message_id];
     }
     sent++;
   }
