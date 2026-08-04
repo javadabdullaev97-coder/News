@@ -1,6 +1,6 @@
 {
   "task": "revoke-lang",
   "lang": "uz",
-  "reason": "формат подписи: Читать полностью на leap.uz → Batafsil →",
-  "requestedAt": "2026-08-04T22:22:58Z"
+  "reason": "подпись без домена — Batafsil → вместо Batafsil leap.uz →",
+  "requestedAt": "2026-08-04T22:30:01Z"
 }
