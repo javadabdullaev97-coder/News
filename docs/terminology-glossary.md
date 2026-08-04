@@ -123,3 +123,25 @@ grep -n "%" content/posts/*/*.uz.mdx   # выдача должна быть пу
 не «Ibn Sino»: Ибн Сино — имя учёного, а бренд зарегистрирован иначе.
 Переводить бренд по смыслу его отсылки — та же ошибка, что переводить
 название компании.
+
+## Английский: министерства — «Ministry of X»
+
+Требование владельца 05.08.2026: форма `Energy Ministry` звучит калькой.
+
+| Плохо | Хорошо |
+|---|---|
+| `Energy Ministry` | `Ministry of Energy` |
+| `Transport Ministry` | `Ministry of Transport` |
+| `Uzbekistan's Economy Ministry` | `Uzbekistan's Ministry of Economy and Finance` |
+| `Iranian Foreign Ministry` | `Iranian Ministry of Foreign Affairs` |
+
+Правило распространяется и на министерства других стран — издание пишет
+их одинаково, а не по привычке англоязычных агентств.
+
+**Комитеты и агентства — исключение, и это не непоследовательность.**
+У них официальное английское имя как раз с инверсией: `State Tax
+Committee`, `National Statistics Committee`, `Cadastre Agency`,
+`State Assets Management Agency`. Переставить их в `Committee of Taxes`
+значит выдумать название, которого у ведомства нет.
+
+Проверка: `node scripts/i18n-lint.mjs` — он же чинит с `--fix`.

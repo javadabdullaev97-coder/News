@@ -95,8 +95,19 @@ TRANSLATE_INPUT: {
 - Узбекские реалии: `mahalla`, `hokimiyat` (курсивом не выделяем), при первом
   упоминании — короткое пояснение в скобках, если из контекста непонятно:
   `mahalla (neighborhood community)`.
-- Ведомства — официальным английским именем: `Ministry of Economy and
-  Finance`, `Central Bank of Uzbekistan`, `Cabinet of Ministers`.
+- **Министерства — только `Ministry of X`, никогда `X Ministry`.**
+  Требование владельца 05.08.2026: `Energy Ministry` звучит калькой,
+  а официальное английское имя ведомства строится как `Ministry of Energy`,
+  `Ministry of Transport`, `Ministry of Economy and Finance`,
+  `Ministry of Foreign Affairs`. Правило общее, включая министерства
+  других стран: `Iran's Ministry of Foreign Affairs`, не `Iranian Foreign
+  Ministry`.
+- **Комитеты и агентства — наоборот, как в официальном имени**, а оно
+  у них с инверсией: `State Tax Committee`, `National Statistics
+  Committee`, `Cadastre Agency`. Переставлять их в `Committee of…`
+  значит выдумывать название, которого у ведомства нет.
+- Прочее — официальным английским именем: `Central Bank of Uzbekistan`,
+  `Cabinet of Ministers`.
 
 ## Формат выхода
 

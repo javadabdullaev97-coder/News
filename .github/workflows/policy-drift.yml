@@ -57,8 +57,8 @@ jobs:
       # Узбекские тексты: проценты словом, прямой апостроф, узбекские
       # номера актов. Переводчики расходятся в этом систематически,
       # и без ежедневной проверки расхождения копятся молча.
-      - name: Check Uzbek writing rules
-        run: node scripts/uz-lint.mjs
+      - name: Check translation writing rules
+        run: node scripts/i18n-lint.mjs
 
       - name: Check drift
         run: |

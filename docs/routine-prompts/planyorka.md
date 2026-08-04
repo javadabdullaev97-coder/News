@@ -484,7 +484,7 @@ def factCheckSkippable(draft):
                                          out_path: content/queue/<slug>.en.mdx})
 
         # После переводов, ДО коммита в очередь:
-        node scripts/uz-lint.mjs --fix
+        node scripts/i18n-lint.mjs --fix
     иначе если status == "killed":
         двигай в content/rejected/, приложи editor-verdict
     иначе если status == "back-to-reporter":
@@ -615,12 +615,12 @@ node scripts/translation-gaps.mjs --limit=6
 все параллельно одним сообщением). Больше трёх за прогон не бери:
 перевод архива не должен вытеснять сегодняшнюю повестку.
 
-После перевода — **обязательно** прогони узбекский линтер, он чинит
+После перевода — **обязательно** прогони линтер переводов, он чинит
 то, на чём переводчики систематически расходятся (проценты, апостроф,
 номера актов):
 
 ```bash
-node scripts/uz-lint.mjs --fix
+node scripts/i18n-lint.mjs --fix
 ```
 
 `out_path` — тот же путь с суффиксом языка: `<...>/<slug>.uz.mdx`.

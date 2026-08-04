@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// Правила узбекского письма, которые переводчики нарушают систематически.
+// Правила письма на языках издания, которые переводчики нарушают
+// систематически.
 //
 // ЗАЧЕМ. 05.08.2026 при переводе архива семь агентов дали семь вариантов
 // одного и того же: одни писали `44%i`, другие `44 foiz`; одни ставили
@@ -9,10 +10,14 @@
 // собранным из кусков. Инструкцию агенты читают, но детали такого рода
 // проще проверить механически, чем надеяться на внимательность.
 //
+// То же с английским: 05.08.2026 владелец забраковал форму «Energy Ministry» —
+// у министерств официальное английское имя строится как «Ministry of Energy»,
+// и газетная инверсия в заголовке издания выглядит калькой.
+//
 // Правила — из docs/terminology-glossary.md, там же обоснования.
 //
-//   node scripts/uz-lint.mjs           — проверить, ничего не менять (exit 1 при находках)
-//   node scripts/uz-lint.mjs --fix     — исправить на месте
+//   node scripts/i18n-lint.mjs           — проверить, ничего не менять (exit 1 при находках)
+//   node scripts/i18n-lint.mjs --fix     — исправить на месте
 //
 // Планёрка запускает с --fix после перевода, до коммита (см. planyorka.md).
 
@@ -26,7 +31,7 @@ const POSTS = join(ROOT, "content/posts");
 const fix = process.argv.includes("--fix");
 
 /** Каждое правило: что ищем, чем заменяем, как объяснить в отчёте. */
-const RULES = [
+const UZ_RULES = [
   {
     name: "проценты словом foiz",
     re: /(\d[\d\s,. ]*?)%(?:&nbsp;)?([a-zA-Z']*)/g,
@@ -54,21 +59,47 @@ const RULES = [
   },
 ];
 
+// Английский: инверсия «X Ministry» → официальное «Ministry of X».
+//
+// Комитеты и агентства сюда НЕ входят: у них официальное английское имя
+// как раз с инверсией — «State Tax Committee», «National Statistics
+// Committee», «Cadastre Agency». Переставлять их значит выдумывать
+// название, которого у ведомства нет.
+const MINISTRIES = {
+  Energy: "Energy",
+  Transport: "Transport",
+  Justice: "Justice",
+  Health: "Health",
+  Defense: "Defense",
+  Defence: "Defence",
+  Economy: "Economy and Finance",
+  Foreign: "Foreign Affairs",
+};
+
+const EN_RULES = Object.entries(MINISTRIES).map(([word, full]) => ({
+  name: `«${word} Ministry» → «Ministry of ${full}»`,
+  re: new RegExp(`\\b${word} Ministry\\b`, "g"),
+  to: () => `Ministry of ${full}`,
+}));
+
+const RULES_BY_LANG = { uz: UZ_RULES, en: EN_RULES };
+
 const files = [];
 const dayRe = /^\d{4}-\d{2}-\d{2}$/;
 for (const day of (existsSync(POSTS) ? readdirSync(POSTS) : []).filter((d) => dayRe.test(d))) {
   for (const f of readdirSync(join(POSTS, day))) {
-    if (f.endsWith(".uz.mdx")) files.push(join(POSTS, day, f));
+    const m = f.match(/\.(uz|en)\.mdx$/);
+    if (m) files.push({ path: join(POSTS, day, f), lang: m[1] });
   }
 }
 
 let touched = 0;
 const findings = [];
-for (const file of files) {
+for (const { path: file, lang } of files) {
   const text = readFileSync(file, "utf8");
   let next = text;
   const hits = [];
-  for (const rule of RULES) {
+  for (const rule of RULES_BY_LANG[lang] ?? []) {
     const before = next;
     next = next.replace(rule.re, rule.to);
     if (next !== before) hits.push(rule.name);
@@ -87,7 +118,7 @@ for (const f of findings) {
 }
 console.error(
   fix
-    ? `[uz-lint] проверено ${files.length}, исправлено ${touched}`
-    : `[uz-lint] проверено ${files.length}, с нарушениями ${findings.length}`,
+    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}`
+    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}`,
 );
 process.exit(!fix && findings.length ? 1 : 0);
