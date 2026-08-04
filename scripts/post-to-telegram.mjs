@@ -50,14 +50,28 @@ if (!dryRun && (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHANNEL)) {
   process.exit(1);
 }
 
-// Найти все .mdx во всех днях
+// Найти все .mdx во всех днях — ТОЛЬКО русские версии.
+//
+// Переводы лежат рядом с оригиналом (<slug>.uz.mdx, <slug>.en.mdx), и без
+// этой отсечки постер считал их отдельными материалами: 04.08.2026 в русский
+// канал ушли 28 постов на узбекском и английском, причём со ссылками вида
+// /ru/2026/08/04/<slug>.en — то есть ещё и мёртвыми, потому что суффикс
+// языка попадал в слаг.
+//
+// У каждого языка свой канал (решение владельца 05.08.2026): русский —
+// текущий, узбекский — отдельный, английский уходит в Twitter. Пока каналы
+// не заведены, переводы не постятся никуда.
+const TRANSLATED_SUFFIX = /\.(uz|en)\.mdx$/;
+
 function collectMdx(dir) {
   const out = [];
   if (!existsSync(dir)) return out;
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const p = join(dir, entry.name);
     if (entry.isDirectory()) out.push(...collectMdx(p));
-    else if (entry.isFile() && entry.name.endsWith(".mdx")) out.push(p);
+    else if (entry.isFile() && entry.name.endsWith(".mdx") && !TRANSLATED_SUFFIX.test(entry.name)) {
+      out.push(p);
+    }
   }
   return out;
 }

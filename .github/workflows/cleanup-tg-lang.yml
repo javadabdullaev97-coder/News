@@ -1,0 +1,64 @@
+name: Cleanup TG language posts
+
+# Разовая уборка после аварии 04.08.2026: постер принял языковые версии
+# материалов за новые статьи, и в русский канал ушли 28 постов на узбекском
+# и английском — со ссылками, которых не существует.
+#
+# Причина устранена в post-to-telegram.mjs (переводы отсекаются по имени
+# файла). Этот запуск убирает последствия.
+#
+# Триггер — файл-заявка: сессия без прав на dispatch кладёт
+# content/state/tg-cleanup-request.json и пушит.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/state/tg-cleanup-request.json"
+  repository_dispatch:
+    types: [cleanup-tg-lang]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "1 = только показать, что удалил бы"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cleanup-tg-lang
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Delete translated posts from the Russian channel
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
+        run: node scripts/cleanup-telegram-lang-posts.mjs
+
+      - name: Commit registry
+        if: github.event.inputs.dry_run != '1'
+        run: |
+          if [[ -z $(git status --porcelain -- content/state/telegram-posted.jsonl) ]]; then
+            echo "Реестр не менялся."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/state/telegram-posted.jsonl
+          git commit -m "state: отозваны посты переводов из русского канала"
+          bash .github/scripts/git-push-with-rebase.sh
