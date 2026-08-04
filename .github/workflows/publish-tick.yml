@@ -58,18 +58,25 @@ jobs:
         with:
           node-version: "24"
 
-      # npm install не нужен: publish-tick.mjs и его зависимости — только
-      # node builtins и lib/ из репозитория. Это экономит восемь секунд
-      # на каждом выпуске, а выпусков десятки в сутки.
+      # npm install ОБЯЗАТЕЛЕН: lib/frontmatter.mjs тянет npm-пакет yaml.
+      # Первая версия воркфлоу его пропускала «для экономии восьми секунд» —
+      # и publish-tick падал на первом импорте в каждом прогоне, а пайплайн
+      # с | tee маскировал код падения, так что прогоны зеленели. 04.08.2026
+      # четыре материала пролежали в очереди при двух «успешных» запусках.
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund --no-save
 
       - name: Release what is due
         id: release
         run: |
+          # pipefail обязателен: без него код выхода пайплайна — это код tee,
+          # и упавший publish-tick выглядел бы успехом.
+          set -o pipefail
           ARGS=""
           if [ "${{ github.event.inputs.dry_run }}" = "1" ]; then
             ARGS="--dry-run"
           fi
-          node scripts/publish-tick.mjs $ARGS | tee "$RUNNER_TEMP/result.json"
+          node scripts/publish-tick.mjs $ARGS | tee "$RUNNER_TEMP/result.json""
 
       - name: Commit released articles
         if: github.event.inputs.dry_run != '1'
@@ -88,4 +95,33 @@ jobs:
           ")
           git add content/queue content/posts content/state/publish-plan.json
           git commit -m "publish: $SLUGS"
+          bash .github/scripts/git-push-with-rebase.sh
+
+      # Отправка в канал — ЗДЕСЬ ЖЕ, а не по push-триггеру автопоста.
+      #
+      # Коммит выше сделан служебным GITHUB_TOKEN, а GitHub не даёт таким
+      # пушам запускать другие воркфлоу — push-триггер telegram-autopost
+      # на выпуски публикатора не срабатывает и не сработает никогда.
+      # Третья инкарнация одной и той же ловушки за 04.08.2026.
+      #
+      # Скрипт идемпотентен (дедуп по слагу), тихие часы и broadcast:false
+      # он учитывает сам.
+      - name: Post released articles to Telegram
+        if: github.event.inputs.dry_run != '1'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          SITE_URL: "https://leap.uz"
+        run: node scripts/post-to-telegram.mjs
+
+      - name: Commit telegram state
+        if: github.event.inputs.dry_run != '1'
+        run: |
+          touch content/state/telegram-posted.jsonl
+          if [[ -z $(git status --porcelain -- content/state/telegram-posted.jsonl) ]]; then
+            echo "В канал ничего не уходило."
+            exit 0
+          fi
+          git add content/state/telegram-posted.jsonl
+          git commit -m "state: telegram-posted обновлён публикатором"
           bash .github/scripts/git-push-with-rebase.sh
