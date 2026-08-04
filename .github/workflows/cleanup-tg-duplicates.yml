@@ -1,0 +1,42 @@
+name: Cleanup TG duplicates
+
+# Разовая уборка после аварии 04.08.2026: переезд адресов обнулил URL-дедуп
+# постера, и семь статей ушли в канал повторно, по две волны каждая.
+# Скрипт оставляет оригинальный пост и удаляет дубли по messageId из реестра.
+#
+# Запускается руками или диспатчем. Идемпотентен: уже удалённое сообщение —
+# штатный ответ «не найдено», а не сбой, так что повторный запуск безопасен.
+
+on:
+  repository_dispatch:
+    types: [cleanup-tg-duplicates]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "1 = только показать, что удалил бы"
+        required: false
+        default: "0"
+
+permissions:
+  contents: read
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      # npm install не нужен: скрипт живёт на node builtins и lib/.
+
+      - name: Delete duplicate channel posts
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
+        run: node scripts/cleanup-telegram-duplicates.mjs
