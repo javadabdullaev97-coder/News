@@ -734,6 +734,12 @@ pendingEditorQuestion:
 
 Как публикуешь — **кладёшь в очередь, а не на сайт**:
 
+- **картинка обязательна.** Материал без `image.url` в очередь не клади
+  вообще — отправляй его в `content/needs-verification/` с
+  `pendingEditorQuestion` и `reason: "no-image"`, чтобы владелец прислал фото.
+  Прямое требование владельца от 04.08.2026: «нельзя чтобы статьи выходили
+  без картинки». Публикатор это проверяет и сам, но узнать о проблеме
+  из его отчёта — значит потерять полчаса;
 - файл идёт в `content/queue/<slug>.mdx`, НЕ в `content/posts/`;
 - во frontmatter ставишь `queuedAt`, `publishedAt` не ставишь вообще;
 - `git commit` + `bash .github/scripts/git-push-with-rebase.sh`

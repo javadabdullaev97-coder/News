@@ -69,13 +69,39 @@ function dayDir(ms) {
 }
 
 /**
- * Когда придёт следующая пачка. Планёрки стоят на :00 и :30 ташкентского
- * времени, то есть на тех же минутах и в UTC — смещение кратно часу.
+ * Когда придёт следующая пачка.
+ *
+ * Расписание планёрок берётся из политики, а не зашито в код: минимальный
+ * интервал Routine — час, поэтому каждая планёрка это отдельно заведённая
+ * задача, и их число меняется руками. Разойдётся список с реальностью —
+ * очередь начнёт врать: при одной планёрке в час, но списком [0, 30],
+ * публикатор утрамбует пачку в первые полчаса и оставит вторые пустыми.
+ * Ровно та беда, ради которой очередь и заводилась.
+ *
+ * Смещение Ташкента кратно часу, поэтому минуты в UTC и по Ташкенту совпадают.
  */
+function planyorkaMinutes() {
+  try {
+    const cfg = JSON.parse(readFileSync(join(ROOT, "config/newsroom-policy.json"), "utf8"));
+    const list = cfg?.publishing?.planyorkaMinutesUtc?.minutes;
+    if (Array.isArray(list) && list.length) {
+      const clean = [...new Set(list.map(Number).filter((n) => Number.isInteger(n) && n >= 0 && n < 60))];
+      if (clean.length) return clean.sort((a, b) => a - b);
+    }
+  } catch {
+    // Политика не прочиталась — работаем по часу, это безопасное допущение:
+    // окно шире реального растянет пачку сильнее, но предел в 45 минут
+    // всё равно не даст материалу зависнуть.
+  }
+  return [0];
+}
+
 function nextBatchAt(now) {
   const d = new Date(now);
   const m = d.getUTCMinutes();
-  const add = m < 30 ? 30 - m : 60 - m;
+  const mins = planyorkaMinutes();
+  const next = mins.find((x) => x > m);
+  const add = (next ?? mins[0] + 60) - m;
   return now + add * 60_000 - d.getUTCSeconds() * 1000 - d.getUTCMilliseconds();
 }
 
@@ -120,11 +146,25 @@ function readQueue() {
         urgency: typeof fm.urgency === "string" ? fm.urgency : "standard",
         tgScore: Number(fm.tgScore) || 0,
         awaitingEditor: fm.awaitingEditor === true || fm.awaitingEditor === "true",
+        hasImage: Boolean(fm.image && typeof fm.image === "object" && fm.image.url),
       };
-    })
-    // Материал, ждущий ответа владельца, из очереди не выходит: спрашивать
-    // и публиковать не дожидаясь ответа — бессмысленно.
-    .filter((x) => !x.awaitingEditor);
+    });
+}
+
+/**
+ * Что из очереди выпускать нельзя, и почему.
+ *
+ * Оба условия — не формальность. Материал с awaitingEditor ждёт человека:
+ * спрашивать владельца и публиковать не дожидаясь ответа бессмысленно.
+ * Материал без картинки — это directPublish.gates.requiresImage, который
+ * стоит в политике `true`, но до появления публикатора не проверялся нигде
+ * в коде. Ровно поэтому 3 августа целая пачка вышла без фотографий, и
+ * заметил это владелец, а не система.
+ */
+function blockedReason(item) {
+  if (item.awaitingEditor) return "ждёт ответа владельца";
+  if (!item.hasImage) return "нет картинки (gates.requiresImage)";
+  return null;
 }
 
 /** Проставляет publishedAt и убирает служебное queuedAt. */
@@ -141,10 +181,61 @@ function stamp(raw, publishedAt) {
 }
 
 const now = Date.now();
-const queue = readQueue();
+const all = readQueue();
+const blocked = all.map((x) => ({ item: x, why: blockedReason(x) })).filter((x) => x.why);
+const queue = all.filter((x) => !blockedReason(x));
+
+// Заблокированные показываем всегда. Молчаливая задержка неотличима от
+// «материала не было», а именно так теряются вещи: файл лежит, никто не
+// ждёт, и никто не знает.
+for (const b of blocked) {
+  console.error(`  ⏸ ${b.item.slug}: ${b.why}`);
+}
+
+// Материал без картинки не просто задерживается — он уходит из очереди
+// в needs-verification с вопросом владельцу.
+//
+// Требование владельца от 04.08.2026, дословно: «нельзя чтобы статьи
+// выходили без картинки, нужно всегда подбирать картинку, и если сомневаешься
+// — отправляй мне в тг, я одобряю либо меняю». Просто заблокировать мало:
+// заблокированный молча материал завис бы в очереди навсегда, и это хуже,
+// чем выход без фото, — про него бы просто забыли.
+//
+// Переносом в needs-verification подключается вся уже работающая механика:
+// scan-pending находит pendingEditorQuestion и отправляет вопрос в бот,
+// ответ фотографией подтягивает картинку, ответ «стоп» снимает материал.
+// Ничего нового изобретать не нужно.
+if (!dryRun && !flag("plan")) {
+  for (const b of blocked) {
+    if (b.why !== "нет картинки (gates.requiresImage)") continue;
+    const nv = join(ROOT, "content/needs-verification");
+    mkdirSync(nv, { recursive: true });
+    const question =
+      `Материал готов к выходу, но картинки нет — ни в первоисточнике, ни в стоке. ` +
+      `Пришлите фото реплаем на это сообщение, и я выпущу материал с ним. ` +
+      `Ответ «стоп» — сниму материал совсем. Без картинки не публикую.`;
+    let raw = b.item.raw;
+    if (!/^pendingEditorQuestion:/m.test(raw)) {
+      raw = raw.replace(
+        /^(title:.*\n)/m,
+        `$1awaitingEditor: true\npendingEditorQuestion:\n  reason: "no-image"\n  question: ${JSON.stringify(question)}\n`,
+      );
+    }
+    // Сначала правим исходный файл, потом переносим. Обратный порядок
+    // затирал вопрос: renameSync копировал поверх исходник без правки,
+    // материал уезжал молча и владельца никто не спрашивал.
+    writeFileSync(b.item.path, raw);
+    renameSync(b.item.path, join(nv, b.item.file));
+    console.error(`  → ${b.item.slug} уехал в needs-verification: спрошу владельца про картинку`);
+  }
+}
 
 if (!queue.length) {
-  console.error("[publish] очередь пуста");
+  console.error(
+    blocked.length
+      ? `[publish] выпускать нечего: ${blocked.length} материал(ов) заблокировано`
+      : "[publish] очередь пуста",
+  );
   if (!dryRun) {
     mkdirSync(join(ROOT, "content/state"), { recursive: true });
     writeFileSync(

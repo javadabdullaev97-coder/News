@@ -233,11 +233,20 @@ async function downloadTelegramFile(fileId, destAbs) {
 // ─── Применение ответа к материалу ───
 
 function findArticle(slug) {
-  // Ищем в трёх местах:
+  // Ищем в четырёх местах:
   // 1. content/posts/<day>/<slug>.mdx — опубликованные (могут быть awaitingEditor)
-  // 2. content/needs-verification/<slug>.mdx — материалы с confidence<70,
+  // 2. content/queue/<slug>.mdx — готовые, ждущие своей минуты в очереди
+  // 3. content/needs-verification/<slug>.mdx — материалы с confidence<70,
   //    ждущие ответа владельца
-  // 3. content/rework/<slug>.mdx — на переделке после комментария
+  // 4. content/rework/<slug>.mdx — на переделке после комментария
+  //
+  // Очередь появилась в списке не для полноты. Материал живёт в ней до
+  // 45 минут, и без этой строки ответ «стоп» на него просто не находил бы
+  // файл: владелец сказал «снять», система молча согласилась и через
+  // двадцать минут опубликовала.
+  const queued = join(ROOT, "content/queue", `${slug}.mdx`);
+  if (existsSync(queued)) return queued;
+
   const posts = join(ROOT, "content/posts");
   if (existsSync(posts)) {
     for (const day of readdirSync(posts)) {

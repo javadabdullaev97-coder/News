@@ -177,13 +177,13 @@ jobs:
           # так 03.08.2026 четыре прогона подряд не смогли применить ответы
           # владельца. touch делает путь существующим всегда.
           touch content/state/telegram-posted.jsonl content/state/editor-queue.jsonl
-          if [[ -z $(git status --porcelain -- content/state/editor-queue.jsonl .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/ content/state/tg-spool/) ]]; then
+          if [[ -z $(git status --porcelain -- content/state/editor-queue.jsonl .review/ content/posts/ content/queue/ public/images/ content/rejected/ content/needs-verification/ content/rework/ content/state/tg-spool/) ]]; then
             echo "Ответов нет — коммитить нечего."
             echo "applied=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           echo "applied=true" >> "$GITHUB_OUTPUT"
-          git add content/state/editor-queue.jsonl .review/ content/posts/ public/images/ content/rejected/ content/needs-verification/ content/rework/ content/state/tg-spool/ content/state/telegram-posted.jsonl
+          git add content/state/editor-queue.jsonl .review/ content/posts/ content/queue/ public/images/ content/rejected/ content/needs-verification/ content/rework/ content/state/tg-spool/ content/state/telegram-posted.jsonl
           git commit -m "newsroom: ответы редактора из Telegram"
           bash .github/scripts/git-push-with-rebase.sh
 
