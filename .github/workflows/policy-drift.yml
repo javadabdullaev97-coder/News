@@ -48,6 +48,12 @@ jobs:
       - name: Install deps (для lib/frontmatter.mjs)
         run: npm install --no-audit --no-fund --no-save
 
+      # Выжимки инструкций не должны молча отставать от источников.
+      # Планёрка при рассинхроне не ломается (читает полный документ и пишет
+      # в отчёт), но каждый её прогон дорожает — красный прогон здесь заметнее.
+      - name: Check doc digests freshness
+        run: node scripts/check-doc-digest.mjs --strict
+
       - name: Check drift
         run: |
           DAYS="${{ github.event.inputs.days || '7' }}"
