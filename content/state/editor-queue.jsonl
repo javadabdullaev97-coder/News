@@ -65,3 +65,7 @@
 {"ev":"remind","at":"2026-08-04T11:09:04.027Z","slug":"world-pentagon-patriot-thaad-contracts","askedAt":"2026-08-04T06:53:28.126Z","remindedAt":"2026-08-04T11:09:04.027Z"}
 {"ev":"offset","at":"2026-08-04T11:09:34.793Z","value":273157537}
 {"ev": "resolve", "at": "2026-08-04T11:47:11.000Z", "item": {"slug": "world-pentagon-patriot-thaad-contracts", "title": "Пентагон заключил контракты на $3 млрд для наращивания выпуска Patriot и THAAD", "reason": "low-confidence", "messageId": 195, "askedAt": "2026-08-04T06:53:28.126Z"}, "answer": {"at": "2026-08-04T11:47:11.000Z", "kind": "approve", "applied": "unblocked", "note": "«ок» владельца из update 273157536 (реплай на напоминание #230, 11:09 UTC) — применён вручную: collect не находил вопрос по id напоминания"}}
+{"ev":"remind","at":"2026-08-04T12:08:54.018Z","slug":"uzbekistan-flood-mudslide-warning-aug4-7","askedAt":"2026-08-04T05:38:16.934Z","remindedAt":"2026-08-04T12:08:53.413Z","messageId":232}
+{"ev":"remind","at":"2026-08-04T12:08:54.018Z","slug":"iran-denies-trump-hormuz-talks-claim","askedAt":"2026-08-04T07:51:29.681Z","remindedAt":"2026-08-04T12:08:53.741Z","messageId":233}
+{"ev":"remind","at":"2026-08-04T12:08:54.018Z","slug":"yakkasaray-new-port-demolition-case","askedAt":"2026-08-04T07:51:30.981Z","remindedAt":"2026-08-04T12:08:53.878Z","messageId":234}
+{"ev":"remind","at":"2026-08-04T12:08:54.018Z","slug":"moscow-restaurant-bombing-ukraine-blame","askedAt":"2026-08-04T07:56:52.417Z","remindedAt":"2026-08-04T12:08:54.018Z","messageId":235}
