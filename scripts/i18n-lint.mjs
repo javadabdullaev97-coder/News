@@ -87,19 +87,45 @@ const EN_RULES = Object.entries(MINISTRIES).map(([word, full]) => ({
 
 const RULES_BY_LANG = { uz: UZ_RULES, en: EN_RULES };
 
+// Хвосты служебной разметки агентов. Проверяются во ВСЕХ языках, включая
+// русский, и не чинятся автоматически: обрывок tool-call'а в тексте обычно
+// значит, что агент дописал файл не до конца, — это нужно смотреть глазами,
+// а не молча вырезать.
+//
+// Случай не единичный: 01.08.2026 материал о плотности предпринимательства
+// вышел на сайт с литеральным «</content></invoke>» в последнем абзаце,
+// 05.08.2026 то же самое просочилось в две статьи через переводчика.
+// build-posts.mjs про это предупреждает, но сборку не роняет — предупреждение
+// легко пролистать. Здесь это ошибка.
+const LEAK_MARKERS = [
+  "</content>",
+  "</invoke>",
+  "<invoke",
+  "<function_calls>",
+  "</function_calls>",
+  "antml:",
+  "<parameter",
+  "STATUS: translated",
+  "IMAGE_PATH:",
+];
+
 const files = [];
 const dayRe = /^\d{4}-\d{2}-\d{2}$/;
 for (const day of (existsSync(POSTS) ? readdirSync(POSTS) : []).filter((d) => dayRe.test(d))) {
   for (const f of readdirSync(join(POSTS, day))) {
+    if (!f.endsWith(".mdx")) continue;
     const m = f.match(/\.(uz|en)\.mdx$/);
-    if (m) files.push({ path: join(POSTS, day, f), lang: m[1] });
+    files.push({ path: join(POSTS, day, f), lang: m ? m[1] : "ru" });
   }
 }
 
 let touched = 0;
 const findings = [];
+const leaks = [];
 for (const { path: file, lang } of files) {
   const text = readFileSync(file, "utf8");
+  const found = LEAK_MARKERS.filter((sig) => text.includes(sig));
+  if (found.length) leaks.push({ file: file.replace(ROOT + "/", ""), markers: found });
   let next = text;
   const hits = [];
   for (const rule of RULES_BY_LANG[lang] ?? []) {
@@ -119,9 +145,14 @@ for (const { path: file, lang } of files) {
 for (const f of findings) {
   console.error(`${fix ? "✓" : "✗"} ${f.file}: ${f.rules.join("; ")}`);
 }
+for (const l of leaks) {
+  console.error(`✗ ${l.file}: служебная разметка агента в тексте (${l.markers.join(", ")}) — вычистить руками`);
+}
 console.error(
   fix
-    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}`
-    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}`,
+    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}`
+    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}`,
 );
-process.exit(!fix && findings.length ? 1 : 0);
+// Утечка разметки — ошибка всегда, даже в режиме --fix: чинить её
+// автоматически нельзя, а выпускать материал с ней нельзя тем более.
+process.exit(leaks.length || (!fix && findings.length) ? 1 : 0);
