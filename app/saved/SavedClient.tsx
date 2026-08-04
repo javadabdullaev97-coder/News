@@ -8,7 +8,7 @@ import { ArticleCard } from "@/components/ArticleCard";
 export function SavedClient() {
   const { bookmarks } = useBookmarks();
 
-  const saved = bookmarks.map(getArticle).filter(Boolean);
+  const saved = bookmarks.map((slug) => getArticle(slug)).filter(Boolean);
 
   if (saved.length === 0) {
     return (

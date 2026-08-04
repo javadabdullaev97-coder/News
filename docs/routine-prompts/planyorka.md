@@ -473,6 +473,15 @@ def factCheckSkippable(draft):
         параллельно (одним сообщением):
             вызови subagent(bild, {DRAFT_PATH, NOTES_PATH, VERDICT_PATH})
             вызови subagent(seo, {DRAFT_PATH, VERDICT_PATH})
+
+        # Переводы — ПОСЛЕ bild и seo, когда текст и frontmatter финальные.
+        # Два вызова параллельно, по одному на язык. Перевод черновика
+        # пришлось бы делать заново после каждой правки.
+        параллельно (одним сообщением):
+            вызови subagent(translator, {source_path, target_lang: "uz",
+                                         out_path: content/queue/<slug>.uz.mdx})
+            вызови subagent(translator, {source_path, target_lang: "en",
+                                         out_path: content/queue/<slug>.en.mdx})
     иначе если status == "killed":
         двигай в content/rejected/, приложи editor-verdict
     иначе если status == "back-to-reporter":
@@ -664,6 +673,12 @@ node -e "import('./lib/channel-candidates.mjs').then(m =>
   `reason: "no-image"`. Прямое требование владельца 04.08.2026: «нельзя
   чтобы статьи выходили без картинки»;
 - файл идёт в `content/queue/<slug>.mdx`, НЕ в `content/posts/`;
+- **рядом кладёшь переводы** `content/queue/<slug>.uz.mdx` и
+  `<slug>.en.mdx` (§Шаг 5, вызов translator). Публикатор выпускает их
+  тем же движением и с тем же `publishedAt` — это один материал на трёх
+  языках, отдельного расписания у переводов нет. Перевод не готов —
+  материал всё равно выходит на русском, язык просто не показывается
+  в переключателе; задерживать выпуск ради перевода нельзя;
 - во frontmatter `queuedAt`, `publishedAt` не ставишь вообще;
 - `git commit` + `bash .github/scripts/git-push-with-rebase.sh`, каждая
   статья отдельным коммитом;

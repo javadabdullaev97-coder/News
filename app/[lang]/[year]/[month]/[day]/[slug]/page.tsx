@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
 import {
+  allArticles,
   articleHref,
   articles,
   formatDate,
@@ -12,6 +13,8 @@ import {
   getRubric,
   timeAgo,
 } from "@/lib/data";
+import type { Lang } from "@/lib/types";
+import { LangSwitch } from "@/components/LangSwitch";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { AdSlot } from "@/components/AdSlot";
 import { BookmarkButton } from "@/components/BookmarkButton";
@@ -90,7 +93,10 @@ function renderBlock(block: string, key: number): React.ReactNode {
 // из готового адреса, а не собираются заново: articleHref остаётся
 // единственным местом, где формат маршрута описан.
 export function generateStaticParams() {
-  return articles.map((a) => {
+  // По одному пути на КАЖДУЮ языковую версию: /ru/…, /uz/…, /en/…
+  // Страницы существуют только для реально переведённых материалов —
+  // ссылка на непереведённый язык нигде не выдаётся (см. LangSwitch).
+  return allArticles.map((a) => {
     const [, lang, year, month, day, slug] = articleHref(a).split("/");
     return { lang, year, month, day, slug };
   });
@@ -99,12 +105,17 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; lang: Lang }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const article = getArticle(slug);
+  const { slug, lang } = await params;
+  const article = getArticle(slug, lang);
   if (!article) return {};
   const url = articleHref(article);
+  // hreflang: поисковику нужно знать, что это версии одного материала,
+  // иначе три перевода конкурируют друг с другом как дубли.
+  const languages = Object.fromEntries(
+    article.langs.map((l) => [l, articleHref(article, l)]),
+  );
   return {
     title: article.title,
     description: article.description ?? article.lead,
@@ -124,17 +135,17 @@ export async function generateMetadata({
       description: article.description ?? article.lead,
       images: [article.cover],
     },
-    alternates: { canonical: url },
+    alternates: { canonical: url, languages },
   };
 }
 
 export default async function ArticlePage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; lang: Lang }>;
 }) {
-  const { slug } = await params;
-  const article = getArticle(slug);
+  const { slug, lang } = await params;
+  const article = getArticle(slug, lang);
   if (!article) notFound();
 
   const rubric = getRubric(article.rubric);
@@ -225,6 +236,7 @@ export default async function ArticlePage({
                 {timeAgo(article.publishedAt)}
               </time>
               <div className="ml-auto flex items-center gap-2">
+                <LangSwitch article={article} />
                 <ShareButtons title={article.title} />
                 <BookmarkButton slug={article.slug} variant="labelled" />
               </div>

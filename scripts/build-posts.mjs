@@ -96,8 +96,21 @@ function stripMarkdownLinks(s) {
   return s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
 }
 
+// Языковая версия кодируется суффиксом имени файла: <slug>.uz.mdx, <slug>.en.mdx.
+// Русская версия — <slug>.mdx без суффикса. Слаг у всех трёх один: он опознаёт
+// материал, а не текст, и по нему связываются версии, реестр Telegram и отзыв.
+const TRANSLATED_LANGS = new Set(["uz", "en"]);
+
 function slugFromPath(p) {
-  return p.replace(/\.mdx$/, "").split("/").pop();
+  const base = p.replace(/\.mdx$/, "").split("/").pop();
+  const m = base.match(/^(.+)\.([a-z]{2})$/);
+  return m && TRANSLATED_LANGS.has(m[2]) ? m[1] : base;
+}
+
+function langFromPath(p) {
+  const base = p.replace(/\.mdx$/, "").split("/").pop();
+  const m = base.match(/^.+\.([a-z]{2})$/);
+  return m && TRANSLATED_LANGS.has(m[1]) ? m[1] : "ru";
 }
 
 function dateFromPath(p) {
@@ -122,6 +135,7 @@ function build() {
     }
 
     const slug = slugFromPath(file);
+    const lang = langFromPath(file);
     const { lead, leadRich, body } = parseBody(readFileSync(file, "utf8"));
 
     if (!fm.title) problems.push(`${rel}: пустой title`);
@@ -198,6 +212,8 @@ function build() {
 
     articles.push({
       slug,
+      lang,
+      langs: [lang],
       title: fm.title || slug,
       lead,
       leadRich: leadRich !== lead ? leadRich : undefined,
@@ -226,12 +242,25 @@ function build() {
   // Если редакция не пометила ни один материал вручную, героем становится
   // самый свежий — иначе на первом экране осталась бы висеть демо-статья,
   // а живые новости ушли бы в ленту под ней.
-  if (articles.length && !articles.some((a) => a.featured)) {
-    articles[0].featured = true;
+  const ru = articles.filter((a) => a.lang === "ru");
+  if (ru.length && !ru.some((a) => a.featured)) {
+    ru[0].featured = true;
+  }
+
+  // Языковые версии одного материала знают друг о друге: по этому списку
+  // страница строит hreflang, а переключатель гасит недостающие языки.
+  const langsBySlug = new Map();
+  for (const a of articles) {
+    const key = `${a.publishedDate ?? ""} ${a.slug}`;
+    langsBySlug.set(key, [...(langsBySlug.get(key) ?? []), a.lang]);
+  }
+  for (const a of articles) {
+    const key = `${a.publishedDate ?? ""} ${a.slug}`;
+    a.langs = ["ru", "uz", "en"].filter((l) => (langsBySlug.get(key) ?? []).includes(l));
   }
 
   const dup = articles
-    .map((a) => a.slug)
+    .map((a) => `${a.slug} ${a.lang}`)
     .filter((s, i, arr) => arr.indexOf(s) !== i);
   if (dup.length) problems.push(`дубли слагов: ${[...new Set(dup)].join(", ")}`);
 
@@ -252,7 +281,10 @@ function build() {
   writeFileSync(OUT_PATH, out);
 
   const rel = relative(ROOT, OUT_PATH);
-  console.log(`[posts] ${articles.length} статей из ${files.length} .mdx → ${rel}`);
+  const byLang = ["ru", "uz", "en"]
+    .map((l) => `${l}: ${articles.filter((a) => a.lang === l).length}`)
+    .join(", ");
+  console.log(`[posts] ${articles.length} версий (${byLang}) из ${files.length} .mdx → ${rel}`);
   for (const p of problems) console.warn(`[posts] ⚠ ${p}`);
   for (const h of held) console.warn(`[posts] ⏸ ${h}`);
 

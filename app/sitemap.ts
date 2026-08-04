@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { articleHref, articles, rubrics } from "@/lib/data";
+import { allArticles, articleHref, rubrics } from "@/lib/data";
 
 export const dynamic = "force-static";
 
@@ -16,11 +16,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "hourly" as const,
       priority: 0.7,
     })),
-    ...articles.map((a) => ({
+    // Каждая языковая версия — отдельный адрес с перечнем альтернатив:
+    // без alternates поисковик считает переводы дублями и выбирает один сам.
+    ...allArticles.map((a) => ({
       url: `${SITE}${articleHref(a)}`,
       lastModified: new Date(a.publishedAt),
       changeFrequency: "weekly" as const,
-      priority: 0.8,
+      priority: a.lang === "ru" ? 0.8 : 0.7,
+      alternates: {
+        languages: Object.fromEntries(
+          a.langs.map((l) => [l, `${SITE}${articleHref(a, l)}`]),
+        ),
+      },
     })),
   ];
 }

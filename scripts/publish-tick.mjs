@@ -127,10 +127,36 @@ function queuedAtOf(fm, relPath) {
   return new Date().toISOString();
 }
 
+// Переводы лежат в очереди рядом с оригиналом: <slug>.uz.mdx, <slug>.en.mdx.
+// Самостоятельными материалами они НЕ являются — у них нет собственного
+// расписания выхода, они уезжают на сайт тем же движением, что и русская
+// версия. Иначе перевод вышел бы раньше оригинала или завис бы в очереди
+// один, а ссылка на язык вела бы в никуда.
+const TRANSLATED_LANGS = new Set(["uz", "en"]);
+
+function langOfFile(file) {
+  const m = file.replace(/\.mdx$/, "").match(/^.+\.([a-z]{2})$/);
+  return m && TRANSLATED_LANGS.has(m[1]) ? m[1] : "ru";
+}
+
+function slugOfFile(file) {
+  const base = file.replace(/\.mdx$/, "");
+  const m = base.match(/^(.+)\.([a-z]{2})$/);
+  return m && TRANSLATED_LANGS.has(m[2]) ? m[1] : base;
+}
+
+/** Файлы переводов, ждущие в очереди рядом с этим слагом. */
+function translationsOf(slug) {
+  if (!existsSync(QUEUE_DIR)) return [];
+  return readdirSync(QUEUE_DIR).filter(
+    (f) => f.endsWith(".mdx") && langOfFile(f) !== "ru" && slugOfFile(f) === slug,
+  );
+}
+
 function readQueue() {
   if (!existsSync(QUEUE_DIR)) return [];
   return readdirSync(QUEUE_DIR)
-    .filter((f) => f.endsWith(".mdx"))
+    .filter((f) => f.endsWith(".mdx") && langOfFile(f) === "ru")
     .sort()
     .map((file) => {
       const path = join(QUEUE_DIR, file);
@@ -304,8 +330,19 @@ for (const p of ready) {
   mkdirSync(dir, { recursive: true });
   writeFileSync(item.path, stamp(item.raw, publishedAt));
   renameSync(item.path, target);
-  console.error(`  ✓ ${item.slug} → content/posts/${dayDir(now)}/ (${p.reason})`);
-  released.push({ slug: item.slug, publishedAt, reason: p.reason });
+
+  // Переводы выходят тем же движением и с тем же publishedAt: это один
+  // материал на трёх языках, а не три материала.
+  const moved = [];
+  for (const tf of translationsOf(item.slug)) {
+    const src = join(QUEUE_DIR, tf);
+    writeFileSync(src, stamp(readFileSync(src, "utf8"), publishedAt));
+    renameSync(src, join(dir, tf));
+    moved.push(langOfFile(tf));
+  }
+  const langNote = moved.length ? ` +${moved.join("/")}` : "";
+  console.error(`  ✓ ${item.slug}${langNote} → content/posts/${dayDir(now)}/ (${p.reason})`);
+  released.push({ slug: item.slug, publishedAt, reason: p.reason, langs: ["ru", ...moved] });
 }
 
 // Подсказка для внешних часов: когда следующему материалу пора выходить.

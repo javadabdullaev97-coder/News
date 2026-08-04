@@ -1,7 +1,9 @@
 import type { Article, Rubric } from "./types";
 import { mdxArticles } from "./generated-posts";
 
-export type { Article, ArticleSource, Rubric } from "./types";
+export type { Article, ArticleSource, Rubric, Lang } from "./types";
+import type { Lang } from "./types";
+export { LANGS } from "./types";
 
 export const rubrics: Rubric[] = [
   { slug: "politics", title: "Политика", color: "bg-blue-500", textColor: "text-blue-500" },
@@ -18,7 +20,13 @@ export const rubrics: Rubric[] = [
  * Демонстрационный корпус, с которого начинался сайт. Живые материалы редакции
  * приходят из content/posts/**\/*.mdx через lib/generated-posts.ts.
  */
-const demoArticles: Article[] = [
+/**
+ * Демо-корпус: заглушки, на которых сайт жил до появления редакции. Языковых
+ * версий у них нет — поля lang/langs проставляются при сборке `allArticles`.
+ */
+type DemoArticle = Omit<Article, "lang" | "langs">;
+
+const demoArticles: DemoArticle[] = [
   {
     slug: "uzbekistan-nuclear-plant-construction-starts",
     title: "В Джизакской области началось строительство первой АЭС Узбекистана",
@@ -655,15 +663,32 @@ const demoArticles: Article[] = [
  * Слаг из MDX побеждает демо-статью с тем же именем — так материал редакции
  * всегда можно опубликовать поверх заглушки, не редактируя этот файл.
  */
-export const articles: Article[] = (() => {
+/**
+ * ВСЕ языковые версии всех материалов. Нужен маршрутам /uz/… и /en/…
+ * и переключателю языка; ленты и списки берут `articles` (только русские).
+ */
+export const allArticles: Article[] = (() => {
   const mdxSlugs = new Set(mdxArticles.map((a) => a.slug));
-  return [...mdxArticles, ...demoArticles.filter((a) => !mdxSlugs.has(a.slug))].sort(
-    (a, b) => (a.publishedAt < b.publishedAt ? 1 : -1),
+  const demo = demoArticles
+    .filter((a) => !mdxSlugs.has(a.slug))
+    .map((a) => ({ ...a, lang: "ru" as Lang, langs: ["ru" as Lang] }));
+  return [...mdxArticles, ...demo].sort((a, b) =>
+    a.publishedAt < b.publishedAt ? 1 : -1,
   );
 })();
 
-export function getArticle(slug: string) {
-  return articles.find((a) => a.slug === slug);
+/**
+ * Лента издания. Пока русская: главная, рубрики и поиск живут на русском,
+ * переводы существуют на уровне отдельных страниц материалов. Когда
+ * локализуем интерфейс целиком, здесь появится параметр языка.
+ */
+export const articles: Article[] = allArticles.filter((a) => a.lang === "ru");
+
+export function getArticle(slug: string, lang: Lang = DEFAULT_LANG) {
+  return (
+    allArticles.find((a) => a.slug === slug && a.lang === lang) ??
+    (lang === DEFAULT_LANG ? articles.find((a) => a.slug === slug) : undefined)
+  );
 }
 
 export function getArticlesByRubric(rubricSlug: string) {
@@ -694,14 +719,17 @@ export function getRubric(slug: string) {
  */
 export const DEFAULT_LANG = "ru";
 
-export function articleHref(a: Pick<Article, "slug" | "publishedAt"> & { publishedDate?: string }) {
+export function articleHref(
+  a: Pick<Article, "slug" | "publishedAt"> & { publishedDate?: string; lang?: Lang },
+  lang?: Lang,
+) {
   // publishedDate — каталог дня из content/posts, самый надёжный источник.
   // Для демо-корпуса его нет, поэтому день берётся из publishedAt по
   // ташкентскому календарю: адрес обязан совпадать с тем днём, который
   // читатель видит под заголовком.
   const day = a.publishedDate ?? tashkentDay(a.publishedAt);
   const [y, m, d] = day.split("-");
-  return `/${DEFAULT_LANG}/${y}/${m}/${d}/${a.slug}`;
+  return `/${lang ?? a.lang ?? DEFAULT_LANG}/${y}/${m}/${d}/${a.slug}`;
 }
 
 function tashkentDay(iso: string) {
