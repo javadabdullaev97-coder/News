@@ -163,6 +163,11 @@ function readQueue() {
  */
 function blockedReason(item) {
   if (item.awaitingEditor) return "ждёт ответа владельца";
+  // pendingEditorQuestion без awaitingEditor — противоречивое состояние
+  // (вопрос есть, блокировки нет), но выпускать такое нельзя: 04.08.2026
+  // Пентагон ушёл на сайт и в канал, а через 50 секунд планёрка отозвала
+  // его под вопрос — подписчики получили мёртвую ссылку.
+  if (item.fm?.pendingEditorQuestion) return "стоит неснятый вопрос владельцу";
   if (!item.hasImage) return "нет картинки (gates.requiresImage)";
   return null;
 }
