@@ -42,9 +42,8 @@ export function ArticleCard({
             <h2 className="mt-2 font-serif text-xl font-bold leading-tight md:mt-3 md:text-3xl lg:text-4xl">
               {article.title}
             </h2>
-            <p className="mt-2 hidden max-w-2xl text-neutral-200 md:block">
-              {article.lead}
-            </p>
+            {/* Лид в герое не показываем — решение владельца 04.08.2026:
+                абзац поверх фото закрывал половину кадра. Только заголовок. */}
             <div className="mt-2 text-[11px] text-neutral-300 md:mt-3 md:text-xs">
               {timeAgo(article.publishedAt)}
             </div>
