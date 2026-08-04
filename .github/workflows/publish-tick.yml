@@ -76,7 +76,7 @@ jobs:
           if [ "${{ github.event.inputs.dry_run }}" = "1" ]; then
             ARGS="--dry-run"
           fi
-          node scripts/publish-tick.mjs $ARGS | tee "$RUNNER_TEMP/result.json""
+          node scripts/publish-tick.mjs $ARGS | tee "$RUNNER_TEMP/result.json"
 
       - name: Commit released articles
         if: github.event.inputs.dry_run != '1'
