@@ -1,17 +1,18 @@
 {
-  "lastRunAt": "2026-08-05T00:32:00+05:00",
-  "topicsProcessed": 3,
-  "published": 3,
+  "lastRunAt": "2026-08-05T01:20:00+05:00",
+  "topicsProcessed": 4,
+  "published": 2,
   "rejected": 0,
+  "declinedDuplicate": 2,
   "needsVerification": 0,
   "awaitingEditor": 0,
   "world": 0,
   "inbox": {
-    "file": "content/inbox/2026-08-04.jsonl",
+    "file": "content/inbox/2026-08-05.jsonl",
     "itemsFreshLocal": 789,
-    "itemsFreshWorld": 3867,
-    "prevRunAt": "2026-08-04T18:38:20+05:00"
+    "itemsFreshWorld": 3837,
+    "prevRunAt": "2026-08-05T00:32:00+05:00"
   },
-  "publishRoute": "directPublish (все три через ворота confidence>=70)",
-  "notes": "Preflight: hasWork (789 свежих local items). Rework пуст, needs-verification карточек созревших не было (waiting 14, matured 0). Утренняя ревизия пропущена — не первый прогон после 07:00.\n\nЛокальный отбор (агент-кластеризатор прошёл 789 items по таблице selection.score): 3 кластера набрали 55+ — pension-childcare-leave-work-record (82), mintrans-jaloliddin-afrosiyob-passenger-flow (76), uzstat-construction-works-h1-2026-192trln (72). Четвёртый кандидат (реформа ПДД, score 55) оказался дубликатом двух уже опубликованных сегодня статей (pdd-bill-first-reading-2026, tashkent-tow-impound-tariff-cap) — отклонён. Пятый (ключевая ставка ЦБ 14%, score 55) — решён как стухший явочный пост-объяснение без нового факта, не в производство.\n\nВсе три темы прошли полный цикл reporter → fact-checker → editor → bild+seo и все три прошли ворота directPublish (confidence 82/82/88, editorStatus publish, первоисточник есть, изображение есть, без attributed-источников, без forbiddenTopics) — ушли в content/queue/ индивидуальными коммитами с PushNotification после каждого пуша.\n\nМировая линия: агент-кластеризатор прошёл --world --titles (3867 заголовков), нашёл 6 кандидатов, прошедших барьер по числу блоков (Trump/Iran-Hormuz, Ceuta migrant crisis, Venezuela earthquake, DR Congo Ebola, Spokane wildfires, South Korea heatwave). При сверке с content/posts за последние дни (ручная проверка) — четыре топ-кандидата (Ceuta, Venezuela, DR Congo Ebola, Iran/Hormuz) оказались дубликатами уже опубликованных материалов (в т.ч. Iran/Hormuz — опубликован ~45 минут назад). Два нижних по значимости (Spokane wildfires, SK heatwave) пересекались с уже вышедшим общим материалом про волну жары/пожаров. Итог: 0 мировых тем в производство — легитимный исход, мировая линия не обязательна каждый прогон.\n\nВторой приоритет (missing-images.json, channel-candidates) не разбирались — время ушло на полный цикл по трём темам."
+  "publishRoute": "directPublish (оба через ворота confidence>=70)",
+  "notes": "Preflight: hasWork (789 свежих local items). Rework пуст, needs-verification карточек созревших не было (matured 0). Утренняя ревизия пропущена — не первый прогон после 07:00 Ташкента (00:39 старт).\n\nЛокальный отбор (агент-кластеризатор прошёл 789 items по таблице selection.score): 4 кластера набрали 55+ — uzbekistan-india-fm-visit-delhi (67), social-infrastructure-h1-2026 (62), cb-rate-14-percent-gdp-h1-2026 (60), energy-callcenter-survey-h1 (56, пограничная). Все 4 забронированы в журнале до дальнейшей проверки.\n\nПри производстве два оказались дубликатами уже вышедших материалов: визит МИД в Дели — reporter обнаружил готовую статью content/posts/2026-08-04/uzbekistan-india-business-forum-2bn-target.mdx (editor verdict publish, 95%), новый драфт не создавал; тема ЦБ ставка 14%/ВВП 8,5% — дубликат content/posts/2026-08-01/uzbekistan-gdp-h1-2026-growth-85pct.mdx (тот же пресс-релиз ЦБ от 29 июля). Оба случая — пробел в проверке правила №2 (last 3 дня + очередь) на этапе кластеризации агентом-скаутом, а не на этапе журнала; на будущее стоит явно требовать от кластеризатора сверку content/posts за 3 дня и content/queue до выдачи финального списка тем.\n\nОставшиеся два (social-infrastructure-h1-2026, energy-callcenter-survey-h1) прошли полный цикл reporter → fact-checker → editor → bild+seo. Fact-check: 93% (approve) и 82% (approve-with-downgrades). Editor: publish/publish. Bild: инфографика первоисточника (энергоопрос) и стоковое фото Ташкента с кранами (инфраструктура, у темы нет явного субъекта, cropLoss 0.0085). Оба прошли ворота directPublish (verdict approve/approve-with-downgrades, confidence 93/82 >= 70, editorStatus publish, первоисточник есть, изображение есть, без attributed-источников, без forbiddenTopics) — ушли в content/queue/ индивидуальными коммитами.\n\nМировая линия: агент-кластеризатор нашёл 2 кандидата (США-Иран/Ормузский пролив, землетрясение в Венесуэле, оба mustPublish), но при попытке брони в журнале обе темы оказались частично уже 'done' — соседняя планёрка их взяла в работу раньше. Обе брони освобождены (release), темы не производились повторно. 0 мировых тем в производство в этом прогоне — легитимный исход.\n\nВторой приоритет (missing-images.json, channel-candidates) не разбирались — время ушло на основной цикл."
 }
