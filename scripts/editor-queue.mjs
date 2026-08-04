@@ -39,7 +39,7 @@ import {
 import { spawnSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { loadPosted } from "../lib/telegram-posted.mjs";
+import { loadPostedBySlug } from "../lib/telegram-posted.mjs";
 import {
   loadQueue as loadQueueLog,
   saveQueue as saveQueueLog,
@@ -376,7 +376,9 @@ function publicArticleUrl(slug, filePath) {
 }
 
 async function revokeFromChannel(slug, articleUrl) {
-  const entry = loadPosted(ROOT).get(articleUrl);
+  // Поиск по слагу, не по URL: запись могла быть сделана до переезда
+  // адресов, и точное совпадение строки её бы не нашло.
+  const entry = loadPostedBySlug(ROOT).get(slug);
   if (!entry?.messageId) return "в канал не отправлялся";
 
   const channel = process.env.TELEGRAM_CHANNEL;

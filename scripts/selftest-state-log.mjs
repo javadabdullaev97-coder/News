@@ -8,7 +8,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { appendLog, foldByKey, readLog } from "../lib/state-log.mjs";
-import { loadPosted, markPosted, POSTED_LOG, POSTED_LEGACY } from "../lib/telegram-posted.mjs";
+import { loadPosted, loadPostedBySlug, markPosted, slugOfUrl, POSTED_LOG, POSTED_LEGACY } from "../lib/telegram-posted.mjs";
 
 let failed = 0;
 const ok = (cond, msg) => {
@@ -91,6 +91,30 @@ const fresh = () => {
   markPosted(root, { url: "u2", messageId: 2 });
   const lines = readFileSync(join(root, POSTED_LOG), "utf8").trim().split("\n");
   ok(lines.length === 2, "две отправки — две строки (append-only, merge=union применим)");
+}
+
+// ── дедуп по слагу переживает смену формата адреса ────────────────────
+// Авария 04.08.2026: сайт переехал с /article/<slug> на /ru/Г/М/Д/<slug>,
+// URL-дедуп перестал находить 36 отправленных статей, и постер вылил их
+// в канал заново волнами. Дедуп обязан опираться на слаг.
+{
+  ok(slugOfUrl("https://leap.uz/article/abc") === "abc", "слаг из старого адреса");
+  ok(slugOfUrl("https://leap.uz/ru/2026/08/04/abc") === "abc", "слаг из нового адреса");
+
+  const root = fresh();
+  // Оригинал отправлен до переезда — запись со старым адресом.
+  writeFileSync(
+    join(root, POSTED_LEGACY),
+    JSON.stringify({ posted: { "https://leap.uz/article/story": { messageId: 5, postedAt: "2026-08-01T00:00:00Z" } } }),
+  );
+  const bySlug = loadPostedBySlug(root);
+  ok(bySlug.has("story"), "статья, отправленная под старым адресом, опознаётся по слагу");
+
+  // Дубль аварии: та же статья записана позже под новым адресом.
+  markPosted(root, { url: "https://leap.uz/ru/2026/08/04/story", messageId: 99, postedAt: "2026-08-04T05:00:00Z" });
+  const after = loadPostedBySlug(root);
+  ok(after.get("story").messageId === 5,
+     "при дублях побеждает самая ранняя запись — оригинальный пост, а не дубль");
 }
 
 console.log(failed ? `\nпровалено ${failed}` : "\nвсе проверки пройдены");

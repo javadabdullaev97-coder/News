@@ -21,7 +21,7 @@ import {
 } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { loadPosted, markPosted } from "../lib/telegram-posted.mjs";
+import { loadPostedBySlug, markPosted, slugOfUrl } from "../lib/telegram-posted.mjs";
 
 import {
   parseFrontmatter,
@@ -259,7 +259,10 @@ async function postArticle(mdxPath, fm) {
 
 // ─── main ───
 const allMdx = collectMdx(POSTS_DIR).sort();
-const posted = loadPosted(ROOT);
+// Дедуп по СЛАГУ, не по URL. Смена формата адреса 04.08.2026 обнулила
+// URL-дедуп и вылила в канал 36 старых статей волнами — слаг единственная
+// часть адреса, которая не меняется.
+const posted = loadPostedBySlug(ROOT);
 const pending = [];
 
 for (const mdxPath of allMdx) {
@@ -333,8 +336,8 @@ for (const mdxPath of allMdx) {
   const date = dateFromPath(mdxPath);
   const slug = slugFromPath(mdxPath);
   const url = articleUrl(date, slug);
-  if (posted.has(url)) {
-    continue; // уже постили
+  if (posted.has(slug)) {
+    continue; // уже постили — под любым форматом адреса
   }
   pending.push({ mdxPath, fm, url, rel });
 }
@@ -364,7 +367,7 @@ for (let i = 0; i < pending.length; i++) {
     const result = await postArticle(p.mdxPath, p.fm);
     if (!dryRun) {
       const rec = markPosted(ROOT, { url: p.url, messageId: result.messageId });
-      posted.set(p.url, rec);
+      posted.set(slugOfUrl(p.url), rec);
     }
     ok++;
     console.error(`  ✓ ${p.rel}`);
