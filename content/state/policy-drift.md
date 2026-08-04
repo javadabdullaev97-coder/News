@@ -1,12 +1,11 @@
-# Policy drift check — 2026-08-03T21:02:05.010Z
+# Policy drift check — 2026-08-04T04:00:45.256Z
 
 Проверено: 56 .mdx за последние 7 дней
-Ошибок: 2, предупреждений: 26
+Ошибок: 1, предупреждений: 26
 
 ## ❌ Ошибки
 
-- **content/posts/2026-08-04/tashkent-contraband-medicine-bust-aug2026.mdx** — publishedAt на 8 ч в будущем (2026-08-04T10:00:00+05:00). Похоже, смещение +05:00 применено дважды: правильную дату даёт TZ=Asia/Tashkent date '+%Y-%m-%dT%H:%M:00+05:00'
-- **content/posts/2026-08-04/uzbekistan-usd-rate-rising-aug2026.mdx** — publishedAt на 7 ч в будущем (2026-08-04T09:00:00+05:00). Похоже, смещение +05:00 применено дважды: правильную дату даёт TZ=Asia/Tashkent date '+%Y-%m-%dT%H:%M:00+05:00'
+- **content/posts/2026-08-04/tashkent-contraband-medicine-bust-aug2026.mdx** — publishedAt на 1 ч в будущем (2026-08-04T10:00:00+05:00). Похоже, смещение +05:00 применено дважды: правильную дату даёт TZ=Asia/Tashkent date '+%Y-%m-%dT%H:%M:00+05:00'
 
 ## ⚠️ Предупреждения
 
