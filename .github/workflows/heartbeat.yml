@@ -6,6 +6,11 @@ name: Heartbeat
 # массовые 403/429; heartbeat смотрит на факт — mtime файлов.
 
 on:
+  # Внешние часы: воркер leap.uz дёргает этот запуск по своему расписанию,
+  # потому что планировщик GitHub пропускает больше половины тиков
+  # (замеры в src/worker.ts). Cron ниже остаётся страховкой.
+  repository_dispatch:
+    types: [heartbeat]
   schedule:
     # Каждый час на :17, чтобы не сталкиваться с пиками /15 мин
     # у news-inbox и /10 мин у editor-queue.

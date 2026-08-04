@@ -20,39 +20,123 @@
 // примет. Воркер — самое дешёвое место для этой склейки: он и так
 // обслуживает leap.uz, отдельной инфраструктуры не появляется.
 //
+//   3. Быть внешними часами редакции и сторожем над GitHub Actions.
+//
+// Зачем третье. Планировщик GitHub ненадёжен, и это измерено, а не
+// предположено: фетчер новостей выдал 8 запусков за 10 часов вместо 60,
+// сторож heartbeat — 13 за 28 часов вместо 28, с провалами до четырёх часов
+// подряд при полностью зелёном статусе GitHub. При этом запуск ПО СОБЫТИЮ
+// у того же GitHub отрабатывает за секунды — ломается именно `schedule`.
+//
+// Отдельная беда: сторож жил внутри той же системы, которую сторожил. Когда
+// heartbeat не запускался, тишина в боте выглядела ровно как «всё в порядке».
+// Поэтому проверка «а жива ли вообще редакция» переехала сюда, наружу.
+//
 // СЕКРЕТЫ (задаются в Cloudflare, в репозиторий не попадают):
-//   GH_DISPATCH_TOKEN — fine-grained PAT с единственным правом
-//                       Actions: Read and write на этом репозитории
+//   GH_DISPATCH_TOKEN — fine-grained PAT с правом Actions: Read and write
+//                       на этом репозитории. Для сторожа нужно ещё
+//                       Contents: Read — он смотрит свежесть коммитов.
 //   TG_WEBHOOK_SECRET — общая подпись с Telegram. Без неё эндпоинт открыт
 //                       всему интернету: кто угодно шлёт выдуманный «стоп»
 //                       и снимает материал с сайта.
+//   TG_BOT_TOKEN      — токен бота, чтобы сторож мог написать владельцу
+//                       напрямую, минуя GitHub. Без него сторож молчит.
+//   TG_ALERT_CHAT_ID  — куда писать тревогу (личный чат владельца).
 
 export interface Env {
   ASSETS: { fetch: (request: Request) => Promise<Response> };
   GH_DISPATCH_TOKEN?: string;
   TG_WEBHOOK_SECRET?: string;
+  TG_BOT_TOKEN?: string;
+  TG_ALERT_CHAT_ID?: string;
 }
 
 const REPO = "javadabdullaev97-coder/News";
 const HOOK_PATH = "/api/tg-hook";
 
-async function dispatchToGitHub(env: Env, update: unknown): Promise<Response> {
-  return fetch(`https://api.github.com/repos/${REPO}/dispatches`, {
-    method: "POST",
+// Сколько репозиторий может молчать, прежде чем это тревога. Редакция коммитит
+// постоянно — инбокс раз в десять минут, — поэтому тишина дольше часа означает,
+// что встало всё разом: и фетчер, и планёрки.
+const REPO_SILENCE_ALERT_MINUTES = 60;
+
+async function githubApi(env: Env, path: string, init: RequestInit = {}) {
+  return fetch(`https://api.github.com${path}`, {
+    ...init,
     headers: {
       Authorization: `Bearer ${env.GH_DISPATCH_TOKEN}`,
       Accept: "application/vnd.github+json",
       "Content-Type": "application/json",
       // GitHub отклоняет запросы без User-Agent.
       "User-Agent": "leap-uz-telegram-bridge",
+      ...(init.headers as Record<string, string> | undefined),
     },
+  });
+}
+
+async function dispatch(env: Env, eventType: string, payload: unknown = {}) {
+  return githubApi(env, `/repos/${REPO}/dispatches`, {
+    method: "POST",
     body: JSON.stringify({
-      event_type: "telegram-update",
+      event_type: eventType,
       // client_payload ограничен 64 КБ. Обычное сообщение занимает единицы
       // килобайт даже с фото — там передаётся file_id, а не сам файл.
-      client_payload: { update },
+      client_payload: payload,
     }),
   });
+}
+
+async function dispatchToGitHub(env: Env, update: unknown): Promise<Response> {
+  return dispatch(env, "telegram-update", { update });
+}
+
+async function alertOwner(env: Env, text: string) {
+  if (!env.TG_BOT_TOKEN || !env.TG_ALERT_CHAT_ID) {
+    console.error("[watchdog] TG_BOT_TOKEN/TG_ALERT_CHAT_ID не заданы — тревога не отправлена");
+    return;
+  }
+  await fetch(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      chat_id: env.TG_ALERT_CHAT_ID,
+      text,
+      parse_mode: "HTML",
+      disable_web_page_preview: true,
+    }),
+  });
+}
+
+/**
+ * Сторож снаружи наблюдаемой системы. Проверяет ровно то, чего внутренний
+ * heartbeat проверить не может по построению: жив ли вообще GitHub Actions.
+ * Признак — свежесть последнего коммита в main.
+ */
+async function watchdog(env: Env, now: number) {
+  const res = await githubApi(env, `/repos/${REPO}/commits?per_page=1`);
+  if (!res.ok) {
+    await alertOwner(
+      env,
+      `❌ <b>Сторож не смог опросить GitHub</b>: ${res.status}. ` +
+        `Либо GitHub недоступен, либо у токена отозвано право Contents: Read.`,
+    );
+    return;
+  }
+  const commits = (await res.json()) as Array<{ commit: { committer: { date: string } } }>;
+  const last = Date.parse(commits?.[0]?.commit?.committer?.date ?? "");
+  if (!Number.isFinite(last)) return;
+
+  const quietMin = Math.round((now - last) / 60000);
+  if (quietMin > REPO_SILENCE_ALERT_MINUTES) {
+    await alertOwner(
+      env,
+      `⚠️ <b>Редакция молчит ${quietMin} мин</b>\n\n` +
+        `В main нет ни одного коммита с ${new Date(last).toISOString().slice(0, 16).replace("T", " ")} UTC. ` +
+        `Обычно инбокс обновляется раз в десять минут, поэтому такая тишина означает, ` +
+        `что встали и фетчер, и планёрки.\n\n` +
+        `Это сообщение пришло не от GitHub Actions, а от воркера leap.uz — ` +
+        `он живёт снаружи и продолжает работать, даже когда встало всё остальное.`,
+    );
+  }
 }
 
 export default {
@@ -102,5 +186,49 @@ export default {
     }
 
     return env.ASSETS.fetch(request);
+  },
+
+  // ─── Внешние часы ───
+  //
+  // Тик приходит раз в минуту, а что делать — решает минута часа. Хранилища
+  // состояния нет намеренно: расписание целиком выводится из времени, поэтому
+  // воркер невозможно «рассинхронизировать» и нечему протухнуть.
+  //
+  // ПОЧЕМУ ФЕТЧЕР РАЗ В ЧАС, А НЕ ЧАЩЕ. Полный обход RSS стоит 10,7 минуты
+  // (замер по 115 боевым прогонам) — это самая дорогая задача в редакции.
+  // Оперативный сбор берёт на себя планёрка: у неё свой аварийный фетч на
+  // 42 секунды по P0/P1 и всему телеграм-хвосту, и он идёт в её собственной
+  // песочнице, не тратя минуты Actions. Воркфлоу остаётся ради медленного
+  // хвоста P2/P3, которому спешить некуда.
+  async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext) {
+    const now = event.scheduledTime;
+    const m = new Date(now).getUTCMinutes();
+    const jobs: Promise<unknown>[] = [];
+
+    // Ответы владельца приходят вебхуком за секунды; этот тик — страховка на
+    // случай пропущенной доставки и единственный вход для напоминаний.
+    if (m === 8) jobs.push(dispatch(env, "editor-collect"));
+
+    // Медленный хвост источников.
+    if (m === 25) jobs.push(dispatch(env, "fetch-news"));
+
+    // Внутренний сторож: проверяет состояние репозитория изнутри.
+    if (m === 17) jobs.push(dispatch(env, "heartbeat"));
+
+    // Просмотры постов в канале.
+    if (m === 42) jobs.push(dispatch(env, "metrics"));
+
+    // Внешний сторож. Стоит после всех задач часа: если хоть одна из них
+    // отработала, коммит в main появился, и тревоги не будет.
+    if (m === 52) jobs.push(watchdog(env, now));
+
+    if (!jobs.length) return;
+    ctx.waitUntil(
+      Promise.allSettled(jobs).then((rs) => {
+        for (const r of rs) {
+          if (r.status === "rejected") console.error(`[cron] задача упала: ${r.reason}`);
+        }
+      }),
+    );
   },
 };
