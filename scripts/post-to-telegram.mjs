@@ -175,9 +175,9 @@ function articleUrl(date, slug, lang = DEFAULT_LANG) {
 // строка — по-русски. Стрелка вместо слов «на leap.uz» короче и одинаково
 // читается на всех трёх языках.
 const READ_MORE = {
-  ru: "Читать полностью →",
-  uz: "Batafsil →",
-  en: "Read in full →",
+  ru: "Читать полностью leap.uz →",
+  uz: "Batafsil leap.uz →",
+  en: "Read in full leap.uz →",
 };
 
 function buildMessage(fm, lede, url, { ledeLimit = 600, lang = "ru" } = {}) {

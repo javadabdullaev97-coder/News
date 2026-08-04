@@ -89,7 +89,11 @@ const oldIds = [
 
 // ── формат поста — копия post-to-telegram.mjs ──
 // Подпись-ссылка на языке материала — как в post-to-telegram.mjs.
-const READ_MORE = { ru: "Читать полностью →", uz: "Batafsil →", en: "Read in full →" };
+const READ_MORE = {
+  ru: "Читать полностью leap.uz →",
+  uz: "Batafsil leap.uz →",
+  en: "Read in full leap.uz →",
+};
 
 function buildMessage(ledeLimit) {
   const title = escapeHTML(decodeEntities(fm.title || ""));
