@@ -64,3 +64,4 @@
 {"ev":"offset","at":"2026-08-04T10:55:34.528Z","value":273157536}
 {"ev":"remind","at":"2026-08-04T11:09:04.027Z","slug":"world-pentagon-patriot-thaad-contracts","askedAt":"2026-08-04T06:53:28.126Z","remindedAt":"2026-08-04T11:09:04.027Z"}
 {"ev":"offset","at":"2026-08-04T11:09:34.793Z","value":273157537}
+{"ev": "resolve", "at": "2026-08-04T11:47:11.000Z", "item": {"slug": "world-pentagon-patriot-thaad-contracts", "title": "Пентагон заключил контракты на $3 млрд для наращивания выпуска Patriot и THAAD", "reason": "low-confidence", "messageId": 195, "askedAt": "2026-08-04T06:53:28.126Z"}, "answer": {"at": "2026-08-04T11:47:11.000Z", "kind": "approve", "applied": "unblocked", "note": "«ок» владельца из update 273157536 (реплай на напоминание #230, 11:09 UTC) — применён вручную: collect не находил вопрос по id напоминания"}}
