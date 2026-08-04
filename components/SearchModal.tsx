@@ -4,7 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { articles, rubrics, getRubric, timeAgo } from "@/lib/data";
+import { articleHref, articles, rubrics, getRubric, timeAgo } from "@/lib/data";
 
 type SearchCtx = { open: boolean; setOpen: (v: boolean) => void };
 const Ctx = createContext<SearchCtx>({ open: false, setOpen: () => {} });
@@ -104,7 +104,7 @@ function SearchModal() {
         if (!item) return;
         const href =
           item.kind === "article"
-            ? `/article/${item.slug}`
+            ? articleHref(item)
             : item.kind === "rubric"
               ? `/rubric/${item.slug}`
               : `/rubric/${rubrics[0].slug}`;
@@ -251,7 +251,7 @@ function ResultRow({
     const rubric = getRubric(item.rubric ?? "");
     return (
       <Link
-        href={`/article/${item.slug}`}
+        href={articleHref(item)}
         onClick={onClick}
         onMouseEnter={onMouseEnter}
         className={cls}

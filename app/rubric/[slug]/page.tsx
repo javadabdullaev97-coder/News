@@ -5,7 +5,7 @@ import { AdSlot } from "@/components/AdSlot";
 import { LeapTag } from "@/components/LeapTag";
 import { CurrencyWidget } from "@/components/CurrencyWidget";
 import { WeatherWidget } from "@/components/WeatherWidget";
-import { articles, getArticlesByRubric, getRubric, rubrics } from "@/lib/data";
+import { articleHref, articles, getArticlesByRubric, getRubric, rubrics } from "@/lib/data";
 
 export function generateStaticParams() {
   return rubrics.map((r) => ({ slug: r.slug }));
@@ -75,7 +75,7 @@ export default async function RubricPage({
                     {i + 1}
                   </span>
                   <Link
-                    href={`/article/${a.slug}`}
+                    href={articleHref(a)}
                     className="text-sm font-medium leading-snug hover:text-brand"
                   >
                     {a.title}

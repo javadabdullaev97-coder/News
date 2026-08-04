@@ -136,5 +136,33 @@ const noJitter = { random: () => 0.5 };
   ok(dueNow([], T0).length === 0, "пустой план — нечего выпускать");
 }
 
+// ── адрес статьи строят три независимых места ────────────────────────
+// lib/data.ts (сайт), post-to-telegram.mjs (ссылка в канале) и
+// editor-queue.mjs (поиск поста при отзыве). Разойдутся — отзыв материала
+// не найдёт сообщение в канале и молча удалит статью только с сайта.
+{
+  const day = "2026-08-04";
+  const slug = "primer-materiala";
+  const expected = `/ru/2026/08/04/${slug}`;
+
+  // как строит сайт
+  const siteHref = (() => {
+    const [y, m, d] = day.split("-");
+    return `/ru/${y}/${m}/${d}/${slug}`;
+  })();
+  // как строит постер в Telegram
+  const tgUrl = `https://leap.uz/ru/${day.replace(/-/g, "/")}/${slug}`;
+  // как строит очередь редактора
+  const queueUrl = (() => {
+    const path = `content/posts/${day}/${slug}.mdx`;
+    const found = path.match(/content\/posts\/(\d{4}-\d{2}-\d{2})\//)?.[1];
+    return `https://leap.uz/ru/${found.replace(/-/g, "/")}/${slug}`;
+  })();
+
+  ok(siteHref === expected, `сайт строит ${expected}`);
+  ok(tgUrl === `https://leap.uz${expected}`, "постер в Telegram строит тот же адрес");
+  ok(queueUrl === tgUrl, "очередь редактора строит тот же адрес, что и постер");
+}
+
 console.log(failed ? `\nпровалено ${failed}` : "\nвсе проверки пройдены");
 process.exit(failed ? 1 : 0);

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Article, getRubric, timeAgo } from "@/lib/data";
+import { Article, articleHref, getRubric, timeAgo } from "@/lib/data";
 import { BookmarkButton } from "./BookmarkButton";
 
 type Variant = "hero" | "large" | "default" | "compact";
@@ -13,7 +13,7 @@ export function ArticleCard({
   variant?: Variant;
 }) {
   const rubric = getRubric(article.rubric);
-  const href = `/article/${article.slug}`;
+  const href = articleHref(article);
 
   if (variant === "hero") {
     return (

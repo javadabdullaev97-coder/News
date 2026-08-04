@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { AdSlot } from "@/components/AdSlot";
-import { articles, feedDate, getRubric, type Article } from "@/lib/data";
+import { articleHref, articles, feedDate, getRubric, type Article } from "@/lib/data";
 import { LoadMoreList } from "./LoadMoreList";
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ function FeedMeta({ article }: { article: Article }) {
 }
 
 function FeatureRow({ article }: { article: Article }) {
-  const href = `/article/${article.slug}`;
+  const href = articleHref(article);
   return (
     <Link href={href} className="group block py-6">
       <FeedMeta article={article} />
@@ -50,7 +50,7 @@ function FeatureRow({ article }: { article: Article }) {
 }
 
 function ListRow({ article }: { article: Article }) {
-  const href = `/article/${article.slug}`;
+  const href = articleHref(article);
   return (
     <Link href={href} className="group block py-6">
       <FeedMeta article={article} />

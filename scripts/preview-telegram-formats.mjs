@@ -74,7 +74,7 @@ function parseArticle(file) {
 }
 
 const footer = (slug) =>
-  `<a href="${SITE}/article/${slug}">Читать на leap.uz</a>`;
+  `<a href="${SITE}/ru/${(date||"").replace(/-/g,"/")}/${slug}">Читать на leap.uz</a>`;
 
 const sourceLine = (a) =>
   a.srcName ? `<i>Источник: ${clean(a.srcName, 70)}</i>` : null;

@@ -1,4 +1,4 @@
-import { articles, getRubric } from "@/lib/data";
+import { articleHref, articles, getRubric } from "@/lib/data";
 
 export const dynamic = "force-static";
 
@@ -24,8 +24,8 @@ export function GET() {
       const rubric = getRubric(a.rubric);
       return `<item>
   <title>${escape(a.title)}</title>
-  <link>${SITE}/article/${a.slug}</link>
-  <guid isPermaLink="true">${SITE}/article/${a.slug}</guid>
+  <link>${SITE}${articleHref(a)}</link>
+  <guid isPermaLink="true">${SITE}${articleHref(a)}</guid>
   <pubDate>${new Date(a.publishedAt).toUTCString()}</pubDate>
   <description>${escape(a.lead)}</description>
   <author>noreply@leap.uz (LEAP News)</author>

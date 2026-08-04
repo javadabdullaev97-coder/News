@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { articles, rubrics } from "@/lib/data";
+import { articleHref, articles, rubrics } from "@/lib/data";
 
 export const dynamic = "force-static";
 
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     })),
     ...articles.map((a) => ({
-      url: `${SITE}/article/${a.slug}`,
+      url: `${SITE}${articleHref(a)}`,
       lastModified: new Date(a.publishedAt),
       changeFrequency: "weekly" as const,
       priority: 0.8,

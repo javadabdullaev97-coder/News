@@ -348,6 +348,24 @@ function dropFrontmatterField(text, key) {
 // снятие с сайта, а в канале при необходимости придётся давать уточнение
 // отдельным сообщением. Об этом сказано в тексте уведомления, чтобы
 // ограничение не выяснялось в момент, когда оно мешает.
+// Публичный адрес статьи. Обязан совпадать с articleHref() из lib/data.ts
+// и с articleUrl() из post-to-telegram.mjs: /<язык>/ГГГГ/ММ/ДД/<slug>.
+//
+// Совпадение здесь не косметика. По этому адресу ищется запись в реестре
+// отправленных постов, когда владелец отвечает «стоп» на уже вышедший
+// материал: не сойдётся строка — отзыв не найдёт сообщение в канале и
+// молча удалит статью только с сайта, оставив пост подписчикам.
+//
+// День берётся из каталога, в котором лежит файл. Если материал не в дневной
+// папке, остаётся старый адрес — он рабочий через страницу-перенаправление.
+const SITE_LANG = "ru";
+
+function publicArticleUrl(slug, filePath) {
+  const day = String(filePath ?? "").match(/content\/posts\/(\d{4}-\d{2}-\d{2})\//)?.[1];
+  if (!day) return `https://leap.uz/article/${slug}`;
+  return `https://leap.uz/${SITE_LANG}/${day.replace(/-/g, "/")}/${slug}`;
+}
+
 async function revokeFromChannel(slug, articleUrl) {
   const entry = loadPosted(ROOT).get(articleUrl);
   if (!entry?.messageId) return "в канал не отправлялся";
@@ -383,7 +401,7 @@ async function applyAnswer(item, answer) {
   // а вышедший надо ещё и убрать оттуда, куда он успел попасть.
   if (item.kind === "revocable" && answer.kind === "reject") {
     const slugName = item.slug;
-    const url = `https://leap.uz/article/${slugName}`;
+    const url = publicArticleUrl(slugName, file);
     const channelResult = await revokeFromChannel(slugName, url);
 
     mkdirSync(join(ROOT, "content/rejected"), { recursive: true });
@@ -835,7 +853,7 @@ async function scanPending() {
           notice.why ? String(notice.why) : "Материал прошёл полосу срочных публикаций.",
           "",
           `Источник: ${notice.source ?? "—"}`,
-          `На сайте: https://leap.uz/article/${slug}`,
+          `На сайте: ${publicArticleUrl(slug, file)}`,
           "",
           "<i>Отвечать не нужно, материал уже опубликован. Если он не должен был "
             + "выйти — ответьте «стоп» реплаем: сниму с сайта и удалю пост из канала. "

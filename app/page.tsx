@@ -3,7 +3,7 @@ import { AdSlot } from "@/components/AdSlot";
 import { RubricSection } from "@/components/RubricSection";
 import { CurrencyWidget } from "@/components/CurrencyWidget";
 import { WeatherWidget } from "@/components/WeatherWidget";
-import { articles, rubrics, timeAgo, type Article } from "@/lib/data";
+import { articleHref, articles, rubrics, timeAgo, type Article } from "@/lib/data";
 import Link from "next/link";
 
 // Внутри скольких свежих материалов редакция может закрепить герой вручную.
@@ -83,7 +83,7 @@ export default function HomePage() {
                     {timeAgo(a.publishedAt)}
                   </div>
                   <Link
-                    href={`/article/${a.slug}`}
+                    href={articleHref(a)}
                     className="mt-0.5 block text-sm font-medium leading-snug hover:text-brand"
                   >
                     {a.title}

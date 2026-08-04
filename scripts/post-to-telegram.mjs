@@ -78,11 +78,19 @@ function dateFromPath(p) {
   return m ? m[1] : null;
 }
 
-// Публичный URL статьи. Обязан совпадать с роутером Next.js: единственный
-// маршрут статьи в приложении — app/article/[slug]/page.tsx, то есть
-// /article/<slug>. Дата в путь не входит.
+// Публичный URL статьи. Обязан совпадать с роутером Next.js и с
+// articleHref() из lib/data.ts: /<язык>/ГГГГ/ММ/ДД/<slug>.
+//
+// Дата берётся из каталога content/posts/ГГГГ-ММ-ДД/ — того самого, по
+// которому строится маршрут. Если её вдруг нет (файл лежит не в дневной
+// папке), падаем на старый адрес: он остаётся рабочим через
+// страницу-перенаправление, так что ссылка в канале в любом случае живая.
+const SITE_LANG = "ru";
+
 function articleUrl(date, slug) {
-  return `${SITE_URL.replace(/\/$/, "")}/article/${slug}`;
+  const base = SITE_URL.replace(/\/$/, "");
+  if (!date) return `${base}/article/${slug}`;
+  return `${base}/${SITE_LANG}/${date.replace(/-/g, "/")}/${slug}`;
 }
 
 

@@ -674,6 +674,44 @@ export function getRubric(slug: string) {
   return rubrics.find((r) => r.slug === slug);
 }
 
+/**
+ * Адрес статьи: /ru/2026/08/04/slug
+ *
+ * ПОЧЕМУ С ДАТОЙ. Слаг сам по себе уникален только внутри одного дня.
+ * Новостные заголовки повторяются из года в год — «Курс доллара вырос»,
+ * «В Ташкенте отключат воду», — и без даты второй такой материал пришлось бы
+ * называть чужим именем с суффиксом. Дата снимает вопрос навсегда: на одну
+ * дату одно название, дальше сколько угодно.
+ *
+ * ПОЧЕМУ БЕЗ РУБРИКИ. Статьи меняют рубрику — её проставляет seo-агент после
+ * редактора, и переклассификация дело обычное. Рубрика в адресе означала бы,
+ * что каждый такой переезд ломает ссылку, уже разосланную в канал и
+ * проиндексированную. Дата не меняется никогда.
+ *
+ * ЯЗЫКОВОЙ ПРЕФИКС на вырост: сейчас издание одноязычное, но узбекская и
+ * английская версии запланированы, и вводить префикс потом — значит второй
+ * раз ломать все ссылки.
+ */
+export const DEFAULT_LANG = "ru";
+
+export function articleHref(a: Pick<Article, "slug" | "publishedAt"> & { publishedDate?: string }) {
+  // publishedDate — каталог дня из content/posts, самый надёжный источник.
+  // Для демо-корпуса его нет, поэтому день берётся из publishedAt по
+  // ташкентскому календарю: адрес обязан совпадать с тем днём, который
+  // читатель видит под заголовком.
+  const day = a.publishedDate ?? tashkentDay(a.publishedAt);
+  const [y, m, d] = day.split("-");
+  return `/${DEFAULT_LANG}/${y}/${m}/${d}/${a.slug}`;
+}
+
+function tashkentDay(iso: string) {
+  const t = Date.parse(iso);
+  if (!Number.isFinite(t)) return "1970-01-01";
+  const d = new Date(t + 5 * 60 * 60 * 1000); // Ташкент — UTC+5 круглый год
+  const p = (n: number) => String(n).padStart(2, "0");
+  return `${d.getUTCFullYear()}-${p(d.getUTCMonth() + 1)}-${p(d.getUTCDate())}`;
+}
+
 export function formatDate(iso: string) {
   const d = new Date(iso);
   return d.toLocaleDateString("ru-RU", {
