@@ -11,9 +11,12 @@ name: Source health check
 # лент, и печатает список.
 
 on:
-  schedule:
-    # 03:20 UTC = 08:20 Ташкента — до первой дневной планёрки.
-    - cron: "20 3 * * *"
+  repository_dispatch:
+    types: [source-health]
+  # Расписание переехало во внешние часы — воркер leap.uz дёргает этот запуск
+  # через repository_dispatch (см. src/worker.ts). Родной schedule убран
+  # намеренно: он пропускал больше половины тиков и опаздывал на десятки минут,
+  # а держать его вторым входом бессмысленно — сломанный будильник не страховка.
   workflow_dispatch:
     inputs:
       max_dead:

@@ -264,7 +264,9 @@ export default {
   // хвоста P2/P3, которому спешить некуда.
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext) {
     const now = event.scheduledTime;
-    const m = new Date(now).getUTCMinutes();
+    const at = new Date(now);
+    const m = at.getUTCMinutes();
+    const h = at.getUTCHours();
     const jobs: Promise<unknown>[] = [];
 
     // Ответы владельца приходят вебхуком за секунды; этот тик — страховка на
@@ -283,6 +285,14 @@ export default {
     // Внешний сторож. Стоит после всех задач часа: если хоть одна из них
     // отработала, коммит в main появился, и тревоги не будет.
     if (m === 52) jobs.push(watchdog(env, now));
+
+    // Ежедневные. Часы в UTC, Ташкент — UTC+5.
+    //   03:20 UTC = 08:20 Ташкента — проверка живости источников
+    //   04:00 UTC = 09:00 Ташкента — сверка с редполитикой
+    //   14:00 UTC = 19:00 Ташкента — пересборка курсов ЦБ на завтра
+    if (h === 3 && m === 20) jobs.push(dispatch(env, "source-health"));
+    if (h === 4 && m === 0) jobs.push(dispatch(env, "policy-drift"));
+    if (h === 14 && m === 0) jobs.push(dispatch(env, "daily-rebuild"));
 
     if (!jobs.length) return;
     ctx.waitUntil(
