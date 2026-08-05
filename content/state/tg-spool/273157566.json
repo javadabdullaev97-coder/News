@@ -1,0 +1,59 @@
+{
+  "message": {
+    "chat": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "last_name": "Abdullaev",
+      "type": "private",
+      "username": "javad_abdullaev"
+    },
+    "date": 1785961384,
+    "from": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "is_bot": false,
+      "is_premium": true,
+      "language_code": "en",
+      "last_name": "Abdullaev",
+      "username": "javad_abdullaev"
+    },
+    "message_id": 304,
+    "reply_to_message": {
+      "chat": {
+        "first_name": "Javad",
+        "id": 1104500,
+        "last_name": "Abdullaev",
+        "type": "private",
+        "username": "javad_abdullaev"
+      },
+      "date": 1785957752,
+      "entities": [
+        {
+          "length": 18,
+          "offset": 0,
+          "type": "bold"
+        },
+        {
+          "length": 61,
+          "offset": 20,
+          "type": "bold"
+        },
+        {
+          "length": 34,
+          "offset": 456,
+          "type": "italic"
+        }
+      ],
+      "from": {
+        "first_name": "LEAP News - ADMIN",
+        "id": 8652303606,
+        "is_bot": true,
+        "username": "leap_news_bot"
+      },
+      "message_id": 300,
+      "text": "НУЖНО ВАШЕ РЕШЕНИЕ\n\nЭкополиция задержала двух браконьеров в Сырдарьинской области\n\nПочему спрашиваю: тема на границе редполитики, нужен человек.\n\nПервоисточник (Госкомэкологии) сам пишет, что дело по административной статье (ч.4 ст.90 КоАО) передано в «суд по уголовным делам» — противоречие не расшифровано ведомством. Это может по факту оказаться уголовным делом до приговора (forbiddenTopics). Публиковать как есть или подождать уточнения у источника?\n\nОтветьте реплаем на это сообщение:\n• пришлите фото — оно станет главной картинкой\n• «ок» — публиковать как есть\n• «стоп» — снять материал\n• любой другой текст — уйдёт в правку как комментарий"
+    },
+    "text": "ок"
+  },
+  "update_id": 273157566
+}
