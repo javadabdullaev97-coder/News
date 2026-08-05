@@ -16,7 +16,7 @@
 //   {channel, outlet, lang, msgId, postedAt, text, links, hasPhoto, hasVideo,
 //    views, isForward, replyTo}
 
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { CHANNELS } from "./lib/channels.mjs";
@@ -298,9 +298,23 @@ await Promise.all(
   }),
 );
 
-summary.sort((a, b) => (b.posts ?? 0) - (a.posts ?? 0));
+// Сводку дописываем, а не перезаписываем. Каналы регулярно приходится
+// добирать поштучно после придушивания темпа, и прогон с --channel не должен
+// стирать из сводки те двенадцать, которых он не касался.
+const summaryPath = join(RAW_DIR, "telegram-summary.json");
+const previous = existsSync(summaryPath)
+  ? JSON.parse(readFileSync(summaryPath, "utf8")).channels ?? []
+  : [];
+const merged = new Map(previous.map((c) => [c.channel, c]));
+for (const stats of summary) merged.set(stats.channel, stats);
+
+const channelsOut = [...merged.values()].sort((a, b) => (b.posts ?? 0) - (a.posts ?? 0));
 writeFileSync(
-  join(RAW_DIR, "telegram-summary.json"),
-  JSON.stringify({ window: { from, to }, collectedAt: new Date().toISOString(), channels: summary }, null, 2),
+  summaryPath,
+  JSON.stringify(
+    { window: { from, to }, collectedAt: new Date().toISOString(), channels: channelsOut },
+    null,
+    2,
+  ),
 );
 console.log(`\nСводка: ${join(RAW_DIR, "telegram-summary.json")}`);
