@@ -60,6 +60,7 @@ const kunMap = existsSync(join(RAW_DIR, "kun-link-map.json"))
   : {};
 
 function keyFromLink(outlet, link) {
+  if (outlet === "gazeta") return link.includes("gazeta.uz/") ? canonUrl(link) : null;
   if (outlet === "kun") {
     const t = kunMap[link] ?? kunMap[link.replace(/\/$/, "")] ?? null;
     const full = t
@@ -82,18 +83,26 @@ function keyFromLink(outlet, link) {
 // 25, экономика 25, спорт 5). Свести одно к другому напрямую нельзя, поэтому
 // разрез строится по их таксономии, а сравнение с нашими весами делается
 // только там, где рубрика действительно тематическая.
+// Названия рубрик приходят на трёх языках и в двух алфавитах: у Kun и Daryo
+// это узбекские и русские слова из мета-тега, у Gazeta — английские слаги из
+// пути рубричной ленты. Первая версия списка знала «society» и «politics», но
+// не знала «economy», «world» и «culture», и три рубрики Gazeta молча уходили
+// в «прочее» — из-за чего экономика и мировые оставались с одним изданием.
 const CATEGORY = [
   [/o.?zbekiston|узбекистан|uzbekistan|ташкент|toshkent/i, "внутренние"],
-  [/jahon|dunyo|мир|xalqaro|международ|central asia|afg/i, "мировые"],
+  [/jahon|dunyo|world|мир|xalqaro|международ|central asia|afg/i, "мировые"],
   [/sport|спорт|futbol|футбол/i, "спорт"],
   [/jamiyat|society|общество|ijtimoiy|социал/i, "общество"],
   [/politics|siyosat|политик/i, "политика"],
-  [/business|biznes|iqtisod|эконом|деньги|moliya|финанс/i, "экономика"],
-  [/madaniyat|культур|san.at/i, "культура"],
+  [/econom|business|biznes|iqtisod|эконом|деньги|moliya|финанс/i, "экономика"],
+  [/madaniyat|culture|культур|san.at/i, "культура"],
   [/layfstayl|лайфстайл|lifestyle/i, "лайфстайл"],
   [/texnolog|техно|raqamli|цифров/i, "технологии"],
   [/avto|авто/i, "авто"],
   [/ta.?lim|образован/i, "образование"],
+  // Авторская колонка Gazeta — отдельный тип материала, не тема. Держим
+  // отдельно, чтобы не размазать её по обществу.
+  [/^column$/i, "колонка"],
 ];
 
 // Соответствие нашим весам там, где оно осмысленно.
@@ -122,17 +131,27 @@ const OUR_WEIGHTS = {
 const report = { generatedAt: new Date().toISOString(), byCategory: {}, byOutlet: [] };
 const pooled = new Map();
 
-for (const outlet of ["kun", "daryo", "repost"]) {
+for (const outlet of ["kun", "daryo", "repost", "gazeta"]) {
   const articles = readJsonl(join(RAW_DIR, `articles-${outlet}.jsonl`)) ?? [];
   if (!articles.length) continue;
+
+  // Gazeta рубрику на странице статьи не размечает — она добрана обходом
+  // рубричных лент (research/collect-rubrics.mjs). Без этого источника Gazeta
+  // выпадала из разреза по темам, и политику с обществом отдавал один только
+  // Kun, чего для вывода недостаточно.
+  const rubricPath = join(RAW_DIR, `rubrics-${outlet}.json`);
+  const rubrics = existsSync(rubricPath)
+    ? JSON.parse(readFileSync(rubricPath, "utf8"))
+    : null;
 
   const byKey = new Map();
   const byTitle = new Map();
   for (const a of articles) {
-    if (a.section) {
-      byKey.set(canonUrl(a.url), a);
-      if (a.title) byTitle.set(normTitle(a.title), a);
-    }
+    const section = a.section ?? rubrics?.[canonUrl(a.url)]?.[0] ?? null;
+    if (!section) continue;
+    const withSection = { ...a, section };
+    byKey.set(canonUrl(a.url), withSection);
+    if (a.title) byTitle.set(normTitle(a.title), withSection);
   }
 
   const channels = CHANNELS.filter((c) => c.outlet === outlet);
@@ -200,7 +219,15 @@ for (const outletRow of report.byOutlet) {
   const cats = outletRow.categories.filter((c) => c.n >= MIN_SAMPLE);
   if (cats.length < 2) continue;
   const best = Math.max(...cats.map((c) => c.medianER));
-  console.log(`${outletRow.outlet} (лучшая рубрика = 100):`);
+  const worst = Math.min(...cats.map((c) => c.medianER));
+  // Насколько вообще тема влияет на прочтение внутри этого издания. Если
+  // разброс близок к единице, веса по темам для него бессмысленны — читают
+  // всё одинаково.
+  const spread = worst ? best / worst : null;
+  outletRow.spread = spread ? +spread.toFixed(2) : null;
+  console.log(
+    `${outletRow.outlet} (лучшая рубрика = 100, разброс лучшая/худшая = ${spread?.toFixed(2)}×):`,
+  );
   for (const c of [...cats].sort((a, b) => b.medianER - a.medianER)) {
     const rel = Math.round((c.medianER / best) * 100);
     console.log(
