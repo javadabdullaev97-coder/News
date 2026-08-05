@@ -28,20 +28,26 @@ const RAW_DIR = join(HERE, "raw");
 const DEFAULT_FROM = "2026-05-01";
 const DEFAULT_TO = "2026-07-31";
 
-const CHANNEL_CONCURRENCY = 4;
-const PAGE_DELAY_MS = 350;
-const TIMEOUT_MS = 30_000;
-const RETRIES = 3;
-// Страховка от бесконечного листания, если разметка изменится и парсер
-// перестанет находить id: 4000 страниц это 80 тысяч сообщений на канал,
-// заведомо больше трёх месяцев у самого плодовитого издания.
-const MAX_PAGES = 4000;
-
 const argv = process.argv.slice(2);
 const arg = (flag, fallback) => {
   const hit = argv.find((a) => a.startsWith(`${flag}=`));
   return hit ? hit.slice(flag.length + 1) : fallback;
 };
+
+const CHANNEL_CONCURRENCY = +arg("--concurrency", "4");
+const PAGE_DELAY_MS = +arg("--delay", "350");
+const TIMEOUT_MS = 30_000;
+// При четырёх каналах в параллель Telegram начинает отдавать 502 где-то на
+// второй тысяче страниц. Это придушивание темпа, а не отказ: та же страница
+// открывается после паузы. Поэтому попыток много, а ожидание растёт до
+// полуминуты — иначе отмотка обрывается на середине окна и канал приходится
+// собирать заново целиком.
+const RETRIES = 6;
+const BACKOFF_MS = [2_000, 5_000, 12_000, 25_000, 40_000];
+// Страховка от бесконечного листания, если разметка изменится и парсер
+// перестанет находить id: 4000 страниц это 80 тысяч сообщений на канал,
+// заведомо больше трёх месяцев у самого плодовитого издания.
+const MAX_PAGES = 4000;
 
 const from = arg("--from", DEFAULT_FROM);
 const to = arg("--to", DEFAULT_TO);
@@ -70,7 +76,7 @@ async function fetchPage(url) {
       return await res.text();
     } catch (err) {
       if (attempt === RETRIES) throw err;
-      await sleep(1500 * 2 ** (attempt - 1));
+      await sleep(BACKOFF_MS[attempt - 1] ?? BACKOFF_MS.at(-1));
     } finally {
       clearTimeout(timer);
     }

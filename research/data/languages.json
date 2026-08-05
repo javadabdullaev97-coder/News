@@ -1,0 +1,189 @@
+{
+  "generatedAt": "2026-08-05T01:59:07.604Z",
+  "aggregate": [
+    {
+      "outlet": "kun",
+      "name": "Kun.uz",
+      "days": 92,
+      "total": 6423,
+      "byLang": {
+        "ru": 1324,
+        "uz": 4031,
+        "en": 1068
+      },
+      "perDay": {
+        "ru": 14.4,
+        "uz": 43.8,
+        "en": 11.6
+      },
+      "primary": "uz",
+      "shareOfPrimary": {
+        "ru": 32.8,
+        "uz": 100,
+        "en": 26.5
+      },
+      "byMonthLang": {
+        "2026-05": {
+          "ru": 383,
+          "uz": 1205,
+          "en": 341
+        },
+        "2026-06": {
+          "ru": 442,
+          "uz": 1344,
+          "en": 355
+        },
+        "2026-07": {
+          "uz": 1482,
+          "ru": 499,
+          "en": 372
+        }
+      }
+    },
+    {
+      "outlet": "gazeta",
+      "name": "Gazeta.uz",
+      "days": 92,
+      "total": 3921,
+      "byLang": {
+        "ru": 1718,
+        "uz": 2022,
+        "en": 181
+      },
+      "perDay": {
+        "ru": 18.7,
+        "uz": 22,
+        "en": 2
+      },
+      "primary": "uz",
+      "shareOfPrimary": {
+        "ru": 85,
+        "uz": 100,
+        "en": 9
+      },
+      "byMonthLang": {
+        "2026-05": {
+          "ru": 536,
+          "uz": 637,
+          "en": 54
+        },
+        "2026-06": {
+          "ru": 592,
+          "uz": 706,
+          "en": 71
+        },
+        "2026-07": {
+          "ru": 590,
+          "uz": 679,
+          "en": 56
+        }
+      }
+    },
+    {
+      "outlet": "spot",
+      "name": "Spot.uz",
+      "days": 92,
+      "total": 3259,
+      "byLang": {
+        "ru": 1697,
+        "uz": 1562
+      },
+      "perDay": {
+        "ru": 18.4,
+        "uz": 17
+      },
+      "primary": "ru",
+      "shareOfPrimary": {
+        "ru": 100,
+        "uz": 92
+      },
+      "byMonthLang": {
+        "2026-05": {
+          "ru": 512,
+          "uz": 485
+        },
+        "2026-06": {
+          "ru": 545,
+          "uz": 519
+        },
+        "2026-07": {
+          "ru": 640,
+          "uz": 558
+        }
+      }
+    },
+    {
+      "outlet": "repost",
+      "name": "Repost.uz",
+      "days": 88,
+      "total": 3144,
+      "byLang": {
+        "uz": 353,
+        "ru": 2791
+      },
+      "perDay": {
+        "uz": 4,
+        "ru": 31.7
+      },
+      "primary": "ru",
+      "shareOfPrimary": {
+        "uz": 12.6,
+        "ru": 100
+      },
+      "byMonthLang": {
+        "2026-07": {
+          "uz": 175,
+          "ru": 1025
+        },
+        "2026-06": {
+          "uz": 95,
+          "ru": 936
+        },
+        "2026-05": {
+          "uz": 83,
+          "ru": 830
+        }
+      }
+    },
+    {
+      "outlet": "daryo",
+      "name": "Daryo.uz",
+      "days": 92,
+      "total": 8710,
+      "byLang": {
+        "ru": 1496,
+        "uz": 6248,
+        "en": 966
+      },
+      "perDay": {
+        "ru": 16.3,
+        "uz": 67.9,
+        "en": 10.5
+      },
+      "primary": "uz",
+      "shareOfPrimary": {
+        "ru": 23.9,
+        "uz": 100,
+        "en": 15.5
+      },
+      "byMonthLang": {
+        "2026-07": {
+          "ru": 558,
+          "uz": 2237,
+          "en": 350
+        },
+        "2026-06": {
+          "ru": 520,
+          "uz": 2010,
+          "en": 335
+        },
+        "2026-05": {
+          "ru": 418,
+          "uz": 2001,
+          "en": 281
+        }
+      }
+    }
+  ],
+  "pairs": []
+}
