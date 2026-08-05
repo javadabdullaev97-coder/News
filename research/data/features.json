@@ -1,58 +1,52 @@
 {
-  "generatedAt": "2026-08-05T04:52:13.578Z",
+  "generatedAt": "2026-08-05T06:19:07.372Z",
   "byCategory": [
     {
-      "category": "образование",
-      "n": 8,
-      "medianER": 28.9,
-      "ourWeight": null
-    },
-    {
       "category": "внутренние",
-      "n": 2797,
-      "medianER": 28,
-      "ourWeight": null
-    },
-    {
-      "category": "авто",
-      "n": 8,
-      "medianER": 24.6,
+      "outlets": 3,
+      "relative": 100,
       "ourWeight": null
     },
     {
       "category": "спорт",
-      "n": 852,
-      "medianER": 22.5,
+      "outlets": 2,
+      "relative": 98,
       "ourWeight": 5
     },
     {
+      "category": "образование",
+      "outlets": 1,
+      "relative": 97,
+      "ourWeight": null
+    },
+    {
       "category": "мировые",
-      "n": 1356,
-      "medianER": 22.1,
+      "outlets": 3,
+      "relative": 94,
       "ourWeight": 25
     },
     {
       "category": "лайфстайл",
-      "n": 9,
-      "medianER": 19.8,
+      "outlets": 1,
+      "relative": 91,
       "ourWeight": null
     },
     {
-      "category": "общество",
-      "n": 328,
-      "medianER": 13.2,
-      "ourWeight": 10
-    },
-    {
       "category": "экономика",
-      "n": 204,
-      "medianER": 13.2,
+      "outlets": 2,
+      "relative": 53,
       "ourWeight": 25
     },
     {
+      "category": "общество",
+      "outlets": 1,
+      "relative": 44,
+      "ourWeight": 10
+    },
+    {
       "category": "политика",
-      "n": 63,
-      "medianER": 12.3,
+      "outlets": 1,
+      "relative": 41,
       "ourWeight": 25
     }
   ],

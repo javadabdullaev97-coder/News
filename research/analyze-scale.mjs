@@ -183,6 +183,50 @@ const rank = (values) => {
   });
   return ranks;
 };
+const spearman = (a, b) => {
+  const ra = rank(a);
+  const rb = rank(b);
+  const n = a.length;
+  if (n < 3) return null;
+  const d2 = ra.reduce((s, x, i) => s + (x - rb[i]) ** 2, 0);
+  return 1 - (6 * d2) / (n * (n * n - 1));
+};
+
+// Простая корреляция частоты и вовлечённости обманывает: крупные каналы
+// постят чаще (связь частоты с размером 0,66), а размер сам по себе тянет
+// вовлечённость. Нужна частная корреляция — связь частоты и ER при
+// фиксированном размере канала.
+const freq = withBoth.map((r) => r.perDay);
+const eng = withBoth.map((r) => r.viewsPerSubscriber);
+const size = withBoth.map((r) => r.subscribers);
+const rFE = spearman(freq, eng);
+const rFS = spearman(freq, size);
+const rES = spearman(eng, size);
+const partial =
+  rFE != null ? (rFE - rFS * rES) / Math.sqrt((1 - rFS ** 2) * (1 - rES ** 2)) : null;
+console.log(
+  `\nчастота ↔ вовлечённость: ${rFE?.toFixed(2)} | частота ↔ размер: ${rFS?.toFixed(2)} | ` +
+    `размер ↔ вовлечённость: ${rES?.toFixed(2)}`,
+);
+console.log(`частная (частота ↔ ER при контроле размера): ${partial?.toFixed(2)}`);
+
+// Сколько постов подписчик реально просматривает за сутки. Если бы частый
+// постинг «выжигал» аудиторию, эта величина у плодовитых каналов падала бы.
+console.log("\nсуточный охват на подписчика:");
+for (const r of [...clean].sort((a, b) => b.perDay - a.perDay).slice(0, 6)) {
+  const perDayShare = (r.perDay * r.medianViews) / r.subscribers;
+  console.log(
+    `  @${r.channel.padEnd(20)}${String(r.perDay).padStart(6)} постов/день → ` +
+      `${perDayShare.toFixed(1)} просмотра на подписчика в сутки`,
+  );
+}
+report.groups.partialCorrelation = {
+  frequencyEngagement: rFE != null ? +rFE.toFixed(3) : null,
+  frequencySize: rFS != null ? +rFS.toFixed(3) : null,
+  sizeEngagement: rES != null ? +rES.toFixed(3) : null,
+  partial: partial != null ? +partial.toFixed(3) : null,
+};
+
 const rx = rank(withBoth.map((r) => r.perDay));
 const ry = rank(withBoth.map((r) => r.viewsPerSubscriber));
 const n = withBoth.length;

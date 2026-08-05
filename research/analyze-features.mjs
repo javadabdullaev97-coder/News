@@ -184,35 +184,69 @@ for (const outlet of ["kun", "daryo", "repost"]) {
   });
 }
 
-console.log("МЕДИАННЫЕ ПРОСМОТРЫ ПО РУБРИКАМ, % от подписчиков канала\n");
-console.log("категория   постов  медиана ER  наш вес  вывод");
+// Складывать рубрики разных изданий в один рейтинг нельзя, и это не
+// придирка. Базовая вовлечённость у изданий разная в два с половиной раза
+// (Repost 49%, Daryo 18%), а рубрики размечены неравномерно: общество,
+// экономику и политику отдаёт только Kun, а внутренние и мировые в основном
+// набираются из Repost. Общий рейтинг в такой раскладке сравнивал бы политику
+// Kun с внутренними Repost, то есть выдавал разницу изданий за разницу тем.
+//
+// Поэтому сравниваем только внутри издания: каждая рубрика — в долях от
+// лучшей рубрики того же издания. Такие доли уже сопоставимы между собой.
+console.log("РУБРИКИ ВНУТРИ ИЗДАНИЯ, % от подписчиков и доля от лучшей рубрики\n");
 
-const table = [...pooled.entries()]
-  .filter(([, list]) => list.length >= MIN_SAMPLE)
+const normalized = new Map();
+for (const outletRow of report.byOutlet) {
+  const cats = outletRow.categories.filter((c) => c.n >= MIN_SAMPLE);
+  if (cats.length < 2) continue;
+  const best = Math.max(...cats.map((c) => c.medianER));
+  console.log(`${outletRow.outlet} (лучшая рубрика = 100):`);
+  for (const c of [...cats].sort((a, b) => b.medianER - a.medianER)) {
+    const rel = Math.round((c.medianER / best) * 100);
+    console.log(
+      "  " +
+        c.category.padEnd(14) +
+        String(c.n).padStart(6) +
+        `${c.medianER}%`.padStart(9) +
+        String(rel).padStart(6),
+    );
+    if (!normalized.has(c.category)) normalized.set(c.category, []);
+    normalized.get(c.category).push(rel);
+  }
+  console.log("");
+}
+
+// Сводная строится по нормированным долям, а не по сырым процентам, и только
+// там, где рубрика встретилась хотя бы у двух изданий — одно издание это
+// наблюдение, а не закономерность.
+console.log("\nСВОДНО (медиана нормированной доли; в скобках — у скольких изданий)\n");
+console.log("категория      изданий  доля от лучшей  наш вес  вывод");
+const table = [...normalized.entries()]
   .map(([category, list]) => ({
     category,
-    n: list.length,
-    medianER: median(list.map((v) => v * 10)) / 10,
+    outlets: list.length,
+    relative: median(list),
     ourWeight: OUR_WEIGHTS[OUR_EQUIVALENT[category]] ?? null,
   }))
-  .sort((a, b) => b.medianER - a.medianER);
+  .sort((a, b) => b.relative - a.relative);
 
-const best = table[0]?.medianER ?? 1;
 for (const row of table) {
-  // Во сколько раз рубрика хуже лучшей — это и есть эмпирический вес.
-  const relative = Math.round((row.medianER / best) * 25);
+  // Переводим долю в шкалу наших весов: лучшая рубрика = 25.
+  const asWeight = Math.round((row.relative / 100) * 25);
   const verdict =
     row.ourWeight == null
-      ? ""
-      : relative > row.ourWeight + 5
-        ? `недооценена (по данным ~${relative})`
-        : relative < row.ourWeight - 5
-          ? `переоценена (по данным ~${relative})`
-          : "совпадает";
+      ? "своей категории у нас нет"
+      : row.outlets < 2
+        ? "только у одного издания — не вывод"
+        : asWeight > row.ourWeight + 5
+          ? `недооценена (по данным ~${asWeight})`
+          : asWeight < row.ourWeight - 5
+            ? `переоценена (по данным ~${asWeight})`
+            : "совпадает";
   console.log(
-    row.category.padEnd(12) +
-      String(row.n).padStart(6) +
-      `${row.medianER}%`.padStart(12) +
+    row.category.padEnd(15) +
+      String(row.outlets).padStart(6) +
+      String(row.relative).padStart(14) +
       String(row.ourWeight ?? "—").padStart(9) +
       "  " +
       verdict,

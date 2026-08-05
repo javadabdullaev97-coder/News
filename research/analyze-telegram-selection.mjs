@@ -326,6 +326,16 @@ for (const outlet of outlets) {
 
 mkdirSync(DATA_DIR, { recursive: true });
 const out = join(DATA_DIR, "telegram-selection.json");
+
+// Дописываем, а не перезаписываем: прогон с --outlet не должен стирать из
+// файла те издания, которых он не касался. На этом уже дважды терялись
+// данные — сначала в сводке каналов, потом здесь.
+if (existsSync(out)) {
+  const previous = JSON.parse(readFileSync(out, "utf8")).outlets ?? [];
+  const merged = new Map(previous.map((o) => [o.outlet, o]));
+  for (const o of report.outlets) merged.set(o.outlet, o);
+  report.outlets = [...merged.values()];
+}
 writeFileSync(out, JSON.stringify(report, null, 2));
 
 console.log(

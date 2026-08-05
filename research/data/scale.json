@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T04:32:17.378Z",
+  "generatedAt": "2026-08-05T06:19:34.485Z",
   "channels": [
     {
       "channel": "kunuzofficial",
@@ -574,6 +574,12 @@
         "medianER": 19.4
       }
     ],
+    "partialCorrelation": {
+      "frequencyEngagement": -0.152,
+      "frequencySize": 0.657,
+      "sizeEngagement": 0.096,
+      "partial": -0.287
+    },
     "frequencyCorrelation": {
       "rho": -0.152,
       "channels": 20
