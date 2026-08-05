@@ -127,7 +127,9 @@ const STRATEGY = {
   },
   qalampir: {
     kind: "id",
-    key: (link) => link.match(/qalampir\.uz\/(?:n|news)\/(?:.*-)?(\d+)/)?.[1] ?? null,
+    // Английская версия живёт на /en/n/<id>, а не на /n/<id>: языковой
+    // сегмент вклинивается перед коротким путём.
+    key: (link) => link.match(/qalampir\.uz\/(?:[a-z]{2}\/)?(?:n|news)\/(?:.*-)?(\d+)/)?.[1] ?? null,
   },
   kun: {
     kind: "url",
