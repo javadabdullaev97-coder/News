@@ -1,39 +1,57 @@
 {
-  "generatedAt": "2026-08-05T04:32:13.187Z",
+  "generatedAt": "2026-08-05T04:52:13.578Z",
   "byCategory": [
     {
-      "category": "внутренние",
-      "n": 1505,
-      "medianER": 28.1,
+      "category": "образование",
+      "n": 8,
+      "medianER": 28.9,
       "ourWeight": null
     },
     {
+      "category": "внутренние",
+      "n": 2797,
+      "medianER": 28,
+      "ourWeight": null
+    },
+    {
+      "category": "авто",
+      "n": 8,
+      "medianER": 24.6,
+      "ourWeight": null
+    },
+    {
+      "category": "спорт",
+      "n": 852,
+      "medianER": 22.5,
+      "ourWeight": 5
+    },
+    {
       "category": "мировые",
-      "n": 683,
+      "n": 1356,
       "medianER": 22.1,
       "ourWeight": 25
     },
     {
-      "category": "спорт",
-      "n": 453,
-      "medianER": 20.3,
-      "ourWeight": 5
+      "category": "лайфстайл",
+      "n": 9,
+      "medianER": 19.8,
+      "ourWeight": null
     },
     {
       "category": "общество",
-      "n": 176,
-      "medianER": 13,
+      "n": 328,
+      "medianER": 13.2,
       "ourWeight": 10
     },
     {
       "category": "экономика",
-      "n": 97,
-      "medianER": 12.8,
+      "n": 204,
+      "medianER": 13.2,
       "ourWeight": 25
     },
     {
       "category": "политика",
-      "n": 45,
+      "n": 63,
       "medianER": 12.3,
       "ourWeight": 25
     }
@@ -41,109 +59,109 @@
   "byOutlet": [
     {
       "outlet": "kun",
-      "matched": 894,
+      "matched": 1677,
       "categories": [
         {
           "category": "мировые",
-          "n": 126,
+          "n": 265,
           "medianER": 28.1
         },
         {
           "category": "общество",
-          "n": 176,
-          "medianER": 13
+          "n": 328,
+          "medianER": 13.2
         },
         {
           "category": "спорт",
-          "n": 65,
-          "medianER": 29
+          "n": 136,
+          "medianER": 28.3
         },
         {
           "category": "внутренние",
-          "n": 390,
-          "medianER": 29.7
+          "n": 689,
+          "medianER": 29.8
         },
         {
           "category": "экономика",
-          "n": 82,
-          "medianER": 12.5
+          "n": 177,
+          "medianER": 12.8
         },
         {
           "category": "авто",
-          "n": 3,
+          "n": 5,
           "medianER": 25.1
         },
         {
           "category": "образование",
-          "n": 4,
-          "medianER": 29.2
+          "n": 8,
+          "medianER": 28.9
         },
         {
           "category": "технологии",
-          "n": 3,
-          "medianER": 29.5
+          "n": 6,
+          "medianER": 29.4
         },
         {
           "category": "политика",
-          "n": 45,
+          "n": 63,
           "medianER": 12.3
         }
       ]
     },
     {
       "outlet": "daryo",
-      "matched": 1255,
+      "matched": 2363,
       "categories": [
         {
           "category": "внутренние",
-          "n": 604,
+          "n": 1124,
           "medianER": 17.6
         },
         {
           "category": "спорт",
-          "n": 388,
-          "medianER": 19.8
+          "n": 716,
+          "medianER": 21.8
         },
         {
           "category": "мировые",
-          "n": 241,
-          "medianER": 18.8
+          "n": 478,
+          "medianER": 19
         },
         {
           "category": "лайфстайл",
-          "n": 5,
-          "medianER": 20.8
+          "n": 9,
+          "medianER": 19.8
         },
         {
           "category": "авто",
-          "n": 1,
+          "n": 3,
           "medianER": 15
         },
         {
           "category": "культура",
-          "n": 1,
-          "medianER": 15
+          "n": 6,
+          "medianER": 15.1
         },
         {
           "category": "экономика",
-          "n": 15,
-          "medianER": 13.6
+          "n": 27,
+          "medianER": 13.8
         }
       ]
     },
     {
       "outlet": "repost",
-      "matched": 827,
+      "matched": 1597,
       "categories": [
         {
           "category": "внутренние",
-          "n": 511,
+          "n": 984,
           "medianER": 49.2
         },
         {
           "category": "мировые",
-          "n": 316,
-          "medianER": 48.4
+          "n": 613,
+          "medianER": 48.1
         }
       ]
     }

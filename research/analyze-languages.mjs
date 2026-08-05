@@ -129,7 +129,19 @@ function pairs(outlet) {
   if (!raw || !raw.length) return null;
 
   // Там, где карта языка не дала (UzNews), берём определённый по заголовку.
-  const rows = raw.map((r) => ({ ...r, lang: r.lang ?? r.detectedLang }));
+  // Gazeta рубрику на странице статьи не размечает — она добирается обходом
+  // рубричных лент (research/collect-rubrics.mjs) и подмешивается здесь.
+  const rubricPath = join(RAW_DIR, `rubrics-${outlet.id}.json`);
+  const rubrics = existsSync(rubricPath)
+    ? JSON.parse(readFileSync(rubricPath, "utf8"))
+    : null;
+  const canon = (u) =>
+    (u ?? "").replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/[?#].*$/, "").replace(/\/+$/, "").toLowerCase();
+  const rows = raw.map((r) => ({
+    ...r,
+    lang: r.lang ?? r.detectedLang,
+    section: r.section ?? rubrics?.[canon(r.url)]?.[0] ?? null,
+  }));
   const langs = realLangs(rows);
   const real = rows.filter((r) => langs.includes(r.lang));
 
@@ -253,8 +265,9 @@ for (const outlet of outlets) {
   if (!p.sections.length) {
     console.log("  рубрика на страницах не размечена — разрез по темам недоступен");
   } else {
-    const top = p.sections.slice(0, 3).map((s) => `${s.section} ${s.share}%`);
-    const bottom = p.sections.slice(-3).map((s) => `${s.section} ${s.share}%`);
+    const fmt = (x) => `${x.lang}/${x.section} ${x.share}% (${x.total})`;
+    const top = p.sections.slice(0, 3).map(fmt);
+    const bottom = p.sections.slice(-3).map(fmt);
     console.log(`  чаще переводят: ${top.join(", ")}`);
     console.log(`  реже переводят: ${bottom.join(", ")}`);
   }

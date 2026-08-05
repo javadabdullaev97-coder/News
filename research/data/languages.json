@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T04:31:59.410Z",
+  "generatedAt": "2026-08-05T04:52:07.376Z",
   "aggregate": [
     {
       "outlet": "kun",
@@ -188,7 +188,7 @@
   "pairs": [
     {
       "outlet": "kun",
-      "sampled": 1482,
+      "sampled": 2834,
       "hreflang": false,
       "note": "издание не объявляет языковые версии — пара ищется сопоставлением"
     },
@@ -225,7 +225,78 @@
           "translatedShare": 87.2
         }
       },
-      "sections": []
+      "sections": [
+        {
+          "lang": "ru",
+          "section": "world",
+          "total": 35,
+          "translated": 35,
+          "share": 100
+        },
+        {
+          "lang": "ru",
+          "section": "politics",
+          "total": 38,
+          "translated": 37,
+          "share": 97.4
+        },
+        {
+          "lang": "ru",
+          "section": "economy",
+          "total": 77,
+          "translated": 73,
+          "share": 94.8
+        },
+        {
+          "lang": "uz",
+          "section": "world",
+          "total": 41,
+          "translated": 36,
+          "share": 87.8
+        },
+        {
+          "lang": "uz",
+          "section": "economy",
+          "total": 75,
+          "translated": 65,
+          "share": 86.7
+        },
+        {
+          "lang": "uz",
+          "section": "culture",
+          "total": 5,
+          "translated": 4,
+          "share": 80
+        },
+        {
+          "lang": "uz",
+          "section": "politics",
+          "total": 50,
+          "translated": 39,
+          "share": 78
+        },
+        {
+          "lang": "ru",
+          "section": "society",
+          "total": 181,
+          "translated": 109,
+          "share": 60.2
+        },
+        {
+          "lang": "uz",
+          "section": "society",
+          "total": 227,
+          "translated": 115,
+          "share": 50.7
+        },
+        {
+          "lang": "ru",
+          "section": "culture",
+          "total": 10,
+          "translated": 4,
+          "share": 40
+        }
+      ]
     },
     {
       "outlet": "spot",
@@ -249,17 +320,25 @@
           "translatedShare": 42.7
         }
       },
-      "sections": []
+      "sections": [
+        {
+          "lang": "uz",
+          "section": "articles",
+          "total": 6,
+          "translated": 3,
+          "share": 50
+        }
+      ]
     },
     {
       "outlet": "repost",
-      "sampled": 987,
+      "sampled": 1879,
       "hreflang": false,
       "note": "издание не объявляет языковые версии — пара ищется сопоставлением"
     },
     {
       "outlet": "daryo",
-      "sampled": 2026,
+      "sampled": 3943,
       "hreflang": false,
       "note": "издание не объявляет языковые версии — пара ищется сопоставлением"
     },
