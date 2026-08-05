@@ -24,7 +24,13 @@
 //
 // Выход: research/raw/articles-<outlet>.jsonl
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import {
+  appendFileSync,
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  writeFileSync,
+} from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { OUTLETS, USER_AGENT } from "./lib/outlets.mjs";
@@ -36,16 +42,23 @@ const RAW_DIR = join(HERE, "raw");
 // за политику издания.
 const DEFAULT_WEEKS = ["2026-05-11", "2026-06-15", "2026-07-13"];
 
-const CONCURRENCY = 5;
-const DELAY_MS = 120;
-const TIMEOUT_MS = 30_000;
-const RETRIES = 2;
-
 const argv = process.argv.slice(2);
 const arg = (flag, fallback) => {
   const hit = argv.find((a) => a.startsWith(`${flag}=`));
   return hit ? hit.slice(flag.length + 1) : fallback;
 };
+
+// Параллельность считается на издание, а не на весь прогон: шесть потоков в
+// один хост — предел приличия, но пять хостов одновременно ничьих лимитов не
+// трогают. Последовательный обход изданий давал 44 страницы в минуту и
+// растягивал выкачку на два часа при том же давлении на каждый сайт.
+const CONCURRENCY = +arg("--concurrency", "6");
+const DELAY_MS = +arg("--delay", "80");
+const TIMEOUT_MS = 30_000;
+const RETRIES = 2;
+// Потолок числа записей без даты, при котором список считается суженным под
+// окно, а не полной картой издания.
+const UNDATED_CAP = 5_000;
 
 const only = arg("--outlet", null)?.split(",");
 const from = arg("--from", null);
@@ -142,15 +155,37 @@ function roughWordCount(html) {
   return body.split(" ").filter((w) => w.length > 1).length;
 }
 
+// У UzNews язык не выводится ни из пути, ни из карты: /news/111700
+// редиректит на /ru/news/111700 независимо от того, на каком языке материал,
+// и на «русском» адресе спокойно лежит узбекский текст. Определяем по самому
+// заголовку.
+//
+// Узбекская кириллица отличается от русской набором букв ў, қ, ғ, ҳ — они не
+// встречаются в русском алфавите, и одного их присутствия достаточно.
+const UZ_CYRILLIC = /[ўқғҳЎҚҒҲ]/;
+const CYRILLIC = /[а-яА-ЯёЁ]/;
+
+function detectLang(text) {
+  if (!text) return null;
+  if (UZ_CYRILLIC.test(text)) return "uz-cyr";
+  if (CYRILLIC.test(text)) return "ru";
+  if (/[a-zA-Z]/.test(text)) return "uz";
+  return null;
+}
+
 function extract(html) {
   const alt = alternates(html);
+  const title = meta(html, "og:title");
   return {
-    title: meta(html, "og:title"),
+    title,
+    detectedLang: detectLang(title),
     image: meta(html, "og:image"),
     section: meta(html, "article:section"),
     publishedAt:
       meta(html, "article:published_time") ??
-      html.match(/"datePublished":"([^"]+)"/)?.[1] ??
+      // Пробелы вокруг двоеточия обязательны: UzNews отдаёт JSON-LD с
+      // отступами, и вариант без пробела там не встречается.
+      html.match(/"datePublished"\s*:\s*"([^"]+)"/)?.[1] ??
       null,
     modifiedAt: meta(html, "article:modified_time") ?? null,
     description: meta(html, "og:description"),
@@ -165,31 +200,79 @@ mkdirSync(RAW_DIR, { recursive: true });
 
 const summary = [];
 
-for (const outlet of outlets) {
+async function collectOutlet(outlet) {
   const src = join(RAW_DIR, `sitemap-${outlet.id}.jsonl`);
   if (!existsSync(src)) {
     console.log(`${outlet.name}: нет ${src}, сначала прогоните collect-sitemaps.mjs`);
-    continue;
+    return;
   }
 
-  const rows = readFileSync(src, "utf8")
+  const all = readFileSync(src, "utf8")
     .trim()
     .split("\n")
     .filter(Boolean)
     .map((l) => JSON.parse(l))
-    .filter((r) => r.date && days.has(r.date));
+    // Кириллицу не качаем: она получается транслитерацией латиницы — тот же
+    // материал, та же картинка, та же рубрика. Иначе половина выборки уходит
+    // на дубли.
+    .filter((r) => r.lang !== "uz-cyr")
+    // Записи без даты — это издания, чьи карты дат не несут (UzNews,
+    // Qalampir). Их отбирать по дню нечем, дата придёт со страницы, поэтому
+    // пропускаем такие строки дальше как есть.
+    .filter((r) => (r.date ? days.has(r.date) : true));
 
-  if (!rows.length) {
-    console.log(`${outlet.name}: в выбранные дни материалов нет`);
-    continue;
+  // Но пропускать «как есть» можно только суженный список. Полная карта
+  // Qalampir — это 120 тысяч адресов без единой даты, и без этой проверки
+  // прогон молча ушёл бы качать весь архив издания вместо трёх недель.
+  const undated = all.filter((r) => !r.date).length;
+  if (undated > UNDATED_CAP) {
+    console.log(
+      `${outlet.name}: ${undated} записей без даты — сначала сузьте диапазон ` +
+        `через research/resolve-id-window.mjs, иначе выкачка уйдёт на весь архив`,
+    );
+    return;
   }
 
-  console.log(`\n${outlet.name}: страниц к загрузке ${rows.length}`);
+  const out = join(RAW_DIR, `articles-${outlet.id}.jsonl`);
 
-  const results = [];
+  // Возобновление. Выкачка идёт десятками минут и регулярно обрывается —
+  // по таймауту сессии, по 502, по остановке вручную. Раньше результат
+  // писался одним куском в конце, и любой обрыв обнулял всю работу.
+  const already = new Set();
+  if (existsSync(out)) {
+    for (const line of readFileSync(out, "utf8").split("\n")) {
+      if (!line.trim()) continue;
+      try {
+        already.add(JSON.parse(line).url);
+      } catch {
+        // Оборванная последняя строка — перекачаем этот адрес заново.
+      }
+    }
+  }
+
+  const rows = all.filter((r) => !already.has(r.url));
+  if (!rows.length) {
+    console.log(`${outlet.name}: всё уже выкачано (${already.size})`);
+    return;
+  }
+
+  console.log(
+    `${outlet.name}: к загрузке ${rows.length}` +
+      (already.size ? ` (уже есть ${already.size})` : ""),
+  );
+
   let done = 0;
   let failed = 0;
+  let saved = 0;
   let cursor = 0;
+  const buffer = [];
+
+  const flush = () => {
+    if (!buffer.length) return;
+    appendFileSync(out, buffer.map((r) => JSON.stringify(r)).join("\n") + "\n");
+    saved += buffer.length;
+    buffer.length = 0;
+  };
 
   await Promise.all(
     Array.from({ length: CONCURRENCY }, async () => {
@@ -198,42 +281,31 @@ for (const outlet of outlets) {
         cursor += 1;
         const { status, html } = await fetchHtml(row.url);
         done += 1;
-        if (done % 25 === 0 || done === rows.length) {
-          process.stdout.write(`  ${done}/${rows.length}\r`);
-        }
         if (!html) {
           failed += 1;
           continue;
         }
-        results.push({ ...row, httpStatus: status, ...extract(html) });
+        buffer.push({ ...row, httpStatus: status, ...extract(html) });
+        if (buffer.length >= 50) flush();
         await sleep(DELAY_MS);
       }
     }),
   );
+  flush();
 
-  const out = join(RAW_DIR, `articles-${outlet.id}.jsonl`);
-  writeFileSync(out, results.map((r) => JSON.stringify(r)).join("\n") + "\n");
-
-  const withAlt = results.filter((r) => r.alternates).length;
-  const withImage = results.filter((r) => r.image).length;
-  const withSection = results.filter((r) => r.section).length;
-  console.log(
-    `  загружено ${results.length}, сбоев ${failed}\n` +
-      `  с картинкой ${withImage}, с рубрикой ${withSection}, ` +
-      `с языковыми альтернативами ${withAlt} (${((withAlt / (results.length || 1)) * 100).toFixed(0)}%)\n` +
-      `  → ${out}`,
-  );
-
+  console.log(`${outlet.name}: готово — записано ${saved}, сбоев ${failed}`);
   summary.push({
     outlet: outlet.id,
     requested: rows.length,
-    loaded: results.length,
+    loaded: saved,
     failed,
-    withImage,
-    withSection,
-    withAlternates: withAlt,
+    resumedFrom: already.size,
   });
 }
+
+// Издания идут одновременно: параллельность CONCURRENCY считается на каждое,
+// то есть давление на отдельный сайт не растёт, а общее время падает впятеро.
+await Promise.all(outlets.map((outlet) => collectOutlet(outlet)));
 
 writeFileSync(
   join(RAW_DIR, "articles-summary.json"),
