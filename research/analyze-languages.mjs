@@ -9,11 +9,12 @@
 //   Парный — по выборочным неделям из articles-выгрузок. Отвечает на вопрос
 //   «какие именно материалы переводят, а какие нет». Требует страниц статей.
 //
-// Кириллица из обоих уровней исключается. У Kun, Gazeta и Daryo число
-// латинских и кириллических материалов совпадает с точностью до единиц на
-// квартальном окне — это транслитерация скриптом, а не редакционное решение,
-// и считать её отдельной языковой версией значит удваивать узбекскую колонку
-// на ровном месте.
+// Кириллица трактуется по-разному в зависимости от издания — см. realLangs.
+// У Kun, Gazeta и Daryo число латинских и кириллических материалов совпадает
+// с точностью до единиц на квартальном окне: это транслитерация скриптом, и
+// считать её отдельной версией значит удваивать узбекскую колонку на ровном
+// месте. У UzNews латиницы нет вовсе, и кириллица там — настоящий второй
+// язык издания.
 //
 // CLI:
 //   node research/analyze-languages.mjs
@@ -35,6 +36,27 @@ const only = argv
   .find((a) => a.startsWith("--outlet="))
   ?.slice("--outlet=".length)
   .split(",");
+
+// Кириллица исключается не всегда. У Kun, Gazeta и Daryo она получается
+// транслитерацией латиницы и считать её отдельной версией нельзя. А у UzNews
+// латиницы нет вовсе — в выборке 309 кириллических материалов против одного
+// латинского, то есть кириллица и есть их узбекский, адресованный старшему
+// читателю. Решаем по факту: если у издания есть обе формы, кириллицу
+// отбрасываем как производную; если только кириллица — она и есть язык.
+function realLangs(rows) {
+  const present = new Set(rows.map((r) => r.lang ?? r.detectedLang));
+  const base = ["uz", "ru", "en"];
+  const hasLatin = rows.some((r) => (r.lang ?? r.detectedLang) === "uz");
+  const latinCount = rows.filter((r) => (r.lang ?? r.detectedLang) === "uz").length;
+  const cyrCount = rows.filter((r) => (r.lang ?? r.detectedLang) === "uz-cyr").length;
+  // «Есть латиница» — это сопоставимый объём, а не единичные материалы:
+  // одна латинская заметка среди трёхсот кириллических транслитерацией не
+  // делает.
+  if (present.has("uz-cyr") && (!hasLatin || latinCount < cyrCount * 0.1)) {
+    return [...base.filter((l) => l !== "uz"), "uz-cyr"];
+  }
+  return base;
+}
 
 const REAL_LANGS = ["uz", "ru", "en"];
 
@@ -103,10 +125,13 @@ function aggregate(outlet) {
 // остаётся сопоставление, и здесь считается только то, что можно посчитать
 // честно: доля материалов, у которых объявлен хоть один перевод.
 function pairs(outlet) {
-  const rows = readJsonl(join(RAW_DIR, `articles-${outlet.id}.jsonl`));
-  if (!rows || !rows.length) return null;
+  const raw = readJsonl(join(RAW_DIR, `articles-${outlet.id}.jsonl`));
+  if (!raw || !raw.length) return null;
 
-  const real = rows.filter((r) => REAL_LANGS.includes(r.lang));
+  // Там, где карта языка не дала (UzNews), берём определённый по заголовку.
+  const rows = raw.map((r) => ({ ...r, lang: r.lang ?? r.detectedLang }));
+  const langs = realLangs(rows);
+  const real = rows.filter((r) => langs.includes(r.lang));
 
   // Объявлением перевода считается только ссылка на ДРУГОЙ язык. Repost
   // отдаёт <link rel="alternate"> на самого себя и на x-default, и по одному
@@ -115,7 +140,7 @@ function pairs(outlet) {
   const declaring = real.filter(
     (r) =>
       r.alternates &&
-      Object.keys(r.alternates).some((l) => REAL_LANGS.includes(l) && l !== r.lang),
+      Object.keys(r.alternates).some((l) => langs.includes(l) && l !== r.lang),
   );
   if (!declaring.length) {
     return {
@@ -131,7 +156,7 @@ function pairs(outlet) {
   // выходит 100%.
   const crossLangs = (row) =>
     Object.keys(row.alternates ?? {}).filter(
-      (l) => REAL_LANGS.includes(l) && l !== row.lang,
+      (l) => langs.includes(l) && l !== row.lang,
     );
 
   const byLang = {};
