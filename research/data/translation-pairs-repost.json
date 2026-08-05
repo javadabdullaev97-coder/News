@@ -6,6 +6,36 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://repost.uz/uz/jchga-tayyorgarlik",
+      "urlB": "https://repost.uz/sport/a-tam-uje-i-gruppovoy-etap",
+      "titleA": "O‘zbekiston terma jamoasi JCH–2026 oldidan tayyorgarlik rejasini eʼlon qildi",
+      "titleB": "Обнародован план подготовки сборной Узбекистана к ЧМ-2026",
+      "score": 0.556,
+      "hours": 1.1
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/suvda-chokish",
+      "urlB": "https://repost.uz/seychas-izuchayut-obstoyatelstva",
+      "titleA": "Buxoroda 17 yoshli bola suvda cho‘kib ketdi",
+      "titleB": "В Бухаре утонул 17-летний парень",
+      "score": 0.542,
+      "hours": 1.83
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/khayni-bir-qismi",
+      "urlB": "https://repost.uz/nochyu-tugadi-oformyat",
+      "titleA": "Kichik halqa yo‘lining bir qismida 40 kunga harakat cheklanadi",
+      "titleB": "В Ташкенте на 40 дней ограничат движение на участке МКАД",
+      "score": 0.541,
+      "hours": 2.18
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://repost.uz/uz/qashqadaryodayam-shu-holat",
       "urlB": "https://repost.uz/vsled-za-surxandaryey",
       "titleA": "Qashqadaryoda issiq kunlarda og‘ir yuk mashinalari harakati cheklanadi",
@@ -26,6 +56,56 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://repost.uz/uz/bozsuv-kanali",
+      "urlB": "https://repost.uz/nu-vse-po-domam",
+      "titleA": "Bo‘zsuv kanalida cho‘milgan fuqaro cho‘kib ketdi",
+      "titleB": "Из Грузии депортировали свыше 100 иностранцев, в том числе узбекистанцев",
+      "score": 0.491,
+      "hours": 14.1
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/elektr-rekordi",
+      "urlB": "https://repost.uz/kajdiy-den-na-fone-jari",
+      "titleA": "O‘zbekistonda elektr energiyasi iste‘moli va ishlab chiqarish bo‘yicha yangi rekord qayd etildi",
+      "titleB": "В Узбекистане вновь обновились рекорды по потреблению и выработке электричества",
+      "score": 0.49,
+      "hours": 1.15
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/muruntovdagi-yth",
+      "urlB": "https://repost.uz/podborka-ot-2107",
+      "titleA": "Muruntov konidagi YTHda ikki nafar ishchi-xodim halok bo‘ldi",
+      "titleB": "Новости за 21 июля",
+      "score": 0.487,
+      "hours": 15.03
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/anomal-issiq-sabab",
+      "urlB": "https://repost.uz/byutsya-daje-v-vixodnie",
+      "titleA": "Dam olish kunlari O‘zbekistonda elektr iste‘moli va ishlab chiqarish yana rekord darajaga chiqdi",
+      "titleB": "В Узбекистане продолжают обновляться рекорды по потреблению и выработке электричества",
+      "score": 0.485,
+      "hours": 1.63
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/on-beshta-avtobus",
+      "urlB": "https://repost.uz/sport/normalno-otstrelyalis-v-tailande",
+      "titleA": "Termizga 15 dona avtobus olib kelindi",
+      "titleB": "Узбекские вольные борцы завоевали пять медалей на ЧА U-15",
+      "score": 0.484,
+      "hours": 15.77
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://repost.uz/uz/navoiy-bogchalari",
       "urlB": "https://repost.uz/eshe-odin-lapshi-na-ushi-nakidal",
       "titleA": "Navoiydagi bog‘chalar ham issiq sabab yopildi",
@@ -36,12 +116,72 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://repost.uz/uz/namanganda-dol",
+      "urlB": "https://repost.uz/ipoteka-ot-octobanka",
+      "titleA": "Namanganda do‘l yog‘ishiga qarshi 18 ta snaryad otildi",
+      "titleB": "Octobank запустил ипотеку и автокредиты для физических лиц",
+      "score": 0.451,
+      "hours": 23.67
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/istanbul-sitining-afzalliklari",
+      "urlB": "https://repost.uz/v-istanbul-city-skidki",
+      "titleA": "Nima uchun Istanbul City “C” bloki — bu foydali tanlov",
+      "titleB": "Почему блок «С» Istanbul City — это выгодное решение",
+      "score": 0.415,
+      "hours": 0
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/anomal-issiq-ketadi",
+      "urlB": "https://repost.uz/chto-to-ne-to-nashli",
+      "titleA": "O‘zbekistonda anomal issiq 23-iyuldan pasayishi kutilmoqda",
+      "titleB": "ЦБ Узбекистана оштрафовал более 20 банков",
+      "score": 0.393,
+      "hours": 6.85
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/besh-kunga-yopiladi",
+      "urlB": "https://repost.uz/sport/teper-vse-zavisit-ot-nego",
+      "titleA": "Toshkentning ayrim yo‘llarida avtomobillar harakati besh kunga cheklanadi",
+      "titleB": "Узбекский защитник Жахонгир Урозов близок к переходу в казанский «Рубин»",
+      "score": 0.392,
+      "hours": 5.07
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://repost.uz/uz/salgina-yomgir",
       "urlB": "https://repost.uz/togda-i-ochno-zakrepyat",
       "titleA": "Ish haftasi davomida biroz yomg‘ir yog‘ishi mumkin",
       "titleB": "Трамп заявил о подписании договоренности между США и Ираном",
-      "score": 0.377,
+      "score": 0.379,
       "hours": 8.1
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/yer-sotish-andijon",
+      "urlB": "https://repost.uz/relyef-mestnosti-vse-uslojnyaet",
+      "titleA": "Andijonda 40 sotix yerni 160 ming dollarga sotmoqchi bo‘lgan shaxs ushlandi",
+      "titleB": "В Пакистане автобус упал в овраг, погибли 40 человек",
+      "score": 0.363,
+      "hours": 5.28
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/yana-isiydi-havo",
+      "urlB": "https://repost.uz/ne-anomalno-no-duxota",
+      "titleA": "Dam olish kunlari O‘zbekistonda havo 42 darajagacha isiydi",
+      "titleB": "Жара до 42 градусов: какая погода ждет узбекистанцев на выходных",
+      "score": 0.36,
+      "hours": 0.1
     },
     {
       "langA": "uz",
@@ -50,8 +190,58 @@
       "urlB": "https://repost.uz/chto-za-peklo-eto",
       "titleA": "O‘zbekistonda havo harorati 48 darajagacha ko‘tarilishi kutilmoqda",
       "titleB": "Узбекистанцев экстренно предупредили о 48-градусной жаре",
-      "score": 0.359,
+      "score": 0.357,
       "hours": 1.83
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/issiq-va-yomgir",
+      "urlB": "https://repost.uz/vse-chashe-takie-sluchai",
+      "titleA": "Dam olish kunlari havo harorati ko‘tariladi, biroz yomg‘ir yog‘adi",
+      "titleB": "В Навои выявили схему хищения кешбэка более чем на 34 млрд сумов",
+      "score": 0.314,
+      "hours": 4.43
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/ekopolitsiya-aniqlagan",
+      "urlB": "https://repost.uz/potolok-cen-na-neft-i-drugoe",
+      "titleA": "Ekopolitsiya Toshkent shahri va viloyatida 48 ta ekologik huquqbuzarlikni aniqladi",
+      "titleB": "Евросоюз принял 21-й пакет санкций против России",
+      "score": 0.303,
+      "hours": 6.75
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/maydagi-pogoda",
+      "urlB": "https://repost.uz/v-obshem-blije-k-letu",
+      "titleA": "May oyi oxirigacha ob-havo qanday bo‘ladi?",
+      "titleB": "В Узбекистане ожидается 38-градусная жара",
+      "score": 0.272,
+      "hours": 3.37
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/yakkasaroydagi-kocha",
+      "urlB": "https://repost.uz/ta-eshe-jarisha",
+      "titleA": "Toshkentdagi ko‘chalardan biri vaqtincha yopiladi",
+      "titleB": "Какая погода ждет узбекистанцев в конце мая",
+      "score": 0.257,
+      "hours": 20.25
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/uyga-subsidiya",
+      "urlB": "https://repost.uz/kursi-valyut-2707",
+      "titleA": "Uy-joy subsidiyasi uchun arizalar qabuli 27-iyuldan boshlanadi",
+      "titleB": "Курсы валют на 27 июля: доллар начал дешеветь",
+      "score": 0.255,
+      "hours": 19.68
     },
     {
       "langA": "uz",
@@ -60,8 +250,18 @@
       "urlB": "https://repost.uz/sport/mojno-budet-spokoyno-posmotret",
       "titleA": "“O‘zbekiston temir yo‘llari” AJ va Škoda Transportation 10 ta elektropoyezd yetkazib berish bo‘yicha kelishuvga erishdi",
       "titleB": "В Узбекистане 18 июня рабочий день во всех госорганизациях начнется в 10:00",
-      "score": 0.244,
+      "score": 0.235,
       "hours": 18.82
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://repost.uz/uz/ichimlik-suvi",
+      "urlB": "https://repost.uz/sport/soobshaetsya-o-dvux-pogibshix",
+      "titleA": "O‘zbekistonda ichimlik suvi va kanalizatsiya tizimiga yana $1,3 mlrd investitsiya jalb etiladi",
+      "titleB": "В Испании при праздновании победы в ЧМ-2026 пострадали более 80 человек",
+      "score": 0.176,
+      "hours": 19.55
     },
     {
       "langA": "uz",
@@ -70,7 +270,7 @@
       "urlB": "https://repost.uz/povtorno-vse-budut-sdavat",
       "titleA": "Namanganga 12 dona avtobus olib kelindi",
       "titleB": "В Узбекистане число водителей, набравших более 12 штрафных баллов, превысило 670",
-      "score": 0.174,
+      "score": 0.176,
       "hours": 9.73
     }
   ]

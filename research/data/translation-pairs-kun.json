@@ -26,6 +26,26 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/25/rasman-husanov-manchester-sitida-2031-yilgacha-qoladi",
+      "urlB": "https://kun.uz/ru/news/2026/07/25/ofitsialno-xusanov-ostanetsya-v-manchester-siti-do-2031-goda",
+      "titleA": "Rasman: Husanov «Manchester Siti»da 2031 yilgacha qoladi",
+      "titleB": "Официально: Хусанов останется в «Манчестер Сити» до 2031 года",
+      "score": 0.595,
+      "hours": 2.08
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/24/eksport-hajmi-126-mlrd-dollardan-oshdi",
+      "urlB": "https://kun.uz/ru/news/2026/07/24/eksport-uzbekistana-za-pyat-mesyatsev-dostig-126-mlrd-dollarov",
+      "titleA": "Eksport hajmi 12,6 mlrd dollardan oshdi",
+      "titleB": "Экспорт Узбекистана за пять месяцев достиг 12,6 млрд долларов",
+      "score": 0.594,
+      "hours": 2.02
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/07/13/mamlakatda-15-mlrd-tonna-temir-ruda-zaxirasi-mavjud-prezident",
       "urlB": "https://kun.uz/ru/news/2026/07/13/uzbekistan-raspolagayet-15-mlrd-tonn-zapasov-jyeleznoy-rudy-prezident-b2710d",
       "titleA": "Mamlakatda 1,5 mlrd tonna temir ruda zaxirasi mavjud – prezident",
@@ -56,6 +76,26 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/26/google-25-yil-ichida-birinchi-marta-qidiruv-tizimini-ozgartirdi-8c84bd",
+      "urlB": "https://kun.uz/ru/news/2026/05/26/google-vpervyye-za-25-let-izmenila-poisk-5c9011",
+      "titleA": "Google 25 yil ichida birinchi marta qidiruv tizimini o‘zgartirdi",
+      "titleB": "Google впервые за 25 лет изменила поиск",
+      "score": 0.574,
+      "hours": 0.09
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/29/shomurodov-jch-guruh-bosqichidagi-eng-chiroyli-gol-muallifi-bolishga-davogar",
+      "urlB": "https://kun.uz/ru/news/2026/06/29/shomurodov-pretenduyet-na-zvaniye-avtora-samogo-krasivogo-gola-gruppovogo-etapa-chm-8a0e51",
+      "titleA": "Shomurodov JCh guruh bosqichidagi eng chiroyli gol muallifi bo‘lishga da’vogar",
+      "titleB": "Шомуродов претендует на звание автора самого красивого гола группового этапа ЧМ",
+      "score": 0.57,
+      "hours": 1.13
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/06/17/markaziy-bank-asosiy-stavkani-14-foiz-darajasida-ozgarishsiz-qoldirdi-d66956",
       "urlB": "https://kun.uz/ru/news/2026/06/17/tsentralnyy-bank-soxranil-osnovnuyu-stavku-na-urovne-14-protsentov-4a0e33",
       "titleA": "Markaziy bank asosiy stavkani 14 foiz darajasida o‘zgarishsiz qoldirdi",
@@ -76,12 +116,62 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/02/quyoshli-xonadonlarga-aprel-may-oylari-uchun-subsidiya-tolab-berildi-41b6ed",
+      "urlB": "https://kun.uz/ru/news/2026/07/02/vladelsam-solnechnyx-domov-vyplatili-subsidii-za-aprel-may-be2f05",
+      "titleA": "“Quyoshli xonadon”larga aprel–may oylari uchun subsidiya to‘lab berildi",
+      "titleB": "Владельцам «Солнечных домов» выплатили субсидии за апрель-май",
+      "score": 0.563,
+      "hours": 2
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/21/prezident-bosh-vazirga-17-nafar-hokimning-lavozimiga-loyiqligini-korib-chiqishni-topshirdi",
+      "urlB": "https://kun.uz/ru/news/2026/07/21/prezident-poruchil-proverit-17-xokimov-na-sootvetstviye-doljnosti",
+      "titleA": "Prezident bosh vazirga 17 nafar hokimning lavozimiga loyiqligini ko‘rib chiqishni topshirdi",
+      "titleB": "Президент поручил проверить 17 хокимов на соответствие должности",
+      "score": 0.561,
+      "hours": 0.9
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/24/bolani-birinchi-sinfga-qanday-joylashtirish-mumkin",
+      "urlB": "https://kun.uz/ru/news/2026/07/24/kak-zapisat-rebenka-v-pervyy-klass-v-uzbekistane-v-2026-godu",
+      "titleA": "Bola birinchi sinfga qanday joylashtiriladi?",
+      "titleB": "Как записать ребенка в первый класс в Узбекистане в 2026 году",
+      "score": 0.561,
+      "hours": 0.07
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/22/toshkent-nurafshon-yonalishida-zamonaviy-yol-otkazgich-bunyod-etildi",
+      "urlB": "https://kun.uz/ru/news/2026/07/22/na-trasse-tashkent-nurafshan-postroyen-sovremennyy-puteprovod",
+      "titleA": "Toshkent – Nurafshon yo‘nalishida zamonaviy yo‘l o‘tkazgich bunyod etildi",
+      "titleB": "На трассе Ташкент – Нурафшан построен современный путепровод",
+      "score": 0.561,
+      "hours": 0.2
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/07/18/toshkentda-tesla-haydovchisi-bir-yilga-rulga-otirish-huquqidan-mahrum-etildi-d653e7",
       "urlB": "https://kun.uz/ru/news/2026/07/18/v-tashkente-voditel-tesla-lishyon-prav-na-odin-god-122136",
       "titleA": "Toshkentda Tesla haydovchisi bir yilga rulga o‘tirish huquqidan mahrum etildi",
       "titleB": "В Ташкенте водитель Tesla лишён прав на один год",
       "score": 0.561,
       "hours": 0.95
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/26/oliy-attestatsiya-komissiyasini-10-yildan-koproq-boshqargan-ahmadbek-yusupov-lavozimidan-ozod-etildi",
+      "urlB": "https://kun.uz/ru/news/2026/05/26/axmadbek-yusupov-boleye-10-let-vozglavlyavshiy-vak-osvobojdyon-ot-doljnosti-a4495e",
+      "titleA": "Oliy attestatsiya komissiyasini 10 yildan ko‘proq boshqargan Ahmadbek Yusupov lavozimidan ozod etildi",
+      "titleB": "Ахмадбек Юсупов, более 10 лет возглавлявший ВАК, освобождён от должности",
+      "score": 0.56,
+      "hours": 3.3
     },
     {
       "langA": "uz",
@@ -116,12 +206,52 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/29/rossiya-armiyasi-yarim-millionga-yaqin-harbiydan-ayrilgani-aytildi-7e1014",
+      "urlB": "https://kun.uz/ru/news/2026/05/29/gchq-poteri-rossiyskoy-armii-ubitymi-priblizilis-k-polumillionu-63b83b",
+      "titleA": "Rossiya armiyasi yarim millionga yaqin harbiydan ayrilgani aytildi",
+      "titleB": "GCHQ: потери российской армии убитыми приблизились к полумиллиону",
+      "score": 0.557,
+      "hours": 1
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/25/kia-yangi-k3-sedani-sotuvi-boshlanganini-elon-qiladi",
+      "urlB": "https://kun.uz/ru/news/2026/05/25/kia-obyavlyayet-o-starte-prodaj-novogo-sedana-k3",
+      "titleA": "Kia yangi K3 sedani sotuvi boshlanganini e’lon qiladi",
+      "titleB": "Kia объявляет о старте продаж нового седана K3",
+      "score": 0.556,
+      "hours": 0
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/05/16/ozbekistonlik-talabalar-qaysi-davlatlarni-tanlamoqda",
       "urlB": "https://kun.uz/ru/news/2026/05/16/%D0%BD%D1%83%D0%B6%D0%B4%D0%B0%D1%8E%D1%89%D0%B8%D0%BC%D1%81%D1%8F-%D1%81%D0%B5%D0%BC%D1%8C%D1%8F%D0%BC-%D0%BF%D0%BE%D0%B2%D1%8B%D1%81%D1%8F%D1%82-%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B5%D0%BD%D1%81%D0%B0%D1%86%D0%B8%D0%B8-%D0%B7%D0%B0-%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D1%8D%D0%BD%D0%B5%D1%80%D0%B3%D0%B8%D1%8E-%D0%B8-%D0%B3%D0%B0%D0%B7-a3581d",
       "titleA": "O‘zbekistonlik talabalar qaysi davlatlarni tanlamoqda?",
       "titleB": "Нуждающимся семьям повысят размер компенсации за электроэнергию и газ",
       "score": 0.555,
       "hours": 0.09
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/25/xitoy-kosmosda-insonning-uzoq-yashashini-organmoqda-66a523",
+      "urlB": "https://kun.uz/ru/news/2026/05/25/kitayskiy-shenchjou-23-uspeshno-sostykovalsya-s-orbitalnoy-stansiyey-tyangun-fb1e5e",
+      "titleA": "Xitoy kosmosda insonning uzoq yashashini o‘rganmoqda",
+      "titleB": "Китайский «Шэньчжоу-23» успешно состыковался с орбитальной станцией «Тяньгун»",
+      "score": 0.554,
+      "hours": 2.03
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/26/kichik-biznes-uchun-qqsga-otish-chegarasi-oshiriladi",
+      "urlB": "https://kun.uz/ru/news/2026/05/26/v-uzbekistane-povysyat-porog-perexoda-na-nds-dlya-malogo-biznesa-8e7870",
+      "titleA": "Kichik biznes uchun QQSga o‘tish chegarasi oshirildi",
+      "titleB": "В Узбекистане повысят порог перехода на НДС для малого бизнеса",
+      "score": 0.554,
+      "hours": 0.14
     },
     {
       "langA": "uz",
@@ -156,12 +286,32 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/21/toshkentda-keshbek-tizimi-orqali-14-mlrd-som-talon-toroj-qilindi",
+      "urlB": "https://kun.uz/ru/news/2026/07/21/v-tashkente-cherez-poddelnyye-cheki-poxitili-14-mlrd-sumov-keshbeka",
+      "titleA": "Toshkentda “keshbek” tizimi orqali 1,4 mlrd so‘m talon-toroj qilindi",
+      "titleB": "В Ташкенте через поддельные чеки похитили 1,4 млрд сумов кешбэка",
+      "score": 0.551,
+      "hours": 4.92
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/06/18/toshkentning-yangi-xalqaro-aeroportini-qurish-boyicha-dxsh-bitimi-imzolandi-2c04fe",
       "urlB": "https://kun.uz/ru/news/2026/06/18/podpisano-soglasheniye-o-gchp-po-stroitelstvu-novogo-mejdunarodnogo-aeroporta-tashkenta-4bb006",
       "titleA": "Toshkentning yangi xalqaro aeroportini qurish bo‘yicha DXSh bitimi imzolandi",
       "titleB": "Подписано соглашение о ГЧП по строительству нового международного аэропорта Ташкента",
       "score": 0.551,
       "hours": 1.12
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/23/qora-dengizdagi-keskinlik-kiyev-bmt-xavfsizlik-kengashini-yigishni-soradi",
+      "urlB": "https://kun.uz/ru/news/2026/07/23/straxovaya-kompaniya-uzbekinvest-poluchila-naivisshiy-reyting-finansovoy-ustoychivosti-ot-moodys-sredi-finansovix-institutov-uzbekistana",
+      "titleA": "Qora dengizdagi keskinlik: Kiyev BMT Xavfsizlik kengashini yig‘ishni so‘radi",
+      "titleB": "Страховая компания «Узбекинвест» получила наивысший рейтинг финансовой устойчивости от Moody&#x27;s среди финансовых институтов Узбекистана",
+      "score": 0.55,
+      "hours": 0.03
     },
     {
       "langA": "uz",
@@ -182,6 +332,16 @@
       "titleB": "Узбекистанские врачи могут зарабатывать в Италии до 5 тысяч евро",
       "score": 0.549,
       "hours": 1.62
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/25/ozbekistonda-22-nafar-bola-xorijdan-vatanga-qaytarildi",
+      "urlB": "https://kun.uz/ru/news/2026/07/25/v-uzbekistan-iz-za-rubeja-vozvrashcheny-22-rebyonka",
+      "titleA": "O‘zbekistonda 22 nafar bola xorijdan vatanga qaytarildi",
+      "titleB": "В Узбекистан из-за рубежа возвращены 22 ребёнка",
+      "score": 0.549,
+      "hours": 1.72
     },
     {
       "langA": "uz",
@@ -216,12 +376,72 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/26/ozbekistonda-70-yoshdan-oshganlar-orasida-ham-ota-bolganlar-bor-3ca879",
+      "urlB": "https://kun.uz/ru/news/2026/05/26/v-uzbekistane-14-mujchin-starshe-70-let-stali-otsami-v-pervom-kvartale-2026-goda-ff3b48",
+      "titleA": "O‘zbekistonda 70 yoshdan oshganlar orasida ham ota bo‘lganlar bor",
+      "titleB": "В Узбекистане 14 мужчин старше 70 лет стали отцами в первом квартале 2026 года",
+      "score": 0.548,
+      "hours": 2.55
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/24/qator-davlatlar-yetakchilari-shavkat-mirziyoyevni-tavallud-kuni-bilan-qutladilar",
+      "urlB": "https://kun.uz/ru/news/2026/07/24/lidery-ryada-gosudarstv-pozdravili-shavkata-mirziyoyeva-s-dnyom-rojdeniya",
+      "titleA": "Qator davlatlar yetakchilari Shavkat Mirziyoyevni tavallud kuni bilan qutladilar",
+      "titleB": "Лидеры ряда государств поздравили Шавката Мирзиёева с днём рождения",
+      "score": 0.548,
+      "hours": 0.58
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/06/15/namanganda-talim-tizimi-mansabdori-tezkor-tadbirda-qolga-olindi-c0ea67",
       "urlB": "https://kun.uz/ru/news/2026/06/15/v-namangane-pri-poluchenii-vzyatki-zaderjan-chinovnik-sistemy-obrazovaniya-7a43f7",
       "titleA": "Namanganda ta’lim tizimi mansabdori tezkor tadbirda qo‘lga olindi",
       "titleB": "В Намангане при получении взятки задержан чиновник системы образования",
       "score": 0.547,
       "hours": 0.69
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/02/14-mlrd-somni-talon-toroj-qilgan-guruh-fosh-etildi-b361e1",
+      "urlB": "https://kun.uz/ru/news/2026/07/02/v-karakalpakstane-raskryta-gruppa-poxitivshaya-14-mlrd-sumov-c985b2",
+      "titleA": "1,4 mlrd so‘mni talon-toroj qilgan guruh fosh etildi",
+      "titleB": "В Каракалпакстане раскрыта группа, похитившая 1,4 млрд сумов",
+      "score": 0.547,
+      "hours": 4.68
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/30/doniyor-turgunov-ustidan-sud-boshlandi-avtomobilni-olib-qochish-moddasi-ayblovdan-chiqarilgan",
+      "urlB": "https://kun.uz/ru/news/2026/06/30/nachalsya-sud-nad-doniyorom-turgunovym-statya-ob-ugone-avtomobilya-isklyuchena-iz-obvineniya-acbf42",
+      "titleA": "Doniyor Turg‘unov ustidan sud boshlandi: avtomobilni olib qochish moddasi ayblovdan chiqarilgan",
+      "titleB": "Начался суд над Дониёром Тургуновым: статья об угоне автомобиля исключена из обвинения",
+      "score": 0.547,
+      "hours": 0.71
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/25/ozbekistonliklar-eng-kop-qozogiston-va-rossiyaga-kochib-ketmoqda-7c8a9b",
+      "urlB": "https://kun.uz/ru/news/2026/05/25/chislo-grajdan-vyyexavshix-iz-uzbekistana-za-rubej-na-pmj-snizilos-na-41-fdc4e3",
+      "titleA": "O‘zbekistonliklar eng ko‘p Qozog‘iston va Rossiyaga ko‘chib ketmoqda",
+      "titleB": "Число граждан, выехавших из Узбекистана за рубеж на ПМЖ, снизилось на 4,1%",
+      "score": 0.547,
+      "hours": 2.37
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/22/davaktiv-sobiq-rahbari-akmalxon-ortiqovga-nisbatan-jinoyat-ishi-sudga-oshirildi",
+      "urlB": "https://kun.uz/ru/news/2026/07/22/ugolovnoye-delo-byvshego-glavy-gosaktiva-akmalxona-ortikova-napravleno-v-sud",
+      "titleA": "Davaktiv sobiq rahbari Akmalxon Ortiqovga nisbatan jinoyat ishi sudga oshirildi",
+      "titleB": "Уголовное дело бывшего главы Госактива Акмалхона Ортикова направлено в суд",
+      "score": 0.546,
+      "hours": 1.75
     },
     {
       "langA": "uz",
@@ -246,6 +466,16 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/30/germaniyadagi-qonli-hujumda-olti-kishi-halok-boldi-c1e19d",
+      "urlB": "https://kun.uz/ru/news/2026/06/30/v-iyule-v-uzbekistane-ojidayetsya-silnaya-jara-31dc62",
+      "titleA": "Germaniyadagi qonli hujumda olti kishi halok bo‘ldi",
+      "titleB": "В июле в Узбекистане ожидается сильная жара",
+      "score": 0.545,
+      "hours": 1.08
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/05/15/hokimiyat-shafeligida-qurilgan-uylar-bitmay-turib-buziladigan-boldi-hokimga-ishonganlar-holi-ne-kechadi",
       "urlB": "https://kun.uz/ru/news/2026/05/15/%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%BE%D1%80-%D0%B2-%D1%82%D1%8E%D1%80%D1%8C%D0%BC%D0%B5-%D0%B4%D0%BE%D0%BC%D0%B0--%D0%BF%D0%BE%D0%B4-%D1%81%D0%BD%D0%BE%D1%81-%D0%BA%D0%B0%D0%BA-%D0%B1%D1%8B%D1%82%D1%8C-%D1%82%D0%B5%D0%BC-%D0%BA%D1%82%D0%BE-%D0%BF%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D0%BB-%D1%85%D0%BE%D0%BA%D0%B8%D0%BC%D1%83-4cf230",
       "titleA": "Hokimiyat shafeligida qurilgan uylar bitmay turib buziladigan bo‘ldi. Hokimga ishonganlar holi ne kechadi?",
@@ -266,6 +496,16 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/20/ozgidromet-ayrim-hududlarda-sel-va-suv-toshqini-xavfidan-ogohlantirdi",
+      "urlB": "https://kun.uz/ru/news/2026/07/20/v-uzgidromete-predupredili-ob-opasnosti-seley-i-pavodkov",
+      "titleA": "O‘zgidromet ayrim hududlarda sel va suv toshqini xavfidan ogohlantirdi",
+      "titleB": "В Узгидромете предупредили об опасности селей и паводков",
+      "score": 0.544,
+      "hours": 1.43
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/07/13/yhxb-eng-kop-uchrayotgan-qoidabuzarliklar-malum-qilindi-d3df07",
       "urlB": "https://kun.uz/ru/news/2026/07/13/v-sbdd-nazvali-samyye-chastyye-narusheniya-pravil-dorojnogo-dvijyeniya-a072d7",
       "titleA": "YHXB: eng ko‘p uchrayotgan qoidabuzarliklar ma’lum qilindi",
@@ -276,12 +516,32 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/01/qirgiziston-650-kg-kolbasa-mahsulotlarini-ozbekistonga-qaytarib-yubordi-3c8544",
+      "urlB": "https://kun.uz/ru/news/2026/07/01/v-kyrgyzstan-ne-propustili-partiyu-kolbasnyx-izdeliy-iz-uzbekistana-3f1cf5",
+      "titleA": "Qirg‘iziston 650 kg kolbasa mahsulotlarini O‘zbekistonga qaytarib yubordi",
+      "titleB": "В Кыргызстан не пропустили партию колбасных изделий из Узбекистана",
+      "score": 0.543,
+      "hours": 1.56
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/07/15/qashqadaryoda-ham-jazirama-sabab-ogir-yuk-avtomobillari-harakati-vaqtincha-cheklanadi",
       "urlB": "https://kun.uz/ru/news/2026/07/15/v-kashkadare-iz-za-jary-takjye-vremenno-ogranichat-dvijyeniye-bolshegruzov-a1c894",
       "titleA": "Qashqadaryoda ham jazirama sabab og‘ir yuk avtomobillari harakati vaqtincha cheklanadi",
       "titleB": "В Кашкадарье из-за жары также временно ограничат движение большегрузов",
       "score": 0.543,
       "hours": 1.65
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/22/samarqandda-ypx-avtomobili-yolovchini-urib-ketdi-yolovchi-halok-bolgan",
+      "urlB": "https://kun.uz/ru/news/2026/07/22/slujyebnyy-avtomobil-dps-nasmert-sbil-peshexoda-v-samarkande",
+      "titleA": "Samarqandda YPX avtomobili piyodani urib ketdi",
+      "titleB": "Служебный автомобиль ДПС насмерть сбил пешехода в Самарканде",
+      "score": 0.543,
+      "hours": 1.67
     },
     {
       "langA": "uz",
@@ -312,6 +572,16 @@
       "titleB": "Пресечена деятельность группы, занимавшейся контрабандой наркотиков через границу",
       "score": 0.543,
       "hours": 1.72
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/02/mustaqillik-shohkochasining-bir-qismi-13-iyulgacha-yopiladi-2b833f",
+      "urlB": "https://kun.uz/ru/news/2026/07/02/dvijyeniye-transporta-na-prospekte-mustakillik-vremenno-ogranichat-388813",
+      "titleA": "Mustaqillik shohko‘chasining bir qismi 13 iyulgacha yopiladi",
+      "titleB": "Движение транспорта на проспекте Мустакиллик временно ограничат",
+      "score": 0.543,
+      "hours": 3.34
     },
     {
       "langA": "uz",
@@ -392,6 +662,26 @@
       "titleB": "Кто такой коррупционер? Антикоррупционное агентство составило новый портрет",
       "score": 0.541,
       "hours": 3.91
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/21/jizzaxdagi-suniy-hovuzda-uch-nafar-qiz-chokib-ketdi",
+      "urlB": "https://kun.uz/ru/news/2026/07/21/v-djizakskoy-oblasti-utonuli-tri-devushki-podrostka",
+      "titleA": "Jizzaxdagi sun’iy hovuzda uch nafar qiz cho‘kib ketdi",
+      "titleB": "В Джизакской области утонули три девушки-подростка",
+      "score": 0.541,
+      "hours": 2.07
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/26/toshkentda-uy-savdosi-bilan-bogliq-mojaro-tergov-qilinmoqda-6bd1f7",
+      "urlB": "https://kun.uz/ru/news/2026/05/26/v-tashkente-rassleduyut-delo-o-moshennichestve-pri-prodajye-doma-303e25",
+      "titleA": "Toshkentda uy savdosi bilan bog‘liq mojaro tergov qilinmoqda",
+      "titleB": "В Ташкенте расследуют дело о мошенничестве при продаже дома",
+      "score": 0.541,
+      "hours": 2.1
     },
     {
       "langA": "uz",
@@ -486,12 +776,72 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/13/ipo-yakunlari-milliy-investitsiya-jamgarmasining-31-foizi-6036-mln-dollarga-sotildi",
+      "urlB": "https://kun.uz/ru/news/2026/05/13/%D0%B8%D1%82%D0%BE%D0%B3%D0%B8-ipo-31-%D0%B0%D0%BA%D1%86%D0%B8%D0%B9-%D0%BD%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D1%84%D0%BE%D0%BD%D0%B4%D0%B0-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%BD-%D0%B7%D0%B0-6036-%D0%BC%D0%BB%D0%BD-%D0%B4%D0%BE%D0%BB%D0%BB%D0%B0%D1%80%D0%BE%D0%B2-66bb72",
+      "titleA": "IPO yakunlari: Milliy investitsiya jamg‘armasining 31 foizi 603,6 mln dollarga sotildi",
+      "titleB": "Итоги IPO: 31% акций Национального инвестфонда продан за 603,6 млн долларов",
+      "score": 0.536,
+      "hours": 3.36
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/01/eldor-shomurodovning-goli-jch-2026-guruh-bosqichidagi-eng-chiroyli-deb-topildi-239d85",
+      "urlB": "https://kun.uz/ru/news/2026/07/01/gol-eldora-shomurodova-priznan-luchshim-na-gruppovom-etape-chm-2026-08cfa2",
+      "titleA": "Eldor Shomurodovning goli JCh–2026 guruh bosqichidagi eng chiroyli deb topildi",
+      "titleB": "Гол Элдора Шомуродова признан лучшим на групповом этапе ЧМ-2026",
+      "score": 0.535,
+      "hours": 9.42
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/01/qashqadaryoda-14-yoshli-qizni-zorlaganlikda-gumonlanib-4-kishi-qolga-olindi-0fe3df",
+      "urlB": "https://kun.uz/ru/news/2026/07/01/v-kashkadare-zaderjany-chetvero-podozrevayemyx-v-iznasilovanii-14-letney-devochki-f70ca2",
+      "titleA": "Qashqadaryoda 14 yoshli qizni zo‘rlaganlikda gumonlanib 4 kishi qo‘lga olindi",
+      "titleB": "В Кашкадарье задержаны четверо подозреваемых в изнасиловании 14-летней девочки",
+      "score": 0.535,
+      "hours": 3.58
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/14/toshkent-viloyati-bogchalaridagi-ommaviy-zaharlanishda-11-kishi-aybdor-deb-topildi-2e3d04",
+      "urlB": "https://kun.uz/ru/news/2026/07/14/v-massovom-otravlenii-v-detskix-sadax-tashkenskoy-oblasti-priznany-vinovnymi-11-chelovek-e7559f",
+      "titleA": "Toshkent viloyati bog‘chalaridagi ommaviy zaharlanishda 11 kishi aybdor deb topildi",
+      "titleB": "В массовом отравлении в детских садах Ташкентской области признаны виновными 11 человек",
+      "score": 0.535,
+      "hours": 2.79
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/06/19/ozbekistonning-9-viloyatida-sel-xavfi-elon-qilindi-9c7cf0",
       "urlB": "https://kun.uz/ru/news/2026/06/19/selevaya-opasnost-obyavlena-v-devyati-oblastyax-uzbekistana-aaea5f",
       "titleA": "O‘zbekistonning 9 viloyatida sel xavfi e’lon qilindi",
       "titleB": "Селевая опасность объявлена в девяти областях Узбекистана",
       "score": 0.535,
       "hours": 3.69
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/27/1-iyundan-komir-narxini-davlat-tomonidan-belgilash-amaliyoti-bekor-qilinadi-5ebe79",
+      "urlB": "https://kun.uz/ru/news/2026/05/26/sbornaya-uzbekistana-vyletela-v-ssha-dlya-uchastiya-v-pervom-v-svoyey-istorii-chempionate-mira-67f81c",
+      "titleA": "1 iyundan ko‘mir narxini davlat tomonidan belgilash amaliyoti bekor qilinadi",
+      "titleB": "Сборная Узбекистана вылетела в США для участия в первом в своей истории чемпионате мира",
+      "score": 0.535,
+      "hours": 3.69
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/02/germaniyaga-ishga-yuborishni-vada-qilgan-shaxs-ushlandi-9217d6",
+      "urlB": "https://kun.uz/ru/news/2026/07/02/jitelya-buxarskoy-oblasti-podozrevayut-v-moshennichestve-pod-predlogom-trudoustroystva-v-germanii-937132",
+      "titleA": "Germaniyaga ishga yuborishni va’da qilgan shaxs ushlandi",
+      "titleB": "Жителя Бухарской области подозревают в мошенничестве под предлогом трудоустройства в Германии",
+      "score": 0.535,
+      "hours": 3.7
     },
     {
       "langA": "uz",
@@ -516,22 +866,12 @@
     {
       "langA": "uz",
       "langB": "ru",
-      "urlA": "https://kun.uz/news/2026/05/13/ipo-yakunlari-milliy-investitsiya-jamgarmasining-31-foizi-6036-mln-dollarga-sotildi",
-      "urlB": "https://kun.uz/ru/news/2026/05/13/%D0%B8%D1%82%D0%BE%D0%B3%D0%B8-ipo-31-%D0%B0%D0%BA%D1%86%D0%B8%D0%B9-%D0%BD%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D1%84%D0%BE%D0%BD%D0%B4%D0%B0-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%BD-%D0%B7%D0%B0-6036-%D0%BC%D0%BB%D0%BD-%D0%B4%D0%BE%D0%BB%D0%BB%D0%B0%D1%80%D0%BE%D0%B2-66bb72",
-      "titleA": "IPO yakunlari: Milliy investitsiya jamg‘armasining 31 foizi 603,6 mln dollarga sotildi",
-      "titleB": "Итоги IPO: 31% акций Национального инвестфонда продан за 603,6 млн долларов",
+      "urlA": "https://kun.uz/news/2026/07/03/pxuketda-ikki-ozbekistonlik-ushlandi-062a4a",
+      "urlB": "https://kun.uz/ru/news/2026/07/03/na-pxukete-zaderjany-dvoye-uzbekistansev-s-26-kg-kannabisa-5af9b4",
+      "titleA": "Pxuketda ikki o‘zbekistonlik ushlandi",
+      "titleB": "На Пхукете задержаны двое узбекистанцев с 26 кг каннабиса",
       "score": 0.532,
-      "hours": 3.36
-    },
-    {
-      "langA": "uz",
-      "langB": "ru",
-      "urlA": "https://kun.uz/news/2026/07/14/toshkent-viloyati-bogchalaridagi-ommaviy-zaharlanishda-11-kishi-aybdor-deb-topildi-2e3d04",
-      "urlB": "https://kun.uz/ru/news/2026/07/14/v-massovom-otravlenii-v-detskix-sadax-tashkenskoy-oblasti-priznany-vinovnymi-11-chelovek-e7559f",
-      "titleA": "Toshkent viloyati bog‘chalaridagi ommaviy zaharlanishda 11 kishi aybdor deb topildi",
-      "titleB": "В массовом отравлении в детских садах Ташкентской области признаны виновными 11 человек",
-      "score": 0.531,
-      "hours": 2.79
+      "hours": 4.3
     },
     {
       "langA": "uz",
@@ -556,6 +896,26 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/23/toshkentda-zakladka-usulida-narkotik-tarqatgan-xorijliklar-qolga-olindi",
+      "urlB": "https://kun.uz/ru/news/2026/07/23/v-tashkente-zaderjany-inostransy-rasprostranyavshiye-narkotiki-cherez-zakladki",
+      "titleA": "Toshkentda «zakladka» usulida narkotik tarqatgan xorijliklar qo‘lga olindi",
+      "titleB": "В Ташкенте задержаны иностранцы, распространявшие наркотики через «закладки»",
+      "score": 0.53,
+      "hours": 4.73
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/20/3-mingdan-ortiq-soxta-chek-jizzaxda-yirik-firibgarlik-fosh-etildi",
+      "urlB": "https://kun.uz/ru/news/2026/07/20/vyyavleno-krupnoye-moshennichestvo-s-falshivymi-chekami-na-19-mlrd-sumov",
+      "titleA": "3 mingdan ortiq soxta chek: Jizzaxda yirik firibgarlik fosh etildi",
+      "titleB": "Выявлено крупное мошенничество с фальшивыми чеками на 1,9 млрд сумов",
+      "score": 0.53,
+      "hours": 5.97
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/07/17/jaziramada-konditsionersiz-qanday-yashash-haqida-10-ta-foydali-maslahat-496ec1",
       "urlB": "https://kun.uz/ru/news/2026/07/16/maxallinskiye-semyorki-poluchat-granty-po-10-mln-sumov-na-initsiativnyye-proyekty-141dbb",
       "titleA": "Jaziramada konditsionersiz qanday yashash haqida 10 ta foydali maslahat",
@@ -576,12 +936,42 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/27/afrikadagilar-ebola-bezgagi-tarqalishini-jilovlay-olmayapti",
+      "urlB": "https://kun.uz/ru/news/2026/05/26/v-irane-predupredili-o-vozmojnom-roste-tsen-na-neft-do-200-za-barrel-24e47e",
+      "titleA": "Afrikadagilar Ebola bezgagi tarqalishini jilovlay olmayapti",
+      "titleB": "В Иране предупредили о возможном росте цен на нефть до $200 за баррель",
+      "score": 0.523,
+      "hours": 6.48
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/24/keng-kolamli-blekaut-gurjiston-va-abxaziya-elektrsiz-qoldi",
+      "urlB": "https://kun.uz/ru/news/2026/07/24/nochnyye-insidenty-s-uchastiyem-bpla-na-obyektax-wildberries-v-peterburge-i-simferopole",
+      "titleA": "Keng ko‘lamli blekaut: Gurjiston va Abxaziya elektrsiz qoldi",
+      "titleB": "Ночные инциденты с участием БПЛА на объектах Wildberries в Петербурге и Симферополе",
+      "score": 0.523,
+      "hours": 6.52
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/07/13/atamalar-komissiyasi-yangi-soz-va-atamalar-royxatini-elon-qildi-c674e1",
       "urlB": "https://kun.uz/ru/news/2026/07/13/komissiya-po-terminam-opublikovala-novyy-spisok-slov-i-terminov-vvodimyx-v-ofitsialnyy-oborot-e8a7a7",
       "titleA": "Atamalar komissiyasi yangi so‘z va atamalar ro‘yxatini e’lon qildi",
       "titleB": "Комиссия по терминам опубликовала новый список слов и терминов, вводимых в официальный оборот",
       "score": 0.522,
       "hours": 13.67
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/22/bu-vaqtinchalik-chora-edi-dilshod-sultonov-1-foizlik-soliq-keshbekini-tezroq-bekor-qilishga-chaqirdi",
+      "urlB": "https://kun.uz/ru/news/2026/07/22/eto-byla-vremennaya-mera-dilshod-sultonov-prizval-bystreye-otmenit-1-protsentnyy-nalogovyy-keshbek",
+      "titleA": "“Bu vaqtinchalik chora edi” - Dilshod Sultonov 1 foizlik soliq keshbekini tezroq bekor qilishga chaqirdi",
+      "titleB": "«Это была временная мера» — Дилшод Султонов призвал быстрее отменить 1-процентный налоговый кешбэк",
+      "score": 0.522,
+      "hours": 1.98
     },
     {
       "langA": "uz",
@@ -616,6 +1006,16 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/26/tadbirkorlar-uchun-yangi-raqamli-moliyaviy-tizim-taklif-qilindi-11bd64",
+      "urlB": "https://kun.uz/ru/news/2026/05/26/predlojyena-novaya-tsifrovaya-finansovaya-sistema-dlya-predprinimateley-447750",
+      "titleA": "Tadbirkorlar uchun yangi raqamli moliyaviy tizim taklif qilindi",
+      "titleB": "Предложена новая цифровая финансовая система для предпринимателей",
+      "score": 0.514,
+      "hours": 11.75
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/05/15/bunyodkor-rivaldo-mojarosi-vaziyat-jiddiylashdi",
       "urlB": "https://kun.uz/ru/news/2026/05/15/%D0%B1%D1%83%D0%BD%D1%91%D0%B4%D0%BA%D0%BE%D1%80--%D1%80%D0%B8%D0%B2%D0%B0%D0%BB%D0%B4%D0%BE-%D0%BA%D0%BE%D0%BD%D1%84%D0%BB%D0%B8%D0%BA%D1%82-%D0%BE%D0%B1%D0%BE%D1%81%D1%82%D1%80%D0%B8%D0%BB%D1%81%D1%8F-ef50a4",
       "titleA": "«Bunyodkor» – Rivaldo mojarosi. Shartnoma yana buzildi",
@@ -626,12 +1026,82 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/25/ozbekiston-milliy-terma-jamoasining-jahon-chempionatida-ishtirok-etuvchi-tarkibi-elon-qilindi",
+      "urlB": "https://kun.uz/ru/news/2026/05/25/obyavlen-sostav-sbornoy-uzbekistana-dlya-uchastiya-v-chempionate-mira-be6df7",
+      "titleA": "O‘zbekiston milliy jamoasining AQShga yo‘l olgan tarkibi e’lon qilindi",
+      "titleB": "Объявлен состав сборной Узбекистана для участия в чемпионате мира",
+      "score": 0.511,
+      "hours": 9.38
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/05/16/olmaliqda-mototsiklchi-14-yoshli-piyodani-urib-yubordi",
       "urlB": "https://kun.uz/ru/news/2026/05/16/%D0%B2-%D0%B0%D0%BB%D0%BC%D0%B0%D0%BB%D1%8B%D0%BA%D0%B5-%D0%BC%D0%BE%D1%82%D0%BE%D1%86%D0%B8%D0%BA%D0%BB%D0%B8%D1%81%D1%82-%D1%81%D0%B1%D0%B8%D0%BB-14-%D0%BB%D0%B5%D1%82%D0%BD%D0%B5%D0%B3%D0%BE-%D0%BF%D0%B5%D1%88%D0%B5%D1%85%D0%BE%D0%B4%D0%B0-aa1a76",
       "titleA": "Olmaliqda mototsiklchi 14 yoshli piyodani urib yubordi",
       "titleB": "В Алмалыке мотоциклист сбил 14-летнего пешехода",
       "score": 0.51,
       "hours": 9.67
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/25/navoiyda-damasda-17-nafar-bolani-olib-ketayottan-haydovchi-ushlandi",
+      "urlB": "https://kun.uz/ru/news/2026/07/26/proverki-xokimov-pensionnyye-izmeneniya-otmena-keshbeka-i-platnyye-dorogi-novosti-nedeli",
+      "titleA": "Navoiyda Damas’da 17 nafar bolani olib ketayotgan haydovchi ushlandi",
+      "titleB": "Проверки хокимов, пенсионные изменения, отмена кешбэка и платные дороги — новости недели",
+      "score": 0.507,
+      "hours": 10.3
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/20/ukraina-yana-moskva-oblastiga-zarba-berdi",
+      "urlB": "https://kun.uz/ru/news/2026/07/20/dlya-teplits-v-tashkente-i-yego-okrestnostyax-nalogi-na-imushchestvo-i-zemlyu-mogut-uvelichit-v-10-raz",
+      "titleA": "Ukraina yana Moskva oblastiga zarba berdi",
+      "titleB": "Для теплиц в Ташкенте и его окрестностях налоги на имущество и землю могут увеличить в 10 раз",
+      "score": 0.507,
+      "hours": 10.35
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/26/qurbon-hayiti-namozining-oqilish-vaqtlari-elon-qilindi-584723",
+      "urlB": "https://kun.uz/ru/news/2026/05/26/obyavleno-vremya-soversheniya-prazdnichnogo-namaza-kurban-xayit-6c418a",
+      "titleA": "Qurbon hayiti namozining o‘qilish vaqtlari e’lon qilindi",
+      "titleB": "Объявлено время совершения праздничного намаза Курбан хайит",
+      "score": 0.505,
+      "hours": 10.69
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/20/soxta-prokurorlik-guvohnomasi-bilan-yurgan-yigit-ushlandi",
+      "urlB": "https://kun.uz/ru/news/2026/07/21/zaderjan-molodoy-chelovek-s-poddelnym-udostovereniyem-prokuratury",
+      "titleA": "Soxta prokurorlik guvohnomasi bilan yurgan yigit ushlandi",
+      "titleB": "Задержан молодой человек с поддельным удостоверением прокуратуры",
+      "score": 0.505,
+      "hours": 10.75
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/20/koprik-qurilishi-sabab-toshkentda-bir-qator-yollar-yopiladi",
+      "urlB": "https://kun.uz/ru/news/2026/07/20/iz-za-stroitelstva-mosta-v-tashkente-zakroyut-ryad-dorog",
+      "titleA": "Ko‘prik qurilishi sabab Toshkentda bir qator yo‘llar yopiladi",
+      "titleB": "Из-за строительства моста в Ташкенте закроют ряд дорог",
+      "score": 0.504,
+      "hours": 11.02
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/24/iiv-elektron-rozilik-berish-platformasini-ishga-tushirishni-rejalashtirmoqda",
+      "urlB": "https://kun.uz/ru/news/2026/07/25/mvd-planiruyet-zapustit-platformu-dlya-elektronnogo-soglasiya",
+      "titleA": "IIV elektron rozilik berish platformasini ishga tushirishni rejalashtirmoqda",
+      "titleB": "МВД планирует запустить платформу для электронного согласия",
+      "score": 0.504,
+      "hours": 11.15
     },
     {
       "langA": "uz",
@@ -666,22 +1136,42 @@
     {
       "langA": "uz",
       "langB": "ru",
-      "urlA": "https://kun.uz/news/2026/07/16/mahallada-ishni-togri-tashkil-qilmagan-152-nafar-rahbar-ishdan-olindi-b7f072",
-      "urlB": "https://kun.uz/ru/news/2026/07/16/za-neorganizovannuyu-rabotu-v-maxallyax-uvoleny-152-rukovoditelya-6bb5f7",
-      "titleA": "Mahallada ishni to‘g‘ri tashkil qilmagan 152 nafar rahbar ishdan olindi",
-      "titleB": "За неорганизованную работу в махаллях уволены 152 руководителя",
-      "score": 0.498,
-      "hours": 0.44
-    },
-    {
-      "langA": "uz",
-      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/06/16/pul-kredit-siyosati-transmissiyasining-davlat-banklari-ulushiga-bogliqligini-kamaytiramiz-ishmetov-16bf6f",
       "urlB": "https://kun.uz/ru/news/2026/06/17/predprimem-mery-po-povysheniyu-deystvennosti-osnovnoy-stavki-ishmetov-80c0e7",
       "titleA": "“Asosiy stavka ta’sirchanligini oshirish choralarini ko‘ramiz” – Ishmetov",
       "titleB": "«Предпримем меры по повышению действенности основной ставки» — Ишметов",
       "score": 0.498,
       "hours": 17.98
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/16/mahallada-ishni-togri-tashkil-qilmagan-152-nafar-rahbar-ishdan-olindi-b7f072",
+      "urlB": "https://kun.uz/ru/news/2026/07/16/za-neorganizovannuyu-rabotu-v-maxallyax-uvoleny-152-rukovoditelya-6bb5f7",
+      "titleA": "Mahallada ishni to‘g‘ri tashkil qilmagan 152 nafar rahbar ishdan olindi",
+      "titleB": "За неорганизованную работу в махаллях уволены 152 руководителя",
+      "score": 0.497,
+      "hours": 0.44
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/21/shavkat-mirziyoyev-gosht-narxi-oshgani-haqida-gapirdi",
+      "urlB": "https://kun.uz/ru/news/2026/07/22/prezident-poruchil-zavezti-250-tysyach-golov-skota",
+      "titleA": "Shavkat Mirziyoyev go‘sht narxi oshgani haqida gapirdi",
+      "titleB": "Президент поручил завезти 250 тысяч голов скота",
+      "score": 0.497,
+      "hours": 13.77
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/23/ikkita-muzeyda-500dan-ortiq-eksponatlar-yoqligi-malum-boldi",
+      "urlB": "https://kun.uz/ru/news/2026/07/24/v-dvux-muzeyax-obnarujyena-propaja-boleye-500-eksponatov",
+      "titleA": "Ikkita muzeyda 500dan ortiq eksponatlar yo‘qligi ma’lum bo‘ldi",
+      "titleB": "В двух музеях обнаружена пропажа более 500 экспонатов",
+      "score": 0.496,
+      "hours": 12.9
     },
     {
       "langA": "uz",
@@ -706,6 +1196,16 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/30/ozbekiston-va-qozogiston-ortasida-savdo-iqtisodiy-hamkorlik-boyicha-yol-xaritasi-imzolandi-4b7b5a",
+      "urlB": "https://kun.uz/ru/news/2026/05/30/uzbekistan-i-kazaxstan-podpisali-dorojnu-kartu-po-torgovo-ekonomicheskomu-sotrudnichestvu-1bd63f",
+      "titleA": "O‘zbekiston va Qozog‘iston o‘rtasida savdo-iqtisodiy hamkorlik bo‘yicha «yo‘l xaritasi» imzolandi",
+      "titleB": "Узбекистан и Казахстан подписали «дорожну карту» по торгово-экономическому сотрудничеству",
+      "score": 0.496,
+      "hours": 13.04
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/06/15/turkiyaning-zilziladan-jabrlangan-hatay-viloyatida-ozbekiston-mahallasi-ochildi-63fe91",
       "urlB": "https://kun.uz/ru/news/2026/06/16/v-turetskoy-provinsii-xatay-postradavshey-ot-zemletryaseniya-otkryta-uzbekistanskaya-maxallya-4b66a1",
       "titleA": "Turkiyaning zilziladan jabrlangan Hatay viloyatida O‘zbekiston mahallasi ochildi",
@@ -726,12 +1226,52 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/21/oliy-darajali-tashriflar-doirasida-213-mlrd-dollarlik-kelishuvlar-bolgani-aytildi",
+      "urlB": "https://kun.uz/ru/news/2026/07/22/saide-mirziyoyevoy-porucheno-proanalizirovat-rabotu-diplomaticheskix-predstavitelstv",
+      "titleA": "Saida Mirziyoyevaga diplomatik vakolatxonalarning ishini tahlil qilish vazifasi topshirildi",
+      "titleB": "Саиде Мирзиёевой поручено проанализировать работу дипломатических представительств",
+      "score": 0.494,
+      "hours": 14.25
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/26/songgi-qongiroq-tadbirlarida-238-nafar-oquvchi-mashina-boshqarayotganida-ushlandi-357ffc",
+      "urlB": "https://kun.uz/ru/news/2026/05/26/na-meropriyatiyax-poslednego-zvonka-vyyavleny-238-shkolnikov-upravlyavshix-avtomobilyami-467dbf",
+      "titleA": "«So‘nggi qo‘ng‘iroq» tadbirlarida 238 nafar o‘quvchi mashina boshqarayotganida ushlandi",
+      "titleB": "На мероприятиях «Последнего звонка» выявлены 238 школьников, управлявших автомобилями",
+      "score": 0.494,
+      "hours": 13.45
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/25/chet-elliklar-ozbekistonda-maxsus-soliq-rejimiga-otish-uchun-50-ming-dollar-tolaydi",
+      "urlB": "https://kun.uz/ru/news/2026/05/25/inostransy-zaplatyat-50-tysyach-dollarov-za-perexod-na-spetsialnyy-nalogovyy-rejim-v-uzbekistane-1a9904",
+      "titleA": "Chet elliklar O‘zbekistonda maxsus soliq rejimiga o‘tish uchun 50 ming dollar to‘laydi",
+      "titleB": "Иностранцы заплатят 50 тысяч долларов за переход на специальный налоговый режим в Узбекистане",
+      "score": 0.492,
+      "hours": 13.8
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/06/16/xorijdagi-biznesga-200-ming-dollargacha-investitsiya-kiritishga-ruxsat-berildi-ff3978",
       "urlB": "https://kun.uz/ru/news/2026/06/16/predprinimatelyam-razreshili-investirovat-do-200-tysyach-dollarov-v-zarubejnyy-biznes-edf700",
       "titleA": "Xorijdagi biznesga 200 ming dollargacha investitsiya kiritishga ruxsat berildi",
       "titleB": "Предпринимателям разрешили инвестировать до 200 тысяч долларов в зарубежный бизнес",
       "score": 0.492,
       "hours": 13.86
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/01/farhod-avtoehtiyot-qismlar-bozoridagi-jinoiy-guruh-azolariga-hukm-oqildi",
+      "urlB": "https://kun.uz/ru/news/2026/07/01/v-tashkente-vynesen-prigovor-uchastnikam-prestupnoy-gruppy-orudovavshey-na-rynke-avtozapchastey-farx-70ea1f",
+      "titleA": "“Farhod” avtoehtiyot qismlar bozoridagi jinoiy guruh a’zolariga hukm o‘qildi",
+      "titleB": "В Ташкенте вынесен приговор участникам преступной группы, орудовавшей на рынке автозапчастей «Фархад»",
+      "score": 0.492,
+      "hours": 13.9
     },
     {
       "langA": "uz",
@@ -746,12 +1286,72 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/25/oquvchilarni-bir-maktabdan-boshqasiga-kochirish-boyicha-davlat-xizmati-vaqtinchalik-toxtatiladi",
+      "urlB": "https://kun.uz/ru/news/2026/05/25/gosusluga-po-perevodu-uchenikov-iz-odnoy-shkoly-v-druguyu-priostanavlivayetsya-9c37ee",
+      "titleA": "O‘quvchilarni bir maktabdan boshqasiga ko‘chirish bo‘yicha davlat xizmati vaqtinchalik to‘xtatiladi",
+      "titleB": "Госуслуга по переводу учеников из одной школы в другую приостанавливается",
+      "score": 0.49,
+      "hours": 14.45
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/04/sergelida-hayot-qaynayapti-tumanda-aholi-soni-aslida-30-foizga-koproqligi-malum-boldi-fa4dc0",
+      "urlB": "https://kun.uz/ru/news/2026/07/04/v-sergeli-jizn-kipit-fakticheski-naseleniye-rayona-okazalos-na-30-bolshe-7dc1b2",
+      "titleA": "“Sergelida hayot qaynayapti” - tumanda aholi soni aslida 30 foizga ko‘proqligi ma’lum bo‘ldi",
+      "titleB": "В Сергели «жизнь кипит» — фактически население района оказалось на 30 % больше",
+      "score": 0.489,
+      "hours": 1.7
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/24/buxoro-shahrining-bosh-rejasi-tasdiqlandi",
+      "urlB": "https://kun.uz/ru/news/2026/07/25/utverjdyon-generalnyy-plan-buxary",
+      "titleA": "Buxoro shahrining bosh rejasi tasdiqlandi",
+      "titleB": "Утверждён генеральный план Бухары",
+      "score": 0.488,
+      "hours": 14.98
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/23/fuqaroni-55-ming-dollar-evaziga-koreyaga-ishga-yuborishni-vada-qilgan-shaxslar-ushlandi",
+      "urlB": "https://kun.uz/ru/news/2026/07/24/zaderjany-litsa-obeshchavshiye-otpravit-grajdanina-na-rabotu-v-koreyu-za-55-tysyach-dollarov",
+      "titleA": "Fuqaroni 55 ming dollar evaziga Koreyaga ishga yuborishni va’da qilgan shaxslar ushlandi",
+      "titleB": "Задержаны лица, обещавшие отправить гражданина на работу в Корею за 55 тысяч долларов",
+      "score": 0.487,
+      "hours": 15.13
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/07/13/dorixonalarda-referent-narxlarga-qanchalik-amal-qilinyapti",
       "urlB": "https://kun.uz/ru/news/2026/07/14/kak-soblyudayutsya-referentnyye-tseny-v-aptekax-53a1bd",
       "titleA": "Dorixonalarda referent narxlarga qanchalik amal qilinyapti?",
       "titleB": "Как соблюдаются референтные цены в аптеках?",
       "score": 0.485,
       "hours": 15.5
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/29/xohlagan-ekinni-ekish-mumkin-yangi-tartib-fermerga-nima-beradi-e99923",
+      "urlB": "https://kun.uz/ru/news/2026/06/29/fermery-smogut-vyrashchivat-lyubyye-kultury-chto-dayot-novyy-poryadok-9000f8",
+      "titleA": "“Xohlagan ekinni ekish mumkin” – Yangi tartib fermerga nima beradi?",
+      "titleB": "Фермеры смогут выращивать любые культуры — что даёт новый порядок?",
+      "score": 0.483,
+      "hours": 16.01
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/21/bir-yarim-mingga-yaqin-fuqaro-ozi-bexabar-holda-ishga-joylanganligidan-shikoyat-qildi",
+      "urlB": "https://kun.uz/ru/news/2026/07/22/okolo-polutora-tysyach-grajdan-pojalovalis-na-trudoustroystvo-bez-ix-vedoma",
+      "titleA": "Bir yarim mingga yaqin fuqaro o‘zi bexabar holda ishga joylanganidan shikoyat qildi",
+      "titleB": "Около полутора тысяч граждан пожаловались на трудоустройство без их ведома",
+      "score": 0.483,
+      "hours": 17.63
     },
     {
       "langA": "uz",
@@ -766,12 +1366,62 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/22/forishda-ikki-kishini-oldirgan-va-bir-kishini-toshakka-mixlagan-yth-sababchisi-ochiqda-yuribdi",
+      "urlB": "https://kun.uz/ru/news/2026/07/23/vinovnik-dtp-v-farishe-v-kotorom-pogibli-dva-cheloveka-i-odin-stal-invalidom-ostayotsya-na-svobode",
+      "titleA": "Forishda ikki kishini o‘ldirgan va bir kishini to‘shakka mixlagan YTH sababchisi ochiqda yuribdi",
+      "titleB": "Виновник ДТП в Фарише, в котором погибли два человека и один стал инвалидом, остаётся на свободе",
+      "score": 0.479,
+      "hours": 18.75
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/23/bank-tizimiga-ishonch-kamayadi-mutaxassislar-pul-otkazmalari-nazorati-haqida",
+      "urlB": "https://kun.uz/ru/news/2026/07/24/doveriye-k-bankovskoy-sisteme-snizitsya-eksperty-o-kontrole-za-denejnymi-perevodami",
+      "titleA": "“Bank tizimiga ishonch kamayadi” – mutaxassislar pul o‘tkazmalari nazorati haqida",
+      "titleB": "«Доверие к банковской системе снизится» — эксперты о контроле за денежными переводами",
+      "score": 0.478,
+      "hours": 18.1
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/06/15/rossiya-chet-el-fuqarolari-uchun-tibbiy-korik-qoidalarini-kuchaytirdi-5e061a",
       "urlB": "https://kun.uz/ru/news/2026/06/15/inostransam-v-rossii-sokratili-srok-proxojdeniya-obyazatelnogo-medosmotra-4efd6d",
       "titleA": "Rossiya chet el fuqarolari uchun tibbiy ko‘rik qoidalarini kuchaytirdi",
       "titleB": "Иностранцам в России сократили срок прохождения обязательного медосмотра",
-      "score": 0.475,
+      "score": 0.478,
       "hours": 5.18
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/19/qozogiston-qora-dengizdagi-tankerlarga-dronlar-hujumini-qoraladi",
+      "urlB": "https://kun.uz/ru/news/2026/07/20/krupnyye-kompanii-v-yevrosoyuze-ne-mogut-unichtojat-neprodannuyu-odejdu-i-obuv",
+      "titleA": "Qozog‘iston Qora dengizdagi tankerlarga dronlar hujumini qoraladi",
+      "titleB": "Крупные компании в Евросоюзе не могут уничтожать непроданную одежду и обувь",
+      "score": 0.472,
+      "hours": 18.7
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/29/avstraliya-yoli-tanlanadimi-ozbekistonda-ham-bolalarning-ijtimoiy-tarmoqlardan-foydalanishi-cheklanishi-mumkin",
+      "urlB": "https://kun.uz/ru/news/2026/06/30/deti-i-sotsseti-v-uzbekistane-mogut-prinyat-zakon-po-primeru-avstralii-443c9f",
+      "titleA": "Avstraliya yo‘li tanlanadimi? O‘zbekistonda ham bolalarning ijtimoiy tarmoqlardan foydalanishi cheklanishi mumkin",
+      "titleB": "Дети и соцсети: в Узбекистане могут принять закон по примеру Австралии",
+      "score": 0.472,
+      "hours": 18.72
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/30/jahon-banki-bilan-uzoq-muddatli-mamlakat-dasturi-ishlab-chiqiladi-37fc0c",
+      "urlB": "https://kun.uz/ru/news/2026/06/30/shavkat-mirziyoyev-vruchil-molodeji-gosudarstvennyye-nagrady-cb975e",
+      "titleA": "Jahon banki bilan uzoq muddatli Mamlakat dasturi ishlab chiqiladi",
+      "titleB": "Шавкат Мирзиёев вручил молодежи государственные награды",
+      "score": 0.466,
+      "hours": 21.1
     },
     {
       "langA": "uz",
@@ -796,12 +1446,72 @@
     {
       "langA": "uz",
       "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/28/jahon-oziq-ovqat-bozorini-qaysi-davlatlar-nazorat-qilmoqda-8cd0b7",
+      "urlB": "https://kun.uz/ru/news/2026/05/27/novyy-mir-novaya-doroga-chery-predstavit-texnologiyu-super-hybrid-v-djizake-30-maya",
+      "titleA": "Jahon oziq-ovqat bozorini qaysi davlatlar nazorat qilmoqda?",
+      "titleB": "Новый мир, новая дорога: Chery представит технологию Super Hybrid в Джизаке 30 мая",
+      "score": 0.46,
+      "hours": 21.6
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/02/zelenskiy-ogohlantirgan-hujum-amalga-oshdi-93fc79",
+      "urlB": "https://kun.uz/ru/news/2026/07/01/natsionalnaya-gvardiya-i-pentagon-obsudili-dvuxletniy-plan-sotrudnichestva-99041c",
+      "titleA": "Zelenskiy ogohlantirgan hujum amalga oshdi",
+      "titleB": "Национальная гвардия и Пентагон обсудили двухлетний план сотрудничества",
+      "score": 0.456,
+      "hours": 22.47
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/21/grin-karta-uchun-100-ming-dollarlik-garov-talab-qilinishi-mumkin-aqsh-oav",
+      "urlB": "https://kun.uz/ru/news/2026/07/22/v-tashkente-v-kanale-yukori-bozsu-utonul-chelovek",
+      "titleA": "Grin karta uchun 100 ming dollarlik garov talab qilinishi mumkin – AQSh OAV",
+      "titleB": "В Ташкенте в канале Юкори Бозсу утонул человек",
+      "score": 0.452,
+      "hours": 23.58
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/25/hayit-kuni-toshkentda-jamoat-transporti-soat-400-dan-harakatlanadi-b008c2",
+      "urlB": "https://kun.uz/ru/news/2026/05/25/v-den-prazdnika-obshchestvennyy-transport-v-tashkente-nachnyot-rabotat-s-400-12a45e",
+      "titleA": "Hayit kuni Toshkentda jamoat transporti soat 4:00 dan harakatlanadi",
+      "titleB": "В день праздника общественный транспорт в Ташкенте начнёт работать с 4:00",
+      "score": 0.446,
+      "hours": 0.59
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
       "urlA": "https://kun.uz/news/2026/05/16/dam-olish-kunlari-ozbekistonning-katta-qismida-quruq-ob-havo-saqlanib-turadi",
       "urlB": "https://kun.uz/ru/news/2026/05/15/%D0%B2%D1%8B%D1%85%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5-%D0%B2-%D1%83%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%B5-%D1%81%D1%83%D1%85%D0%BE-%D0%B8-%D0%B6%D0%B0%D1%80%D0%BA%D0%BE-%D0%BC%D0%B5%D1%81%D1%82%D0%B0%D0%BC%D0%B8-%D0%B4%D0%BE-41-a37c54",
       "titleA": "Dam olish kunlari O‘zbekistonning katta qismida quruq ob-havo saqlanib turadi",
       "titleB": "Выходные в Узбекистане: сухо и жарко, местами до +41°",
-      "score": 0.45,
+      "score": 0.446,
       "hours": 7
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/29/rossiyadan-ozbekistonga-suyultirilgan-gaz-yetkazib-berish-35-barobarga-oshdi-6a28bb",
+      "urlB": "https://kun.uz/ru/news/2026/05/30/postavki-rossiyskogo-sug-v-uzbekistan-vyrosli-v-35-raza-kommersant-aaa4fa",
+      "titleA": "Rossiyadan O‘zbekistonga suyultirilgan gaz yetkazib berish 3,5 barobarga oshdi",
+      "titleB": "Поставки российского СУГ в Узбекистан выросли в 3,5 раза — «Коммерсантъ»",
+      "score": 0.437,
+      "hours": 22.33
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/29/shvetsiya-ukrainaga-gripen-qiruvchi-samolyotlarini-beradi-322ec0",
+      "urlB": "https://kun.uz/ru/news/2026/05/29/ukraina-poluchit-ot-shvetsii-16-istrebiteley-gripen-71501a",
+      "titleA": "Shvetsiya Ukrainaga Gripen qiruvchi samolyotlarini beradi",
+      "titleB": "Украина получит от Швеции 16 истребителей Gripen",
+      "score": 0.433,
+      "hours": 1.4
     },
     {
       "langA": "uz",
@@ -810,8 +1520,48 @@
       "urlB": "https://kun.uz/ru/news/2026/05/14/%D0%BF%D0%B5%D1%80%D0%B2%D0%BE%D0%B3%D0%BE-%D0%BE%D1%82%D0%B5%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B0-%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D1%83%D1%8E%D1%82-%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D0%B2-%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D1%81-%D0%B2-2028-%D0%B3%D0%BE%D0%B4%D1%83-850e81",
       "titleA": "O‘zbekistonning ilk kosmonavti 2028 yilda koinotga uchiriladi",
       "titleB": "Первого отечественного космонавта планируют отправить в космос в 2028 году",
-      "score": 0.422,
+      "score": 0.424,
       "hours": 9.92
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/25/hafta-davomida-harorat-kotarila-boshlaydi",
+      "urlB": "https://kun.uz/ru/news/2026/05/25/prognoz-pogody-na-blijayshiye-dni-dojdi-smenyatsya-jaroy-do-38-gradusov-c62367",
+      "titleA": "Hafta davomida harorat ko‘tarila boshlaydi",
+      "titleB": "Прогноз погоды на ближайшие дни: дожди сменятся жарой до +38 градусов",
+      "score": 0.42,
+      "hours": 0.08
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/30/venesuelada-zilzila-qurbonlari-soni-1700-nafardan-oshdi-3d239e",
+      "urlB": "https://kun.uz/ru/news/2026/06/30/boleye-1700-chelovek-pogibli-v-rezultate-moshchnyx-zemletryaseniy-v-venesuele-474611",
+      "titleA": "Venesuelada zilzila qurbonlari soni 1700 nafardan oshdi",
+      "titleB": "Более 1700 человек погибли в результате мощных землетрясений в Венесуэле",
+      "score": 0.414,
+      "hours": 7.76
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/01/ozbekistonda-benzin-narxi-rekord-darajada-qimmatlashdi-sabab-nima-a406b4",
+      "urlB": "https://kun.uz/ru/news/2026/07/01/na-birjye-rezko-podorojal-benzin-ai-92-tsena-obnovila-rekord-v-chyom-prichina-43b2a0",
+      "titleA": "O‘zbekistonda benzin narxi rekord darajada qimmatlashdi. Sabab nima?",
+      "titleB": "На бирже резко подорожал бензин АИ-92 — цена обновила рекорд. В чём причина?",
+      "score": 0.411,
+      "hours": 2.77
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/01/aqsh-nis-uchun-vaqtinchalik-litsenziya-muddatini-yana-30-kunga-uzaytirdi-46b789",
+      "urlB": "https://kun.uz/ru/news/2026/07/01/sud-otklonil-ukaz-prezidenta-ssha-ob-ogranichenii-prava-na-grajdanstvo-60e520",
+      "titleA": "AQSh NIS uchun vaqtinchalik litsenziya muddatini yana 30 kunga uzaytirdi",
+      "titleB": "Суд отклонил указ президента США об ограничении права на гражданство",
+      "score": 0.386,
+      "hours": 1.56
     },
     {
       "langA": "uz",
@@ -820,18 +1570,8 @@
       "urlB": "https://kun.uz/ru/news/2026/06/17/v-uzbekistane-vvoditsya-pravo-na-zabastovku-kak-eto-budet-rabotat-efc2b4",
       "titleA": "O‘zbekistonda ish tashlash huquqi joriy etilmoqda. U qanday ishlaydi?",
       "titleB": "В Узбекистане вводится право на забастовку. Как это будет работать?",
-      "score": 0.372,
+      "score": 0.384,
       "hours": 14.63
-    },
-    {
-      "langA": "uz",
-      "langB": "ru",
-      "urlA": "https://kun.uz/news/2026/05/12/aqsh-kuba-qirgoqlarida-razvedka-faoliyatini-kuchaytirdi",
-      "urlB": "https://kun.uz/ru/news/2026/05/12/%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD-%D0%BF%D0%BB%D0%B0%D0%BD-%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B8-%D1%81%D0%B1%D0%BE%D1%80%D0%BD%D0%BE%D0%B9-%D1%83%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%B0-%D0%BA-%D1%87%D0%B5%D0%BC%D0%BF%D0%B8%D0%BE%D0%BD%D0%B0%D1%82%D1%83-%D0%BC%D0%B8%D1%80%D0%B0-c4b0ab",
-      "titleA": "AQSh Kuba qirg‘oqlarida razvedka faoliyatini kuchaytirdi",
-      "titleB": "Обнародован план подготовки сборной Узбекистана к чемпионату мира",
-      "score": 0.371,
-      "hours": 19.17
     },
     {
       "langA": "uz",
@@ -840,8 +1580,58 @@
       "urlB": "https://kun.uz/ru/news/2026/06/16/v-navoi-voditel-avtobusa-sovershivshiy-dtp-prigovoryon-k-10-godam-kolonii-6903d1",
       "titleA": "“Suv ichaman deb chalg‘idim” – Navoiyda YTHga uchragan avtobus haydovchisi 10 yilga qamaldi",
       "titleB": "В Навои водитель автобуса, совершивший ДТП, приговорён к 10 годам колонии",
-      "score": 0.37,
+      "score": 0.372,
       "hours": 14.96
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/12/aqsh-kuba-qirgoqlarida-razvedka-faoliyatini-kuchaytirdi",
+      "urlB": "https://kun.uz/ru/news/2026/05/12/%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD-%D0%BF%D0%BB%D0%B0%D0%BD-%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B8-%D1%81%D0%B1%D0%BE%D1%80%D0%BD%D0%BE%D0%B9-%D1%83%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%B0-%D0%BA-%D1%87%D0%B5%D0%BC%D0%BF%D0%B8%D0%BE%D0%BD%D0%B0%D1%82%D1%83-%D0%BC%D0%B8%D1%80%D0%B0-c4b0ab",
+      "titleA": "AQSh Kuba qirg‘oqlarida razvedka faoliyatini kuchaytirdi",
+      "titleB": "Обнародован план подготовки сборной Узбекистана к чемпионату мира",
+      "score": 0.368,
+      "hours": 19.17
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/21/ozbekistonda-talabalar-soni-15-milliondan-oshdi",
+      "urlB": "https://kun.uz/ru/news/2026/07/21/v-vuzax-uzbekistana-obuchayutsya-boleye-15-milliona-studentov",
+      "titleA": "O‘zbekistonda talabalar soni 1,5 milliondan oshdi",
+      "titleB": "В вузах Узбекистана обучаются более 1,5 миллиона студентов",
+      "score": 0.365,
+      "hours": 1.27
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/01/andijonda-doppisi-ichiga-35-ming-dollar-yashirgan-yolovchi-ushlandi-02b76b",
+      "urlB": "https://kun.uz/ru/news/2026/07/01/v-andijane-presekli-popytku-vyvoza-356-tys-dollarov-ssha-spryatannyx-v-tyubeteyke-6e8326",
+      "titleA": "Andijonda do‘ppisi ichiga 35 ming dollar yashirgan yo‘lovchi ushlandi",
+      "titleB": "В Андижане пресекли попытку вывоза 35,6 тыс. долларов США, спрятанных в тюбетейке",
+      "score": 0.362,
+      "hours": 1.79
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/22/toshkent-samarqand-pulli-yoliga-start-ikki-shov-shuvli-ish-sudda-va-ikki-fojiali-avariya-mahalliy-dayjest",
+      "urlB": "https://kun.uz/ru/news/2026/07/22/prezident-zapustil-stroitelstvo-trassy-tashkent-samarkand",
+      "titleA": "Toshkent-Samarqand pulli yo‘liga start, ikki shov-shuvli ish sudda va ikki fojiali avariya - mahalliy dayjyest",
+      "titleB": "Президент запустил строительство трассы Ташкент – Самарканд",
+      "score": 0.36,
+      "hours": 2.93
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/30/ular-tirik-2030-yilda-ozod-etilishi-kutilyapti-tiv-malayziyada-olimga-hukm-qilingan-uch-ozbekistonli-37ae28",
+      "urlB": "https://kun.uz/ru/news/2026/07/01/mid-troye-uzbekistansev-prigovoryonnyx-k-smerti-v-malayzii-jivy-ix-osvobojdeniye-ojidayetsya-v-2030--b7df04",
+      "titleA": "“Ular tirik, 2030 yilda ozod etilishi kutilyapti” - TIV Malayziyada o‘limga hukm qilingan uch o‘zbekistonlik haqida",
+      "titleB": "МИД: трое узбекистанцев, приговорённых к смерти в Малайзии, живы, их освобождение ожидается в 2030 году",
+      "score": 0.36,
+      "hours": 23.32
     },
     {
       "langA": "uz",
@@ -850,18 +1640,18 @@
       "urlB": "https://kun.uz/ru/news/2026/07/18/utverjdeny-kvoty-priyoma-v-vuzy-na-20262027-uchebnyy-god-1026e4",
       "titleA": "2026/2027-o‘quv yili uchun oliygohlarga qabul kvotalari tasdiqlandi",
       "titleB": "Утверждены квоты приёма в вузы на 2026/2027 учебный год",
-      "score": 0.368,
+      "score": 0.354,
       "hours": 11.89
     },
     {
       "langA": "uz",
       "langB": "ru",
-      "urlA": "https://kun.uz/news/2026/06/18/qaysi-davlatlarda-yuqori-tezlikdagi-temiryollar-eng-rivojlangan-66580b",
-      "urlB": "https://kun.uz/ru/news/2026/06/17/pochti-40-otxodov-na-ulitsax-tashkenta-vybrasyvayut-mimo-konteynerov-633301",
-      "titleA": "Qaysi davlatlarda yuqori tezlikdagi temiryo‘llar eng rivojlangan?",
-      "titleB": "Почти 40% отходов на улицах Ташкента выбрасывают мимо контейнеров",
-      "score": 0.347,
-      "hours": 17.45
+      "urlA": "https://kun.uz/news/2026/06/30/oshadigan-pensiya-yoshlarga-yangi-dastur-va-kvartplatadan-qarzdorlarga-jazo-1-iyuldan-nimalar-ozgara-54e754",
+      "urlB": "https://kun.uz/ru/news/2026/06/30/paragvay-vybil-germaniyu-s-chempionata-mira-braziliya-vyshla-v-18-finala-ac6a99",
+      "titleA": "Oshadigan pensiya, yoshlarga yangi dastur va “kvartplata”dan qarzdorlarga “jazo”: 1 iyuldan nimalar o‘zgaradi?",
+      "titleB": "Парагвай выбил Германию с чемпионата мира, Бразилия вышла в 1/8 финала",
+      "score": 0.345,
+      "hours": 0.67
     },
     {
       "langA": "uz",
@@ -870,8 +1660,18 @@
       "urlB": "https://kun.uz/ru/news/2026/06/15/v-fergane-devushka-za-rulem-lacetti-vyyexala-na-vstrechnuyu-polosu-i-stolknulas-s-gruzovikom-ac7ab0",
       "titleA": "Farg‘onada &quot;Lasetti&quot; qarama-qarshi yo‘nalishga chiqib ketishi oqibatida ikki kishi halok bo‘ldi",
       "titleB": "В Фергане девушка за рулем Lacetti выехала на встречную полосу и столкнулась с грузовиком",
-      "score": 0.343,
+      "score": 0.345,
       "hours": 11.48
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/18/qaysi-davlatlarda-yuqori-tezlikdagi-temiryollar-eng-rivojlangan-66580b",
+      "urlB": "https://kun.uz/ru/news/2026/06/17/pochti-40-otxodov-na-ulitsax-tashkenta-vybrasyvayut-mimo-konteynerov-633301",
+      "titleA": "Qaysi davlatlarda yuqori tezlikdagi temiryo‘llar eng rivojlangan?",
+      "titleB": "Почти 40% отходов на улицах Ташкента выбрасывают мимо контейнеров",
+      "score": 0.341,
+      "hours": 17.45
     },
     {
       "langA": "uz",
@@ -880,8 +1680,28 @@
       "urlB": "https://kun.uz/ru/news/2026/06/17/v-prodaju-postupyat-pamyatnyye-monety-posvyashchyonnyye-uchastiyu-uzbekistana-v-chempionate-mira-19f07c",
       "titleA": "O‘zbekistonning jahon chempionatidagi ishtirokiga bag‘ishlangan esdalik tangalar sotuvga chiqariladi",
       "titleB": "В продажу поступят памятные монеты, посвящённые участию Узбекистана в чемпионате мира",
-      "score": 0.336,
+      "score": 0.339,
       "hours": 14.14
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/21/rossiyaning-odessaga-hujumida-uch-kishi-halok-boldi",
+      "urlB": "https://kun.uz/ru/news/2026/07/21/rassmotreny-mery-po-povysheniyu-effektivnosti-transportno-logisticheskoy-sistemy",
+      "titleA": "Rossiyaning Odessaga hujumida uch kishi halok bo‘ldi",
+      "titleB": "Рассмотрены меры по повышению эффективности транспортно-логистической системы",
+      "score": 0.332,
+      "hours": 7.58
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/20/ozbekistonda-xorijiy-kapital-ishtirokidagi-korxonalar-soni-ilk-bor-20-mingtadan-oshdi",
+      "urlB": "https://kun.uz/ru/news/2026/07/21/tashkenskiy-metropoliten-poluchil-yeshchyo-tri-sovremennyx-poyezda",
+      "titleA": "O‘zbekistonda xorijiy kapital ishtirokidagi korxonalar soni ilk bor 20 mingtadan oshdi",
+      "titleB": "Ташкентский метрополитен получил ещё три современных поезда",
+      "score": 0.331,
+      "hours": 14.78
     },
     {
       "langA": "uz",
@@ -890,18 +1710,38 @@
       "urlB": "https://kun.uz/ru/news/2026/05/13/%D0%BF%D0%BE%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D1%8C%D0%B5-%D1%81%D0%BA%D0%BE%D1%82%D0%B0-%D0%B2-%D1%83%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%B5-%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D1%83%D1%8E%D1%82-%D0%B4%D0%BE%D0%B2%D0%B5%D1%81%D1%82%D0%B8-%D0%B4%D0%BE-165-%D0%BC%D0%B8%D0%BB%D0%BB%D0%B8%D0%BE%D0%BD%D0%B0-a9b31d",
       "titleA": "O‘zbekistonda qoramollar sonini 16,5 millionga yetkazish vazifasi qo‘yildi",
       "titleB": "Поголовье скота в Узбекистане планируют довести до 16,5 миллиона",
-      "score": 0.33,
+      "score": 0.329,
       "hours": 14.01
     },
     {
       "langA": "uz",
       "langB": "ru",
-      "urlA": "https://kun.uz/news/2026/06/15/yaponiya-ozbekistonda-energiya-samaradorligini-oshirish-uchun-230-mln-dollar-kredit-ajratadi-7fb2a9",
-      "urlB": "https://kun.uz/ru/news/2026/06/16/yaponiya-vydelit-uzbekistanu-230-millionov-dollarov-na-povysheniye-energoeffektivnosti-6f809a",
-      "titleA": "Yaponiya O‘zbekistonda energiya samaradorligini oshirish uchun 230 mln dollar kredit ajratadi",
-      "titleB": "Япония выделит Узбекистану 230 миллионов долларов на повышение энергоэффективности",
-      "score": 0.318,
-      "hours": 15.53
+      "urlA": "https://kun.uz/news/2026/07/22/gayanada-parom-halokati-qurbonlari-soni-53-nafarga-yetdi",
+      "urlB": "https://kun.uz/ru/news/2026/07/22/53-cheloveka-stali-jyertvami-krusheniya-paroma-u-poberejya-gayany",
+      "titleA": "Gayanada parom halokati qurbonlari soni 53 nafarga yetdi",
+      "titleB": "53 человека стали жертвами крушения парома у побережья Гайаны",
+      "score": 0.329,
+      "hours": 1.3
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/01/royxatga-olishda-ozbekiston-aholisi-koproq-chiqqaniga-izoh-berildi-de8099",
+      "urlB": "https://kun.uz/ru/news/2026/07/01/39-millionov-chelovek-vmesto-382-natskomstat-obyasnil-raznitsu-v-dannyx-perepisi-i-tekushchego-uchyo-a39dfd",
+      "titleA": "Ro‘yxatga olishda O‘zbekiston aholisi ko‘proq chiqqaniga izoh berildi",
+      "titleB": "39 миллионов человек вместо 38,2: Нацкомстат объяснил разницу в данных переписи и текущего учёта",
+      "score": 0.327,
+      "hours": 2.19
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/20/ozbekiston-milliy-jamoasi-fifa-reytingida-10-pogona-pastladi",
+      "urlB": "https://kun.uz/ru/news/2026/07/21/sbornaya-uzbekistana-opustilas-na-10-strochek-v-reytinge-fifa",
+      "titleA": "O‘zbekiston milliy jamoasi FIFA reytingida 10 pog‘ona pastladi",
+      "titleB": "Сборная Узбекистана опустилась на 10 строчек в рейтинге ФИФА",
+      "score": 0.326,
+      "hours": 12.53
     },
     {
       "langA": "uz",
@@ -910,8 +1750,88 @@
       "urlB": "https://kun.uz/ru/news/2026/07/13/k-konsu-nedeli-v-otdelnyx-rayonax-uzbekistana-ojidayetsya-do-46-gradusov-jary-174352",
       "titleA": "Hafta davomida issiq kuchayishi kutilmoqda",
       "titleB": "К концу недели в отдельных районах Узбекистана ожидается до 46 градусов жары",
-      "score": 0.314,
+      "score": 0.326,
       "hours": 1.29
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/30/humo-komagida-malayziyada-ozbekistonlik-yoshlarni-birlashtirgan-yoshlar-kuni-tadbiri-otkazildi",
+      "urlB": "https://kun.uz/ru/news/2026/06/30/vo-fransiyu-po-vize-ocheredi-i-posredniki-91adee",
+      "titleA": "HUMO ko‘magida Malayziyada o‘zbekistonlik yoshlarni birlashtirgan Yoshlar kuni tadbiri o‘tkazildi",
+      "titleB": "Во Францию по визе: очереди и посредники",
+      "score": 0.323,
+      "hours": 6.08
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/30/quyosh-urganda-nima-qilish-kerak-shifokor-maslahatlari-a7c8cf",
+      "urlB": "https://kun.uz/ru/news/2026/06/30/v-tashkente-proshla-letnyaya-shkola-po-napisaniyu-nauchnyx-statey-v-oblasti-sotsialnyx-nauk",
+      "titleA": "Quyosh urganda nima qilish kerak? - shifokor maslahatlari",
+      "titleB": "В Ташкенте прошла Летняя школа по написанию научных статей в области социальных наук",
+      "score": 0.323,
+      "hours": 19.2
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/22/bizni-odam-ornida-korishmayapti-mirzo-ulugbekda-odamlar-oz-uyiga-erkin-kirolmay-qoldi",
+      "urlB": "https://kun.uz/ru/news/2026/07/22/v-tashkente-zaderjan-mujchina-pri-poluchenii-30-tysyach-dollarov-ot-predprinimatelya",
+      "titleA": "“Bizni odam o‘rnida ko‘rishmayapti” - Mirzo Ulug‘bekda odamlar o‘z uyiga erkin kirolmay qoldi",
+      "titleB": "В Ташкенте задержан мужчина при получении 30 тысяч долларов от предпринимателя",
+      "score": 0.32,
+      "hours": 0.73
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/15/shveytsariyada-mamlakat-aholisi-sonini-cheklash-togrisida-referendum-bolib-otdi-6dc60d",
+      "urlB": "https://kun.uz/ru/news/2026/06/15/v-shveytsarii-proshyol-referendum-ob-ogranichenii-chislennosti-naseleniya-strany-a16847",
+      "titleA": "Shveytsariyada referendum: mamlakat aholisi sonini cheklash taklifi rad etildi",
+      "titleB": "В Швейцарии прошёл референдум об ограничении численности населения страны",
+      "score": 0.315,
+      "hours": 12.86
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/30/italiya-hukumati-sitsiliya-mafiyasining-millionlab-yevro-aktivlarini-musodara-qildi-f1febc",
+      "urlB": "https://kun.uz/ru/news/2026/05/30/yes-oshtrafoval-temu-na-200-mln-yevro-za-prodaju-opasnyx-tovarov-f3c816",
+      "titleA": "Italiya hukumati Sitsiliya mafiyasining millionlab yevro aktivlarini musodara qildi",
+      "titleB": "ЕС оштрафовал Temu на 200 млн евро за продажу опасных товаров",
+      "score": 0.315,
+      "hours": 11.53
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/05/jch-kundaligi-paragvay-fransiyani-qiynadi-marokash-kanadani-jazoladi",
+      "urlB": "https://kun.uz/ru/news/2026/07/05/v-maxallyax-peredannyx-v-sostav-goroda-tashkenta-ne-doljno-ostatsya-ni-odnoy-problemy-s-infrastruktu-ce061d",
+      "titleA": "JCh kundaligi. Paragvay Fransiyani qiynadi, Marokash Kanadani jazoladi",
+      "titleB": "В махаллях, переданных в состав города Ташкента, не должно остаться ни одной проблемы с инфраструктурой — президент",
+      "score": 0.314,
+      "hours": 14.32
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/15/yaponiya-ozbekistonda-energiya-samaradorligini-oshirish-uchun-230-mln-dollar-kredit-ajratadi-7fb2a9",
+      "urlB": "https://kun.uz/ru/news/2026/06/16/yaponiya-vydelit-uzbekistanu-230-millionov-dollarov-na-povysheniye-energoeffektivnosti-6f809a",
+      "titleA": "Yaponiya O‘zbekistonda energiya samaradorligini oshirish uchun 230 mln dollar kredit ajratadi",
+      "titleB": "Япония выделит Узбекистану 230 миллионов долларов на повышение энергоэффективности",
+      "score": 0.311,
+      "hours": 15.53
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/15/hafta-davomida-harorat-pasayishi-va-yomgir-yogishi-kutilmoqda",
+      "urlB": "https://kun.uz/ru/news/2026/06/15/prezident-albanii-sovershit-ofitsialnyy-vizit-v-uzbekistan-81b6bd",
+      "titleA": "Hafta davomida harorat pasayishi va yomg‘ir yog‘ishi kutilmoqda",
+      "titleB": "Президент Албании совершит официальный визит в Узбекистан",
+      "score": 0.31,
+      "hours": 0.18
     },
     {
       "langA": "uz",
@@ -920,7 +1840,7 @@
       "urlB": "https://kun.uz/ru/news/2026/06/19/stali-izvestny-stroitelnyye-kompanii-s-samymi-bolshimi-zadoljyennostyami-po-nalogam-15467d",
       "titleA": "Soliqdan eng ko‘p qarzi bor qurilish kompaniyalari ma’lum qilindi",
       "titleB": "Стали известны строительные компании с самыми большими задолженностями по налогам",
-      "score": 0.31,
+      "score": 0.308,
       "hours": 3.16
     },
     {
@@ -930,28 +1850,58 @@
       "urlB": "https://kun.uz/ru/news/2026/05/16/%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BC%D0%B8%D0%BD%D1%81%D1%82%D1%80%D0%BE%D1%8F-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%BD%D0%BE-%D0%B7%D0%B0-1966-%D0%BC%D0%BB%D1%80%D0%B4-%D1%81%D1%83%D0%BC%D0%BE%D0%B2--%D0%BD%D0%B0-14-%D0%BC%D0%BB%D1%80%D0%B4-%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%B5-%D0%BF%D1%80%D0%B5%D0%B4%D1%8B%D0%B4%D1%83%D1%89%D0%B5%D0%B9-%D0%BF%D1%80%D0%B8%D0%B2%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-e8bd2b",
       "titleA": "Qurilish vazirligi binosi 196 mlrd so‘mga sotildi. Bu dastlabki xususiylashtirishdan 14 mlrd so‘mga yuqori narx",
       "titleB": "Здание Минстроя продано за 196,6 млрд сумов — на 14 млрд дороже предыдущей приватизации",
-      "score": 0.307,
+      "score": 0.306,
       "hours": 13.39
     },
     {
       "langA": "uz",
       "langB": "ru",
-      "urlA": "https://kun.uz/news/2026/06/15/hafta-davomida-harorat-pasayishi-va-yomgir-yogishi-kutilmoqda",
-      "urlB": "https://kun.uz/ru/news/2026/06/15/prezident-albanii-sovershit-ofitsialnyy-vizit-v-uzbekistan-81b6bd",
-      "titleA": "Hafta davomida harorat pasayishi va yomg‘ir yog‘ishi kutilmoqda",
-      "titleB": "Президент Албании совершит официальный визит в Узбекистан",
-      "score": 0.306,
-      "hours": 0.18
+      "urlA": "https://kun.uz/news/2026/07/20/eron-bilan-urush-aqsh-qurbonlari-soni-ortib-bormoqda",
+      "urlB": "https://kun.uz/ru/news/2026/07/20/tovarooborot-mejdu-uzbekistanom-i-azerbaydjanom-uvelichilsya-pochti-na-40",
+      "titleA": "Eron bilan urush: AQSh qurbonlari soni ortib bormoqda",
+      "titleB": "Товарооборот между Узбекистаном и Азербайджаном увеличился почти на 40%",
+      "score": 0.305,
+      "hours": 5.82
     },
     {
       "langA": "uz",
       "langB": "ru",
-      "urlA": "https://kun.uz/news/2026/06/15/shveytsariyada-mamlakat-aholisi-sonini-cheklash-togrisida-referendum-bolib-otdi-6dc60d",
-      "urlB": "https://kun.uz/ru/news/2026/06/15/v-shveytsarii-proshyol-referendum-ob-ogranichenii-chislennosti-naseleniya-strany-a16847",
-      "titleA": "Shveytsariyada referendum: mamlakat aholisi sonini cheklash taklifi rad etildi",
-      "titleB": "В Швейцарии прошёл референдум об ограничении численности населения страны",
+      "urlA": "https://kun.uz/news/2026/07/04/jahon-avtosanoatida-kuchlar-muvozanati-ozgarmoqda-cd9cf8",
+      "urlB": "https://kun.uz/ru/news/2026/07/03/v-samarkandskoy-oblasti-prorvalo-dambu-na-novom-jyeleznodorojnom-uchastke-samarkand-urgut-449bb0",
+      "titleA": "Jahon avtosanoatida kuchlar muvozanati o‘zgarmoqda",
+      "titleB": "В Самаркандской области прорвало дамбу на новом железнодорожном участке Самарканд – Ургут",
       "score": 0.302,
-      "hours": 12.86
+      "hours": 15.32
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/20/eron-oliy-rahnamosi-trampning-imzosi-hech-narsaga-arzimasligini-aytdi-d63fe9",
+      "urlB": "https://kun.uz/ru/news/2026/07/20/rassylka-sms-reklamy-bez-soglasiya-abonenta-budet-zapreshchena",
+      "titleA": "Eron oliy rahnamosi Trampning imzosi “hech narsaga arzimasligi”ni aytdi",
+      "titleB": "Рассылка SMS-рекламы без согласия абонента будет запрещена",
+      "score": 0.3,
+      "hours": 7.85
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/21/qarzdor-aholi-daromadining-yarmidan-kopini-qarzini-uzishga-sarflayapti",
+      "urlB": "https://kun.uz/ru/news/2026/07/21/zayomshchiki-tratyat-na-pogasheniye-dolgov-boleye-poloviny-svoyego-doxoda",
+      "titleA": "Qarzdor aholi daromadining yarmidan ko‘pini qarzini uzishga sarflayapti",
+      "titleB": "Заёмщики тратят на погашение долгов более половины своего дохода",
+      "score": 0.297,
+      "hours": 3.95
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/29/samsung-electronics-ozbekistonda-innovatsion-mini-led-texnologiyasiga-ega-televizorlar-turkumini-taqdim-etadi",
+      "urlB": "https://kun.uz/ru/news/2026/06/30/s-1-iyulya-bolnichnyye-v-chastnyx-kompaniyax-budet-oplachivat-gosudarstvo-f92282",
+      "titleA": "Samsung Electronics O‘zbekistonda innovatsion Mini LED texnologiyasiga ega televizorlar turkumini taqdim etadi",
+      "titleB": "С 1 июля больничные в частных компаниях будет оплачивать государство",
+      "score": 0.295,
+      "hours": 2.93
     },
     {
       "langA": "uz",
@@ -960,8 +1910,28 @@
       "urlB": "https://kun.uz/ru/news/2026/05/17/%D0%BF%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82-%D1%83%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%B0-%D0%BF%D0%BE%D1%81%D0%B5%D1%82%D0%B8%D1%82-%D0%B0%D0%B7%D0%B5%D1%80%D0%B1%D0%B0%D0%B9%D0%B4%D0%B6%D0%B0%D0%BD-%D1%81-%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%BC-%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BE%D0%BC-94a078",
       "titleA": "Rossiya bo‘ylab ommaviy dronlar hujumi: Moskvada 3 kishi halok bo‘ldi",
       "titleB": "Президент Узбекистана посетит Азербайджан с рабочим визитом",
-      "score": 0.295,
+      "score": 0.29,
       "hours": 0.05
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/21/1-sinfga-qabul-qilingan-bolalar-soni-600-mingdan-oshdi",
+      "urlB": "https://kun.uz/ru/news/2026/07/21/kolichestvo-predpriyatiy-s-inostrannym-kapitalom-v-uzbekistane-prevysilo-20-tysyach",
+      "titleA": "1-sinfga qabul qilingan bolalar soni 600 mingdan oshdi",
+      "titleB": "Количество предприятий с иностранным капиталом в Узбекистане превысило 20 тысяч",
+      "score": 0.29,
+      "hours": 0.15
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/02/eron-ali-xominaiy-bilan-xayrlashadi-a3684d",
+      "urlB": "https://kun.uz/ru/news/2026/07/02/boleye-90-platejyey-na-azs-v-iyune-byli-soversheny-bankovskimi-kartami-677dec",
+      "titleA": "Eron Ali Xominaiy bilan xayrlashadi",
+      "titleB": "Более 90% платежей на АЗС в июне были совершены банковскими картами",
+      "score": 0.288,
+      "hours": 2.18
     },
     {
       "langA": "uz",
@@ -970,8 +1940,48 @@
       "urlB": "https://kun.uz/ru/news/2026/07/14/v-uzbekistane-zafiksirovan-novyy-rekord-po-letnemu-potrebleniyu-elektroenergii-bb3984",
       "titleA": "O‘zbekistonda elektr energiyasi iste’moli rekordi yangilandi",
       "titleB": "В Узбекистане зафиксирован новый рекорд по летнему потреблению электроэнергии",
-      "score": 0.276,
+      "score": 0.282,
       "hours": 3.09
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/30/royxatga-olish-natijasida-ozbekiston-aholisi-soni-39-milliondan-oshiq-ekani-malum-boldi-f2d311",
+      "urlB": "https://kun.uz/ru/news/2026/06/30/itogi-perepisi-naseleniye-uzbekistana-prevysilo-39-millionov-84f81f",
+      "titleA": "Ro‘yxatga olish natijasida O‘zbekiston aholisi soni 39 milliondan oshiq ekani ma’lum bo‘ldi",
+      "titleB": "Итоги переписи: население Узбекистана превысило 39 миллионов",
+      "score": 0.276,
+      "hours": 3.64
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/23/ozbekistonda-xizmat-korsatgan-artist-nasiba-madrahimova-vafot-etdi",
+      "urlB": "https://kun.uz/ru/news/2026/07/24/skonchalas-zaslujyennaya-artistka-uzbekistana-nasiba-madraximova",
+      "titleA": "O‘zbekistonda xizmat ko‘rsatgan artist Nasiba Madrahimova vafot etdi",
+      "titleB": "Скончалась заслуженная артистка Узбекистана Насиба Мадрахимова",
+      "score": 0.27,
+      "hours": 14.43
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/29/aqsh-va-eron-yana-ozaro-hujumlarni-toxtatishga-kelishdi-988d40",
+      "urlB": "https://kun.uz/ru/news/2026/06/29/na-nedele-ojidayetsya-snijyeniye-temperatury-i-dojdi-e93977",
+      "titleA": "AQSh va Eron yana o‘zaro hujumlarni to‘xtatishga kelishdi",
+      "titleB": "На неделе ожидается снижение температуры и дожди",
+      "score": 0.26,
+      "hours": 7.88
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/04/prezident-yangi-sergeli-kochasidagi-yangilangan-infratuzilma-bilan-tanishdi-4cab17",
+      "urlB": "https://kun.uz/ru/news/2026/07/04/v-uchtepinskom-rayone-tashkenta-proizoshli-dva-pojara-b7f473",
+      "titleA": "Prezident Yangi Sergeli ko‘chasidagi yangilangan infratuzilma bilan tanishdi",
+      "titleB": "В Учтепинском районе Ташкента произошли два пожара",
+      "score": 0.258,
+      "hours": 1.61
     },
     {
       "langA": "uz",
@@ -980,7 +1990,7 @@
       "urlB": "https://kun.uz/ru/news/2026/06/15/vladelsam-avtomobiley-starshe-30-let-vozmojno-pridyotsya-platit-ekologicheskuyu-kompensatsiyu-640feb",
       "titleA": "Ishlab chiqarilganiga 30 yildan oshgan avtomobillar egalari ekologik kompensatsiya to‘lashi mumkin",
       "titleB": "Владельцам автомобилей старше 30 лет, возможно, придётся платить экологическую компенсацию",
-      "score": 0.259,
+      "score": 0.256,
       "hours": 13.58
     },
     {
@@ -990,8 +2000,28 @@
       "urlB": "https://kun.uz/ru/news/2026/07/13/iz-za-jary-potrebleniye-elektroenergii-mojyet-dostich-280-mln-kvtch-4263d2",
       "titleA": "Bekobodda yangi sohil, muzey va bog‘: prezident amalga oshirilgan ishlar bilan tanishdi",
       "titleB": "Из-за жары потребление электроэнергии может достичь 280 млн кВт·ч",
-      "score": 0.257,
+      "score": 0.254,
       "hours": 2.98
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/24/rossiyaning-neft-va-gaz-daromadlari-keskin-osishi-kutilmoqda",
+      "urlB": "https://kun.uz/ru/news/2026/07/24/ssha-vveli-novyye-poshliny-v-otnoshenii-60-stran",
+      "titleA": "Rossiyaning neft va gaz daromadlari keskin o‘sishi kutilmoqda",
+      "titleB": "США ввели новые пошлины в отношении 60 стран",
+      "score": 0.253,
+      "hours": 4.82
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/03/rossiya-ukraina-shaharlariga-yangi-hujumlar-uyushtirdi-3ee515",
+      "urlB": "https://kun.uz/ru/news/2026/07/03/prognoz-pogody-na-subbotu-4-iyulya-v-tashkente-dojd-s-grozoy-dnyom-bez-osadkov-c9ac68",
+      "titleA": "Rossiya Ukraina shaharlariga yangi hujumlar uyushtirdi",
+      "titleB": "Прогноз погоды на субботу, 4 июля: в Ташкенте дождь с грозой, днём без осадков",
+      "score": 0.245,
+      "hours": 3.86
     },
     {
       "langA": "uz",
@@ -1000,18 +2030,18 @@
       "urlB": "https://kun.uz/ru/news/2026/06/19/vsemirnyy-bank-vydelit-uzbekistanu-150-mln-dollarov-na-razvitiye-selskoy-infrastruktury-ce8b72",
       "titleA": "Jahon banki O‘zbekistonga qishloq infratuzilmasini rivojlantirish uchun 150 mln dollar ajratadi",
       "titleB": "Всемирный банк выделит Узбекистану 150 млн долларов на развитие сельской инфраструктуры",
-      "score": 0.245,
+      "score": 0.241,
       "hours": 4.4
     },
     {
       "langA": "uz",
       "langB": "ru",
-      "urlA": "https://kun.uz/news/2026/05/13/2026-yilning-i-choragida-ozbekistonda-soliq-tushumlari-24-foizga-oshdi",
-      "urlB": "https://kun.uz/ru/news/2026/05/13/%D0%B2-i-%D0%BA%D0%B2%D0%B0%D1%80%D1%82%D0%B0%D0%BB%D0%B5-2026-%D0%B3%D0%BE%D0%B4%D0%B0-%D0%BD%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5-%D0%BF%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B2-%D1%83%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%B5-%D0%B2%D1%8B%D1%80%D0%BE%D1%81%D0%BB%D0%B8-%D0%BD%D0%B0-24-82cdff",
-      "titleA": "2026 yilning I choragida O‘zbekistonda soliq tushumlari 24 foizga oshdi",
-      "titleB": "В I квартале 2026 года налоговые поступления в Узбекистане выросли на 24%",
-      "score": 0.231,
-      "hours": 12.36
+      "urlA": "https://kun.uz/news/2026/07/03/toshkentda-qurilish-tashkiloti-markaziy-kanalizatsiya-quvurini-uzib-yubordi-b5808b",
+      "urlB": "https://kun.uz/ru/news/2026/07/03/zasedaniye-plenuma-verxovnogo-suda-vpervyye-transliruyetsya-v-pryamom-efire-e10bdd",
+      "titleA": "Toshkentda qurilish tashkiloti markaziy kanalizatsiya quvurini uzib yubordi",
+      "titleB": "Заседание Пленума Верховного суда впервые транслируется в прямом эфире",
+      "score": 0.238,
+      "hours": 7.82
     },
     {
       "langA": "uz",
@@ -1020,18 +2050,28 @@
       "urlB": "https://kun.uz/ru/news/2026/06/20/tursiya-proigrala-paragvayu-i-poteryala-shansy-na-vyxod-v-pley-off-chm-2026-f1cb18",
       "titleA": "O‘zbekiston fuqarolarining xorijdagi kompaniyalar aksiyalarini sotib olishi osonlashadi",
       "titleB": "Турция проиграла Парагваю и потеряла шансы на выход в плей-офф ЧМ-2026",
-      "score": 0.222,
+      "score": 0.217,
       "hours": 2.29
     },
     {
       "langA": "uz",
       "langB": "ru",
-      "urlA": "https://kun.uz/news/2026/05/13/coca-cola-va-ofa-komagida-ozbekiston-milliy-terma-jamoasini-jahon-chempionatiga-kuzatish-marosimi",
-      "urlB": "https://kun.uz/ru/news/2026/05/13/yes-rekordno-narastil-import-rossiyskogo-spg-no-yeshche-bolshe-zavisit-ot-ssha-ieefa",
-      "titleA": "Coca-Cola va O‘FA ko‘magida O‘zbekiston milliy terma jamoasini Jahon chempionatiga kuzatish marosimi",
-      "titleB": "ЕС рекордно нарастил импорт российского СПГ, но еще больше зависит от США — IEEFA",
-      "score": 0.212,
-      "hours": 0.46
+      "urlA": "https://kun.uz/news/2026/05/13/2026-yilning-i-choragida-ozbekistonda-soliq-tushumlari-24-foizga-oshdi",
+      "urlB": "https://kun.uz/ru/news/2026/05/13/%D0%B2-i-%D0%BA%D0%B2%D0%B0%D1%80%D1%82%D0%B0%D0%BB%D0%B5-2026-%D0%B3%D0%BE%D0%B4%D0%B0-%D0%BD%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5-%D0%BF%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B2-%D1%83%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%B5-%D0%B2%D1%8B%D1%80%D0%BE%D1%81%D0%BB%D0%B8-%D0%BD%D0%B0-24-82cdff",
+      "titleA": "2026 yilning I choragida O‘zbekistonda soliq tushumlari 24 foizga oshdi",
+      "titleB": "В I квартале 2026 года налоговые поступления в Узбекистане выросли на 24%",
+      "score": 0.215,
+      "hours": 12.36
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/29/2027-yil-kuzatuvlar-tarixidagi-eng-issiq-yil-bolishi-mumkin-ab52fa",
+      "urlB": "https://kun.uz/ru/news/2026/05/29/minfin-ssha-prodlil-lisenziyu-na-operatsii-s-zarubejnymi-aktivami-lukoyla-d26120",
+      "titleA": "2027 yil kuzatuvlar tarixidagi eng issiq yil bo‘lishi mumkin",
+      "titleB": "Минфин США продлил лицензию на операции с зарубежными активами «Лукойла»",
+      "score": 0.213,
+      "hours": 4.55
     },
     {
       "langA": "uz",
@@ -1040,7 +2080,7 @@
       "urlB": "https://kun.uz/ru/news/2026/07/18/na-kolsevoy-linii-metro-tashkenta-provedut-obsledovaniye-vsex-stansiy-b70219",
       "titleA": "Chilonzor tumanini elektr uzilishlari qamrab oldi",
       "titleB": "На кольцевой линии метро Ташкента проведут обследование всех станций",
-      "score": 0.209,
+      "score": 0.21,
       "hours": 18.42
     },
     {
@@ -1050,8 +2090,28 @@
       "urlB": "https://kun.uz/ru/news/2026/07/15/na-nazemnyx-liniyax-metro-tashkenta-vvedeno-ogranicheniye-skorosti-ecbb4e",
       "titleA": "Fasten safar buyurtma qilish xizmati endi O‘zbekistonning barcha hududlarida ishlaydi",
       "titleB": "На наземных линиях метро Ташкента введено ограничение скорости",
-      "score": 0.199,
+      "score": 0.209,
       "hours": 6.76
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/05/13/coca-cola-va-ofa-komagida-ozbekiston-milliy-terma-jamoasini-jahon-chempionatiga-kuzatish-marosimi",
+      "urlB": "https://kun.uz/ru/news/2026/05/13/yes-rekordno-narastil-import-rossiyskogo-spg-no-yeshche-bolshe-zavisit-ot-ssha-ieefa",
+      "titleA": "Coca-Cola va O‘FA ko‘magida O‘zbekiston milliy terma jamoasini Jahon chempionatiga kuzatish marosimi",
+      "titleB": "ЕС рекордно нарастил импорт российского СПГ, но еще больше зависит от США — IEEFA",
+      "score": 0.203,
+      "hours": 0.46
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/06/29/kuzda-apple-15-dan-ortiq-yangi-gadjetni-taqdim-etadi-26b698",
+      "urlB": "https://kun.uz/ru/news/2026/06/30/iz-za-porucheniya-xokimiyata-ya-poteryala-syna-podrobnosti-tragedii-s-andijanskoy-polkoy-59a4bf",
+      "titleA": "Kuzda Apple 15 dan ortiq yangi gadjetni taqdim etadi",
+      "titleB": "«Из-за поручения хокимията я потеряла сына» — подробности трагедии с «Андижанской полькой»",
+      "score": 0.199,
+      "hours": 17.19
     },
     {
       "langA": "uz",
@@ -1062,6 +2122,46 @@
       "titleB": "В Ташкенте в результате ДТП погибли три человека",
       "score": 0.192,
       "hours": 8.34
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/05/talabalar-turar-joylarini-qurish-boyicha-yangi-tartib-joriy-etildi-05b90a",
+      "urlB": "https://kun.uz/ru/news/2026/07/04/opredelilis-vse-pary-18-finala-chempionata-mira-po-futbolu-25e323",
+      "titleA": "Talabalar turar joylarini qurish bo‘yicha yangi tartib joriy etildi",
+      "titleB": "Определились все пары 1/8 финала чемпионата мира по футболу",
+      "score": 0.186,
+      "hours": 8.7
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/14/ozbekistonga-kelgan-turistlar-soni-qariyb-25-foizga-oshdi-7cfe6a",
+      "urlB": "https://kun.uz/ru/news/2026/07/14/kakiye-daty-otpuska-vybrat-v-2026-godu-chtoby-ne-poteryat-dengi-c70ee7",
+      "titleA": "O‘zbekistonga kelgan turistlar soni qariyb 25 foizga oshdi",
+      "titleB": "Какие даты отпуска выбрать в 2026 году, чтобы не потерять деньги",
+      "score": 0.186,
+      "hours": 0.76
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/25/jizzax-shahrining-bosh-rejasiga-ozgartirish-kiritildi",
+      "urlB": "https://kun.uz/ru/news/2026/07/25/v-chirchike-voditel-lacetti-razbilsya-nasmert-vrezavshis-v-derevo",
+      "titleA": "Jizzax shahrining bosh rejasiga o‘zgartirish kiritildi",
+      "titleB": "В Чирчике водитель Lacetti разбился насмерть, врезавшись в дерево",
+      "score": 0.181,
+      "hours": 5.28
+    },
+    {
+      "langA": "uz",
+      "langB": "ru",
+      "urlA": "https://kun.uz/news/2026/07/23/adm-jizzakh-avtokomponentlar-etkazib-beruvchilari-uchun-ochiq-eshiklar-kunlarini-otkazdi",
+      "urlB": "https://kun.uz/ru/news/2026/07/24/s-27-iyulya-nachnyotsya-priyom-zayavleniy-na-jilishchnuyu-subsidiyu",
+      "titleA": "ADM Jizzakh avtokomponentlar yetkazib beruvchilari uchun ochiq eshiklar kunlarini o‘tkazdi",
+      "titleB": "С 27 июля начнётся приём заявлений на жилищную субсидию",
+      "score": 0.17,
+      "hours": 17.38
     },
     {
       "langA": "uz",
@@ -1126,12 +2226,52 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/21/dunyoda-eng-kop-suvosti-kemasiga-ega-davlatlar-malum-boldi",
+      "urlB": "https://kun.uz/en/news/2026/07/21/eldor-shomurodov-among-nominees-for-fifa-world-cup-2026-goal-of-the-tournament",
+      "titleA": "Dunyoda eng ko‘p suvosti kemasiga ega davlatlar ma’lum bo‘ldi",
+      "titleB": "Eldor Shomurodov among nominees for FIFA World Cup 2026 Goal of the Tournament",
+      "score": 0.544,
+      "hours": 2.87
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://kun.uz/news/2026/06/17/prezident-investorlar-uchun-yangi-huquqiy-kafolatlar-yaratiladi-f67a23",
       "urlB": "https://kun.uz/en/news/2026/06/17/president-mirziyoyev-unveils-plans-for-tashkent-international-financial-center-with-50-year-tax-exem-117f3b",
       "titleA": "Prezident: Investorlar uchun yangi huquqiy kafolatlar yaratiladi",
       "titleB": "President Mirziyoyev unveils plans for Tashkent International Financial Center with 50-year tax exemptions",
       "score": 0.544,
       "hours": 1.48
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/22/soliq-tolovchilar-soliq-xizmatlari-sifatiga-baho-beradi",
+      "urlB": "https://kun.uz/en/news/2026/07/22/uzbekistan-extends-air-freight-import-incentive-for-meat-until-year-end",
+      "titleA": "Soliq to‘lovchilar soliq xizmatlari sifatiga baho beradi",
+      "titleB": "Uzbekistan extends air freight import incentive for meat until year-end",
+      "score": 0.54,
+      "hours": 3.82
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/21/toshkentda-120-ta-bekat-belgilangan-muddatda-foydalanishga-topshirilmagani-aytildi",
+      "urlB": "https://kun.uz/en/news/2026/07/21/uzbekistan-airways-losing-120-million-in-revenue-due-to-inefficiencies-shavkat-mirziyoyev",
+      "titleA": "Toshkentda 120 ta bekat belgilangan muddatda foydalanishga topshirilmagani aytildi",
+      "titleB": "Uzbekistan Airways losing $120 million in revenue due to inefficiencies – Shavkat Mirziyoyev",
+      "score": 0.539,
+      "hours": 2.6
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/22/shavkat-mirziyoyev-nurafshon-shahrida-yangi-barpo-etilgan-ijtimoiy-himoya-majmuasiga-bordi",
+      "urlB": "https://kun.uz/en/news/2026/07/22/former-uzbekneftegaz-chief-and-executives-of-enter-engineering-and-eriell-stand-trial-in-corruption-case",
+      "titleA": "Shavkat Mirziyoyev Nurafshon shahrida yangi barpo etilgan Ijtimoiy himoya majmuasiga bordi",
+      "titleB": "Former Uzbekneftegaz chief and executives of Enter Engineering and Eriell stand trial in corruption case",
+      "score": 0.539,
+      "hours": 2.65
     },
     {
       "langA": "uz",
@@ -1156,12 +2296,32 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/24/rossiyaning-neft-va-gaz-daromadlari-keskin-osishi-kutilmoqda",
+      "urlB": "https://kun.uz/en/news/2026/07/24/us-imposes-new-tariffs-on-kazakhstan-and-dozens-of-other-countries-over-forced-labor",
+      "titleA": "Rossiyaning neft va gaz daromadlari keskin o‘sishi kutilmoqda",
+      "titleB": "US imposes new tariffs on Kazakhstan and dozens of other countries over forced labor",
+      "score": 0.53,
+      "hours": 4.75
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://kun.uz/news/2026/06/17/boliviya-va-aqsh-18-yillik-tanaffusdan-song-narkotrafikka-qarshi-hamkorlikni-tikladi-385118",
       "urlB": "https://kun.uz/en/news/2026/06/17/excitement-but-no-pressure-shomurodov-believes-uzbekistan-is-ready-for-colombia-clash-9233a0",
       "titleA": "Boliviya va AQSh 18 yillik tanaffusdan so‘ng narkotrafikka qarshi hamkorlikni tikladi",
       "titleB": "Excitement but no pressure: Shomurodov believes Uzbekistan is ready for Colombia clash",
       "score": 0.53,
       "hours": 4.8
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/06/29/endi-cheklarni-soliq-ilovasiga-yuklaganlar-avtomobil-yutib-olishi-mumkin-ee53ec",
+      "urlB": "https://kun.uz/en/news/2026/06/29/shomurodov-contends-with-messi-and-mbappe-for-finest-goal-of-world-cup-group-stage-04055c",
+      "titleA": "Endi cheklarni «Soliq» ilovasiga yuklaganlar avtomobil yutib olishi mumkin",
+      "titleB": "Shomurodov contends with Messi and Mbappe for finest goal of World Cup group stage",
+      "score": 0.529,
+      "hours": 6.3
     },
     {
       "langA": "uz",
@@ -1182,6 +2342,16 @@
       "titleB": "Uzbekistan and Azerbaijan target $1bn in trade with new package of joint projects",
       "score": 0.526,
       "hours": 5.7
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/06/29/avstraliya-yoli-tanlanadimi-ozbekistonda-ham-bolalarning-ijtimoiy-tarmoqlardan-foydalanishi-cheklanishi-mumkin",
+      "urlB": "https://kun.uz/en/news/2026/06/29/uzbekistan-looks-to-legally-restrict-social-media-for-children-under-16-b6e2df",
+      "titleA": "Avstraliya yo‘li tanlanadimi? O‘zbekistonda ham bolalarning ijtimoiy tarmoqlardan foydalanishi cheklanishi mumkin",
+      "titleB": "Uzbekistan looks to legally restrict social media for children under 16",
+      "score": 0.526,
+      "hours": 5.78
     },
     {
       "langA": "uz",
@@ -1226,12 +2396,52 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/25/qabristonlarga-qr-kodlar-orqali-xayr-ehsonlar-qilish-yolga-qoyiladi",
+      "urlB": "https://kun.uz/en/news/2026/05/25/international-flower-festival-in-namangan-enters-guinness-world-records-b20bc4",
+      "titleA": "Qabristonlarga QR-kodlar orqali xayr-ehsonlar qilish yo‘lga qo‘yiladi",
+      "titleB": "International flower festival in Namangan enters Guinness World Records",
+      "score": 0.519,
+      "hours": 9.45
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://kun.uz/news/2026/05/13/shvetsiyadan-20-nafar-ozbekiston-fuqarosi-deportatsiya-qilindi",
       "urlB": "https://kun.uz/en/news/2026/05/13/sweden-deports-20-uzbek-nationals-over-migration-law-violations",
       "titleA": "Shvetsiyadan 20 nafar O‘zbekiston fuqarosi deportatsiya qilindi",
       "titleB": "Sweden deports 20 Uzbek nationals over migration law violations",
       "score": 0.519,
       "hours": 7.45
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/25/may-oyida-eng-kop-yogingarchilik-qaysi-hududlarda-kuzatiladi-03861f",
+      "urlB": "https://kun.uz/en/news/2026/05/26/tashkent-and-tianjin-seal-infrastructure-deals-to-overhaul-drainage-and-sewage-systems-a14e0a",
+      "titleA": "May oyida eng ko‘p yog‘ingarchilik qaysi hududlarda kuzatiladi?",
+      "titleB": "Tashkent and Tianjin seal infrastructure deals to overhaul drainage and sewage systems",
+      "score": 0.517,
+      "hours": 7.95
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/26/tadbirkorlar-uchun-yangi-raqamli-moliyaviy-tizim-taklif-qilindi-11bd64",
+      "urlB": "https://kun.uz/en/news/2026/05/26/uzbekistan-sends-humanitarian-aid-to-afghanistan-dfe899",
+      "titleA": "Tadbirkorlar uchun yangi raqamli moliyaviy tizim taklif qilindi",
+      "titleB": "Uzbekistan sends humanitarian aid to Afghanistan",
+      "score": 0.506,
+      "hours": 10.6
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/01/yangi-samsung-galaxy-2026-yilning-eng-bemani-smartfoni-deb-topildi-a74d33",
+      "urlB": "https://kun.uz/en/news/2026/07/01/eldor-shomurodovs-goal-voted-best-of-the-fifa-world-cup-2026-group-stage-1a89c7",
+      "titleA": "Yangi Samsung Galaxy 2026 yilning &quot;eng bema’ni&quot; smartfoni deb topildi",
+      "titleB": "Eldor Shomurodov&#x27;s goal voted best of the FIFA World Cup 2026 group stage",
+      "score": 0.503,
+      "hours": 14.85
     },
     {
       "langA": "uz",
@@ -1266,6 +2476,36 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/26/toshkentda-uy-savdosi-bilan-bogliq-mojaro-tergov-qilinmoqda-6bd1f7",
+      "urlB": "https://kun.uz/en/news/2026/05/25/islamic-development-bank-reviews-20-new-projects-in-uzbekistan-worth-3-billion-1ff7b9",
+      "titleA": "Toshkentda uy savdosi bilan bog‘liq mojaro tergov qilinmoqda",
+      "titleB": "Islamic Development Bank reviews 20 new projects in Uzbekistan worth $3 billion",
+      "score": 0.481,
+      "hours": 16.5
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/06/29/kuzda-apple-15-dan-ortiq-yangi-gadjetni-taqdim-etadi-26b698",
+      "urlB": "https://kun.uz/en/news/2026/06/30/schoolboy-killed-in-crash-after-attending-andijan-guinness-record-event-family-blames-officials-for--0ecb4c",
+      "titleA": "Kuzda Apple 15 dan ortiq yangi gadjetni taqdim etadi",
+      "titleB": "Schoolboy killed in crash after attending Andijan Guinness record event, family blames officials for mobilizing students",
+      "score": 0.47,
+      "hours": 19.23
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/03/rossiya-ichki-bozorni-taminlash-uchun-yevro-3-benziniga-ruxsat-berdi-5d3e64",
+      "urlB": "https://kun.uz/en/news/2026/07/02/businesses-in-uzbekistan-accelerate-ai-and-cybersecurity-investment-to-gain-competitive-edge-5e6d05",
+      "titleA": "Rossiya ichki bozorni ta’minlash uchun “Yevro-3” benziniga ruxsat berdi",
+      "titleB": "Businesses in Uzbekistan accelerate AI and cybersecurity investment to gain competitive edge",
+      "score": 0.465,
+      "hours": 21.5
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://kun.uz/news/2026/06/19/orbansiz-sammit-yei-ukraina-boyicha-yagona-pozitsiyaga-keldi-ed7911",
       "urlB": "https://kun.uz/en/news/2026/06/18/mistakes-will-be-addressed-says-fabio-cannavaro-after-historic-uzbekistan-colombia-fixture-e8e07c",
       "titleA": "Orbansiz sammit: YeI Ukraina bo‘yicha yagona pozitsiyaga keldi",
@@ -1286,12 +2526,42 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/02/bugatti-chinni-qoplamali-noyob-avtomobilni-taqdim-qildi-721b4e",
+      "urlB": "https://kun.uz/en/news/2026/07/03/fifa-appoints-uzbek-officiating-crew-for-paraguay-france-round-of-16-f4e58a",
+      "titleA": "Bugatti chinni qoplamali noyob avtomobilni taqdim qildi",
+      "titleB": "FIFA appoints Uzbek officiating crew for Paraguay-France round of 16",
+      "score": 0.463,
+      "hours": 20.78
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://kun.uz/news/2026/07/14/ozbekiston-boylab-qabul-test-sinovlari-boshlandi-104ea3",
       "urlB": "https://kun.uz/en/news/2026/07/13/admission-tests-for-universities-and-vocational-colleges-to-start-on-july-14-05f8ee",
       "titleA": "O‘zbekiston bo‘ylab qabul test sinovlari boshlandi",
       "titleB": "Admission tests for universities and vocational colleges to start on July 14",
-      "score": 0.452,
+      "score": 0.454,
       "hours": 16.52
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/20/ozgidromet-ayrim-hududlarda-sel-va-suv-toshqini-xavfidan-ogohlantirdi",
+      "urlB": "https://kun.uz/en/news/2026/07/20/uzhydromet-issues-mudflow-and-flash-flood-alert-for-several-regions",
+      "titleA": "O‘zgidromet ayrim hududlarda sel va suv toshqini xavfidan ogohlantirdi",
+      "titleB": "Uzhydromet issues mudflow and flash flood alert for several regions",
+      "score": 0.452,
+      "hours": 8.07
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/24/bolani-birinchi-sinfga-qanday-joylashtirish-mumkin",
+      "urlB": "https://kun.uz/en/news/2026/07/24/how-to-enroll-your-child-in-primary-school-in-uzbekistan-in-2026",
+      "titleA": "Bola birinchi sinfga qanday joylashtiriladi?",
+      "titleB": "How to enroll your child in primary school in Uzbekistan in 2026",
+      "score": 0.448,
+      "hours": 0.1
     },
     {
       "langA": "uz",
@@ -1300,8 +2570,18 @@
       "urlB": "https://kun.uz/en/news/2026/07/17/uzbekistan-adds-12-new-mosques-to-state-register-in-six-months-c6f711",
       "titleA": "AFP: Iyundagi jazirama Yevropada 12 mingdan ortiq inson umriga zomin bo‘ldi",
       "titleB": "Uzbekistan adds 12 new mosques to state register in six months",
-      "score": 0.436,
+      "score": 0.442,
       "hours": 1.55
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/22/samarqandda-ypx-avtomobili-yolovchini-urib-ketdi-yolovchi-halok-bolgan",
+      "urlB": "https://kun.uz/en/news/2026/07/22/uzbekistan-needs-8-billion-to-modernize-energy-infrastructure-shavkat-mirziyoyev",
+      "titleA": "Samarqandda YPX avtomobili piyodani urib ketdi",
+      "titleB": "Uzbekistan needs $8 billion to modernize energy infrastructure – Shavkat Mirziyoyev",
+      "score": 0.433,
+      "hours": 0.78
     },
     {
       "langA": "uz",
@@ -1310,8 +2590,18 @@
       "urlB": "https://kun.uz/en/news/2026/05/14/authorities-expose-massive-90-million-corruption-ring-promising-jobs-in-south-korea",
       "titleA": "O‘zbekistonda Koreyaga ishga yuborish bilan bog‘liq korrupsion sxema fosh etildi",
       "titleB": "Authorities expose massive $90 million corruption ring promising jobs in South Korea",
-      "score": 0.414,
+      "score": 0.413,
       "hours": 3.62
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/21/toshkent-metrosiga-yana-3-ta-zamonaviy-poyezd-olib-kelindi",
+      "urlB": "https://kun.uz/en/news/2026/07/21/tashkent-metro-expands-fleet-with-three-additional-modern-trainsets",
+      "titleA": "Toshkent metrosiga yana 3 ta zamonaviy poyezd olib kelindi",
+      "titleB": "Tashkent Metro expands fleet with three additional modern trainsets",
+      "score": 0.411,
+      "hours": 6.08
     },
     {
       "langA": "uz",
@@ -1320,8 +2610,28 @@
       "urlB": "https://kun.uz/en/news/2026/06/16/uzbekistan-builds-over-300-apartments-for-earthquake-victims-in-hatay-province-of-turkey-7e7e9b",
       "titleA": "AQSh–Eron sulhi va Isroil omili",
       "titleB": "Uzbekistan builds over 300 apartments for earthquake victims in Hatay province of Turkey",
-      "score": 0.397,
+      "score": 0.407,
       "hours": 3.42
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/06/29/ukrainaning-40-kunlik-tasir-amaliyoti-urush-burilish-nuqtasidami",
+      "urlB": "https://kun.uz/en/news/2026/06/30/experts-propose-raising-uzbekistans-minimum-wage-to-40-of-median-salary-by-2030-db063f",
+      "titleA": "Ukrainaning 40 kunlik ta’sir amaliyoti: urush burilish nuqtasidami?",
+      "titleB": "Experts propose raising Uzbekistan&#x27;s minimum wage to 40% of median salary by 2030",
+      "score": 0.406,
+      "hours": 7.97
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/25/ozbekiston-milliy-terma-jamoasining-jahon-chempionatida-ishtirok-etuvchi-tarkibi-elon-qilindi",
+      "urlB": "https://kun.uz/en/news/2026/05/25/fabio-cannavaro-announces-uzbekistan-squad-for-world-cup-e36e1d",
+      "titleA": "O‘zbekiston milliy jamoasining AQShga yo‘l olgan tarkibi e’lon qilindi",
+      "titleB": "Fabio Cannavaro announces Uzbekistan squad for World Cup",
+      "score": 0.398,
+      "hours": 5.15
     },
     {
       "langA": "uz",
@@ -1330,28 +2640,18 @@
       "urlB": "https://kun.uz/en/news/2026/07/13/uzbekistan-and-belarus-extend-registration-free-stay-to-10-days-1bbc4e",
       "titleA": "Yevropada issiqlik to‘lqini qurbonlari soni 10 mingdan oshdi",
       "titleB": "Uzbekistan and Belarus extend registration-free stay to 10 days",
-      "score": 0.385,
+      "score": 0.397,
       "hours": 4.27
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://kun.uz/news/2026/05/13/eronning-70-foiz-raketa-arsenali-saqlanib-qolgan-nyt",
-      "urlB": "https://kun.uz/en/news/2026/05/13/uzbekistan-and-mongolia-target-100-million-in-annual-trade-following-tashkent-forum",
-      "titleA": "Eronning 70 foiz raketa arsenali saqlanib qolgan - NYT",
-      "titleB": "Uzbekistan and Mongolia target $100 million in annual trade following Tashkent forum",
-      "score": 0.384,
-      "hours": 12.06
-    },
-    {
-      "langA": "uz",
-      "langB": "en",
-      "urlA": "https://kun.uz/news/2026/05/14/putin-belgorod-va-bryansk-rahbarlarini-lavozimdan-oldi",
-      "urlB": "https://kun.uz/en/news/2026/05/14/uzbekistan-u17-finish-top-of-group-d-after-2-0-win-over-australia",
-      "titleA": "Putin Belgorod va Bryansk rahbarlarini lavozimdan oldi",
-      "titleB": "Uzbekistan U17 finish top of Group D after 2–0 win over Australia",
-      "score": 0.383,
-      "hours": 4.89
+      "urlA": "https://kun.uz/news/2026/07/21/qarzdor-aholi-daromadining-yarmidan-kopini-qarzini-uzishga-sarflayapti",
+      "urlB": "https://kun.uz/en/news/2026/07/21/six-in-10-borrowers-in-uzbekistan-struggle-to-repay-loans-on-time-central-bank-survey",
+      "titleA": "Qarzdor aholi daromadining yarmidan ko‘pini qarzini uzishga sarflayapti",
+      "titleB": "Six in 10 borrowers in Uzbekistan struggle to repay loans on time – Central Bank survey",
+      "score": 0.39,
+      "hours": 5.53
     },
     {
       "langA": "uz",
@@ -1360,8 +2660,68 @@
       "urlB": "https://kun.uz/en/news/2026/07/13/central-bank-strong-housing-demand-pushes-up-prices-across-uzbekistan-67d5e8",
       "titleA": "Graduation Ceremony 2026: Central Asian University mutaxassislarning yangi avlodini yetishtirdi",
       "titleB": "Central Bank: Strong housing demand pushes up prices across Uzbekistan",
-      "score": 0.382,
+      "score": 0.386,
       "hours": 2.51
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/14/putin-belgorod-va-bryansk-rahbarlarini-lavozimdan-oldi",
+      "urlB": "https://kun.uz/en/news/2026/05/14/uzbekistan-u17-finish-top-of-group-d-after-2-0-win-over-australia",
+      "titleA": "Putin Belgorod va Bryansk rahbarlarini lavozimdan oldi",
+      "titleB": "Uzbekistan U17 finish top of Group D after 2–0 win over Australia",
+      "score": 0.385,
+      "hours": 4.89
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/23/sergelida-transport-harakatiga-vaqtincha-cheklovlar-kiritildi",
+      "urlB": "https://kun.uz/en/news/2026/07/23/uzbekistan-u-23-drawn-with-vietnam-philippines-and-kuwait-at-2026-asian-games",
+      "titleA": "Sergelida transport harakatiga vaqtincha cheklovlar kiritildi",
+      "titleB": "Uzbekistan U-23 drawn with Vietnam, Philippines and Kuwait at 2026 Asian Games",
+      "score": 0.382,
+      "hours": 3.18
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/01/ozbekistonda-benzin-narxi-rekord-darajada-qimmatlashdi-sabab-nima-a406b4",
+      "urlB": "https://kun.uz/en/news/2026/07/01/ai-92-gasoline-prices-hit-record-high-as-exchange-supply-dwindles-e6e689",
+      "titleA": "O‘zbekistonda benzin narxi rekord darajada qimmatlashdi. Sabab nima?",
+      "titleB": "AI-92 gasoline prices hit record high as exchange supply dwindles",
+      "score": 0.38,
+      "hours": 3.65
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/06/30/enso-mareska-manchester-sitiga-bosh-murabbiy-etib-tayinlandi-b1d2f0",
+      "urlB": "https://kun.uz/en/news/2026/06/29/uzbekistan-schedules-first-small-modular-reactor-launch-for-october-november-2029-b1445b",
+      "titleA": "Enso Mareska &quot;Manchester Siti&quot;ga bosh murabbiy etib tayinlandi",
+      "titleB": "Uzbekistan schedules first small modular reactor launch for October–November 2029",
+      "score": 0.377,
+      "hours": 8.02
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/13/eronning-70-foiz-raketa-arsenali-saqlanib-qolgan-nyt",
+      "urlB": "https://kun.uz/en/news/2026/05/13/uzbekistan-and-mongolia-target-100-million-in-annual-trade-following-tashkent-forum",
+      "titleA": "Eronning 70 foiz raketa arsenali saqlanib qolgan - NYT",
+      "titleB": "Uzbekistan and Mongolia target $100 million in annual trade following Tashkent forum",
+      "score": 0.373,
+      "hours": 12.06
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/06/16/rossiyada-tu-22m3-bombardimonchisi-halokatga-uchradi-12d9ce",
+      "urlB": "https://kun.uz/en/news/2026/06/16/islamic-financing-in-uzbekistan-hits-uzs-22-billion-in-early-2026-as-central-bank-advances-islamic-b-b48cd8",
+      "titleA": "Rossiyada Tu-22M3 bombardimonchisi halokatga uchradi",
+      "titleB": "Islamic financing in Uzbekistan hits UZS 22 billion in early 2026 as Central Bank advances Islamic banking reforms",
+      "score": 0.372,
+      "hours": 21.31
     },
     {
       "langA": "uz",
@@ -1370,7 +2730,7 @@
       "urlB": "https://kun.uz/en/news/2026/05/12/zero-bureaucracy-uzbekistan-to-streamline-nearly-800-state-services",
       "titleA": "Byurokratiyadan xoli davlat xizmatlari va narxi oshgan propan – mahalliy dayjest",
       "titleB": "Zero bureaucracy: Uzbekistan to streamline nearly 800 state services",
-      "score": 0.378,
+      "score": 0.369,
       "hours": 1.73
     },
     {
@@ -1380,18 +2740,28 @@
       "urlB": "https://kun.uz/en/news/2026/06/16/president-mirziyoyev-holds-talks-with-leaders-of-major-us-companies-ahead-of-investment-forum-e14f24",
       "titleA": "O‘zbekistonda ish tashlash huquqi joriy etilmoqda. U qanday ishlaydi?",
       "titleB": "President Mirziyoyev holds talks with leaders of major US companies ahead of investment forum",
-      "score": 0.37,
+      "score": 0.356,
       "hours": 0.74
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://kun.uz/news/2026/06/16/rossiyada-tu-22m3-bombardimonchisi-halokatga-uchradi-12d9ce",
-      "urlB": "https://kun.uz/en/news/2026/06/16/islamic-financing-in-uzbekistan-hits-uzs-22-billion-in-early-2026-as-central-bank-advances-islamic-b-b48cd8",
-      "titleA": "Rossiyada Tu-22M3 bombardimonchisi halokatga uchradi",
-      "titleB": "Islamic financing in Uzbekistan hits UZS 22 billion in early 2026 as Central Bank advances Islamic banking reforms",
-      "score": 0.367,
-      "hours": 21.31
+      "urlA": "https://kun.uz/news/2026/07/03/toshkent-va-andijonda-yirik-korrupsiya-holatlariga-chek-qoyildi-32a568",
+      "urlB": "https://kun.uz/en/news/2026/07/03/officials-foil-160k-land-fraud-scheme-in-andijan-cadastre-officer-arrested-in-tashkent-fafe64",
+      "titleA": "Andijonda davlat zaxirasidagi yerni 160 ming dollarga sotmoqchi bo‘lgan fuqaro ushlandi",
+      "titleB": "Officials foil $160K land fraud scheme in Andijan; cadastre officer arrested in Tashkent",
+      "score": 0.342,
+      "hours": 1.58
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/21/2029-yilgacha-byudjyet-taqchilligini-yaim-3-foizidan-oshirmaslik-rejalashtirilmoqda",
+      "urlB": "https://kun.uz/en/news/2026/07/21/uzbekistan-raises-2026-budget-revenue-forecast-by-19",
+      "titleA": "2029 yilgacha byudjyet taqchilligini YaIM 3 foizidan oshirmaslik rejalashtirilmoqda",
+      "titleB": "Uzbekistan raises 2026 budget revenue forecast by 19%",
+      "score": 0.333,
+      "hours": 4.22
     },
     {
       "langA": "uz",
@@ -1400,7 +2770,7 @@
       "urlB": "https://kun.uz/en/news/2026/07/13/more-than-670-drivers-in-uzbekistan-face-license-suspension-under-penalty-points-system-711eb2",
       "titleA": "YHXB: eng ko‘p uchrayotgan qoidabuzarliklar ma’lum qilindi",
       "titleB": "More than 670 drivers in Uzbekistan face license suspension under penalty points system",
-      "score": 0.326,
+      "score": 0.331,
       "hours": 0.49
     },
     {
@@ -1410,28 +2780,18 @@
       "urlB": "https://kun.uz/en/news/2026/05/13/uznif-ipo-secures-over-600-million-on-tashkent-and-london-exchanges",
       "titleA": "IPO yakunlari: Milliy investitsiya jamg‘armasining 31 foizi 603,6 mln dollarga sotildi",
       "titleB": "UzNIF IPO secures over $600 million on Tashkent and London exchanges",
-      "score": 0.325,
+      "score": 0.321,
       "hours": 2.14
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://kun.uz/news/2026/07/16/tashabbusli-budjetning-yangi-mavsumi-va-bankka-kirgan-bosqinchi-mahalliy-dayjest",
-      "urlB": "https://kun.uz/en/news/2026/07/16/propane-records-sharpest-annual-price-increase-among-non-food-goods-in-uzbekistan-f2b2f0",
-      "titleA": "«Tashabbusli budjet»ning yangi mavsumi va bankka kirgan bosqinchi - mahalliy dayjest",
-      "titleB": "Propane records sharpest annual price increase among non-food goods in Uzbekistan",
-      "score": 0.31,
-      "hours": 18.44
-    },
-    {
-      "langA": "uz",
-      "langB": "en",
-      "urlA": "https://kun.uz/news/2026/07/13/2025-yilda-uy-joy-narxlari-pasaydi-oldi-sotdi-kopaydi-markaziy-bank-tahlili-2ad27e",
-      "urlB": "https://kun.uz/en/news/2026/07/13/russian-pipeline-gas-deliveries-to-uzbekistan-projected-to-top-10-bcm-631c72",
-      "titleA": "2025 yilda uy-joy narxlari pasaydi, oldi-sotdi ko‘paydi - Markaziy bank tahlili",
-      "titleB": "Russian pipeline gas deliveries to Uzbekistan projected to top 10 bcm",
-      "score": 0.301,
-      "hours": 0.44
+      "urlA": "https://kun.uz/news/2026/07/23/ikkita-muzeyda-500dan-ortiq-eksponatlar-yoqligi-malum-boldi",
+      "urlB": "https://kun.uz/en/news/2026/07/24/more-than-500-museum-exhibits-reported-missing-from-two-state-museums",
+      "titleA": "Ikkita muzeyda 500dan ortiq eksponatlar yo‘qligi ma’lum bo‘ldi",
+      "titleB": "More than 500 museum exhibits reported missing from two state museums",
+      "score": 0.309,
+      "hours": 14.17
     },
     {
       "langA": "uz",
@@ -1440,8 +2800,58 @@
       "urlB": "https://kun.uz/en/news/2026/07/13/tashkent-metro-expands-fleet-with-arrival-of-three-modern-trains-b876b0",
       "titleA": "Toshkentdagi xususiy oliygohlarda o‘qish qancha turadi?",
       "titleB": "Tashkent Metro expands fleet with arrival of three modern trains",
-      "score": 0.297,
+      "score": 0.309,
       "hours": 0.11
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/29/xitoy-dengiz-ortasida-dunyodagi-eng-yirik-aeroportni-qurmoqda-3cd2a2",
+      "urlB": "https://kun.uz/en/news/2026/05/28/new-tashkent-airport-negotiations-begin-as-uzbekistan-targets-20-million-passengers-9af96c",
+      "titleA": "Xitoy dengiz o‘rtasida dunyodagi eng yirik aeroportni qurmoqda",
+      "titleB": "New Tashkent airport negotiations begin as Uzbekistan targets 20 million passengers",
+      "score": 0.309,
+      "hours": 16.42
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/13/2025-yilda-uy-joy-narxlari-pasaydi-oldi-sotdi-kopaydi-markaziy-bank-tahlili-2ad27e",
+      "urlB": "https://kun.uz/en/news/2026/07/13/russian-pipeline-gas-deliveries-to-uzbekistan-projected-to-top-10-bcm-631c72",
+      "titleA": "2025 yilda uy-joy narxlari pasaydi, oldi-sotdi ko‘paydi - Markaziy bank tahlili",
+      "titleB": "Russian pipeline gas deliveries to Uzbekistan projected to top 10 bcm",
+      "score": 0.304,
+      "hours": 0.44
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/16/tashabbusli-budjetning-yangi-mavsumi-va-bankka-kirgan-bosqinchi-mahalliy-dayjest",
+      "urlB": "https://kun.uz/en/news/2026/07/16/propane-records-sharpest-annual-price-increase-among-non-food-goods-in-uzbekistan-f2b2f0",
+      "titleA": "«Tashabbusli budjet»ning yangi mavsumi va bankka kirgan bosqinchi - mahalliy dayjest",
+      "titleB": "Propane records sharpest annual price increase among non-food goods in Uzbekistan",
+      "score": 0.302,
+      "hours": 18.44
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/22/husiylarning-dengiz-blokadasi-bu-saudiya-uchun-nimani-anglatadi",
+      "urlB": "https://kun.uz/en/news/2026/07/21/heatwave-drives-uzbekistans-daily-electricity-consumption-to-record-300-million-kwh",
+      "titleA": "Husiylarning dengiz blokadasi: bu Saudiya uchun nimani anglatadi?",
+      "titleB": "Heatwave drives Uzbekistan’s daily electricity consumption to record 300 million kWh",
+      "score": 0.295,
+      "hours": 15.75
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/24/nyu-yorkda-yangi-osmonopar-bino-qurilishi-boshlandi",
+      "urlB": "https://kun.uz/en/news/2026/07/23/abdukodir-khusanov-set-to-extend-manchester-city-contract-until-2031",
+      "titleA": "Nyu-Yorkda yangi osmono‘par bino qurilishi boshlandi",
+      "titleB": "Abdukodir Khusanov set to extend Manchester City contract until 2031",
+      "score": 0.292,
+      "hours": 20.95
     },
     {
       "langA": "uz",
@@ -1450,8 +2860,18 @@
       "urlB": "https://kun.uz/en/news/2026/07/14/eleven-convicted-over-mass-poisoning-of-preschool-children-in-tashkent-region-d1bce1",
       "titleA": "Toshkent viloyati bog‘chalaridagi ommaviy zaharlanishda 11 kishi aybdor deb topildi",
       "titleB": "Eleven convicted over mass poisoning of preschool children in Tashkent region",
-      "score": 0.29,
+      "score": 0.289,
       "hours": 1.84
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/06/30/royxatga-olish-natijasida-ozbekiston-aholisi-soni-39-milliondan-oshiq-ekani-malum-boldi-f2d311",
+      "urlB": "https://kun.uz/en/news/2026/06/30/uzbekistans-population-tops-39-million-preliminary-census-shows-af6028",
+      "titleA": "Ro‘yxatga olish natijasida O‘zbekiston aholisi soni 39 milliondan oshiq ekani ma’lum bo‘ldi",
+      "titleB": "Uzbekistan&#x27;s population tops 39 million, preliminary census shows",
+      "score": 0.288,
+      "hours": 0.63
     },
     {
       "langA": "uz",
@@ -1460,18 +2880,8 @@
       "urlB": "https://kun.uz/en/news/2026/06/18/major-consortium-led-by-vision-invest-secures-35-year-management-deal-for-new-tashkent-airport-e2168d",
       "titleA": " “Investorlarni siz deyishga tayyormiz” – Toshkentda investitsiya forumi bo‘lib o‘tmoqda",
       "titleB": "Major consortium led by Vision Invest secures 35–year management deal for new Tashkent airport",
-      "score": 0.282,
+      "score": 0.284,
       "hours": 15.58
-    },
-    {
-      "langA": "uz",
-      "langB": "en",
-      "urlA": "https://kun.uz/news/2026/07/15/oqishni-kochirish-boyicha-onlayn-arizalar-qabuli-boshlandi-3707bf",
-      "urlB": "https://kun.uz/en/news/2026/07/15/uzbekistan-sharply-increases-university-admissions-for-2026-2027-academic-year-c3f639",
-      "titleA": "O‘qishni ko‘chirish bo‘yicha onlayn arizalar qabuli boshlandi",
-      "titleB": "Uzbekistan sharply increases university admissions for 2026–2027 academic year",
-      "score": 0.269,
-      "hours": 4.28
     },
     {
       "langA": "uz",
@@ -1480,18 +2890,38 @@
       "urlB": "https://kun.uz/en/news/2026/05/14/samarkand-to-triple-in-size-and-double-population-under-new-master-plan-through-2045",
       "titleA": "Samarqand 2045 yilgacha ikki baravar kengayadi",
       "titleB": "Samarkand to triple in size and double population under new master plan through 2045",
-      "score": 0.268,
+      "score": 0.276,
       "hours": 3.23
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://kun.uz/news/2026/06/16/timur-ishmetov-2027-yilda-5-foizlik-inflatsiya-maqsadiga-erishish-yolida-jiddiy-xatarlar-kormayapmiz-7e940c",
-      "urlB": "https://kun.uz/en/news/2026/06/17/central-bank-says-5-inflation-target-remains-within-reach-by-2027-e9416d",
-      "titleA": "Timur Ishmetov: 2027 yilda 5 foizlik inflatsiya maqsadiga erishish yo‘lida jiddiy xatarlar ko‘rmayapmiz",
-      "titleB": "Central Bank says 5% inflation target remains within reach by 2027",
-      "score": 0.265,
-      "hours": 19.8
+      "urlA": "https://kun.uz/news/2026/05/27/ozbekistonda-5-ta-sel-suv-ombori-quriladi-1ff3f1",
+      "urlB": "https://kun.uz/en/news/2026/05/27/uzbekistan-prepares-to-welcome-over-795000-first-graders-in-20262027-school-year-2ef3a4",
+      "titleA": "O‘zbekistonda 5 ta sel-suv ombori quriladi",
+      "titleB": "Uzbekistan prepares to welcome over 795,000 first-graders in 2026/2027 school year",
+      "score": 0.274,
+      "hours": 2.37
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/21/turoperatorlardan-50-ming-dollarlik-zaxira-mablagi-talab-qilinishi-mumkin",
+      "urlB": "https://kun.uz/en/news/2026/07/20/migration-agency-charging-over-uzs-206-million-in-service-fees-for-south-korea-jobs-report",
+      "titleA": "Turoperatorlardan 50 ming dollarlik zaxira mablag‘i talab qilinishi mumkin",
+      "titleB": "Migration Agency charging over UZS 20.6 million in service fees for South Korea jobs – report",
+      "score": 0.273,
+      "hours": 17.1
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/20/ozbekiston-milliy-jamoasi-fifa-reytingida-10-pogona-pastladi",
+      "urlB": "https://kun.uz/en/news/2026/07/21/1123232313213131",
+      "titleA": "O‘zbekiston milliy jamoasi FIFA reytingida 10 pog‘ona pastladi",
+      "titleB": "FIFA rankings: Uzbekistan loses 23 points, slips to 60th after disappointing World Cup campaign",
+      "score": 0.264,
+      "hours": 3.32
     },
     {
       "langA": "uz",
@@ -1500,8 +2930,48 @@
       "urlB": "https://kun.uz/en/news/2026/06/20/education-ministry-opens-registration-for-primary-school-enrollment-7a7541",
       "titleA": "Nodirbek Abdusattorov jahon shaxmat reytingida eng yuqori uchtalikka kirdi",
       "titleB": "Education Ministry opens registration for primary school enrollment",
-      "score": 0.264,
+      "score": 0.261,
       "hours": 1.15
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/03/jch-kundaligi-ronalduda-tarixiy-gol-modrichda-alamli-yakun",
+      "urlB": "https://kun.uz/en/news/2026/07/03/uzbekistans-gross-external-debt-rises-20-to-822-billion-a5adb3",
+      "titleA": "JCh kundaligi. Ronalduda tarixiy gol, Modrichda alamli yakun",
+      "titleB": "Uzbekistan’s gross external debt rises 20% to $82.2 billion",
+      "score": 0.26,
+      "hours": 0.78
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/25/yabloko-sankt-peterburgdagi-saylovlarda-royxatdan-otkazilmadi",
+      "urlB": "https://kun.uz/en/news/2026/07/24/green-electricity-generation-in-uzbekistan-rises-23-year-on-year-in-2026",
+      "titleA": "«Yabloko» Sankt-Peterburgdagi saylovlarda ro‘yxatdan o‘tkazilmadi",
+      "titleB": "Green electricity generation in Uzbekistan rises 23% year-on-year in 2026",
+      "score": 0.259,
+      "hours": 18.78
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/15/oqishni-kochirish-boyicha-onlayn-arizalar-qabuli-boshlandi-3707bf",
+      "urlB": "https://kun.uz/en/news/2026/07/15/uzbekistan-sharply-increases-university-admissions-for-2026-2027-academic-year-c3f639",
+      "titleA": "O‘qishni ko‘chirish bo‘yicha onlayn arizalar qabuli boshlandi",
+      "titleB": "Uzbekistan sharply increases university admissions for 2026–2027 academic year",
+      "score": 0.258,
+      "hours": 4.28
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/06/16/timur-ishmetov-2027-yilda-5-foizlik-inflatsiya-maqsadiga-erishish-yolida-jiddiy-xatarlar-kormayapmiz-7e940c",
+      "urlB": "https://kun.uz/en/news/2026/06/17/central-bank-says-5-inflation-target-remains-within-reach-by-2027-e9416d",
+      "titleA": "Timur Ishmetov: 2027 yilda 5 foizlik inflatsiya maqsadiga erishish yo‘lida jiddiy xatarlar ko‘rmayapmiz",
+      "titleB": "Central Bank says 5% inflation target remains within reach by 2027",
+      "score": 0.256,
+      "hours": 19.8
     },
     {
       "langA": "uz",
@@ -1510,8 +2980,18 @@
       "urlB": "https://kun.uz/en/news/2026/05/16/legislative-chamber-approves-draft-law-on-tashkent-international-financial-center-in-first-reading",
       "titleA": "Hayit munosabati bilan ketma-ket 5 kun dam bo‘ladi",
       "titleB": "Legislative Chamber approves draft law on Tashkent International Financial Center in first reading",
-      "score": 0.261,
+      "score": 0.254,
       "hours": 5.64
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/26/ozbekistonda-70-yoshdan-oshganlar-orasida-ham-ota-bolganlar-bor-3ca879",
+      "urlB": "https://kun.uz/en/news/2026/05/26/opta-supercomputer-assesses-uzbekistans-2026-world-cup-chances-7b5972",
+      "titleA": "O‘zbekistonda 70 yoshdan oshganlar orasida ham ota bo‘lganlar bor",
+      "titleB": "Opta supercomputer assesses Uzbekistan’s 2026 World Cup chances",
+      "score": 0.249,
+      "hours": 1.82
     },
     {
       "langA": "uz",
@@ -1520,8 +3000,28 @@
       "urlB": "https://kun.uz/en/news/2026/06/17/uzbekistans-gdp-projected-to-surpass-180-billion-in-2026-shavkat-mirziyoyev-dbd07c",
       "titleA": "Kinoga ko‘chgan hayot: Ikkinchi jahon urushida qurol ishlatmasdan qahramon bo‘lgan askar kim edi?",
       "titleB": "Uzbekistan’s GDP projected to surpass $180 billion in 2026 – Shavkat Mirziyoyev",
-      "score": 0.245,
+      "score": 0.239,
       "hours": 18.5
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/02/rossiya-kiyevga-vayronkor-zarbalar-yolladi",
+      "urlB": "https://kun.uz/en/news/2026/07/01/world-bank-approves-100-million-to-upgrade-primary-education-in-uzbekistan-ae1010",
+      "titleA": "Rossiya Kiyevga vayronkor zarbalar yo‘lladi – suratlar",
+      "titleB": "World Bank approves $100 million to upgrade primary education in Uzbekistan",
+      "score": 0.239,
+      "hours": 23.52
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/24/parrandachilik-xojaliklariga-imtiyozli-mablaglar-beriladi",
+      "urlB": "https://kun.uz/en/news/2026/07/24/higher-and-vocational-education-entrance-exams-conclude-across-uzbekistan",
+      "titleA": "Parrandachilik xo‘jaliklariga imtiyozli mablag‘lar beriladi",
+      "titleB": "Higher and vocational education entrance exams conclude across Uzbekistan",
+      "score": 0.234,
+      "hours": 2
     },
     {
       "langA": "uz",
@@ -1530,7 +3030,7 @@
       "urlB": "https://kun.uz/en/news/2026/06/16/tashkent-among-worlds-top-three-fastest-changing-cities-in-bcg-ranking-6e4b65",
       "titleA": "Tramp 80 yoshini katta tantana bilan nishonladi",
       "titleB": "Tashkent among world&#x27;s top three fastest-changing cities in BCG ranking",
-      "score": 0.243,
+      "score": 0.232,
       "hours": 22.4
     },
     {
@@ -1540,48 +3040,8 @@
       "urlB": "https://kun.uz/en/news/2026/05/13/uzbekistans-imports-rise-to-122-billion-in-q1",
       "titleA": "Coca-Cola va O‘FA ko‘magida O‘zbekiston milliy terma jamoasini Jahon chempionatiga kuzatish marosimi",
       "titleB": "Uzbekistan’s imports rise to $12.2 billion in Q1",
-      "score": 0.239,
+      "score": 0.228,
       "hours": 0.58
-    },
-    {
-      "langA": "uz",
-      "langB": "en",
-      "urlA": "https://kun.uz/news/2026/07/15/fasten-safar-buyurtma-qilish-xizmati-endi-ozbekistonning-barcha-hududlarida-ishlaydi",
-      "urlB": "https://kun.uz/en/news/2026/07/14/interior-ministry-18-officers-died-while-on-duty-in-six-months-37ed70",
-      "titleA": "Fasten safar buyurtma qilish xizmati endi O‘zbekistonning barcha hududlarida ishlaydi",
-      "titleB": "Interior Ministry: 18 officers died while on duty in six months",
-      "score": 0.216,
-      "hours": 23.75
-    },
-    {
-      "langA": "uz",
-      "langB": "en",
-      "urlA": "https://kun.uz/news/2026/06/17/ozbekistonning-jahon-chempionatidagi-ishtirokiga-bagishlangan-esdalik-tangalar-sotuvga-chiqariladi-f03255",
-      "urlB": "https://kun.uz/en/news/2026/06/17/uzbekistan-south-korea-to-establish-100-million-biotechnology-cluster-in-tashkent-region-0b66e6",
-      "titleA": "O‘zbekistonning jahon chempionatidagi ishtirokiga bag‘ishlangan esdalik tangalar sotuvga chiqariladi",
-      "titleB": "Uzbekistan, South Korea to establish $100 million biotechnology cluster in Tashkent region",
-      "score": 0.216,
-      "hours": 1.12
-    },
-    {
-      "langA": "uz",
-      "langB": "en",
-      "urlA": "https://kun.uz/news/2026/07/15/parlamentlararo-ittifoq-ozbekiston-tajribasini-namuna-sifatida-korsatdi-7dbb64",
-      "urlB": "https://kun.uz/en/news/2026/07/15/uzbekistan-ranks-166th-in-global-prison-population-ranking-9e5384",
-      "titleA": "Parlamentlararo ittifoq O‘zbekiston tajribasini namuna sifatida ko‘rsatdi",
-      "titleB": "Uzbekistan ranks 166th in global prison population ranking",
-      "score": 0.215,
-      "hours": 0.88
-    },
-    {
-      "langA": "uz",
-      "langB": "en",
-      "urlA": "https://kun.uz/news/2026/05/16/ozbekistonlik-talabalar-qaysi-davlatlarni-tanlamoqda",
-      "urlB": "https://kun.uz/en/news/2026/05/16/tajikistan-remains-top-buyer-as-uzbekistan-exports-12-thousand-tons-of-rice-in-q1",
-      "titleA": "O‘zbekistonlik talabalar qaysi davlatlarni tanlamoqda?",
-      "titleB": "Tajikistan remains top buyer as Uzbekistan exports 1.2 thousand tons of rice in Q1",
-      "score": 0.215,
-      "hours": 2.72
     },
     {
       "langA": "uz",
@@ -1590,18 +3050,68 @@
       "urlB": "https://kun.uz/en/news/2026/06/17/uzbekistan-nears-30-renewable-power-capacity-targets-over-50-by-2030-228ad3",
       "titleA": "Toshkentning yangi xalqaro aeroportini qurish bo‘yicha DXSh bitimi imzolandi",
       "titleB": "Uzbekistan nears 30% renewable power capacity, targets over 50% by 2030",
-      "score": 0.214,
+      "score": 0.222,
       "hours": 22.2
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://kun.uz/news/2026/07/14/dunyoda-eng-kop-tankka-ega-davlatlar-malum-qilindi-acbe88",
-      "urlB": "https://kun.uz/en/news/2026/07/14/uzbekistan-welcomes-65-million-foreign-tourists-in-first-half-of-2026-c6182f",
-      "titleA": "Dunyoda eng ko‘p tankka ega davlatlar ma’lum qilindi",
-      "titleB": "Uzbekistan welcomes 6.5 million foreign tourists in first half of 2026",
-      "score": 0.208,
-      "hours": 3.46
+      "urlA": "https://kun.uz/news/2026/07/02/ozbekistonliklar-xorijga-investitsiya-kiritishi-keskin-kopaydi-bae34a",
+      "urlB": "https://kun.uz/en/news/2026/07/03/uzbekistans-overseas-investment-surges-33-fold-after-regulatory-easing-af5625",
+      "titleA": "O‘zbekistonliklar xorijga investitsiya kiritishi keskin ko‘paydi",
+      "titleB": "Uzbekistan’s overseas investment surges 33-fold after regulatory easing",
+      "score": 0.222,
+      "hours": 16.89
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/15/fasten-safar-buyurtma-qilish-xizmati-endi-ozbekistonning-barcha-hududlarida-ishlaydi",
+      "urlB": "https://kun.uz/en/news/2026/07/14/interior-ministry-18-officers-died-while-on-duty-in-six-months-37ed70",
+      "titleA": "Fasten safar buyurtma qilish xizmati endi O‘zbekistonning barcha hududlarida ishlaydi",
+      "titleB": "Interior Ministry: 18 officers died while on duty in six months",
+      "score": 0.217,
+      "hours": 23.75
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/25/beqaror-hafta",
+      "urlB": "https://kun.uz/en/news/2026/05/25/tashkent-launches-additional-air-and-bus-services-to-regions-for-eid-al-adha-0d2ceb",
+      "titleA": "Hafta davomida qanday ob-havo kutilmoqda?",
+      "titleB": "Tashkent launches additional air and bus services to regions for Eid al-Adha",
+      "score": 0.215,
+      "hours": 11.42
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/15/parlamentlararo-ittifoq-ozbekiston-tajribasini-namuna-sifatida-korsatdi-7dbb64",
+      "urlB": "https://kun.uz/en/news/2026/07/15/uzbekistan-ranks-166th-in-global-prison-population-ranking-9e5384",
+      "titleA": "Parlamentlararo ittifoq O‘zbekiston tajribasini namuna sifatida ko‘rsatdi",
+      "titleB": "Uzbekistan ranks 166th in global prison population ranking",
+      "score": 0.214,
+      "hours": 0.88
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/06/17/ozbekistonning-jahon-chempionatidagi-ishtirokiga-bagishlangan-esdalik-tangalar-sotuvga-chiqariladi-f03255",
+      "urlB": "https://kun.uz/en/news/2026/06/17/uzbekistan-south-korea-to-establish-100-million-biotechnology-cluster-in-tashkent-region-0b66e6",
+      "titleA": "O‘zbekistonning jahon chempionatidagi ishtirokiga bag‘ishlangan esdalik tangalar sotuvga chiqariladi",
+      "titleB": "Uzbekistan, South Korea to establish $100 million biotechnology cluster in Tashkent region",
+      "score": 0.214,
+      "hours": 1.12
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/20/top-300-universitetlarida-oqish-xarajatlari-moliyalashtiriladi",
+      "urlB": "https://kun.uz/en/news/2026/07/20/uzbekistan-expecs-pension-recipiens-to-reach-46-million-in-2027",
+      "titleA": "Top-300 universitetlarida o‘qish xarajatlari moliyalashtiriladi",
+      "titleB": "Uzbekistan expects pension recipients to reach 4.6 million in 2027",
+      "score": 0.209,
+      "hours": 7
     },
     {
       "langA": "uz",
@@ -1610,8 +3120,38 @@
       "urlB": "https://kun.uz/en/news/2026/06/16/japan-approves-nearly-230-million-in-loans-to-support-energy-efficiency-in-uzbekistan-53b349",
       "titleA": "Yaponiya O‘zbekistonda energiya samaradorligini oshirish uchun 230 mln dollar kredit ajratadi",
       "titleB": "Japan approves nearly $230 million in loans to support energy efficiency in Uzbekistan",
-      "score": 0.197,
+      "score": 0.203,
       "hours": 19.21
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/16/ozbekistonlik-talabalar-qaysi-davlatlarni-tanlamoqda",
+      "urlB": "https://kun.uz/en/news/2026/05/16/tajikistan-remains-top-buyer-as-uzbekistan-exports-12-thousand-tons-of-rice-in-q1",
+      "titleA": "O‘zbekistonlik talabalar qaysi davlatlarni tanlamoqda?",
+      "titleB": "Tajikistan remains top buyer as Uzbekistan exports 1.2 thousand tons of rice in Q1",
+      "score": 0.202,
+      "hours": 2.72
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/14/dunyoda-eng-kop-tankka-ega-davlatlar-malum-qilindi-acbe88",
+      "urlB": "https://kun.uz/en/news/2026/07/14/uzbekistan-welcomes-65-million-foreign-tourists-in-first-half-of-2026-c6182f",
+      "titleA": "Dunyoda eng ko‘p tankka ega davlatlar ma’lum qilindi",
+      "titleB": "Uzbekistan welcomes 6.5 million foreign tourists in first half of 2026",
+      "score": 0.199,
+      "hours": 3.46
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/13/ozbekistonda-gazetalar-soni-15-yilda-uch-barobar-kamaydi-bedd62",
+      "urlB": "https://kun.uz/en/news/2026/07/14/uzbekistan-loses-two-thirds-of-its-newspapers-since-2010-8a7749",
+      "titleA": "O‘zbekistonda gazetalar soni 15 yilda uch barobar kamaydi",
+      "titleB": "Uzbekistan loses two-thirds of its newspapers since 2010",
+      "score": 0.198,
+      "hours": 19.9
     },
     {
       "langA": "uz",
@@ -1620,18 +3160,28 @@
       "urlB": "https://kun.uz/en/news/2026/06/19/czech-manufacturer-koda-to-deliver-10-modern-electric-trains-to-uzbekistan-89e354",
       "titleA": "Soliqdan eng ko‘p qarzi bor qurilish kompaniyalari ma’lum qilindi",
       "titleB": "Czech manufacturer Škoda to deliver 10 modern electric trains to Uzbekistan",
-      "score": 0.194,
+      "score": 0.193,
       "hours": 3.29
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://kun.uz/news/2026/05/15/saida-mirziyoyeva-joyzar-kanali-betonlanadi-yiliga-12-mln-kub-metr-suv-tejaladi",
-      "urlB": "https://kun.uz/en/news/2026/05/15/traffic-police-report-170-child-transport-violations-in-12-days",
-      "titleA": "Saida Mirziyoyeva: «Jo‘yzar» kanali betonlanadi - yiliga 12 mln kub metr suv tejaladi",
-      "titleB": "Traffic police report 170 child transport violations in 12 days",
-      "score": 0.189,
-      "hours": 18.39
+      "urlA": "https://kun.uz/news/2026/05/30/ilmiy-daraja-olishda-qator-talablar-bekor-qilinadi",
+      "urlB": "https://kun.uz/en/news/2026/05/29/govt-to-scrap-bureaucratic-hurdles-in-academic-degree-system-from-2027-8c4037",
+      "titleA": "Ilmiy daraja berishda qator talablar bekor qilinadi",
+      "titleB": "Gov’t to scrap bureaucratic hurdles in academic degree system from 2027",
+      "score": 0.19,
+      "hours": 21.77
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/07/02/tramp-oq-uyga-qaytgach-kamida-2-mlrd-daromad-kordi-asosiy-boylik-kriptovalutalardan-247d44",
+      "urlB": "https://kun.uz/en/news/2026/07/01/uzbekistans-trade-deficit-widens-to-75-billion-as-exports-fall-and-imports-surge-b2454b",
+      "titleA": "Tramp Oq uyga qaytgach kamida $2 mlrd daromad ko‘rdi. Asosiy boylik – kriptovalutalardan",
+      "titleB": "Uzbekistan&#x27;s trade deficit widens to $7.5 billion as exports fall and imports surge",
+      "score": 0.185,
+      "hours": 2.16
     },
     {
       "langA": "uz",
@@ -1640,18 +3190,18 @@
       "urlB": "https://kun.uz/en/news/2026/06/15/central-bank-to-fine-banks-for-atm-service-failures-under-new-consumer-protection-rules-587166",
       "titleA": "Shveytsariyada referendum: mamlakat aholisi sonini cheklash taklifi rad etildi",
       "titleB": "Central Bank to fine banks for ATM service failures under new consumer protection rules",
-      "score": 0.186,
+      "score": 0.184,
       "hours": 16.06
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://kun.uz/news/2026/05/13/2026-yilning-i-choragida-ozbekistonda-soliq-tushumlari-24-foizga-oshdi",
-      "urlB": "https://kun.uz/en/news/2026/05/13/uzbekistans-tax-revenues-up-24-in-q1-2026",
-      "titleA": "2026 yilning I choragida O‘zbekistonda soliq tushumlari 24 foizga oshdi",
-      "titleB": "Uzbekistan&#x27;s tax revenues up 24% in Q1 2026",
-      "score": 0.184,
-      "hours": 15.41
+      "urlA": "https://kun.uz/news/2026/05/15/saida-mirziyoyeva-joyzar-kanali-betonlanadi-yiliga-12-mln-kub-metr-suv-tejaladi",
+      "urlB": "https://kun.uz/en/news/2026/05/15/traffic-police-report-170-child-transport-violations-in-12-days",
+      "titleA": "Saida Mirziyoyeva: «Jo‘yzar» kanali betonlanadi - yiliga 12 mln kub metr suv tejaladi",
+      "titleB": "Traffic police report 170 child transport violations in 12 days",
+      "score": 0.182,
+      "hours": 18.39
     },
     {
       "langA": "uz",
@@ -1660,18 +3210,38 @@
       "urlB": "https://kun.uz/en/news/2026/07/18/state-commission-approves-university-admission-quotas-for-2026-2027-academic-year-3f8930",
       "titleA": "Shaxsning ruxsatisiz unga SMS-reklamalar yuborish taqiqlanadi",
       "titleB": "State Commission approves university admission quotas for 2026–2027 academic year",
-      "score": 0.183,
+      "score": 0.178,
       "hours": 0.23
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://kun.uz/news/2026/06/15/ishlab-chiqarilganiga-30-yildan-oshgan-avtomobillar-egalari-ekologik-kompensatsiya-tolashi-mumkin-2520b8",
-      "urlB": "https://kun.uz/en/news/2026/06/15/uzbekistan-considers-annual-environmental-fee-for-vehicles-older-than-30-years-8b1e88",
-      "titleA": "Ishlab chiqarilganiga 30 yildan oshgan avtomobillar egalari ekologik kompensatsiya to‘lashi mumkin",
-      "titleB": "Uzbekistan considers annual environmental fee for vehicles older than 30 years",
-      "score": 0.18,
-      "hours": 16.91
+      "urlA": "https://kun.uz/news/2026/07/01/ozbekiston-aholisining-385-foizi-hali-20-yoshga-tolmagan-8e087b",
+      "urlB": "https://kun.uz/en/news/2026/07/01/world-cup-debut-boosts-global-searches-for-uzbekistan-by-40-b113cf",
+      "titleA": "O‘zbekiston aholisining 38,5 foizi hali 20 yoshga to‘lmagan",
+      "titleB": "World Cup debut boosts global searches for Uzbekistan by 40%",
+      "score": 0.173,
+      "hours": 0.85
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/13/2026-yilning-i-choragida-ozbekistonda-soliq-tushumlari-24-foizga-oshdi",
+      "urlB": "https://kun.uz/en/news/2026/05/13/uzbekistans-tax-revenues-up-24-in-q1-2026",
+      "titleA": "2026 yilning I choragida O‘zbekistonda soliq tushumlari 24 foizga oshdi",
+      "titleB": "Uzbekistan&#x27;s tax revenues up 24% in Q1 2026",
+      "score": 0.173,
+      "hours": 15.41
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/25/qirgizistonda-starlink-interneti-ishga-tushdi-a87f32",
+      "urlB": "https://kun.uz/en/news/2026/05/25/central-bank-reports-06-appreciation-of-national-currency-against-greenback-fb15cf",
+      "titleA": "Qirg‘izistonda Starlink interneti ishga tushdi",
+      "titleB": "Central Bank reports 0.6% appreciation of national currency against greenback",
+      "score": 0.167,
+      "hours": 1.07
     },
     {
       "langA": "uz",
@@ -1680,28 +3250,58 @@
       "urlB": "https://kun.uz/en/news/2026/07/15/competition-committee-fines-more-than-20-banks-and-mfis-over-advertising-violations-e02856",
       "titleA": "O‘zbekistonga yana juda issiq havo oqimlari kirib keladi",
       "titleB": "Competition Committee fines more than 20 banks and MFIs over advertising violations",
-      "score": 0.173,
+      "score": 0.165,
       "hours": 19.03
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://kun.uz/news/2026/05/12/rossiyada-real-daromadlar-osishi-keskin-sekinlashdi",
-      "urlB": "https://kun.uz/en/news/2026/05/11/ev-imports-to-uzbekistan-surge-fourfold-in-early-2026",
-      "titleA": "Rossiyada real daromadlar o‘sishi keskin sekinlashdi",
-      "titleB": "EV imports to Uzbekistan surge fourfold in early 2026",
-      "score": 0.154,
-      "hours": 17.84
+      "urlA": "https://kun.uz/news/2026/07/21/prezident-bosh-vazirga-17-nafar-hokimning-lavozimiga-loyiqligini-korib-chiqishni-topshirdi",
+      "urlB": "https://kun.uz/en/news/2026/07/22/17-year-old-detained-in-tashkent-over-alleged-578000-illegal-crypto-transactions",
+      "titleA": "Prezident bosh vazirga 17 nafar hokimning lavozimiga loyiqligini ko‘rib chiqishni topshirdi",
+      "titleB": "17-year-old detained in Tashkent over alleged $578,000 illegal crypto transactions",
+      "score": 0.162,
+      "hours": 23.83
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://kun.uz/news/2026/06/15/namanganda-talim-tizimi-mansabdori-tezkor-tadbirda-qolga-olindi-c0ea67",
-      "urlB": "https://kun.uz/en/news/2026/06/16/bus-driver-sentenced-to-10-years-in-prison-over-fatal-crash-in-navoi-region-db5406",
-      "titleA": "Namanganda ta’lim tizimi mansabdori tezkor tadbirda qo‘lga olindi",
-      "titleB": "Bus driver sentenced to 10 years in prison over fatal crash in Navoi region",
-      "score": 0.152,
-      "hours": 23.69
+      "urlA": "https://kun.uz/news/2026/07/03/fifa-rivaldo-oldidagi-qarzdorlik-tufayli-bunyodkorga-transfer-taqiqi-qoydi-6d5683",
+      "urlB": "https://kun.uz/en/news/2026/07/03/fifa-imposes-transfer-ban-on-bunyodkor-over-unpaid-debt-to-rivaldo-afca59",
+      "titleA": "FIFA Rivaldo oldidagi qarzdorlik tufayli «Bunyodkor»ga transfer taqiqi qo‘ydi",
+      "titleB": "FIFA imposes transfer ban on Bunyodkor over unpaid debt to Rivaldo",
+      "score": 0.158,
+      "hours": 0.99
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/29/ayrim-doktorantlarning-stipendiyasi-17-barobarga-oshiriladi-c0588e",
+      "urlB": "https://kun.uz/en/news/2026/05/29/it-park-service-exports-surge-by-over-38-million-amid-strong-quarterly-growth-613532",
+      "titleA": "Ayrim doktorantlarning stipendiyasi 1,7 barobarga oshiriladi",
+      "titleB": "IT Park service exports surge by over $38 million amid strong quarterly growth",
+      "score": 0.153,
+      "hours": 5.62
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://kun.uz/news/2026/05/28/15-mlrd-dollarlik-oltin-sotuvi-va-keskin-oshayotgan-gosht-importi-ozbekiston-tashqi-savdosi-sharhi-b98919",
+      "urlB": "https://kun.uz/en/news/2026/05/28/chinese-firm-wins-218-billion-tender-to-build-tashkent-samarkand-toll-road-60aec4",
+      "titleA": "1,5 mlrd dollarlik oltin sotuvi va keskin oshayotgan go‘sht importi - O‘zbekiston tashqi savdosi sharhi",
+      "titleB": "Chinese firm wins $2.18 billion tender to build Tashkent–Samarkand toll road",
+      "score": 0.151,
+      "hours": 0.64
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/21/gol-eldora-shomurodova-voshyol-v-spisok-pretendentov-na-luchshiy-gol-chm-2026",
+      "urlB": "https://kun.uz/en/news/2026/07/21/eldor-shomurodov-among-nominees-for-fifa-world-cup-2026-goal-of-the-tournament",
+      "titleA": "Гол Элдора Шомуродова вошёл в список претендентов на лучший гол ЧМ-2026",
+      "titleB": "Eldor Shomurodov among nominees for FIFA World Cup 2026 Goal of the Tournament",
+      "score": 0.582,
+      "hours": 2.03
     },
     {
       "langA": "ru",
@@ -1712,6 +3312,16 @@
       "titleB": "Excitement but no pressure: Shomurodov believes Uzbekistan is ready for Colombia clash",
       "score": 0.571,
       "hours": 0.62
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/21/chislo-zaprosov-o-poyezdkax-v-uzbekistan-vyroslo-na-54-expedia-group",
+      "urlB": "https://kun.uz/en/news/2026/07/21/travel-searches-for-uzbekistan-jump-54-globally",
+      "titleA": "Число запросов о поездках в Узбекистан выросло на 54% — Expedia Group",
+      "titleB": "Travel searches for Uzbekistan jump 54% globally",
+      "score": 0.563,
+      "hours": 6.38
     },
     {
       "langA": "ru",
@@ -1772,6 +3382,16 @@
       "titleB": "Authorities expose massive $90 million corruption ring promising jobs in South Korea",
       "score": 0.546,
       "hours": 1.02
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/05/26/predlojyena-novaya-tsifrovaya-finansovaya-sistema-dlya-predprinimateley-447750",
+      "urlB": "https://kun.uz/en/news/2026/05/26/uzbekistan-sends-humanitarian-aid-to-afghanistan-dfe899",
+      "titleA": "Предложена новая цифровая финансовая система для предпринимателей",
+      "titleB": "Uzbekistan sends humanitarian aid to Afghanistan",
+      "score": 0.545,
+      "hours": 1.15
     },
     {
       "langA": "ru",
@@ -1840,8 +3460,18 @@
       "urlB": "https://kun.uz/en/news/2026/07/13/admission-tests-for-universities-and-vocational-colleges-to-start-on-july-14-05f8ee",
       "titleA": "Объявлены даты проведения вступительных тестов для абитуриентов",
       "titleB": "Admission tests for universities and vocational colleges to start on July 14",
-      "score": 0.519,
+      "score": 0.521,
       "hours": 0.37
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/06/30/shavkat-mirziyoyev-vruchil-molodeji-gosudarstvennyye-nagrady-cb975e",
+      "urlB": "https://kun.uz/en/news/2026/06/30/swiss-ambassador-konstantin-obolensky-concludes-diplomatic-mission-in-uzbekistan-147973",
+      "titleA": "Шавкат Мирзиёев вручил молодежи государственные награды",
+      "titleB": "Swiss Ambassador Konstantin Obolensky concludes diplomatic mission in Uzbekistan",
+      "score": 0.52,
+      "hours": 7.15
     },
     {
       "langA": "ru",
@@ -1876,12 +3506,42 @@
     {
       "langA": "ru",
       "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/05/26/v-tashkente-rassleduyut-delo-o-moshennichestve-pri-prodajye-doma-303e25",
+      "urlB": "https://kun.uz/en/news/2026/05/25/islamic-development-bank-reviews-20-new-projects-in-uzbekistan-worth-3-billion-1ff7b9",
+      "titleA": "В Ташкенте расследуют дело о мошенничестве при продаже дома",
+      "titleB": "Islamic Development Bank reviews 20 new projects in Uzbekistan worth $3 billion",
+      "score": 0.473,
+      "hours": 18.59
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/23/tebas-i-blatter-vyskazali-kritiku-v-adres-prezidenta-fifa",
+      "urlB": "https://kun.uz/en/news/2026/07/22/uzbekistan-extends-air-freight-import-incentive-for-meat-until-year-end",
+      "titleA": "Тебас и Блаттер высказали критику в адрес президента ФИФА",
+      "titleB": "Uzbekistan extends air freight import incentive for meat until year-end",
+      "score": 0.469,
+      "hours": 21.17
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
       "urlA": "https://kun.uz/ru/news/2026/06/16/v-tashkente-s-nachala-goda-zafiksirovano-47-sluchayev-vozgoraniya-avtomobiley-55262f",
       "urlB": "https://kun.uz/en/news/2026/06/17/tashkent-records-47-vehicle-fires-in-five-months-as-officials-warn-over-unsafe-modifications-and-poo-203fae",
       "titleA": "В Ташкенте с начала года зафиксировано 47 случаев возгорания автомобилей",
       "titleB": "Tashkent records 47 vehicle fires in five months as officials warn over unsafe modifications and poor maintenance",
-      "score": 0.465,
+      "score": 0.468,
       "hours": 4.01
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/03/portugaliya-vybila-xorvatiyu-s-chm-2026-ispaniya-razgromila-avstriyu-677de0",
+      "urlB": "https://kun.uz/en/news/2026/07/02/businesses-in-uzbekistan-accelerate-ai-and-cybersecurity-investment-to-gain-competitive-edge-5e6d05",
+      "titleA": "Португалия выбила Хорватию с ЧМ-2026, Испания разгромила Австрию",
+      "titleB": "Businesses in Uzbekistan accelerate AI and cybersecurity investment to gain competitive edge",
+      "score": 0.464,
+      "hours": 21.88
     },
     {
       "langA": "ru",
@@ -1896,12 +3556,32 @@
     {
       "langA": "ru",
       "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/24/kak-zapisat-rebenka-v-pervyy-klass-v-uzbekistane-v-2026-godu",
+      "urlB": "https://kun.uz/en/news/2026/07/24/how-to-enroll-your-child-in-primary-school-in-uzbekistan-in-2026",
+      "titleA": "Как записать ребенка в первый класс в Узбекистане в 2026 году",
+      "titleB": "How to enroll your child in primary school in Uzbekistan in 2026",
+      "score": 0.46,
+      "hours": 0.03
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
       "urlA": "https://kun.uz/ru/news/2026/05/14/%D0%BF%D0%B5%D1%80%D0%B2%D0%BE%D0%B3%D0%BE-%D0%BE%D1%82%D0%B5%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B0-%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D1%83%D1%8E%D1%82-%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D0%B2-%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D1%81-%D0%B2-2028-%D0%B3%D0%BE%D0%B4%D1%83-850e81",
       "urlB": "https://kun.uz/en/news/2026/05/14/uzbekistan-plans-to-send-first-national-astronaut-into-space-by-2028",
       "titleA": "Первого отечественного космонавта планируют отправить в космос в 2028 году",
       "titleB": "Uzbekistan plans to send first national astronaut into space by 2028",
-      "score": 0.458,
+      "score": 0.46,
       "hours": 2.79
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/20/v-uzgidromete-predupredili-ob-opasnosti-seley-i-pavodkov",
+      "urlB": "https://kun.uz/en/news/2026/07/20/uzhydromet-issues-mudflow-and-flash-flood-alert-for-several-regions",
+      "titleA": "В Узгидромете предупредили об опасности селей и паводков",
+      "titleB": "Uzhydromet issues mudflow and flash flood alert for several regions",
+      "score": 0.457,
+      "hours": 6.63
     },
     {
       "langA": "ru",
@@ -1920,8 +3600,28 @@
       "urlB": "https://kun.uz/en/news/2026/06/16/japan-approves-nearly-230-million-in-loans-to-support-energy-efficiency-in-uzbekistan-53b349",
       "titleA": "Япония выделит Узбекистану 230 миллионов долларов на повышение энергоэффективности",
       "titleB": "Japan approves nearly $230 million in loans to support energy efficiency in Uzbekistan",
-      "score": 0.414,
+      "score": 0.431,
       "hours": 3.68
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/22/slujyebnyy-avtomobil-dps-nasmert-sbil-peshexoda-v-samarkande",
+      "urlB": "https://kun.uz/en/news/2026/07/22/uzbekistan-needs-8-billion-to-modernize-energy-infrastructure-shavkat-mirziyoyev",
+      "titleA": "Служебный автомобиль ДПС насмерть сбил пешехода в Самарканде",
+      "titleB": "Uzbekistan needs $8 billion to modernize energy infrastructure – Shavkat Mirziyoyev",
+      "score": 0.426,
+      "hours": 2.45
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/05/25/obyavlen-sostav-sbornoy-uzbekistana-dlya-uchastiya-v-chempionate-mira-be6df7",
+      "urlB": "https://kun.uz/en/news/2026/05/25/fabio-cannavaro-announces-uzbekistan-squad-for-world-cup-e36e1d",
+      "titleA": "Объявлен состав сборной Узбекистана для участия в чемпионате мира",
+      "titleB": "Fabio Cannavaro announces Uzbekistan squad for World Cup",
+      "score": 0.402,
+      "hours": 4.23
     },
     {
       "langA": "ru",
@@ -1930,8 +3630,38 @@
       "urlB": "https://kun.uz/en/news/2026/05/14/uzbekistan-u17-finish-top-of-group-d-after-2-0-win-over-australia",
       "titleA": "В Ташкенте построят линию метро «Минг Урик – Чиланзарский вещевой рынок»",
       "titleB": "Uzbekistan U17 finish top of Group D after 2–0 win over Australia",
-      "score": 0.373,
+      "score": 0.374,
       "hours": 7.33
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/24/v-dvux-muzeyax-obnarujyena-propaja-boleye-500-eksponatov",
+      "urlB": "https://kun.uz/en/news/2026/07/24/more-than-500-museum-exhibits-reported-missing-from-two-state-museums",
+      "titleA": "В двух музеях обнаружена пропажа более 500 экспонатов",
+      "titleB": "More than 500 museum exhibits reported missing from two state museums",
+      "score": 0.369,
+      "hours": 1.27
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/04/opredelilis-vse-pary-18-finala-chempionata-mira-po-futbolu-25e323",
+      "urlB": "https://kun.uz/en/news/2026/07/03/fifa-appoints-uzbek-officiating-crew-for-paraguay-france-round-of-16-f4e58a",
+      "titleA": "Определились все пары 1/8 финала чемпионата мира по футболу",
+      "titleB": "FIFA appoints Uzbek officiating crew for Paraguay-France round of 16",
+      "score": 0.357,
+      "hours": 21.77
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/06/30/paragvay-vybil-germaniyu-s-chempionata-mira-braziliya-vyshla-v-18-finala-ac6a99",
+      "urlB": "https://kun.uz/en/news/2026/06/29/uzbekistan-looks-to-legally-restrict-social-media-for-children-under-16-b6e2df",
+      "titleA": "Парагвай выбил Германию с чемпионата мира, Бразилия вышла в 1/8 финала",
+      "titleB": "Uzbekistan looks to legally restrict social media for children under 16",
+      "score": 0.355,
+      "hours": 22.33
     },
     {
       "langA": "ru",
@@ -1940,8 +3670,18 @@
       "urlB": "https://kun.uz/en/news/2026/06/18/major-consortium-led-by-vision-invest-secures-35-year-management-deal-for-new-tashkent-airport-e2168d",
       "titleA": "Железные дороги Узбекистана переведут на современные цифровые системы управления",
       "titleB": "Major consortium led by Vision Invest secures 35–year management deal for new Tashkent airport",
-      "score": 0.345,
+      "score": 0.348,
       "hours": 0.3
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/21/zayomshchiki-tratyat-na-pogasheniye-dolgov-boleye-poloviny-svoyego-doxoda",
+      "urlB": "https://kun.uz/en/news/2026/07/21/six-in-10-borrowers-in-uzbekistan-struggle-to-repay-loans-on-time-central-bank-survey",
+      "titleA": "Заёмщики тратят на погашение долгов более половины своего дохода",
+      "titleB": "Six in 10 borrowers in Uzbekistan struggle to repay loans on time – Central Bank survey",
+      "score": 0.348,
+      "hours": 1.58
     },
     {
       "langA": "ru",
@@ -1950,8 +3690,18 @@
       "urlB": "https://kun.uz/en/news/2026/05/13/uznif-ipo-secures-over-600-million-on-tashkent-and-london-exchanges",
       "titleA": "Итоги IPO: 31% акций Национального инвестфонда продан за 603,6 млн долларов",
       "titleB": "UzNIF IPO secures over $600 million on Tashkent and London exchanges",
-      "score": 0.343,
+      "score": 0.336,
       "hours": 1.22
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/06/30/poiskovyye-zaprosy-ob-uzbekistane-vyrosli-vo-vremya-chempionata-mira-na-40-4736e8",
+      "urlB": "https://kun.uz/en/news/2026/07/01/world-cup-debut-boosts-global-searches-for-uzbekistan-by-40-b113cf",
+      "titleA": "Поисковые запросы об Узбекистане выросли во время чемпионата мира на 40%",
+      "titleB": "World Cup debut boosts global searches for Uzbekistan by 40%",
+      "score": 0.334,
+      "hours": 17.76
     },
     {
       "langA": "ru",
@@ -1960,8 +3710,28 @@
       "urlB": "https://kun.uz/en/news/2026/07/13/more-than-670-drivers-in-uzbekistan-face-license-suspension-under-penalty-points-system-711eb2",
       "titleA": "В СБДД назвали самые частые нарушения правил дорожного движения",
       "titleB": "More than 670 drivers in Uzbekistan face license suspension under penalty points system",
-      "score": 0.318,
+      "score": 0.323,
       "hours": 2.36
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/06/16/amerikanskaya-expedia-group-i-asialuxe-travel-otkryli-bronirovaniye-oteley-dlya-bolelshchikov-sbornoy-uzbekistana-na-chempionat-mira-2026",
+      "urlB": "https://kun.uz/en/news/2026/06/16/islamic-financing-in-uzbekistan-hits-uzs-22-billion-in-early-2026-as-central-bank-advances-islamic-b-b48cd8",
+      "titleA": "Американская Expedia Group и Asialuxe Travel открыли бронирование отелей для болельщиков сборной Узбекистана на Чемпионат мира 2026",
+      "titleB": "Islamic financing in Uzbekistan hits UZS 22 billion in early 2026 as Central Bank advances Islamic banking reforms",
+      "score": 0.32,
+      "hours": 3.92
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/05/25/v-den-prazdnika-obshchestvennyy-transport-v-tashkente-nachnyot-rabotat-s-400-12a45e",
+      "urlB": "https://kun.uz/en/news/2026/05/25/shavkat-mirziyoyev-sends-condolences-to-xi-jinping-over-deadly-coal-mine-explosion-6fadcd",
+      "titleA": "В день праздника общественный транспорт в Ташкенте начнёт работать с 4:00",
+      "titleB": "Shavkat Mirziyoyev sends condolences to Xi Jinping over deadly coal mine explosion",
+      "score": 0.318,
+      "hours": 5.57
     },
     {
       "langA": "ru",
@@ -1970,38 +3740,8 @@
       "urlB": "https://kun.uz/en/news/2026/07/14/eleven-convicted-over-mass-poisoning-of-preschool-children-in-tashkent-region-d1bce1",
       "titleA": "В массовом отравлении в детских садах Ташкентской области признаны виновными 11 человек",
       "titleB": "Eleven convicted over mass poisoning of preschool children in Tashkent region",
-      "score": 0.312,
+      "score": 0.308,
       "hours": 0.95
-    },
-    {
-      "langA": "ru",
-      "langB": "en",
-      "urlA": "https://kun.uz/ru/news/2026/07/16/propan-v-uzbekistane-za-god-podorojal-na-411-tsentralnyy-bank-62be38",
-      "urlB": "https://kun.uz/en/news/2026/07/16/propane-records-sharpest-annual-price-increase-among-non-food-goods-in-uzbekistan-f2b2f0",
-      "titleA": "Пропан в Узбекистане за год подорожал на 41,1% — Центральный банк",
-      "titleB": "Propane records sharpest annual price increase among non-food goods in Uzbekistan",
-      "score": 0.306,
-      "hours": 2.98
-    },
-    {
-      "langA": "ru",
-      "langB": "en",
-      "urlA": "https://kun.uz/ru/news/2026/05/13/%D0%B2-i-%D0%BA%D0%B2%D0%B0%D1%80%D1%82%D0%B0%D0%BB%D0%B5-2026-%D0%B3%D0%BE%D0%B4%D0%B0-%D0%BD%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5-%D0%BF%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B2-%D1%83%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%B5-%D0%B2%D1%8B%D1%80%D0%BE%D1%81%D0%BB%D0%B8-%D0%BD%D0%B0-24-82cdff",
-      "urlB": "https://kun.uz/en/news/2026/05/13/uzbekistans-tax-revenues-up-24-in-q1-2026",
-      "titleA": "В I квартале 2026 года налоговые поступления в Узбекистане выросли на 24%",
-      "titleB": "Uzbekistan&#x27;s tax revenues up 24% in Q1 2026",
-      "score": 0.306,
-      "hours": 3.05
-    },
-    {
-      "langA": "ru",
-      "langB": "en",
-      "urlA": "https://kun.uz/ru/news/2026/07/14/v-xorezmskoy-i-nekotoryx-rayonax-navoiyskoy-oblastey-iz-za-jary-vremenno-zakryty-detskiye-sady-ac7b59",
-      "urlB": "https://kun.uz/en/news/2026/07/15/competition-committee-fines-more-than-20-banks-and-mfis-over-advertising-violations-e02856",
-      "titleA": "В Хорезмской и некоторых районах Навоийской областей из-за жары временно закрыты детские сады",
-      "titleB": "Competition Committee fines more than 20 banks and MFIs over advertising violations",
-      "score": 0.296,
-      "hours": 23.44
     },
     {
       "langA": "ru",
@@ -2010,8 +3750,88 @@
       "urlB": "https://kun.uz/en/news/2026/07/13/russian-pipeline-gas-deliveries-to-uzbekistan-projected-to-top-10-bcm-631c72",
       "titleA": "В 2025 году цены на жильё снизились, а сделок стало больше — анализ ЦБ",
       "titleB": "Russian pipeline gas deliveries to Uzbekistan projected to top 10 bcm",
-      "score": 0.295,
+      "score": 0.298,
       "hours": 2.04
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/16/propan-v-uzbekistane-za-god-podorojal-na-411-tsentralnyy-bank-62be38",
+      "urlB": "https://kun.uz/en/news/2026/07/16/propane-records-sharpest-annual-price-increase-among-non-food-goods-in-uzbekistan-f2b2f0",
+      "titleA": "Пропан в Узбекистане за год подорожал на 41,1% — Центральный банк",
+      "titleB": "Propane records sharpest annual price increase among non-food goods in Uzbekistan",
+      "score": 0.298,
+      "hours": 2.98
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/22/ugolovnoye-delo-byvshego-glavy-gosaktiva-akmalxona-ortikova-napravleno-v-sud",
+      "urlB": "https://kun.uz/en/news/2026/07/21/uzbekistan-airways-losing-120-million-in-revenue-due-to-inefficiencies-shavkat-mirziyoyev",
+      "titleA": "Уголовное дело бывшего главы Госактива Акмалхона Ортикова направлено в суд",
+      "titleB": "Uzbekistan Airways losing $120 million in revenue due to inefficiencies – Shavkat Mirziyoyev",
+      "score": 0.297,
+      "hours": 23.72
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/03/tsb-s-poyavleniyem-uzqr-predprinimateli-ne-obyazany-ubirat-qr-kody-drugix-servisov-32c9cc",
+      "urlB": "https://kun.uz/en/news/2026/07/03/uzbekistan-reports-sharp-fall-in-coal-and-gas-extraction-amid-rising-electricity-generation-68d101",
+      "titleA": "ЦБ: с появлением UzQR предприниматели не обязаны убирать QR-коды других сервисов",
+      "titleB": "Uzbekistan reports sharp fall in coal and gas extraction amid rising electricity generation",
+      "score": 0.297,
+      "hours": 19.96
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/05/13/%D0%B2-i-%D0%BA%D0%B2%D0%B0%D1%80%D1%82%D0%B0%D0%BB%D0%B5-2026-%D0%B3%D0%BE%D0%B4%D0%B0-%D0%BD%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5-%D0%BF%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B2-%D1%83%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%B5-%D0%B2%D1%8B%D1%80%D0%BE%D1%81%D0%BB%D0%B8-%D0%BD%D0%B0-24-82cdff",
+      "urlB": "https://kun.uz/en/news/2026/05/13/uzbekistans-tax-revenues-up-24-in-q1-2026",
+      "titleA": "В I квартале 2026 года налоговые поступления в Узбекистане выросли на 24%",
+      "titleB": "Uzbekistan&#x27;s tax revenues up 24% in Q1 2026",
+      "score": 0.296,
+      "hours": 3.05
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/23/bolshinstvo-kommercheskix-vizitov-v-uzbekistan-prishlos-na-grajdan-afganistana",
+      "urlB": "https://kun.uz/en/news/2026/07/23/uzbekistan-u-23-drawn-with-vietnam-philippines-and-kuwait-at-2026-asian-games",
+      "titleA": "Большинство коммерческих визитов в Узбекистан пришлось на граждан Афганистана",
+      "titleB": "Uzbekistan U-23 drawn with Vietnam, Philippines and Kuwait at 2026 Asian Games",
+      "score": 0.288,
+      "hours": 2.78
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/14/v-xorezmskoy-i-nekotoryx-rayonax-navoiyskoy-oblastey-iz-za-jary-vremenno-zakryty-detskiye-sady-ac7b59",
+      "urlB": "https://kun.uz/en/news/2026/07/15/competition-committee-fines-more-than-20-banks-and-mfis-over-advertising-violations-e02856",
+      "titleA": "В Хорезмской и некоторых районах Навоийской областей из-за жары временно закрыты детские сады",
+      "titleB": "Competition Committee fines more than 20 banks and MFIs over advertising violations",
+      "score": 0.287,
+      "hours": 23.44
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/21/tashkenskiy-metropoliten-poluchil-yeshchyo-tri-sovremennyx-poyezda",
+      "urlB": "https://kun.uz/en/news/2026/07/21/heatwave-drives-uzbekistans-daily-electricity-consumption-to-record-300-million-kwh",
+      "titleA": "Ташкентский метрополитен получил ещё три современных поезда",
+      "titleB": "Heatwave drives Uzbekistan’s daily electricity consumption to record 300 million kWh",
+      "score": 0.285,
+      "hours": 3.18
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/06/16/v-uzbekistane-prizvali-ne-dopuskat-neobosnovannogo-rosta-tsen-na-fone-podorojaniya-energoresursov-9d53d9",
+      "urlB": "https://kun.uz/en/news/2026/06/16/bus-driver-sentenced-to-10-years-in-prison-over-fatal-crash-in-navoi-region-db5406",
+      "titleA": "В Узбекистане призвали не допускать необоснованного роста цен на фоне подорожания энергоресурсов",
+      "titleB": "Bus driver sentenced to 10 years in prison over fatal crash in Navoi region",
+      "score": 0.28,
+      "hours": 2.55
     },
     {
       "langA": "ru",
@@ -2020,7 +3840,7 @@
       "urlB": "https://kun.uz/en/news/2026/07/18/state-commission-approves-university-admission-quotas-for-2026-2027-academic-year-3f8930",
       "titleA": "Утверждены квоты приёма в вузы на 2026/2027 учебный год",
       "titleB": "State Commission approves university admission quotas for 2026–2027 academic year",
-      "score": 0.29,
+      "score": 0.279,
       "hours": 4.11
     },
     {
@@ -2030,18 +3850,58 @@
       "urlB": "https://kun.uz/en/news/2026/07/14/uzbekistan-loses-two-thirds-of-its-newspapers-since-2010-8a7749",
       "titleA": "Наманган стал самым быстрорастущим и самым плотным городом",
       "titleB": "Uzbekistan loses two-thirds of its newspapers since 2010",
-      "score": 0.271,
+      "score": 0.275,
       "hours": 0.24
     },
     {
       "langA": "ru",
       "langB": "en",
-      "urlA": "https://kun.uz/ru/news/2026/06/16/timur-ishmetov-seryoznyx-riskov-dlya-dostijyeniya-5-protsentnoy-inflyatsii-v-2027-godu-ne-vidim-22b1c7",
-      "urlB": "https://kun.uz/en/news/2026/06/17/central-bank-says-5-inflation-target-remains-within-reach-by-2027-e9416d",
-      "titleA": "Тимур Ишметов: серьёзных рисков для достижения 5-процентной инфляции в 2027 году не видим",
-      "titleB": "Central Bank says 5% inflation target remains within reach by 2027",
+      "urlA": "https://kun.uz/ru/news/2026/07/24/ssha-vveli-novyye-poshliny-v-otnoshenii-60-stran",
+      "urlB": "https://kun.uz/en/news/2026/07/24/us-imposes-new-tariffs-on-kazakhstan-and-dozens-of-other-countries-over-forced-labor",
+      "titleA": "США ввели новые пошлины в отношении 60 стран",
+      "titleB": "US imposes new tariffs on Kazakhstan and dozens of other countries over forced labor",
+      "score": 0.273,
+      "hours": 0.07
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/21/rassmotreny-mery-po-povysheniyu-effektivnosti-transportno-logisticheskoy-sistemy",
+      "urlB": "https://kun.uz/en/news/2026/07/22/former-uzbekneftegaz-chief-and-executives-of-enter-engineering-and-eriell-stand-trial-in-corruption-case",
+      "titleA": "Рассмотрены меры по повышению эффективности транспортно-логистической системы",
+      "titleB": "Former Uzbekneftegaz chief and executives of Enter Engineering and Eriell stand trial in corruption case",
+      "score": 0.272,
+      "hours": 21.92
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/04/investitsii-uzbekistansev-za-rubej-vyrosli-v-33-raza-8e2ddc",
+      "urlB": "https://kun.uz/en/news/2026/07/03/uzbekistans-overseas-investment-surges-33-fold-after-regulatory-easing-af5625",
+      "titleA": "Инвестиции узбекистанцев за рубеж выросли в 33 раза",
+      "titleB": "Uzbekistan’s overseas investment surges 33-fold after regulatory easing",
       "score": 0.268,
-      "hours": 18.24
+      "hours": 7.43
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/24/skonchalas-zaslujyennaya-artistka-uzbekistana-nasiba-madraximova",
+      "urlB": "https://kun.uz/en/news/2026/07/24/green-electricity-generation-in-uzbekistan-rises-23-year-on-year-in-2026",
+      "titleA": "Скончалась заслуженная артистка Узбекистана Насиба Мадрахимова",
+      "titleB": "Green electricity generation in Uzbekistan rises 23% year-on-year in 2026",
+      "score": 0.267,
+      "hours": 6.73
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/06/30/iz-za-porucheniya-xokimiyata-ya-poteryala-syna-podrobnosti-tragedii-s-andijanskoy-polkoy-59a4bf",
+      "urlB": "https://kun.uz/en/news/2026/06/30/schoolboy-killed-in-crash-after-attending-andijan-guinness-record-event-family-blames-officials-for--0ecb4c",
+      "titleA": "«Из-за поручения хокимията я потеряла сына» — подробности трагедии с «Андижанской полькой»",
+      "titleB": "Schoolboy killed in crash after attending Andijan Guinness record event, family blames officials for mobilizing students",
+      "score": 0.262,
+      "hours": 2.04
     },
     {
       "langA": "ru",
@@ -2050,8 +3910,28 @@
       "urlB": "https://kun.uz/en/news/2026/05/13/uzbekistan-expands-legal-migration-pathways-to-us-following-new-york-forum",
       "titleA": "Поголовье скота в Узбекистане планируют довести до 16,5 миллиона",
       "titleB": "Uzbekistan expands legal migration pathways to US following New York forum",
-      "score": 0.263,
+      "score": 0.262,
       "hours": 4.09
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/06/16/timur-ishmetov-seryoznyx-riskov-dlya-dostijyeniya-5-protsentnoy-inflyatsii-v-2027-godu-ne-vidim-22b1c7",
+      "urlB": "https://kun.uz/en/news/2026/06/17/central-bank-says-5-inflation-target-remains-within-reach-by-2027-e9416d",
+      "titleA": "Тимур Ишметов: серьёзных рисков для достижения 5-процентной инфляции в 2027 году не видим",
+      "titleB": "Central Bank says 5% inflation target remains within reach by 2027",
+      "score": 0.259,
+      "hours": 18.24
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/01/na-birjye-rezko-podorojal-benzin-ai-92-tsena-obnovila-rekord-v-chyom-prichina-43b2a0",
+      "urlB": "https://kun.uz/en/news/2026/07/01/ai-92-gasoline-prices-hit-record-high-as-exchange-supply-dwindles-e6e689",
+      "titleA": "На бирже резко подорожал бензин АИ-92 — цена обновила рекорд. В чём причина?",
+      "titleB": "AI-92 gasoline prices hit record high as exchange supply dwindles",
+      "score": 0.253,
+      "hours": 6.42
     },
     {
       "langA": "ru",
@@ -2060,18 +3940,28 @@
       "urlB": "https://kun.uz/en/news/2026/05/16/legislative-chamber-approves-draft-law-on-tashkent-international-financial-center-in-first-reading",
       "titleA": "В связи с Курбан хайитом будет 5 выходных дней",
       "titleB": "Legislative Chamber approves draft law on Tashkent International Financial Center in first reading",
-      "score": 0.257,
+      "score": 0.25,
       "hours": 6.61
     },
     {
       "langA": "ru",
       "langB": "en",
-      "urlA": "https://kun.uz/ru/news/2026/06/16/v-navoi-voditel-avtobusa-sovershivshiy-dtp-prigovoryon-k-10-godam-kolonii-6903d1",
-      "urlB": "https://kun.uz/en/news/2026/06/16/bus-driver-sentenced-to-10-years-in-prison-over-fatal-crash-in-navoi-region-db5406",
-      "titleA": "В Навои водитель автобуса, совершивший ДТП, приговорён к 10 годам колонии",
-      "titleB": "Bus driver sentenced to 10 years in prison over fatal crash in Navoi region",
-      "score": 0.256,
-      "hours": 5.67
+      "urlA": "https://kun.uz/ru/news/2026/05/26/v-uzbekistane-14-mujchin-starshe-70-let-stali-otsami-v-pervom-kvartale-2026-goda-ff3b48",
+      "urlB": "https://kun.uz/en/news/2026/05/26/opta-supercomputer-assesses-uzbekistans-2026-world-cup-chances-7b5972",
+      "titleA": "В Узбекистане 14 мужчин старше 70 лет стали отцами в первом квартале 2026 года",
+      "titleB": "Opta supercomputer assesses Uzbekistan’s 2026 World Cup chances",
+      "score": 0.247,
+      "hours": 4.37
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/21/sbornaya-uzbekistana-opustilas-na-10-strochek-v-reytinge-fifa",
+      "urlB": "https://kun.uz/en/news/2026/07/21/1123232313213131",
+      "titleA": "Сборная Узбекистана опустилась на 10 строчек в рейтинге ФИФА",
+      "titleB": "FIFA rankings: Uzbekistan loses 23 points, slips to 60th after disappointing World Cup campaign",
+      "score": 0.24,
+      "hours": 9.22
     },
     {
       "langA": "ru",
@@ -2080,7 +3970,7 @@
       "urlB": "https://kun.uz/en/news/2026/07/15/uzbekistan-sharply-increases-university-admissions-for-2026-2027-academic-year-c3f639",
       "titleA": "В 2026 году приём в вузы резко увеличен",
       "titleB": "Uzbekistan sharply increases university admissions for 2026–2027 academic year",
-      "score": 0.249,
+      "score": 0.239,
       "hours": 2.59
     },
     {
@@ -2090,28 +3980,18 @@
       "urlB": "https://kun.uz/en/news/2026/07/16/tashkent-to-create-58000-hectare-green-belt-by-2045-386cd9",
       "titleA": "Проект «Зелёный пояс»: в столице и пригородах появится более 58 тыс. га защитных лесонасаждений",
       "titleB": "Tashkent to create 58,000-hectare green belt by 2045",
-      "score": 0.231,
+      "score": 0.232,
       "hours": 19.67
     },
     {
       "langA": "ru",
       "langB": "en",
-      "urlA": "https://kun.uz/ru/news/2026/05/16/%D0%BD%D1%83%D0%B6%D0%B4%D0%B0%D1%8E%D1%89%D0%B8%D0%BC%D1%81%D1%8F-%D1%81%D0%B5%D0%BC%D1%8C%D1%8F%D0%BC-%D0%BF%D0%BE%D0%B2%D1%8B%D1%81%D1%8F%D1%82-%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B5%D0%BD%D1%81%D0%B0%D1%86%D0%B8%D0%B8-%D0%B7%D0%B0-%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D1%8D%D0%BD%D0%B5%D1%80%D0%B3%D0%B8%D1%8E-%D0%B8-%D0%B3%D0%B0%D0%B7-a3581d",
-      "urlB": "https://kun.uz/en/news/2026/05/16/tajikistan-remains-top-buyer-as-uzbekistan-exports-12-thousand-tons-of-rice-in-q1",
-      "titleA": "Нуждающимся семьям повысят размер компенсации за электроэнергию и газ",
-      "titleB": "Tajikistan remains top buyer as Uzbekistan exports 1.2 thousand tons of rice in Q1",
-      "score": 0.215,
-      "hours": 2.8
-    },
-    {
-      "langA": "ru",
-      "langB": "en",
-      "urlA": "https://kun.uz/ru/news/2026/05/15/%D0%B1%D1%83%D0%BD%D1%91%D0%B4%D0%BA%D0%BE%D1%80--%D1%80%D0%B8%D0%B2%D0%B0%D0%BB%D0%B4%D0%BE-%D0%BA%D0%BE%D0%BD%D1%84%D0%BB%D0%B8%D0%BA%D1%82-%D0%BE%D0%B1%D0%BE%D1%81%D1%82%D1%80%D0%B8%D0%BB%D1%81%D1%8F-ef50a4",
-      "urlB": "https://kun.uz/en/news/2026/05/15/survey-shows-steady-rise-in-family-happiness-across-uzbekistan",
-      "titleA": "«Бунёдкор» – Ривалдо: конфликт обострился",
-      "titleB": "Survey shows steady rise in family happiness across Uzbekistan",
-      "score": 0.212,
-      "hours": 1.02
+      "urlA": "https://kun.uz/ru/news/2026/07/02/pochti-169-tysyach-jiteley-uzbekistana-pereshagnuli-85-letniy-rubej-686147",
+      "urlB": "https://kun.uz/en/news/2026/07/03/census-children-under-five-remain-uzbekistans-largest-age-group-9c2775",
+      "titleA": "Почти 169 тысяч жителей Узбекистана перешагнули 85-летний рубеж",
+      "titleB": "Census: Children under five remain Uzbekistan’s largest age group",
+      "score": 0.223,
+      "hours": 4.77
     },
     {
       "langA": "ru",
@@ -2120,8 +4000,48 @@
       "urlB": "https://kun.uz/en/news/2026/06/17/uzbekistan-nears-30-renewable-power-capacity-targets-over-50-by-2030-228ad3",
       "titleA": "Подписано соглашение о ГЧП по строительству нового международного аэропорта Ташкента",
       "titleB": "Uzbekistan nears 30% renewable power capacity, targets over 50% by 2030",
-      "score": 0.21,
+      "score": 0.218,
       "hours": 23.32
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/06/30/itogi-perepisi-naseleniye-uzbekistana-prevysilo-39-millionov-84f81f",
+      "urlB": "https://kun.uz/en/news/2026/06/30/uzbekistans-population-tops-39-million-preliminary-census-shows-af6028",
+      "titleA": "Итоги переписи: население Узбекистана превысило 39 миллионов",
+      "titleB": "Uzbekistan&#x27;s population tops 39 million, preliminary census shows",
+      "score": 0.209,
+      "hours": 3.01
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/05/25/chislo-grajdan-vyyexavshix-iz-uzbekistana-za-rubej-na-pmj-snizilos-na-41-fdc4e3",
+      "urlB": "https://kun.uz/en/news/2026/05/25/international-flower-festival-in-namangan-enters-guinness-world-records-b20bc4",
+      "titleA": "Число граждан, выехавших из Узбекистана за рубеж на ПМЖ, снизилось на 4,1%",
+      "titleB": "International flower festival in Namangan enters Guinness World Records",
+      "score": 0.205,
+      "hours": 4.49
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/05/15/%D0%B1%D1%83%D0%BD%D1%91%D0%B4%D0%BA%D0%BE%D1%80--%D1%80%D0%B8%D0%B2%D0%B0%D0%BB%D0%B4%D0%BE-%D0%BA%D0%BE%D0%BD%D1%84%D0%BB%D0%B8%D0%BA%D1%82-%D0%BE%D0%B1%D0%BE%D1%81%D1%82%D1%80%D0%B8%D0%BB%D1%81%D1%8F-ef50a4",
+      "urlB": "https://kun.uz/en/news/2026/05/15/survey-shows-steady-rise-in-family-happiness-across-uzbekistan",
+      "titleA": "«Бунёдкор» – Ривалдо: конфликт обострился",
+      "titleB": "Survey shows steady rise in family happiness across Uzbekistan",
+      "score": 0.205,
+      "hours": 1.02
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/05/16/%D0%BD%D1%83%D0%B6%D0%B4%D0%B0%D1%8E%D1%89%D0%B8%D0%BC%D1%81%D1%8F-%D1%81%D0%B5%D0%BC%D1%8C%D1%8F%D0%BC-%D0%BF%D0%BE%D0%B2%D1%8B%D1%81%D1%8F%D1%82-%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B5%D0%BD%D1%81%D0%B0%D1%86%D0%B8%D0%B8-%D0%B7%D0%B0-%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D1%8D%D0%BD%D0%B5%D1%80%D0%B3%D0%B8%D1%8E-%D0%B8-%D0%B3%D0%B0%D0%B7-a3581d",
+      "urlB": "https://kun.uz/en/news/2026/05/16/tajikistan-remains-top-buyer-as-uzbekistan-exports-12-thousand-tons-of-rice-in-q1",
+      "titleA": "Нуждающимся семьям повысят размер компенсации за электроэнергию и газ",
+      "titleB": "Tajikistan remains top buyer as Uzbekistan exports 1.2 thousand tons of rice in Q1",
+      "score": 0.202,
+      "hours": 2.8
     },
     {
       "langA": "ru",
@@ -2130,7 +4050,7 @@
       "urlB": "https://kun.uz/en/news/2026/06/20/education-ministry-opens-registration-for-primary-school-enrollment-7a7541",
       "titleA": "Турция проиграла Парагваю и потеряла шансы на выход в плей-офф ЧМ-2026",
       "titleB": "Education Ministry opens registration for primary school enrollment",
-      "score": 0.203,
+      "score": 0.199,
       "hours": 2.08
     },
     {
@@ -2140,8 +4060,18 @@
       "urlB": "https://kun.uz/en/news/2026/05/13/uzbekistans-imports-rise-to-122-billion-in-q1",
       "titleA": "ЕС рекордно нарастил импорт российского СПГ, но еще больше зависит от США — IEEFA",
       "titleB": "Uzbekistan’s imports rise to $12.2 billion in Q1",
-      "score": 0.199,
+      "score": 0.189,
       "hours": 1.04
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/02/jitelya-buxarskoy-oblasti-podozrevayut-v-moshennichestve-pod-predlogom-trudoustroystva-v-germanii-937132",
+      "urlB": "https://kun.uz/en/news/2026/07/03/uzbekistans-gross-external-debt-rises-20-to-822-billion-a5adb3",
+      "titleA": "Жителя Бухарской области подозревают в мошенничестве под предлогом трудоустройства в Германии",
+      "titleB": "Uzbekistan’s gross external debt rises 20% to $82.2 billion",
+      "score": 0.179,
+      "hours": 20.27
     },
     {
       "langA": "ru",
@@ -2150,8 +4080,38 @@
       "urlB": "https://kun.uz/en/news/2026/06/17/uzbekistan-south-korea-to-establish-100-million-biotechnology-cluster-in-tashkent-region-0b66e6",
       "titleA": "В продажу поступят памятные монеты, посвящённые участию Узбекистана в чемпионате мира",
       "titleB": "Uzbekistan, South Korea to establish $100 million biotechnology cluster in Tashkent region",
-      "score": 0.183,
+      "score": 0.178,
       "hours": 13.02
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/05/30/postavki-rossiyskogo-sug-v-uzbekistan-vyrosli-v-35-raza-kommersant-aaa4fa",
+      "urlB": "https://kun.uz/en/news/2026/05/30/russia-boosts-liquefied-gas-supplies-to-uzbekistan-amid-rising-regional-energy-demand-2526ed",
+      "titleA": "Поставки российского СУГ в Узбекистан выросли в 3,5 раза — «Коммерсантъ»",
+      "titleB": "Russia boosts liquefied gas supplies to Uzbekistan amid rising regional energy demand",
+      "score": 0.167,
+      "hours": 0.34
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/21/prezident-poruchil-proverit-17-xokimov-na-sootvetstviye-doljnosti",
+      "urlB": "https://kun.uz/en/news/2026/07/22/17-year-old-detained-in-tashkent-over-alleged-578000-illegal-crypto-transactions",
+      "titleA": "Президент поручил проверить 17 хокимов на соответствие должности",
+      "titleB": "17-year-old detained in Tashkent over alleged $578,000 illegal crypto transactions",
+      "score": 0.166,
+      "hours": 22.93
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://kun.uz/ru/news/2026/07/23/magistral-tashkent-samarkand-postroit-kitayskaya-kompaniya-operator-platnoy-dorogi-budet-vybran-otdelno",
+      "urlB": "https://kun.uz/en/news/2026/07/23/china-overseas-engineering-group-to-build-tashkent-samarkand-expressway-under-two-stage-project",
+      "titleA": "Магистраль Ташкент–Самарканд построит китайская компания. Оператор платной дороги будет выбран отдельно",
+      "titleB": "China Overseas Engineering Group to build Tashkent–Samarkand expressway under two-stage project",
+      "score": 0.158,
+      "hours": 2.08
     }
   ]
 }

@@ -36,12 +36,52 @@
     {
       "langA": "ru",
       "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/22/kurs-valyut-dollar-uzbekistan-23-iyulya/",
+      "urlB": "https://daryo.uz/2026/07/22/2307-ozbekistonda-dollar-kursi-yana-oshdi/",
+      "titleA": "Курс валют в Узбекистане на 23 июля",
+      "titleB": "O‘zbekistonda dollar kursi yana oshdi",
+      "score": 0.589,
+      "hours": 0.1
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/21/eldor-shomurodov-golosovanie-za-luchshiy-gol-chm-2026/",
+      "urlB": "https://daryo.uz/2026/07/21/shomurodov-2026-yilgi-jahon-chempionatining-eng-yaxshi-goli-uchun-messi-va-mbappe-bilan-raqobatlashadi/",
+      "titleA": "Элдор Шомуродов поборется с Месси и Мбаппе за лучший гол ЧМ-2026",
+      "titleB": "Shomurodov 2026-yilgi Jahon chempionatining eng yaxshi goli uchun Messi va Mbappe bilan raqobatlashadi",
+      "score": 0.589,
+      "hours": 1.05
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
       "urlA": "https://daryo.uz/ru/2026/07/16/kurs-valyut-dollar-uzbekistan-17-iyulya/",
       "urlB": "https://daryo.uz/2026/07/16/1707-ozbekistonda-dollar-kursi-yana-kotarildi/",
       "titleA": "Курс валют в Узбекистане на 17 июля",
       "titleB": "O‘zbekistonda dollar kursi yana ko‘tarildi",
       "score": 0.589,
       "hours": 0.18
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/24/kurs-valyut-dollar-uzbekistan-27-iyulya/",
+      "urlB": "https://daryo.uz/2026/07/24/dollar-kursi-uch-kun-kotarilishdan-song-pastladi/",
+      "titleA": "Курс валют в Узбекистане на 27 июля",
+      "titleB": "Dollar kursi uch kun ko‘tarilishdan so‘ng pastladi",
+      "score": 0.589,
+      "hours": 0.28
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/03/v-set-utekli-novye-izobrazheniya-iphone-18-pro/",
+      "urlB": "https://daryo.uz/2026/07/03/iphone-18-proning-yangi-suratlari-elon-qilindi/",
+      "titleA": "В сеть утекли новые изображения iPhone 18 Pro",
+      "titleB": "iPhone 18 Pro’ning yangi suratlari e’lon qilindi ",
+      "score": 0.588,
+      "hours": 3.05
     },
     {
       "langA": "ru",
@@ -86,6 +126,16 @@
     {
       "langA": "ru",
       "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/30/naselenie-uzbekistana-2050-god-prevysit-52-mln-chelovek-yunisef/",
+      "urlB": "https://daryo.uz/2026/05/30/ozbekiston-aholisi-2050-yilga-kelib-52-milliondan-oshadi-yunisef/",
+      "titleA": "Население Узбекистана к 2050 году превысит 52 млн человек — ЮНИСЕФ",
+      "titleB": "O‘zbekiston aholisi 2050-yilga kelib 52 milliondan oshadi — YUNISEF",
+      "score": 0.579,
+      "hours": 1.53
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
       "urlA": "https://daryo.uz/ru/2026/06/19/kurs-valyut-dollar-uzbekistan-22-iyun/",
       "urlB": "https://daryo.uz/2026/06/19/1906-ozbekistonda-dollar-uch-kunlik-kotarilishdan-song-tushdi/",
       "titleA": "Курс валют в Узбекистане на 22 июня",
@@ -116,6 +166,26 @@
     {
       "langA": "ru",
       "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/02/venesuela-traur-zhertvi-zemletryaseniy-2-000-chelovek-foto/",
+      "urlB": "https://daryo.uz/2026/07/02/venesuelada-7-kunlik-motam-elon-qilindi-zilzila-qurbonlari-2000-dan-oshdi-foto/",
+      "titleA": "В Венесуэле объявлен семидневный траур. Число жертв землетрясений превысило 2 000 человек (фото)",
+      "titleB": "Venesuelada 7 kunlik motam e’lon qilindi. Zilzila qurbonlari 2000 dan oshdi (foto)",
+      "score": 0.564,
+      "hours": 1
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/30/uzbekistan-sistema-nakopleniya-energii/",
+      "urlB": "https://daryo.uz/2026/05/30/ozbekistonda-kechki-paytda-ishlatiladigan-har-sakkizinchi-kilovatt-elektr-energiyasi-zaxiradan-olinmoqda/",
+      "titleA": "Каждый восьмой киловатт электроэнергии в Узбекистане обеспечивают системы накопления энергии",
+      "titleB": "O‘zbekistonda kechki paytda ishlatiladigan har sakkizinchi kilovatt elektr energiyasi zaxiradan olinmoqda",
+      "score": 0.563,
+      "hours": 1.6
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
       "urlA": "https://daryo.uz/ru/2026/07/19/uzbekistan-predpriyatiya-inostranniy-kapital/",
       "urlB": "https://daryo.uz/2026/07/19/hafta-boshida-ekstremal-issiq-ob-havo-boladi/",
       "titleA": "В Узбекистане число предприятий с участием иностранного капитала впервые превысило 20 тысяч",
@@ -136,6 +206,16 @@
     {
       "langA": "ru",
       "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/27/uzbekistan-eksport-vneshnetorgoviy-oborot/",
+      "urlB": "https://daryo.uz/2026/05/27/ozbekiston-eng-kop-qaysi-davlatlarga-mahsulot-eksport-qilmoqda/",
+      "titleA": "В какие страны Узбекистан экспортирует больше всего продукции",
+      "titleB": "O‘zbekiston eng ko‘p qaysi davlatlarga mahsulot eksport qilmoqda?",
+      "score": 0.557,
+      "hours": 5.38
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
       "urlA": "https://daryo.uz/ru/2026/06/17/uzbekistan-rabochiy-den-gosorganizatsii-match-chm-2026/",
       "urlB": "https://daryo.uz/2026/06/17/ozbekistonkolumbiya-oyini-sabab-davlat-tashkilotlarida-ish-vaqti-soat-1000-da-boshlanadi/",
       "titleA": "В связи с матчем Узбекистан — Колумбия рабочий день в госорганизациях начнётся в 10:00",
@@ -146,12 +226,42 @@
     {
       "langA": "ru",
       "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/29/evropeyskiy-soyuz-oshtrafoval-temu-200-mln-evro/",
+      "urlB": "https://daryo.uz/2026/05/29/yevropa-ittifoqi-temuni-200-mln-yevro-miqdorida-jarimaga-tortdi/",
+      "titleA": "Европейский союз оштрафовал Temu на 200 млн евро",
+      "titleB": "Yevropa Ittifoqi Temu’ni 200 mln yevro miqdorida jarimaga tortdi",
+      "score": 0.554,
+      "hours": 0.93
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
       "urlA": "https://daryo.uz/ru/2026/07/15/andizhantsy-belarus-migratsiya-nizkaya-zarplata/",
       "urlB": "https://daryo.uz/2026/07/15/belarusga-ishlash-uchun-borgan-andijonliklar-maosh-kamligidan-norozi-migratsiya-agentligi-holatga-izoh-berdi/",
       "titleA": "Андижанцы, уехавшие на работу в Беларусь, пожаловались на низкие зарплаты. Агентство по миграции прокомментировало ситуацию",
       "titleB": "Belarusga ishlash uchun borgan andijonliklar maosh kamligidan norozi. Migratsiya agentligi holatga izoh berdi",
       "score": 0.554,
       "hours": 2.02
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/01/tsentrobank-shtraf-banki-narushenie-prava-klient/",
+      "urlB": "https://daryo.uz/2026/07/01/ozarbayjonda-16-yoshdan-kichiklarga-ijtimoiy-tarmoqlarda-akkaunt-ochish-taqiqlanadi/",
+      "titleA": "Центробанк оштрафовал 16 банков, в числе которых Uzum Bank и Ipoteka-bank, за нарушения прав клиентов",
+      "titleB": "Ozarbayjonda 16 yoshdan kichiklarga ijtimoiy tarmoqlarda akkaunt ochish taqiqlanadi",
+      "score": 0.553,
+      "hours": 0.48
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/22/samarkand-dps-nasmert-sbil-74-letnego-peshexoda/",
+      "urlB": "https://daryo.uz/2026/07/22/samarqandda-ypx-xodimi-xizmat-mashinasida-odam-urib-yubordi/",
+      "titleA": "В Самарканде автомобиль ДПС насмерть сбил 75-летнего пешехода (видео)",
+      "titleB": "Samarqandda YPX xodimi xizmat mashinasida odam urib yubordi",
+      "score": 0.553,
+      "hours": 1.23
     },
     {
       "langA": "ru",
@@ -206,6 +316,16 @@
     {
       "langA": "ru",
       "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/06/30/eyfeleva-bashnya-vyrosla-iz-za-zhary/",
+      "urlB": "https://daryo.uz/2026/06/30/anomal-issiqlik-tufayli-eyfel-minorasi-10-santimetrga-uzaydi/",
+      "titleA": "Эйфелева башня выросла на 10 сантиметров из-за жары",
+      "titleB": "Anomal issiqlik tufayli Eyfel minorasi 10 santimetrga uzaydi",
+      "score": 0.548,
+      "hours": 0.55
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
       "urlA": "https://daryo.uz/ru/2026/05/14/uzbekistan-gornye-rayony-selevaya-opasnost/",
       "urlB": "https://daryo.uz/2026/05/14/1405-ozbekistonning-toqqizta-viloyatida-sel-xavfi-elon-qilindi/",
       "titleA": "В девяти регионах Узбекистана объявили селевую опасность",
@@ -226,12 +346,72 @@
     {
       "langA": "ru",
       "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/02/zhiteli-uzbekistan-zaderzhannaya-subsidiya-solnechnye-paneli/",
+      "urlB": "https://daryo.uz/2026/07/02/quyosh-panellari-uchun-kechikkan-subsidiyalarni-tolash-boshlandi/",
+      "titleA": "Более 60 тысяч жителей Узбекистана получат задержанные субсидии за солнечные панели",
+      "titleB": "Quyosh panellari uchun kechikkan subsidiyalarni to‘lash boshlandi",
+      "score": 0.546,
+      "hours": 2.67
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/23/xusanov-prodlit-kontrakt-manchester-siti-2031-god/",
+      "urlB": "https://daryo.uz/2026/07/23/abduqodir-husanov-manchester-siti-bilan-shartnomasini-2031-yilgacha-uzaytiradi/",
+      "titleA": "Абдукодир Хусанов продлит контракт с «Манчестер Сити» до 2031 года",
+      "titleB": "Abduqodir Husanov “Manchester Siti” bilan shartnomasini 2031-yilgacha uzaytiradi",
+      "score": 0.546,
+      "hours": 3.91
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/25/uzbekistan-gumpomoshch-afganistan-kurban-bayram/",
+      "urlB": "https://daryo.uz/2026/05/25/ozbekiston-qurbon-hayiti-arafasida-afgonistonga-insonparvarlik-yordami-yubordi/",
+      "titleA": "Узбекистан отправил гуманитарную помощь в Афганистан накануне Курбан-байрама",
+      "titleB": "O‘zbekiston Qurbon hayiti arafasida Afg‘onistonga insonparvarlik yordami yubordi",
+      "score": 0.545,
+      "hours": 1.14
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/21/navodneniya-afganistan-unesli-zhizni-20-chelovek/",
+      "urlB": "https://daryo.uz/2026/07/21/afgonistonda-kuchli-suv-toshqinlari-yuz-berdi-20-kishi-halok-boldi-video/",
+      "titleA": "Разрушительные наводнения в Афганистане унесли жизни 20 человек",
+      "titleB": "Afg‘onistonda kuchli suv toshqinlari yuz berdi, 20 kishi halok bo‘ldi (video)",
+      "score": 0.544,
+      "hours": 1.33
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
       "urlA": "https://daryo.uz/ru/2026/05/13/zavod-kashkadarya-shtraf-ushcherb-ekologiya/",
       "urlB": "https://daryo.uz/2026/05/13/qashqadaryodagi-sanoat-korxonasiga-ekologiyaga-zarar-yetkazgani-uchun-qariyb-11-mlrd-som-kompensatsiya-belgilandi/",
       "titleA": "Завод в Кашкадарьинской области заплатит почти 11 млрд сумов за ущерб экологии",
       "titleB": "Qashqadaryodagi sanoat korxonasiga ekologiyaga zarar yetkazgani uchun qariyb 11 mlrd so‘m kompensatsiya belgilandi",
       "score": 0.544,
       "hours": 2.43
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/23/zakonoproekt-arenda-zemli-do-49-let/",
+      "urlB": "https://daryo.uz/2026/07/23/yer-ijarasi-muddatini-49-yilgacha-uzaytirish-kozda-tutilgan-qonun-loyihasi-senatga-yuborildi/",
+      "titleA": "Законопроект о продлении срока аренды земли до 49 лет направлен в Сенат",
+      "titleB": "Yer ijarasi muddatini 49 yilgacha uzaytirish ko‘zda tutilgan qonun loyihasi Senatga yuborildi",
+      "score": 0.544,
+      "hours": 1.48
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/06/29/v-buxare-podrostok-utonul-v-kanale/",
+      "urlB": "https://daryo.uz/2026/06/29/buxoroda-17-yoshli-fuqaro-kanalda-chokib-halok-boldi/",
+      "titleA": "В Бухаре 17-летний подросток утонул в канале",
+      "titleB": "Buxoroda 17 yoshli fuqaro kanalda cho‘kib halok bo‘ldi",
+      "score": 0.544,
+      "hours": 1.5
     },
     {
       "langA": "ru",
@@ -256,12 +436,82 @@
     {
       "langA": "ru",
       "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/02/uzbekistan-globalniy-indeks-pasport-strani-lideri/",
+      "urlB": "https://daryo.uz/2026/07/02/ozbekiston-global-pasport-indeksida-123-orinni-egalladi-dunyoda-qaysi-davlatlar-yetakchi/",
+      "titleA": "Узбекистан занял 123-е место в глобальном индексе паспортов. Какие страны лидируют?",
+      "titleB": "O‘zbekiston global pasport indeksida 123-o‘rinni egalladi. Dunyoda qaysi davlatlar yetakchi?",
+      "score": 0.541,
+      "hours": 6.02
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
       "urlA": "https://daryo.uz/ru/2026/07/13/petitsiya-isklyuchenie-sbornoy-argentiny-chempionat-mira/",
       "urlB": "https://daryo.uz/2026/07/13/35-milliondan-ortiq-kishi-argentina-terma-jamoasini-mundialdan-chetlatishni-talab-qilgan-petitsiyani-imzoladi/",
       "titleA": "Более 3,5 млн человек подписали петицию за исключение сборной Аргентины с чемпионата мира",
       "titleB": "3,5 milliondan ortiq kishi Argentina terma jamoasini mundialdan chetlatishni talab qilgan petitsiyani imzoladi",
       "score": 0.541,
       "hours": 2.26
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/26/prognoz-pogoda-na-segodnya-uzbekistan-tashkent-26-iyulya/",
+      "urlB": "https://daryo.uz/2026/07/26/hafta-boshida-qanday-ob-havo-bolishi-elon-qildi/",
+      "titleA": "Сегодня воздух в Узбекистане прогреется до 42 градусов",
+      "titleB": "Hafta boshida qanday ob-havo bo‘lishi e’lon qilindi",
+      "score": 0.539,
+      "hours": 2.74
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/20/teplitsy-tashkent-tashkentskaya-oblast-nalogi/",
+      "urlB": "https://daryo.uz/2026/07/20/koreyada-ozi-kiyiladigan-kiyim-yaratildi-tizim-odamni-toliq-kiyintirishi-uchun-10-soniya-sarflaydi/",
+      "titleA": "Налоги для теплиц в Ташкенте и окрестностях могут повысить в 10 раз",
+      "titleB": "Koreyada o‘zi kiyiladigan kiyim yaratildi. Tizim odamni to‘liq kiyintirishi uchun 10 soniya sarflaydi",
+      "score": 0.538,
+      "hours": 2.76
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/28/uzbekistan-poluchenie-nauchnoy-stepeni/",
+      "urlB": "https://daryo.uz/2026/05/28/ozbekistonda-ilmiy-darajalar-berishda-ayrim-tartiblar-bekor-qilinadi/",
+      "titleA": "В Узбекистане упростят процедуру получения научных степеней",
+      "titleB": "O‘zbekistonda ilmiy darajalar berishda ayrim tartiblar bekor qilinadi",
+      "score": 0.538,
+      "hours": 5.67
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/02/uzbekistan-vneshnyaya-migratsiya-prichiny-faktory/",
+      "urlB": "https://daryo.uz/2026/07/02/mahkumning-jazo-muddatini-qisqartirish-uchun-15-ming-dollar-olgan-advokat-ushlandi/",
+      "titleA": "Не только безработица —  какие факторы влияют на выезд узбекистанцев за границу",
+      "titleB": "Mahkumning jazo muddatini qisqartirish uchun 15 ming dollar olgan advokat ushlandi ",
+      "score": 0.538,
+      "hours": 2.96
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/25/baysun-likvidatsiya-avarii-mestorozhdenie-m-25/",
+      "urlB": "https://daryo.uz/2026/07/25/boysundagi-avariyani-bartaraf-etishga-xitoy-kompaniyasi-mutaxassislari-jalb-qilinadi/",
+      "titleA": "В Байсуне готовятся к практическому этапу ликвидации аварии на месторождении «М-25»",
+      "titleB": "Boysundagi avariyani bartaraf etishga Xitoy kompaniyasi mutaxassislari jalb qilinadi",
+      "score": 0.537,
+      "hours": 3.15
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/26/futbolist-sbornoy-uzbekistana-perexod-shveytsariya/",
+      "urlB": "https://daryo.uz/2026/07/26/ozbekiston-milliy-terma-jamoasi-azosi-vaoliyatini-yevropa-klubida-davom-ettiradi-oav/",
+      "titleA": "Игрок сборной Узбекистана продолжит карьеру в Швейцарии — СМИ",
+      "titleB": "O‘zbekiston milliy terma jamoasi a’zosi faoliyatini Yevropa klubida davom ettiradi — OAV",
+      "score": 0.537,
+      "hours": 3.19
     },
     {
       "langA": "ru",
@@ -286,12 +536,82 @@
     {
       "langA": "ru",
       "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/26/uzbekistantsy-rossiya-osujdennye-perevod-v-kolonii-uzbekistana/",
+      "urlB": "https://daryo.uz/2026/05/26/ahmadbek-yusupov-oliy-attestatsiya-komissiyasi-raisi-lavozimidan-ozod-etildi/",
+      "titleA": "Осужденные в России узбекистанцы попросили перевести их в колонии Узбекистана",
+      "titleB": "Ahmadbek Yusupov Oliy attestatsiya komissiyasi raisi lavozimidan ozod etildi",
+      "score": 0.534,
+      "hours": 3.77
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/03/krishtianu-ronaldu-ustanovil-istoricheskiy-rekord/",
+      "urlB": "https://daryo.uz/2026/07/03/jsst-hantavirus-epidemiyasi-tugaganini-elon-qildi/",
+      "titleA": "Криштиану Роналду установил исторический рекорд   ",
+      "titleB": "JSST hantavirus epidemiyasi tugaganini e’lon qildi",
+      "score": 0.53,
+      "hours": 4.75
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/25/uzbekistan-prognoz-pogody-prazdnik-kurban-xayit/",
+      "urlB": "https://daryo.uz/2026/05/25/ozgidromet-26-mayda-qanday-ob-havo-bolishini-malum-qildi/",
+      "titleA": "Какая погода ожидает узбекистанцев в праздничные дни",
+      "titleB": "O‘zbekistonda haftaning ikkinchi yarmidan harorat yana ko‘tariladi ",
+      "score": 0.528,
+      "hours": 5.38
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/02/dzhizak-eksperiment-povtornoe-vyrashchivanie-xlopok/",
+      "urlB": "https://daryo.uz/2026/07/02/rossiya-tunda-kiyevga-zarbalar-berdi-10-kishi-halok-boldi-video-foto/",
+      "titleA": "В Джизакской области проводят эксперимент по повторному выращиванию хлопчатника   ",
+      "titleB": "Rossiya tunda Kiyevga zarbalar berdi, 10 kishi halok bo‘ldi (video, foto)",
+      "score": 0.527,
+      "hours": 5.63
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/04/shavkat-mirziyoev-pozdravlenie-donald-tramp-den-nezavisimosti-ssha/",
+      "urlB": "https://daryo.uz/2026/07/04/putin-trampni-aqsh-mustaqilligining-250-yilligi-bilan-tabrikladi-va-rossiyaning-tarixiy-yordamini-eslatdi/",
+      "titleA": "Шавкат Мирзиёев поздравил Трампа с 250-летием независимости США",
+      "titleB": "Putin Trampni AQSH Mustaqilligining 250 yilligi bilan tabrikladi va Rossiyaning tarixiy yordamini eslatdi",
+      "score": 0.521,
+      "hours": 6.84
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/26/pervaya-skvazhina-kyzylzhar-ustyurt-burenie/",
+      "urlB": "https://daryo.uz/2026/07/26/rossiya-shimoliy-koreyadan-urushga-30-ming-harbiy-olib-kelmoqchi-zelenskiy/",
+      "titleA": "На первой скважине месторождения «Кызылжар» на Устюрте начались буровые работы",
+      "titleB": "“Rossiya Shimoliy Koreyadan urushga 30 ming harbiy olib kelmoqchi” — Zelenskiy",
+      "score": 0.517,
+      "hours": 7.87
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
       "urlA": "https://daryo.uz/ru/2026/07/15/pilot-nebo-neobychnoe-soobshchenie/",
       "urlB": "https://daryo.uz/2026/07/15/ispaniya-bosh-vazirining-ukasiga-9-yil-davlat-lavozimida-ishlash-taqiqlandi/",
       "titleA": "«Мне скучно»: пилот «написал» в небе необычное сообщение",
       "titleB": "Ispaniya bosh vazirining ukasiga 9 yil davlat lavozimida ishlash taqiqlandi",
       "score": 0.512,
       "hours": 9.05
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/23/chm-2026-transfernaya-stoimost-zashitniki-sbornaya-uzbekistana/",
+      "urlB": "https://daryo.uz/2026/07/22/jch-2026-dan-song-ozbekiston-milliy-terma-jamoasi-ikki-futbolchisining-narxi-oshdi/",
+      "titleA": "Трансферная стоимость двух игроков сборной Узбекистана выросла после ЧМ-2026",
+      "titleB": "JCH-2026 dan so‘ng O‘zbekiston milliy terma jamoasi ikki futbolchisining narxi oshdi",
+      "score": 0.512,
+      "hours": 14.18
     },
     {
       "langA": "ru",
@@ -306,6 +626,46 @@
     {
       "langA": "ru",
       "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/06/30/uzbekistan-vsemirnyy-bank-novaya-programma-sotrudnichestva/",
+      "urlB": "https://daryo.uz/2026/06/29/shavkat-mirziyoyev-jahon-banki-vitse-prezidenti-bilan-uchrashdi/",
+      "titleA": "Узбекистан и Всемирный банк сформируют новую Страновую программу сотрудничества",
+      "titleB": "Shavkat Mirziyoyev Jahon banki vitse-prezidenti bilan uchrashdi",
+      "score": 0.5,
+      "hours": 13.38
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/02/delegatsiya-uzbekistan-uchastie-proshchanie-ali-xamenei/",
+      "urlB": "https://daryo.uz/2026/07/01/ozbekiston-delegatsiyasi-ali-xomanaiy-bilan-vidolashuv-marosimlarida-ishtirok-etadi/",
+      "titleA": "Делегация Узбекистана примет участие в церемонии прощания с Али Хаменеи",
+      "titleB": "O‘zbekiston delegatsiyasi Ali Xomanaiy bilan vidolashuv marosimlarida ishtirok etadi",
+      "score": 0.499,
+      "hours": 12.24
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/24/zasluzhennaya-artistka-uzbekistana-nasiba-madraximova/",
+      "urlB": "https://daryo.uz/2026/07/23/ozbekistonda-xizmat-korsatgan-artist-taniqli-raqqosa-nasiba-madrahimova-80-yoshida-vafot-etdi/",
+      "titleA": "В возрасте 80 лет скончалась заслуженная артистка Узбекистана Насиба Мадрахимова",
+      "titleB": "Oʻzbekistonda xizmat koʻrsatgan artist, taniqli raqqosa Nasiba Madrahimova 80 yoshida vafot etdi",
+      "score": 0.498,
+      "hours": 19.22
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/13/uzbekistan-energetika-elektroenergiya-investitsii/",
+      "urlB": "https://daryo.uz/2026/05/13/ozbekiston-energetika-sohasiga-qariyb-35-mlrd-dollar-investitsiya-jalb-qilindi/",
+      "titleA": "Узбекистан привлек в энергетический сектор около $35 млрд инвестиций",
+      "titleB": "O‘zbekiston energetika sohasiga qariyb 35 mlrd dollar investitsiya jalb qilindi",
+      "score": 0.497,
+      "hours": 1.3
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
       "urlA": "https://daryo.uz/ru/2026/05/13/uzbekistan-veterinariya-iskusstvennyy-intellekt-chastniy-sektor/",
       "urlB": "https://daryo.uz/2026/05/12/flik-kelajagi-haqidagi-mish-mishlarga-nuqta-qoydi/",
       "titleA": "В сельском хозяйстве внедрят искусственный интеллект, а часть ветеринарных услуг передадут частному сектору",
@@ -316,12 +676,22 @@
     {
       "langA": "ru",
       "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/05/13/uzbekistan-energetika-elektroenergiya-investitsii/",
-      "urlB": "https://daryo.uz/2026/05/13/ozbekiston-energetika-sohasiga-qariyb-35-mlrd-dollar-investitsiya-jalb-qilindi/",
-      "titleA": "Узбекистан привлек в энергетический сектор около $35 млрд инвестиций",
-      "titleB": "O‘zbekiston energetika sohasiga qariyb 35 mlrd dollar investitsiya jalb qilindi",
-      "score": 0.494,
-      "hours": 1.3
+      "urlA": "https://daryo.uz/ru/2026/07/20/rabotodatel-otvetstvennost-za-rabotu-sotrudnikov-pod-solntsem/",
+      "urlB": "https://daryo.uz/2026/07/19/ozbekistonda-anomal-issiqda-hashar-otkazganlar-javobgarlikka-tortiladi/",
+      "titleA": "Работодателей могут привлечь к ответственности за работу сотрудников под палящим солнцем",
+      "titleB": "Oʻzbekistonda anomal issiqda hashar o‘tkazganlar javobgarlikka tortiladi",
+      "score": 0.492,
+      "hours": 14
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/20/abdukodir-xusanov-samye-bystrye-futbolisty-chm-2026/",
+      "urlB": "https://daryo.uz/2026/07/20/abduqodir-husanov-jahon-chempionatining-eng-tezkor-futbolchilari-qatoridan-joy-oldi/",
+      "titleA": "Абдукодир Хусанов вошел в число самых быстрых футболистов ЧМ-2026",
+      "titleB": "Abduqodir Husanov Jahon chempionatining eng tezkor futbolchilari qatoridan joy oldi",
+      "score": 0.491,
+      "hours": 1.16
     },
     {
       "langA": "ru",
@@ -336,12 +706,82 @@
     {
       "langA": "ru",
       "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/26/uzbekistan-stipendiya-doktorant/",
+      "urlB": "https://daryo.uz/2026/05/25/ozbekistonda-ayrim-doktorantlar-stipendiyasini-17-barobarga-oshirish-taklif-qilindi/",
+      "titleA": "Стипендии некоторым докторантам увеличат в 1,7 раза",
+      "titleB": "O‘zbekistonda ayrim doktorantlar stipendiyasini 1,7 barobarga oshirish taklif qilindi",
+      "score": 0.481,
+      "hours": 16.68
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
       "urlA": "https://daryo.uz/ru/2026/07/13/zamprokurora-samarkand-arest-delo-o-vzyatke/",
       "urlB": "https://daryo.uz/2026/07/13/urgut-tumani-prokurori-orinbosari-qamoqqa-olindi/",
       "titleA": "Заместителя прокурора в Самаркандской области арестовали по делу о взятке",
       "titleB": "Urgut tumani prokurori o‘rinbosari qamoqqa olindi",
-      "score": 0.477,
+      "score": 0.48,
       "hours": 0.98
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/20/uzbekistan-leto-siesta-dlya-turisticheskoy-otrasli/",
+      "urlB": "https://daryo.uz/2026/07/20/lionel-skaloni-argentina-terma-jamoasi-bosh-murabbiyligidan-ketadimi/",
+      "titleA": "В Узбекистане предложили летом ввести сиесту для туристической отрасли",
+      "titleB": "Lionel Skaloni Argentina terma jamoasi bosh murabbiyligidan ketadimi?",
+      "score": 0.474,
+      "hours": 0.63
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/25/tashoblast-kompleks-sotszashchita-pyat-uchrezhdeniy/",
+      "urlB": "https://daryo.uz/2026/07/24/parrandachilik-loyihalari-uchun-10-foizlik-kreditlar-ajratiladi/",
+      "titleA": "Первый в Ташкентской области комплекс социальной защиты объединил пять учреждений",
+      "titleB": "Parrandachilik loyihalari uchun 10 foizlik kreditlar ajratiladi",
+      "score": 0.474,
+      "hours": 20.05
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/06/29/poiskovye-zaprosy-ob-uzbekistane-v-google-chm-2026/",
+      "urlB": "https://daryo.uz/2026/06/29/jahon-chempionati-ozbekistonga-qiziqishni-keskin-oshirdi-googledagi-qidiruvlar-450-foizga-kopaydi/",
+      "titleA": "Число поисковых запросов об Узбекистане в Google увеличилось на 450% во время ЧМ-2026",
+      "titleB": "Jahon chempionati O‘zbekistonga qiziqishni keskin oshirdi: Google’dagi qidiruvlar 450 foizga ko‘paydi",
+      "score": 0.472,
+      "hours": 3.34
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/29/uzbekistan-zemletryasenie-epitsentr-kyrgyzstan/",
+      "urlB": "https://daryo.uz/2026/05/30/ozbekiston-suriyaga-10-ta-yuk-mashinasida-mahsulotlarning-birinchi-partiyasini-eksport-qiladi/",
+      "titleA": "В Узбекистане ощущалось землетрясение — эпицентр в Кыргызстане",
+      "titleB": "O‘zbekiston Suriyaga 10 ta yuk mashinasida mahsulotlarning birinchi partiyasini eksport qiladi",
+      "score": 0.471,
+      "hours": 18.87
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/22/ukrainskie-drony-atakovali-dva-sklada-wildberries/",
+      "urlB": "https://daryo.uz/2026/07/21/2207-ozbekistonda-dollar-kursi-kotarildi/",
+      "titleA": "Украинские дроны атаковали два склада Wildberries",
+      "titleB": "O‘zbekistonda dollar kursi ko‘tarildi",
+      "score": 0.466,
+      "hours": 20.13
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/06/30/dlya-rabotodateley-vypusknikov-vuzov-snizyat-nalogi/",
+      "urlB": "https://daryo.uz/2026/06/29/isroil-hizbullohning-200-metrli-yerosti-tunnelini-yoq-qildi/",
+      "titleA": "Для работодателей выпускников вузов снизят налоги до 1%",
+      "titleB": "Isroil “Hizbulloh”ning 200 metrli yerosti tunnelini yo‘q qildi",
+      "score": 0.462,
+      "hours": 21.07
     },
     {
       "langA": "ru",
@@ -366,22 +806,32 @@
     {
       "langA": "ru",
       "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/07/17/yamal-travma-pered-finalom-chempionata-mira/",
-      "urlB": "https://daryo.uz/2026/07/17/jch-2026-argentina-hamda-ispaniya-ortasidagi-bahsni-qaysi-hakam-boshqarishi-malum-boldi/",
-      "titleA": "Ламин Ямаль получил травму перед финалом чемпионата мира",
-      "titleB": "JCH-2026: Argentina hamda Ispaniya o‘rtasidagi bahsni qaysi hakam boshqarishi ma’lum bo‘ldi",
-      "score": 0.45,
-      "hours": 0.3
+      "urlA": "https://daryo.uz/ru/2026/06/29/rossiya-verbovka-grazhdan-peru-na-voynu/",
+      "urlB": "https://daryo.uz/2026/06/30/ajrimda-faqat-yoshlarni-ayblay-olmaymiz-onalarga-ham-qaynonalik-ilmi-kerak-umida-usmonova-buvijonlar-bogchasini-tashkil-etgani-haqida/",
+      "titleA": "Россия вербует граждан Перу на войну под предлогом трудоустройства — CNN",
+      "titleB": "“Ajrimda faqat yoshlarni ayblay olmaymiz, onalarga ham qaynonalik ilmi kerak”. Umida Usmonova “buvijonlar bog‘chasi”ni tashkil etgani haqida",
+      "score": 0.456,
+      "hours": 22.45
     },
     {
       "langA": "ru",
       "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/07/18/uzbekistan-kvoty-priema-v-vuzy-na-20262027-uchebnyy-god/",
-      "urlB": "https://daryo.uz/2026/07/18/ozbekiston-va-ozarbayjon-neft-gaz-avtosanoat-va-turar-joy-qurilishi-boyicha-yangi-loyihalarni-boshlaydi/",
-      "titleA": "В Узбекистане утвердили квоты приема в вузы на 2026/2027 учебный год",
-      "titleB": "O‘zbekiston va Ozarbayjon neft-gaz, avtosanoat va turar joy qurilishi bo‘yicha yangi loyihalarni boshlaydi",
+      "urlA": "https://daryo.uz/ru/2026/05/29/uzbekistan-kitay-keshbek-franshiza-gostinichny-brend/",
+      "urlB": "https://daryo.uz/2026/05/28/milliy-kitobxonlik-dasturida-50-ming-dollar-mukofot-ikki-oquvchiga-beriladi/",
+      "titleA": "Узбекистан и Китай обсудили кешбэк для франшиз топ-50 гостиничных брендов",
+      "titleB": "Milliy kitobxonlik dasturida 50 ming dollar mukofot ikki o‘quvchiga beriladi ",
+      "score": 0.45,
+      "hours": 23.94
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/26/sbornaya-uzbekistana-vylet-v-ssha-dlya-uchastiya-v-chm-2026/",
+      "urlB": "https://daryo.uz/2026/05/26/ozbekiston-terma-jamoasi-jahon-chempionatida-ishtirok-etish-uchun-aqshga-jonab-ketdi-foto/",
+      "titleA": "Сборная Узбекистана вылетела в США для участия в ЧМ-2026 (фото)",
+      "titleB": "O‘zbekiston terma jamoasi Jahon chempionatida ishtirok etish uchun AQSHga jo‘nab ketdi (foto)",
       "score": 0.449,
-      "hours": 1.53
+      "hours": 3.05
     },
     {
       "langA": "ru",
@@ -390,18 +840,8 @@
       "urlB": "https://daryo.uz/2026/05/12/ozbekistonda-10-ta-davlat-xizmati-xususiy-sektorga-otkaziladi/",
       "titleA": "«Нулевая бюрократия» — в Узбекистане сократят сроки оказания госуслуг, часть передадут частному сектору",
       "titleB": "O‘zbekistonda 10 ta davlat xizmati xususiy sektorga o‘tkaziladi",
-      "score": 0.439,
+      "score": 0.447,
       "hours": 1.28
-    },
-    {
-      "langA": "ru",
-      "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/05/11/stadiony-chm-2026-futbol-raspisanie-matchi/",
-      "urlB": "https://daryo.uz/2026/05/11/futbol-boyicha-jch-2026-barcha-stadionlari-afsonaviy-atsekadan-tortib-ginnes-kitobiga-kirgan-arrowheadgacha/",
-      "titleA": "Все стадионы ЧМ-2026 по футболу и расписание: где и когда пройдут матчи",
-      "titleB": "Futbol bo‘yicha JCH-2026 barcha stadionlari: afsonaviy &quot;Azteka&quot;dan tortib Ginnes kitobiga kirgan &quot;Arrowhead&quot;gacha",
-      "score": 0.435,
-      "hours": 2.93
     },
     {
       "langA": "ru",
@@ -410,8 +850,38 @@
       "urlB": "https://daryo.uz/2026/07/14/shavkat-mirziyoyev-95-yoshli-keksa-metallurg-otaxonga-elektromobil-sovga-qildi/",
       "titleA": "Шавкат Мирзиёев подарил электромобиль 95-летнему ветерану-металлургу (фото)",
       "titleB": "Shavkat Mirziyoyev 95 yoshli keksa metallurg otaxonga elektromobil sovg‘a qildi",
-      "score": 0.432,
+      "score": 0.447,
       "hours": 0.73
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/04/shavkat-mirziyoev-kruglosutochnaya-ulitsa-yangi-sergeli/",
+      "urlB": "https://daryo.uz/2026/07/04/shavkat-mirziyoyev-sergeli-tumanidagi-yangi-infratuzilma-loyihalari-bilan-tanishdi/",
+      "titleA": "Шавкат Мирзиёев ознакомился с благоустройством улицы Янги Сергели (фото)",
+      "titleB": "Shavkat Mirziyoyev Sergeli tumanidagi yangi infratuzilma loyihalari bilan tanishdi",
+      "score": 0.445,
+      "hours": 0.9
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/18/uzbekistan-kvoty-priema-v-vuzy-na-20262027-uchebnyy-god/",
+      "urlB": "https://daryo.uz/2026/07/18/ozbekiston-va-ozarbayjon-neft-gaz-avtosanoat-va-turar-joy-qurilishi-boyicha-yangi-loyihalarni-boshlaydi/",
+      "titleA": "В Узбекистане утвердили квоты приема в вузы на 2026/2027 учебный год",
+      "titleB": "O‘zbekiston va Ozarbayjon neft-gaz, avtosanoat va turar joy qurilishi bo‘yicha yangi loyihalarni boshlaydi",
+      "score": 0.444,
+      "hours": 1.53
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/29/uzbekistan-1-iyunya-kafe-gostinitsi-pokupka-alkogol-tabak-nalichnye/",
+      "urlB": "https://daryo.uz/2026/05/28/ozbekistonda-1-sentyabrdan-ayrim-doktorantlar-stipendiyasi-17-baravar-oshiriladi/",
+      "titleA": "В Узбекистане с 1 июня в кафе и гостиницах можно будет покупать алкоголь и табачные изделия за наличные",
+      "titleB": "O‘zbekistonda 1-sentyabrdan ayrim doktorantlar stipendiyasi 1,7 baravar oshiriladi ",
+      "score": 0.443,
+      "hours": 21.85
     },
     {
       "langA": "ru",
@@ -420,18 +890,48 @@
       "urlB": "https://daryo.uz/2026/06/16/aqshda-b-52-strategik-bombardimonchi-samolyoti-quladi-8-kishi-halok-boldi/",
       "titleA": "В США разбился стратегический бомбардировщик B-52. Погибли 8 человек",
       "titleB": "AQSHda B-52 strategik bombardimonchi samolyoti quladi. 8 kishi halok bo‘ldi",
-      "score": 0.432,
+      "score": 0.438,
       "hours": 2.02
     },
     {
       "langA": "ru",
       "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/06/19/abdukodir-xusanov-reyting-samyx-dorogix-tsentralnyx-zashchitnikov/",
-      "urlB": "https://daryo.uz/2026/06/19/kubarsi-saliba-va-husanov-eng-qimmat-markaziy-himoyachilar-royxati-elon-qilindi/",
-      "titleA": "Кубарси, Салиба и Хусанов: опубликован рейтинг самых дорогих центральных защитников ЧМ-2026",
-      "titleB": "Kubarsi, Saliba va Husanov: eng qimmat markaziy himoyachilar ro‘yxati e’lon qilindi",
-      "score": 0.422,
-      "hours": 0.47
+      "urlA": "https://daryo.uz/ru/2026/05/27/uzbekistan-obshepit-gostinitsy-alkogol-i-tabak-za-nalichnye/",
+      "urlB": "https://daryo.uz/2026/05/27/40-yoshli-luka-modrich-jchdan-song-faoliyatini-yakunlaydi/",
+      "titleA": "Общепиту и гостиницам разрешат продавать алкоголь и табачную продукцию за наличные",
+      "titleB": "40 yoshli Luka Modrich JCHdan soʻng faoliyatini yakunlaydi",
+      "score": 0.438,
+      "hours": 3.75
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/25/protsess-po-delu-maduro-iyun-2027-god/",
+      "urlB": "https://daryo.uz/2026/07/25/2027-yilda-ukraina-10-ming-kilometrga-ucha-oladigan-dronlarga-ega-boladi-zelenskiy/",
+      "titleA": "Суд в США назначил процесс по делу Николаса Мадуро на июнь 2027 года",
+      "titleB": "“2027-yilda Ukraina 10 ming kilometrga ucha oladigan dronlarga ega bo‘ladi” — Zelenskiy",
+      "score": 0.435,
+      "hours": 2.67
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/31/uzbekistan-dobycha-gaza/",
+      "urlB": "https://daryo.uz/2026/05/31/ozbekistonda-gaz-qazib-olish-hajmi-tort-oyda-16-foizga-kamaydi/",
+      "titleA": "В Узбекистане добыча газа сократилась на 16% и обновила девятилетний минимум",
+      "titleB": "O‘zbekistonda gaz qazib olish hajmi to‘rt oyda 16 foizga kamaydi",
+      "score": 0.434,
+      "hours": 3
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/20/dzhizak-xishchenie-mlrd-sumov-keshbek/",
+      "urlB": "https://daryo.uz/2026/07/20/jizzaxda-19-mlrd-som-keshbek-sifatida-talon-toroj-qilindi/",
+      "titleA": "В Джизаке расследуют хищение 1,9 млрд сумов через кешбэк   ",
+      "titleB": "Jizzaxda 1,9 mlrd so‘m keshbek sifatida talon-toroj qilindi",
+      "score": 0.431,
+      "hours": 0.67
     },
     {
       "langA": "ru",
@@ -440,8 +940,48 @@
       "urlB": "https://daryo.uz/2026/07/16/ozbekistonda-harorat-48-darajagacha-kotarilishi-kutilmoqda/",
       "titleA": "Жара в Узбекистане усилится: температура поднимется до 48 градусов",
       "titleB": "“O‘zgidromet” issiq kuchayishidan ogohlantirdi",
-      "score": 0.42,
+      "score": 0.43,
       "hours": 0.54
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/11/stadiony-chm-2026-futbol-raspisanie-matchi/",
+      "urlB": "https://daryo.uz/2026/05/11/futbol-boyicha-jch-2026-barcha-stadionlari-afsonaviy-atsekadan-tortib-ginnes-kitobiga-kirgan-arrowheadgacha/",
+      "titleA": "Все стадионы ЧМ-2026 по футболу и расписание: где и когда пройдут матчи",
+      "titleB": "Futbol bo‘yicha JCH-2026 barcha stadionlari: afsonaviy &quot;Azteka&quot;dan tortib Ginnes kitobiga kirgan &quot;Arrowhead&quot;gacha",
+      "score": 0.429,
+      "hours": 2.93
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/06/19/abdukodir-xusanov-reyting-samyx-dorogix-tsentralnyx-zashchitnikov/",
+      "urlB": "https://daryo.uz/2026/06/19/kubarsi-saliba-va-husanov-eng-qimmat-markaziy-himoyachilar-royxati-elon-qilindi/",
+      "titleA": "Кубарси, Салиба и Хусанов: опубликован рейтинг самых дорогих центральных защитников ЧМ-2026",
+      "titleB": "Kubarsi, Saliba va Husanov: eng qimmat markaziy himoyachilar ro‘yxati e’lon qilindi",
+      "score": 0.427,
+      "hours": 0.47
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/21/uzbekistan-oformlenie-na-rabotu-bez-soglasiya/",
+      "urlB": "https://daryo.uz/2026/07/21/ozbekistonda-15-mingga-yaqin-kishi-ozlari-bexabar-ishga-joylashtirilgani-aniqlandi/",
+      "titleA": "В Узбекистане почти 1,5 тысячи человек оформили на работу без их ведома",
+      "titleB": "O‘zbekistonda 1,5 mingga yaqin kishi o‘zlari bexabar ishga joylashtirilgani aniqlandi",
+      "score": 0.426,
+      "hours": 6.94
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/15/uzbekistan-tashkent-pogoda-prognoz/",
+      "urlB": "https://daryo.uz/2026/07/15/ozgidromet-16-iyulda-necha-daraja-issiq-bolishini-malum-qildi/",
+      "titleA": "Сегодня воздух в Узбекистане прогреется до 46 градусов",
+      "titleB": "“O‘zgidromet” 16-iyulda necha daraja issiq bo‘lishini ma’lum qildi",
+      "score": 0.423,
+      "hours": 3.4
     },
     {
       "langA": "ru",
@@ -450,7 +990,7 @@
       "urlB": "https://daryo.uz/2026/07/19/toshkent-va-uning-atrofida-joylashgan-issiqxonalarga-mol-mulk-va-yer-soligi-10-baravar-oshiriladi/",
       "titleA": "ЧМ-2026. Англия обыграла Францию в матче с 10 голами и завоевала бронзу ",
       "titleB": "Toshkent va uning atrofida joylashgan issiqxonalarga mol-mulk va yer solig‘i 10 baravar oshiriladi ",
-      "score": 0.419,
+      "score": 0.42,
       "hours": 2.9
     },
     {
@@ -460,18 +1000,18 @@
       "urlB": "https://daryo.uz/2026/07/13/ozbekistonda-bogchalar-anomal-issiq-sabab-vaqtincha-yopilishi-mumkin/",
       "titleA": "Жара в Узбекистане усилится: температура поднимется до +46 градусов",
       "titleB": "Oʻzbekistonda bogʻchalar anomal issiq sabab vaqtincha yopilishi mumkin",
-      "score": 0.41,
+      "score": 0.414,
       "hours": 0.34
     },
     {
       "langA": "ru",
       "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/07/17/luchshie-igroki-chm-2026-reyting-the-athletic/",
-      "urlB": "https://daryo.uz/2026/07/17/jch-2026-ning-eng-yaxshi-futbolchilari-reytingi-yangilandi-the-athletic/",
-      "titleA": "Месси признан лучшим игроком ЧМ-2026, Роналду не вошел в топ-50 — The Athletic",
-      "titleB": "JCH-2026 ning eng yaxshi futbolchilari reytingi yangilandi — The Athletic ",
-      "score": 0.41,
-      "hours": 4.79
+      "urlA": "https://daryo.uz/ru/2026/07/23/migratsiya-agentstvo-vyplaty-i-vosstanovlenie-rabotnikov/",
+      "urlB": "https://daryo.uz/2026/07/23/migratsiya-agentligidan-136-mlrd-somlik-ish-haqi-ishga-tiklash-qarzdorlik-va-davlat-boji-undiriladi/",
+      "titleA": "Суды обязали Агентство по миграции выплатить 13,6 млрд сумов и восстановить сотрудников на работе",
+      "titleB": "Migratsiya agentligidan 13,6 mlrd so‘mlik ish haqi, ishga tiklash, qarzdorlik va davlat boji undiriladi",
+      "score": 0.412,
+      "hours": 0.66
     },
     {
       "langA": "ru",
@@ -480,8 +1020,48 @@
       "urlB": "https://daryo.uz/2026/05/13/britaniya-kompaniyasi-ozbekistondagi-neft-va-gaz-bloklarining-40-foiz-ulushini-sotib-oldi/",
       "titleA": "Британская «BP» вошла в нефтегазовый проект в Устюртском регионе Узбекистана с долей 40%",
       "titleB": "Britaniya kompaniyasi O‘zbekistondagi neft va gaz bloklarining 40 foiz ulushini sotib oldi",
-      "score": 0.404,
+      "score": 0.412,
       "hours": 0.73
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/06/29/andizhan-malibu-sbil-trex-chelovek-dvoe-skonchalis/",
+      "urlB": "https://daryo.uz/2026/06/29/pokiston-afgonistonning-uchta-viloyatiga-hujum-qildi-29-nafar-jangari-halok-boldi/",
+      "titleA": "В Андижане Malibu-2 сбил трех человек — двое скончались в больнице  ",
+      "titleB": "Pokiston Afg‘onistonning uchta viloyatiga hujum qildi, 29 nafar jangari halok bo‘ldi",
+      "score": 0.412,
+      "hours": 5.39
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/17/luchshie-igroki-chm-2026-reyting-the-athletic/",
+      "urlB": "https://daryo.uz/2026/07/17/jch-2026-ning-eng-yaxshi-futbolchilari-reytingi-yangilandi-the-athletic/",
+      "titleA": "Месси признан лучшим игроком ЧМ-2026, Роналду не вошел в топ-50 — The Athletic",
+      "titleB": "JCH-2026 ning eng yaxshi futbolchilari reytingi yangilandi — The Athletic ",
+      "score": 0.407,
+      "hours": 4.79
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/04/nepriyatnyy-zapax-sergeli-yangixayot-tashkent/",
+      "urlB": "https://daryo.uz/2026/07/04/sergeli-va-yangihayot-aholisini-qiynayotgan-badboy-hid-muammosi-1-sentyabrgacha-bartaraf-etiladi/",
+      "titleA": "Неприятный запах в Сергелийском и Янгихаётском районах устранят до 1 сентября",
+      "titleB": "Sergeli va Yangihayot aholisini qiynayotgan badbo‘y hid muammosi 1-sentyabrgacha bartaraf etiladi",
+      "score": 0.407,
+      "hours": 0.17
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/24/shavkat-mirziyoev-69-let-den-rojdeniya-pozdravleniya/",
+      "urlB": "https://daryo.uz/2026/07/24/yoqolgan-propiska-ochilgan-chegaralar-va-naqd-pul-muomalasi-ozbekistonni-ozgartirgan-10-yil/",
+      "titleA": "Шавкату Мирзиёеву исполнилось 69 лет. Зарубежные лидеры поздравили президента",
+      "titleB": "Yoʻqolgan propiska, ochilgan chegaralar va naqd pul muomalasi. Oʻzbekistonni oʻzgartirgan 10 yil",
+      "score": 0.404,
+      "hours": 12.78
     },
     {
       "langA": "ru",
@@ -490,18 +1070,48 @@
       "urlB": "https://daryo.uz/2026/06/21/hafta-boshiga-ob-havo-prognozi-elon-qilindi/",
       "titleA": "Сегодня температура воздуха в некоторых регионах может повыситься до 44 градусов",
       "titleB": "Hafta boshida yomg‘ir yog‘ishi kutilmoqda ",
-      "score": 0.402,
+      "score": 0.399,
       "hours": 2.52
     },
     {
       "langA": "ru",
       "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/06/18/ssha-i-iran-podpisali-memorandum/",
-      "urlB": "https://daryo.uz/2026/06/18/aqsh-va-eron-prezidentlari-urushni-toxtatish-togrisidagi-bitimni-imzoladi/",
-      "titleA": "США и Иран подписали меморандум",
-      "titleB": "AQSH va Eron prezidentlari urushni to‘xtatish to‘g‘risidagi bitimni imzoladi",
-      "score": 0.371,
-      "hours": 1.78
+      "urlA": "https://daryo.uz/ru/2026/06/30/prognoz-pogody-na-segodnya-uzbekistan-tashkent-30-iyun/",
+      "urlB": "https://daryo.uz/2026/06/29/prezident-bayram-munosabati-bilan-bir-guruh-yoshlarni-mukofotladi/",
+      "titleA": "Сегодня температура воздуха в Узбекистане может понизиться до 28 градусов",
+      "titleB": "Prezident bayram munosabati bilan bir guruh yoshlarni mukofotladi",
+      "score": 0.396,
+      "hours": 11.24
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/23/gosudarstvennyy-muzey-istorii-uzbekistana-otkrytye-rekonstruktsiya/",
+      "urlB": "https://daryo.uz/2026/07/23/ozbekiston-tarixi-davlat-muzeyi-ikki-yillik-tamirlashdan-song-qayta-ochiladi/",
+      "titleA": "Государственный музей истории Узбекистана откроется после двухлетней реконструкции",
+      "titleB": "O‘zbekiston tarixi davlat muzeyi ikki yillik ta’mirlashdan so‘ng qayta ochiladi",
+      "score": 0.394,
+      "hours": 6.49
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/20/fifa-rekordnye-15-mlrd-doxod-chempionat-mira/",
+      "urlB": "https://daryo.uz/2026/07/20/jahon-chempioniga-aylangan-lamin-yamal-haqida-15-ta-malumot/",
+      "titleA": "FIFA получит рекордные $15 млрд дохода от чемпионата мира",
+      "titleB": "Jahon chempioniga aylangan Lamin Yamal haqida 15 ta ma’lumot",
+      "score": 0.391,
+      "hours": 12.07
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/20/uzbekistan-kvoty-na-prezidentskie-i-imennye-stipendii/",
+      "urlB": "https://daryo.uz/2026/07/20/yangi-oquv-yilida-776-ta-prezident-va-nomli-davlat-stipendiyasi-ajratiladi/",
+      "titleA": "В Узбекистане утвердили квоты на президентские и именные стипендии",
+      "titleB": "Yangi o‘quv yilida 776 ta prezident va nomli davlat stipendiyasi ajratiladi",
+      "score": 0.386,
+      "hours": 2.95
     },
     {
       "langA": "ru",
@@ -510,8 +1120,18 @@
       "urlB": "https://daryo.uz/2026/06/17/markaziy-bank-asosiy-stavkani-14-foiz-darajasida-ozgarishsiz-qoldirdi-17-06/",
       "titleA": "Центральный банк сохранил основную ставку на уровне 14%",
       "titleB": "Markaziy bank asosiy stavkani 14 foiz darajasida o‘zgarishsiz qoldirdi",
-      "score": 0.368,
+      "score": 0.383,
       "hours": 0.83
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/06/18/ssha-i-iran-podpisali-memorandum/",
+      "urlB": "https://daryo.uz/2026/06/18/aqsh-va-eron-prezidentlari-urushni-toxtatish-togrisidagi-bitimni-imzoladi/",
+      "titleA": "США и Иран подписали меморандум",
+      "titleB": "AQSH va Eron prezidentlari urushni to‘xtatish to‘g‘risidagi bitimni imzoladi",
+      "score": 0.381,
+      "hours": 1.78
     },
     {
       "langA": "ru",
@@ -520,8 +1140,48 @@
       "urlB": "https://daryo.uz/2026/05/13/moskvaga-qilingan-hujumlarni-rasm-va-videoga-olish-taqiqlandi/",
       "titleA": "Сегодня по Узбекистану ожидается сухая и теплая погода",
       "titleB": "Moskvaga qilingan hujumlarni rasm va videoga olish taqiqlandi",
-      "score": 0.366,
+      "score": 0.38,
       "hours": 9.25
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/25/manchester-siti-prodlil-kontrakt-s-abdukodirom-xusanovym-do-2031-goda/",
+      "urlB": "https://daryo.uz/2026/07/25/rasman-manchester-siti-abduqodir-husanov-bilan-yangi-5-yillik-shartnoma-imzoladi/",
+      "titleA": "Официально: «Манчестер Сити» продлил контракт с Абдукодиром Хусановым до 2031 года",
+      "titleB": "Rasman. “Manchester Siti” Abduqodir Husanov bilan yangi 5 yillik shartnoma imzoladi",
+      "score": 0.371,
+      "hours": 0.48
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/04/chto-izmenitsya-v-sergeliyskom-rayone-tashkenta/",
+      "urlB": "https://daryo.uz/2026/07/04/sergeli-aholisi-amalda-rasmiy-statistikadan-55-ming-kishiga-kop-ekani-malum-boldi/",
+      "titleA": "«Умные» светофоры, BRT и новый мост: что изменится в Сергелийском районе Ташкента",
+      "titleB": "Sergeli, Bektemir va Yangihayotni poytaxtning boshqa hududlari bilan bog‘laydigan ko‘prik qurilishi tezlashtiriladi",
+      "score": 0.368,
+      "hours": 2.77
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/21/tashkentskaya-oblast-novye-tseny-na-proezd-avtobusy/",
+      "urlB": "https://daryo.uz/2026/07/21/nikaraguani-30-yildan-beri-boshqarayotgan-prezident-endi-saylov-bolmasligini-aytdi/",
+      "titleA": "В Ташкентской области изменили стоимость проезда в автобусах",
+      "titleB": "Nikaraguani 30 yildan beri boshqarayotgan prezident endi saylov bo‘lmasligini aytdi",
+      "score": 0.367,
+      "hours": 0.5
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/06/29/uzbekistan-novye-pravila-zapisi-na-poluchenie-frantsuzskoy-vizy/",
+      "urlB": "https://daryo.uz/2026/06/29/shaxsiy-ehtiyoj-uchun-olib-kirilgan-telefonlar-endi-avtomatik-tarzda-uzimeida-royxatdan-otkaziladi/",
+      "titleA": "В Узбекистане изменят правила записи на получение французской визы",
+      "titleB": "Shaxsiy ehtiyoj uchun olib kirilgan telefonlar endi avtomatik tarzda UzIMEI’da ro‘yxatdan o‘tkaziladi",
+      "score": 0.366,
+      "hours": 4.06
     },
     {
       "langA": "ru",
@@ -530,18 +1190,38 @@
       "urlB": "https://daryo.uz/2026/06/18/floyd-meyvezer-20-yilga-qamalishi-mumkin/",
       "titleA": "К 2030 году Узбекистан планирует привлечь 20 млн туристов ",
       "titleB": "Floyd Meyvezer 20 yilga qamalishi mumkin",
-      "score": 0.364,
+      "score": 0.366,
       "hours": 1.91
     },
     {
       "langA": "ru",
       "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/05/14/uzbekistan-perevozka-detey-v-detsady-narushenie-pravil/",
-      "urlB": "https://daryo.uz/2026/05/13/ozbekistonda-12-kunda-bolalarni-transportda-xavfli-tarzda-tashish-bilan-bogliq-170-ta-qoidabuzarlik-aniqlandi/",
-      "titleA": "170 случаев за 12 дней: В Узбекистане тысячи детей перевозили в детсады с нарушениями правил",
-      "titleB": "O‘zbekistonda 12 kunda bolalarni transportda xavfli tarzda tashish bilan bog‘liq 170 ta qoidabuzarlik aniqlandi",
-      "score": 0.352,
-      "hours": 19.3
+      "urlA": "https://daryo.uz/ru/2026/07/20/fergana-suprugi-tyurma-prodaja-sobstvennogo-rebenka/",
+      "urlB": "https://daryo.uz/2026/07/19/ozarbayjon-va-rossiya-aviahalokatdan-song-toxtatilgan-togridan-togri-reyslarni-tiklaydi/",
+      "titleA": "Супруги из Ферганы пытались продать собственного младенца, чтобы погасить кредиты",
+      "titleB": "Ozarbayjon va Rossiya aviahalokatdan so‘ng to‘xtatilgan to‘g‘ridan to‘g‘ri reyslarni tiklaydi",
+      "score": 0.359,
+      "hours": 21.07
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/25/prezident-pozdravil-vypusknikov-uzbekistana/",
+      "urlB": "https://daryo.uz/2026/05/25/yarim-million-qalbning-katta-hayotga-ilk-qadami-ozbekiston-maktablarida-songgi-qongiroq-chalindi-fotoreportaj/",
+      "titleA": "«Вы – самая большая надежда и опора Нового Узбекистана», — президент поздравил выпускников Узбекистана",
+      "titleB": "Yarim million qalbning katta hayotga ilk qadami: O‘zbekiston maktablarida so‘nggi qo‘ng‘iroq chalindi (fotoreportaj)",
+      "score": 0.359,
+      "hours": 14.88
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/22/selxozperepis-sokrashchenie-pogolovya-skota-uzbekistan/",
+      "urlB": "https://daryo.uz/2026/07/21/goshtni-samolyotda-olib-kelish-boyicha-imtiyoz-yil-yakunigacha-uzaytiriladi/",
+      "titleA": "Сельхозперепись выявила сокращение поголовья скота в Узбекистане",
+      "titleB": "Go‘shtni samolyotda olib kelish bo‘yicha imtiyoz yil yakunigacha uzaytiriladi",
+      "score": 0.357,
+      "hours": 16.45
     },
     {
       "langA": "ru",
@@ -550,38 +1230,68 @@
       "urlB": "https://daryo.uz/2026/06/16/markaziy-bank-futbolchilarga-bagishlangan-maxsus-cheklangan-esdalik-tangalarni-sotuvga-chiqaradi/",
       "titleA": "Золотые и серебряные монеты в честь национальной сборной по футболу — где и когда их можно купить",
       "titleB": "Markaziy bank futbolchilarga bag‘ishlangan maxsus cheklangan esdalik tangalarni sotuvga chiqaradi",
-      "score": 0.35,
+      "score": 0.355,
       "hours": 15.49
     },
     {
       "langA": "ru",
       "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/05/16/rossiya-putin-vizit-v-kitay/",
-      "urlB": "https://daryo.uz/2026/05/16/tailandda-poyezd-avtobus-mashina-va-motosikllar-ishtirokida-yirik-yth-yuz-berdi-video/",
-      "titleA": "Путин совершит визит в Китай вслед за Трампом",
-      "titleB": "Tailandda poyezd, avtobus, mashina va motosikllar ishtirokida yirik YTH yuz berdi (video)",
+      "urlA": "https://daryo.uz/ru/2026/07/25/prognoz-pogoda-na-segodnya-uzbekistan-tashkent-25-iyulya/",
+      "urlB": "https://daryo.uz/2026/07/24/yoshlar-saratonga-tobora-koproq-chalinmoqda-ehtimoliy-sabab-ular-tez-qariyapti/",
+      "titleA": "Сегодня по Узбекистану без осадков и до +39 градусов",
+      "titleB": "Yoshlar saratonga tobora ko‘proq chalinmoqda. Ehtimoliy sabab: ular tez qariyapti",
+      "score": 0.354,
+      "hours": 20.36
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/04/uzbekistan-tashkent-pogoda-segodnya-kratkovremennyy-dozhd/",
+      "urlB": "https://daryo.uz/2026/07/04/buxoroda-30-ming-orinli-futbol-stadioni-quriladi/",
+      "titleA": "В Ташкенте сегодня возможны кратковременный дождь и гроза",
+      "titleB": "Buxoroda 30 ming o‘rinli futbol stadioni quriladi",
+      "score": 0.352,
+      "hours": 6.52
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/14/uzbekistan-perevozka-detey-v-detsady-narushenie-pravil/",
+      "urlB": "https://daryo.uz/2026/05/13/ozbekistonda-12-kunda-bolalarni-transportda-xavfli-tarzda-tashish-bilan-bogliq-170-ta-qoidabuzarlik-aniqlandi/",
+      "titleA": "170 случаев за 12 дней: В Узбекистане тысячи детей перевозили в детсады с нарушениями правил",
+      "titleB": "O‘zbekistonda 12 kunda bolalarni transportda xavfli tarzda tashish bilan bog‘liq 170 ta qoidabuzarlik aniqlandi",
+      "score": 0.351,
+      "hours": 19.3
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/31/shkola-kashkadarya-okonchili-vsego-tri-uchenika/",
+      "urlB": "https://daryo.uz/2026/05/31/qashqadaryodagi-maktabni-uch-nafar-oquvchi-bitirdi/",
+      "titleA": "Одну из школ в Кашкадарье окончили всего три ученика",
+      "titleB": "Qashqadaryodagi maktabni uch nafar o‘quvchi bitirdi",
+      "score": 0.348,
+      "hours": 2.81
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/30/gosdolg-uzbekistan-na-chto-rasxoduyutsya-sredstva/",
+      "urlB": "https://daryo.uz/2026/05/30/ozbekistonning-davlat-qarzi-47-mlrd-dollarga-yetdi-pullar-qayerga-sarflanyapti/",
+      "titleA": "Государственный долг Узбекистана достиг $47 млрд: на что расходуются средства",
+      "titleB": "O‘zbekistonning davlat qarzi 47 mlrd dollarga yetdi: pullar qayerga sarflanyapti?",
       "score": 0.347,
-      "hours": 3.43
+      "hours": 1.33
     },
     {
       "langA": "ru",
       "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/06/19/pogoda-na-vyxodnye-prognoz-uzbekistan-tashkent/",
-      "urlB": "https://daryo.uz/2026/06/19/dam-olish-kunlari-42-darajagacha-issiq-boladi/",
-      "titleA": "В выходные в Узбекистане ожидается жара до 42 градусов",
-      "titleB": "Dam olish kunlari 42 darajagacha issiq bo‘ladi",
-      "score": 0.346,
-      "hours": 3.16
-    },
-    {
-      "langA": "ru",
-      "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/07/14/abu-dabi-ostrov-zdorovya-stoimostyu-11-mlrd/",
-      "urlB": "https://daryo.uz/2026/07/13/abu-dabida-11-mlrd-dollarlik-salomatlik-oroli-barpo-etilmoqda/",
-      "titleA": "В Абу-Даби строят «остров здоровья» стоимостью $11 млрд",
-      "titleB": "Abu Dabida 11 mlrd dollarlik “salomatlik oroli” barpo etilmoqda",
-      "score": 0.345,
-      "hours": 11.38
+      "urlA": "https://daryo.uz/ru/2026/05/14/uzbekistan-perviy-kosmonavt-kosmos-2028/",
+      "urlB": "https://daryo.uz/2026/05/13/ozbekistonning-ilk-fazogiri-2028-yilda-fazoga-uchiriladi/",
+      "titleA": "Узбекистан планирует отправить своего первого космонавта в космос в 2028 году",
+      "titleB": "O‘zbekistonning ilk kosmonavti 2028-yilda fazoga uchiriladi",
+      "score": 0.344,
+      "hours": 10.72
     },
     {
       "langA": "ru",
@@ -596,12 +1306,32 @@
     {
       "langA": "ru",
       "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/05/14/uzbekistan-perviy-kosmonavt-kosmos-2028/",
-      "urlB": "https://daryo.uz/2026/05/13/ozbekistonning-ilk-fazogiri-2028-yilda-fazoga-uchiriladi/",
-      "titleA": "Узбекистан планирует отправить своего первого космонавта в космос в 2028 году",
-      "titleB": "O‘zbekistonning ilk kosmonavti 2028-yilda fazoga uchiriladi",
+      "urlA": "https://daryo.uz/ru/2026/06/19/pogoda-na-vyxodnye-prognoz-uzbekistan-tashkent/",
+      "urlB": "https://daryo.uz/2026/06/19/dam-olish-kunlari-42-darajagacha-issiq-boladi/",
+      "titleA": "В выходные в Узбекистане ожидается жара до 42 градусов",
+      "titleB": "Dam olish kunlari 42 darajagacha issiq bo‘ladi",
       "score": 0.342,
-      "hours": 10.72
+      "hours": 3.16
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/26/uzbekistan-vremya-xayit-namaza-v-mechetyax/",
+      "urlB": "https://daryo.uz/2026/05/25/ozbekistonda-qurbon-hayiti-namozi-oqilishi-vaqtlari-elon-qilindi/",
+      "titleA": "Когда в мечетях Узбекистана проведут хайит намаз — список",
+      "titleB": "O‘zbekistonda Qurbon hayiti namozi o‘qilishi vaqtlari e’lon qilindi",
+      "score": 0.341,
+      "hours": 11.41
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/14/abu-dabi-ostrov-zdorovya-stoimostyu-11-mlrd/",
+      "urlB": "https://daryo.uz/2026/07/13/abu-dabida-11-mlrd-dollarlik-salomatlik-oroli-barpo-etilmoqda/",
+      "titleA": "В Абу-Даби строят «остров здоровья» стоимостью $11 млрд",
+      "titleB": "Abu Dabida 11 mlrd dollarlik “salomatlik oroli” barpo etilmoqda",
+      "score": 0.333,
+      "hours": 11.38
     },
     {
       "langA": "ru",
@@ -610,18 +1340,48 @@
       "urlB": "https://daryo.uz/2026/06/15/yevropa-ittifoqi-rossiyaga-qarshi-yangi-sanksiyalarni-elon-qildi/",
       "titleA": "С начала года в Ташкенте произошло 47 пожаров в автомобилях — в чем причины возгораний",
       "titleB": "Yevropa Ittifoqi Rossiyaga qarshi yangi sanksiyalarni e’lon qildi",
-      "score": 0.336,
+      "score": 0.333,
       "hours": 15.26
     },
     {
       "langA": "ru",
       "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/07/16/prognoz-pogody-uzbekistan-zhara-do-46-gradusov/",
-      "urlB": "https://daryo.uz/2026/07/15/ozgidromet-16-iyulda-necha-daraja-issiq-bolishini-malum-qildi/",
-      "titleA": "Сегодня по Узбекистану сохранится жара до 46 градусов",
-      "titleB": "“O‘zgidromet” 16-iyulda necha daraja issiq bo‘lishini ma’lum qildi",
-      "score": 0.336,
-      "hours": 20.41
+      "urlA": "https://daryo.uz/ru/2026/07/23/samyy-bogatyy-bloger-mira-mrbeast-zhenilsya/",
+      "urlB": "https://daryo.uz/2026/07/23/barselona-karim-adeyemi-transferini-elon-qildi/",
+      "titleA": "Самый богатый блогер в мире MrBeast женился",
+      "titleB": "“Barselona” Karim Adeyemi transferini eʼlon qildi",
+      "score": 0.333,
+      "hours": 3.72
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/16/rossiya-putin-vizit-v-kitay/",
+      "urlB": "https://daryo.uz/2026/05/16/tailandda-poyezd-avtobus-mashina-va-motosikllar-ishtirokida-yirik-yth-yuz-berdi-video/",
+      "titleA": "Путин совершит визит в Китай вслед за Трампом",
+      "titleB": "Tailandda poyezd, avtobus, mashina va motosikllar ishtirokida yirik YTH yuz berdi (video)",
+      "score": 0.332,
+      "hours": 3.43
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/06/30/rasxody-perepis-naseleniya-cifrovizaciya/",
+      "urlB": "https://daryo.uz/2026/06/30/aholini-royxatga-olish-xarajatlari-564-milliard-somga-tushdi-behzod-hamroyev/",
+      "titleA": "«Расходы на перепись населения составили 56,4 млрд сумов» — Бехзод Хамроев",
+      "titleB": "“Aholini roʻyxatga olish xarajatlari 56,4 milliard soʻmga tushdi” — Behzod Hamroyev",
+      "score": 0.33,
+      "hours": 0.44
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/21/v-tashkente-sorvali-sroki-vvoda-avtobusnyh-ostanovok/",
+      "urlB": "https://daryo.uz/2026/07/21/uzbekistan-airways-tizimidagi-kamchiliklar-sabab-yiliga-120-mln-dollar-daromad-boy-berilmoqda/",
+      "titleA": "В Ташкенте сорвали сроки ввода 120 автобусных остановок",
+      "titleB": "Uzbekistan Airways tizimidagi kamchiliklar sabab yiliga 120 mln dollar daromad boy berilmoqda",
+      "score": 0.328,
+      "hours": 9.33
     },
     {
       "langA": "ru",
@@ -630,8 +1390,58 @@
       "urlB": "https://daryo.uz/2026/06/17/ozbekiston-investitsiyaviy-salohiyatini-izchil-oshirib-bormoqda-saida-mirziyoyeva/",
       "titleA": "«За последние годы в страну привлечено более $150 млрд иностранных инвестиций, из которых $123 млрд — за последние пять лет» — Шавкат Мирзиёев",
       "titleB": "“O‘zbekiston investitsiyaviy salohiyatini izchil oshirib bormoqda” — Saida Mirziyoyeva",
-      "score": 0.327,
+      "score": 0.328,
       "hours": 8.7
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/29/uzbekistan-pogoda-na-segodnya-29-may/",
+      "urlB": "https://daryo.uz/2026/05/28/uyidan-40-million-dollarlik-oltin-topilgan-aqsh-sobiq-mulozimi-qolga-olindi/",
+      "titleA": "Сегодня в Узбекистане потеплеет до 35 градусов",
+      "titleB": "Uyidan 40 mln dollarlik oltin topilgan AQSH sobiq mulozimi qo‘lga olindi",
+      "score": 0.324,
+      "hours": 19.34
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/23/prognoz-pogoda-uzbekistan-tashkent-23-iyulya/",
+      "urlB": "https://daryo.uz/2026/07/23/real-rodri-haqidagi-mish-mishlarga-nuqta-qoydi/",
+      "titleA": "Сегодня в Ташкенте и нескольких регионах ожидаются дожди",
+      "titleB": "“Real” Rodri haqidagi mish-mishlarga nuqta qo‘ydi",
+      "score": 0.323,
+      "hours": 15.31
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/03/pogoda-na-segodnya-uzbekistan-tashkent-prognoz/",
+      "urlB": "https://daryo.uz/2026/07/02/tailandda-yosh-bola-8-nafar-rohibni-mashinada-bosib-ketdi-video/",
+      "titleA": "Сегодня вечером в Ташкенте возможен кратковременный дождь",
+      "titleB": "Tailandda yosh bola 8 nafar rohibni mashinada urib ketdi (video)",
+      "score": 0.321,
+      "hours": 13.83
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/26/dvizhenie-transporta-vozle-mechetey-ogranichat/",
+      "urlB": "https://daryo.uz/2026/05/26/qurbon-hayit-namozi-oqilishi-sabab-toshkentda-ayrim-kochalar-vaqtincha-yopiladi/",
+      "titleA": "В Ташкенте движение транспорта возле мечетей ограничат  ",
+      "titleB": "Qurbon hayit namozi o‘qilishi sabab Toshkentda ayrim ko‘chalar vaqtincha yopiladi",
+      "score": 0.32,
+      "hours": 2.81
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/06/15/namangan-renovatsiya-snos-mnogokvartirnye-doma/",
+      "urlB": "https://daryo.uz/2026/06/15/namangan-shahrida-renovatsiya-doirasida-36-ta-kopqavatli-uy-buziladi/",
+      "titleA": "В Намангане в рамках реновации снесут 36 многоквартирных домов   ",
+      "titleB": "Namangan shahrida renovatsiya doirasida 36 ta ko‘pqavatli uy buziladi",
+      "score": 0.318,
+      "hours": 1.13
     },
     {
       "langA": "ru",
@@ -646,22 +1456,22 @@
     {
       "langA": "ru",
       "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/06/15/namangan-renovatsiya-snos-mnogokvartirnye-doma/",
-      "urlB": "https://daryo.uz/2026/06/15/namangan-shahrida-renovatsiya-doirasida-36-ta-kopqavatli-uy-buziladi/",
-      "titleA": "В Намангане в рамках реновации снесут 36 многоквартирных домов   ",
-      "titleB": "Namangan shahrida renovatsiya doirasida 36 ta ko‘pqavatli uy buziladi",
-      "score": 0.315,
-      "hours": 1.13
-    },
-    {
-      "langA": "ru",
-      "langB": "uz",
       "urlA": "https://daryo.uz/ru/2026/05/11/uzbekistan-elektromobil-import/",
       "urlB": "https://daryo.uz/2026/05/11/ozbekistonga-elektromobillar-importi-tort-baravar-oshdi/",
       "titleA": "Импорт электромобилей в Узбекистан вырос в 4 раза",
       "titleB": "Oʻzbekistonga elektromobillar importi toʻrt baravar oshdi",
-      "score": 0.306,
+      "score": 0.31,
       "hours": 9.28
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/22/puteprovod-probki-vezd-tashkent-nurafshan/",
+      "urlB": "https://daryo.uz/2026/07/21/food-city-orqali-harakatlanayotgan-haydovchilardan-pul-undirilyaptimi/",
+      "titleA": "Новый путепровод поможет уменьшить пробки на въезде в Ташкент   ",
+      "titleB": "Food City orqali harakatlanayotgan haydovchilardan pul undirilyaptimi?",
+      "score": 0.31,
+      "hours": 21.62
     },
     {
       "langA": "ru",
@@ -670,7 +1480,7 @@
       "urlB": "https://daryo.uz/2026/05/12/surxondaryoda-sudya-katta-yordamchisi-53-ming-dollar-pora-olayotganida-ushlandi/",
       "titleA": "Может ли хантавирус распространиться в Узбекистане — комментарий Минздрава",
       "titleB": "Surxondaryoda sudya katta yordamchisi 53 ming dollar pora olayotganida ushlandi ",
-      "score": 0.305,
+      "score": 0.306,
       "hours": 21.29
     },
     {
@@ -680,7 +1490,7 @@
       "urlB": "https://daryo.uz/2026/07/14/avtomobillar-old-oynalari-tonirovkasini-arzonlashtirish-masalasi-kun-tartibida-yoq-yhxx/",
       "titleA": "Снижение стоимости тонировки передних боковых стекол автомобилей не стоит на повестке дня — СБДД",
       "titleB": "Avtomobillar old oynalari tonirovkasini arzonlashtirish masalasi kun tartibida yo‘q — YHXX",
-      "score": 0.303,
+      "score": 0.304,
       "hours": 2.38
     },
     {
@@ -690,8 +1500,18 @@
       "urlB": "https://daryo.uz/2026/06/15/uzbekistan-airways-boyicha-115-ta-chora-tadbirdan-iborat-transformatsiya-dasturi-ishlab-chiqildi/",
       "titleA": "До конца года на международное IPO планируется вывести 15–20% акций Uzbekistan Airways",
       "titleB": "Uzbekistan Airways bo‘yicha 115 ta chora-tadbirdan iborat transformatsiya dasturi ishlab chiqildi",
-      "score": 0.298,
+      "score": 0.3,
       "hours": 0.21
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/31/uzbekistan-samye-dorogie-sbornye-futbol-chm/",
+      "urlB": "https://daryo.uz/2026/05/31/psj-penaltilar-seriyasida-arsenalni-maglub-etib-ketma-ket-ikkinchi-bor-ychl-golibiga-aylandi/",
+      "titleA": "На каком месте Узбекистан? Названы самые дорогие сборные чемпионата мира",
+      "titleB": " “PSJ” penaltilar seriyasida “Arsenal”ni mag‘lub etib, ketma-ket ikkinchi bor YCHL g‘olibiga aylandi",
+      "score": 0.3,
+      "hours": 10.48
     },
     {
       "langA": "ru",
@@ -700,8 +1520,28 @@
       "urlB": "https://daryo.uz/2026/05/16/toshkent-metrosida-rekord-natija-bir-kunda-11-milliondan-ortiq-yolovchiga-xizmat-korsatildi/",
       "titleA": "Ташкентское метро обновило рекорд: за сутки обслужено более 1,1 млн пассажиров",
       "titleB": "Toshkent metrosida rekord natija: bir kunda 1,1 milliondan ortiq yo‘lovchiga xizmat ko‘rsatildi",
-      "score": 0.296,
+      "score": 0.298,
       "hours": 4.1
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/24/uzbekistan-vstupitelnye-testy-abiturienty-vuz/",
+      "urlB": "https://daryo.uz/2026/07/23/oliygohlarga-kirish-test-sinovlari-yakunlandi-yonalish-tanlash-25-iyuldan-boshlanadi/",
+      "titleA": "В Узбекистане завершились вступительные тесты. Когда абитуриенты могут выбрать вуз",
+      "titleB": "Oliygohlarga kirish test sinovlari yakunlandi, yo‘nalish tanlash 25-iyuldan boshlanadi",
+      "score": 0.296,
+      "hours": 11
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/01/uzbekistan-tsena-benzin-rekordniy-uroven/",
+      "urlB": "https://daryo.uz/2026/06/30/ozbekistonda-ai-92-benzin-narxi-rekord-darajada-qimmatladi/",
+      "titleA": "В Узбекистане цена бензина АИ-92 достигла рекордного уровня",
+      "titleB": "O‘zbekistonda Ai-92 benzin narxi rekord darajada qimmatladi",
+      "score": 0.291,
+      "hours": 14.23
     },
     {
       "langA": "ru",
@@ -710,7 +1550,7 @@
       "urlB": "https://daryo.uz/2026/06/15/ozbekistonda-muhim-minerallar-boyicha-42-mlrd-dollarlik-120-ta-loyiha-amalga-oshiriladi/",
       "titleA": "В Узбекистане до 2030 года в производство технологических металлов и критических минералов вложат $4,2 млрд",
       "titleB": "O‘zbekistonda muhim minerallar bo‘yicha 4,2 mlrd dollarlik 120 ta loyiha amalga oshiriladi",
-      "score": 0.276,
+      "score": 0.281,
       "hours": 12.1
     },
     {
@@ -720,7 +1560,7 @@
       "urlB": "https://daryo.uz/2026/07/17/katrina-kaif-43-yoshda-otasi-musulmon-onasi-britaniyalik-bolgan-hind-tilini-bilmagan-qiz-qanday-qilib-bollivudni-zabt-etdi/",
       "titleA": "Сегодня по Узбекистану сохранится сухая и очень жаркая погода",
       "titleB": "Katrina Kaif 43 yoshda: otasi hind, onasi britaniyalik bo‘lgan, hind tilini bilmagan qiz qanday qilib Bollivudni zabt etdi?",
-      "score": 0.275,
+      "score": 0.273,
       "hours": 1.13
     },
     {
@@ -730,7 +1570,7 @@
       "urlB": "https://daryo.uz/2026/05/14/karlo-anchelotti-braziliya-terma-jamoasi-bilan-shartnomasini-2030-yilgacha-uzaytirdi/",
       "titleA": "К 2030 году Узбекистан намерен довести экспорт продовольственной продукции до $10 млрд  — что для этого сделают",
       "titleB": "Karlo Anchelotti Braziliya terma jamoasi bilan shartnomasini 2030-yilgacha uzaytirdi",
-      "score": 0.268,
+      "score": 0.267,
       "hours": 1.39
     },
     {
@@ -740,8 +1580,18 @@
       "urlB": "https://daryo.uz/2026/06/18/toshkent-investforumining-ikki-kunida-400-mln-dollardan-ortiq-kelishuvga-erishdik-murodjon-azimov/",
       "titleA": "Центральный банк увеличил количество памятных монет, посвященных участию сборной в ЧМ–2026",
       "titleB": "“Toshkent investforumining ikki kunida 400 mln dollardan ortiq kelishuvga erishdik” — Murodjon Azimov",
-      "score": 0.264,
+      "score": 0.263,
       "hours": 3.03
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/06/30/tashkent-rrfb-mayachki-preduprezhdayushchie-o-peshexodax/",
+      "urlB": "https://daryo.uz/2026/06/29/u-tirik-ekan-men-ham-yashashim-kerak-edi-venesuelada-18-kunlik-chaqalogi-bilan-vayronalar-ostida-qolgan-ayol-qanday-yashab-qolgani-haqida-gapirib-berdi/",
+      "titleA": "На одной из улиц Ташкента установили маячки, предупреждающие водителей о пешеходах",
+      "titleB": "“U tirik ekan, men ham yashashim kerak edi”. Venesuelada 18 kunlik chaqalog‘i bilan vayronalar ostida qolgan ayol qanday yashab qolgani haqida gapirib berdi",
+      "score": 0.258,
+      "hours": 10.01
     },
     {
       "langA": "ru",
@@ -750,8 +1600,58 @@
       "urlB": "https://daryo.uz/2026/07/13/indoneziyada-toydan-mehmonlarni-olib-ketayotgan-avtomobilni-ikkita-yuk-mashinasi-urib-yubordi-13-kishi-halok-boldi/",
       "titleA": "В Узбекистане обновлен рекорд по летнему потреблению электроэнергии",
       "titleB": "Indoneziyada to‘ydan mehmonlarni olib ketayotgan avtomobilni ikkita yuk mashinasi urib yubordi: 13 kishi halok bo‘ldi",
-      "score": 0.26,
+      "score": 0.257,
       "hours": 19.05
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/23/otmena-sistemy-keshbeka-za-pokupki-uzbekistan/",
+      "urlB": "https://daryo.uz/2026/07/23/qashqadaryoda-kelinini-oz-joniga-qasd-qilish-darajasiga-yetkazgan-qaynona-5-yilga-qamald/",
+      "titleA": "«Чем быстрее отменят систему кешбэка, тем лучше» — Дилшод Султанов",
+      "titleB": "Qashqadaryoda kelinini o‘z joniga qasd qilish darajasiga yetkazgan qaynona 5 yilga qamaldi",
+      "score": 0.234,
+      "hours": 0.74
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/26/uzbekistan-chislo-pensionerov/",
+      "urlB": "https://daryo.uz/2026/07/26/tramp-ferran-torresning-muhokamalarga-sabab-bolgan-kepkasi-haqida-gapirdi/",
+      "titleA": "Более 40% всех пенсионеров Узбекистана приходятся на четыре региона",
+      "titleB": "Tramp Ferran Torresning muhokamalarga sabab bo‘lgan kepkasi haqida gapirdi",
+      "score": 0.224,
+      "hours": 1.26
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/03/iran-poxorony-ayatolly-ali-xamenei-video/",
+      "urlB": "https://daryo.uz/2026/07/02/maosh-ming-yevrogacha-slovakiya-ozbekistonlik-kara-haydovchilarini-ishga-taklif-qilmoqda/",
+      "titleA": "В Иране проходит церемония похорон аятоллы Али Хаменеи (видео)",
+      "titleB": "Maosh ming yevrogacha: Slovakiya o‘zbekistonlik kara haydovchilarini ishga taklif qilmoqda",
+      "score": 0.223,
+      "hours": 16.78
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/22/mirziyoev-stroitelstvo-novoy-avtomagistrali-tashkent-samarkand/",
+      "urlB": "https://daryo.uz/2026/07/22/sirdaryoda-24-yoshli-yigit-avtomashinadan-ozini-tashlab-vafot-etdi-marhumning-qarindoshlari-boshqacha-gumonda/",
+      "titleA": "Шавкат Мирзиёев запустил строительство новой автомагистрали Ташкент – Самарканд",
+      "titleB": "Sirdaryoda 24 yoshli yigit avtomashinadan o‘zini tashlab vafot etdi. Marhumning qarindoshlari boshqacha gumonda",
+      "score": 0.222,
+      "hours": 6.23
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/05/28/platnaya-doroga-tashkent-samarkand/",
+      "urlB": "https://daryo.uz/2026/05/28/isroil-bir-sutkada-hizbullohning-150-dan-ortiq-obyektiga-zarba-berdi-video/",
+      "titleA": "Платная дорога Ташкент — Самарканд за $2,1 млрд сократит время в пути до 2,5 часов",
+      "titleB": "Isroil bir sutkada “Hizbulloh”ning 150 dan ortiq obyektiga zarba berdi (video)",
+      "score": 0.221,
+      "hours": 8.16
     },
     {
       "langA": "ru",
@@ -760,18 +1660,8 @@
       "urlB": "https://daryo.uz/2026/06/15/orta-yosh-inqirozi-nega-30-yoshdan-keyin-hayotga-boshqacha-qaray-boshlaymiz/",
       "titleA": "В Узбекистане упростили порядок признания прав на землю и самовольные постройки",
       "titleB": "O‘rta yosh inqirozi: nega 30 yoshdan keyin hayotga boshqacha qaray boshlaymiz?",
-      "score": 0.221,
+      "score": 0.217,
       "hours": 20.27
-    },
-    {
-      "langA": "ru",
-      "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/05/14/solnechnye-vetryanye-elektrostantsii-rekord-vyrabotka-sutki/",
-      "urlB": "https://daryo.uz/2026/05/15/ozbekistonda-yil-boshidan-beri-4-mlrd-kvt-soat-yashil-energiya-ishlab-chiqarildi/",
-      "titleA": "Солнечные и ветряные электростанции достигли рекордной выработки за сутки",
-      "titleB": "O‘zbekistonda yil boshidan beri 4 mlrd kVt soat “yashil” energiya ishlab chiqarildi",
-      "score": 0.207,
-      "hours": 15.65
     },
     {
       "langA": "ru",
@@ -780,28 +1670,28 @@
       "urlB": "https://daryo.uz/2026/06/18/rossiya-harbiy-xarajatlarini-40-foizga-oshiradi/",
       "titleA": "Сегодня по Узбекистану облачно, возможны кратковременные дожди",
       "titleB": "Rossiya harbiy xarajatlarini 40 foizga oshiradi",
-      "score": 0.204,
+      "score": 0.205,
       "hours": 12.24
     },
     {
       "langA": "ru",
       "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/07/17/genprokuratura-uzbekistan-kontrol-sotsreestr/",
-      "urlB": "https://daryo.uz/2026/07/17/ukrainadagi-urushda-rossiyalik-askar-ortacha-30-daqiqada-halok-bolmoqda-aqsh-razvedkasi/",
-      "titleA": "Генпрокуратура Узбекистана усилит контроль за ведением социального реестра",
-      "titleB": "Ukrainadagi urushda rossiyalik askar oʻrtacha 30 daqiqada halok boʻlmoqda — AQSH razvedkasi",
-      "score": 0.2,
-      "hours": 9.2
+      "urlA": "https://daryo.uz/ru/2026/05/14/solnechnye-vetryanye-elektrostantsii-rekord-vyrabotka-sutki/",
+      "urlB": "https://daryo.uz/2026/05/15/ozbekistonda-yil-boshidan-beri-4-mlrd-kvt-soat-yashil-energiya-ishlab-chiqarildi/",
+      "titleA": "Солнечные и ветряные электростанции достигли рекордной выработки за сутки",
+      "titleB": "O‘zbekistonda yil boshidan beri 4 mlrd kVt soat “yashil” energiya ishlab chiqarildi",
+      "score": 0.203,
+      "hours": 15.65
     },
     {
       "langA": "ru",
       "langB": "uz",
-      "urlA": "https://daryo.uz/ru/2026/07/14/surxandarya-vremennoe-ogranichenie-gruzoviki-zhara/",
-      "urlB": "https://daryo.uz/2026/07/15/namanganda-70-dan-ziyod-bolada-yurak-operatsiyalari-bepul-otkazildi/",
-      "titleA": "В Сурхандарье из-за аномальной жары временно ограничили движение грузовиков",
-      "titleB": "Namanganda 70 dan ziyod bolada yurak operatsiyalari bepul oʻtkazildi",
-      "score": 0.194,
-      "hours": 22.63
+      "urlA": "https://daryo.uz/ru/2026/07/21/operativnye-gruppy-predpriyatiya-eksport-logistika/",
+      "urlB": "https://daryo.uz/2026/07/21/davlat-oliygohlarining-11-ta-yangi-talim-yonalishi-va-mos-test-sinovi-fanlari-majmuasi-tasdiqlandi/",
+      "titleA": "Оперативные группы помогут предприятиям с рынками сбыта и логистикой",
+      "titleB": "Davlat oliygohlarining 11 ta yangi ta’lim yo‘nalishi va mos test sinovi fanlari majmuasi tasdiqlandi",
+      "score": 0.196,
+      "hours": 7.44
     },
     {
       "langA": "ru",
@@ -810,8 +1700,58 @@
       "urlB": "https://daryo.uz/2026/07/13/ozbekistonda-bu-hafta-necha-daraja-issiq-bolishi-malum-qilindi/",
       "titleA": "Эмодзи, дедлайн, вебинар — утверждены узбекские аналоги 41 иностранного термина",
       "titleB": "O‘zbekistonda bu hafta necha daraja issiq bo‘lishi ma’lum qilindi",
-      "score": 0.193,
+      "score": 0.192,
       "hours": 22.1
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/17/genprokuratura-uzbekistan-kontrol-sotsreestr/",
+      "urlB": "https://daryo.uz/2026/07/17/ukrainadagi-urushda-rossiyalik-askar-ortacha-30-daqiqada-halok-bolmoqda-aqsh-razvedkasi/",
+      "titleA": "Генпрокуратура Узбекистана усилит контроль за ведением социального реестра",
+      "titleB": "Ukrainadagi urushda rossiyalik askar oʻrtacha 30 daqiqada halok boʻlmoqda — AQSH razvedkasi",
+      "score": 0.191,
+      "hours": 9.2
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/24/uzbekistan-proizvodstvo-zelenoy-energii-gaz-ekologiya/",
+      "urlB": "https://daryo.uz/2026/07/24/yevropa-rossiyaga-qarshi-sanksiyalarning-21-paketini-joriy-qildi-gretsiya-oz-shartini-otkazdi/",
+      "titleA": "В Узбекистане с начала года выработали 7 млрд кВт⋅ч «зеленой» энергии: сколько газа удалось сэкономить",
+      "titleB": "Yevropa Rossiyaga qarshi sanksiyalarning 21-paketini joriy qildi: Gretsiya o‘z shartini o‘tkazdi",
+      "score": 0.187,
+      "hours": 7.32
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/14/surxandarya-vremennoe-ogranichenie-gruzoviki-zhara/",
+      "urlB": "https://daryo.uz/2026/07/15/namanganda-70-dan-ziyod-bolada-yurak-operatsiyalari-bepul-otkazildi/",
+      "titleA": "В Сурхандарье из-за аномальной жары временно ограничили движение грузовиков",
+      "titleB": "Namanganda 70 dan ziyod bolada yurak operatsiyalari bepul oʻtkazildi",
+      "score": 0.184,
+      "hours": 22.63
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/25/uzbekistan-srednyaya-zarplata-tashkent/",
+      "urlB": "https://daryo.uz/2026/07/25/navoiyda-haydovchi-damasda-17-nafar-bogcha-bolasini-tashiyotganda-qolga-tushdi/",
+      "titleA": "Средняя зарплата в Узбекистане превысила 7 млн сумов, в Ташкенте – 12 млн сумов",
+      "titleB": "Navoiyda haydovchi Damas’da 17 nafar bog‘cha bolasini tashiyotganda qo‘lga tushdi",
+      "score": 0.183,
+      "hours": 1.84
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/22/eksport-produktsii-tashkent/",
+      "urlB": "https://daryo.uz/2026/07/23/samarqandda-sintetik-giyohvand-moddalarni-tarqatib-kelgan-44-nafar-zakladchik-ushlandi/",
+      "titleA": "Экспорт продукции из Ташкента превысил $1,5 млрд",
+      "titleB": "Samarqandda sintetik giyohvand moddalarni tarqatib kelgan 44 nafar “zakladchik” ushlandi",
+      "score": 0.174,
+      "hours": 7.42
     },
     {
       "langA": "ru",
@@ -820,8 +1760,28 @@
       "urlB": "https://daryo.uz/2026/06/19/sadir-japarovga-8-10-yillik-prezidentlik-muddatini-berish-taklif-qilindi/",
       "titleA": "10 точек на планете, где стремительно уходит вода",
       "titleB": "Sadir Japarovga 8-10 yillik prezidentlik muddatini berish taklif qilindi",
-      "score": 0.166,
+      "score": 0.159,
       "hours": 19.55
+    },
+    {
+      "langA": "ru",
+      "langB": "uz",
+      "urlA": "https://daryo.uz/ru/2026/07/22/uzbekistan-sredniy-razmer-pensii/",
+      "urlB": "https://daryo.uz/2026/07/22/infografika-dunyo-boyicha-eng-kop-sotilayotgan-elektromobillar/",
+      "titleA": "Средний размер пенсии в Узбекистане может превысить 2 млн сумов",
+      "titleB": "Infografika: dunyo bo‘yicha eng ko‘p sotilayotgan elektromobillar",
+      "score": 0.155,
+      "hours": 1.75
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/06/30/uzbekistan-vsemirnyy-bank-novaya-programma-sotrudnichestva/",
+      "urlB": "https://daryo.uz/en/2026/06/30/uzbekistan-world-bank-expand-cooperation-as-joint-project-portfolio-tops-15bn/",
+      "titleA": "Узбекистан и Всемирный банк сформируют новую Страновую программу сотрудничества",
+      "titleB": "Uzbekistan, World Bank expand cooperation as joint project portfolio tops $15bn",
+      "score": 0.584,
+      "hours": 0.22
     },
     {
       "langA": "ru",
@@ -886,12 +1846,42 @@
     {
       "langA": "ru",
       "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/01/tsentrobank-shtraf-banki-narushenie-prava-klient/",
+      "urlB": "https://daryo.uz/en/2026/07/01/uzbekistans-central-bank-imposes-fines-on-16-banks-and-two-microfinance-organizations/",
+      "titleA": "Центробанк оштрафовал 16 банков, в числе которых Uzum Bank и Ipoteka-bank, за нарушения прав клиентов",
+      "titleB": "Uzbekistan's Central Bank imposes fines on 16 banks and two microfinance organizations",
+      "score": 0.552,
+      "hours": 0.88
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/05/30/naselenie-uzbekistana-2050-god-prevysit-52-mln-chelovek-yunisef/",
+      "urlB": "https://daryo.uz/en/2026/05/30/uzbekistan-population-to-reach-52mn-by-2050-unicef-forecasts/",
+      "titleA": "Население Узбекистана к 2050 году превысит 52 млн человек — ЮНИСЕФ",
+      "titleB": "Uzbekistan’s population to reach 52mn by 2050, UNICEF forecasts",
+      "score": 0.551,
+      "hours": 4.48
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
       "urlA": "https://daryo.uz/ru/2026/05/17/evrovidenie-2026-pobeda-bolgariya/",
       "urlB": "https://daryo.uz/en/2026/05/17/uzbekistan-highlights-cultural-ties-at-akhal-teke-horse-championship-in-turkmenistan/",
       "titleA": "На «Евровидении-2026» неожиданно победила Болгария",
       "titleB": "Uzbekistan highlights cultural ties at Akhal-Teke horse championship in Turkmenistan",
       "score": 0.551,
       "hours": 1.16
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/01/vsemirnyy-bank-uzbekistan-razvitie-nachalnogo-obrazovaniya/",
+      "urlB": "https://daryo.uz/en/2026/07/01/world-bank-approves-105mn-package-to-strengthen-uzbekistans-primary-education/",
+      "titleA": "Всемирный банк выделит Узбекистану $105 млн на развитие начального образования",
+      "titleB": "World Bank approves $105mn package to strengthen Uzbekistan's primary education",
+      "score": 0.55,
+      "hours": 4.07
     },
     {
       "langA": "ru",
@@ -912,6 +1902,16 @@
       "titleB": "Uzbekistan has huge potential to become the hub of Islamic finance in Central Asia, says Islamic Development Bank representative",
       "score": 0.54,
       "hours": 3.67
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/24/kurs-valyut-dollar-uzbekistan-27-iyulya/",
+      "urlB": "https://daryo.uz/en/2026/07/24/uzbekistan-opens-unused-mortgage-subsidy-allocations-for-applications/",
+      "titleA": "Курс валют в Узбекистане на 27 июля",
+      "titleB": "Uzbekistan reopens mortgage subsidy applications using unused allocations",
+      "score": 0.537,
+      "hours": 6.43
     },
     {
       "langA": "ru",
@@ -946,12 +1946,62 @@
     {
       "langA": "ru",
       "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/05/25/uzbekistan-gumpomoshch-afganistan-kurban-bayram/",
+      "urlB": "https://daryo.uz/en/2026/05/26/uzbekistan-sends-humanitarian-aid-to-afghanistan/",
+      "titleA": "Узбекистан отправил гуманитарную помощь в Афганистан накануне Курбан-байрама",
+      "titleB": "Uzbekistan sends 200 tons of food aid to Afghanistan",
+      "score": 0.505,
+      "hours": 17.1
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/06/30/prognoz-pogody-na-segodnya-uzbekistan-tashkent-30-iyun/",
+      "urlB": "https://daryo.uz/en/2026/06/29/shokhrukh-kodirov-i-build-systems-that-work-without-me/",
+      "titleA": "Сегодня температура воздуха в Узбекистане может понизиться до 28 градусов",
+      "titleB": "Shokhrukh Kodirov: &quot;I build systems that work without me&quot;",
+      "score": 0.499,
+      "hours": 12.31
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
       "urlA": "https://daryo.uz/ru/2026/05/13/britanskaya-bp-neftegazovyy-proekt-ustyurt-uzbekistan/",
       "urlB": "https://daryo.uz/en/2026/05/14/bp-joins-north-ustyurt-oil-and-gas-project-in-uzbekistan-with-40-stake/",
       "titleA": "Британская «BP» вошла в нефтегазовый проект в Устюртском регионе Узбекистана с долей 40%",
       "titleB": "BP enters Uzbekistan upstream sector with 40% stake in North Ustyurt PSA",
       "score": 0.495,
       "hours": 20.48
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/02/uzbekistan-globalniy-indeks-pasport-strani-lideri/",
+      "urlB": "https://daryo.uz/en/2026/07/02/uzbekistan-ranks-second-in-central-asia-in-global-passport-index-2026/",
+      "titleA": "Узбекистан занял 123-е место в глобальном индексе паспортов. Какие страны лидируют?",
+      "titleB": "Uzbekistan ranks 123rd globally, second in Central Asia in 2026 Global Passport Index",
+      "score": 0.494,
+      "hours": 3.22
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/01/uzbekistan-minimalnyy-razmer-oplaty-truda/",
+      "urlB": "https://daryo.uz/en/2026/07/02/uzbekistan-to-send-parliamentary-delegation-to-iran-for-ayatollah-ali-khamenei-farewell/",
+      "titleA": "В Узбекистане предложили повысить минимальный размер оплаты труда на 30%",
+      "titleB": "Uzbekistan delegation to attend Ayatollah Ali Khamenei farewell ceremonies in Iran",
+      "score": 0.481,
+      "hours": 19.49
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/03/shveytsariya-obygrala-alzhir-i-vyshla-v-sleduyushchiy-raund/",
+      "urlB": "https://daryo.uz/en/2026/07/02/uzbekistan-companies-increase-investment-in-digital-twins-kpmg-says/",
+      "titleA": "ЧМ-2026. Швейцария обыграла Алжир и вышла в следующий раунд",
+      "titleB": "Uzbekistan companies step up cybersecurity and digital twin investment, KPMG says",
+      "score": 0.474,
+      "hours": 19.81
     },
     {
       "langA": "ru",
@@ -980,7 +2030,7 @@
       "urlB": "https://daryo.uz/en/2026/07/17/uzbekistan-joins-new-global-ai-organization-established-in-shanghai/",
       "titleA": "Узбекистан стал одним из учредителей Всемирной организации по искусственному интеллекту",
       "titleB": "Uzbekistan becomes co-founder of new global AI organization",
-      "score": 0.463,
+      "score": 0.457,
       "hours": 1.29
     },
     {
@@ -1000,18 +2050,18 @@
       "urlB": "https://daryo.uz/en/2026/05/12/uzbekistan-to-host-global-tech-weekend-in-tashkent-as-regional-tech-ambitions-grow/",
       "titleA": "Узбекистан планирует увеличить производство минеральных удобрений",
       "titleB": "Uzbekistan to host Global Tech Weekend in Tashkent as regional tech ambitions grow",
-      "score": 0.391,
+      "score": 0.39,
       "hours": 2.46
     },
     {
       "langA": "ru",
       "langB": "en",
-      "urlA": "https://daryo.uz/ru/2026/05/14/uzbekistan-eksport-prodovolstvennoy-produktsii/",
-      "urlB": "https://daryo.uz/en/2026/05/15/uzbekistan-expands-intensive-orchards-to-boost-food-exports-to-10bn-by-2030/",
-      "titleA": "К 2030 году Узбекистан намерен довести экспорт продовольственной продукции до $10 млрд  — что для этого сделают",
-      "titleB": "Uzbekistan targets industrialized orchard expansion to boost food exports to $10bn by 2030",
-      "score": 0.381,
-      "hours": 11.48
+      "urlA": "https://daryo.uz/ru/2026/07/21/navodneniya-afganistan-unesli-zhizni-20-chelovek/",
+      "urlB": "https://daryo.uz/en/2026/07/21/itfc-hamkorbank-sign-uzbekistans-largest-standalone-islamic-trade-finance-facility-worth-100mn/",
+      "titleA": "Разрушительные наводнения в Афганистане унесли жизни 20 человек",
+      "titleB": "ITFC, Hamkorbank sign Uzbekistan's largest standalone Islamic trade finance facility worth $100mn",
+      "score": 0.389,
+      "hours": 4.84
     },
     {
       "langA": "ru",
@@ -1020,18 +2070,28 @@
       "urlB": "https://daryo.uz/en/2026/05/14/uzbekistan-plans-to-send-first-national-astronaut-into-space-by-2028/",
       "titleA": "Узбекистан планирует отправить своего первого космонавта в космос в 2028 году",
       "titleB": "Uzbekistan targets first national astronaut mission by 2028",
-      "score": 0.375,
+      "score": 0.377,
       "hours": 6.07
     },
     {
       "langA": "ru",
       "langB": "en",
-      "urlA": "https://daryo.uz/ru/2026/07/13/prezident-fifa-uvelichenie-chislo-uchastnikov-chempionata-mira/",
-      "urlB": "https://daryo.uz/en/2026/07/13/tashkent-metro-receives-three-new-trains-as-fleet-modernization-continues-in-uzbekistan/",
-      "titleA": "Президент ФИФА хочет увеличить число участников чемпионата мира до 64 команд",
-      "titleB": "Tashkent Metro receives three new trains as fleet modernization continues",
-      "score": 0.373,
-      "hours": 0.27
+      "urlA": "https://daryo.uz/ru/2026/05/14/uzbekistan-eksport-prodovolstvennoy-produktsii/",
+      "urlB": "https://daryo.uz/en/2026/05/15/uzbekistan-expands-intensive-orchards-to-boost-food-exports-to-10bn-by-2030/",
+      "titleA": "К 2030 году Узбекистан намерен довести экспорт продовольственной продукции до $10 млрд  — что для этого сделают",
+      "titleB": "Uzbekistan targets industrialized orchard expansion to boost food exports to $10bn by 2030",
+      "score": 0.377,
+      "hours": 11.48
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/23/zakonoproekt-arenda-zemli-do-49-let/",
+      "urlB": "https://daryo.uz/en/2026/07/24/uzbekistan-approves-bill-extending-farmland-leases-to-49-years/",
+      "titleA": "Законопроект о продлении срока аренды земли до 49 лет направлен в Сенат",
+      "titleB": "Uzbekistan approves bill extending farmland leases to 49 years",
+      "score": 0.372,
+      "hours": 18.02
     },
     {
       "langA": "ru",
@@ -1040,8 +2100,18 @@
       "urlB": "https://daryo.uz/en/2026/05/12/uaes-unison-capital-plans-100-diagnostic-centers-across-uzbekistan/",
       "titleA": "Узбекистан начнет поставлять овощи и фрукты еще в 100 стран",
       "titleB": "UAE-based Unison Capital to establish 100 diagnostic centers across Uzbekistan",
-      "score": 0.369,
+      "score": 0.368,
       "hours": 15.69
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/13/prezident-fifa-uvelichenie-chislo-uchastnikov-chempionata-mira/",
+      "urlB": "https://daryo.uz/en/2026/07/13/tashkent-metro-receives-three-new-trains-as-fleet-modernization-continues-in-uzbekistan/",
+      "titleA": "Президент ФИФА хочет увеличить число участников чемпионата мира до 64 команд",
+      "titleB": "Tashkent Metro receives three new trains as fleet modernization continues",
+      "score": 0.364,
+      "hours": 0.27
     },
     {
       "langA": "ru",
@@ -1050,18 +2120,28 @@
       "urlB": "https://daryo.uz/en/2026/06/19/uzbekistan-unveils-plans-to-boost-tourism-exports-beyond-6bn/",
       "titleA": "К 2030 году Узбекистан планирует привлечь 20 млн туристов ",
       "titleB": "Uzbekistan targets $6bn tourism exports under 2030 strategy",
-      "score": 0.364,
+      "score": 0.363,
       "hours": 21.08
     },
     {
       "langA": "ru",
       "langB": "en",
-      "urlA": "https://daryo.uz/ru/2026/07/15/andizhantsy-belarus-migratsiya-nizkaya-zarplata/",
-      "urlB": "https://daryo.uz/en/2026/07/15/uzbekistan-investigates-pay-dispute-involving-workers-in-belarus/",
-      "titleA": "Андижанцы, уехавшие на работу в Беларусь, пожаловались на низкие зарплаты. Агентство по миграции прокомментировало ситуацию",
-      "titleB": "Uzbekistan investigates pay dispute involving Uzbek workers in Belarus",
-      "score": 0.349,
-      "hours": 5.39
+      "urlA": "https://daryo.uz/ru/2026/07/23/migratsiya-agentstvo-vyplaty-i-vosstanovlenie-rabotnikov/",
+      "urlB": "https://daryo.uz/en/2026/07/23/uzbekistans-migration-agency-faces-126-unresolved-court-cases-worth-11m/",
+      "titleA": "Суды обязали Агентство по миграции выплатить 13,6 млрд сумов и восстановить сотрудников на работе",
+      "titleB": "Uzbekistan's migration agency leaves 126 court enforcement cases unresolved",
+      "score": 0.359,
+      "hours": 9.81
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/25/manchester-siti-prodlil-kontrakt-s-abdukodirom-xusanovym-do-2031-goda/",
+      "urlB": "https://daryo.uz/en/2026/07/26/manchester-city-extends-khusanov-contract-until-2031/",
+      "titleA": "Официально: «Манчестер Сити» продлил контракт с Абдукодиром Хусановым до 2031 года",
+      "titleB": "Manchester City extends Uzbekistan's Khusanov contract until 2031",
+      "score": 0.352,
+      "hours": 20.52
     },
     {
       "langA": "ru",
@@ -1076,12 +2156,32 @@
     {
       "langA": "ru",
       "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/15/andizhantsy-belarus-migratsiya-nizkaya-zarplata/",
+      "urlB": "https://daryo.uz/en/2026/07/15/uzbekistan-investigates-pay-dispute-involving-workers-in-belarus/",
+      "titleA": "Андижанцы, уехавшие на работу в Беларусь, пожаловались на низкие зарплаты. Агентство по миграции прокомментировало ситуацию",
+      "titleB": "Uzbekistan investigates pay dispute involving Uzbek workers in Belarus",
+      "score": 0.341,
+      "hours": 5.39
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
       "urlA": "https://daryo.uz/ru/2026/06/19/uzbekistan-obyavlena-selevaya-opasnost/",
       "urlB": "https://daryo.uz/en/2026/06/19/uzbekistan-estimates-7bn-cost-for-trans-afghan-railway-corridor/",
       "titleA": "В девяти регионах Узбекистана объявлена селевая опасность",
       "titleB": "Uzbekistan estimates Trans-Afghan railway cost at over $7bn",
-      "score": 0.328,
+      "score": 0.331,
       "hours": 1.12
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/05/25/30-igrokov-sbornoy-uzbekistana-po-futbolu-chm-v-ssha/",
+      "urlB": "https://daryo.uz/en/2026/05/25/uzbekistan-names-30-player-squad-for-us-training-camp-ahead-of-world-cup/",
+      "titleA": "Каннаваро назвал 30 игроков сборной Узбекистана по футболу, которые отправятся на ЧМ в США",
+      "titleB": "Uzbekistan names 30-player squad for U.S. training camp ahead of World Cup",
+      "score": 0.325,
+      "hours": 2.07
     },
     {
       "langA": "ru",
@@ -1090,7 +2190,7 @@
       "urlB": "https://daryo.uz/en/2026/06/17/uzbekistan-pavilion-at-expo-2025-osaka-wins-17-international-awards/",
       "titleA": "Курс валют в Узбекистане на 17 июня",
       "titleB": "Uzbekistan’s pavilion at Expo 2025 Osaka wins 17 international awards",
-      "score": 0.32,
+      "score": 0.322,
       "hours": 23.24
     },
     {
@@ -1100,8 +2200,28 @@
       "urlB": "https://daryo.uz/en/2026/07/14/uzbekistan-approves-50-vat-refund-for-major-international-business-events/",
       "titleA": "Опубликован рейтинг стран по числу заключенных. Какое место занял Узбекистан?",
       "titleB": "Uzbekistan introduces 50% VAT refund for international business event organizers",
-      "score": 0.317,
+      "score": 0.316,
       "hours": 22.96
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/25/tashoblast-kompleks-sotszashchita-pyat-uchrezhdeniy/",
+      "urlB": "https://daryo.uz/en/2026/07/25/uzbekistan-introduces-10-loans-for-poultry-sector/",
+      "titleA": "Первый в Ташкентской области комплекс социальной защиты объединил пять учреждений",
+      "titleB": "Uzbekistan introduces 10% loans for poultry sector",
+      "score": 0.315,
+      "hours": 2.47
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/21/messi-zavershenie-karery-sbornaya-argentiny/",
+      "urlB": "https://daryo.uz/en/2026/07/21/uzbekistan-to-attract-200mn-world-bank-funding-for-railway-infrastructure/",
+      "titleA": "Месси решил завершить карьеру в сборной Аргентины — источник",
+      "titleB": "Uzbekistan to attract $200mn World Bank funding for railway infrastructure",
+      "score": 0.307,
+      "hours": 5.08
     },
     {
       "langA": "ru",
@@ -1110,8 +2230,28 @@
       "urlB": "https://daryo.uz/en/2026/06/17/uzbekistan-russia-trade-up-20-as-energy-and-metallurgy-projects-expand-strategic-cooperation/",
       "titleA": "Китай поставит в Узбекистан водосберегающие технологии орошения ",
       "titleB": "Uzbekistan, Russia review cooperation as trade increases 20% since start of year",
-      "score": 0.296,
+      "score": 0.3,
       "hours": 23.72
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/23/abdukodir-xusanov-samye-prosmatrivaemye-igroki-chm-2026/",
+      "urlB": "https://daryo.uz/en/2026/07/22/kazakhstans-tengizchevroil-reaches-full-capacity-targets-40mn-tonnes-of-oil-production-in-2026/",
+      "titleA": "Абдукодир Хусанов стал одним из самых просматриваемых игроков ЧМ-2026 на Transfermarkt (фото)",
+      "titleB": "Kazakhstan's Tengizchevroil reaches full capacity, targets 40mn tons in 2026",
+      "score": 0.293,
+      "hours": 14.03
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/22/kurs-valyut-dollar-uzbekistan-23-iyulya/",
+      "urlB": "https://daryo.uz/en/2026/07/23/russia-imposes-import-restrictions-on-five-uzbek-exporters/",
+      "titleA": "Курс валют в Узбекистане на 23 июля",
+      "titleB": "Russia restricts imports from five Uzbek agricultural exporters",
+      "score": 0.28,
+      "hours": 17.75
     },
     {
       "langA": "ru",
@@ -1130,7 +2270,7 @@
       "urlB": "https://daryo.uz/en/2026/06/17/uzbekistanmalaysia-trade-rises-15-joint-ventures-reach-50/",
       "titleA": "Названы самые сильные футболисты ЧМ-2026 — рейтинг",
       "titleB": "Uzbekistan–Malaysia trade rises 15%, joint ventures reach 50",
-      "score": 0.266,
+      "score": 0.267,
       "hours": 23.12
     },
     {
@@ -1146,22 +2286,32 @@
     {
       "langA": "ru",
       "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/06/15/debyut-pervye-mundiali-aziatskix-sbornyx/",
+      "urlB": "https://daryo.uz/en/2026/06/15/uzbekistan-airways-value-could-reach-23bn-under-ipo-reform-plan/",
+      "titleA": "«Дебют»: Как проходили первые мундиали азиатских сборных",
+      "titleB": "Uzbekistan Airways value could reach $2.3bn under IPO reform plan",
+      "score": 0.264,
+      "hours": 0.38
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
       "urlA": "https://daryo.uz/ru/2026/05/15/uzbekistan-pogoda-na-segodnya-prognoz-15-maya/",
       "urlB": "https://daryo.uz/en/2026/05/14/uzbekistan-energy-sector-attracts-nearly-35bn-in-investments/",
       "titleA": "Сегодня воздух в Узбекистане прогреется до 35 градусов",
       "titleB": "Uzbekistan attracts approximately $35bn in energy sector FDI in recent years",
-      "score": 0.261,
+      "score": 0.263,
       "hours": 19.04
     },
     {
       "langA": "ru",
       "langB": "en",
-      "urlA": "https://daryo.uz/ru/2026/06/15/debyut-pervye-mundiali-aziatskix-sbornyx/",
-      "urlB": "https://daryo.uz/en/2026/06/15/uzbekistan-airways-value-could-reach-23bn-under-ipo-reform-plan/",
-      "titleA": "«Дебют»: Как проходили первые мундиали азиатских сборных",
-      "titleB": "Uzbekistan Airways value could reach $2.3bn under IPO reform plan",
-      "score": 0.26,
-      "hours": 0.38
+      "urlA": "https://daryo.uz/ru/2026/07/20/aventus-group-evropeyskaya-premiya-tsifrovoe-kreditovanie/",
+      "urlB": "https://daryo.uz/en/2026/07/20/uzbekistan-modernizes-30-of-high-voltage-substations-as-energy-complaints-fall-26/",
+      "titleA": "Андреюс Трофимовас: Aventus Group признана лучшим цифровым кредитором Европы",
+      "titleB": "Uzbekistan modernizes 30% of high-voltage substations as energy complaints fall 26%",
+      "score": 0.262,
+      "hours": 2.55
     },
     {
       "langA": "ru",
@@ -1170,8 +2320,18 @@
       "urlB": "https://daryo.uz/en/2026/06/17/uzbekistan-pitches-50-year-tax-incentives-international-court-to-global-investors/",
       "titleA": "«За последние годы в страну привлечено более $150 млрд иностранных инвестиций, из которых $123 млрд — за последние пять лет» — Шавкат Мирзиёев",
       "titleB": "Uzbekistan to establish Tashkent International Financial Centre with 50-year tax incentives and international court",
-      "score": 0.256,
+      "score": 0.248,
       "hours": 2.01
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/21/ssha-i-iranu-predlozhili-prekratit-ogon-na-10-dney/",
+      "urlB": "https://daryo.uz/en/2026/07/21/uzbekistan-aims-for-10-growth-after-28bn-investment-surge/",
+      "titleA": "США и Ирану предложили прекратить огонь на 10 дней",
+      "titleB": "Uzbekistan pushes for 9–10% annual growth despite strong first-half performance",
+      "score": 0.245,
+      "hours": 7.49
     },
     {
       "langA": "ru",
@@ -1180,7 +2340,7 @@
       "urlB": "https://daryo.uz/en/2026/05/13/uzbekistan-backs-eliminating-bureaucracy-2030-plan-to-expand-digital-services-and-cut-government-functions/",
       "titleA": "Сегодня в Узбекистане потеплеет до 30 градусов",
       "titleB": "Uzbekistan backs “Eliminating Bureaucracy – 2030” plan to expand digital services",
-      "score": 0.248,
+      "score": 0.238,
       "hours": 2.95
     },
     {
@@ -1190,7 +2350,7 @@
       "urlB": "https://daryo.uz/en/2026/07/15/kyrgyzstan-tajikistan-begin-marking-border-after-decades-long-dispute/",
       "titleA": "В Узбекистане выросла преступность среди подростков",
       "titleB": "Kyrgyzstan, Tajikistan begin border demarcation after decades-long dispute",
-      "score": 0.243,
+      "score": 0.237,
       "hours": 6.04
     },
     {
@@ -1210,8 +2370,58 @@
       "urlB": "https://daryo.uz/en/2026/07/17/uzbekistan-dominates-asian-youth-boxing-with-21-gold-medals/",
       "titleA": "Ламин Ямаль получил травму перед финалом чемпионата мира",
       "titleB": "Uzbekistan tops Asian U-19 and U-23 Boxing Championships with 21 gold medals",
-      "score": 0.227,
+      "score": 0.235,
       "hours": 7.73
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/06/29/rossiya-verbovka-grazhdan-peru-na-voynu/",
+      "urlB": "https://daryo.uz/en/2026/06/29/uzbekistan-hosts-first-international-forum-on-monetary-policy-and-digitalization/",
+      "titleA": "Россия вербует граждан Перу на войну под предлогом трудоустройства — CNN",
+      "titleB": "Uzbekistan hosts first international forum on monetary policy and digitalization",
+      "score": 0.227,
+      "hours": 4.52
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/23/gosudarstvennyy-muzey-istorii-uzbekistana-otkrytye-rekonstruktsiya/",
+      "urlB": "https://daryo.uz/en/2026/07/23/uzbekistan-invests-over-26mn-in-karasu-canal-embankment-development/",
+      "titleA": "Государственный музей истории Узбекистана откроется после двухлетней реконструкции",
+      "titleB": "Uzbekistan develops 9-km Karasu Canal embankment under $2.6mn project",
+      "score": 0.219,
+      "hours": 8.57
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/02/venesuela-traur-zhertvi-zemletryaseniy-2-000-chelovek-foto/",
+      "urlB": "https://daryo.uz/en/2026/07/02/wto-to-hold-13th-accession-meeting-for-uzbekistan-in-late-july/",
+      "titleA": "В Венесуэле объявлен семидневный траур. Число жертв землетрясений превысило 2 000 человек (фото)",
+      "titleB": "WTO schedules 13th accession meeting for Uzbekistan in late July",
+      "score": 0.219,
+      "hours": 1.99
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/05/26/uzbekistan-sel-popolnenie-vodnyx-resursov/",
+      "urlB": "https://daryo.uz/en/2026/05/26/thailand-cancels-60-day-visa-free-entry-for-uzbekistan-starting-july-15/",
+      "titleA": "В Узбекистане сели начнут использовать для пополнения водных ресурсов",
+      "titleB": "Thailand to end 60-day visa-free entry for Uzbekistan citizens from July 15",
+      "score": 0.219,
+      "hours": 7.36
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/24/iz-muzeev-propali-bolee-500-eksponatov/",
+      "urlB": "https://daryo.uz/en/2026/07/23/uzbekistan-invests-500mn-in-artificial-intelligence-and-cybersecurity-hub/",
+      "titleA": "Из музеев Ферганской и Сырдарьинской областей пропали более 500 экспонатов",
+      "titleB": "Uzbekistan breaks ground on $500mn AI and cybersecurity hub",
+      "score": 0.217,
+      "hours": 22.34
     },
     {
       "langA": "ru",
@@ -1220,8 +2430,28 @@
       "urlB": "https://daryo.uz/en/2026/07/13/uzbekistan-resolves-95-of-taxpayer-appeals-in-first-half/",
       "titleA": "Шавкат Мирзиёев подарил электромобиль 95-летнему ветерану-металлургу (фото)",
       "titleB": "Uzbekistan resolves 95% of taxpayer appeals in 1H26",
-      "score": 0.209,
+      "score": 0.217,
       "hours": 20.28
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/06/29/syrdarya-xlopkovyy-klaster-birzha-shtraf/",
+      "urlB": "https://daryo.uz/en/2026/06/29/kyrgyzstan-moves-mortgage-and-student-benefit-services-fully-online/",
+      "titleA": "В Сырдарьинской области хлопковый кластер продал волокно в обход биржи на сумму более 100 млрд сумов",
+      "titleB": "Kyrgyzstan to digitize mortgage lien removals, automate student benefit renewals",
+      "score": 0.215,
+      "hours": 7.99
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/22/mirziyoev-stroitelstvo-novoy-avtomagistrali-tashkent-samarkand/",
+      "urlB": "https://daryo.uz/en/2026/07/22/uzbekistan-launches-22bn-tashkentsamarkand-toll-highway-project/",
+      "titleA": "Шавкат Мирзиёев запустил строительство новой автомагистрали Ташкент – Самарканд",
+      "titleB": "Uzbekistan launches $2.2bn Tashkent–Samarkand toll highway project",
+      "score": 0.207,
+      "hours": 1.05
     },
     {
       "langA": "ru",
@@ -1240,7 +2470,7 @@
       "urlB": "https://daryo.uz/en/2026/06/19/central-asia-targets-40-renewable-energy-share-by-2030/",
       "titleA": "В Ташкенте и ряде регионов ожидаются кратковременные дожди",
       "titleB": "Central Asia targets 40% renewable energy share by 2030",
-      "score": 0.201,
+      "score": 0.202,
       "hours": 4.91
     },
     {
@@ -1250,8 +2480,58 @@
       "urlB": "https://daryo.uz/en/2026/07/18/uzbekistan-reports-261-drop-in-fuel-and-energy-complaints/",
       "titleA": "Победителей ЧМ-2026 впервые в истории наградят чемпионскими перстнями",
       "titleB": "Uzbekistan reports 26.1% drop in fuel and energy complaints",
-      "score": 0.2,
+      "score": 0.194,
       "hours": 3.44
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/06/30/chm-braziliya-sleduyushchiy-etap-germaniya-pokinula-mundial/",
+      "urlB": "https://daryo.uz/en/2026/06/30/edb-targets-up-to-2bn-investment-in-uzbekistan-as-central-asias-economy-tops-600bn/",
+      "titleA": "ЧМ-2026. Бразилия вышла в следующий этап, а Германия, уступив Парагваю, покинула мундиаль",
+      "titleB": "EDB targets up to $2bn investment in Uzbekistan as Central Asia's economy tops $600bn",
+      "score": 0.191,
+      "hours": 8.58
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/04/chm-2026-kolumbiya-gana-18-finala/",
+      "urlB": "https://daryo.uz/en/2026/07/03/kazakhstan-declares-2026-year-of-ai-as-gdp-surpasses-300bn/",
+      "titleA": "ЧМ-2026. Колумбия обыграла Гану с минимальным счетом и вышла в 1/8 финала",
+      "titleB": "Kazakhstan declares 2026 Year of AI as GDP surpasses $300bn",
+      "score": 0.191,
+      "hours": 18.64
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/24/uzbekistan-proizvodstvo-zelenoy-energii-gaz-ekologiya/",
+      "urlB": "https://daryo.uz/en/2026/07/24/uzbekistan-renewable-energy-generation-reaches-7bn-kwh/",
+      "titleA": "В Узбекистане с начала года выработали 7 млрд кВт⋅ч «зеленой» энергии: сколько газа удалось сэкономить",
+      "titleB": "Uzbekistan’s renewable energy generation reaches 7bn kWh",
+      "score": 0.19,
+      "hours": 1.69
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/22/uzbekistan-sredniy-razmer-pensii/",
+      "urlB": "https://daryo.uz/en/2026/07/22/uzbekistan-projects-average-pension-to-exceed-165-by-2029/",
+      "titleA": "Средний размер пенсии в Узбекистане может превысить 2 млн сумов",
+      "titleB": "Uzbekistan projects average pension to reach $165 by 2029",
+      "score": 0.19,
+      "hours": 0.02
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/04/nepriyatnyy-zapax-sergeli-yangixayot-tashkent/",
+      "urlB": "https://daryo.uz/en/2026/07/03/kazakhstan-isdb-review-42bn-partnership-20272032-strategy/",
+      "titleA": "Неприятный запах в Сергелийском и Янгихаётском районах устранят до 1 сентября",
+      "titleB": "Kazakhstan, IsDB discuss $4.2bn partnership and 2027–2032 strategy",
+      "score": 0.178,
+      "hours": 22.86
     },
     {
       "langA": "ru",
@@ -1266,12 +2546,32 @@
     {
       "langA": "ru",
       "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/22/tramp-gensek-oon-dzhanni-infantino/",
+      "urlB": "https://daryo.uz/en/2026/07/22/tashkentnurafshon-interchange-raises-road-capacity-to-130000-vehicles-daily/",
+      "titleA": "Трамп видит следующим генеральным секретарем ООН Джанни Инфантино — NYP",
+      "titleB": "Tashkent–Nurafshon interchange opens, raising road capacity to 130,000 vehicles daily",
+      "score": 0.169,
+      "hours": 9.91
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
       "urlA": "https://daryo.uz/ru/2026/06/21/arbitry-matcha-uzbekistan-portugaliya-na-chm-2026/",
       "urlB": "https://daryo.uz/en/2026/06/21/uzbekistans-pharmaceutical-production-rises-30-to-1559mn-in-january-april/",
       "titleA": "Стали известны арбитры матча Узбекистан — Португалия на ЧМ-2026",
       "titleB": "Uzbekistan's pharmaceutical production rises 30% to $155.9mn in January-April",
-      "score": 0.16,
+      "score": 0.158,
       "hours": 3.26
+    },
+    {
+      "langA": "ru",
+      "langB": "en",
+      "urlA": "https://daryo.uz/ru/2026/07/26/uzbekistan-chislo-pensionerov/",
+      "urlB": "https://daryo.uz/en/2026/07/26/uzbekistans-average-monthly-salary-rises-to-560/",
+      "titleA": "Более 40% всех пенсионеров Узбекистана приходятся на четыре региона",
+      "titleB": "Uzbekistan's average monthly salary rises to $560",
+      "score": 0.154,
+      "hours": 3.99
     },
     {
       "langA": "ru",
@@ -1280,8 +2580,18 @@
       "urlB": "https://daryo.uz/en/2026/07/15/uzbekistans-perceived-inflation-falls-to-record-low-in-june/",
       "titleA": "За три месяца узбекистанцев оштрафовали более чем на 120 млн сумов за незаконный выброс мусора",
       "titleB": "Uzbekistan's perceived inflation falls to 10.2%, record low in June",
-      "score": 0.156,
+      "score": 0.153,
       "hours": 2.53
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/01/kilian-mbappe-jch-2026-topurarlari-poygasidagi-asosiy-raqobatchisi-lionel-messi-haqida-gapirdi/",
+      "urlB": "https://daryo.uz/en/2026/07/01/uzbekistans-eldor-shomurodov-claims-fifa-best-goal-award/",
+      "titleA": "Kilian Mbappe JCH-2026 to‘purarlari poygasidagi asosiy raqobatchisi Lionel Messi haqida gapirdi",
+      "titleB": "Uzbekistan's Eldor Shomurodov wins FIFA World Cup group stage fan vote for best goal",
+      "score": 0.572,
+      "hours": 0.95
     },
     {
       "langA": "uz",
@@ -1302,6 +2612,16 @@
       "titleB": "Uzbekistan highlights green development priorities at Eurasian Economic Summit in Türkiye",
       "score": 0.558,
       "hours": 0.59
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/01/ozarbayjonda-16-yoshdan-kichiklarga-ijtimoiy-tarmoqlarda-akkaunt-ochish-taqiqlanadi/",
+      "urlB": "https://daryo.uz/en/2026/07/01/uzbekistans-central-bank-imposes-fines-on-16-banks-and-two-microfinance-organizations/",
+      "titleA": "Ozarbayjonda 16 yoshdan kichiklarga ijtimoiy tarmoqlarda akkaunt ochish taqiqlanadi",
+      "titleB": "Uzbekistan's Central Bank imposes fines on 16 banks and two microfinance organizations",
+      "score": 0.555,
+      "hours": 0.41
     },
     {
       "langA": "uz",
@@ -1376,6 +2696,16 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://daryo.uz/2026/05/25/shavkat-mirziyoyev-pokiston-prezidenti-va-bosh-vaziriga-taziya-yolladi/",
+      "urlB": "https://daryo.uz/en/2026/05/25/mirziyoyev-sends-condolences-to-pakistan-after-deadly-quetta-railway-blast/",
+      "titleA": "Shavkat Mirziyoyev Pokiston prezidenti va bosh vaziriga ta’ziya yo‘lladi",
+      "titleB": "Uzbekistan’s President Mirziyoyev sends condolences to Pakistan over Quetta railway attack",
+      "score": 0.548,
+      "hours": 5.69
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://daryo.uz/2026/05/13/rossiyada-ozbekiston-va-bangladeshdan-kelgan-ishchilar-mushtlashdi/",
       "urlB": "https://daryo.uz/en/2026/05/13/uzbekistans-business-climate-index-rises-to-60-points-in-april-cerr-says/",
       "titleA": "Rossiyada Oʻzbekiston va Bangladeshdan kelgan ishchilar mushtlashdi",
@@ -1406,6 +2736,26 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/21/davlat-oliygohlarining-11-ta-yangi-talim-yonalishi-va-mos-test-sinovi-fanlari-majmuasi-tasdiqlandi/",
+      "urlB": "https://daryo.uz/en/2026/07/21/uzbekistan-introduces-11-new-university-majors-for-202627-admissions/",
+      "titleA": "Davlat oliygohlarining 11 ta yangi ta’lim yo‘nalishi va mos test sinovi fanlari majmuasi tasdiqlandi",
+      "titleB": "Uzbekistan adds 11 new university majors for 2026/27 admissions",
+      "score": 0.544,
+      "hours": 2.59
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/05/30/ozbekiston-aholisi-2050-yilga-kelib-52-milliondan-oshadi-yunisef/",
+      "urlB": "https://daryo.uz/en/2026/05/30/uzbekistan-population-to-reach-52mn-by-2050-unicef-forecasts/",
+      "titleA": "O‘zbekiston aholisi 2050-yilga kelib 52 milliondan oshadi — YUNISEF",
+      "titleB": "Uzbekistan’s population to reach 52mn by 2050, UNICEF forecasts",
+      "score": 0.541,
+      "hours": 6.01
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://daryo.uz/2026/06/20/jch2026-fifa-1-turning-eng-yaxshi-futbolchisini-aniqladi/",
       "urlB": "https://daryo.uz/en/2026/06/20/uzbekistan-leads-raic-cac-push-for-regional-investment-coordination-across-central-asia-and-caucasus/",
       "titleA": "JCH—2026. FIFA 1-turning eng yaxshi futbolchisini aniqladi",
@@ -1422,6 +2772,26 @@
       "titleB": "Uzbekistan highlights cultural ties at Akhal-Teke horse championship in Turkmenistan",
       "score": 0.528,
       "hours": 7
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/21/toshkentda-kanalda-chokib-ketgan-fuqaroning-jasadi-qariyb-5-soatdan-song-topildi/",
+      "urlB": "https://daryo.uz/en/2026/07/21/itfc-hamkorbank-sign-uzbekistans-largest-standalone-islamic-trade-finance-facility-worth-100mn/",
+      "titleA": "Toshkentda kanalda cho‘kib ketgan fuqaroning jasadi qariyb 5 soatdan so‘ng topildi",
+      "titleB": "ITFC, Hamkorbank sign Uzbekistan's largest standalone Islamic trade finance facility worth $100mn",
+      "score": 0.527,
+      "hours": 5.55
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/24/dollar-kursi-uch-kun-kotarilishdan-song-pastladi/",
+      "urlB": "https://daryo.uz/en/2026/07/24/uzbekistan-opens-unused-mortgage-subsidy-allocations-for-applications/",
+      "titleA": "Dollar kursi uch kun ko‘tarilishdan so‘ng pastladi",
+      "titleB": "Uzbekistan reopens mortgage subsidy applications using unused allocations",
+      "score": 0.524,
+      "hours": 6.15
     },
     {
       "langA": "uz",
@@ -1456,12 +2826,52 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/02/tailandda-yosh-bola-8-nafar-rohibni-mashinada-bosib-ketdi-video/",
+      "urlB": "https://daryo.uz/en/2026/07/02/uzbekistan-to-send-parliamentary-delegation-to-iran-for-ayatollah-ali-khamenei-farewell/",
+      "titleA": "Tailandda yosh bola 8 nafar rohibni mashinada urib ketdi (video)",
+      "titleB": "Uzbekistan delegation to attend Ayatollah Ali Khamenei farewell ceremonies in Iran",
+      "score": 0.514,
+      "hours": 8.58
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/03/jch-2026-ispaniya-avstriyani-tor-mor-etib-18-finalga-yol-oldi/",
+      "urlB": "https://daryo.uz/en/2026/07/02/uzbekistan-companies-increase-investment-in-digital-twins-kpmg-says/",
+      "titleA": "JCH-2026. Ispaniya Avstriyani tor-mor etib, 1/8 finalga yo‘l oldi",
+      "titleB": "Uzbekistan companies step up cybersecurity and digital twin investment, KPMG says",
+      "score": 0.509,
+      "hours": 11.61
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/06/29/shavkat-mirziyoyev-jahon-banki-vitse-prezidenti-bilan-uchrashdi/",
+      "urlB": "https://daryo.uz/en/2026/06/30/uzbekistan-world-bank-expand-cooperation-as-joint-project-portfolio-tops-15bn/",
+      "titleA": "Shavkat Mirziyoyev Jahon banki vitse-prezidenti bilan uchrashdi",
+      "titleB": "Uzbekistan, World Bank expand cooperation as joint project portfolio tops $15bn",
+      "score": 0.507,
+      "hours": 13.16
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://daryo.uz/2026/05/13/ozbekistonning-ilk-fazogiri-2028-yilda-fazoga-uchiriladi/",
       "urlB": "https://daryo.uz/en/2026/05/14/uzbekistan-plans-to-send-first-national-astronaut-into-space-by-2028/",
       "titleA": "O‘zbekistonning ilk kosmonavti 2028-yilda fazoga uchiriladi",
       "titleB": "Uzbekistan targets first national astronaut mission by 2028",
       "score": 0.497,
       "hours": 16.78
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/02/ozbekiston-global-pasport-indeksida-123-orinni-egalladi-dunyoda-qaysi-davlatlar-yetakchi/",
+      "urlB": "https://daryo.uz/en/2026/07/02/uzbekistan-ranks-second-in-central-asia-in-global-passport-index-2026/",
+      "titleA": "O‘zbekiston global pasport indeksida 123-o‘rinni egalladi. Dunyoda qaysi davlatlar yetakchi?",
+      "titleB": "Uzbekistan ranks 123rd globally, second in Central Asia in 2026 Global Passport Index",
+      "score": 0.495,
+      "hours": 2.8
     },
     {
       "langA": "uz",
@@ -1476,6 +2886,16 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://daryo.uz/2026/05/25/ozbekiston-qurbon-hayiti-arafasida-afgonistonga-insonparvarlik-yordami-yubordi/",
+      "urlB": "https://daryo.uz/en/2026/05/26/uzbekistan-sends-humanitarian-aid-to-afghanistan/",
+      "titleA": "O‘zbekiston Qurbon hayiti arafasida Afg‘onistonga insonparvarlik yordami yubordi",
+      "titleB": "Uzbekistan sends 200 tons of food aid to Afghanistan",
+      "score": 0.474,
+      "hours": 18.24
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://daryo.uz/2026/05/13/baa-kompaniyasi-ozbekistonda-100-ta-diagnostika-markazi-tashkil-etmoqchi/",
       "urlB": "https://daryo.uz/en/2026/05/12/uaes-unison-capital-plans-100-diagnostic-centers-across-uzbekistan/",
       "titleA": "BAA kompaniyasi O‘zbekistonda 100 ta diagnostika markazi tashkil etmoqchi",
@@ -1486,12 +2906,42 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://daryo.uz/2026/05/26/rasman-eron-terma-jamoasi-jch-2026-davrida-meksikadagi-bazada-shugullanadi/",
+      "urlB": "https://daryo.uz/en/2026/05/27/uzbekistan-to-abolish-state-regulated-coal-prices-from-june-2026/",
+      "titleA": "Rasman: Eron terma jamoasi JCH-2026 davrida Meksikadagi bazada shug‘ullanadi",
+      "titleB": "Uzbekistan to abolish state-regulated coal prices from June 2026",
+      "score": 0.466,
+      "hours": 23.87
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/21/ozbekistonda-temiryol-infratuzilmasi-uchun-jahon-bankidan-200-mln-dollar-jalb-qilinadi/",
+      "urlB": "https://daryo.uz/en/2026/07/21/uzbekistan-to-attract-200mn-world-bank-funding-for-railway-infrastructure/",
+      "titleA": "O‘zbekistonda temiryo‘l infratuzilmasi uchun Jahon bankidan 200 mln dollar jalb qilinadi",
+      "titleB": "Uzbekistan to attract $200mn World Bank funding for railway infrastructure",
+      "score": 0.458,
+      "hours": 0.79
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://daryo.uz/2026/07/16/arsenalning-asosiy-himoyachisi-2027-yilgacha-maydonga-tusha-olmaydi/",
       "urlB": "https://daryo.uz/en/2026/07/15/kyrgyzstan-bans-fuel-exports-eases-imports-to-strengthen-domestic-supply/",
       "titleA": "“Arsenal”ning asosiy himoyachisi 2027-yilgacha maydonga tusha olmaydi",
       "titleB": "Kyrgyzstan bans fuel exports, eases imports to strengthen domestic supply",
       "score": 0.458,
       "hours": 23.73
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/23/smartfondan-voz-kechmoqchi-bolganlar-uchun-sensor-va-suniy-idroksiz-telefon-taqdim-etildi/",
+      "urlB": "https://daryo.uz/en/2026/07/22/kazakhstan-targets-faster-rollout-of-byd-electric-vehicle-plant/",
+      "titleA": "Smartfondan voz kechmoqchi bo‘lganlar uchun sensor va suniy idroksiz telefon taqdim etildi",
+      "titleB": "Kazakhstan speeds rollout of BYD electric vehicle plant",
+      "score": 0.458,
+      "hours": 23.83
     },
     {
       "langA": "uz",
@@ -1520,8 +2970,18 @@
       "urlB": "https://daryo.uz/en/2026/06/19/uzbekistan-estimates-7bn-cost-for-trans-afghan-railway-corridor/",
       "titleA": "100 nafar tanqidchi o‘rtasida o‘tkazilgan so‘rovnomada 2026-yilning eng yaxshi 20 ta filmi aniqlandi",
       "titleB": "Uzbekistan estimates Trans-Afghan railway cost at over $7bn",
-      "score": 0.442,
+      "score": 0.444,
       "hours": 0.33
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/06/29/prezident-bayram-munosabati-bilan-bir-guruh-yoshlarni-mukofotladi/",
+      "urlB": "https://daryo.uz/en/2026/06/29/shokhrukh-kodirov-i-build-systems-that-work-without-me/",
+      "titleA": "Prezident bayram munosabati bilan bir guruh yoshlarni mukofotladi",
+      "titleB": "Shokhrukh Kodirov: &quot;I build systems that work without me&quot;",
+      "score": 0.438,
+      "hours": 1.06
     },
     {
       "langA": "uz",
@@ -1530,7 +2990,7 @@
       "urlB": "https://daryo.uz/en/2026/07/13/uzbekistan-resolves-95-of-taxpayer-appeals-in-first-half/",
       "titleA": "Soliq qo‘mitasiga yarim yilda eng ko‘p qanday murojaatlar kelib tushgani e’lon qilindi",
       "titleB": "Uzbekistan resolves 95% of taxpayer appeals in 1H26",
-      "score": 0.435,
+      "score": 0.429,
       "hours": 5.17
     },
     {
@@ -1540,7 +3000,7 @@
       "urlB": "https://daryo.uz/en/2026/07/17/uzbekistan-joins-new-global-ai-organization-established-in-shanghai/",
       "titleA": "Ukrainadagi urushda rossiyalik askar oʻrtacha 30 daqiqada halok boʻlmoqda — AQSH razvedkasi",
       "titleB": "Uzbekistan becomes co-founder of new global AI organization",
-      "score": 0.416,
+      "score": 0.41,
       "hours": 7.33
     },
     {
@@ -1550,7 +3010,7 @@
       "urlB": "https://daryo.uz/en/2026/07/16/uzbekistan-household-debt-burden-reaches-51-central-bank-survey-finds/",
       "titleA": "Markaziy bank soʻrovi: 61 foiz ishtirokchi qarzlarini oʻz vaqtida qaytarishga qiynalmoqda",
       "titleB": "Uzbekistan borrowers allocate 51% of income to debt repayments, survey finds",
-      "score": 0.396,
+      "score": 0.4,
       "hours": 17.25
     },
     {
@@ -1560,7 +3020,7 @@
       "urlB": "https://daryo.uz/en/2026/07/15/uzbekistan-turkmenistan-advance-cybersecurity-partnership/",
       "titleA": "Yevropa Ittifoqi harbiy xizmatdan qochgan ukrainaliklarga boshpana bermaydi",
       "titleB": "Uzbekistan, Turkmenistan sign cybersecurity, foreign ministry cooperation agreements",
-      "score": 0.385,
+      "score": 0.393,
       "hours": 8.34
     },
     {
@@ -1570,8 +3030,58 @@
       "urlB": "https://daryo.uz/en/2026/06/19/uzbekistaniraq-business-council-targets-500mn-trade-expansion-and-new-sector-cooperation-at-tiif-2026/",
       "titleA": "O‘zbekistonlik mutaxassislar Germaniya temiryo‘llarida ishlash uchun tayyorlanadi",
       "titleB": "Uzbekistan–Iraq establish business council at TIIF-2026 to strengthen trade and investment ties",
-      "score": 0.373,
+      "score": 0.374,
       "hours": 20.91
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/23/yer-ijarasi-muddatini-49-yilgacha-uzaytirish-kozda-tutilgan-qonun-loyihasi-senatga-yuborildi/",
+      "urlB": "https://daryo.uz/en/2026/07/24/uzbekistan-approves-bill-extending-farmland-leases-to-49-years/",
+      "titleA": "Yer ijarasi muddatini 49 yilgacha uzaytirish ko‘zda tutilgan qonun loyihasi Senatga yuborildi",
+      "titleB": "Uzbekistan approves bill extending farmland leases to 49 years",
+      "score": 0.366,
+      "hours": 19.5
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/25/rasman-manchester-siti-abduqodir-husanov-bilan-yangi-5-yillik-shartnoma-imzoladi/",
+      "urlB": "https://daryo.uz/en/2026/07/26/manchester-city-extends-khusanov-contract-until-2031/",
+      "titleA": "Rasman. “Manchester Siti” Abduqodir Husanov bilan yangi 5 yillik shartnoma imzoladi",
+      "titleB": "Manchester City extends Uzbekistan's Khusanov contract until 2031",
+      "score": 0.366,
+      "hours": 21.01
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/23/milliarderning-oroli-lemurlar-va-ledi-gaga-sadolari-ostidagi-ilk-raqs-dunyoning-eng-boy-blogeri-mrbeast-uylandi/",
+      "urlB": "https://daryo.uz/en/2026/07/23/uzbekistan-invests-500mn-in-artificial-intelligence-and-cybersecurity-hub/",
+      "titleA": "Milliarderning oroli, lemurlar va Ledi Gaga sadolari ostidagi ilk raqs: dunyoning eng boy blogeri MrBeast uylandi",
+      "titleB": "Uzbekistan breaks ground on $500mn AI and cybersecurity hub",
+      "score": 0.361,
+      "hours": 0.08
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/03/yamal-avstriya-bilan-oyinga-narxi-150-ming-yevroga-baholangan-brilliant-taqinchoq-bilan-keldi/",
+      "urlB": "https://daryo.uz/en/2026/07/03/kazakhstan-declares-2026-year-of-ai-as-gdp-surpasses-300bn/",
+      "titleA": "Yamal Avstriya bilan o‘yinga narxi 150 ming yevroga baholangan brilliant taqinchoq bilan keldi",
+      "titleB": "Kazakhstan declares 2026 Year of AI as GDP surpasses $300bn",
+      "score": 0.36,
+      "hours": 5.24
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/23/ozbekiston-u-23-terma-jamoasining-osiyo-oyinlari-guruh-bosqichidagi-raqiblari-aniqlandi/",
+      "urlB": "https://daryo.uz/en/2026/07/23/russia-imposes-import-restrictions-on-five-uzbek-exporters/",
+      "titleA": "Oʻzbekiston U-23 terma jamoasining Osiyo o‘yinlari guruh bosqichidagi raqiblari aniqlandi",
+      "titleB": "Russia restricts imports from five Uzbek agricultural exporters",
+      "score": 0.351,
+      "hours": 0.7
     },
     {
       "langA": "uz",
@@ -1580,8 +3090,18 @@
       "urlB": "https://daryo.uz/en/2026/07/14/uzbekistan-approves-50-vat-refund-for-major-international-business-events/",
       "titleA": "5 mlrd so‘mlik daromad: Farg‘onalik tadbirkor tuproqsiz va quyoshsiz yerto‘lada giyohlar yetishtirmoqda",
       "titleB": "Uzbekistan introduces 50% VAT refund for international business event organizers",
-      "score": 0.341,
+      "score": 0.34,
       "hours": 22.75
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/22/jch-2026-sarhisobi-mbappedan-tarixiy-natija-eng-sermahsul-jamoalar-va-ishonchli-oynagan-darvozabonlar/",
+      "urlB": "https://daryo.uz/en/2026/07/22/kazakhstans-tengizchevroil-reaches-full-capacity-targets-40mn-tonnes-of-oil-production-in-2026/",
+      "titleA": "JCH-2026 sarhisobi: Mbappedan tarixiy natija, eng sermahsul jamoalar va ishonchli o‘ynagan darvozabonlar",
+      "titleB": "Kazakhstan's Tengizchevroil reaches full capacity, targets 40mn tons in 2026",
+      "score": 0.339,
+      "hours": 2.73
     },
     {
       "langA": "uz",
@@ -1596,12 +3116,22 @@
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://daryo.uz/2026/05/15/ufc-ramazon-temirovning-navbatdagi-raqibi-va-jang-sanasi-malum-boldi/",
-      "urlB": "https://daryo.uz/en/2026/05/15/uzbekistan-expands-intensive-orchards-to-boost-food-exports-to-10bn-by-2030/",
-      "titleA": "UFC. Ramazon Temirovning navbatdagi raqibi va jang sanasi ma’lum bo‘ldi",
-      "titleB": "Uzbekistan targets industrialized orchard expansion to boost food exports to $10bn by 2030",
-      "score": 0.33,
-      "hours": 9.48
+      "urlA": "https://daryo.uz/2026/05/13/britaniya-kompaniyasi-ozbekistondagi-neft-va-gaz-bloklarining-40-foiz-ulushini-sotib-oldi/",
+      "urlB": "https://daryo.uz/en/2026/05/14/bp-joins-north-ustyurt-oil-and-gas-project-in-uzbekistan-with-40-stake/",
+      "titleA": "Britaniya kompaniyasi O‘zbekistondagi neft va gaz bloklarining 40 foiz ulushini sotib oldi",
+      "titleB": "BP enters Uzbekistan upstream sector with 40% stake in North Ustyurt PSA",
+      "score": 0.334,
+      "hours": 21.21
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/05/26/serdar-azmun-eron-terma-jamoasi-bilan-jahon-chempionatida-ishtirok-etishi-mumkin/",
+      "urlB": "https://daryo.uz/en/2026/05/26/kyrgyzstan-reports-over-9-growth-in-cis-trade-turnover-exceeding-7bn-in-2025/",
+      "titleA": "Serdar Azmun Eron terma jamoasi bilan Jahon chempionatida ishtirok etishi mumkin",
+      "titleB": "Kyrgyzstan’s CIS trade turnover exceeds $7bn in 2025 amid 9% growth",
+      "score": 0.332,
+      "hours": 1.83
     },
     {
       "langA": "uz",
@@ -1610,58 +3140,18 @@
       "urlB": "https://daryo.uz/en/2026/06/19/uzbekistan-showcases-3trn-mineral-potential-100-projects-at-tiif-2026/",
       "titleA": "Mourinyo “Real”dagi qaysi futbolchi bilan xayrlashmoqchi ekanligi ma’lum bo‘ldi",
       "titleB": "Uzbekistan showcases $3 trillion mineral potential, 100+ projects at TIIF-2026",
-      "score": 0.327,
+      "score": 0.332,
       "hours": 1.7
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://daryo.uz/2026/05/13/britaniya-kompaniyasi-ozbekistondagi-neft-va-gaz-bloklarining-40-foiz-ulushini-sotib-oldi/",
-      "urlB": "https://daryo.uz/en/2026/05/14/bp-joins-north-ustyurt-oil-and-gas-project-in-uzbekistan-with-40-stake/",
-      "titleA": "Britaniya kompaniyasi O‘zbekistondagi neft va gaz bloklarining 40 foiz ulushini sotib oldi",
-      "titleB": "BP enters Uzbekistan upstream sector with 40% stake in North Ustyurt PSA",
-      "score": 0.326,
-      "hours": 21.21
-    },
-    {
-      "langA": "uz",
-      "langB": "en",
-      "urlA": "https://daryo.uz/2026/07/15/belarusga-ishlash-uchun-borgan-andijonliklar-maosh-kamligidan-norozi-migratsiya-agentligi-holatga-izoh-berdi/",
-      "urlB": "https://daryo.uz/en/2026/07/15/uzbekistan-investigates-pay-dispute-involving-workers-in-belarus/",
-      "titleA": "Belarusga ishlash uchun borgan andijonliklar maosh kamligidan norozi. Migratsiya agentligi holatga izoh berdi",
-      "titleB": "Uzbekistan investigates pay dispute involving Uzbek workers in Belarus",
-      "score": 0.321,
-      "hours": 7.41
-    },
-    {
-      "langA": "uz",
-      "langB": "en",
-      "urlA": "https://daryo.uz/2026/05/11/men-ketmadim-ular-mendan-ketdi-komila-xojayeva-setora-guruhi-bolinib-ketgani-haqida/",
-      "urlB": "https://daryo.uz/en/2026/05/11/kazakhstan-state-funding-for-private-schools-rises-to-488mn-in-2025/",
-      "titleA": "“Men ketmadim, ular mendan ketdi”. Komila Xo‘jayeva “Setora” guruhi bo‘linib ketgani haqida",
-      "titleB": "Kazakhstan raises state funding for private schools to $488mn in 2025",
-      "score": 0.313,
-      "hours": 7.6
-    },
-    {
-      "langA": "uz",
-      "langB": "en",
-      "urlA": "https://daryo.uz/2026/07/13/real-sanjik-ishi-boyicha-navbatdagi-apellyatsiya-sudi-20-iyulda-bolib-otadi/",
-      "urlB": "https://daryo.uz/en/2026/07/13/uzbekistan-secures-free-access-to-canva-for-education-for-more-than-10000-schools/",
-      "titleA": "“Real Sanjik” ishi bo‘yicha navbatdagi apellyatsiya sudi 20-iyulda bo‘lib o‘tadi",
-      "titleB": "Uzbekistan secures free Canva for Education access for more than 10,000 schools",
-      "score": 0.31,
-      "hours": 3.58
-    },
-    {
-      "langA": "uz",
-      "langB": "en",
-      "urlA": "https://daryo.uz/2026/05/14/ozbekistonning-35-ta-shahar-va-tumanlarida-soliq-inspeksiyasi-boshliqlari-ozgardi/",
-      "urlB": "https://daryo.uz/en/2026/05/14/uzbekistan-energy-sector-attracts-nearly-35bn-in-investments/",
-      "titleA": "O‘zbekistonning 35 ta shahar va tumanlarida soliq inspeksiyasi boshliqlari o‘zgardi",
-      "titleB": "Uzbekistan attracts approximately $35bn in energy sector FDI in recent years",
-      "score": 0.31,
-      "hours": 3.66
+      "urlA": "https://daryo.uz/2026/05/15/ufc-ramazon-temirovning-navbatdagi-raqibi-va-jang-sanasi-malum-boldi/",
+      "urlB": "https://daryo.uz/en/2026/05/15/uzbekistan-expands-intensive-orchards-to-boost-food-exports-to-10bn-by-2030/",
+      "titleA": "UFC. Ramazon Temirovning navbatdagi raqibi va jang sanasi ma’lum bo‘ldi",
+      "titleB": "Uzbekistan targets industrialized orchard expansion to boost food exports to $10bn by 2030",
+      "score": 0.327,
+      "hours": 9.48
     },
     {
       "langA": "uz",
@@ -1670,8 +3160,78 @@
       "urlB": "https://daryo.uz/en/2026/05/13/uzbekistan-brazil-bilateral-trade-reaches-approximately-300mn-in-2025/",
       "titleA": "“Nasaf” himoyachisi Osiyoning “eng yaxshi yosh futbolchisi” sovrini uchun da’vogarlik qilmoqda ",
       "titleB": "Uzbekistan, Brazil trade nears $300mn in 2025",
-      "score": 0.308,
+      "score": 0.318,
       "hours": 0.8
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/06/29/shavkat-mirziyoyev-turkologiya-qurultoyining-100-yilligi-munosabati-bilan-murojaat-yolladi/",
+      "urlB": "https://daryo.uz/en/2026/06/29/kyrgyzstan-moves-mortgage-and-student-benefit-services-fully-online/",
+      "titleA": "Shavkat Mirziyoyev Turkologiya qurultoyining 100 yilligi munosabati bilan murojaat yo‘lladi",
+      "titleB": "Kyrgyzstan to digitize mortgage lien removals, automate student benefit renewals",
+      "score": 0.316,
+      "hours": 1.6
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/24/yoshlar-saratonga-tobora-koproq-chalinmoqda-ehtimoliy-sabab-ular-tez-qariyapti/",
+      "urlB": "https://daryo.uz/en/2026/07/24/regional-partners-review-bilateral-agenda-with-uzbekistan-during-mirziyoyevs-birthday-calls/",
+      "titleA": "Yoshlar saratonga tobora ko‘proq chalinmoqda. Ehtimoliy sabab: ular tez qariyapti",
+      "titleB": "Foreign leaders congratulate Mirziyoyev on birthday, review bilateral agenda with Uzbekistan",
+      "score": 0.316,
+      "hours": 9.34
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/13/real-sanjik-ishi-boyicha-navbatdagi-apellyatsiya-sudi-20-iyulda-bolib-otadi/",
+      "urlB": "https://daryo.uz/en/2026/07/13/uzbekistan-secures-free-access-to-canva-for-education-for-more-than-10000-schools/",
+      "titleA": "“Real Sanjik” ishi bo‘yicha navbatdagi apellyatsiya sudi 20-iyulda bo‘lib o‘tadi",
+      "titleB": "Uzbekistan secures free Canva for Education access for more than 10,000 schools",
+      "score": 0.313,
+      "hours": 3.58
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/15/belarusga-ishlash-uchun-borgan-andijonliklar-maosh-kamligidan-norozi-migratsiya-agentligi-holatga-izoh-berdi/",
+      "urlB": "https://daryo.uz/en/2026/07/15/uzbekistan-investigates-pay-dispute-involving-workers-in-belarus/",
+      "titleA": "Belarusga ishlash uchun borgan andijonliklar maosh kamligidan norozi. Migratsiya agentligi holatga izoh berdi",
+      "titleB": "Uzbekistan investigates pay dispute involving Uzbek workers in Belarus",
+      "score": 0.313,
+      "hours": 7.41
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/05/14/ozbekistonning-35-ta-shahar-va-tumanlarida-soliq-inspeksiyasi-boshliqlari-ozgardi/",
+      "urlB": "https://daryo.uz/en/2026/05/14/uzbekistan-energy-sector-attracts-nearly-35bn-in-investments/",
+      "titleA": "O‘zbekistonning 35 ta shahar va tumanlarida soliq inspeksiyasi boshliqlari o‘zgardi",
+      "titleB": "Uzbekistan attracts approximately $35bn in energy sector FDI in recent years",
+      "score": 0.312,
+      "hours": 3.66
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/06/29/sirdaryoda-100-mlrd-somdan-ortiq-paxta-tolasini-birjaga-chiqarmay-sotgan-korxonaga-chora-korildi/",
+      "urlB": "https://daryo.uz/en/2026/06/29/uzbekistan-trains-over-600-afghan-citizens-under-eu-funded-2mn-program/",
+      "titleA": "Sirdaryoda 100 mlrd so‘mdan ortiq paxta tolasini birjaga chiqarmay sotgan korxonaga chora ko‘rildi",
+      "titleB": "Uzbekistan trains over 700 Afghan citizens under EU-funded $2mn program",
+      "score": 0.31,
+      "hours": 4.34
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/05/26/ozbekistonda-dollar-kursi-yana-12-ming-somdan-oshdi/",
+      "urlB": "https://daryo.uz/en/2026/05/26/uzbekistan-sme-loan-portfolio-reaches-182bn-equals-12-of-gdp/",
+      "titleA": "O‘zbekistonda dollar kursi yana 12 ming so‘mdan oshdi",
+      "titleB": "Uzbekistan’s SME loan portfolio reaches $18.2bn, equals 12% of GDP",
+      "score": 0.31,
+      "hours": 7.19
     },
     {
       "langA": "uz",
@@ -1680,28 +3240,28 @@
       "urlB": "https://daryo.uz/en/2026/06/17/uzbekistan-pavilion-at-expo-2025-osaka-wins-17-international-awards/",
       "titleA": "Dollar kursi uch kunlik pastlashdan keyin ko‘tarildi",
       "titleB": "Uzbekistan’s pavilion at Expo 2025 Osaka wins 17 international awards",
-      "score": 0.306,
+      "score": 0.307,
       "hours": 23.44
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://daryo.uz/2026/05/11/luis-figu-2026-yilgi-jchning-5-ta-asosiy-favoriti-qaysi-jamoalar-ekanligini-aytdi/",
-      "urlB": "https://daryo.uz/en/2026/05/11/uzbekistan-meat-imports-decline-across-beef-mutton-and-chicken-over-two-months/",
-      "titleA": "Luish Figu 2026-yilgi JCHning 5 ta asosiy favoriti qaysi jamoalar ekanini aytdi",
-      "titleB": "Uzbekistan’s beef, mutton and chicken imports decline in first two months of 2026",
-      "score": 0.296,
-      "hours": 4.92
+      "urlA": "https://daryo.uz/2026/07/24/yurgen-klopp-germaniya-terma-jamoasi-bosh-murabbiyi-etib-tayinlandi/",
+      "urlB": "https://daryo.uz/en/2026/07/24/kazakhstan-trains-120-energy-specialists-in-cybersecurity-exercise/",
+      "titleA": "Yurgen Klopp Germaniya terma jamoasi bosh murabbiyi etib tayinlandi",
+      "titleB": "Kazakhstan launches first nationwide energy cybersecurity exercise ",
+      "score": 0.306,
+      "hours": 3.36
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://daryo.uz/2026/06/21/fransiya-politsiyasi-pikassoning-15-mln-dollarlik-suratini-topdi/",
-      "urlB": "https://daryo.uz/en/2026/06/21/new-tashkent-to-convert-waste-into-electricity-and-use-centralized-heating-and-cooling-systems/",
-      "titleA": "Fransiya politsiyasi Pikassoning 15 mln dollarlik suratini topdi",
-      "titleB": "New Tashkent to convert waste into electricity and introduce centralized heating and cooling system",
-      "score": 0.29,
-      "hours": 0.37
+      "urlA": "https://daryo.uz/2026/05/11/men-ketmadim-ular-mendan-ketdi-komila-xojayeva-setora-guruhi-bolinib-ketgani-haqida/",
+      "urlB": "https://daryo.uz/en/2026/05/11/kazakhstan-state-funding-for-private-schools-rises-to-488mn-in-2025/",
+      "titleA": "“Men ketmadim, ular mendan ketdi”. Komila Xo‘jayeva “Setora” guruhi bo‘linib ketgani haqida",
+      "titleB": "Kazakhstan raises state funding for private schools to $488mn in 2025",
+      "score": 0.306,
+      "hours": 7.6
     },
     {
       "langA": "uz",
@@ -1710,7 +3270,7 @@
       "urlB": "https://daryo.uz/en/2026/07/16/kazakhstan-secures-15bn-in-new-deals-as-chinese-investment-exceeds-30bn/",
       "titleA": "Abduqodir Husanov Belarus futbol federatsiyasi bilan uchrashdi (foto)",
       "titleB": "Kazakhstan signs 70-plus deals worth $15bn during China visit",
-      "score": 0.289,
+      "score": 0.299,
       "hours": 2.1
     },
     {
@@ -1720,8 +3280,38 @@
       "urlB": "https://daryo.uz/en/2026/06/16/davr-bank-shareholders-approve-talks-on-sale-of-controlling-stake-to-azerbaijans-abb/",
       "titleA": "Buxoroda yangi xalqaro aeroportni qurish va boshqarish bo‘yicha tenderning birinchi bosqichi yakunlandi",
       "titleB": "Davr Bank shareholders approve talks to sell controlling stake to Azerbaijan’s ABB",
-      "score": 0.287,
+      "score": 0.297,
       "hours": 16.54
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/05/11/luis-figu-2026-yilgi-jchning-5-ta-asosiy-favoriti-qaysi-jamoalar-ekanligini-aytdi/",
+      "urlB": "https://daryo.uz/en/2026/05/11/uzbekistan-meat-imports-decline-across-beef-mutton-and-chicken-over-two-months/",
+      "titleA": "Luish Figu 2026-yilgi JCHning 5 ta asosiy favoriti qaysi jamoalar ekanini aytdi",
+      "titleB": "Uzbekistan’s beef, mutton and chicken imports decline in first two months of 2026",
+      "score": 0.294,
+      "hours": 4.92
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/20/saudiya-arabistoni-bir-yillik-umra-vizasi-joriy-etdi/",
+      "urlB": "https://daryo.uz/en/2026/07/21/uzbekistan-targets-90-drinking-water-coverage-with-13bn-investment-by-2030/",
+      "titleA": "Saudiya Arabistoni bir yillik umra vizasi joriy etdi",
+      "titleB": "Uzbekistan targets 90% drinking water coverage with $1.3bn investment",
+      "score": 0.293,
+      "hours": 17.84
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/06/21/fransiya-politsiyasi-pikassoning-15-mln-dollarlik-suratini-topdi/",
+      "urlB": "https://daryo.uz/en/2026/06/21/new-tashkent-to-convert-waste-into-electricity-and-use-centralized-heating-and-cooling-systems/",
+      "titleA": "Fransiya politsiyasi Pikassoning 15 mln dollarlik suratini topdi",
+      "titleB": "New Tashkent to convert waste into electricity and introduce centralized heating and cooling system",
+      "score": 0.291,
+      "hours": 0.37
     },
     {
       "langA": "uz",
@@ -1730,18 +3320,18 @@
       "urlB": "https://daryo.uz/en/2026/06/16/uzbekistan-outlines-42bn-critical-minerals-development-program-through-2030/",
       "titleA": "O‘zbekistonda muhim minerallar bo‘yicha 4,2 mlrd dollarlik 120 ta loyiha amalga oshiriladi",
       "titleB": "Uzbekistan presents $4.2bn critical minerals development program through 2030",
-      "score": 0.272,
+      "score": 0.276,
       "hours": 12.42
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://daryo.uz/2026/07/17/aqshda-ozbekistonlik-trak-haydovchisi-garov-evaziga-ozod-etildi/",
-      "urlB": "https://daryo.uz/en/2026/07/17/uzbekistan-dominates-asian-youth-boxing-with-21-gold-medals/",
-      "titleA": "AQSHda o‘zbekistonlik trak haydovchisi garov evaziga ozod etildi",
-      "titleB": "Uzbekistan tops Asian U-19 and U-23 Boxing Championships with 21 gold medals",
-      "score": 0.269,
-      "hours": 3.58
+      "urlA": "https://daryo.uz/2026/06/29/ozbekiston-aviatsiyasi-songgi-10-yilda-yonalishlar-soni-ikki-barobarga-yuk-tashish-182-foizga-oshdi/",
+      "urlB": "https://daryo.uz/en/2026/06/30/uzbekistan-doubles-air-routes-leads-central-asia-in-air-cargo-growth-iata/",
+      "titleA": "Oʻzbekiston aviatsiyasi soʻnggi 10 yilda: yoʻnalishlar soni ikki barobarga, yuk tashish 182 foizga oshdi",
+      "titleB": "Uzbekistan doubles air routes, leads Central Asia in air cargo growth, IATA says",
+      "score": 0.274,
+      "hours": 20.72
     },
     {
       "langA": "uz",
@@ -1750,8 +3340,18 @@
       "urlB": "https://daryo.uz/en/2026/06/17/uzbekistan-startup-avtomatouz-secures-100000-investment-from-imkon-ventures/",
       "titleA": "Kapitalbank kadrlar salohiyatini mustahkamlamoqda: “Top-500” dasturi bank rahbarlarining yangi avlodini shakllantirmoqda",
       "titleB": "Uzbekistan-based Avtomato.uz secures $100,000 investment from Imkon Ventures",
-      "score": 0.265,
+      "score": 0.266,
       "hours": 4.64
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/24/buxoroda-60-dan-ortiq-fuqaroning-pullarini-ozlashtirgan-guruh-azolari-qolga-olindi/",
+      "urlB": "https://daryo.uz/en/2026/07/25/us-introduces-import-tariffs-of-up-to-125-on-60-countries/",
+      "titleA": "Buxoroda 60 dan ortiq fuqaroning pullarini o‘zlashtirgan guruh aʼzolari qo‘lga olindi",
+      "titleB": "Kazakhstan among 60 economies hit by new U.S. import tariffs over forced labour concerns",
+      "score": 0.266,
+      "hours": 19.5
     },
     {
       "langA": "uz",
@@ -1760,8 +3360,18 @@
       "urlB": "https://daryo.uz/en/2026/07/18/uzbekistan-and-azerbaijan-prepare-new-economic-agenda-as-trade-climbs-40/",
       "titleA": "Fransiyada chivinlarga qarshi mikrodron yaratildi. Qurilmaning og‘irligi atigi 40 gramm",
       "titleB": "Uzbekistan and Azerbaijan outline new economic agenda as trade climbs 40%",
-      "score": 0.262,
+      "score": 0.263,
       "hours": 17.08
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/17/aqshda-ozbekistonlik-trak-haydovchisi-garov-evaziga-ozod-etildi/",
+      "urlB": "https://daryo.uz/en/2026/07/17/uzbekistan-dominates-asian-youth-boxing-with-21-gold-medals/",
+      "titleA": "AQSHda o‘zbekistonlik trak haydovchisi garov evaziga ozod etildi",
+      "titleB": "Uzbekistan tops Asian U-19 and U-23 Boxing Championships with 21 gold medals",
+      "score": 0.261,
+      "hours": 3.58
     },
     {
       "langA": "uz",
@@ -1776,11 +3386,71 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/23/keshbek-tolash-tizimi-qancha-tez-bekor-qilinsa-shuncha-yaxshi-dilshod-sultonov/",
+      "urlB": "https://daryo.uz/en/2026/07/23/uzbekistan-invests-over-26mn-in-karasu-canal-embankment-development/",
+      "titleA": "“Keshbek to‘lash tizimi qancha tez bekor qilinsa, shuncha yaxshi” — Dilshod Sultonov",
+      "titleB": "Uzbekistan develops 9-km Karasu Canal embankment under $2.6mn project",
+      "score": 0.259,
+      "hours": 1.38
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/20/yiglayotgan-ozbekistonlik-bolakay-yamalning-begubor-ukasi-va-merlin-laqabli-ordak-jch-2026-dagi-eng-tasirli-lahzalar/",
+      "urlB": "https://daryo.uz/en/2026/07/20/uzbekistan-modernizes-30-of-high-voltage-substations-as-energy-complaints-fall-26/",
+      "titleA": "Yig‘layotgan o‘zbekistonlik bolakay, Yamalning beg‘ubor ukasi va Merlin laqabli o‘rdak: JCH-2026 dagi eng ta’sirli lahzalar",
+      "titleB": "Uzbekistan modernizes 30% of high-voltage substations as energy complaints fall 26%",
+      "score": 0.259,
+      "hours": 2.63
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/05/26/prezident-ozbekiston-xalqini-qurbon-hayiti-bilan-tabrikladi/",
+      "urlB": "https://daryo.uz/en/2026/05/26/thailand-cancels-60-day-visa-free-entry-for-uzbekistan-starting-july-15/",
+      "titleA": "Prezident O‘zbekiston xalqini Qurbon hayiti bilan tabrikladi",
+      "titleB": "Thailand to end 60-day visa-free entry for Uzbekistan citizens from July 15",
+      "score": 0.256,
+      "hours": 3.61
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/25/2027-yilda-ukraina-10-ming-kilometrga-ucha-oladigan-dronlarga-ega-boladi-zelenskiy/",
+      "urlB": "https://daryo.uz/en/2026/07/25/uzbekistan-introduces-10-loans-for-poultry-sector/",
+      "titleA": "“2027-yilda Ukraina 10 ming kilometrga ucha oladigan dronlarga ega bo‘ladi” — Zelenskiy",
+      "titleB": "Uzbekistan introduces 10% loans for poultry sector",
+      "score": 0.253,
+      "hours": 3.72
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/06/15/debyut-osiyoliklarning-ilk-mundiallari-qanday-kechgan/",
+      "urlB": "https://daryo.uz/en/2026/06/15/uzbekistan-airways-value-could-reach-23bn-under-ipo-reform-plan/",
+      "titleA": "“Debyut”. Osiyoliklarning ilk mundiallari qanday kechgan?",
+      "titleB": "Uzbekistan Airways value could reach $2.3bn under IPO reform plan",
+      "score": 0.248,
+      "hours": 2.92
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/22/sirdaryoda-24-yoshli-yigit-avtomashinadan-ozini-tashlab-vafot-etdi-marhumning-qarindoshlari-boshqacha-gumonda/",
+      "urlB": "https://daryo.uz/en/2026/07/22/uzbekistan-launches-22bn-tashkentsamarkand-toll-highway-project/",
+      "titleA": "Sirdaryoda 24 yoshli yigit avtomashinadan o‘zini tashlab vafot etdi. Marhumning qarindoshlari boshqacha gumonda",
+      "titleB": "Uzbekistan launches $2.2bn Tashkent–Samarkand toll highway project",
+      "score": 0.248,
+      "hours": 7.28
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://daryo.uz/2026/05/15/buxorodagi-joyzar-kanalining-225-kilometrli-qismi-betonlanadi-saida-mirziyoyeva/",
       "urlB": "https://daryo.uz/en/2026/05/15/uzbekistan-and-sojitz-corporation-advance-587bn-portfolio-across-12-projects/",
       "titleA": "Buxorodagi Jo‘yzar kanalining 22,5 kilometrli qismi betonlanadi — Saida Mirziyoyeva",
       "titleB": "Uzbekistan and Sojitz Corporation advance $5.87bn portfolio across 12 projects",
-      "score": 0.252,
+      "score": 0.248,
       "hours": 2.16
     },
     {
@@ -1790,8 +3460,18 @@
       "urlB": "https://daryo.uz/en/2026/05/12/uzbekistan-ev-imports-nearly-quadruple-as-car-production-targets-1mn-units-by-2030/",
       "titleA": "OTB Oʻzbekistonga 12,4 mlrd dollar kredit va grant ajratadi. Mablagʻ qayerga sarflanadi?",
       "titleB": "Uzbekistan EV imports nearly quadrupled as car production targets 1mn units by 2030",
-      "score": 0.249,
+      "score": 0.247,
       "hours": 16.89
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/21/aqsh-va-eronga-ot-ochishni-10-kunga-toxtatish-taklif-qilindi/",
+      "urlB": "https://daryo.uz/en/2026/07/21/uzbekistan-aims-for-10-growth-after-28bn-investment-surge/",
+      "titleA": "AQSH va Eronga o‘t ochishni 10 kunga to‘xtatish taklif qilindi",
+      "titleB": "Uzbekistan pushes for 9–10% annual growth despite strong first-half performance",
+      "score": 0.242,
+      "hours": 8.21
     },
     {
       "langA": "uz",
@@ -1800,38 +3480,28 @@
       "urlB": "https://daryo.uz/en/2026/07/16/uzbekistan-plans-new-national-talent-pool-with-ai-based-selection-system/",
       "titleA": "Rahimov School: 3 yil ketma-ket 100 foiz natija",
       "titleB": "Uzbekistan plans new national talent pool with AI-based selection system",
-      "score": 0.247,
+      "score": 0.241,
       "hours": 7.56
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://daryo.uz/2026/07/13/prezident-bekoboddagi-dostlik-mahallasida-amalga-oshirilgan-bunyodkorlik-ishlari-bilan-tanishdi/",
-      "urlB": "https://daryo.uz/en/2026/07/14/uzbekistan-belarus-extend-registration-free-stay-to-10-days/",
-      "titleA": "Prezident Bekoboddagi “Do‘stlik” mahallasida amalga oshirilgan bunyodkorlik ishlari bilan tanishdi",
-      "titleB": "Uzbekistan, Belarus extend registration-free stay to 10 days",
-      "score": 0.244,
-      "hours": 12.67
+      "urlA": "https://daryo.uz/2026/07/19/mehnat-inspeksiyasi-hokimliklardan-issiqda-obodonlashtirish-xodimlari-xavfsizligini-taminlashni-soradi/",
+      "urlB": "https://daryo.uz/en/2026/07/20/kyrgyzstan-and-china-sign-protocol-to-expand-economic-cooperation/",
+      "titleA": "Mehnat inspeksiyasi hokimliklardan issiqda obodonlashtirish xodimlari xavfsizligini ta’minlashni so‘radi",
+      "titleB": "Kyrgyzstan and China sign cooperation protocol after economic talks",
+      "score": 0.241,
+      "hours": 20.75
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://daryo.uz/2026/06/15/debyut-osiyoliklarning-ilk-mundiallari-qanday-kechgan/",
-      "urlB": "https://daryo.uz/en/2026/06/15/uzbekistan-airways-value-could-reach-23bn-under-ipo-reform-plan/",
-      "titleA": "“Debyut”. Osiyoliklarning ilk mundiallari qanday kechgan?",
-      "titleB": "Uzbekistan Airways value could reach $2.3bn under IPO reform plan",
-      "score": 0.244,
-      "hours": 2.92
-    },
-    {
-      "langA": "uz",
-      "langB": "en",
-      "urlA": "https://daryo.uz/2026/05/13/saudiya-proligasi-al-nassr-al-hilol-bilan-durang-oynadi-chempion-songgi-turda-aniq-boladi/",
-      "urlB": "https://daryo.uz/en/2026/05/13/uzbekistan-backs-eliminating-bureaucracy-2030-plan-to-expand-digital-services-and-cut-government-functions/",
-      "titleA": "Saudiya Proligasi. “Al-Nassr” “Al-Hilol” bilan durang oʻynadi, chempion so‘nggi turda aniq bo‘ladi",
-      "titleB": "Uzbekistan backs “Eliminating Bureaucracy – 2030” plan to expand digital services",
-      "score": 0.244,
-      "hours": 9.68
+      "urlA": "https://daryo.uz/2026/07/24/yevropa-rossiyaga-qarshi-sanksiyalarning-21-paketini-joriy-qildi-gretsiya-oz-shartini-otkazdi/",
+      "urlB": "https://daryo.uz/en/2026/07/24/uzbekistan-renewable-energy-generation-reaches-7bn-kwh/",
+      "titleA": "Yevropa Rossiyaga qarshi sanksiyalarning 21-paketini joriy qildi: Gretsiya o‘z shartini o‘tkazdi",
+      "titleB": "Uzbekistan’s renewable energy generation reaches 7bn kWh",
+      "score": 0.241,
+      "hours": 5.63
     },
     {
       "langA": "uz",
@@ -1840,18 +3510,58 @@
       "urlB": "https://daryo.uz/en/2026/06/18/uzbekistan-keeps-key-rate-at-14-as-inflation-falls-to-55/",
       "titleA": "AQSH va Eron prezidentlari urushni to‘xtatish to‘g‘risidagi bitimni imzoladi",
       "titleB": "Uzbekistan keeps key rate at 14% as inflation falls to 5.5%",
-      "score": 0.237,
+      "score": 0.239,
       "hours": 0.43
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://daryo.uz/2026/07/13/jahon-chempionati-2026-futbolchilarining-rafiqalari-qanday-korinishda/",
-      "urlB": "https://daryo.uz/en/2026/07/14/uzbekistan-plans-regular-flights-to-sokh-as-part-of-2026-2028-development-program/",
-      "titleA": "Jahon chempionati – 2026 futbolchilarining rafiqalari qanday ko‘rinishda?",
-      "titleB": "Uzbekistan plans Sokh flights, transport upgrades under 2026-2028 development programme",
-      "score": 0.232,
-      "hours": 22.8
+      "urlA": "https://daryo.uz/2026/07/13/prezident-bekoboddagi-dostlik-mahallasida-amalga-oshirilgan-bunyodkorlik-ishlari-bilan-tanishdi/",
+      "urlB": "https://daryo.uz/en/2026/07/14/uzbekistan-belarus-extend-registration-free-stay-to-10-days/",
+      "titleA": "Prezident Bekoboddagi “Do‘stlik” mahallasida amalga oshirilgan bunyodkorlik ishlari bilan tanishdi",
+      "titleB": "Uzbekistan, Belarus extend registration-free stay to 10 days",
+      "score": 0.239,
+      "hours": 12.67
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/05/13/saudiya-proligasi-al-nassr-al-hilol-bilan-durang-oynadi-chempion-songgi-turda-aniq-boladi/",
+      "urlB": "https://daryo.uz/en/2026/05/13/uzbekistan-backs-eliminating-bureaucracy-2030-plan-to-expand-digital-services-and-cut-government-functions/",
+      "titleA": "Saudiya Proligasi. “Al-Nassr” “Al-Hilol” bilan durang oʻynadi, chempion so‘nggi turda aniq bo‘ladi",
+      "titleB": "Uzbekistan backs “Eliminating Bureaucracy – 2030” plan to expand digital services",
+      "score": 0.236,
+      "hours": 9.68
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/02/jarda-avtobus-agdarilib-ketib-16-kishi-halok-boldi/",
+      "urlB": "https://daryo.uz/en/2026/07/02/uzbekistans-life-expectancy-rises-to-754-years-health-ministry-says/",
+      "titleA": "JARda avtobus ag‘darilib, 16 kishi halok bo‘ldi",
+      "titleB": "Uzbekistan's life expectancy rises to 75.4 years, Health Ministry says",
+      "score": 0.236,
+      "hours": 2.38
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/05/26/shimoliy-koreya-ballistik-raketa-va-snaryadlar-uchirdi/",
+      "urlB": "https://daryo.uz/en/2026/05/26/family-enterprises-exceed-36000-as-llcs-remain-dominant-in-uzbekistan/",
+      "titleA": "Shimoliy Koreya ballistik raketa va snaryadlar uchirdi",
+      "titleB": "Family enterprises exceed 36,000 in Uzbekistan as LLCs remain dominant",
+      "score": 0.234,
+      "hours": 0.55
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/26/rossiyaukraina-urushida-qatnashib-10-mln-rubl-olgan-erkak-35-yilga-qamaldi/",
+      "urlB": "https://daryo.uz/en/2026/07/26/uzbekistan-kazakhstan-sign-171m-regional-cooperation-deals/",
+      "titleA": "Rossiya–Ukraina urushida qatnashib, 10 mln rubl olgan erkak 3,5 yilga qamaldi",
+      "titleB": "Uzbekistan, Kazakhstan sign agreements worth $171mn",
+      "score": 0.233,
+      "hours": 3.83
     },
     {
       "langA": "uz",
@@ -1860,8 +3570,38 @@
       "urlB": "https://daryo.uz/en/2026/05/11/imf-forecasts-kazakhstan-gdp-per-capita-to-reach-17500-in-2026/",
       "titleA": "O‘zbekiston koreys tili maktablari soni o‘sishi bo‘yicha dunyoda yetakchi bo‘ldi",
       "titleB": "IMF forecasts Kazakhstan’s GDP per capita to reach $17,500 in 2026",
-      "score": 0.228,
+      "score": 0.233,
       "hours": 0.49
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/13/jahon-chempionati-2026-futbolchilarining-rafiqalari-qanday-korinishda/",
+      "urlB": "https://daryo.uz/en/2026/07/14/uzbekistan-plans-regular-flights-to-sokh-as-part-of-2026-2028-development-program/",
+      "titleA": "Jahon chempionati – 2026 futbolchilarining rafiqalari qanday ko‘rinishda?",
+      "titleB": "Uzbekistan plans Sokh flights, transport upgrades under 2026-2028 development programme",
+      "score": 0.227,
+      "hours": 22.8
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/05/15/sindorovni-buyuk-kelajak-kutmoqda-kasparov/",
+      "urlB": "https://daryo.uz/en/2026/05/15/uzbekistans-renewable-energy-output-jumps-to-record-624mn-kwh-in-one-day/",
+      "titleA": "“Sindorovni buyuk kelajak kutmoqda” — Kasparov",
+      "titleB": "Uzbekistan sets new daily renewable energy generation record with 62.4mn kWh",
+      "score": 0.223,
+      "hours": 6.67
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/02/venesuelada-7-kunlik-motam-elon-qilindi-zilzila-qurbonlari-2000-dan-oshdi-foto/",
+      "urlB": "https://daryo.uz/en/2026/07/02/wto-to-hold-13th-accession-meeting-for-uzbekistan-in-late-july/",
+      "titleA": "Venesuelada 7 kunlik motam e’lon qilindi. Zilzila qurbonlari 2000 dan oshdi (foto)",
+      "titleB": "WTO schedules 13th accession meeting for Uzbekistan in late July",
+      "score": 0.223,
+      "hours": 0.99
     },
     {
       "langA": "uz",
@@ -1876,6 +3616,16 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/24/somon-yoli-10-mlrd-yil-avvalgi-toqnashuv-tufayli-90-darajaga-oggan-yangi-tadqiqot/",
+      "urlB": "https://daryo.uz/en/2026/07/23/uzbekistan-opens-integrated-social-protection-complex-serving-10000-residents/",
+      "titleA": "Somon yo‘li 10 mlrd yil avvalgi to‘qnashuv tufayli 90 darajaga og‘gan — yangi tadqiqot",
+      "titleB": "Uzbekistan opens first integrated Social Protection Complex serving 10,000 residents",
+      "score": 0.22,
+      "hours": 23.81
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://daryo.uz/2026/07/19/finalissima-messi-uchun-noqulay-raqib-boshqacha-yamal-va-final-haqida-boshqa-fikrlar/",
       "urlB": "https://daryo.uz/en/2026/07/19/uzbekistan-records-over-6300-repeat-business-inspections-in-1h26/",
       "titleA": "“Finalissima”: Messi uchun noqulay raqib, boshqacha Yamal va final haqida boshqa fikrlar",
@@ -1886,22 +3636,42 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/24/2407-dam-olish-kunlari-havo-harorati-yana-kotariladi/",
+      "urlB": "https://daryo.uz/en/2026/07/24/uzbekistans-population-sells-123bn-in-foreign-currency-in-h1/",
+      "titleA": "Dam olish kunlari havo harorati yana ko‘tariladi",
+      "titleB": "Uzbekistan’s residents sell $12.3bn in foreign currency in 1H26",
+      "score": 0.217,
+      "hours": 3.68
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://daryo.uz/2026/05/11/milliy-sanoat-zanjiri-sanoat-kooperatsiyasida-yangi-bosqich/",
       "urlB": "https://daryo.uz/en/2026/05/12/uzbekistan-to-host-global-tech-weekend-in-tashkent-as-regional-tech-ambitions-grow/",
       "titleA": "“Milliy sanoat zanjiri” — sanoat kooperatsiyasida yangi bosqich",
       "titleB": "Uzbekistan to host Global Tech Weekend in Tashkent as regional tech ambitions grow",
-      "score": 0.218,
+      "score": 0.216,
       "hours": 21.51
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://daryo.uz/2026/05/15/sindorovni-buyuk-kelajak-kutmoqda-kasparov/",
-      "urlB": "https://daryo.uz/en/2026/05/15/uzbekistans-renewable-energy-output-jumps-to-record-624mn-kwh-in-one-day/",
-      "titleA": "“Sindorovni buyuk kelajak kutmoqda” — Kasparov",
-      "titleB": "Uzbekistan sets new daily renewable energy generation record with 62.4mn kWh",
-      "score": 0.215,
-      "hours": 6.67
+      "urlA": "https://daryo.uz/2026/05/25/ozbekistonda-yana-sel-xavfi-elon-qilindi/",
+      "urlB": "https://daryo.uz/en/2026/05/25/uzbekistans-accommodation-and-food-services-reach-36bn-in-q1-2026/",
+      "titleA": "O‘zbekistonda yana sel xavfi e’lon qilindi",
+      "titleB": "Uzbekistan’s accommodation and food services hit $3.6bn in 1Q26",
+      "score": 0.214,
+      "hours": 0.01
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/23/rosatom-moliyaviy-qiyinchiliklar-sabab-qozogiston-va-ozbekistonda-aes-qurilishini-kechiktirishi-mumkin-oav/",
+      "urlB": "https://daryo.uz/en/2026/07/23/uzbekistan-strengthens-machinery-localization-with-50mn-krantas-plant/",
+      "titleA": "“Rosatom” moliyaviy qiyinchiliklar sabab Qozog‘iston va O‘zbekistonda AES qurilishini kechiktirishi mumkin — OAV",
+      "titleB": "Uzbekistan expands machinery localization with $50mn KRANTAS plant",
+      "score": 0.213,
+      "hours": 1.51
     },
     {
       "langA": "uz",
@@ -1910,8 +3680,28 @@
       "urlB": "https://daryo.uz/en/2026/07/17/imf-reclassifies-uzbekistans-exchange-rate-as-floating/",
       "titleA": "Superliga. “Neftchi” va “So‘g‘diyona” o‘z uyida g‘alaba qozondi, “Nasaf” safarda “Bunyodkor”dan ustun keldi",
       "titleB": "IMF reclassifies Uzbekistan's exchange rate as floating",
-      "score": 0.213,
+      "score": 0.211,
       "hours": 17.69
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/06/30/ozbekiston-aholisi-39-million-47-ming-kishidan-ortiqni-tashkil-etdi-statistika-qomitasi-raisi/",
+      "urlB": "https://daryo.uz/en/2026/06/30/uzbekistans-first-census-since-1989-reveals-ethnic-composition-of-39mn-population/",
+      "titleA": "Ro‘yxatga olishning dastlabki natijalariga ko‘ra, O‘zbekiston aholisi 39 milliondan oshdi",
+      "titleB": "Uzbekistan's population tops 39mn in first nationwide census since 1989",
+      "score": 0.211,
+      "hours": 8.89
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/06/29/formula-1-jorj-rassell-avstriya-gran-prisida-mavsumdagi-ikkinchi-galabasini-qolga-kiritdi/",
+      "urlB": "https://daryo.uz/en/2026/06/29/uzbekistan-hosts-first-international-forum-on-monetary-policy-and-digitalization/",
+      "titleA": "Formula-1: Jorj Rassell Avstriya Gran-prisida mavsumdagi ikkinchi g‘alabasini qo‘lga kiritdi",
+      "titleB": "Uzbekistan hosts first international forum on monetary policy and digitalization",
+      "score": 0.208,
+      "hours": 0.18
     },
     {
       "langA": "uz",
@@ -1920,7 +3710,7 @@
       "urlB": "https://daryo.uz/en/2026/05/14/uzbekistan-family-happiness-index-reaches-high-level-in-2026-survey/",
       "titleA": "NURA Group: energetika sohasida 19 yillik tizimli rivojlanish yo‘li",
       "titleB": "Uzbekistan’s family happiness index reaches “high” level in 2026 survey",
-      "score": 0.211,
+      "score": 0.206,
       "hours": 0.5
     },
     {
@@ -1930,18 +3720,18 @@
       "urlB": "https://daryo.uz/en/2026/06/18/uzbektelecom-revenue-rises-195-to-880mn-despite-239-drop-in-net-profit/",
       "titleA": "Tom Holland Zendaya bilan yashirincha turmush qurganini tasdiqladi",
       "titleB": "Uzbektelecom revenue rises 19.5% to $880mn despite 23.9% drop in net profit",
-      "score": 0.207,
+      "score": 0.206,
       "hours": 5.55
     },
     {
       "langA": "uz",
       "langB": "en",
-      "urlA": "https://daryo.uz/2026/07/18/jch-2026-bronza-medallari-kimga-nasib-etadi-fransiya-yoki-angliya/",
-      "urlB": "https://daryo.uz/en/2026/07/18/uzbekistan-reports-261-drop-in-fuel-and-energy-complaints/",
-      "titleA": "JCH-2026: bronza medallari kimga nasib etadi — Fransiya yoki Angliya?",
-      "titleB": "Uzbekistan reports 26.1% drop in fuel and energy complaints",
-      "score": 0.201,
-      "hours": 2.77
+      "urlA": "https://daryo.uz/2026/07/22/fransiya-yevropada-birinchi-bolib-15-yoshdan-kichiklarga-ijtimoiy-tarmoqlarni-rasman-taqiqladi/",
+      "urlB": "https://daryo.uz/en/2026/07/22/tashkentnurafshon-interchange-raises-road-capacity-to-130000-vehicles-daily/",
+      "titleA": "Fransiya Yevropada birinchi bo‘lib 15 yoshdan kichiklarga ijtimoiy tarmoqlarni rasman taqiqladi",
+      "titleB": "Tashkent–Nurafshon interchange opens, raising road capacity to 130,000 vehicles daily",
+      "score": 0.204,
+      "hours": 1.59
     },
     {
       "langA": "uz",
@@ -1956,6 +3746,16 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://daryo.uz/2026/06/30/bolaligimdan-jahon-chempionatida-oynashni-orzu-qilardim-eldor-shomurodov/",
+      "urlB": "https://daryo.uz/en/2026/06/30/edb-targets-up-to-2bn-investment-in-uzbekistan-as-central-asias-economy-tops-600bn/",
+      "titleA": "“Bolaligimdan Jahon chempionatida o‘ynashni orzu qilardim” — Eldor Shomurodov",
+      "titleB": "EDB targets up to $2bn investment in Uzbekistan as Central Asia's economy tops $600bn",
+      "score": 0.199,
+      "hours": 6.89
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://daryo.uz/2026/06/16/amazonkada-fanga-ilgari-nomalum-bolgan-2000-yillik-sivilizatsiya-qoldiqlari-topildi/",
       "urlB": "https://daryo.uz/en/2026/06/17/uzbekistanmalaysia-trade-rises-15-joint-ventures-reach-50/",
       "titleA": "Amazonkada fanga ilgari noma’lum bo‘lgan 2000 yillik sivilizatsiya qoldiqlari topildi",
@@ -1966,12 +3766,52 @@
     {
       "langA": "uz",
       "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/26/tramp-ferran-torresning-muhokamalarga-sabab-bolgan-kepkasi-haqida-gapirdi/",
+      "urlB": "https://daryo.uz/en/2026/07/26/uzbekistans-average-monthly-salary-rises-to-560/",
+      "titleA": "Tramp Ferran Torresning muhokamalarga sabab bo‘lgan kepkasi haqida gapirdi",
+      "titleB": "Uzbekistan's average monthly salary rises to $560",
+      "score": 0.197,
+      "hours": 2.74
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/18/jch-2026-bronza-medallari-kimga-nasib-etadi-fransiya-yoki-angliya/",
+      "urlB": "https://daryo.uz/en/2026/07/18/uzbekistan-reports-261-drop-in-fuel-and-energy-complaints/",
+      "titleA": "JCH-2026: bronza medallari kimga nasib etadi — Fransiya yoki Angliya?",
+      "titleB": "Uzbekistan reports 26.1% drop in fuel and energy complaints",
+      "score": 0.196,
+      "hours": 2.77
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/25/afgonistonning-badaxshon-viloyatida-tolibonga-qarshi-shiddatli-janglar-avj-oldi/",
+      "urlB": "https://daryo.uz/en/2026/07/26/over-20-of-central-asias-land-is-degraded-un-says/",
+      "titleA": "Afg‘onistonning Badaxshon viloyatida “Tolibon”ga qarshi shiddatli janglar avj oldi",
+      "titleB": "Drought degrades over 20% of Central Asia's land, UN says",
+      "score": 0.18,
+      "hours": 15.32
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
       "urlA": "https://daryo.uz/2026/07/15/ozbekistonda-yoshlar-jinoyatlari-keskin-kamayib-osmirlarniki-ortdi/",
       "urlB": "https://daryo.uz/en/2026/07/15/uzbekistans-perceived-inflation-falls-to-record-low-in-june/",
       "titleA": "O‘zbekistonda yoshlar jinoyatlari keskin kamayib, o‘smirlarniki ortdi",
       "titleB": "Uzbekistan's perceived inflation falls to 10.2%, record low in June",
-      "score": 0.16,
+      "score": 0.157,
       "hours": 0.44
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/20/peruda-ikkita-zilzila-sodir-boldi-qurbonlar-bor-foto/",
+      "urlB": "https://daryo.uz/en/2026/07/19/uzbekistan-refunds-nearly-24000-after-surge-in-healthcare-complaints/",
+      "titleA": "Peruda ikkita zilzila sodir bo‘ldi, qurbonlar bor (foto)",
+      "titleB": "Healthcare complaints nearly double in Uzbekistan as authorities order $24,000 in refunds",
+      "score": 0.157,
+      "hours": 15.01
     },
     {
       "langA": "uz",
@@ -1980,8 +3820,28 @@
       "urlB": "https://daryo.uz/en/2026/06/21/uzbekistans-pharmaceutical-production-rises-30-to-1559mn-in-january-april/",
       "titleA": "O‘zbekiston jamoasi shaxmat bo‘yicha Jahon chempionatida bronza medalini qo‘lga kiritdi",
       "titleB": "Uzbekistan's pharmaceutical production rises 30% to $155.9mn in January-April",
-      "score": 0.158,
+      "score": 0.155,
       "hours": 9.29
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/05/30/ozbekistonning-davlat-qarzi-47-mlrd-dollarga-yetdi-pullar-qayerga-sarflanyapti/",
+      "urlB": "https://daryo.uz/en/2026/05/31/uzbekistans-state-debt-reaches-47bn-in-1q26-up-44bn-year-on-year/",
+      "titleA": "O‘zbekistonning davlat qarzi 47 mlrd dollarga yetdi: pullar qayerga sarflanyapti?",
+      "titleB": "Uzbekistan’s state debt reaches $47bn in 1Q26, up $4.4bn y/y",
+      "score": 0.155,
+      "hours": 20.91
+    },
+    {
+      "langA": "uz",
+      "langB": "en",
+      "urlA": "https://daryo.uz/2026/07/04/sergeli-va-yangihayot-aholisini-qiynayotgan-badboy-hid-muammosi-1-sentyabrgacha-bartaraf-etiladi/",
+      "urlB": "https://daryo.uz/en/2026/07/03/kazakhstan-isdb-review-42bn-partnership-20272032-strategy/",
+      "titleA": "Sergeli va Yangihayot aholisini qiynayotgan badbo‘y hid muammosi 1-sentyabrgacha bartaraf etiladi",
+      "titleB": "Kazakhstan, IsDB discuss $4.2bn partnership and 2027–2032 strategy",
+      "score": 0.15,
+      "hours": 22.69
     }
   ]
 }
