@@ -408,13 +408,25 @@
     },
     {
       "id": "antimon_uz",
-      "handle": "@antimon_uz",
-      "url": "https://t.me/s/antimon_uz",
-      "name": "Комитет по развитию конкуренции",
+      "handle": "@RaqobatGovUz",
+      "url": "https://t.me/s/RaqobatGovUz",
+      "name": "Комитет по развитию конкуренции и защите прав потребителей РУз",
       "type": "source",
-      "priority": "P3",
+      "priority": "P2",
       "subscribers": 12000,
-      "publishRate": "1-3/day"
+      "publishRate": "1-3/day",
+      "notes": "06.08.2026: handle обновлён — старый @antimon_uz не отдаёт контента (ведомство ребрендировалось из «Антимонопольного комитета» в «Комитет по развитию конкуренции»). Подтверждено reporter'ом при работе над tashkent-preschool-tender-cancelled-587mln: t.me/RaqobatGovUz/12535 дословно совпадает с raqobat.gov.uz."
+    },
+    {
+      "id": "department_uz",
+      "handle": "@Department_uz",
+      "url": "https://t.me/s/Department_uz",
+      "name": "Департамент по борьбе с экономическими преступлениями при Генпрокуратуре РУз",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": 23100,
+      "publishRate": "1-3/day",
+      "notes": "06.08.2026: добавлен по кандидату из channel-candidates.jsonl. Bio подтверждает официальный статус, ссылка на prodepartament.uz. Уже использован как первоисточник в fergana-heating-subsidy-fraud-13bn-sum и surkhandarya-credit-fraud-25bln."
     },
     {
       "id": "anti_corruption_uz",
