@@ -160,6 +160,7 @@ for (const outlet of outlets) {
         lang: parsed.lang,
         date: parsed.date,
         slug: parsed.slug,
+        section: parsed.section ?? null,
         key: parsed.key,
         url: entry.loc,
         lastmod: entry.lastmod,

@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-08-05T04:22:31.675Z",
+  "generatedAt": "2026-08-05T04:32:13.187Z",
   "byCategory": [
     {
       "category": "внутренние",
-      "n": 1416,
-      "medianER": 27.8,
+      "n": 1505,
+      "medianER": 28.1,
       "ourWeight": null
     },
     {
       "category": "мировые",
-      "n": 512,
-      "medianER": 24.6,
+      "n": 683,
+      "medianER": 22.1,
       "ourWeight": 25
     },
     {
@@ -133,17 +133,17 @@
     },
     {
       "outlet": "repost",
-      "matched": 567,
+      "matched": 827,
       "categories": [
         {
           "category": "внутренние",
-          "n": 422,
-          "medianER": 49.3
+          "n": 511,
+          "medianER": 49.2
         },
         {
           "category": "мировые",
-          "n": 145,
-          "medianER": 49.5
+          "n": 316,
+          "medianER": 48.4
         }
       ]
     }

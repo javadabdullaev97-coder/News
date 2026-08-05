@@ -211,16 +211,32 @@ const repost = {
       "https://repost.uz/sitemap-archive-3.xml",
     ];
   },
+  // Путь у Repost бывает двух видов: repost.uz/<slug> и repost.uz/<рубрика>/<slug>,
+  // где рубрика — life, sport и подобные. Плюс отдельно repost.uz/uz/<slug> для
+  // узбекской версии, и по форме она неотличима от рубричной.
+  //
+  // Первая версия адаптера принимала только односегментные адреса, и из карты
+  // выпадало 1455 записей из 5281. Обнаружилось это не глазами, а сверкой: 30%
+  // ссылок из телеграм-постов Repost не находили себе статьи, тогда как у
+  // Gazeta, Spot и Kun мимо карты шло 0,1–0,5%.
   parseEntry({ loc, lastmod }) {
-    const m = loc.match(/^https:\/\/repost\.uz\/(?:(uz)\/)?([^/?#]+)$/);
+    const m = loc.match(/^https:\/\/repost\.uz\/([^/?#]+)(?:\/([^/?#]+))?\/?$/);
     if (!m) return null;
-    const [, prefix, slug] = m;
-    if (!slug || slug.includes(".xml")) return null;
+    const [, first, second] = m;
+    if (!first || first.includes(".xml")) return null;
+
+    // Один сегмент — русский материал. Два — либо язык, либо рубрика.
+    const isLangPrefix = second && first === "uz";
+    const slug = second ?? first;
+    const section = second && !isLangPrefix ? first : null;
+    if (slug.includes(".xml")) return null;
+
     return {
-      lang: prefix ?? "ru",
+      lang: isLangPrefix ? "uz" : "ru",
       date: lastmod ? lastmod.slice(0, 10) : null,
       slug,
-      key: slug,
+      section,
+      key: second ? `${first}/${second}` : first,
     };
   },
 };

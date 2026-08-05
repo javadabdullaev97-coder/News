@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T03:54:26.872Z",
+  "generatedAt": "2026-08-05T04:31:59.410Z",
   "aggregate": [
     {
       "outlet": "kun",
@@ -115,33 +115,33 @@
     {
       "outlet": "repost",
       "name": "Repost.uz",
-      "days": 88,
-      "total": 3144,
+      "days": 92,
+      "total": 4238,
       "byLang": {
         "uz": 353,
-        "ru": 2791
+        "ru": 3885
       },
       "perDay": {
-        "uz": 4,
-        "ru": 31.7
+        "uz": 3.8,
+        "ru": 42.2
       },
       "primary": "ru",
       "shareOfPrimary": {
-        "uz": 12.6,
+        "uz": 9.1,
         "ru": 100
       },
       "byMonthLang": {
         "2026-07": {
           "uz": 175,
-          "ru": 1025
+          "ru": 1392
         },
         "2026-06": {
           "uz": 95,
-          "ru": 936
+          "ru": 1336
         },
         "2026-05": {
           "uz": 83,
-          "ru": 830
+          "ru": 1157
         }
       }
     },
@@ -253,7 +253,7 @@
     },
     {
       "outlet": "repost",
-      "sampled": 720,
+      "sampled": 987,
       "hreflang": false,
       "note": "издание не объявляет языковые версии — пара ищется сопоставлением"
     },

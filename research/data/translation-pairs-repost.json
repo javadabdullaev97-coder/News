@@ -16,12 +16,12 @@
     {
       "langA": "uz",
       "langB": "ru",
-      "urlA": "https://repost.uz/uz/fransiya-ispaniya",
-      "urlB": "https://repost.uz/graduation-ceremony-2026",
-      "titleA": "JCH-2026. Fransiya va Ispaniya final yo‘llanmasi uchun maydonga tushadi (prevyu)",
-      "titleB": "Central University провел масштабную выпускную церемонию Graduation Ceremony 2026, объединив сотни выпускников, их семьи, преподавателей и почетных гостей (видео)",
-      "score": 0.53,
-      "hours": 6.2
+      "urlA": "https://repost.uz/uz/ispaniya-argentina",
+      "urlB": "https://repost.uz/sport/tennisniy-schet-poluchilsa",
+      "titleA": "JCH finali. Ispaniya va Argentina jahon chempionligi uchun bahs olib boradi (prevyu)",
+      "titleB": "Англия завоевала бронзу ЧМ-2026, обыграв Францию в сумасшедшем матче",
+      "score": 0.505,
+      "hours": 12.33
     },
     {
       "langA": "uz",
@@ -36,21 +36,11 @@
     {
       "langA": "uz",
       "langB": "ru",
-      "urlA": "https://repost.uz/uz/quruq-va-issiq",
-      "urlB": "https://repost.uz/podborka-za-1505",
-      "titleA": "Dam olish kunlari ob-havo quruq va issiq bo‘ladi",
-      "titleB": "Новости за 15 мая",
-      "score": 0.376,
-      "hours": 4.35
-    },
-    {
-      "langA": "uz",
-      "langB": "ru",
       "urlA": "https://repost.uz/uz/salgina-yomgir",
       "urlB": "https://repost.uz/togda-i-ochno-zakrepyat",
       "titleA": "Ish haftasi davomida biroz yomg‘ir yog‘ishi mumkin",
       "titleB": "Трамп заявил о подписании договоренности между США и Ираном",
-      "score": 0.374,
+      "score": 0.377,
       "hours": 8.1
     },
     {
@@ -60,18 +50,18 @@
       "urlB": "https://repost.uz/chto-za-peklo-eto",
       "titleA": "O‘zbekistonda havo harorati 48 darajagacha ko‘tarilishi kutilmoqda",
       "titleB": "Узбекистанцев экстренно предупредили о 48-градусной жаре",
-      "score": 0.356,
+      "score": 0.359,
       "hours": 1.83
     },
     {
       "langA": "uz",
       "langB": "ru",
-      "urlA": "https://repost.uz/uz/ikkinchi-finalchi-kim",
-      "urlB": "https://repost.uz/17-let-bez-ubytkov",
-      "titleA": "JCH-2026. Angliya va Argentina yana mundialda to‘qnash keladi",
-      "titleB": "Европейская премия, рост на 30% и 17 лет без убытка: кто такой Андреюс Трофимовас и почему о нём говорят",
-      "score": 0.204,
-      "hours": 20.95
+      "urlA": "https://repost.uz/uz/10-ta-elektropoezd-etkazib-beriladi",
+      "urlB": "https://repost.uz/sport/mojno-budet-spokoyno-posmotret",
+      "titleA": "“O‘zbekiston temir yo‘llari” AJ va Škoda Transportation 10 ta elektropoyezd yetkazib berish bo‘yicha kelishuvga erishdi",
+      "titleB": "В Узбекистане 18 июня рабочий день во всех госорганизациях начнется в 10:00",
+      "score": 0.244,
+      "hours": 18.82
     },
     {
       "langA": "uz",
@@ -80,7 +70,7 @@
       "urlB": "https://repost.uz/povtorno-vse-budut-sdavat",
       "titleA": "Namanganga 12 dona avtobus olib kelindi",
       "titleB": "В Узбекистане число водителей, набравших более 12 штрафных баллов, превысило 670",
-      "score": 0.18,
+      "score": 0.174,
       "hours": 9.73
     }
   ]
