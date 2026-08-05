@@ -1,0 +1,151 @@
+{
+  "generatedAt": "2026-08-05T04:22:31.675Z",
+  "byCategory": [
+    {
+      "category": "внутренние",
+      "n": 1416,
+      "medianER": 27.8,
+      "ourWeight": null
+    },
+    {
+      "category": "мировые",
+      "n": 512,
+      "medianER": 24.6,
+      "ourWeight": 25
+    },
+    {
+      "category": "спорт",
+      "n": 453,
+      "medianER": 20.3,
+      "ourWeight": 5
+    },
+    {
+      "category": "общество",
+      "n": 176,
+      "medianER": 13,
+      "ourWeight": 10
+    },
+    {
+      "category": "экономика",
+      "n": 97,
+      "medianER": 12.8,
+      "ourWeight": 25
+    },
+    {
+      "category": "политика",
+      "n": 45,
+      "medianER": 12.3,
+      "ourWeight": 25
+    }
+  ],
+  "byOutlet": [
+    {
+      "outlet": "kun",
+      "matched": 894,
+      "categories": [
+        {
+          "category": "мировые",
+          "n": 126,
+          "medianER": 28.1
+        },
+        {
+          "category": "общество",
+          "n": 176,
+          "medianER": 13
+        },
+        {
+          "category": "спорт",
+          "n": 65,
+          "medianER": 29
+        },
+        {
+          "category": "внутренние",
+          "n": 390,
+          "medianER": 29.7
+        },
+        {
+          "category": "экономика",
+          "n": 82,
+          "medianER": 12.5
+        },
+        {
+          "category": "авто",
+          "n": 3,
+          "medianER": 25.1
+        },
+        {
+          "category": "образование",
+          "n": 4,
+          "medianER": 29.2
+        },
+        {
+          "category": "технологии",
+          "n": 3,
+          "medianER": 29.5
+        },
+        {
+          "category": "политика",
+          "n": 45,
+          "medianER": 12.3
+        }
+      ]
+    },
+    {
+      "outlet": "daryo",
+      "matched": 1255,
+      "categories": [
+        {
+          "category": "внутренние",
+          "n": 604,
+          "medianER": 17.6
+        },
+        {
+          "category": "спорт",
+          "n": 388,
+          "medianER": 19.8
+        },
+        {
+          "category": "мировые",
+          "n": 241,
+          "medianER": 18.8
+        },
+        {
+          "category": "лайфстайл",
+          "n": 5,
+          "medianER": 20.8
+        },
+        {
+          "category": "авто",
+          "n": 1,
+          "medianER": 15
+        },
+        {
+          "category": "культура",
+          "n": 1,
+          "medianER": 15
+        },
+        {
+          "category": "экономика",
+          "n": 15,
+          "medianER": 13.6
+        }
+      ]
+    },
+    {
+      "outlet": "repost",
+      "matched": 567,
+      "categories": [
+        {
+          "category": "внутренние",
+          "n": 422,
+          "medianER": 49.3
+        },
+        {
+          "category": "мировые",
+          "n": 145,
+          "medianER": 49.5
+        }
+      ]
+    }
+  ]
+}
