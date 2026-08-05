@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T01:59:07.604Z",
+  "generatedAt": "2026-08-05T03:45:19.819Z",
   "aggregate": [
     {
       "outlet": "kun",
@@ -185,5 +185,83 @@
       }
     }
   ],
-  "pairs": []
+  "pairs": [
+    {
+      "outlet": "kun",
+      "sampled": 1482,
+      "hreflang": false,
+      "note": "издание не объявляет языковые версии — пара ищется сопоставлением"
+    },
+    {
+      "outlet": "gazeta",
+      "sampled": 863,
+      "hreflang": true,
+      "byLang": {
+        "ru": {
+          "total": 388,
+          "translated": 296,
+          "targets": {
+            "uz": 295,
+            "en": 33
+          },
+          "translatedShare": 76.3
+        },
+        "uz": {
+          "total": 436,
+          "translated": 292,
+          "targets": {
+            "ru": 292,
+            "en": 30
+          },
+          "translatedShare": 67
+        },
+        "en": {
+          "total": 39,
+          "translated": 34,
+          "targets": {
+            "ru": 34,
+            "uz": 33
+          },
+          "translatedShare": 87.2
+        }
+      },
+      "sections": []
+    },
+    {
+      "outlet": "spot",
+      "sampled": 745,
+      "hreflang": true,
+      "byLang": {
+        "ru": {
+          "total": 375,
+          "translated": 157,
+          "targets": {
+            "uz": 157
+          },
+          "translatedShare": 41.9
+        },
+        "uz": {
+          "total": 370,
+          "translated": 158,
+          "targets": {
+            "ru": 158
+          },
+          "translatedShare": 42.7
+        }
+      },
+      "sections": []
+    },
+    {
+      "outlet": "repost",
+      "sampled": 720,
+      "hreflang": false,
+      "note": "издание не объявляет языковые версии — пара ищется сопоставлением"
+    },
+    {
+      "outlet": "daryo",
+      "sampled": 2026,
+      "hreflang": false,
+      "note": "издание не объявляет языковые версии — пара ищется сопоставлением"
+    }
+  ]
 }

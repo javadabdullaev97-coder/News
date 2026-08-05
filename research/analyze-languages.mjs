@@ -107,7 +107,16 @@ function pairs(outlet) {
   if (!rows || !rows.length) return null;
 
   const real = rows.filter((r) => REAL_LANGS.includes(r.lang));
-  const declaring = real.filter((r) => r.alternates);
+
+  // Объявлением перевода считается только ссылка на ДРУГОЙ язык. Repost
+  // отдаёт <link rel="alternate"> на самого себя и на x-default, и по одному
+  // факту наличия тега его легко записать в издания со связанными версиями —
+  // хотя на другой язык он не ссылается ни разу из 720 материалов выборки.
+  const declaring = real.filter(
+    (r) =>
+      r.alternates &&
+      Object.keys(r.alternates).some((l) => REAL_LANGS.includes(l) && l !== r.lang),
+  );
   if (!declaring.length) {
     return {
       outlet: outlet.id,
@@ -117,33 +126,35 @@ function pairs(outlet) {
     };
   }
 
-  const byLang = {};
-  for (const row of declaring) {
-    const alt = Object.keys(row.alternates).filter(
+  // Знаменатель — все материалы языка в выборке, а не только объявившие
+  // перевод. Иначе доля считается по тем, у кого перевод есть, и всегда
+  // выходит 100%.
+  const crossLangs = (row) =>
+    Object.keys(row.alternates ?? {}).filter(
       (l) => REAL_LANGS.includes(l) && l !== row.lang,
     );
+
+  const byLang = {};
+  for (const row of real) {
     byLang[row.lang] ??= { total: 0, translated: 0, targets: {} };
     byLang[row.lang].total += 1;
-    if (alt.length) {
-      byLang[row.lang].translated += 1;
-      for (const l of alt) {
-        byLang[row.lang].targets[l] = (byLang[row.lang].targets[l] ?? 0) + 1;
-      }
+    const alt = crossLangs(row);
+    if (!alt.length) continue;
+    byLang[row.lang].translated += 1;
+    for (const l of alt) {
+      byLang[row.lang].targets[l] = (byLang[row.lang].targets[l] ?? 0) + 1;
     }
   }
 
   // Асимметрия по рубрикам: какие темы переводят охотнее прочих. Считаем
   // только там, где издание отдаёт article:section.
   const bySection = {};
-  for (const row of declaring) {
+  for (const row of real) {
     if (!row.section) continue;
     const key = `${row.lang}|${row.section}`;
     bySection[key] ??= { lang: row.lang, section: row.section, total: 0, translated: 0 };
     bySection[key].total += 1;
-    const alt = Object.keys(row.alternates).filter(
-      (l) => REAL_LANGS.includes(l) && l !== row.lang,
-    );
-    if (alt.length) bySection[key].translated += 1;
+    if (crossLangs(row).length) bySection[key].translated += 1;
   }
 
   for (const stat of Object.values(byLang)) {
@@ -211,7 +222,12 @@ for (const outlet of outlets) {
       `  ${lang.padEnd(3)} ${String(stat.translated).padStart(4)}/${String(stat.total).padEnd(4)} = ${String(stat.translatedShare).padStart(5)}%  → ${targets}`,
     );
   }
-  if (p.sections.length) {
+  // Gazeta и Spot рубрику в разметке статьи не отдают вовсе — ни article:section,
+  // ни JSON-LD, ни гидратационного payload. Для них разрез по темам появится
+  // только после отдельного обхода рубричных лент.
+  if (!p.sections.length) {
+    console.log("  рубрика на страницах не размечена — разрез по темам недоступен");
+  } else {
     const top = p.sections.slice(0, 3).map((s) => `${s.section} ${s.share}%`);
     const bottom = p.sections.slice(-3).map((s) => `${s.section} ${s.share}%`);
     console.log(`  чаще переводят: ${top.join(", ")}`);
