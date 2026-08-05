@@ -1,15 +1,15 @@
 {
-  "lastRunAt": "2026-08-06T00:37:00+05:00",
-  "topicsProcessed": 8,
-  "published": 5,
+  "lastRunAt": "2026-08-06T00:44:00+05:00",
+  "topicsProcessed": 0,
+  "published": 0,
   "rejected": 0,
-  "needsVerification": 3,
-  "world": 2,
+  "needsVerification": 0,
+  "world": 0,
   "inbox": {
-    "file": "content/inbox/2026-08-05.jsonl",
-    "itemsFreshLocal": 940,
-    "itemsFreshWorld": 3939,
-    "prevRunAt": "2026-08-06T00:13:00+05:00"
+    "file": "content/inbox/2026-08-06.jsonl",
+    "itemsFreshLocal": 943,
+    "itemsFreshWorld": 3947,
+    "prevRunAt": "2026-08-06T00:37:00+05:00"
   },
-  "notes": "Планёрка 23:00 Ташкента (LEAP_RUN_ID=1854-3173). Отобрано 8 тем (6 local + 2 world) из порога minScore=55, диверсификация применена (society capped на 3). Опубликовано напрямую (content/queue/): cbu-deposit-interest-tax-rumor-debunk, tashkent-two-districts-power-outage-construction, finance-invest-brok-regulatory-sandbox, israel-lebanon-strikes-ceasefire-violation, us-supreme-court-100bn-tariff-refund. В needs-verification: shahrisabz-sewage-treatment-plant-start (первоисточник без цифр, recheckAt +24ч), syrdarya-illegal-fishing-crackdown (policy-edge — первоисточник сам противоречит себе: административная статья, но дело в 'суде по уголовным делам'), supreme-court-anticorruption-law-analysis (low-confidence 68% < 70%, часть деталей закона не подтвердилась точно из-за нестабильной AI-суммаризации lex.uz)."
+  "notes": "Планёрка 00:38 Ташкента. Preflight: hasWork=true (943 local, 3947 world; rework []; карточек needs-verification матур. [], ждёт 14). Шаг 1в пропущен — не первая планёрка после 07:00 Ташкента.\n\nЛокальный пул: все 200 items с sourceType=source прочитаны (рутина — визиты, отчёты, экоинспекции, землетрясения за рубежом от geofon/usgs). По оставшимся ~743 signal/context выборочный поиск по ключевым словам отбора (тариф, курс, ставка, указ, штраф, погиб, ДТП, отключение, пожар, налог, пенсия, паспорт, экзамен, цены, льготы и т.п.) дал ~189 совпадений, разобраны все. Сильные кандидаты — курс доллара на минимуме 2026 (usd-uzs-rate-lowest-since-dec-2025.mdx, опубл. 05.08), ВВП +8,5% (уже упомянут в uzbekistan-shadow-economy-h1-2026.mdx, опубл. 05.08), реформа животноводства $463-895 млн (uzbekistan-livestock-poultry-895m-2028.mdx, опубл. 05.08), биометрия ЦБ (cb-biometric-data-storage-payment-operators.mdx, опубл. 05.08), льготный проезд для 11 категорий (social-protection-reform-2026.mdx, опубл. 04.08) — все оказались дублями материалов последних 3 дней. Остальное (сертификация частных учебных центров, рейтинг эмитентов НАПП, кешбек-мошенничество, цены на новостройки +5%) — единичные сигналы без надёжного первоисточника в потоке, оптимистичная оценка не дотягивает до порога 55.\n\nМировой пул (3947 items): точечный поиск по mustPublish-категориям (ФРС/ЕЦБ, перемирие/переворот, землетрясение M7+, теракты, санкции, Нобель) — совпадений нет. Развитие сюжета Ормузского пролива (Иран-Оман достигли договорённости о маршруте) идёт, но это продолжение уже опубликованного iran-oman-hormuz-deal-progress.mdx (05.08) без прямых последствий для Узбекистана — не мировая mustPublish-тема. Возврат $100 млрд пошлин администрацией Трампа — тоже уже опубликован (us-supreme-court-100bn-tariff-refund.mdx).\n\nВывод: ни одна тема не набрала порог 55 — за прошедшие часы инбокс уже выработан параллельными прогонами (в main за это время прилетело ещё 5 опубликованных статей от соседней сессии). Ноль тем — легитимный исход, коммитов по темам нет.\n\nВторой приоритет: missing-images.json пуст. channel-candidates-report.mjs — 7 кандидатов, все distinctSources=1 без явного 'официальный канал' — оставлены копиться. translation-gaps.mjs --limit=6 — взяты первые 3 (pakistan-swat-suicide-bombing-14-dead, pdd-bill-speeding-80kmh-vehicle-seizure, targeted-mortgage-deposits-pilot-first-results), переведены на uz/en (6 файлов), i18n-lint --fix — 0 исправлений. Коммит и пуш выполнены."
 }
