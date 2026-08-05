@@ -47,6 +47,24 @@ export const CHANNELS = [
   { id: "uznewsuzb", outlet: "uznews", lang: "uz", title: "UzNews.uz ахборот агентлиги расмий канали", subscribers: 14_200, linkForm: "full" },
 
   { id: "qalampir", outlet: "qalampir", lang: "uz", title: "Qalampir.uz I расмий канал", subscribers: 253_000, linkForm: "numeric" },
+
+  // Тематические и вспомогательные каналы. Найдены не перебором хендлов, а по
+  // ссылкам в постах самих изданий: каждое ставит в подвал поста ссылки на
+  // свои остальные каналы, и это исчерпывающий список — @qalampirsport
+  // упоминается в 4238 постах из 4278.
+  //
+  // Важное для выводов: деление у изданий идёт не только по языку, но и по
+  // теме, причём тематический канал бывает крупнее языкового. Спортивный
+  // канал Daryo (38.5K) больше его русского (1.25K) в тридцать раз.
+  { id: "qalampirlive", outlet: "qalampir", lang: "uz", vertical: "live", title: "Qalampir LIVE", subscribers: 60_700, linkForm: "numeric" },
+  { id: "Daryo_Sport24", outlet: "daryo", lang: "uz", vertical: "sport", title: "Daryo | Sport24", subscribers: 38_500, linkForm: "shortlink" },
+  { id: "qalampirsport", outlet: "qalampir", lang: "uz", vertical: "sport", title: "QALAMPIR.UZ | SPORT", subscribers: 10_700, linkForm: "numeric" },
+  { id: "RepostLife", outlet: "repost", lang: "ru", vertical: "lifestyle", title: "Repost Lifestyle", subscribers: 6_070, linkForm: "full" },
+  { id: "qalampirfm", outlet: "qalampir", lang: "uz", vertical: "tv", title: "Qalampir TV", subscribers: 5_520, linkForm: "numeric" },
+  { id: "gazetauzspecial", outlet: "gazeta", lang: "ru", vertical: "longread", title: "Gazeta — Horizon", subscribers: 1_520, linkForm: "full" },
+  { id: "qalampir_english", outlet: "qalampir", lang: "en", title: "Qalampir | ENGLISH", subscribers: 1_460, linkForm: "numeric" },
+  { id: "kunuzbiznes", outlet: "kun", lang: "uz", vertical: "business", title: "Kun.uz | Biznes", subscribers: 1_240, linkForm: "numeric" },
+  { id: "spotuzmini", outlet: "spot", lang: "ru", vertical: "mini", title: "Spot.uz – Mini", subscribers: 821, linkForm: "full" },
 ];
 
 // Каналы, отклонённые при разведке. Держим списком, чтобы следующий заход не
@@ -61,6 +79,18 @@ export const REJECTED = [
   { handle: "@uznewsofficial", reason: "4 подписчика, ведёт на @pressauz" },
   { handle: "@kunuz_english", reason: "дубль @kunuzen без аудитории" },
   { handle: "@spotug", reason: "из docs/media-landscape-2026.md; такого канала нет" },
+];
+
+// Узбекского канала у Gazeta нет. Проверено дважды: перебором хендлов
+// (@gazetauzb — чужой канал с заголовком «Kun.uz», @gazetauzb_uz,
+// @gazeta_uz_uzb, @gazetauzo — публичной ленты не отдают) и по ссылкам в
+// подвале собственных постов Gazeta, где перечислены @gazetauznews и
+// @gazetauzspecial, но узбекского нет. При этом на сайте узбекских
+// материалов больше, чем русских: 22 против 18.7 в день.
+export const NO_CHANNEL = [
+  { outlet: "gazeta", lang: "uz", note: "узбекского канала не существует при том, что узбекская лента сайта крупнее русской" },
+  { outlet: "repost", lang: "uz", note: "узбекского канала нет; на сайте узбекских материалов 11%" },
+  { outlet: "spot", lang: "en", note: "английской версии нет ни на сайте, ни в Telegram" },
 ];
 
 export function channelsFor(outletId) {
