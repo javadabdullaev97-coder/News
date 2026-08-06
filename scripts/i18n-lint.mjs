@@ -213,14 +213,53 @@ for (const c of cards) {
   console.error(`✗ content/needs-verification/${c}: нет recheckAt — карточку некому разморозить`);
 }
 
+// Внутренние ссылки: формат адреса и существование цели.
+//
+// 06.08.2026 все 155 ссылок на собственные материалы вели в 404: агенты
+// писали /posts/ГГГГ-ММ-ДД/<slug>, а сайт живёт по /<язык>/ГГГГ/ММ/ДД/<slug>.
+// Формат ниоткуда не следовал — его надо было знать, а знать его неоткуда:
+// в редполитике про внутренние ссылки не было ни слова.
+//
+// Цель тоже проверяем: ссылка на несуществующий материал — тот же 404,
+// только его не видно по формату.
+const dayDirs = new Set(
+  existsSync(POSTS) ? readdirSync(POSTS).filter((d) => dayRe.test(d)) : [],
+);
+const existing = new Set();
+for (const day of dayDirs) {
+  for (const f of readdirSync(join(POSTS, day))) {
+    const m = f.match(/^(.+?)(?:\.(uz|en))?\.mdx$/);
+    if (m) existing.add(`${m[2] ?? "ru"} ${day} ${m[1]}`);
+  }
+}
+const badLinks = [];
+for (const { path: file, lang } of files) {
+  const text = readFileSync(file, "utf8");
+  for (const m of text.matchAll(/https:\/\/leap\.uz\/([^)"'\s]+)/g)) {
+    const path = m[1];
+    const ok = path.match(/^(ru|uz|en)\/(\d{4})\/(\d{2})\/(\d{2})\/([^/]+)$/);
+    if (!ok) {
+      badLinks.push({ file: file.replace(ROOT + "/", ""), url: m[0], why: "формат: нужен /<язык>/ГГГГ/ММ/ДД/<slug>" });
+      continue;
+    }
+    const key = `${ok[1]} ${ok[2]}-${ok[3]}-${ok[4]} ${ok[5]}`;
+    if (!existing.has(key)) {
+      badLinks.push({ file: file.replace(ROOT + "/", ""), url: m[0], why: "цели не существует" });
+    }
+  }
+}
+for (const b of badLinks) {
+  console.error(`✗ ${b.file}: внутренняя ссылка ${b.url} — ${b.why}`);
+}
+
 for (const l of leaks) {
   console.error(`✗ ${l.file}: служебная разметка агента в тексте (${l.markers.join(", ")}) — вычистить руками`);
 }
 console.error(
   fix
-    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}`
-    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}`,
+    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}`
+    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}`,
 );
 // Утечка разметки — ошибка всегда, даже в режиме --fix: чинить её
 // автоматически нельзя, а выпускать материал с ней нельзя тем более.
-process.exit(leaks.length || cards.length || (!fix && findings.length) ? 1 : 0);
+process.exit(leaks.length || cards.length || badLinks.length || (!fix && findings.length) ? 1 : 0);

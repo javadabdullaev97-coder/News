@@ -102,5 +102,34 @@ const fresh = () => {
   ok(lines.length === 2 && lines.every((l) => JSON.parse(l)), "журнал append-only, строка = событие");
 }
 
+// ── шум: обрывки, самоподписи, реклама ───────────────────────────────
+{
+  const root = fresh();
+  // Длинный текст, обрубленный ровно на handle: это огрызок, а не канал.
+  const long = "а".repeat(470) + " подробнее @tashkent_lan";
+  const r1 = collectChannelCandidates(root, [
+    { title: "t", snippet: long, link: "https://a/1", sourceId: "kun-uz" },
+  ]);
+  ok(r1.appended === 0, "handle на обрыве длинного сниппета не копится — это обрубок");
+
+  // Короткий пост, кончающийся подписью канала: handle целый.
+  const r2 = collectChannelCandidates(root, [
+    { title: "t", snippet: "Официальный канал минводхоза @suv_xojaligi", link: "https://a/2", sourceId: "kun-uz" },
+  ]);
+  ok(r2.appended === 1, "короткий текст с handle в конце — нормальная находка");
+
+  // Канал подписывает собственный пост.
+  const r3 = collectChannelCandidates(root, [
+    { title: "t", snippet: "Проверки продолжатся. @Tashkent_Land", link: "https://a/3", sourceId: "tashkent_land" },
+  ]);
+  ok(r3.appended === 0, "самоподпись канала — не находка");
+
+  // Рекламный блок.
+  const r4 = collectChannelCandidates(root, [
+    { title: "t", snippet: "Скидки в @some_shop_uz. Телефон 1360 (на правах рекламы)", link: "https://a/4", sourceId: "kun-uz" },
+  ]);
+  ok(r4.appended === 0, "рекламный контекст не копится");
+}
+
 console.log(failed ? `\nпровалено ${failed}` : "\nвсе проверки пройдены");
 process.exit(failed ? 1 : 0);

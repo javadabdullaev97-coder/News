@@ -1,5 +1,5 @@
 <!-- digest-of: .claude/skills/leap-editorial-style/SKILL.md
-     sha256: 4fe2882580156a25697cb721eea69ca8d30eca13ee46b85bb9c7fc16a3f9b15e
+     sha256: c7664a0ae5ba9ba172ca078bee8a27ccc6dbffb4adaec4c23e1ae36b9c0103b7
      Это выжимка редполитики для оркестратора планёрки: отбор тем,
      маршрутизация, вопросы владельцу. Пишущие агенты (reporter, editor,
      fact-checker) читают полный SKILL.md сами — им выжимки недостаточно.
