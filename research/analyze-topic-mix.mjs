@@ -81,8 +81,14 @@ for (const outlet of ["kun", "gazeta", "spot", "repost", "daryo", "uznews"]) {
 
 // ── наш корпус ─────────────────────────────────────────────────────────────
 
+// Каталог наших материалов задаётся флагом: рабочая ветка исследования
+// отстаёт от main на всё время работы, и считать по ней — значит занижать
+// собственный выпуск. На отставшей ветке выходило 24 материала в день против
+// фактических 70.
+const POSTS_DIR = process.argv.find((a) => a.startsWith("--posts="))?.slice(8);
+
 function ourArticles() {
-  const dir = join(ROOT, "content/posts");
+  const dir = POSTS_DIR ?? join(ROOT, "content/posts");
   const out = [];
   for (const day of readdirSync(dir)) {
     const dayPath = join(dir, day);
@@ -93,7 +99,9 @@ function ourArticles() {
       const body = readFileSync(join(dayPath, file), "utf8");
       const title = body.match(/^title:\s*["']?(.+?)["']?\s*$/m)?.[1] ?? null;
       const category = body.match(/^category:\s*["']?(\w+)["']?\s*$/m)?.[1] ?? null;
-      if (title) out.push({ title, category, day });
+      // Дни запуска конвейера (1-2 августа, 18 и 9 материалов) в среднее не
+      // берём: это разгон, а не режим работы.
+      if (title && day >= "2026-08-03") out.push({ title, category, day });
     }
   }
   return out;
