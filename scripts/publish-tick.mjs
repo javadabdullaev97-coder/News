@@ -219,9 +219,32 @@ function stamp(raw, publishedAt) {
  * при проверке раз в три минуты это 480 пустых коммитов в сутки. Когда
  * узнать «когда это записали» всё-таки нужно, ответ даёт git log по файлу.
  */
+// Насколько точным должен быть срок в подсказке.
+//
+// Часы дёргают публикатор раз в три минуты и смотрят только, наступил ли
+// срок. Точность до секунды им не нужна, а стоит дорого: nextDueAt считается
+// с новым случайным разбросом на каждом тике, поэтому файл менялся почти
+// всегда — 48 коммитов в сутки на одну строку со временем (замер 06.08.2026),
+// каждый со своим пушем в main и пересборкой сайта.
+//
+// Округляем срок ВВЕРХ до пяти минут. Вверх, а не вниз: округление вниз
+// заставило бы часы будить публикатор раньше срока, и вместо экономии
+// мы получили бы холостые запуски — по оплаченной минуте Actions каждый.
+// Пять минут задержки на фоне разброса ±30% лента не замечает. Пока
+// материал ждёт своей очереди,
+// подсказка неподвижна, и коммит появляется только когда действительно
+// меняется картина: пришёл материал, вышел материал, сдвинулось окно.
+const PLAN_GRANULARITY_MS = 5 * 60 * 1000;
+
+function coarse(iso) {
+  const t = Date.parse(iso ?? "");
+  if (!Number.isFinite(t)) return null;
+  return new Date(Math.ceil(t / PLAN_GRANULARITY_MS) * PLAN_GRANULARITY_MS).toISOString();
+}
+
 function writePlanHint(nextDueAt, queued) {
   const path = join(ROOT, "content/state/publish-plan.json");
-  const next = JSON.stringify({ nextDueAt, queued }, null, 2) + "\n";
+  const next = JSON.stringify({ nextDueAt: coarse(nextDueAt), queued }, null, 2) + "\n";
   try {
     if (readFileSync(path, "utf8") === next) return false;
   } catch {

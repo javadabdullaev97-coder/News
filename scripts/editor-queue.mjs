@@ -374,7 +374,32 @@ function promoteToPosts(file, slug) {
   }
   writeFileSync(dest, text);
   unlinkSync(file);
-  console.error(`[queue] ${slug}: одобрен → content/queue (выпустит публикатор)`);
+
+  // Языковые версии едут вместе с оригиналом.
+  //
+  // Без этого они оставались в папке вопросов навсегда: владелец отвечал
+  // «ок», русская версия уходила в очередь и на сайт, а перевод — нет.
+  // Проверка 06.08.2026 нашла десять таких сирот: оригиналы давно
+  // опубликованы, переводы написаны, оплачены токенами и невидимы читателю.
+  // Материал один, переезжать он обязан целиком.
+  const moved = [];
+  for (const lang of ["uz", "en"]) {
+    const src = file.replace(/\.mdx$/, `.${lang}.mdx`);
+    if (!existsSync(src)) continue;
+    let tr = readFileSync(src, "utf8")
+      .replace(/^status:\s*["']?needs-verification["']?\s*\n/m, "")
+      .replace(/^recheckAt:.*\n/m, "");
+    tr = dropFrontmatterField(tr, "awaitingEditor");
+    if (!/^queuedAt:/m.test(tr)) {
+      const stamp = new Date(Date.now() + 5 * 3600 * 1000).toISOString().slice(0, 16) + ":00+05:00";
+      tr = tr.replace(/^(title:.*\n)/m, `$1queuedAt: "${stamp}"\n`);
+    }
+    writeFileSync(join(destDir, `${slug}.${lang}.mdx`), tr);
+    unlinkSync(src);
+    moved.push(lang);
+  }
+  const langNote = moved.length ? ` +${moved.join("/")}` : "";
+  console.error(`[queue] ${slug}${langNote}: одобрен → content/queue (выпустит публикатор)`);
   return dest;
 }
 
