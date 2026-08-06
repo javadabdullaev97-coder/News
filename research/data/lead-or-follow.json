@@ -1,0 +1,1872 @@
+{
+  "generatedAt": "2026-08-06T18:26:24.830Z",
+  "total": 233,
+  "led": 154,
+  "followed": 79,
+  "results": [
+    {
+      "title": "Закон об идентификации животных вступает в силу в Узбекистане 7 августа",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "«Бунёдкор» сообщил о выделении клубу 5 млрд сумов от правительства",
+      "category": "sport",
+      "matched": true,
+      "lead": false,
+      "lagHours": 2.5,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "ЦБ РУз с 9 августа разрешит покупать до 500 долларов наличными без паспорта",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "ЦОДД ограничил движение на улицах Аккурган и Паркент в Ташкенте до 3 августа",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минобразования открыло приём в 1-й класс вне микроучастка с 1 августа",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "IT Park продлил приём заявок на President AI Award 2026 до 15 августа",
+      "category": "tech",
+      "matched": true,
+      "lead": false,
+      "lagHours": 14.5,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "Владельцы солнечных панелей получили 330,8 млрд сумов субсидий за полгода",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Yuz.uz"
+    },
+    {
+      "title": "Y Combinator представил стартап Speko выходца из Каракалпакстана Абдикамалова",
+      "category": "tech",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минвуз с 1 августа принимает заявления в студенческие общежития через my.gov.uz",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Генпрокуратура проведёт инвентаризацию застройки дворов и площадок в Ташкенте",
+      "category": "politics",
+      "matched": true,
+      "lead": false,
+      "lagHours": 28.9,
+      "source": "Anhor.uz"
+    },
+    {
+      "title": "Хокимият Ташкента обсудил создание приюта для бездомных собак и гуманный отлов",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "Нацкомстат привёл две цифры объёма транспортных услуг за полугодие — 103,9 и 104,2 трлн",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Yuz.uz"
+    },
+    {
+      "title": "Узбекистан и Кыргызстан подписали договор о союзнических отношениях в Чолпон-Ате",
+      "category": "politics",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Экспорт драгметаллов из Узбекистана за полугодие упал в 3,1 раза, до 2,2 млрд долларов",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "В Узбекистане на 1 000 жителей приходится 32 субъекта предпринимательства",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Добыча газа в Узбекистане за полугодие упала на 16%, до 18,3 млрд куб. м",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 8,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "ВВП Узбекистана вырос на 8,5% в первом полугодии 2026 года — до 1 072,7 трлн сумов",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 15,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "Секретариат ВТО получил 31 протокол о доступе Узбекистана на рынки",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 3.2,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "Прибыль Алмалыкского ГМК за полугодие выросла на 93% — до 8,7 трлн сумов",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "В Сеуте при прорыве границы погибли 67 человек, Италия приостановила Шенген с Испанией",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Семь стран ОПЕК+ повысили сентябрьские квоты на 188 тыс. баррелей в сутки",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Кешбэк за июнь: 112,8 млрд сумов, в реестр подозрительных внесли 96 000 человек",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Anhor.uz"
+    },
+    {
+      "title": "В автобусах Ташкента при +28°C на улице обязаны держать +26°C в салоне",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 17.1,
+      "source": "Repost.uz"
+    },
+    {
+      "title": "В Ташкенте возбуждено дело о хищении 19,9 млрд сумов при обслуживании газовых счётчиков",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 23.4,
+      "source": "Gazeta.uz"
+    },
+    {
+      "title": "Трамп отменил новые удары по Ирану при условии быстрой сделки по Ормузу",
+      "category": "world",
+      "matched": true,
+      "lead": false,
+      "lagHours": 16,
+      "source": "Repost.uz"
+    },
+    {
+      "title": "1 августа чартер из США доставил в Ташкент 18 депортированных граждан Узбекистана",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Nuz.uz"
+    },
+    {
+      "title": "Ветер в Ташкенте вечером усилится до 12 м/с, в четырёх областях возможны пыльные бури",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 26.1,
+      "source": "Nuz.uz"
+    },
+    {
+      "title": "Штрафы за жестокость к животным выросли вдвое — Мирзиёева прокомментировала",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Институт при Минэкономфине предложил ввести налог на проценты по вкладам",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Gazeta.uz"
+    },
+    {
+      "title": "В Алатском районе Бухарской области канализацию получат 27 тысяч жителей",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 16.8,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "ЦБ РУз продлит торговые сессии на валютной бирже до 17:00 с 10 августа",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "ЦОДД синхронизировал светофоры на Малой кольцевой — время проезда сократилось на 45%",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Kun.uz"
+    },
+    {
+      "title": "Объём услуг связи и IT в Узбекистане вырос на 22,1% за полугодие",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Жара и пожары охватили Европу и США: погибли пилоты, ущерб — 3,1 млрд евро",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Очередь на хадж теперь можно оформить полностью онлайн через my.gov.uz",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "ХАМАС согласовал план разоружения в Газе, удары Израиля продолжились",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Иран заявил о финальной стадии переговоров с Оманом о новом маршруте в Ормузском проливе",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "IT Park принимает заявки на бизнес-миссию в Германию до 3 августа",
+      "category": "tech",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Землетрясение магнитудой 7,1 в Японии: 34 погибших, свыше 9 тысяч — в эвакопунктах",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "США и Япония впервые с 2011 года провели совместную интервенцию в защиту иены",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Детям медработников со стажем 15 лет компенсируют 30% контракта в вузах",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 0.9,
+      "source": "Daryo.uz"
+    },
+    {
+      "title": "Минюст предупредил о мошенниках, выдающих себя за патентные агентства",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Смертник убил 14 человек у полицейского участка в долине Сват в Пакистане",
+      "category": "world",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Daryo.uz"
+    },
+    {
+      "title": "Олий Мажлис обсудил ужесточение ответственности за грубые нарушения ПДД",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Пилот целевых ипотечных вкладов: 338 счетов на 23,9 млрд сумов",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "Модернистскую архитектуру Ташкента включили в список Всемирного наследия ЮНЕСКО",
+      "category": "culture",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Воду в 22 махаллях Ташкента отключат на сутки с 10:00 3 августа",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Tashkent Land — новости Ташкента"
+    },
+    {
+      "title": "Uzbekistan Airways запустила рассрочку на билеты через Yandex Split",
+      "category": "business",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "В Узбекистане за январь–июнь 2026 года зарегистрировано 373 389 живорождений",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "Горнодобыча Узбекистана дала за полугодие 42,4 трлн сумов — рост слабее других отраслей",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Узбекистан подтвердил цель вступить в ВТО в 2026 году — подписан 31 протокол",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 1.2,
+      "source": "Gazeta.uz"
+    },
+    {
+      "title": "«Узбекнефтегаз» добыл 11,5 млрд кубометров газа в первом полугодии",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Узбекистан впервые разработал проект национального стандарта учёта в сельском хозяйстве",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Главу филиала «Андижонсувтаъминот» задержали по подозрению во взятке в 8 500 долларов",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 1.2,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "ЦБ ввёл понятие «системного недостатка» в работе банков с клиентами",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "На Чирчике выявили ущерб в 1,9 трлн сумов от незаконной добычи песка в Ташкенте и области",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "Мирзиёев одобрил переход услуг Агентства по кадастру на единую заявку",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Мирзиёев рассмотрел реформу оплаты труда для 54 тысяч госслужащих",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 1.2,
+      "source": "Gazeta.uz"
+    },
+    {
+      "title": "Число умерших от Эболы в ДР Конго превысило 1700, ВОЗ ускоряет испытания вакцины",
+      "category": "world",
+      "matched": true,
+      "lead": false,
+      "lagHours": 12.5,
+      "source": "Yuz.uz"
+    },
+    {
+      "title": "Кабмин утвердил новый порядок экологической экспертизы — вступает в силу 14 августа",
+      "category": "business",
+      "matched": true,
+      "lead": false,
+      "lagHours": 29.5,
+      "source": "Daryo.uz"
+    },
+    {
+      "title": "Узбекистан запустил кредит до $20 тыс. в год на учёбу в топ-300 вузах мира",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "Иран опроверг заявления Трампа о переговорах по Ормузскому проливу",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Узбекская студия Grimoire показала Echo of Souls на ChinaJoy 2026",
+      "category": "tech",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Afisha.uz"
+    },
+    {
+      "title": "На бирже «Тошкент» прошла третья сделка по облигациям «UMRC SPV»",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Реконструкция проспекта Мустакиллик в Ташкенте вышла на финальный этап",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "В Нукусе за два месяца обновили автобусный парк на 44 машины",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 27.5,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "В Узбекистане приняли закон о возмещении вреда от решений чиновников",
+      "category": "politics",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Законодательная палата приняла в первом чтении поправки об изъятии авто за нарушения ПДД",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минэкономфин: срок получения невостребованной пенсии увеличен до 24 месяцев",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Daryo.uz"
+    },
+    {
+      "title": "Кабмин утвердил список 49 стран для упрощённой передачи персональных данных",
+      "category": "business",
+      "matched": true,
+      "lead": false,
+      "lagHours": 5.4,
+      "source": "Kapital.uz"
+    },
+    {
+      "title": "Законопроект об Администрации президента прошёл первое чтение в Олий Мажлисе",
+      "category": "politics",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Гиперспектральный спутник Samarkand-2028 запустят на орбиту 5 августа",
+      "category": "tech",
+      "matched": true,
+      "lead": false,
+      "lagHours": 23,
+      "source": "UzNews.uz"
+    },
+    {
+      "title": "Комитет по туризму предложил создать курортный город «Нурбулак» в Самаркандской области",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 7.9,
+      "source": "Nuz.uz"
+    },
+    {
+      "title": "Мирзиёев одобрил предложения по реформе соцзащиты: льготы, бездомные, торговля людьми",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Агентство госактивов продало 645 лотов на аукционе 3 августа за 103,6 млрд сумов",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "В Сурхандарье выкорчевали 11 вековых можжевельников, начата проверка",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 4.8,
+      "source": "Anhor.uz"
+    },
+    {
+      "title": "В «Инициативный бюджет — 2026» подано 23 551 предложение, начался отбор",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Afisha.uz"
+    },
+    {
+      "title": "В Ташкенте 2 августа обрушился край котлована на стройплощадке отеля",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 26.7,
+      "source": "Repost.uz"
+    },
+    {
+      "title": "Ташкентская область и Башкортостан ускорят инвестпроекты на $235,7 млн",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 23.1,
+      "source": "Nuz.uz"
+    },
+    {
+      "title": "Департамент раскрыл в Ташкенте хищение 4,7 млрд сумов бюджетных средств через кешбэк",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 6.2,
+      "source": "Tashkent Land — новости Ташкента"
+    },
+    {
+      "title": "В Ташкенте пресекли канал поставки контрафактных лекарств из России",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 13.7,
+      "source": "Nuz.uz"
+    },
+    {
+      "title": "«Ideal Avto Servis» получил 10 электробусов Yutong E9 для Ташкента",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 5,
+      "source": "Gazeta.uz"
+    },
+    {
+      "title": "ЦОДД Ташкента ограничил тарифы на эвакуацию и хранение автомобилей на штрафстоянках",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 3.7,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "Минвуз напомнил о последнем шансе поступить в ToshTech на 100% грант",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 28.6,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "Минтранс объявил тендер на 19 пригородных маршрутов в 8 регионах",
+      "category": "business",
+      "matched": true,
+      "lead": false,
+      "lagHours": 4,
+      "source": "Daryo.uz"
+    },
+    {
+      "title": "Кыргызстан и Узбекистан начали передачу сёл Чон-Гара и Таш-Добо",
+      "category": "politics",
+      "matched": true,
+      "lead": false,
+      "lagHours": 23.4,
+      "source": "Nuz.uz"
+    },
+    {
+      "title": "Автопром Узбекистана выпустил 235 794 машины за полугодие, авторынок ускорился в июне",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "AFC передал Узбекистану право провести Кубок Азии U-17 2027 года",
+      "category": "sport",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Узбекистан и Индия договорились довести товарооборот до 2 млрд долларов",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "ВРП регионов Узбекистана за полугодие: Ташкент — 226 трлн сумов, рост 13,3%",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Мирзиёев подписал постановление о бездомных и указ о жертвах торговли людьми",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "ЦБ повысил официальный курс доллара до 11 989 сумов на 4 августа",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Repost.uz"
+    },
+    {
+      "title": "Узгидромет предупредил о ветре до 18 м/с и пыльных бурях 4 августа",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 28.3,
+      "source": "Gazeta.uz"
+    },
+    {
+      "title": "Число погибших при землетрясениях в Венесуэле превысило 6 тысяч",
+      "category": "world",
+      "matched": true,
+      "lead": false,
+      "lagHours": 2.2,
+      "source": "Repost.uz"
+    },
+    {
+      "title": "Пентагон заключил контракты на $3 млрд для наращивания выпуска Patriot и THAAD",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Турция, Катар и Египет обвинили Израиль в срыве второго этапа плана по Газе",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "25 штатов США оспорили в суде новые пошлины Трампа против 60 торговых партнёров",
+      "category": "world",
+      "matched": true,
+      "lead": false,
+      "lagHours": 24.1,
+      "source": "Repost.uz"
+    },
+    {
+      "title": "Потери продавцов Wildberries от ударов Украины могут достичь 280 млрд рублей",
+      "category": "world",
+      "matched": true,
+      "lead": false,
+      "lagHours": 25.9,
+      "source": "Anhor.uz"
+    },
+    {
+      "title": "Прокуратура Ташкента возбудила дело о самовольном сносе дома под ЖК New Port",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 7,
+      "source": "Tashkent Land — новости Ташкента"
+    },
+    {
+      "title": "Аэропорт Андижана впервые принял грузовой Boeing 747 со скотом",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 13.2,
+      "source": "Nuz.uz"
+    },
+    {
+      "title": "«Узсувтаъминот» наладил водоснабжение промзоны Ходжаобадского района",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Бёрнем через две недели у власти сузил тюремную реформу в Британии",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "ЦБ обязал платёжных операторов хранить биометрию клиентов только в Узбекистане",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Kapital.uz"
+    },
+    {
+      "title": "Доходность вкладов в сумах выросла до 17,6% впервые с марта — ЦБ",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Daryo.uz"
+    },
+    {
+      "title": "Жертв в Сеуте стало больше 80, письмо с критикой Испании подписали не все в ЕС",
+      "category": "world",
+      "matched": true,
+      "lead": false,
+      "lagHours": 27.9,
+      "source": "Kun.uz"
+    },
+    {
+      "title": "В Сеуте число жертв выросло до 75, ЕС не пришёл к единой позиции по Шенгену",
+      "category": "world",
+      "matched": true,
+      "lead": false,
+      "lagHours": 16,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "Китай ввёл ответные санкции против шести компаний США и ужесточил экспорт дронов",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "ЦБ РУз: в июле через эскроу-счета оформили 34 341 сделку с жильём и авто",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Президент ФИФА Инфантино созвал кризисную встречу в Марокко на фоне утраты доверия УЕФА",
+      "category": "sport",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минздрав: фонд медстрахования направил 745,7 млрд сумов льготникам и на лекарства",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Гватемала ввела оранжевый уровень опасности из-за извержения вулкана Фуэго",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Фотоловушки заповедника «Хисор» сняли группу снежных барсов и горного козла",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Хуситов обвинили в атаке на индийское судно у Йемена — Эр-Рияд делает ставку на переговоры",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Хуситы заявили об ударе по саудовскому танкеру и аэропорту Наджран",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Ташкент примет международные IBSA World Games 2027 для спортсменов с нарушением зрения",
+      "category": "sport",
+      "matched": true,
+      "lead": false,
+      "lagHours": 6.6,
+      "source": "Daryo.uz"
+    },
+    {
+      "title": "Узбекистан введёт призы от 15 до 30 БРВ победителям Abilympics и UPSHIFT",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 31.5,
+      "source": "Gazeta.uz"
+    },
+    {
+      "title": "Инвестиции в основной капитал Узбекистана выросли на 17,5%, до 338,9 трлн сумов",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Иран и Оман продвинулись в переговорах о судоходстве через Ормузский пролив",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минюст зарегистрировал порядок перехода банков и МФО на исламский банкинг",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "IT Park лишил 70 компаний статуса резидента за непредоставление отчётности",
+      "category": "tech",
+      "matched": true,
+      "lead": false,
+      "lagHours": 27.3,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "В Каракалпакстане взыскали 1,1 млрд сумов долга за воду по 516 листам",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минспорт сообщил об обсуждении включения кураша в программу Игр 2030 года",
+      "category": "sport",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Daryo.uz"
+    },
+    {
+      "title": "Минзанятости предупредило: фиктивная запись «работает» грозит потерей пособий",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Ливан и Израиль начали в Риме седьмой раунд переговоров о разоружении «Хезболлы»",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минэнерго: 44% участников опроса недовольны работой операторов 1154 и 1104",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минтранс: пассажиропоток «Джалолиддин Мангуберди» и «Афросиёб» удвоится",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Нетаньяху отверг план Трампа по Газе, отказался выводить войска",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Ким Ё Чжон пригрозила Японии «дополнительными военными мерами»",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Узбекистан запустит единую систему паллиативной помощи с 1 сентября",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "До 6 лет отпуска по уходу за ребёнком засчитывают в пенсионный стаж",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минэкономфин упростил оформление пенсий осуждённым в колониях-поселениях",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Из Польши и Турции в Узбекистан экстрадировали двух разыскиваемых",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 4.5,
+      "source": "Repost.uz"
+    },
+    {
+      "title": "Мирзиёев ввёл систему «оилабай» для детей с особыми потребностями с 1 сентября",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минобразования начало доставку «Президентского подарка» первоклассникам",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Глава МИД Узбекистана и спецпредставитель США обсудили в Нью-Дели C5+1",
+      "category": "politics",
+      "matched": true,
+      "lead": false,
+      "lagHours": 14.9,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "Салах прибыл в Стамбул перед ожидаемым переходом в «Трабзонспор»",
+      "category": "sport",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Спутник Samarkand-2028 успешно вышел на орбиту, сообщает Узгидромет",
+      "category": "tech",
+      "matched": true,
+      "lead": false,
+      "lagHours": 0.8,
+      "source": "Repost.uz"
+    },
+    {
+      "title": "Антикоррупционное агентство потребовало проверки хокима Шахрисабза",
+      "category": "politics",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Первый поезд «Славянский караван» прибыл из Беларуси в Ташкент",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 8.1,
+      "source": "Nuz.uz"
+    },
+    {
+      "title": "SpaceX отчиталась о росте выручки на 92% после IPO, объявила о партнёрстве с Nvidia",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Аренда медцентра в Бухаре на торгах госактивов ушла в 80 раз выше старта",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 26.4,
+      "source": "Kun.uz"
+    },
+    {
+      "title": "В Ташкенте осмотрели площадки чемпионата Азии по тяжёлой атлетике среди юниоров и молодёжи",
+      "category": "sport",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Экологи Ташкента опровергли вырубку 400 деревьев в Джарарыке, подтвердили 45",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 19.6,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "Институт при Минэкономфине предложил норму 60 кв. м для льготных тарифов на отопление",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "Ташкент отремонтировал 654 км электросетей и обновил газовые пункты к зиме",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Узгидромет зафиксировал превышение нормы PM10 в воздухе Ташкента",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 18,
+      "source": "Gazeta.uz"
+    },
+    {
+      "title": "Минвуз: ТГТУ расширит дуальное образование в энергетике с 2026/2027 года",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Afisha.uz"
+    },
+    {
+      "title": "В Термезе восстанавливают воду в 8 махаллях после ремонта водовода",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "США израсходовали почти 80% ракет ПРО в войне с Ираном, у Омана обстреляли сухогруз",
+      "category": "world",
+      "matched": true,
+      "lead": false,
+      "lagHours": 19.9,
+      "source": "Kun.uz"
+    },
+    {
+      "title": "Курс доллара к суму упал до 11 886,72 сума — минимум с декабря 2025 года",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 3,
+      "source": "Kapital.uz"
+    },
+    {
+      "title": "Uzbekistan Airways предупредила о правилах въезда в США из-за вспышки Эболы",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Нацкомстат зафиксировал дефляцию 0,1% в июле — цены выросли на 6,4% за год",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "НАПП предложило штрафовать иностранные крипто-компании на сумму до 11 млрд сумов",
+      "category": "tech",
+      "matched": true,
+      "lead": false,
+      "lagHours": 36.9,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "Вылов рыбы в Узбекистане вырос на 37,1% за полугодие — до 75,3 тыс. тонн",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Президент обязал собственников опасных отходов согласовывать планы с 2027 года",
+      "category": "business",
+      "matched": true,
+      "lead": false,
+      "lagHours": 16.5,
+      "source": "Daryo.uz"
+    },
+    {
+      "title": "Минэкономфин подвёл итоги программы развития инфраструктуры за I полугодие 2026 года",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 5.8,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "Узбекистан направит 895 млн долларов в животноводство и птицеводство до 2028 года",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 33.4,
+      "source": "Nuz.uz"
+    },
+    {
+      "title": "Нацкомстат: плов подорожал до 128,7 тысячи сумов за кг в Ташкенте",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Ненаблюдаемая экономика Узбекистана снизилась до 22,9% ВВП в первом полугодии",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 7.8,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "«Узбекнефтегаз» увеличил чистую прибыль на 110% — добыча газа в стране упала на 16,4%",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "В Узбекистане за полугодие выполнено строительных работ на 192 трлн сумов",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Приём документов на вторую специальность в вузах Узбекистана продлится до 10 августа",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 36.9,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "Суд назначил разбирательство по слиянию Paramount и Warner Bros. на март 2027 года",
+      "category": "world",
+      "matched": true,
+      "lead": false,
+      "lagHours": 18.3,
+      "source": "Daryo.uz"
+    },
+    {
+      "title": "Портал my.gov.uz сообщил о результатах приёма в академические лицеи на 2026/2027 год",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Afisha.uz"
+    },
+    {
+      "title": "Абитуриентам и педагогам с инвалидностью добавят время на экзаменах с 2027/2028 года",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 6.4,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "Узбекистан за полгода импортировал 72 тысячи тонн говядины на 359,5 млн долларов",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "Центральный банк опроверг слухи о налоге на проценты по вкладам",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "ЦБ Узбекистана предупредил о поддельной лицензии банка «Олтин Ой Кредит»",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "В Чимбойском районе раскрыли хищение газовых баллонов на 1,3 млрд сумов",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Gazeta.uz"
+    },
+    {
+      "title": "Узбекистан ввёл субсидии на молодняк КРС для племенных хозяйств",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "ВОЗ: вспышка Эболы в ДР Конго ускоряется, случаев заражения почти 4 000",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "В Фергане в сентябре запустят завод AHA Co., Ltd на 20 млн долларов",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 31.8,
+      "source": "Daryo.uz"
+    },
+    {
+      "title": "В Фергане возбудили дело о завышении субсидий на отопление на 12,9 млрд сумов",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 13.5,
+      "source": "UzNews.uz"
+    },
+    {
+      "title": "НАПП зарегистрировал «Finance Invest Brok» в «песочнице» рынка капитала",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 3.5,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "Таможня на посту «Навои» пресекла попытки вывоза золота и валюты через детей",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 16,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "Нацкомстат: перепись зафиксировала 39,05 млн жителей Узбекистана",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минздрав предложил компенсировать проезд пациентам на гемодиализе",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Иран заявил о согласовании координат маршрута через Ормузский пролив",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Израиль нанёс удары по югу Ливана, обвинив «Хезболлу» в нарушении перемирия",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Каракалпакстан подписал с Китаем меморандум о поставке 50 тысяч голов скота",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 20.6,
+      "source": "Repost.uz"
+    },
+    {
+      "title": "Археологи нашли в городище Кува стену III века до нашей эры — X века",
+      "category": "culture",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Германия расследует обнаружение дрона со взрывчаткой в аэропорту Лейпцига",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Meta, Anthropic и OpenAI признали: их ИИ-модели взломали чужие системы на тестах",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минюст зарегистрировал порядок субсидии до 2 млн сумов на дизель для хлопка и пшеницы",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минтранс запустил первый National Transport Hackathon с призами на 320 млн сумов",
+      "category": "tech",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минтранс представил хокиму Ташкентской области план модернизации транспорта в 6 городах",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Мирзиёеву доложили о подготовке к зиме: пилот распространят на 13 районов",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 30.5,
+      "source": "Repost.uz"
+    },
+    {
+      "title": "На my.gov.uz разрешили прописку в заложенном и арестованном жилье без согласия банка",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "My.Gov.Uz: разрешение на тонировку стёкол можно оформить онлайн за 2 часа",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "my.gov.uz открыл регистрацию на тест по 5 языкам — до 12 августа",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Tashkent Land — новости Ташкента"
+    },
+    {
+      "title": "НАПП рассказало о законопроекте «О рынке капитала» по международным стандартам",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Охват водоснабжением в Узбекистане поднимут до 84,8% — указ президента",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Инспекция: 6 из 9 блоков ЖК Newport строили без регистрации",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 10.8,
+      "source": "Kapital.uz"
+    },
+    {
+      "title": "Депутаты направили в Сенат законопроект об ужесточении наказаний за нарушения ПДД",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Почти 96% жалоб на образование в Узбекистане касаются частных услуг",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минвуз продлил приём заявлений на перевод в частные вузы до 10 августа",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 2.6,
+      "source": "Gazeta.uz"
+    },
+    {
+      "title": "Генпрокуратура опровергла слух о задержании главы антикоррупционного отдела с $6 000",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 1.3,
+      "source": "Anhor.uz"
+    },
+    {
+      "title": "Прокуратура с 1 ноября будет единолично расследовать половые преступления",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Комитет по конкуренции вернул потребителям 59 млрд сумов за I полугодие",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Минюст зарегистрировал систему риск-анализа для надзора за промышленной безопасностью",
+      "category": "business",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "В Самаркандской области незаконно подключили цех к электросети — ущерб 919,8 млн сумов",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Как в Узбекистане назначают директоров школ: кейс Кумкургана",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Аренда кухни школы в Фергане на торгах госактивов ушла более чем в 31 раз выше старта",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Mover.uz"
+    },
+    {
+      "title": "Верховный суд разъяснил, как закон отменил досрочное освобождение взяточников",
+      "category": "politics",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Департамент раскрыл в Сурхандарье схему хищения кредита на 25 млрд сумов",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 6.3,
+      "source": "Repost.uz"
+    },
+    {
+      "title": "Мужчину в Сурхандарье приговорили к 15 годам за покушение на убийство соседки",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Anhor.uz"
+    },
+    {
+      "title": "Экополиция задержала двух браконьеров в Сырдарьинской области",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "ЦОДД закроет участок Малой кольцевой в Чиланзаре с 6 по 10 августа",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 1.8,
+      "source": "Gazeta.uz"
+    },
+    {
+      "title": "Департамент Генпрокуратуры задержал в Ташкенте таможенника за взятку в 3 000 долларов",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Хокимият Ташкента ответил на жалобы дольщиков ORIGINAL LYUKS SERVIS",
+      "category": "society",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Nuz.uz"
+    },
+    {
+      "title": "Veolia дважды отключит горячую воду в зоне ТЦ-4 Ташкента 7 августа",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Нацкомстат: новостройки в Ташкенте подорожали на 5% за год, по стране — на 7,1%",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Хокимият Ташкента начал превращать территорию у мемориала Каримова в парк на 37 гектаров",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 4.9,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "УЧС Ташкента ограничило работу рынка «Куйлюк» из-за нарушений пожарной безопасности",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 2.3,
+      "source": "Gazeta.uz"
+    },
+    {
+      "title": "Комитет по конкуренции добился отмены тендера Минобразования на 587,2 млн сумов",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 13,
+      "source": "Podrobno.uz"
+    },
+    {
+      "title": "Департамент раскрыл в Ташкентской области уклонение от налогов на 42,5 млрд сумов",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 1.8,
+      "source": "Spot.uz"
+    },
+    {
+      "title": "ЦОДД оборудовал в Ташкенте более 70 новых пешеходных переходов с марта",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 14.3,
+      "source": "Daryo.uz"
+    },
+    {
+      "title": "В Ташкенте на 32 минуты отключилось электричество в Алмазарском и Шайхантахурском районах",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Ташкент переходит на двухэтапную систему газоснабжения: редукторы уже в 5 649 домах",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "США готовят пошлины и минимальные цены на импортный поликремний",
+      "category": "world",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "США вернули импортёрам $100 млрд из пошлин, отменённых Верховным судом",
+      "category": "world",
+      "matched": true,
+      "lead": false,
+      "lagHours": 34.7,
+      "source": "Daryo.uz"
+    },
+    {
+      "title": "Касымалиев: Узбекистан может поставлять Кыргызстану до 20 тыс. тонн топлива",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 13.9,
+      "source": "Gazeta.uz"
+    },
+    {
+      "title": "Etihad и Uzbekistan Airways запускают рейсы Абу-Даби — Ташкент с 9 августа",
+      "category": "business",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Оборот кафе и ресторанов Узбекистана вырос на 12,1% в первом полугодии",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Узбекистанцы потратили на здравоохранение 11,3 трлн сумов за полугодие",
+      "category": "economy",
+      "matched": true,
+      "lead": true,
+      "lagHours": null,
+      "source": "Anhor.uz"
+    },
+    {
+      "title": "В Узбекистане на 1 июля работало 63,3 тыс. промышленных предприятий",
+      "category": "economy",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Узбекистан впервые примет Международную олимпиаду по информатике",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Сборная Узбекистана по фигитал-футболу обыграла Испанию 5:3 в Астане",
+      "category": "sport",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Узбекистан впервые законом напрямую урегулировал платные дороги",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "Погранслужба РФ: рабочие въезды из Узбекистана в Россию упали на 13,2%",
+      "category": "economy",
+      "matched": true,
+      "lead": false,
+      "lagHours": 6.3,
+      "source": "Anhor.uz"
+    },
+    {
+      "title": "В Узбекистане родилось более 8 тысяч детей от многоплодных родов за первое полугодие",
+      "category": "society",
+      "matched": true,
+      "lead": false,
+      "lagHours": 18.8,
+      "source": "Anhor.uz"
+    },
+    {
+      "title": "«Узсувтаъминот» и K-Water обновили программы подготовки кадров для водной отрасли",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    },
+    {
+      "title": "В Юнусабадском районе Ташкента модернизировали 291 из 419 ГРП",
+      "category": "society",
+      "matched": false,
+      "lead": true,
+      "lagHours": null,
+      "source": null
+    }
+  ]
+}
