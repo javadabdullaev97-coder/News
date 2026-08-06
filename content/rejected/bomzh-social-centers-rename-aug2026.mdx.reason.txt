@@ -1,0 +1,15 @@
+REJECTED: duplicate of content/posts/2026-08-04/uzbekistan-trafficking-homeless-decrees-aug2026.mdx
+(и связанного content/posts/2026-08-04/social-protection-reform-2026.mdx)
+
+Тема — постановление ПП-288 (переименование центров реабилитации МВД в Социальные центры,
+добровольное размещение с 1 сентября 2026) уже полностью освещена 4 августа 2026, включая
+те же детали: отмена судебного решения, добровольность, регистрация без госпошлины, статус
+безработного и ваучеры с 1 октября. Новый драфт не добавляет нового развития сюжета.
+
+Статья прошла editor (publish, approve-with-downgrades 80%) до обнаружения дубликата —
+качество текста было в порядке, причина отклонения чисто редакционная (дубликат).
+
+Reporter-notes: .review/reporter-notes-bomzh-social-centers-rename-aug2026.md
+Fact-check: .review/fact-check-bomzh-social-centers-rename-aug2026.md
+Editor-verdict: .review/editor-verdict-bomzh-social-centers-rename-aug2026.md
+Rejected: 2026-08-07, планёрка 03:00 Ташкента

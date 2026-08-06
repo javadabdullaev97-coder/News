@@ -1,0 +1,15 @@
+REJECTED: duplicate of content/needs-verification/world-husity-ataka-yemen-avgust-2026.mdx
+
+Тот же сюжет (удары хуситов по правительственным силам Йемена, Мариб/Хадрамаут, 6 августа,
+30+ погибших) уже полностью произведён другой/более ранней сессией планёрки под другим
+слагом и уже лежит в content/needs-verification/ с тем же вопросом владельцу (no-image).
+Публикация второго материала об одном и том же событии создала бы дублирующий вопрос
+владельцу в Telegram про ту же тему. Статья прошла fact-check (approve-with-downgrades 85%)
+и editor (publish) до обнаружения дубликата — bild, начав подбор картинки, сам заметил
+существование параллельного материала (world-husity-ataka-yemen-avgust-2026) и это
+подтвердило решение об отклонении.
+
+Reporter-notes: .review/notes-yemen-houthi-strikes-government-forces-aug2026.md
+Fact-check: .review/fact-check-yemen-houthi-strikes-government-forces-aug2026.md
+Editor-verdict: .review/editor-verdict-yemen-houthi-strikes-government-forces-aug2026.md
+Rejected: 2026-08-07, планёрка 03:00 Ташкента
