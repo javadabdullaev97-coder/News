@@ -286,6 +286,11 @@ function stamp(raw, publishedAt) {
 // меняется картина: пришёл материал, вышел материал, сдвинулось окно.
 const PLAN_GRANULARITY_MS = 5 * 60 * 1000;
 
+// На сколько срок может уползти, прежде чем подсказку стоит переписать.
+// Часы дёргают публикатор раз в три минуты и проверяют только факт
+// наступления срока — десять минут расхождения им безразличны.
+const PLAN_DRIFT_TOLERANCE_MS = 10 * 60 * 1000;
+
 function coarse(iso) {
   const t = Date.parse(iso ?? "");
   if (!Number.isFinite(t)) return null;
@@ -295,10 +300,31 @@ function coarse(iso) {
 function writePlanHint(nextDueAt, queued) {
   const path = join(ROOT, "content/state/publish-plan.json");
   const next = JSON.stringify({ nextDueAt: coarse(nextDueAt), queued }, null, 2) + "\n";
+  let prev = null;
   try {
-    if (readFileSync(path, "utf8") === next) return false;
+    const raw = readFileSync(path, "utf8");
+    if (raw === next) return false;
+    prev = JSON.parse(raw);
   } catch {
-    // Файла ещё нет — пишем.
+    // Файла ещё нет или он битый — пишем.
+  }
+
+  // Срок пересчитывается от «сейчас», поэтому он ползёт при каждом тике —
+  // округления мало. Пока состав очереди тот же, а записанный срок ещё
+  // не наступил и отличается не сильно, подсказка остаётся как есть.
+  //
+  // Цена вопроса выяснилась 07.08.2026: каждый такой коммит — пуш в main,
+  // каждый пуш — сборка сайта на Cloudflare, а месячный лимит в 3000 минут
+  // сборки выгорел за двое суток, и сайт замёрз на восемь часов. Подсказка
+  // нужна часам с точностью до нескольких минут, а не до секунды.
+  if (prev && prev.queued === queued && prev.nextDueAt) {
+    const prevAt = Date.parse(prev.nextDueAt);
+    const nextAt = Date.parse(coarse(nextDueAt) ?? "");
+    const stillAhead = Number.isFinite(prevAt) && prevAt > Date.now();
+    const closeEnough =
+      Number.isFinite(prevAt) && Number.isFinite(nextAt) &&
+      Math.abs(prevAt - nextAt) <= PLAN_DRIFT_TOLERANCE_MS;
+    if (stillAhead && closeEnough) return false;
   }
   mkdirSync(join(ROOT, "content/state"), { recursive: true });
   writeFileSync(path, next);

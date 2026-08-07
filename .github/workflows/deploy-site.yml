@@ -1,0 +1,77 @@
+name: Deploy site
+
+# Сборка и деплой сайта силами GitHub Actions, а не Cloudflare.
+#
+# ЗАЧЕМ. Cloudflare Workers Builds собирал сайт на КАЖДЫЙ пуш в main, а
+# редакция пушит около 600 коммитов в сутки: выпуски, инбокс, состояние,
+# заметки агентов. При двух-четырёх минутах на сборку месячный лимит
+# в 3000 минут выгорал за пару суток. 07.08.2026 сборки встали совсем
+# («Builds paused. You have used all 3,000 included build minutes»), сайт
+# замёрз на версии восьмичасовой давности, и правки — включая починку
+# битых ссылок — до читателя не доезжали.
+#
+# Здесь сборка идёт на раннерах GitHub, а Cloudflare получает готовый
+# результат через wrangler deploy. Минуты сборки Cloudflare при этом
+# не расходуются вовсе: он ничего не собирает, только принимает загрузку.
+#
+# ВАЖНО: в самом Cloudflare автосборку из репозитория надо отключить,
+# иначе он продолжит тратить лимит впустую.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      # Только то, что реально попадает в сборку. Инбокс, журналы состояния
+      # и заметки агентов на вид сайта не влияют — они и давали большую
+      # часть холостых сборок.
+      - "content/posts/**"
+      - "app/**"
+      - "components/**"
+      - "lib/**"
+      - "public/**"
+      - "src/**"
+      - "config/**"
+      - "wrangler.jsonc"
+      - "package.json"
+      - "package-lock.json"
+      - "next.config.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  # Пачка из двадцати коммитов подряд — обычное дело: планёрка выпускает
+  # материалы по одному. Незавершённые сборки отменяем, деплоится последняя.
+  # Так серия публикаций даёт один деплой, а не двадцать.
+  group: deploy-site
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      # wrangler.jsonc объявляет build.command — wrangler соберёт сайт сам
+      # перед загрузкой, поэтому отдельный npm run build здесь не нужен:
+      # две сборки подряд стоили бы вдвое дольше и могли бы разойтись.
+      # Версия wrangler закреплена: в зависимостях проекта его нет, а
+      # «npx wrangler» без версии однажды подтянет мажорную и сломает деплой
+      # в самый неудобный момент — сайт останется без обновлений, и заметим
+      # мы это по устаревшей ленте, а не по красному прогону.
+      - name: Build and deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --yes wrangler@4 deploy
