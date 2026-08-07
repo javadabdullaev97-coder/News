@@ -232,6 +232,32 @@ for (const day of dayDirs) {
     if (m) existing.add(`${m[2] ?? "ru"} ${day} ${m[1]}`);
   }
 }
+// Дата выхода у перевода обязана совпадать с оригиналом.
+//
+// Материал один — момент публикации у него один. Расхождение ломает порядок
+// в ленте, а пустая дата валит сборку карты сайта: 07.08.2026 два перевода
+// без publishedAt уронили prerender с «Invalid time value», и обнаружилось
+// это только после удаления демо-корпуса, который до того маскировал сбой.
+const dateProblems = [];
+for (const day of dayDirs) {
+  for (const f of readdirSync(join(POSTS, day))) {
+    const m = f.match(/^(.+)\.(uz|en)\.mdx$/);
+    if (!m) continue;
+    const orig = join(POSTS, day, `${m[1]}.mdx`);
+    if (!existsSync(orig)) continue;
+    const dateOf = (p) =>
+      (readFileSync(p, "utf8").match(/^publishedAt:\s*"?([^"\n]*)"?/m) ?? [])[1]?.trim() ?? "";
+    const a = dateOf(orig);
+    const b = dateOf(join(POSTS, day, f));
+    if (a && a !== b) {
+      dateProblems.push({ file: `content/posts/${day}/${f}`, why: b ? `дата ${b} вместо ${a}` : "нет publishedAt" });
+    }
+  }
+}
+for (const d of dateProblems) {
+  console.error(`✗ ${d.file}: ${d.why} — у перевода и оригинала момент выхода один`);
+}
+
 const badLinks = [];
 for (const { path: file, lang } of files) {
   const text = readFileSync(file, "utf8");
@@ -257,9 +283,9 @@ for (const l of leaks) {
 }
 console.error(
   fix
-    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}`
-    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}`,
+    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}`
+    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}`,
 );
 // Утечка разметки — ошибка всегда, даже в режиме --fix: чинить её
 // автоматически нельзя, а выпускать материал с ней нельзя тем более.
-process.exit(leaks.length || cards.length || badLinks.length || (!fix && findings.length) ? 1 : 0);
+process.exit(leaks.length || cards.length || badLinks.length || dateProblems.length || (!fix && findings.length) ? 1 : 0);
