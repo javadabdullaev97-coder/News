@@ -1,0 +1,82 @@
+{
+  "message": {
+    "chat": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "last_name": "Abdullaev",
+      "type": "private",
+      "username": "javad_abdullaev"
+    },
+    "date": 1786130917,
+    "from": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "is_bot": false,
+      "is_premium": true,
+      "language_code": "en",
+      "last_name": "Abdullaev",
+      "username": "javad_abdullaev"
+    },
+    "message_id": 450,
+    "reply_to_message": {
+      "chat": {
+        "first_name": "Javad",
+        "id": 1104500,
+        "last_name": "Abdullaev",
+        "type": "private",
+        "username": "javad_abdullaev"
+      },
+      "date": 1786122766,
+      "entities": [
+        {
+          "length": 18,
+          "offset": 0,
+          "type": "bold"
+        },
+        {
+          "length": 64,
+          "offset": 20,
+          "type": "bold"
+        },
+        {
+          "length": 21,
+          "offset": 206,
+          "type": "url"
+        },
+        {
+          "length": 16,
+          "offset": 229,
+          "type": "url"
+        },
+        {
+          "length": 24,
+          "offset": 586,
+          "type": "url"
+        },
+        {
+          "length": 14,
+          "offset": 613,
+          "type": "url"
+        },
+        {
+          "length": 34,
+          "offset": 1014,
+          "type": "italic"
+        }
+      ],
+      "from": {
+        "first_name": "LEAP News - ADMIN",
+        "id": 8652303606,
+        "is_bot": true,
+        "username": "leap_news_bot"
+      },
+      "link_preview_options": {
+        "url": "http://t.me/poytaxt_uz/51283"
+      },
+      "message_id": 436,
+      "text": "НУЖНО ВАШЕ РЕШЕНИЕ\n\nФилиал МГТУ Баумана в Ташкенте принимает документы до 28 августа\n\nПочему спрашиваю: нашлась только рисованная 3D-заготовка из стока, а не живая фотография.\n\nПроверил оба первоисточника (t.me/poytaxt_uz/51283, t.me/bmstu_uz/51) — у обоих один и тот же кадр: рекламный баннер приёмной кампании (лого, заголовок XALQARO DARAJADAGI ..., рейтинги QS/THE/RAEX, QR-код) со стоковым фото стеклянного здания на фоне — не сама временная площадка филиала на 2-й Чимбай, 96, и не документальная съёмка. Живого фото здания/аудитории/приёмной комиссии ни на одном из каналов нет. bmstu.ru/branch_Tashkent и priem.bmstu.ru — JS-приложения без og:image. Unsplash закрыт анти-бот-защитой без API-ключа, Pexels отдаёт 401 без ключа (кроме одного случайно закешированного прокси ответа на query=university — не считаю это легитимным официальным доступом). Higgsfield (generate_image) не подключён в этом прогоне. Есть кадр здания/аудитории от вас, или подтверждаете рекламный баннер, или публикуем без картинки?\n\nОтветьте реплаем на это сообщение:\n• пришлите фото — оно станет главной картинкой\n• «ок» — публиковать как есть\n• «стоп» — снять материал\n• любой другой текст — уйдёт в правку как комментарий"
+    },
+    "text": "Стоп"
+  },
+  "update_id": 273157596
+}
