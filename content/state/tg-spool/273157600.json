@@ -1,0 +1,67 @@
+{
+  "message": {
+    "chat": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "last_name": "Abdullaev",
+      "type": "private",
+      "username": "javad_abdullaev"
+    },
+    "date": 1786137896,
+    "from": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "is_bot": false,
+      "is_premium": true,
+      "language_code": "en",
+      "last_name": "Abdullaev",
+      "username": "javad_abdullaev"
+    },
+    "message_id": 460,
+    "reply_to_message": {
+      "chat": {
+        "first_name": "Javad",
+        "id": 1104500,
+        "last_name": "Abdullaev",
+        "type": "private",
+        "username": "javad_abdullaev"
+      },
+      "date": 1786086563,
+      "entities": [
+        {
+          "length": 23,
+          "offset": 0,
+          "type": "bold"
+        },
+        {
+          "length": 87,
+          "offset": 25,
+          "type": "bold"
+        },
+        {
+          "length": 76,
+          "offset": 495,
+          "type": "url"
+        },
+        {
+          "length": 205,
+          "offset": 573,
+          "type": "italic"
+        }
+      ],
+      "from": {
+        "first_name": "LEAP News - ADMIN",
+        "id": 8652303606,
+        "is_bot": true,
+        "username": "leap_news_bot"
+      },
+      "link_preview_options": {
+        "is_disabled": true
+      },
+      "message_id": 389,
+      "text": "ВЫШЛО БЕЗ ПОДТВЕРЖДЕНИЯ\n\nПравозащитники назвали военным преступлением удар Израиля, убивший журналистку в Ливане\n\nФото Амаль Халиль взято со страницы отчёта HRW, где оно подписано «© Private» — то есть права принадлежат не HRW, а частному лицу (вероятно, семье/коллегам), передавшему снимок для отчёта. Явного подтверждения прав на дальнейшую перепечатку нет, хотя такая практика стандартна при освещении гибели журналистов. Выпущено без ожидания ответа.\n\nИсточник: Human Rights Watch\nНа сайте: https://leap.uz/ru/2026/08/07/israel-lebanon-strikes-ceasefire-talks-aug2026\n\nОтвечать не нужно, материал уже опубликован. Если он не должен был выйти — ответьте «стоп» реплаем: сниму с сайта и удалю пост из канала. Удаление из канала работает 48 часов, дальше только снятие с сайта."
+    },
+    "text": "Ок"
+  },
+  "update_id": 273157600
+}
