@@ -1,0 +1,252 @@
+{
+  "$comment": "Конфиг корпуса для пайплайна анализа конкурентов (scripts/competitor/*.py). Источники сверены с docs/media-landscape-2026.md и config/news-sources.json, но проверены заново скриптом discover_sources.py — см. output/source-discovery.json.",
+  "version": 1,
+  "generated": "2026-08-07",
+  "period": {
+    "start": "2026-07-08",
+    "end": "2026-08-07",
+    "note": "30 дней. Наш собственный корпус существует только с 2026-08-01, поэтому head-to-head сравнение возможно лишь в окне 01-07.08 — это ограничение фиксируется в отчёте."
+  },
+  "languages": [
+    "ru"
+  ],
+  "target_per_competitor": {
+    "min": 80,
+    "max": 120
+  },
+  "us": {
+    "id": "leap",
+    "name": "LEAP News",
+    "site": "https://leap.uz",
+    "content_dir": "content/posts",
+    "telegram": null
+  },
+  "competitors": [
+    {
+      "id": "gazeta",
+      "name": "Gazeta.uz",
+      "site": "https://gazeta.uz",
+      "lang": "ru",
+      "focus": "аналитика, урбанистика, общество",
+      "index": [
+        {
+          "kind": "rss",
+          "url": "https://gazeta.uz/ru/rss/"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://gazeta.uz/sitemap.xml",
+          "child_include": "materials-ru-\\d{4}-\\d{2}-\\d{2}\\.xml$"
+        }
+      ],
+      "telegram": "gazetauz",
+      "note": "gazeta.uz рвёт соединение на небраузерном User-Agent и на хосте www.* (RemoteProtocolError). robots.txt пустой, запретов нет — ходим на голый домен с браузерным UA. Sitemap разбит по неделям (materials-ru-YYYY-MM-DD.xml).",
+      "article_re": "^https?://(?:www\\.)?gazeta\\.uz/ru/\\d{4}/\\d{2}/\\d{2}/[^/]+/?$",
+      "browser_ua": true
+    },
+    {
+      "id": "kun",
+      "name": "Kun.uz",
+      "site": "https://kun.uz",
+      "lang": "ru",
+      "focus": "универсальное, крупнейшее СМИ страны",
+      "index": [
+        {
+          "kind": "sitemap",
+          "url": "https://kun.uz/sitemap.xml",
+          "child_include": "site-map-news_(?:year_2026|day_\\d+_year_2026_month_\\d+)\\.xml$"
+        }
+      ],
+      "telegram": "kunuzru",
+      "note": "kun.uz/ru/news/rss отдаёт HTML вместо фида — RU-RSS у издания нет. Идём по посуточным sitemap-файлам; RU-версии ~20 материалов в день из ~55 узбекских.",
+      "article_re": "^https://kun\\.uz/ru/news/\\d{4}/\\d{2}/\\d{2}/[^/]+$",
+      "short_links": true
+    },
+    {
+      "id": "daryo",
+      "name": "Daryo.uz",
+      "site": "https://daryo.uz",
+      "lang": "ru",
+      "focus": "универсальное, регионы, ЧП",
+      "index": [
+        {
+          "kind": "sitemap",
+          "url": "https://daryo.uz/sitemap.xml",
+          "child_include": "sitemap-ru(?:-\\d+)?\\.xml$"
+        }
+      ],
+      "telegram": "daryo",
+      "telegram_lang": "uz",
+      "telegram_note": "Живой канал только узбекоязычный — @daryo (Rasmiy kanal). Русских каналов у издания фактически нет: @daryo_ru и @daryouz пустые, @daryo_uz заброшен в июне 2024, @daryo_rus не обновлялся с июля 2020. В RU-стилевые метрики канал не идёт, используется только для оценки скорости и объёма дистрибуции.",
+      "article_re": "^https://daryo\\.uz/ru/\\d{4}/\\d{2}/\\d{2}/[^/]+/?$",
+      "extractor": "nuxt-daryo",
+      "note": "Сайт рендерится на JS: в отданном html пустой каркас, текст материала лежит экранированным внутри инлайнового скрипта Nuxt, метаданные — в schema.org-блоке. Playwright не нужен: parse_articles.py собирает из сырья синтетическую страницу (extractor=nuxt-daryo) и дальше разбирает её общим кодом.",
+      "short_links": true
+    },
+    {
+      "id": "spot",
+      "name": "Spot.uz",
+      "site": "https://www.spot.uz",
+      "lang": "ru",
+      "focus": "бизнес, IT, финтех, налоги",
+      "index": [
+        {
+          "kind": "rss",
+          "url": "https://www.spot.uz/ru/rss/"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.spot.uz/sitemap.xml",
+          "child_include": "materials-ru-\\d{4}-\\d{2}-\\d{2}\\.xml$"
+        }
+      ],
+      "telegram": "spotuz",
+      "article_re": "^https?://(?:www\\.)?spot\\.uz/ru/\\d{4}/\\d{2}/\\d{2}/[^/]+/?$"
+    },
+    {
+      "id": "podrobno",
+      "name": "Podrobno.uz",
+      "site": "https://podrobno.uz",
+      "lang": "ru",
+      "focus": "Ташкент, политика, соцсфера",
+      "index": [
+        {
+          "kind": "rss",
+          "url": "https://podrobno.uz/rss/"
+        },
+        {
+          "kind": "listing",
+          "url": "https://podrobno.uz/cat/obchestvo/",
+          "page_param": "PAGEN_1",
+          "max_pages": 12
+        },
+        {
+          "kind": "listing",
+          "url": "https://podrobno.uz/cat/politic/",
+          "page_param": "PAGEN_1",
+          "max_pages": 8
+        },
+        {
+          "kind": "listing",
+          "url": "https://podrobno.uz/cat/economic/",
+          "page_param": "PAGEN_1",
+          "max_pages": 8
+        },
+        {
+          "kind": "listing",
+          "url": "https://podrobno.uz/cat/proisshestviya/",
+          "page_param": "PAGEN_1",
+          "max_pages": 6
+        }
+      ],
+      "telegram": "podrobno",
+      "article_re": "^https://podrobno\\.uz/cat/[a-z0-9-]+/[a-z0-9-]{12,}/$",
+      "note": "Sitemap издания ведёт на рубрики и теги с lastmod 2015-2022 — для новостей бесполезен. Идём через RSS плюс пагинацию рубрик; дату публикации берём со страницы материала."
+    },
+    {
+      "id": "repost",
+      "name": "Repost.uz",
+      "site": "https://repost.uz",
+      "lang": "ru",
+      "focus": "молодёжка, вирусное, лайфстайл",
+      "index": [
+        {
+          "kind": "sitemap",
+          "url": "https://repost.uz/news-feed.xml"
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://repost.uz/sitemap.xml"
+        }
+      ],
+      "telegram": "repostuz",
+      "article_re": "^https://repost\\.uz/[a-z0-9-]{4,}$",
+      "note": "news-feed.xml — Google News-фид, только последние ~2 суток, зато с news:publication_date. Глубину добираем из общего sitemap.xml, у него lastmod по дням."
+    },
+    {
+      "id": "uznews",
+      "name": "UzNews.uz",
+      "site": "https://www.uznews.uz",
+      "lang": "ru",
+      "focus": "ЧП, суды, криминал",
+      "index": [
+        {
+          "kind": "rss",
+          "url": "https://www.uznews.uz/ru/rss"
+        },
+        {
+          "kind": "listing",
+          "url": "https://www.uznews.uz/ru/news",
+          "page_param": "page",
+          "max_pages": 40
+        },
+        {
+          "kind": "listing",
+          "url": "https://www.uznews.uz/ru/articles",
+          "page_param": "page",
+          "max_pages": 10
+        }
+      ],
+      "telegram": "uznews",
+      "article_re": "^https://(?:www\\.)?uznews\\.uz/ru/(?:news|articles)/\\d+$",
+      "note": "В sitemap издания только языконезависимые /news/<id> и lastmod=дата генерации файла, поэтому период по нему не отфильтровать. Идём через RSS и пагинацию ленты, дату берём со страницы материала."
+    },
+    {
+      "id": "yuz",
+      "name": "Yuz.uz",
+      "site": "https://yuz.uz",
+      "lang": "ru",
+      "focus": "госполитика, реформы",
+      "index": [
+        {
+          "kind": "sitemap",
+          "url": "https://yuz.uz/ru/sitemap.xml"
+        },
+        {
+          "kind": "listing",
+          "url": "https://yuz.uz/ru/news",
+          "page_param": "page",
+          "max_pages": 20
+        }
+      ],
+      "telegram": "yuz_official",
+      "telegram_lang": "uz",
+      "article_re": "^https://yuz\\.uz/ru/news/[a-z0-9-]+$",
+      "short_links": true
+    }
+  ],
+  "topics": [
+    {
+      "id": "economy",
+      "name": "Экономика и финансы"
+    },
+    {
+      "id": "gov",
+      "name": "Власть, законы, госуправление"
+    },
+    {
+      "id": "society",
+      "name": "Общество и социальная сфера"
+    },
+    {
+      "id": "city",
+      "name": "Город, урбанистика, инфраструктура"
+    },
+    {
+      "id": "incidents",
+      "name": "ЧП, криминал, суды"
+    },
+    {
+      "id": "tech",
+      "name": "IT, цифра, наука"
+    },
+    {
+      "id": "world",
+      "name": "Мир и внешняя политика"
+    },
+    {
+      "id": "culture",
+      "name": "Культура, спорт, лайфстайл"
+    }
+  ]
+}

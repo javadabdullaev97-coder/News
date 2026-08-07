@@ -1,0 +1,272 @@
+{
+  "generated_by": "scripts/competitor/discover_sources.py",
+  "competitors": [
+    {
+      "id": "gazeta",
+      "name": "Gazeta.uz",
+      "sources": [
+        {
+          "kind": "rss",
+          "url": "https://www.gazeta.uz/ru/rss/",
+          "robots_allowed": true,
+          "http": "RemoteProtocolError: Server disconnected without sending a response.",
+          "ok": false
+        },
+        {
+          "kind": "listing",
+          "url": "https://www.gazeta.uz/ru/list/news",
+          "robots_allowed": true,
+          "http": "RemoteProtocolError: Server disconnected without sending a response.",
+          "ok": false
+        }
+      ],
+      "telegram": {
+        "url": "https://t.me/s/gazetauz",
+        "http": 200,
+        "posts_on_page": 18,
+        "ok": true
+      }
+    },
+    {
+      "id": "kun",
+      "name": "Kun.uz",
+      "sources": [
+        {
+          "kind": "rss",
+          "url": "https://kun.uz/ru/news/rss",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "html",
+          "entries": 26,
+          "bytes": 93217,
+          "ok": false
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://kun.uz/sitemap.xml",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "sitemapindex",
+          "entries": 14,
+          "bytes": 2250,
+          "ok": true
+        },
+        {
+          "kind": "listing",
+          "url": "https://kun.uz/ru/news/list",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "html",
+          "entries": 69,
+          "bytes": 170335,
+          "ok": true
+        }
+      ],
+      "telegram": {
+        "url": "https://t.me/s/kunuzru",
+        "http": 200,
+        "posts_on_page": 20,
+        "ok": true
+      }
+    },
+    {
+      "id": "daryo",
+      "name": "Daryo.uz",
+      "sources": [
+        {
+          "kind": "sitemap",
+          "url": "https://daryo.uz/sitemap.xml",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "sitemapindex",
+          "entries": 4,
+          "bytes": 545,
+          "ok": true
+        },
+        {
+          "kind": "listing",
+          "url": "https://daryo.uz/ru/list/novosti",
+          "robots_allowed": true,
+          "http": 404,
+          "ok": false
+        }
+      ],
+      "telegram": {
+        "url": "https://t.me/s/daryo_ru",
+        "http": 200,
+        "posts_on_page": 0,
+        "ok": false
+      }
+    },
+    {
+      "id": "spot",
+      "name": "Spot.uz",
+      "sources": [
+        {
+          "kind": "rss",
+          "url": "https://www.spot.uz/ru/rss/",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "rss",
+          "entries": 20,
+          "bytes": 14159,
+          "ok": true
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://www.spot.uz/sitemap.xml",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "sitemapindex",
+          "entries": 830,
+          "bytes": 115450,
+          "ok": true
+        },
+        {
+          "kind": "listing",
+          "url": "https://www.spot.uz/ru/",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "html",
+          "entries": 176,
+          "bytes": 84068,
+          "ok": true
+        }
+      ],
+      "telegram": {
+        "url": "https://t.me/s/spotug",
+        "http": 200,
+        "posts_on_page": 0,
+        "ok": false
+      }
+    },
+    {
+      "id": "podrobno",
+      "name": "Podrobno.uz",
+      "sources": [
+        {
+          "kind": "rss",
+          "url": "https://podrobno.uz/rss/",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "rss",
+          "entries": 30,
+          "bytes": 90162,
+          "ok": true
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://podrobno.uz/sitemap.xml",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "sitemapindex",
+          "entries": 8,
+          "bytes": 1041,
+          "ok": true
+        }
+      ],
+      "telegram": {
+        "url": "https://t.me/s/podrobno",
+        "http": 200,
+        "posts_on_page": 20,
+        "ok": true
+      }
+    },
+    {
+      "id": "repost",
+      "name": "Repost.uz",
+      "sources": [
+        {
+          "kind": "sitemap",
+          "url": "https://repost.uz/sitemap.xml",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "sitemap",
+          "entries": 5300,
+          "bytes": 901304,
+          "ok": true
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://repost.uz/news-feed.xml",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "sitemap",
+          "entries": 113,
+          "bytes": 61856,
+          "ok": true
+        }
+      ],
+      "telegram": {
+        "url": "https://t.me/s/repostuz",
+        "http": 200,
+        "posts_on_page": 20,
+        "ok": true
+      }
+    },
+    {
+      "id": "uznews",
+      "name": "UzNews.uz",
+      "sources": [
+        {
+          "kind": "rss",
+          "url": "https://www.uznews.uz/ru/rss",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "rss",
+          "entries": 20,
+          "bytes": 47824,
+          "ok": true
+        },
+        {
+          "kind": "sitemap",
+          "url": "https://uznews.uz/sitemap.xml",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "sitemapindex",
+          "entries": 12,
+          "bytes": 880,
+          "ok": true
+        }
+      ],
+      "telegram": {
+        "url": "https://t.me/s/uznews",
+        "http": 200,
+        "posts_on_page": 20,
+        "ok": true
+      }
+    },
+    {
+      "id": "yuz",
+      "name": "Yuz.uz",
+      "sources": [
+        {
+          "kind": "sitemap",
+          "url": "https://yuz.uz/ru/sitemap.xml",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "sitemap",
+          "entries": 10001,
+          "bytes": 1794846,
+          "ok": true
+        },
+        {
+          "kind": "listing",
+          "url": "https://yuz.uz/ru/news",
+          "robots_allowed": true,
+          "http": 200,
+          "body_kind": "html",
+          "entries": 138,
+          "bytes": 86537,
+          "ok": true
+        }
+      ],
+      "telegram": {
+        "url": "https://t.me/s/yuz_official",
+        "http": 200,
+        "posts_on_page": 14,
+        "ok": true
+      }
+    }
+  ]
+}

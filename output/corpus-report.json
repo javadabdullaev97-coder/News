@@ -1,0 +1,251 @@
+{
+  "gazeta": {
+    "site_articles": 120,
+    "telegram_posts": 655,
+    "posts_with_own_link": 604,
+    "crossposts_by_link": 584,
+    "crossposts_by_text": 0,
+    "unmatched_own_links": 20,
+    "crosspost_share_of_tg": 0.892,
+    "own_link_share_of_tg": 0.922,
+    "resolved_short_links": 0,
+    "own_links_by_lang": {
+      "ru": 604
+    },
+    "parse": {
+      "id": "gazeta",
+      "name": "Gazeta.uz",
+      "fetched": 120,
+      "kept": 120,
+      "dropped": {
+        "no_raw": 0,
+        "extract_failed": 0,
+        "out_of_period": 0,
+        "no_date": 0,
+        "dup_url": 0,
+        "dup_text": 0
+      }
+    }
+  },
+  "kun": {
+    "site_articles": 115,
+    "telegram_posts": 448,
+    "posts_with_own_link": 429,
+    "crossposts_by_link": 179,
+    "crossposts_by_text": 0,
+    "unmatched_own_links": 258,
+    "crosspost_share_of_tg": 0.4,
+    "own_link_share_of_tg": 0.958,
+    "resolved_short_links": 192,
+    "own_links_by_lang": {
+      "ru": 429,
+      "без языка": 19
+    },
+    "parse": {
+      "id": "kun",
+      "name": "Kun.uz",
+      "fetched": 120,
+      "kept": 115,
+      "dropped": {
+        "no_raw": 0,
+        "extract_failed": 1,
+        "out_of_period": 4,
+        "no_date": 0,
+        "dup_url": 0,
+        "dup_text": 0
+      }
+    }
+  },
+  "daryo": {
+    "site_articles": 108,
+    "telegram_posts": 1115,
+    "posts_with_own_link": 1014,
+    "crossposts_by_link": 0,
+    "crossposts_by_text": 0,
+    "unmatched_own_links": 1014,
+    "crosspost_share_of_tg": 0.0,
+    "own_link_share_of_tg": 0.909,
+    "resolved_short_links": 200,
+    "own_links_by_lang": {
+      "без языка": 1200
+    },
+    "parse": {
+      "id": "daryo",
+      "name": "Daryo.uz",
+      "fetched": 120,
+      "kept": 108,
+      "dropped": {
+        "no_raw": 0,
+        "extract_failed": 12,
+        "out_of_period": 0,
+        "no_date": 0,
+        "dup_url": 0,
+        "dup_text": 0
+      }
+    }
+  },
+  "spot": {
+    "site_articles": 120,
+    "telegram_posts": 541,
+    "posts_with_own_link": 530,
+    "crossposts_by_link": 491,
+    "crossposts_by_text": 0,
+    "unmatched_own_links": 39,
+    "crosspost_share_of_tg": 0.908,
+    "own_link_share_of_tg": 0.98,
+    "resolved_short_links": 0,
+    "own_links_by_lang": {
+      "ru": 537,
+      "без языка": 421,
+      "oz": 2
+    },
+    "parse": {
+      "id": "spot",
+      "name": "Spot.uz",
+      "fetched": 120,
+      "kept": 120,
+      "dropped": {
+        "no_raw": 0,
+        "extract_failed": 0,
+        "out_of_period": 0,
+        "no_date": 0,
+        "dup_url": 0,
+        "dup_text": 0
+      }
+    }
+  },
+  "podrobno": {
+    "site_articles": 116,
+    "telegram_posts": 1184,
+    "posts_with_own_link": 1155,
+    "crossposts_by_link": 277,
+    "crossposts_by_text": 0,
+    "unmatched_own_links": 878,
+    "crosspost_share_of_tg": 0.234,
+    "own_link_share_of_tg": 0.976,
+    "resolved_short_links": 0,
+    "own_links_by_lang": {
+      "без языка": 2430
+    },
+    "parse": {
+      "id": "podrobno",
+      "name": "Podrobno.uz",
+      "fetched": 120,
+      "kept": 116,
+      "dropped": {
+        "no_raw": 0,
+        "extract_failed": 4,
+        "out_of_period": 0,
+        "no_date": 0,
+        "dup_url": 0,
+        "dup_text": 0
+      }
+    }
+  },
+  "repost": {
+    "site_articles": 120,
+    "telegram_posts": 1173,
+    "posts_with_own_link": 1041,
+    "crossposts_by_link": 932,
+    "crossposts_by_text": 0,
+    "unmatched_own_links": 109,
+    "crosspost_share_of_tg": 0.795,
+    "own_link_share_of_tg": 0.887,
+    "resolved_short_links": 0,
+    "own_links_by_lang": {
+      "без языка": 1078
+    },
+    "parse": {
+      "id": "repost",
+      "name": "Repost.uz",
+      "fetched": 120,
+      "kept": 120,
+      "dropped": {
+        "no_raw": 0,
+        "extract_failed": 0,
+        "out_of_period": 0,
+        "no_date": 0,
+        "dup_url": 0,
+        "dup_text": 0
+      }
+    }
+  },
+  "uznews": {
+    "site_articles": 93,
+    "telegram_posts": 430,
+    "posts_with_own_link": 404,
+    "crossposts_by_link": 276,
+    "crossposts_by_text": 0,
+    "unmatched_own_links": 128,
+    "crosspost_share_of_tg": 0.642,
+    "own_link_share_of_tg": 0.94,
+    "resolved_short_links": 0,
+    "own_links_by_lang": {
+      "ru": 404
+    },
+    "parse": {
+      "id": "uznews",
+      "name": "UzNews.uz",
+      "fetched": 120,
+      "kept": 93,
+      "dropped": {
+        "no_raw": 0,
+        "extract_failed": 0,
+        "out_of_period": 21,
+        "no_date": 0,
+        "dup_url": 0,
+        "dup_text": 6
+      }
+    }
+  },
+  "yuz": {
+    "site_articles": 118,
+    "telegram_posts": 752,
+    "posts_with_own_link": 710,
+    "crossposts_by_link": 0,
+    "crossposts_by_text": 0,
+    "unmatched_own_links": 710,
+    "crosspost_share_of_tg": 0.0,
+    "own_link_share_of_tg": 0.944,
+    "resolved_short_links": 200,
+    "own_links_by_lang": {
+      "без языка": 2170,
+      "oz": 237,
+      "uz": 225
+    },
+    "parse": {
+      "id": "yuz",
+      "name": "Yuz.uz",
+      "fetched": 120,
+      "kept": 118,
+      "dropped": {
+        "no_raw": 0,
+        "extract_failed": 2,
+        "out_of_period": 0,
+        "no_date": 0,
+        "dup_url": 0,
+        "dup_text": 0
+      }
+    }
+  },
+  "leap": {
+    "site_articles": 303,
+    "telegram_posts": 0,
+    "posts_with_own_link": 0,
+    "crossposts_by_link": 0,
+    "crossposts_by_text": 0,
+    "unmatched_own_links": 0,
+    "crosspost_share_of_tg": null,
+    "own_link_share_of_tg": null,
+    "resolved_short_links": 0,
+    "own_links_by_lang": {},
+    "parse": {
+      "id": "leap",
+      "name": "LEAP News",
+      "kept": 303,
+      "skipped_translations": 602,
+      "skipped_out_of_period": 0,
+      "skipped_unparsed": 0
+    }
+  }
+}
