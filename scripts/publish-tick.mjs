@@ -187,6 +187,54 @@ function readQueue() {
  * в коде. Ровно поэтому 3 августа целая пачка вышла без фотографий, и
  * заметил это владелец, а не система.
  */
+// Хвосты служебной разметки агентов и внутренние ссылки — последняя
+// проверка перед сайтом.
+//
+// Правила про то и другое записаны в редполитике, а линтер их ловит —
+// но ловил ПОСЛЕ публикации: планёрка гоняет его на шаге перевода,
+// а материал уезжает на сайт мимо. 07.08.2026 это дало 21 битую ссылку
+// и шесть утечек разметки в материалах, выпущенных уже после того,
+// как правило было записано. Здесь — единственное место, через которое
+// проходит всё без исключения.
+const LEAK_MARKERS = ["</content>", "</invoke>", "<invoke", "<function_calls>", "antml:", "<parameter"];
+const INTERNAL_LINK = /https:\/\/leap\.uz\/([^)"'\s]+)/g;
+const GOOD_LINK = /^(ru|uz|en)\/\d{4}\/\d{2}\/\d{2}\/[^/]+$/;
+
+/** Материалы, уже лежащие на сайте, — чтобы проверить, куда ведёт ссылка. */
+function publishedKeys() {
+  const keys = new Set();
+  if (!existsSync(POSTS_DIR)) return keys;
+  for (const day of readdirSync(POSTS_DIR)) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) continue;
+    for (const f of readdirSync(join(POSTS_DIR, day))) {
+      const m = f.match(/^(.+?)(?:\.(uz|en))?\.mdx$/);
+      if (m) keys.add(`${m[2] ?? "ru"} ${day} ${m[1]}`);
+    }
+  }
+  return keys;
+}
+
+const knownArticles = publishedKeys();
+
+function contentProblem(item) {
+  const leak = LEAK_MARKERS.find((sig) => item.raw.includes(sig));
+  if (leak) return `в тексте служебная разметка агента (${leak})`;
+  for (const m of item.raw.matchAll(INTERNAL_LINK)) {
+    const path = m[1];
+    if (!GOOD_LINK.test(path)) {
+      return `внутренняя ссылка в неверном формате: ${m[0]} (нужно /<язык>/ГГГГ/ММ/ДД/<slug>)`;
+    }
+    const [lang, y, mo, d, slug] = path.split("/");
+    // Ссылка может вести на материал, выходящий этой же пачкой, — тогда он
+    // ещё в очереди. Это законно, проверяем оба места.
+    const inQueue = existsSync(join(QUEUE_DIR, `${slug}.mdx`));
+    if (!knownArticles.has(`${lang} ${y}-${mo}-${d} ${slug}`) && !inQueue) {
+      return `внутренняя ссылка ведёт в никуда: ${m[0]}`;
+    }
+  }
+  return null;
+}
+
 function blockedReason(item) {
   if (item.awaitingEditor) return "ждёт ответа владельца";
   // pendingEditorQuestion без awaitingEditor — противоречивое состояние
@@ -195,6 +243,8 @@ function blockedReason(item) {
   // его под вопрос — подписчики получили мёртвую ссылку.
   if (item.fm?.pendingEditorQuestion) return "стоит неснятый вопрос владельцу";
   if (!item.hasImage) return "нет картинки (gates.requiresImage)";
+  const problem = contentProblem(item);
+  if (problem) return problem;
   return null;
 }
 
