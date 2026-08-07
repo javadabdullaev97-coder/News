@@ -1,0 +1,109 @@
+{
+  "message": {
+    "chat": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "last_name": "Abdullaev",
+      "type": "private",
+      "username": "javad_abdullaev"
+    },
+    "date": 1786138003,
+    "from": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "is_bot": false,
+      "is_premium": true,
+      "language_code": "en",
+      "last_name": "Abdullaev",
+      "username": "javad_abdullaev"
+    },
+    "message_id": 461,
+    "photo": [
+      {
+        "file_id": "AgACAgIAAxkBAAIBzWp2TZMzzIl4lvivJxTnHKvZWHruAAILGmsbwvexS5j7uIhps7BnAQADAgADcwADPQQ",
+        "file_size": 1226,
+        "file_unique_id": "AQADCxprG8L3sUt4",
+        "height": 60,
+        "width": 90
+      },
+      {
+        "file_id": "AgACAgIAAxkBAAIBzWp2TZMzzIl4lvivJxTnHKvZWHruAAILGmsbwvexS5j7uIhps7BnAQADAgADbQADPQQ",
+        "file_size": 10025,
+        "file_unique_id": "AQADCxprG8L3sUty",
+        "height": 213,
+        "width": 320
+      },
+      {
+        "file_id": "AgACAgIAAxkBAAIBzWp2TZMzzIl4lvivJxTnHKvZWHruAAILGmsbwvexS5j7uIhps7BnAQADAgADeAADPQQ",
+        "file_size": 17764,
+        "file_unique_id": "AQADCxprG8L3sUt9",
+        "height": 452,
+        "width": 678
+      }
+    ],
+    "reply_to_message": {
+      "chat": {
+        "first_name": "Javad",
+        "id": 1104500,
+        "last_name": "Abdullaev",
+        "type": "private",
+        "username": "javad_abdullaev"
+      },
+      "date": 1786137858,
+      "entities": [
+        {
+          "length": 18,
+          "offset": 0,
+          "type": "bold"
+        },
+        {
+          "length": 66,
+          "offset": 20,
+          "type": "bold"
+        },
+        {
+          "length": 20,
+          "offset": 199,
+          "type": "url"
+        },
+        {
+          "length": 20,
+          "offset": 261,
+          "type": "url"
+        },
+        {
+          "length": 44,
+          "offset": 412,
+          "type": "url"
+        },
+        {
+          "length": 6,
+          "offset": 551,
+          "type": "url"
+        },
+        {
+          "length": 20,
+          "offset": 739,
+          "type": "url"
+        },
+        {
+          "length": 34,
+          "offset": 1105,
+          "type": "italic"
+        }
+      ],
+      "from": {
+        "first_name": "LEAP News - ADMIN",
+        "id": 8652303606,
+        "is_bot": true,
+        "username": "leap_news_bot"
+      },
+      "link_preview_options": {
+        "url": "http://t.me/oliysuduz/51380"
+      },
+      "message_id": 457,
+      "text": "НУЖНО ВАШЕ РЕШЕНИЕ\n\nВерховный суд проведёт выездной приём граждан в Ташкенте 8 августа\n\nПочему спрашиваю: картинки нет вообще — ни в первоисточнике, ни в стоке.\n\nОба поста Верховного суда проверены: t.me/oliysuduz/51380 (напоминание) — текстовый пост без фото. t.me/oliysuduz/51360 (анонс) — только промо-постер с узбекским текстом (\"ОММАВИЙ ҚАБУЛ\", QR-код, дата), не документальное фото здания — по прецеденту (bild-notes-cb-cash-fx-500-usd-no-passport.md) такую графику на русскоязычное превью не берём. Аватар канала 160×160 — ниже минимума 600px. sud.uz отдаёт 503 (Cloudflare) — недоступен и у reporter'а, и у меня. Сток (Openverse, license=cc0,pdm): единственный геосоответствующий результат \"Building of Government of Tashkent\" — с upload.wikimedia.org, источник в чёрном списке; остальные результаты по \"courthouse\" — здания США (Ovid NY, Washington DC), подмена географии. AI-генерация через Higgsfield недоступна в этом прогоне (тула нет в наборе). Нужно фото здания Верховного суда или комплекса «Узэкспоцентр» (Ташкент, ул. Амира Темура шоха, 107) — или подтверждение на выпуск без картинки.\n\nОтветьте реплаем на это сообщение:\n• пришлите фото — оно станет главной картинкой\n• «ок» — публиковать как есть\n• «стоп» — снять материал\n• любой другой текст — уйдёт в правку как комментарий"
+    }
+  },
+  "update_id": 273157601
+}
