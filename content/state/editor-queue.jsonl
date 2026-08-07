@@ -327,3 +327,8 @@
 {"ev":"offset","at":"2026-08-07T21:27:23.274Z","value":273157602}
 {"ev":"resolve","at":"2026-08-07T21:27:23.283Z","item":{"slug":"urgench-byd-driver-rams-cars-aug2026","title":"В Ургенче водитель BYD Chazor протаранил 3 автомобиля после конфликта","reason":"policy-edge","question":"Доследственная проверка по факту умышленного ДТП в Ургенче (без пострадавших). Источник — официальный (УВД Хорезмской области), участники анонимизированы (инициалы + год рождения), уголовное дело не возбуждено. Публиковать?","messageId":415,"askedAt":"2026-08-07T13:14:08.248Z","remindedAt":"2026-08-07T20:12:57.225Z","remindMessageIds":[430,440,455]},"answer":{"at":"2026-08-07T21:27:23.282Z","kind":"reject","applied":"rejected"}}
 {"ev":"offset","at":"2026-08-07T21:27:23.283Z","value":273157603}
+{"ev":"remind","at":"2026-08-07T21:29:51.689Z","slug":"us-polysilicon-tariff-signed-aug2026","askedAt":"2026-08-07T01:09:31.794Z","remindedAt":"2026-08-07T21:29:50.771Z","messageId":463}
+{"ev":"remind","at":"2026-08-07T21:29:51.689Z","slug":"dprk-missile-launch-tokyo-seoul-protest","askedAt":"2026-08-07T06:09:25.576Z","remindedAt":"2026-08-07T21:29:51.176Z","messageId":464}
+{"ev":"remind","at":"2026-08-07T21:29:51.689Z","slug":"president-ai-award-deadline-week-left.en","askedAt":"2026-08-07T07:09:23.959Z","remindedAt":"2026-08-07T21:29:51.357Z","messageId":465}
+{"ev":"remind","at":"2026-08-07T21:29:51.689Z","slug":"president-ai-award-deadline-week-left","askedAt":"2026-08-07T07:09:24.116Z","remindedAt":"2026-08-07T21:29:51.518Z","messageId":466}
+{"ev":"remind","at":"2026-08-07T21:29:51.689Z","slug":"president-ai-award-deadline-week-left.uz","askedAt":"2026-08-07T07:09:24.269Z","remindedAt":"2026-08-07T21:29:51.689Z","messageId":467}
