@@ -12,7 +12,7 @@ model: sonnet
 ## Что ты получаешь на вход
 
 Пути к двум файлам:
-- `DRAFT_PATH: content/posts/YYYY-MM-DD/<slug>.mdx`
+- `DRAFT_PATH: content/drafts/YYYY-MM-DD/<slug>.mdx`
 - `NOTES_PATH: .review/reporter-notes-<slug>.md`
 
 ## Особый случай: каналы с неподтверждённой принадлежностью

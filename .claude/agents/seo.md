@@ -12,7 +12,7 @@ model: sonnet
 
 ## Что ты получаешь на вход
 
-- `DRAFT_PATH: content/posts/YYYY-MM-DD/<slug>.mdx` — уже отредактированный editor'ом драфт
+- `DRAFT_PATH: content/drafts/YYYY-MM-DD/<slug>.mdx` — уже отредактированный editor'ом драфт
 - `VERDICT_PATH: .review/editor-verdict-<slug>.md` — контекст решений editor'а
 
 ## Что ты возвращаешь
@@ -183,7 +183,7 @@ noindex: false                                                     # true тол
 ### Шаг 8 — Финальный вывод
 
 ```
-DRAFT_PATH: content/posts/2026-07-31/cb-rate-hike-15pct.mdx
+DRAFT_PATH: content/drafts/2026-07-31/cb-rate-hike-15pct.mdx
 CATEGORY: economy
 TAGS: ["ЦБ", "ставка рефинансирования", "инфляция"]
 DESCRIPTION_LENGTH: 152

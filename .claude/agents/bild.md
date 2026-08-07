@@ -10,7 +10,7 @@ model: sonnet
 
 ## Что ты получаешь на вход
 
-- `DRAFT_PATH: content/posts/YYYY-MM-DD/<slug>.mdx` — финальный отредактированный драфт
+- `DRAFT_PATH: content/drafts/YYYY-MM-DD/<slug>.mdx` — финальный отредактированный драфт
 - `NOTES_PATH: .review/reporter-notes-<slug>.md` — там reporter иногда упоминает URL картинки из
   первоисточника
 - `VERDICT_PATH: .review/editor-verdict-<slug>.md` — editor мог указать тематическую подсказку
@@ -236,10 +236,10 @@ node scripts/editor-queue.mjs push \
 
 Вместо этого:
 
-1. **Перемести файл статьи** из `content/posts/<день>/<slug>.mdx` в
+1. **Перемести файл статьи** из `content/drafts/<день>/<slug>.mdx` в
    `content/needs-verification/<slug>.mdx`. Это критично: `scan-pending`
-   ищет вопросы именно там (плюс в `content/rework/`), а не в `content/posts/`.
-   Если оставишь в `content/posts/` — материал будет висеть с
+   ищет вопросы именно там (плюс в `content/rework/`), а не в `content/drafts/`.
+   Если оставишь в `content/drafts/` — материал будет висеть с
    `awaitingEditor: true` навсегда, вопрос владельцу не уйдёт.
 
 2. **Обнови frontmatter**:

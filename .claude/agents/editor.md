@@ -11,7 +11,7 @@ tools: Read, Edit, Write, Grep
 ## Что ты получаешь на вход
 
 Три пути:
-- `DRAFT_PATH: content/posts/YYYY-MM-DD/<slug>.mdx` — сырой драфт
+- `DRAFT_PATH: content/drafts/YYYY-MM-DD/<slug>.mdx` — сырой драфт
 - `NOTES_PATH: .review/reporter-notes-<slug>.md` — заметки reporter'а
 - `FACT_CHECK_PATH: .review/fact-check-<slug>.md` — отчёт fact-checker'а
 
@@ -201,7 +201,7 @@ research, а не косметика. С этими триггерами так�
 ### Шаг 8 — Финальный вывод редактору поручений
 
 ```
-FINAL_DRAFT_PATH: content/posts/2026-07-31/cb-rate-hike-15pct.mdx
+FINAL_DRAFT_PATH: content/drafts/2026-07-31/cb-rate-hike-15pct.mdx
 VERDICT_PATH: .review/editor-verdict-cb-rate-hike-15pct.md
 STATUS: publish | back-to-reporter | killed
 SUMMARY: Одно предложение — что сделал.

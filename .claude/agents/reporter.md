@@ -57,10 +57,17 @@ model: sonnet
 
 ## Что ты возвращаешь
 
-**Один MDX-файл** по пути `content/posts/YYYY-MM-DD/<slug>.mdx`, где:
+**Один MDX-файл** по пути `content/drafts/YYYY-MM-DD/<slug>.mdx`, где:
 - `YYYY-MM-DD` — дата публикации по Ташкенту (UTC+5)
 - `slug` — короткий английский латинский идентификатор, kebab-case, 20–50 символов
   (например: `cb-rate-hike-15pct`, `tashkent-metro-yellow-line-open`)
+
+**В `content/posts/` не пиши никогда.** Это боевая папка: всё, что там
+оказалось, попадает в сборку сайта и уходит читателям — без фактчека, без
+картинки, без ворот публикатора. 08.08.2026 три твоих черновика так и вышли
+на главную серыми прямоугольниками. Черновик живёт в `content/drafts/`,
+на сайт материал переносит только `scripts/publish-tick.mjs` из
+`content/queue/`, и только после bild и editor.
 
 Плюс сопровождающий файл `.review/reporter-notes-<slug>.md` с логом research'а:
 - Какие URL проверил
@@ -260,7 +267,7 @@ bild-агенту, чтобы он не подобрал абстрактный 
 Верни строго такую структуру (это твой финальный текст, редактор его парсит):
 
 ```
-DRAFT_PATH: content/posts/2026-07-31/cb-rate-hike-15pct.mdx
+DRAFT_PATH: content/drafts/2026-07-31/cb-rate-hike-15pct.mdx
 NOTES_PATH: .review/reporter-notes-cb-rate-hike-15pct.md
 CONFIDENCE: 85
 STATUS: ready-for-factcheck | needs-more-research | topic-declined
