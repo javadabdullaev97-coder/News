@@ -203,6 +203,48 @@ def htmlescape(value: str) -> str:
     )
 
 
+# Служебные строки, которые издания печатают внутри тела материала. Их нельзя
+# оставлять: подпись к фото становится «лидом», а призыв подписаться на канал —
+# последним абзацем, и обе метрики уезжают. Проверено на Repost.uz (подпись
+# «Фото: …» первой строкой) и Podrobno.uz (префикс «Узбекистан, Ташкент – АН …»).
+BOILERPLATE_LINE_RE = re.compile(
+    r"^\s*(фото|изображение|иллюстрац\w*|видео)\s*[:—-]|"
+    r"^\s*изображение сгенерировано|"
+    r"^\s*больше новостей в телеграм|"
+    r"^\s*подписаться\s*$|"
+    r"^\s*читайте также\b|"
+    r"^\s*реклама\s*$",
+    re.I,
+)
+AGENCY_PREFIX_RE = re.compile(
+    r"^\s*Узбекистан,\s*Ташкент\s*[–—-]\s*(?:АН\s*)?Podrobno\.uz\.?\s*", re.I
+)
+
+
+def clean_lines(text: str) -> str:
+    kept = []
+    for line in (text or "").split("\n"):
+        stripped = AGENCY_PREFIX_RE.sub("", line)
+        if not stripped.strip():
+            continue
+        if BOILERPLATE_LINE_RE.search(stripped) and len(stripped.split()) <= 12:
+            continue
+        kept.append(stripped)
+    return "\n".join(kept)
+
+
+def clean_paragraphs(paragraphs: list[str]) -> list[str]:
+    out = []
+    for p in paragraphs:
+        p = AGENCY_PREFIX_RE.sub("", p).strip()
+        if not p:
+            continue
+        if BOILERPLATE_LINE_RE.search(p) and len(p.split()) <= 12:
+            continue
+        out.append(p)
+    return out
+
+
 def parse_one(html: str, url: str, hint: dict, site_host: str) -> dict | None:
     xml_text = trafilatura.extract(
         html,
@@ -219,8 +261,12 @@ def parse_one(html: str, url: str, hint: dict, site_host: str) -> dict | None:
     )
     if not plain or len(plain.split()) < 40:
         return None
+    plain = clean_lines(plain)
+    if len(plain.split()) < 40:
+        return None
 
     body = body_from_xml(xml_text or "", site_host)
+    body["paragraphs"] = clean_paragraphs(body["paragraphs"])
     meta = extract_metadata(html, default_url=url)
 
     published = (

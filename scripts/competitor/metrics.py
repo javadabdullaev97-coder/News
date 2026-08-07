@@ -60,23 +60,29 @@ ANECDOTE_RE = re.compile(
 def lead_type(lead: str) -> str:
     """Тип лида по составу первого абзаца.
 
-    фактологический — есть число или дата и атрибуция/действие;
-    сценический     — обстоятельство места и времени, описание без цифр;
+    фактологический — названо конкретное событие: число, дата, атрибуция
+                      либо действующее лицо (человек или ведомство);
+    сценический     — обстоятельство места и времени, описание без конкретики;
     анекдотический  — частный герой и его история;
-    отложенный      — общее рассуждение или вопрос без конкретики.
+    отложенный      — общее рассуждение или вопрос, суть отложена вглубь текста.
+
+    Первая версия правила считала фактологическим только лид с числом или
+    глаголом атрибуции — и записывала в отложенные обычные новостные лиды
+    вида «Ведомство приняло решение». На ручной выборке это давало 54%
+    совпадений; после добавления действующего лица точность выросла (цифра
+    в output/heuristics-validation.json).
     """
     if not lead:
         return "нет"
     has_num = bool(ts.NUMBER_RE.search(lead)) or bool(ts.DATE_RE.search(lead))
     has_attr = bool(ts.ATTRIBUTION_RE.search(lead))
+    has_actor = bool(ts.PERSON_RE.search(lead) or ts.NAMED_ROLE_RE.search(lead))
     if ANECDOTE_RE.search(lead):
         return "анекдотический"
-    if SCENIC_RE.search(lead) and not has_num:
+    if SCENIC_RE.search(lead) and not (has_num or has_actor):
         return "сценический"
-    if has_num or has_attr:
+    if has_num or has_attr or has_actor:
         return "фактологический"
-    if lead.strip().endswith("?") or len(lead.split()) > 45:
-        return "отложенный"
     return "отложенный"
 
 
@@ -149,23 +155,61 @@ def genre(row: dict, text: str, headings: list[str]) -> str:
     return "новость"
 
 
+# Собственная работа: материал прямо говорит, что фактуру получила редакция.
+OWN_REPORTING_RE = re.compile(
+    r"(об этом\s+\w+\s+сообщили|сообщили\s+(?:редакции|корреспонденту)|"
+    r"корреспондент\w*\s+\w{2,12}\.?(?:uz)?|в беседе с\s+(?:корреспондентом|журналистом)|"
+    r"на вопрос\s+\w+\.uz|ответил\w*\s+на вопрос|в комментарии\s+\w+\.uz|"
+    r"сообщил\w*\s+\w+\.uz)",
+    re.I,
+)
+# Рерайт чужой публикации: источник — другое СМИ или агентство.
+MEDIA_REWRITE_RE = re.compile(
+    r"(?:сообщает|сообщил[оа]?|как пишет|пишет|по данным|со ссылкой на|передаёт|передает)\s+"
+    r"[«\"]?(?:ИА\s+)?[«\"]?"
+    r"(24\.kg|РБК|Swissinfo|Nur\.kz|Reuters|Bloomberg|ТАСС|УзА|Дунё|Dunyo|Norma|"
+    r"Daryo|Kun\.uz|Gazeta\.uz|Spot\.uz|Podrobno\.uz|Repost\.uz|UzNews|Интерфакс|"
+    r"Interfax|Sputnik|Anhor|Hook|Миллар|AFP|BBC|SCMP|Al Jazeera|Ведомост)",
+    re.I,
+)
+
+
+OFFICIAL_ANNOUNCEMENT_RE = re.compile(
+    r"(пресс-служб\w+|пресс-релиз\w*|сообщил\w*\s+(?:министерств|агентств|комитет|"
+    r"хокимият|ведомств|управлени|департамент|прокуратур|банк)|говорится в сообщении|"
+    r"следует из сообщения|в сообщении ведомства|опубликова\w+ на портале|"
+    r"утвержд\w+ постановлением|согласно постановлению|указ\w* президента)",
+    re.I,
+)
+
+
 def primacy(row: dict, text: str, named: int, primary_links: int) -> str:
-    """Первичность материала: откуда взята фактура."""
-    if PRESS_RELEASE_RE.search(text[:800]):
+    """Первичность материала: откуда взята фактура.
+
+    Порядок проверок задан от самого сильного признака к самому слабому,
+    первое совпадение и решает.
+
+    Категории намеренно не смешивают два разных вопроса. Здесь — откуда взята
+    фактура. Проверяемость (есть ли ссылка на документ, реестр, статистику)
+    считается отдельно полями primary_doc_links и verifiable: материал может
+    быть пересказом релиза и при этом ссылаться на первичный документ, и
+    наоборот. Первая версия правила эти вещи путала и записывала любую
+    перепечатку со ссылкой на госсайт в «работу с первоисточником».
+    """
+    head = text[:900]
+    if PRESS_RELEASE_RE.search(head) or PRESS_RELEASE_RE.search(text[-400:]):
         return "пресс-релиз без обработки"
     if TRANSLATION_RE.search(text):
         return "перевод"
-    if EXCLUSIVE_RE.search(text[:800]):
+    if EXCLUSIVE_RE.search(head):
         return "эксклюзив"
-    if REPORTAGE_RE.search(text):
+    if OWN_REPORTING_RE.search(text) or REPORTAGE_RE.search(text):
         return "собственный сбор"
-    if primary_links >= 1 and named >= 1:
-        return "собственный сбор"
-    if named >= 2:
-        return "комментарий эксперта"
-    if primary_links >= 1:
-        return "работа с первоисточником"
-    return "рерайт"
+    if MEDIA_REWRITE_RE.search(text):
+        return "рерайт чужой публикации"
+    if ts.ATTRIBUTION_RE.search(text) or OFFICIAL_ANNOUNCEMENT_RE.search(text):
+        return "пересказ официального сообщения"
+    return "источник не указан"
 
 
 # ------------------------------------------------------------------ расчёт

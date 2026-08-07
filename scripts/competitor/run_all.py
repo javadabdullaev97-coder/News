@@ -7,6 +7,11 @@
 
   --skip-network   пропустить шаги сбора (пересчитать метрики и отчёт
                    на уже собранном корпусе)
+
+sample.py в цепочку не входит намеренно: он предлагает НОВУЮ выборку для
+качественного кодирования, а разметка этапа 4 закреплена за конкретными url
+внутри qualitative.py. Запускать его нужно вручную, когда начинают новый
+цикл чтения.
   --from ШАГ       начать с указанного шага
 """
 
@@ -40,8 +45,9 @@ STEPS = [
                           "--input", "output/newsbreaks-headtohead-detail.json",
                           "--output", "output/newsbreaks-headtohead-depth.csv"], True),
     ("agenda", ["agenda.py"], False),
+    ("qualitative", ["qualitative.py"], False),
     ("dashboard", ["dashboard.py"], False),
-    ("report", ["report.py"], False),
+    ("verify", ["verify_report.py"], False),
 ]
 
 

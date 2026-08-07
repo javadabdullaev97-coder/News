@@ -143,7 +143,7 @@
     }
   },
   "repost": {
-    "site_articles": 120,
+    "site_articles": 118,
     "telegram_posts": 1173,
     "posts_with_own_link": 1041,
     "crossposts_by_link": 932,
@@ -159,10 +159,10 @@
       "id": "repost",
       "name": "Repost.uz",
       "fetched": 120,
-      "kept": 120,
+      "kept": 118,
       "dropped": {
         "no_raw": 0,
-        "extract_failed": 0,
+        "extract_failed": 2,
         "out_of_period": 0,
         "no_date": 0,
         "dup_url": 0,

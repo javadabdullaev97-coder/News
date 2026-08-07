@@ -35,9 +35,15 @@ LAYOUT = dict(
 )
 
 
-def fig_html(fig: go.Figure, title: str, note: str) -> str:
+def fig_html(fig: go.Figure, title: str, note: str, first: bool = False) -> str:
+    """Первый график тянет за собой библиотеку целиком.
+
+    Она вшивается в файл, а не грузится с CDN: дашборд должен открываться
+    из репозитория без сети, иначе это не готовый артефакт, а заготовка.
+    """
     fig.update_layout(title=dict(text=title, font=dict(size=17)), **LAYOUT)
-    body = pio.to_html(fig, include_plotlyjs=False, full_html=False, config={"displayModeBar": False})
+    body = pio.to_html(fig, include_plotlyjs=True if first else False,
+                       full_html=False, config={"displayModeBar": False})
     return f'<section class="card"><div class="chart">{body}</div><p class="note">{note}</p></section>'
 
 
@@ -56,7 +62,7 @@ def main() -> int:
                   labels={"date": "", "url": "материалов в выборке", "outlet": ""})
     fig.update_traces(line=dict(width=2))
     blocks.append(fig_html(
-        fig, "Ритм публикаций внутри выборки",
+        fig, "Ритм публикаций внутри выборки", first=True, note=
         "Не общий выпуск издания, а распределение выборки (до 120 материалов на конкурента) "
         "по дням. Ровная линия означает, что выборка равномерно покрыла период."))
 
@@ -160,7 +166,6 @@ def main() -> int:
 
     html = f"""<meta charset="utf-8">
 <title>Анализ конкурентов LEAP News — сводные графики</title>
-<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 <style>
   :root {{ color-scheme: light; }}
   body {{ margin:0; background:#f8fafc; color:#1f2937;

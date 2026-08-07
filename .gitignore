@@ -36,3 +36,9 @@ content/drafts/
 # в репозиторий идут только агрегаты и цитаты не длиннее 15 слов.
 data/
 .venv-competitor/
+
+# Выборки для ручного чтения: содержат полные тексты чужих материалов.
+# Регенерируются scripts/competitor/sample.py, в git не хранятся —
+# в репозиторий идёт только кодировочная таблица output/qualitative.csv.
+output/qualitative-sample.json
+output/validation-sample.json
