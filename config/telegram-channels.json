@@ -915,6 +915,17 @@
       "subscribers": null,
       "publishRate": null,
       "notes": "Кандидат из channel-candidates.jsonl (упомянут mintrans_uz 07.08.2026 как канал корреспондента). Российское государственное издание (аналог ТАСС/РИА) с локальной редакцией по Узбекистану — конкурентное СМИ, не первоисточник. Читаем для сигнала о повестке, не цитируем в статьях."
+    },
+    {
+      "id": "zamon_lavhalar",
+      "handle": "@zamon_lavhalar",
+      "url": "https://t.me/s/zamon_lavhalar",
+      "name": "Zamon Lavhalari",
+      "type": "signal",
+      "priority": "P2",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Кандидат из channel-candidates.jsonl (упомянут poytaxt_uz 08.08.2026, пост с подписью «мухбир: Sohiba Akromova», городская тематика Ташкента). Признаков официальной принадлежности ведомству нет — рядовой городской новостной канал с собственными корреспондентами. Читаем для сигнала о повестке, не цитируем в статьях."
     }
   ]
 }
