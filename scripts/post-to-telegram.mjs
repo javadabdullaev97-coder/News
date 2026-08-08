@@ -21,7 +21,7 @@ import {
 } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { loadPostedByLangSlug, markPosted } from "../lib/telegram-posted.mjs";
+import { isPostedNow, loadPostedByLangSlug, markPosted } from "../lib/telegram-posted.mjs";
 
 import {
   parseFrontmatter,
@@ -434,11 +434,22 @@ let ok = 0;
 let failed = 0;
 for (let i = 0; i < pending.length; i++) {
   const p = pending[i];
+  const slug = slugFromPath(p.mdxPath);
+  // Последняя проверка перед отправкой — по журналу с диска, а не по снимку.
+  // Между построением pending и этим моментом прошли паузы между постами и
+  // сетевые ретраи; за это время запись мог дописать параллельный прогон.
+  const already = !dryRun && isPostedNow(ROOT, p.lang, slug);
+  if (already) {
+    console.error(
+      `  ⤼ ${p.rel}: уже в канале (${p.lang}, message ${already.messageId}) — пропуск`,
+    );
+    continue;
+  }
   try {
     const result = await postArticle(p.mdxPath, p.fm, p.channel);
     if (!dryRun) {
       const rec = markPosted(ROOT, { url: p.url, messageId: result.messageId });
-      posted.set(`${p.lang} ${slugFromPath(p.mdxPath)}`, rec);
+      posted.set(`${p.lang} ${slug}`, rec);
     }
     ok++;
     console.error(`  ✓ ${p.rel} → ${p.lang}`);

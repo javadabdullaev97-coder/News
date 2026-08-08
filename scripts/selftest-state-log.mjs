@@ -8,7 +8,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { appendLog, foldByKey, readLog } from "../lib/state-log.mjs";
-import { loadPosted, loadPostedBySlug, markPosted, slugOfUrl, POSTED_LOG, POSTED_LEGACY } from "../lib/telegram-posted.mjs";
+import { isPostedNow, loadPosted, loadPostedByLangSlug, loadPostedBySlug, markPosted, slugOfUrl, POSTED_LOG, POSTED_LEGACY } from "../lib/telegram-posted.mjs";
 
 let failed = 0;
 const ok = (cond, msg) => {
@@ -115,6 +115,37 @@ const fresh = () => {
   const after = loadPostedBySlug(root);
   ok(after.get("story").messageId === 5,
      "при дублях побеждает самая ранняя запись — оригинальный пост, а не дубль");
+}
+
+// ── гонка между параллельными отправителями ───────────────────────────
+//
+// Боевой случай 05.08.2026: разбор закона об антикоррупции ушёл в канал
+// дважды, message 127 и 128 с разрывом девять секунд. Автопост и
+// перепубликация шли в разных группах concurrency, каждый взял снимок
+// реестра до записи соседа и оба сочли материал неотправленным.
+{
+  const root = fresh();
+  const url = "https://leap.uz/ru/2026/08/06/supreme-court-anticorruption-law-analysis";
+  const slug = "supreme-court-anticorruption-law-analysis";
+
+  // Снимок сделан ДО того, как сосед дописал запись.
+  const snapshot = loadPostedByLangSlug(root);
+  ok(!snapshot.has(`ru ${slug}`), "в снимке материала нет — на этом месте прогон решает отправлять");
+
+  // Сосед отправил и записал, пока мы ждали паузу между постами.
+  markPosted(root, { url, messageId: 127, postedAt: "2026-08-05T20:23:59.047Z" });
+
+  ok(!snapshot.has(`ru ${slug}`), "устаревший снимок по-прежнему разрешает отправку — это и был баг");
+  ok(isPostedNow(root, "ru", slug)?.messageId === 127,
+     "перепроверка перед send видит запись соседа и отменяет дубль");
+  ok(isPostedNow(root, "uz", slug) === null,
+     "узбекская версия не блокируется русской — это разные каналы");
+
+  // Отзыв поста возвращает материал в работу: пост удалён из канала.
+  appendLog(join(root, POSTED_LOG),
+    { url, messageId: 127, revokedAt: "2026-08-05T21:00:00Z", reason: "wrong-channel" });
+  ok(isPostedNow(root, "ru", slug) === null,
+     "после отзыва материал снова можно отправить");
 }
 
 console.log(failed ? `\nпровалено ${failed}` : "\nвсе проверки пройдены");
