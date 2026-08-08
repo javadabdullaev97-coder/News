@@ -34,6 +34,12 @@ def main() -> int:
     h2h = pd.read_csv(OUTPUT / "newsbreaks-headtohead-depth.csv")
     nb = pd.read_csv(OUTPUT / "newsbreaks-depth.csv")
     missed = pd.read_csv(OUTPUT / "missed-topics.csv")
+    style = pd.read_csv(OUTPUT / "style-audit.csv")
+    ours_style = style[style["outlet"] == "LEAP News"]
+    gazeta_style = style[style["outlet"] == "Gazeta.uz"]
+    genre_struct = pd.crosstab(
+        site[site["outlet"] == "LEAP News"]["genre"],
+        site[site["outlet"] == "LEAP News"]["structure"], normalize="index") * 100
     ours = h2h[h2h["outlet"] == "LEAP News"]
 
     def share(outlet: str, mask) -> float:
@@ -83,6 +89,19 @@ def main() -> int:
         ("Пропущенных сюжетов", (missed["где потеряли"] != "опубликовано").sum(), 5, 0),
         ("Пропущенных без следа в инбоксе",
          missed[missed["где потеряли"] != "опубликовано"]["в_инбоксе"].eq(0).sum(), 0, 0),
+        # output/style-recommendations.md — сверка с академическими нормами
+        ("Стиль: лид в норме слов, %", ours_style["lead_words_in_norm"].mean() * 100, 87.8, 0.6),
+        ("Стиль: лид одно предложение, %", ours_style["lead_one_sentence"].mean() * 100, 87.1, 0.6),
+        ("Стиль: нейтральных атрибуций, %", ours_style["attrib_neutral_share"].mean() * 100, 92.1, 0.6),
+        ("Стиль: заголовок, знаков", ours_style["title_chars"].median(), 74, 1),
+        ("Стиль: заголовок <=60 знаков, %", ours_style["title_le_60"].mean() * 100, 1.0, 0.6),
+        ("Стиль: есть концовка, %", ours_style["has_any_kicker"].mean() * 100, 51.8, 0.6),
+        ("Стиль: концовка чек-лист, %", ours_style["kicker_checklist"].mean() * 100, 1.7, 0.6),
+        ("Стиль: слогов на слово", ours_style["syllables_per_word"].median(), 2.73, 0.02),
+        ("Стиль: оценочный глагол, %", ours_style["has_loaded"].mean() * 100, 7.3, 0.6),
+        ("Стиль: родительная цепочка, %", ours_style["has_genitive_chain"].mean() * 100, 7.3, 0.6),
+        ("Стиль: новость разбором, %", genre_struct.loc["новость", "разбор по пунктам"], 59, 1),
+        ("Стиль: Gazeta заголовок >90, %", gazeta_style["title_gt_90"].mean() * 100, 27.5, 0.6),
     ]
 
     bad = 0

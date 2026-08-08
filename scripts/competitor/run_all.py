@@ -47,6 +47,7 @@ STEPS = [
     ("agenda", ["agenda.py"], False),
     ("qualitative", ["qualitative.py"], False),
     ("missed", ["missed_topics.py"], False),
+    ("style", ["style_audit.py"], False),
     ("dashboard", ["dashboard.py"], False),
     ("verify", ["verify_report.py"], False),
 ]
