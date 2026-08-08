@@ -1,7 +1,7 @@
 {
   "$schema": "./news-sources.schema.json",
   "version": 1,
-  "generated": "2026-08-01",
+  "generated": "2026-08-07",
   "note": "Каталог веб-источников для скрипта scripts/pull-news-inbox.mjs. См. docs/media-landscape-2026.md — там пояснения, аудитория, редполитика.",
   "excluded": [
     {
@@ -934,6 +934,58 @@
       "citable": true,
       "citableNote": "Официальный канал компании: подпись под материалами — «O‘zbekneftgaz» AJ Axborot xizmati. Первоисточник по своей отрасли, ссылку ставить можно. Язык узбекский — цифры и цитаты для русского материала переводим, атрибуцию сохраняем.",
       "notes": "Teletype — блог-платформа; RSS отдаётся по адресу без символа @ в имени (teletype.in/rss/<name>, не teletype.in/rss/@<name>) — по адресу с @ приходит 404, и именно на этом источник легко счесть нерабочим. Лента отдаёт 10 последних записей с полным текстом. Дублирует t.me/uzbekneftegaz не полностью: часть материалов выходит только здесь."
+    },
+    {
+      "id": "us-embassy-tashkent",
+      "name": "Посольство США в Узбекистане",
+      "url": "https://uz.usembassy.gov/feed/",
+      "type": "source",
+      "priority": "P1",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "визы, консульские правила, депортации и высылка узбекистанцев, программы обмена",
+      "citable": true,
+      "bloc": "anglo",
+      "notes": "Заведён 07.08.2026 после разбора пропущенных инфоповодов: тема визовых залогов США пришла в инбокс только от СМИ и потеряла 30 баллов за отсутствие первоисточника. Посольство — первоисточник по консульским правилам для узбекистанцев; в ленте на момент заведения был материал Removal of Uzbekistanis from the United States. Лента на английском, переводы помечать в статье."
+    },
+    {
+      "id": "us-federal-register-visa",
+      "name": "Федеральный реестр США — визовая тематика",
+      "url": "https://www.federalregister.gov/api/v1/documents.rss?conditions%5Bterm%5D=visa",
+      "type": "source",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "нормативные акты США по визам: сборы, залоги, программы обмена",
+      "citable": true,
+      "bloc": "anglo",
+      "notes": "Официальная публикация нормативных актов США — первоисточник по самому документу, а не по его пересказу. Лента отфильтрована по слову visa: на момент заведения 20 записей, среди них Visas: Visa Bond Program — тот самый акт о визовых залогах, который мы пропустили. Ленту по ведомству целиком (33 записи у Госдепа, 100 у DHS) намеренно не заводим: объём не окупается."
+    },
+    {
+      "id": "us-federal-register-uzbekistan",
+      "name": "Федеральный реестр США — упоминания Узбекистана",
+      "url": "https://www.federalregister.gov/api/v1/documents.rss?conditions%5Bterm%5D=Uzbekistan",
+      "type": "source",
+      "priority": "P3",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "акты США, прямо касающиеся Узбекистана: экспортный контроль, санкции, торговые режимы",
+      "citable": true,
+      "bloc": "anglo",
+      "notes": "Узкая лента, на момент заведения 2 записи. Ценность не в объёме, а в том, что упоминание Узбекистана в акте США — готовый инфоповод с первоисточником."
+    },
+    {
+      "id": "us-state-press",
+      "name": "Госдепартамент США — пресс-релизы",
+      "url": "https://www.state.gov/rss-feed/press-releases/feed/",
+      "type": "source",
+      "priority": "P2",
+      "language": "en",
+      "requiresPlaywright": false,
+      "focus": "заявления Госдепартамента, внешнеполитические решения США",
+      "citable": true,
+      "bloc": "anglo",
+      "notes": "Первоисточник по позиции США, но не по фактуре событий в третьих странах — ограничение из блока citableReference действует и здесь."
     }
   ],
   "api": [
@@ -1088,6 +1140,18 @@
         "bloc": "euro",
         "focus": "заявления канцлера и пресс-релизы правительства ФРГ",
         "notes": "Пресс-релизы нумерованные, номер и дату указывать в sources[].name. Источник по позиции Германии."
+      },
+      {
+        "id": "us-travel-advisories",
+        "name": "Travel Advisories Госдепартамента США",
+        "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories.html",
+        "type": "source",
+        "priority": "P3",
+        "language": "en",
+        "citable": true,
+        "bloc": "anglo",
+        "focus": "уровень travel advisory по странам, включая Узбекистан",
+        "notes": "В каталог фетчера не заводим: RSS-лента отдаёт полный список по всем странам (214 записей на каждый опрос) и забьёт инбокс. Смена уровня по Узбекистану — инфоповод, но ловить её надо точечной проверкой, а не лентой."
       }
     ]
   },
