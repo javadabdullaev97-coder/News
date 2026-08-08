@@ -1,0 +1,8 @@
+{
+  "channels": {
+    "queue-stale": {
+      "at": "2026-08-08T01:18:06.300Z",
+      "message": "⚠️ <b>Материалы в очереди без ответа >24ч</b> (1 шт):\n— <code>us-polysilicon-tariff-signed-aug2026</code>"
+    }
+  }
+}
