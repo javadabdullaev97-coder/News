@@ -1,0 +1,21 @@
+WITHDRAWN FROM QUEUE post-push (orchestrator correction).
+
+content/state/last-routine-run.json's notes field (from the run at 2026-08-08T05:15+05:00,
+~25 minutes before this session started) documents that a prior planyorka session already
+evaluated this EXACT story (Houthi escalation against Yemen/Saudi Arabia) and explicitly
+rejected it as a duplicate of content/posts/2026-08-07/houthi-yemen-saudi-escalation-aug2026.mdx:
+"Йемен уже выходил 2026-08-07 (houthi-yemen-saudi-escalation-aug2026, тот же субъект —
+эскалация хуситов, цифра жертв обновилась с 30 до 58, но не новый перелом)."
+
+This session initially judged the updated casualty figures (58 dead per AFP/CBS vs. the
+Aug 7 piece's "at least 30", plus a claimed Aug 8 second wave) as enough new substance to
+justify a fresh article, and pushed it to content/queue/. On discovering the prior run's
+explicit contrary judgment on the identical topic - made independently, only 25 minutes
+earlier - the orchestrator is deferring to that precedent for consistency: an escalating
+casualty count on an already-covered conflict is not, by itself, a new turning point.
+
+Withdrawn before scripts/publish-tick.mjs could pick it up from the queue (confirmed via
+git log - no content/posts/ entry existed for this slug at withdrawal time).
+
+Fact-check verdict was APPROVE-WITH-DOWNGRADES, confidence 74 - withdrawal here is about
+duplication/editorial judgment, not about the factual accuracy of the draft itself.
