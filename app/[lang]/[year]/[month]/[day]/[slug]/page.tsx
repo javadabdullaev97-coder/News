@@ -198,7 +198,10 @@ export default async function ArticlePage({
         />
 
         <div className="grid gap-8 lg:grid-cols-3">
-          <div className="lg:col-span-2">
+          {/* min-w-0: у элемента grid min-width по умолчанию auto, поэтому
+              нерушимая строка внутри (заголовок в хлебных крошках) растягивала
+              всю колонку и уводила страницу вбок на узких экранах. */}
+          <div className="min-w-0 lg:col-span-2">
             <Breadcrumbs
               items={[
                 { label: "Главная", href: "/" },
@@ -235,7 +238,10 @@ export default async function ArticlePage({
                 <span aria-hidden className="text-neutral-400">🕐</span>
                 {timeAgo(article.publishedAt)}
               </time>
-              <div className="ml-auto flex items-center gap-2">
+              {/* flex-wrap: на экране 390px переключатель языка, кнопки шеринга
+                  и «Сохранить» занимают 377px при доступных 358 — без переноса
+                  строка выходила за край и тянула за собой всю страницу. */}
+              <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
                 <LangSwitch article={article} />
                 <ShareButtons title={article.title} />
                 <BookmarkButton slug={article.slug} variant="labelled" />

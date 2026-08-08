@@ -9,7 +9,10 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
         {items.map((c, i) => {
           const isLast = i === items.length - 1;
           return (
-            <li key={i} className="flex items-center gap-2">
+            // min-w-0 обязателен: у flex-элемента min-width по умолчанию auto,
+            // поэтому последняя крошка (полный заголовок статьи) не сжималась и
+            // растягивала колонку — на экране 390px страница уезжала вбок на 3px.
+            <li key={i} className="flex min-w-0 items-center gap-2">
               {c.href && !isLast ? (
                 <Link
                   href={c.href}
@@ -19,7 +22,10 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
                 </Link>
               ) : (
                 <span
-                  className={isLast ? "text-neutral-700 dark:text-neutral-300" : ""}
+                  className={
+                    isLast ? "truncate text-neutral-700 dark:text-neutral-300" : ""
+                  }
+                  title={isLast ? c.label : undefined}
                   aria-current={isLast ? "page" : undefined}
                 >
                   {c.label}
