@@ -1,18 +1,18 @@
 [
   {
     "event_id": 1,
-    "label": "спутник, 2028, samarkand-, орбиту, успешно, искусственного",
+    "label": "2028, samarkand-, спутник, орбиту, успешно, гиперспектральный",
     "first_outlet": "UzNews.uz",
     "first_at": "2026-08-03T19:33:09+05:00",
     "first_text": "Спутник Samarkand-2028 запустят на орбиту 5 августа",
     "first_url": "https://t.me/uznews/48575",
-    "outlets": 6,
-    "posts": 10,
+    "outlets": 5,
+    "posts": 12,
     "leap_covered": true,
     "coverage": [
       {
         "event_id": 1,
-        "event": "спутник, 2028, samarkand-, орбиту, успешно, искусственного",
+        "event": "2028, samarkand-, спутник, орбиту, успешно, гиперспектральный",
         "outlet": "UzNews.uz",
         "channel": "telegram",
         "url": "https://t.me/uznews/48575",
@@ -31,7 +31,7 @@
       },
       {
         "event_id": 1,
-        "event": "спутник, 2028, samarkand-, орбиту, успешно, искусственного",
+        "event": "2028, samarkand-, спутник, орбиту, успешно, гиперспектральный",
         "outlet": "Repost.uz",
         "channel": "telegram",
         "url": "https://t.me/RepostUZ/85104",
@@ -50,7 +50,7 @@
       },
       {
         "event_id": 1,
-        "event": "спутник, 2028, samarkand-, орбиту, успешно, искусственного",
+        "event": "2028, samarkand-, спутник, орбиту, успешно, гиперспектральный",
         "outlet": "Kun.uz",
         "channel": "telegram",
         "url": "https://t.me/kunuzru/73553",
@@ -69,7 +69,7 @@
       },
       {
         "event_id": 1,
-        "event": "спутник, 2028, samarkand-, орбиту, успешно, искусственного",
+        "event": "2028, samarkand-, спутник, орбиту, успешно, гиперспектральный",
         "outlet": "LEAP News",
         "channel": "сайт",
         "url": "https://leap.uz/ru/2026/08/04/samarkand-2028-satellite-launch",
@@ -88,7 +88,7 @@
       },
       {
         "event_id": 1,
-        "event": "спутник, 2028, samarkand-, орбиту, успешно, искусственного",
+        "event": "2028, samarkand-, спутник, орбиту, успешно, гиперспектральный",
         "outlet": "Spot.uz",
         "channel": "telegram",
         "url": "https://t.me/spotuz/39271",
@@ -107,7 +107,7 @@
       },
       {
         "event_id": 1,
-        "event": "спутник, 2028, samarkand-, орбиту, успешно, искусственного",
+        "event": "2028, samarkand-, спутник, орбиту, успешно, гиперспектральный",
         "outlet": "Podrobno.uz",
         "channel": "telegram",
         "url": "https://t.me/podrobno/89450",
@@ -128,7 +128,7 @@
   },
   {
     "event_id": 2,
-    "label": "районов, проверку, хокимов, отношении, служебную, агентства",
+    "label": "отношении, проверку, районов, служебную, хокимов, агентства",
     "first_outlet": "UzNews.uz",
     "first_at": "2026-08-04T10:05:40+05:00",
     "first_text": "В Ташкенте проведут служебную проверку в отношении хокимов десяти районов",
@@ -139,7 +139,7 @@
     "coverage": [
       {
         "event_id": 2,
-        "event": "районов, проверку, хокимов, отношении, служебную, агентства",
+        "event": "отношении, проверку, районов, служебную, хокимов, агентства",
         "outlet": "UzNews.uz",
         "channel": "telegram",
         "url": "https://t.me/uznews/48580",
@@ -158,7 +158,7 @@
       },
       {
         "event_id": 2,
-        "event": "районов, проверку, хокимов, отношении, служебную, агентства",
+        "event": "отношении, проверку, районов, служебную, хокимов, агентства",
         "outlet": "Gazeta.uz",
         "channel": "telegram",
         "url": "https://t.me/gazetauz/63329",
@@ -177,7 +177,7 @@
       },
       {
         "event_id": 2,
-        "event": "районов, проверку, хокимов, отношении, служебную, агентства",
+        "event": "отношении, проверку, районов, служебную, хокимов, агентства",
         "outlet": "Repost.uz",
         "channel": "telegram",
         "url": "https://t.me/RepostUZ/85120",
@@ -196,7 +196,7 @@
       },
       {
         "event_id": 2,
-        "event": "районов, проверку, хокимов, отношении, служебную, агентства",
+        "event": "отношении, проверку, районов, служебную, хокимов, агентства",
         "outlet": "Podrobno.uz",
         "channel": "telegram",
         "url": "https://t.me/podrobno/89415",
@@ -215,7 +215,7 @@
       },
       {
         "event_id": 2,
-        "event": "районов, проверку, хокимов, отношении, служебную, агентства",
+        "event": "отношении, проверку, районов, служебную, хокимов, агентства",
         "outlet": "Spot.uz",
         "channel": "telegram",
         "url": "https://t.me/spotuz/39254",
@@ -236,7 +236,7 @@
   },
   {
     "event_id": 3,
-    "label": "путепровода, приговор, обрушении, малика, темура, пересечении",
+    "label": "обрушении, приговор, путепровода, малика, пересечении, темура",
     "first_outlet": "UzNews.uz",
     "first_at": "2026-08-04T18:27:30+05:00",
     "first_text": "Присвоено 7,4 млрд сумов: вынесен приговор по делу об обрушении путепровода в Ташкенте",
@@ -247,7 +247,7 @@
     "coverage": [
       {
         "event_id": 3,
-        "event": "путепровода, приговор, обрушении, малика, темура, пересечении",
+        "event": "обрушении, приговор, путепровода, малика, пересечении, темура",
         "outlet": "UzNews.uz",
         "channel": "telegram",
         "url": "https://t.me/uznews/48597",
@@ -266,7 +266,7 @@
       },
       {
         "event_id": 3,
-        "event": "путепровода, приговор, обрушении, малика, темура, пересечении",
+        "event": "обрушении, приговор, путепровода, малика, пересечении, темура",
         "outlet": "Repost.uz",
         "channel": "telegram",
         "url": "https://t.me/RepostUZ/85145",
@@ -285,7 +285,7 @@
       },
       {
         "event_id": 3,
-        "event": "путепровода, приговор, обрушении, малика, темура, пересечении",
+        "event": "обрушении, приговор, путепровода, малика, пересечении, темура",
         "outlet": "Podrobno.uz",
         "channel": "telegram",
         "url": "https://t.me/podrobno/89439",
@@ -304,7 +304,7 @@
       },
       {
         "event_id": 3,
-        "event": "путепровода, приговор, обрушении, малика, темура, пересечении",
+        "event": "обрушении, приговор, путепровода, малика, пересечении, темура",
         "outlet": "Kun.uz",
         "channel": "telegram",
         "url": "https://t.me/kunuzru/73565",
@@ -323,7 +323,7 @@
       },
       {
         "event_id": 3,
-        "event": "путепровода, приговор, обрушении, малика, темура, пересечении",
+        "event": "обрушении, приговор, путепровода, малика, пересечении, темура",
         "outlet": "Gazeta.uz",
         "channel": "telegram",
         "url": "https://t.me/gazetauz/63356",
@@ -344,7 +344,7 @@
   },
   {
     "event_id": 4,
-    "label": "основе, постоянной, визовые, залоги, граждан, стран",
+    "label": "основе, постоянной, визовые, залоги, стран, взимать",
     "first_outlet": "Repost.uz",
     "first_at": "2026-08-01T15:37:54+05:00",
     "first_text": "США введут визовые залоги до $20 тысяч на постоянной основе",
@@ -355,7 +355,7 @@
     "coverage": [
       {
         "event_id": 4,
-        "event": "основе, постоянной, визовые, залоги, граждан, стран",
+        "event": "основе, постоянной, визовые, залоги, стран, взимать",
         "outlet": "Repost.uz",
         "channel": "telegram",
         "url": "https://t.me/RepostUZ/85053",
@@ -374,7 +374,7 @@
       },
       {
         "event_id": 4,
-        "event": "основе, постоянной, визовые, залоги, граждан, стран",
+        "event": "основе, постоянной, визовые, залоги, стран, взимать",
         "outlet": "Podrobno.uz",
         "channel": "telegram",
         "url": "https://t.me/podrobno/89355",
@@ -393,7 +393,7 @@
       },
       {
         "event_id": 4,
-        "event": "основе, постоянной, визовые, залоги, граждан, стран",
+        "event": "основе, постоянной, визовые, залоги, стран, взимать",
         "outlet": "Spot.uz",
         "channel": "telegram",
         "url": "https://t.me/spotuz/39237",
@@ -412,7 +412,7 @@
       },
       {
         "event_id": 4,
-        "event": "основе, постоянной, визовые, залоги, граждан, стран",
+        "event": "основе, постоянной, визовые, залоги, стран, взимать",
         "outlet": "Gazeta.uz",
         "channel": "telegram",
         "url": "https://t.me/gazetauz/63315",
@@ -433,7 +433,115 @@
   },
   {
     "event_id": 5,
-    "label": "домогательств, штраф, девушке, сырдарье, отменил, кричала",
+    "label": "законодательства, миграционного, нарушение, ташкент, аэропорт, гражданами",
+    "first_outlet": "Podrobno.uz",
+    "first_at": "2026-08-02T13:14:01+05:00",
+    "first_text": "В международный аэропорт Ташкента специальным чартерным рейсом доставлены 18 граждан Узбекистана, депортированных из США за",
+    "first_url": "https://t.me/podrobno/89347",
+    "outlets": 4,
+    "posts": 5,
+    "leap_covered": true,
+    "coverage": [
+      {
+        "event_id": 5,
+        "event": "законодательства, миграционного, нарушение, ташкент, аэропорт, гражданами",
+        "outlet": "LEAP News",
+        "channel": "сайт",
+        "url": "https://leap.uz/ru/2026/08/02/us-deportation-18-uzbek-citizens",
+        "headline": "1 августа чартер из США доставил в Ташкент 18 депортированных граждан Узбекистана",
+        "published_at": "2026-08-02T10:00:00+05:00",
+        "lag_hours": -3.2,
+        "first": false,
+        "words": 359,
+        "named_sources": 2,
+        "quotes": 1,
+        "primary_doc_links": 1,
+        "clickbait_headline": false,
+        "returns": 0,
+        "return_at": null,
+        "depth": "контекст"
+      },
+      {
+        "event_id": 5,
+        "event": "законодательства, миграционного, нарушение, ташкент, аэропорт, гражданами",
+        "outlet": "Podrobno.uz",
+        "channel": "telegram",
+        "url": "https://t.me/podrobno/89347",
+        "headline": "В международный аэропорт Ташкента специальным чартерным рейсом доставлены 18 граждан Узбекистана, депортированных из США за",
+        "published_at": "2026-08-02T13:14:01+05:00",
+        "lag_hours": 0.0,
+        "first": true,
+        "words": 30,
+        "named_sources": 0,
+        "quotes": 0,
+        "primary_doc_links": 0,
+        "clickbait_headline": false,
+        "returns": 0,
+        "return_at": null,
+        "depth": "только факт"
+      },
+      {
+        "event_id": 5,
+        "event": "законодательства, миграционного, нарушение, ташкент, аэропорт, гражданами",
+        "outlet": "Repost.uz",
+        "channel": "telegram",
+        "url": "https://t.me/RepostUZ/85068",
+        "headline": "США депортировали на родину 18 узбекистанцев",
+        "published_at": "2026-08-03T10:12:01+05:00",
+        "lag_hours": 21.0,
+        "first": false,
+        "words": 26,
+        "named_sources": 0,
+        "quotes": 0,
+        "primary_doc_links": 0,
+        "clickbait_headline": false,
+        "returns": 0,
+        "return_at": null,
+        "depth": "только факт"
+      },
+      {
+        "event_id": 5,
+        "event": "законодательства, миграционного, нарушение, ташкент, аэропорт, гражданами",
+        "outlet": "Gazeta.uz",
+        "channel": "telegram",
+        "url": "https://t.me/gazetauz/63308",
+        "headline": "В Ташкент из США прибыли ещё 18 человек, высланные за нарушение миграционного законодательства.",
+        "published_at": "2026-08-03T10:30:06+05:00",
+        "lag_hours": 21.3,
+        "first": false,
+        "words": 33,
+        "named_sources": 0,
+        "quotes": 0,
+        "primary_doc_links": 0,
+        "clickbait_headline": false,
+        "returns": 0,
+        "return_at": null,
+        "depth": "только факт"
+      },
+      {
+        "event_id": 5,
+        "event": "законодательства, миграционного, нарушение, ташкент, аэропорт, гражданами",
+        "outlet": "Kun.uz",
+        "channel": "telegram",
+        "url": "https://t.me/kunuzru/73537",
+        "headline": "В Ташкент прибыл рейс с 18 гражданами Узбекистана, депортированными из США",
+        "published_at": "2026-08-03T11:50:06+05:00",
+        "lag_hours": 22.6,
+        "first": false,
+        "words": 78,
+        "named_sources": 1,
+        "quotes": 1,
+        "primary_doc_links": 0,
+        "clickbait_headline": false,
+        "returns": 0,
+        "return_at": null,
+        "depth": "только факт"
+      }
+    ]
+  },
+  {
+    "event_id": 6,
+    "label": "девушке, домогательств, штраф, сырдарье, защищаясь, кричала",
     "first_outlet": "UzNews.uz",
     "first_at": "2026-08-03T20:03:32+05:00",
     "first_text": "В Сырдарье отменили штраф девушке, которая кричала, защищаясь от домогательств",
@@ -443,8 +551,8 @@
     "leap_covered": false,
     "coverage": [
       {
-        "event_id": 5,
-        "event": "домогательств, штраф, девушке, сырдарье, отменил, кричала",
+        "event_id": 6,
+        "event": "девушке, домогательств, штраф, сырдарье, защищаясь, кричала",
         "outlet": "UzNews.uz",
         "channel": "telegram",
         "url": "https://t.me/uznews/48576",
@@ -462,8 +570,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 5,
-        "event": "домогательств, штраф, девушке, сырдарье, отменил, кричала",
+        "event_id": 6,
+        "event": "девушке, домогательств, штраф, сырдарье, защищаясь, кричала",
         "outlet": "Gazeta.uz",
         "channel": "telegram",
         "url": "https://t.me/gazetauz/63325",
@@ -481,8 +589,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 5,
-        "event": "домогательств, штраф, девушке, сырдарье, отменил, кричала",
+        "event_id": 6,
+        "event": "девушке, домогательств, штраф, сырдарье, защищаясь, кричала",
         "outlet": "Repost.uz",
         "channel": "telegram",
         "url": "https://t.me/RepostUZ/85103",
@@ -500,8 +608,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 5,
-        "event": "домогательств, штраф, девушке, сырдарье, отменил, кричала",
+        "event_id": 6,
+        "event": "девушке, домогательств, штраф, сырдарье, защищаясь, кричала",
         "outlet": "Kun.uz",
         "channel": "telegram",
         "url": "https://t.me/kunuzru/73552",
@@ -521,19 +629,19 @@
     ]
   },
   {
-    "event_id": 6,
-    "label": "должностных, отношении, уголовное, прокуратура, logistics, возбудила",
+    "event_id": 7,
+    "label": "должностных, отношении, прокуратура, logistics, возбудила, уголовное",
     "first_outlet": "Spot.uz",
     "first_at": "2026-08-04T11:33:27+05:00",
     "first_text": "По факту сноса дома и строительства ЖК New Port в Ташкенте возбуждено уголовное дело",
     "first_url": "https://t.me/spotuz/39253",
     "outlets": 4,
-    "posts": 4,
-    "leap_covered": false,
+    "posts": 5,
+    "leap_covered": true,
     "coverage": [
       {
-        "event_id": 6,
-        "event": "должностных, отношении, уголовное, прокуратура, logistics, возбудила",
+        "event_id": 7,
+        "event": "должностных, отношении, прокуратура, logistics, возбудила, уголовное",
         "outlet": "Spot.uz",
         "channel": "telegram",
         "url": "https://t.me/spotuz/39253",
@@ -551,8 +659,8 @@
         "depth": "контекст"
       },
       {
-        "event_id": 6,
-        "event": "должностных, отношении, уголовное, прокуратура, logistics, возбудила",
+        "event_id": 7,
+        "event": "должностных, отношении, прокуратура, logistics, возбудила, уголовное",
         "outlet": "UzNews.uz",
         "channel": "telegram",
         "url": "https://t.me/uznews/48584",
@@ -570,8 +678,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 6,
-        "event": "должностных, отношении, уголовное, прокуратура, logistics, возбудила",
+        "event_id": 7,
+        "event": "должностных, отношении, прокуратура, logistics, возбудила, уголовное",
         "outlet": "Gazeta.uz",
         "channel": "telegram",
         "url": "https://t.me/gazetauz/63332",
@@ -589,8 +697,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 6,
-        "event": "должностных, отношении, уголовное, прокуратура, logistics, возбудила",
+        "event_id": 7,
+        "event": "должностных, отношении, прокуратура, logistics, возбудила, уголовное",
         "outlet": "Kun.uz",
         "channel": "telegram",
         "url": "https://t.me/kunuzru/73558",
@@ -606,12 +714,31 @@
         "returns": 0,
         "return_at": null,
         "depth": "контекст"
+      },
+      {
+        "event_id": 7,
+        "event": "должностных, отношении, прокуратура, logistics, возбудила, уголовное",
+        "outlet": "LEAP News",
+        "channel": "сайт",
+        "url": "https://leap.uz/ru/2026/08/04/yakkasaray-new-port-demolition-case",
+        "headline": "Прокуратура Ташкента возбудила дело о самовольном сносе дома под ЖК New Port",
+        "published_at": "2026-08-04T18:01:00+05:00",
+        "lag_hours": 6.5,
+        "first": false,
+        "words": 343,
+        "named_sources": 3,
+        "quotes": 1,
+        "primary_doc_links": 0,
+        "clickbait_headline": false,
+        "returns": 0,
+        "return_at": null,
+        "depth": "контекст"
       }
     ]
   },
   {
-    "event_id": 7,
-    "label": "uzbekistan, годовых, sonet, опубликовала, рассрочки, условия",
+    "event_id": 8,
+    "label": "sonet, uzbekistan, годовых, опубликовала, платежа, рассрочки",
     "first_outlet": "UzNews.uz",
     "first_at": "2026-08-04T13:00:48+05:00",
     "first_text": "Kia Uzbekistan опубликовала условия рассрочки платежа",
@@ -621,8 +748,8 @@
     "leap_covered": false,
     "coverage": [
       {
-        "event_id": 7,
-        "event": "uzbekistan, годовых, sonet, опубликовала, рассрочки, условия",
+        "event_id": 8,
+        "event": "sonet, uzbekistan, годовых, опубликовала, платежа, рассрочки",
         "outlet": "UzNews.uz",
         "channel": "telegram",
         "url": "https://t.me/uznews/48587",
@@ -640,8 +767,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 7,
-        "event": "uzbekistan, годовых, sonet, опубликовала, рассрочки, условия",
+        "event_id": 8,
+        "event": "sonet, uzbekistan, годовых, опубликовала, платежа, рассрочки",
         "outlet": "Repost.uz",
         "channel": "telegram",
         "url": "https://t.me/RepostUZ/85134",
@@ -659,8 +786,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 7,
-        "event": "uzbekistan, годовых, sonet, опубликовала, рассрочки, условия",
+        "event_id": 8,
+        "event": "sonet, uzbekistan, годовых, опубликовала, платежа, рассрочки",
         "outlet": "Gazeta.uz",
         "channel": "telegram",
         "url": "https://t.me/gazetauz/63341",
@@ -678,8 +805,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 7,
-        "event": "uzbekistan, годовых, sonet, опубликовала, рассрочки, условия",
+        "event_id": 8,
+        "event": "sonet, uzbekistan, годовых, опубликовала, платежа, рассрочки",
         "outlet": "Kun.uz",
         "channel": "telegram",
         "url": "https://t.me/kunuzru/73561",
@@ -688,95 +815,6 @@
         "lag_hours": 4.0,
         "first": false,
         "words": 53,
-        "named_sources": 0,
-        "quotes": 0,
-        "primary_doc_links": 0,
-        "clickbait_headline": false,
-        "returns": 0,
-        "return_at": null,
-        "depth": "только факт"
-      }
-    ]
-  },
-  {
-    "event_id": 8,
-    "label": "летняя, джизаке, погибла, вылетел, блогерша, автомобиль",
-    "first_outlet": "Kun.uz",
-    "first_at": "2026-08-05T14:27:13+05:00",
-    "first_text": "В Джизаке в ДТП погибла 21-летняя блогерша",
-    "first_url": "https://t.me/kunuzru/73575",
-    "outlets": 4,
-    "posts": 4,
-    "leap_covered": false,
-    "coverage": [
-      {
-        "event_id": 8,
-        "event": "летняя, джизаке, погибла, вылетел, блогерша, автомобиль",
-        "outlet": "Kun.uz",
-        "channel": "telegram",
-        "url": "https://t.me/kunuzru/73575",
-        "headline": "В Джизаке в ДТП погибла 21-летняя блогерша",
-        "published_at": "2026-08-05T14:27:13+05:00",
-        "lag_hours": 0.0,
-        "first": true,
-        "words": 81,
-        "named_sources": 0,
-        "quotes": 0,
-        "primary_doc_links": 0,
-        "clickbait_headline": false,
-        "returns": 0,
-        "return_at": null,
-        "depth": "только факт"
-      },
-      {
-        "event_id": 8,
-        "event": "летняя, джизаке, погибла, вылетел, блогерша, автомобиль",
-        "outlet": "Repost.uz",
-        "channel": "telegram",
-        "url": "https://t.me/RepostUZ/85183",
-        "headline": "В Джизаке в аварии погибла 21-летняя блогерша",
-        "published_at": "2026-08-05T16:04:58+05:00",
-        "lag_hours": 1.6,
-        "first": false,
-        "words": 23,
-        "named_sources": 0,
-        "quotes": 0,
-        "primary_doc_links": 0,
-        "clickbait_headline": false,
-        "returns": 0,
-        "return_at": null,
-        "depth": "только факт"
-      },
-      {
-        "event_id": 8,
-        "event": "летняя, джизаке, погибла, вылетел, блогерша, автомобиль",
-        "outlet": "UzNews.uz",
-        "channel": "telegram",
-        "url": "https://t.me/uznews/48612",
-        "headline": "В Джизаке в ДТП погибла 21-летняя блогерша — видео",
-        "published_at": "2026-08-05T16:25:52+05:00",
-        "lag_hours": 2.0,
-        "first": false,
-        "words": 22,
-        "named_sources": 0,
-        "quotes": 0,
-        "primary_doc_links": 0,
-        "clickbait_headline": false,
-        "returns": 0,
-        "return_at": null,
-        "depth": "только факт"
-      },
-      {
-        "event_id": 8,
-        "event": "летняя, джизаке, погибла, вылетел, блогерша, автомобиль",
-        "outlet": "Podrobno.uz",
-        "channel": "telegram",
-        "url": "https://t.me/podrobno/89478",
-        "headline": "В Джизаке в результате ночного ДТП погибла 21-летняя девушка. Автомобиль, которым она управляла, на высокой",
-        "published_at": "2026-08-05T17:42:03+05:00",
-        "lag_hours": 3.2,
-        "first": false,
-        "words": 42,
         "named_sources": 0,
         "quotes": 0,
         "primary_doc_links": 0,

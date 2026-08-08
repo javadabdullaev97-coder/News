@@ -31,6 +31,10 @@ def main() -> int:
     first_mover = pd.read_csv(OUTPUT / "agenda-first-mover.csv").set_index("outlet")
     citations = pd.read_csv(OUTPUT / "citations.csv")
     validation = json.loads((OUTPUT / "heuristics-validation.json").read_text(encoding="utf-8"))
+    h2h = pd.read_csv(OUTPUT / "newsbreaks-headtohead-depth.csv")
+    nb = pd.read_csv(OUTPUT / "newsbreaks-depth.csv")
+    missed = pd.read_csv(OUTPUT / "missed-topics.csv")
+    ours = h2h[h2h["outlet"] == "LEAP News"]
 
     def share(outlet: str, mask) -> float:
         d = site[site["outlet"] == outlet]
@@ -69,6 +73,16 @@ def main() -> int:
         ("Точность: жанр", validation["точность"]["genre"], 0.85, 0.01),
         ("Точность: первичность", validation["точность"]["primacy"], 0.83, 0.01),
         ("Точность: топик", validation["точность"]["topic"], 0.74, 0.01),
+        # раздел 5.3 — охват общей повестки за 1-7 августа
+        ("Наших сюжетов из восьми", ours["event_id"].nunique(), 3, 0),
+        ("Наша медиана слов по событию", ours["site_words"].median(), 343, 1),
+        ("Наш лучший лаг, часов", ours["lag_hours"].min(), -3.2, 0.1),
+        ("Repost: раз первым за 30 дней", nb[nb["first"]].query("outlet == 'Repost.uz'").shape[0], 4, 0),
+        ("Spot: медиана слов по событию", nb.query("outlet == 'Spot.uz'")["site_words"].median(), 366, 1),
+        # раздел 6.4 — где потеряны пропущенные сюжеты
+        ("Пропущенных сюжетов", (missed["где потеряли"] != "опубликовано").sum(), 5, 0),
+        ("Пропущенных без следа в инбоксе",
+         missed[missed["где потеряли"] != "опубликовано"]["в_инбоксе"].eq(0).sum(), 0, 0),
     ]
 
     bad = 0

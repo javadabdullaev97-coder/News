@@ -46,6 +46,7 @@ STEPS = [
                           "--output", "output/newsbreaks-headtohead-depth.csv"], True),
     ("agenda", ["agenda.py"], False),
     ("qualitative", ["qualitative.py"], False),
+    ("missed", ["missed_topics.py"], False),
     ("dashboard", ["dashboard.py"], False),
     ("verify", ["verify_report.py"], False),
 ]

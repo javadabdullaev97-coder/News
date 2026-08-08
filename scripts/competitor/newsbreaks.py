@@ -18,7 +18,15 @@
      разрешается и страница скачивается адресно (fetch_event_articles).
 
 LEAP News своего Telegram в корпусе не имеет, поэтому наши материалы
-привязываются к событию по той же сигнатуре, но по сайту.
+участвуют в кластеризации наравне с постами — как записи с channel="site".
+Прежняя версия привязывала их к готовому кластеру отдельной проверкой
+Жаккара, и это давало ошибки в обе стороны: реально закрытое нами событие
+(дело о сносе дома под ЖК New Port) не привязывалось, а чужой материал про
+задержание госисполнителя привязывался. Порог для нас не должен отличаться
+от порога для всех остальных.
+
+В счёт «сколько изданий закрыло событие» мы не идём: считаются только
+конкуренты, иначе наш материал сам поднимал бы событие над порогом.
 
 Запуск:
   .venv-competitor/bin/python scripts/competitor/newsbreaks.py --top 8
@@ -85,13 +93,36 @@ def tokens_of(text: str) -> list[str]:
     return [t.lower() for t in TOKEN_RE.findall(text or "") if t.lower() not in STOPWORDS]
 
 
+def top_tokens(counter: Counter, size: int, order: dict[str, int] | None = None) -> list[str]:
+    """Самые частые токены с детерминированным разрешением ничьих.
+
+    Counter.most_common при равных частотах отдаёт порядок вставки, а он
+    зависит от порядка обхода корпуса: сигнатура одного и того же события
+    меняется от прогона к прогону, и материал, попавший в кластер вчера,
+    сегодня в него не попадает.
+
+    Ничьи разрешаются позицией первого появления токена в тексте (order):
+    в новости первым идёт заголовок, и его слова описывают событие лучше,
+    чем случайно выбранное слово из середины. Пробовались алфавитный порядок
+    и сортировка по редкости — оба дают формально детерминированный, но
+    бессмысленный отбор: на выборке 1-7 августа число событий, закрытых
+    четырьмя изданиями и более, падало с восьми до двух и до нуля.
+    """
+    pos = order or {}
+    return [
+        t for t, _ in sorted(counter.items(), key=lambda kv: (-kv[1], pos.get(kv[0], 10**6), kv[0]))
+    ][:size]
+
+
 def signature(text: str, df_counts: Counter, n_docs: int, size: int = 12) -> set[str]:
-    scored = Counter()
-    for t in tokens_of(text):
+    scored: Counter[str] = Counter()
+    first_seen: dict[str, int] = {}
+    for i, t in enumerate(tokens_of(text)):
         if df_counts.get(t, 1) > n_docs * 0.03:
             continue
         scored[t] += 1
-    return {t for t, _ in scored.most_common(size)}
+        first_seen.setdefault(t, i)
+    return set(top_tokens(scored, size, first_seen))
 
 
 def jaccard(a: set, b: set) -> float:
@@ -149,38 +180,43 @@ def main() -> int:
         print("нет Telegram-корпуса: сначала collect_telegram.py")
         return 1
 
-    df_counts: Counter[str] = Counter()
-    for p in posts:
-        df_counts.update(set(tokens_of(p["text"])))
-    for p in posts:
-        p["_dt"] = dateparser.parse(p["published_at"])
-        p["_sig"] = signature(p["text"], df_counts, len(posts))
-
-    clusters = build_clusters(posts, args.window, args.threshold)
-
-    ranked = []
-    routine_dropped = 0
-    for members in clusters:
-        outlets = {m["outlet"] for m in members}
-        if len(outlets) < args.min_outlets:
-            continue
-        blob = " ".join(m["text"][:200] for m in members)
-        if len(ROUTINE_RE.findall(blob)) >= max(2, len(members) // 2):
-            routine_dropped += 1
-            continue
-        ranked.append(members)
-    ranked.sort(key=lambda m: (len({x["outlet"] for x in m}), -min(x["_dt"] for x in m).timestamp()),
-                reverse=True)
-    ranked = ranked[: args.top]
-
-    # материалы LEAP News привязываем к событию по сигнатуре
+    # наши материалы кластеризуются вместе с постами конкурентов
     leap = list(read_jsonl(DATA_CLEAN / "leap" / "articles.jsonl"))
     if args.since:
         leap = [r for r in leap if r["published_at"] >= args.since]
     for r in leap:
-        r["_dt"] = dateparser.parse(r["published_at"])
-        r["_sig"] = signature((r.get("title") or "") + " " + (r.get("text") or "")[:1200],
-                              df_counts, len(posts))
+        r["_text"] = (r.get("title") or "") + "\n" + (r.get("text") or "")[:1500]
+    for p in posts:
+        p["_text"] = p["text"]
+
+    items = posts + leap
+    df_counts: Counter[str] = Counter()
+    for it in items:
+        df_counts.update(set(tokens_of(it["_text"])))
+    for it in items:
+        it["_dt"] = dateparser.parse(it["published_at"])
+        it["_sig"] = signature(it["_text"], df_counts, len(items))
+
+    clusters = build_clusters(items, args.window, args.threshold)
+
+    ranked = []
+    routine_dropped = 0
+    for members in clusters:
+        # порог «сколько изданий закрыло» считаем только по конкурентам
+        outlets = {m["outlet"] for m in members if m["outlet"] != "LEAP News"}
+        if len(outlets) < args.min_outlets:
+            continue
+        blob = " ".join(m["_text"][:200] for m in members)
+        if len(ROUTINE_RE.findall(blob)) >= max(2, len(members) // 2):
+            routine_dropped += 1
+            continue
+        ranked.append(members)
+    ranked.sort(
+        key=lambda m: (len({x["outlet"] for x in m if x["outlet"] != "LEAP News"}),
+                       -min(x["_dt"] for x in m).timestamp()),
+        reverse=True,
+    )
+    ranked = ranked[: args.top]
 
     table, detail = [], []
     for rank, members in enumerate(ranked, 1):
@@ -188,21 +224,16 @@ def main() -> int:
         label_tokens = Counter()
         for m in members:
             label_tokens.update(m["_sig"])
-        label = ", ".join(t for t, _ in label_tokens.most_common(6))
-        event_sig = {t for t, _ in label_tokens.most_common(14)}
+        label = ", ".join(top_tokens(label_tokens, 6))
+        event_sig = set(top_tokens(label_tokens, 14))
 
-        first = members[0]
+        # первым считается первый конкурент: наш материал не должен
+        # становиться точкой отсчёта лага для остальных
+        rivals = [m for m in members if m["outlet"] != "LEAP News"]
+        first = rivals[0] if rivals else members[0]
         by_outlet: dict[str, list[dict]] = defaultdict(list)
         for m in members:
             by_outlet[m["outlet"]].append(m)
-
-        # наш материал по этому событию, если он есть
-        leap_hits = sorted(
-            (r for r in leap if jaccard(r["_sig"], event_sig) >= 0.14),
-            key=lambda r: r["_dt"],
-        )
-        if leap_hits:
-            by_outlet["LEAP News"] = leap_hits
 
         event = {
             "event_id": rank,
@@ -213,15 +244,15 @@ def main() -> int:
             # чужих материалов, полные тексты остаются в data/ вне репозитория.
             "first_text": tg_headline(first["text"]),
             "first_url": first.get("url"),
-            "outlets": len(by_outlet),
+            "outlets": len({o for o in by_outlet if o != "LEAP News"}),
             "posts": len(members),
-            "leap_covered": bool(leap_hits),
+            "leap_covered": "LEAP News" in by_outlet,
             "coverage": [],
         }
         for outlet, its in sorted(by_outlet.items(), key=lambda kv: kv[1][0]["_dt"]):
             lead = its[0]
             is_site = lead.get("channel") == "site"
-            text = lead.get("text") or ""
+            text = lead.get("_text") or lead.get("text") or ""
             headline = lead.get("title") or tg_headline(text)
             row = {
                 "event_id": rank,

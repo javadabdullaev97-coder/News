@@ -1,7 +1,7 @@
 [
   {
     "event_id": 1,
-    "label": "стратегического, реформ, развития, сардор, умурзаков, советника",
+    "label": "развития, реформ, стратегического, агентства, сардор, советника",
     "first_outlet": "Repost.uz",
     "first_at": "2026-07-10T13:01:01+05:00",
     "first_text": "Сардор Умурзаков возглавил Агентство стратегического развития и реформ",
@@ -12,7 +12,7 @@
     "coverage": [
       {
         "event_id": 1,
-        "event": "стратегического, реформ, развития, сардор, умурзаков, советника",
+        "event": "развития, реформ, стратегического, агентства, сардор, советника",
         "outlet": "Repost.uz",
         "channel": "telegram",
         "url": "https://t.me/RepostUZ/84209",
@@ -31,7 +31,7 @@
       },
       {
         "event_id": 1,
-        "event": "стратегического, реформ, развития, сардор, умурзаков, советника",
+        "event": "развития, реформ, стратегического, агентства, сардор, советника",
         "outlet": "Gazeta.uz",
         "channel": "telegram",
         "url": "https://t.me/gazetauz/62787",
@@ -50,7 +50,7 @@
       },
       {
         "event_id": 1,
-        "event": "стратегического, реформ, развития, сардор, умурзаков, советника",
+        "event": "развития, реформ, стратегического, агентства, сардор, советника",
         "outlet": "UzNews.uz",
         "channel": "telegram",
         "url": "https://t.me/uznews/48243",
@@ -69,7 +69,7 @@
       },
       {
         "event_id": 1,
-        "event": "стратегического, реформ, развития, сардор, умурзаков, советника",
+        "event": "развития, реформ, стратегического, агентства, сардор, советника",
         "outlet": "Spot.uz",
         "channel": "telegram",
         "url": "https://t.me/spotuz/38804",
@@ -88,7 +88,7 @@
       },
       {
         "event_id": 1,
-        "event": "стратегического, реформ, развития, сардор, умурзаков, советника",
+        "event": "развития, реформ, стратегического, агентства, сардор, советника",
         "outlet": "Kun.uz",
         "channel": "telegram",
         "url": "https://t.me/kunuzru/73176",
@@ -107,7 +107,7 @@
       },
       {
         "event_id": 1,
-        "event": "стратегического, реформ, развития, сардор, умурзаков, советника",
+        "event": "развития, реформ, стратегического, агентства, сардор, советника",
         "outlet": "Podrobno.uz",
         "channel": "telegram",
         "url": "https://t.me/podrobno/88463",
@@ -128,134 +128,7 @@
   },
   {
     "event_id": 2,
-    "label": "граждан, регистрации, кыргызстан, находиться, пребывания, узбекистанцы",
-    "first_outlet": "Spot.uz",
-    "first_at": "2026-07-30T18:16:37+05:00",
-    "first_text": "Узбекистанцы смогут находиться в Кыргызстане без регистрации до 15 дней",
-    "first_url": "https://t.me/spotuz/39167",
-    "outlets": 6,
-    "posts": 6,
-    "leap_covered": false,
-    "coverage": [
-      {
-        "event_id": 2,
-        "event": "граждан, регистрации, кыргызстан, находиться, пребывания, узбекистанцы",
-        "outlet": "Spot.uz",
-        "channel": "telegram",
-        "url": "https://t.me/spotuz/39167",
-        "headline": "Узбекистанцы смогут находиться в Кыргызстане без регистрации до 15 дней",
-        "published_at": "2026-07-30T18:16:37+05:00",
-        "lag_hours": 0.0,
-        "first": true,
-        "words": 111,
-        "named_sources": 0,
-        "quotes": 0,
-        "primary_doc_links": 0,
-        "clickbait_headline": false,
-        "returns": 0,
-        "return_at": null,
-        "depth": "только факт"
-      },
-      {
-        "event_id": 2,
-        "event": "граждан, регистрации, кыргызстан, находиться, пребывания, узбекистанцы",
-        "outlet": "Repost.uz",
-        "channel": "telegram",
-        "url": "https://t.me/RepostUZ/84976",
-        "headline": "С 5 до 15 дней: Узбекистан и Кыргызстан увеличат срок пребывания граждан без регистрации",
-        "published_at": "2026-07-30T18:44:50+05:00",
-        "lag_hours": 0.5,
-        "first": false,
-        "words": 32,
-        "named_sources": 0,
-        "quotes": 0,
-        "primary_doc_links": 0,
-        "clickbait_headline": false,
-        "returns": 0,
-        "return_at": null,
-        "depth": "только факт"
-      },
-      {
-        "event_id": 2,
-        "event": "граждан, регистрации, кыргызстан, находиться, пребывания, узбекистанцы",
-        "outlet": "Gazeta.uz",
-        "channel": "telegram",
-        "url": "https://t.me/gazetauz/63257",
-        "headline": "Узбекистан и Кыргызстан упростят правила пребывания граждан.",
-        "published_at": "2026-07-30T20:30:01+05:00",
-        "lag_hours": 2.2,
-        "first": false,
-        "words": 37,
-        "named_sources": 0,
-        "quotes": 0,
-        "primary_doc_links": 0,
-        "clickbait_headline": false,
-        "returns": 0,
-        "return_at": null,
-        "depth": "только факт"
-      },
-      {
-        "event_id": 2,
-        "event": "граждан, регистрации, кыргызстан, находиться, пребывания, узбекистанцы",
-        "outlet": "Podrobno.uz",
-        "channel": "telegram",
-        "url": "https://t.me/podrobno/89268",
-        "headline": "Узбекистан и Кыргызстан договорились освободить граждан двух стран от обязательной регистрации в течение 15 суток",
-        "published_at": "2026-07-30T20:50:13+05:00",
-        "lag_hours": 2.6,
-        "first": false,
-        "words": 29,
-        "named_sources": 0,
-        "quotes": 0,
-        "primary_doc_links": 0,
-        "clickbait_headline": false,
-        "returns": 0,
-        "return_at": null,
-        "depth": "только факт"
-      },
-      {
-        "event_id": 2,
-        "event": "граждан, регистрации, кыргызстан, находиться, пребывания, узбекистанцы",
-        "outlet": "Kun.uz",
-        "channel": "telegram",
-        "url": "https://t.me/kunuzru/73497",
-        "headline": "Узбекистанцы смогут находиться в Кыргызстане без регистрации 15 дней",
-        "published_at": "2026-07-31T09:50:37+05:00",
-        "lag_hours": 15.6,
-        "first": false,
-        "words": 66,
-        "named_sources": 1,
-        "quotes": 0,
-        "primary_doc_links": 0,
-        "clickbait_headline": false,
-        "returns": 0,
-        "return_at": null,
-        "depth": "только факт"
-      },
-      {
-        "event_id": 2,
-        "event": "граждан, регистрации, кыргызстан, находиться, пребывания, узбекистанцы",
-        "outlet": "UzNews.uz",
-        "channel": "telegram",
-        "url": "https://t.me/uznews/48555",
-        "headline": "Узбекистанцы смогут находиться в Кыргызстане без регистрации до 15 дней",
-        "published_at": "2026-07-31T18:26:21+05:00",
-        "lag_hours": 24.2,
-        "first": false,
-        "words": 27,
-        "named_sources": 0,
-        "quotes": 0,
-        "primary_doc_links": 0,
-        "clickbait_headline": false,
-        "returns": 0,
-        "return_at": null,
-        "depth": "только факт"
-      }
-    ]
-  },
-  {
-    "event_id": 3,
-    "label": "закон, международном, ташкентском, центре, финансовом, конституционный",
+    "label": "закон, международном, ташкентском, конституционный, финансовом, центре",
     "first_outlet": "Repost.uz",
     "first_at": "2026-07-09T11:30:16+05:00",
     "first_text": "Сенаторы приняли закон о Ташкентском международном финансовом центре",
@@ -265,8 +138,8 @@
     "leap_covered": false,
     "coverage": [
       {
-        "event_id": 3,
-        "event": "закон, международном, ташкентском, центре, финансовом, конституционный",
+        "event_id": 2,
+        "event": "закон, международном, ташкентском, конституционный, финансовом, центре",
         "outlet": "Repost.uz",
         "channel": "telegram",
         "url": "https://t.me/RepostUZ/84158",
@@ -284,8 +157,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 3,
-        "event": "закон, международном, ташкентском, центре, финансовом, конституционный",
+        "event_id": 2,
+        "event": "закон, международном, ташкентском, конституционный, финансовом, центре",
         "outlet": "Gazeta.uz",
         "channel": "telegram",
         "url": "https://t.me/gazetauz/62752",
@@ -303,8 +176,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 3,
-        "event": "закон, международном, ташкентском, центре, финансовом, конституционный",
+        "event_id": 2,
+        "event": "закон, международном, ташкентском, конституционный, финансовом, центре",
         "outlet": "Spot.uz",
         "channel": "telegram",
         "url": "https://t.me/spotuz/38782",
@@ -322,8 +195,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 3,
-        "event": "закон, международном, ташкентском, центре, финансовом, конституционный",
+        "event_id": 2,
+        "event": "закон, международном, ташкентском, конституционный, финансовом, центре",
         "outlet": "Podrobno.uz",
         "channel": "telegram",
         "url": "https://t.me/podrobno/88422",
@@ -341,8 +214,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 3,
-        "event": "закон, международном, ташкентском, центре, финансовом, конституционный",
+        "event_id": 2,
+        "event": "закон, международном, ташкентском, конституционный, финансовом, центре",
         "outlet": "Kun.uz",
         "channel": "telegram",
         "url": "https://t.me/kunuzru/73158",
@@ -362,8 +235,8 @@
     ]
   },
   {
-    "event_id": 4,
-    "label": "неоплату, парковки, платной, предлагается, штрафовать, предложили",
+    "event_id": 3,
+    "label": "неоплату, парковки, платной, административной, предлагается, предложили",
     "first_outlet": "Spot.uz",
     "first_at": "2026-07-13T18:22:48+05:00",
     "first_text": "За неоплату платной парковки в Узбекистане предложили штрафовать на 824 тыс. сумов",
@@ -373,8 +246,8 @@
     "leap_covered": false,
     "coverage": [
       {
-        "event_id": 4,
-        "event": "неоплату, парковки, платной, предлагается, штрафовать, предложили",
+        "event_id": 3,
+        "event": "неоплату, парковки, платной, административной, предлагается, предложили",
         "outlet": "Spot.uz",
         "channel": "telegram",
         "url": "https://t.me/spotuz/38856",
@@ -392,8 +265,8 @@
         "depth": "контекст"
       },
       {
-        "event_id": 4,
-        "event": "неоплату, парковки, платной, предлагается, штрафовать, предложили",
+        "event_id": 3,
+        "event": "неоплату, парковки, платной, административной, предлагается, предложили",
         "outlet": "UzNews.uz",
         "channel": "telegram",
         "url": "https://t.me/uznews/48278",
@@ -411,8 +284,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 4,
-        "event": "неоплату, парковки, платной, предлагается, штрафовать, предложили",
+        "event_id": 3,
+        "event": "неоплату, парковки, платной, административной, предлагается, предложили",
         "outlet": "Repost.uz",
         "channel": "telegram",
         "url": "https://t.me/RepostUZ/84299",
@@ -430,8 +303,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 4,
-        "event": "неоплату, парковки, платной, предлагается, штрафовать, предложили",
+        "event_id": 3,
+        "event": "неоплату, парковки, платной, административной, предлагается, предложили",
         "outlet": "Gazeta.uz",
         "channel": "telegram",
         "url": "https://t.me/gazetauz/62856",
@@ -449,8 +322,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 4,
-        "event": "неоплату, парковки, платной, предлагается, штрафовать, предложили",
+        "event_id": 3,
+        "event": "неоплату, парковки, платной, административной, предлагается, предложили",
         "outlet": "Kun.uz",
         "channel": "telegram",
         "url": "https://t.me/kunuzru/73225",
@@ -470,8 +343,8 @@
     ]
   },
   {
-    "event_id": 5,
-    "label": "соболезнования, связи, катара, кончиной, прибыл, катар",
+    "event_id": 4,
+    "label": "катара, связи, соболезнования, кончиной, прибыл, выразить",
     "first_outlet": "UzNews.uz",
     "first_at": "2026-07-14T19:21:51+05:00",
     "first_text": "Шавкат Мирзиёев прибыл в Катар",
@@ -481,8 +354,8 @@
     "leap_covered": false,
     "coverage": [
       {
-        "event_id": 5,
-        "event": "соболезнования, связи, катара, кончиной, прибыл, катар",
+        "event_id": 4,
+        "event": "катара, связи, соболезнования, кончиной, прибыл, выразить",
         "outlet": "UzNews.uz",
         "channel": "telegram",
         "url": "https://t.me/uznews/48297",
@@ -500,8 +373,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 5,
-        "event": "соболезнования, связи, катара, кончиной, прибыл, катар",
+        "event_id": 4,
+        "event": "катара, связи, соболезнования, кончиной, прибыл, выразить",
         "outlet": "Gazeta.uz",
         "channel": "telegram",
         "url": "https://t.me/gazetauz/62897",
@@ -519,8 +392,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 5,
-        "event": "соболезнования, связи, катара, кончиной, прибыл, катар",
+        "event_id": 4,
+        "event": "катара, связи, соболезнования, кончиной, прибыл, выразить",
         "outlet": "Repost.uz",
         "channel": "telegram",
         "url": "https://t.me/RepostUZ/84349",
@@ -538,8 +411,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 5,
-        "event": "соболезнования, связи, катара, кончиной, прибыл, катар",
+        "event_id": 4,
+        "event": "катара, связи, соболезнования, кончиной, прибыл, выразить",
         "outlet": "Podrobno.uz",
         "channel": "telegram",
         "url": "https://t.me/podrobno/88633",
@@ -557,8 +430,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 5,
-        "event": "соболезнования, связи, катара, кончиной, прибыл, катар",
+        "event_id": 4,
+        "event": "катара, связи, соболезнования, кончиной, прибыл, выразить",
         "outlet": "Kun.uz",
         "channel": "telegram",
         "url": "https://t.me/kunuzru/73240",
@@ -578,8 +451,8 @@
     ]
   },
   {
-    "event_id": 6,
-    "label": "ucell, speedtest, intelligence, данных, подряд, третий",
+    "event_id": 5,
+    "label": "intelligence, speedtest, ucell, данных, подряд, третий",
     "first_outlet": "Repost.uz",
     "first_at": "2026-07-15T13:00:01+05:00",
     "first_text": "Ucell вновь подтверждает свое лидерство",
@@ -589,8 +462,8 @@
     "leap_covered": false,
     "coverage": [
       {
-        "event_id": 6,
-        "event": "ucell, speedtest, intelligence, данных, подряд, третий",
+        "event_id": 5,
+        "event": "intelligence, speedtest, ucell, данных, подряд, третий",
         "outlet": "Repost.uz",
         "channel": "telegram",
         "url": "https://t.me/RepostUZ/84378",
@@ -608,8 +481,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 6,
-        "event": "ucell, speedtest, intelligence, данных, подряд, третий",
+        "event_id": 5,
+        "event": "intelligence, speedtest, ucell, данных, подряд, третий",
         "outlet": "Spot.uz",
         "channel": "telegram",
         "url": "https://t.me/spotuz/38896",
@@ -627,8 +500,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 6,
-        "event": "ucell, speedtest, intelligence, данных, подряд, третий",
+        "event_id": 5,
+        "event": "intelligence, speedtest, ucell, данных, подряд, третий",
         "outlet": "Gazeta.uz",
         "channel": "telegram",
         "url": "https://t.me/gazetauz/62923",
@@ -646,8 +519,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 6,
-        "event": "ucell, speedtest, intelligence, данных, подряд, третий",
+        "event_id": 5,
+        "event": "intelligence, speedtest, ucell, данных, подряд, третий",
         "outlet": "Kun.uz",
         "channel": "telegram",
         "url": "https://t.me/kunuzru/73277",
@@ -665,8 +538,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 6,
-        "event": "ucell, speedtest, intelligence, данных, подряд, третий",
+        "event_id": 5,
+        "event": "intelligence, speedtest, ucell, данных, подряд, третий",
         "outlet": "UzNews.uz",
         "channel": "telegram",
         "url": "https://t.me/uznews/48342",
@@ -686,19 +559,19 @@
     ]
   },
   {
-    "event_id": 7,
-    "label": "безопасности, государственной, службы, президента, усманов, алишер",
+    "event_id": 6,
+    "label": "алишер, безопасности, государственной, службы, усманов, уволен",
     "first_outlet": "Kun.uz",
     "first_at": "2026-07-18T00:01:45+05:00",
     "first_text": "Алишер Усманов уволен с поста председателя Службы государственной безопасности президента Узбекистана.",
     "first_url": "https://t.me/kunuzru/73295",
     "outlets": 5,
-    "posts": 9,
+    "posts": 6,
     "leap_covered": false,
     "coverage": [
       {
-        "event_id": 7,
-        "event": "безопасности, государственной, службы, президента, усманов, алишер",
+        "event_id": 6,
+        "event": "алишер, безопасности, государственной, службы, усманов, уволен",
         "outlet": "Kun.uz",
         "channel": "telegram",
         "url": "https://t.me/kunuzru/73295",
@@ -711,13 +584,13 @@
         "quotes": 0,
         "primary_doc_links": 0,
         "clickbait_headline": false,
-        "returns": 1,
-        "return_at": "2026-07-18T10:26:57+05:00",
+        "returns": 0,
+        "return_at": null,
         "depth": "только факт"
       },
       {
-        "event_id": 7,
-        "event": "безопасности, государственной, службы, президента, усманов, алишер",
+        "event_id": 6,
+        "event": "алишер, безопасности, государственной, службы, усманов, уволен",
         "outlet": "Repost.uz",
         "channel": "telegram",
         "url": "https://t.me/RepostUZ/84509",
@@ -735,8 +608,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 7,
-        "event": "безопасности, государственной, службы, президента, усманов, алишер",
+        "event_id": 6,
+        "event": "алишер, безопасности, государственной, службы, усманов, уволен",
         "outlet": "Podrobno.uz",
         "channel": "telegram",
         "url": "https://t.me/podrobno/88783",
@@ -749,13 +622,13 @@
         "quotes": 0,
         "primary_doc_links": 0,
         "clickbait_headline": false,
-        "returns": 1,
-        "return_at": "2026-07-18T11:02:48+05:00",
+        "returns": 0,
+        "return_at": null,
         "depth": "только факт"
       },
       {
-        "event_id": 7,
-        "event": "безопасности, государственной, службы, президента, усманов, алишер",
+        "event_id": 6,
+        "event": "алишер, безопасности, государственной, службы, усманов, уволен",
         "outlet": "UzNews.uz",
         "channel": "telegram",
         "url": "https://t.me/uznews/48355",
@@ -773,8 +646,8 @@
         "depth": "только факт"
       },
       {
-        "event_id": 7,
-        "event": "безопасности, государственной, службы, президента, усманов, алишер",
+        "event_id": 6,
+        "event": "алишер, безопасности, государственной, службы, усманов, уволен",
         "outlet": "Gazeta.uz",
         "channel": "telegram",
         "url": "https://t.me/gazetauz/62976",
@@ -787,15 +660,123 @@
         "quotes": 0,
         "primary_doc_links": 0,
         "clickbait_headline": false,
-        "returns": 1,
-        "return_at": "2026-07-18T09:31:32+05:00",
+        "returns": 0,
+        "return_at": null,
+        "depth": "только факт"
+      }
+    ]
+  },
+  {
+    "event_id": 7,
+    "label": "турции, находившихся, розыске, международном, троих, узбекистанцев",
+    "first_outlet": "Podrobno.uz",
+    "first_at": "2026-07-22T18:00:07+05:00",
+    "first_text": "Из Турции в Узбекистан доставили троих граждан страны, находившихся в международном розыске по линии Интерпола.",
+    "first_url": "https://t.me/podrobno/88962",
+    "outlets": 5,
+    "posts": 5,
+    "leap_covered": false,
+    "coverage": [
+      {
+        "event_id": 7,
+        "event": "турции, находившихся, розыске, международном, троих, узбекистанцев",
+        "outlet": "Podrobno.uz",
+        "channel": "telegram",
+        "url": "https://t.me/podrobno/88962",
+        "headline": "Из Турции в Узбекистан доставили троих граждан страны, находившихся в международном розыске по линии Интерпола.",
+        "published_at": "2026-07-22T18:00:07+05:00",
+        "lag_hours": 0.0,
+        "first": true,
+        "words": 35,
+        "named_sources": 0,
+        "quotes": 0,
+        "primary_doc_links": 0,
+        "clickbait_headline": false,
+        "returns": 0,
+        "return_at": null,
+        "depth": "только факт"
+      },
+      {
+        "event_id": 7,
+        "event": "турции, находившихся, розыске, международном, троих, узбекистанцев",
+        "outlet": "UzNews.uz",
+        "channel": "telegram",
+        "url": "https://t.me/uznews/48426",
+        "headline": "Из Турции экстрадировали троих узбекистанцев, находившихся в международном розыске — видео",
+        "published_at": "2026-07-22T18:04:33+05:00",
+        "lag_hours": 0.1,
+        "first": false,
+        "words": 25,
+        "named_sources": 0,
+        "quotes": 0,
+        "primary_doc_links": 0,
+        "clickbait_headline": false,
+        "returns": 0,
+        "return_at": null,
+        "depth": "только факт"
+      },
+      {
+        "event_id": 7,
+        "event": "турции, находившихся, розыске, международном, троих, узбекистанцев",
+        "outlet": "Repost.uz",
+        "channel": "telegram",
+        "url": "https://t.me/RepostUZ/84656",
+        "headline": "Из Турции экстрадировали трех узбекистанцев, находившихся в розыске по линии Интерпола",
+        "published_at": "2026-07-22T18:15:08+05:00",
+        "lag_hours": 0.3,
+        "first": false,
+        "words": 33,
+        "named_sources": 0,
+        "quotes": 0,
+        "primary_doc_links": 0,
+        "clickbait_headline": false,
+        "returns": 0,
+        "return_at": null,
+        "depth": "только факт"
+      },
+      {
+        "event_id": 7,
+        "event": "турции, находившихся, розыске, международном, троих, узбекистанцев",
+        "outlet": "Kun.uz",
+        "channel": "telegram",
+        "url": "https://t.me/kunuzru/73366",
+        "headline": "Троих узбекистанцев, разыскиваемых Интерполом, задержали в Турции",
+        "published_at": "2026-07-23T09:18:36+05:00",
+        "lag_hours": 15.3,
+        "first": false,
+        "words": 43,
+        "named_sources": 0,
+        "quotes": 0,
+        "primary_doc_links": 0,
+        "clickbait_headline": false,
+        "returns": 0,
+        "return_at": null,
+        "depth": "только факт"
+      },
+      {
+        "event_id": 7,
+        "event": "турции, находившихся, розыске, международном, троих, узбекистанцев",
+        "outlet": "Gazeta.uz",
+        "channel": "telegram",
+        "url": "https://t.me/gazetauz/63095",
+        "headline": "Из Турции в Узбекистан экстрадированы трое граждан, находившихся в международном розыске.",
+        "published_at": "2026-07-23T18:17:16+05:00",
+        "lag_hours": 24.3,
+        "first": false,
+        "words": 26,
+        "named_sources": 0,
+        "quotes": 0,
+        "primary_doc_links": 0,
+        "clickbait_headline": false,
+        "returns": 0,
+        "return_at": null,
         "depth": "только факт"
       }
     ]
   },
   {
     "event_id": 8,
-    "label": "манчестер, контракт, хусанов, 2031, продлил, новое",
+    "label": "манчестер, контракт, хусанов, 2031, абдукодиром, новое",
     "first_outlet": "Repost.uz",
     "first_at": "2026-07-25T15:14:48+05:00",
     "first_text": "Официально: Хусанов продлил контракт с «Манчестер Сити»",
@@ -806,7 +787,7 @@
     "coverage": [
       {
         "event_id": 8,
-        "event": "манчестер, контракт, хусанов, 2031, продлил, новое",
+        "event": "манчестер, контракт, хусанов, 2031, абдукодиром, новое",
         "outlet": "Repost.uz",
         "channel": "telegram",
         "url": "https://t.me/RepostUZ/84778",
@@ -825,7 +806,7 @@
       },
       {
         "event_id": 8,
-        "event": "манчестер, контракт, хусанов, 2031, продлил, новое",
+        "event": "манчестер, контракт, хусанов, 2031, абдукодиром, новое",
         "outlet": "Gazeta.uz",
         "channel": "telegram",
         "url": "https://t.me/gazetauz/63124",
@@ -844,7 +825,7 @@
       },
       {
         "event_id": 8,
-        "event": "манчестер, контракт, хусанов, 2031, продлил, новое",
+        "event": "манчестер, контракт, хусанов, 2031, абдукодиром, новое",
         "outlet": "UzNews.uz",
         "channel": "telegram",
         "url": "https://t.me/uznews/48454",
@@ -863,7 +844,7 @@
       },
       {
         "event_id": 8,
-        "event": "манчестер, контракт, хусанов, 2031, продлил, новое",
+        "event": "манчестер, контракт, хусанов, 2031, абдукодиром, новое",
         "outlet": "Podrobno.uz",
         "channel": "telegram",
         "url": "https://t.me/podrobno/89069",
@@ -882,7 +863,7 @@
       },
       {
         "event_id": 8,
-        "event": "манчестер, контракт, хусанов, 2031, продлил, новое",
+        "event": "манчестер, контракт, хусанов, 2031, абдукодиром, новое",
         "outlet": "Kun.uz",
         "channel": "telegram",
         "url": "https://t.me/kunuzru/73406",
