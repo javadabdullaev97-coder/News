@@ -1,0 +1,6 @@
+REJECTED as duplicate (orchestrator decision, post-bild/seo).
+
+content/posts/2026-08-06/cbu-fake-bank-license-oltin-oy-kredit.mdx already published
+2026-08-06 covering the SAME CBU warning about the SAME fake bank name ("Oltin Oy Kredit"),
+same tgScore(45)/tag pattern, and adjacent Telegram post IDs (13401 vs 13402) - the same
+underlying announcement, picked up independently two days later.

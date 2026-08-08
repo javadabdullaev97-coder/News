@@ -1,0 +1,12 @@
+REJECTED as duplicate (orchestrator decision, post-bild/seo).
+
+content/posts/2026-08-06/tashkent-chilonzor-kichik-halqa-road-closure-aug2026.mdx already
+published 2026-08-06 covering the same ЦОДД closure of the Kichik Halqa road segment in
+Chilonzor (same dates 6-10 August, same source t.me/codd_tashkent/296, same reason/detour).
+This draft adds specific bus-reroute details (routes 18/80/77/103, via @tshtxuz) not in the
+original piece - a legitimate incremental fact, but the draft was written as a standalone
+article rather than as an explicit development referencing the 08-06 piece (per policy rule #2
+requirement: "новое развитие сюжета... со ссылкой на вышедший текст"). Given the core closure
+narrative is fully redundant and this wasn't reframed as a focused bus-reroute update, rejecting
+as duplicate. The bus-route detail could be worth a small addendum to the existing 08-06 post
+in a future run if still useful before the closure ends (08:00, 10 August).
