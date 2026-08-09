@@ -63,8 +63,10 @@ export function HomePage({ lang = "ru" }: { lang?: Lang }) {
 
   const secondary = take(2); // крупные карточки под героем
   const underHero = take(4); // компактная строка — добивает высоту левой колонки под сайдбар
-  const rail = take(6); // «Лента» в сайдбаре
-  const latest = take(6); // секция «Главное»
+  // Пять, а не шесть: «Лента» стоит в одной строке грида с героем и тянется
+  // до его нижнего края. Шестая карточка перерастала картинку, и коробка
+  // висела ниже неё (замечание владельца 10.08.2026).
+  const rail = take(5);
 
   return (
     <div className="container-news py-6">
@@ -75,12 +77,48 @@ export function HomePage({ lang = "ru" }: { lang?: Lang }) {
         className="mb-8"
       />
 
-      <section className="grid items-start gap-6 lg:grid-cols-3">
+      {/*
+        Первая строка грида — герой и «Лента»: они соседи по строке, поэтому
+        грид растягивает их до одной высоты, и нижний край коробки совпадает
+        с нижним краем картинки. Раньше вся левая колонка была одним элементом
+        грида, и «Лента» равнялась на неё целиком — то есть ни на что.
+        Виджеты и вторая порция материалов уходят во вторую строку.
+      */}
+      <section className="grid gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2">
           <ArticleCard article={hero} variant="hero" />
+        </div>
 
+        <aside className="flex flex-col rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+          <div className="flex items-baseline justify-between">
+            <h3 className="text-sm font-bold uppercase tracking-wider">{t(lang, "feed")}</h3>
+            <Link href={allHref} className="text-xs font-medium text-brand hover:underline">
+              {t(lang, "seeAll")} →
+            </Link>
+          </div>
+          <ol className="mt-1 flex flex-1 flex-col justify-between">
+            {rail.map((a) => (
+              <li
+                key={a.slug}
+                className="border-b border-neutral-100 py-2.5 last:border-0 dark:border-neutral-800"
+              >
+                <div className="text-[11px] font-medium uppercase tracking-wider text-neutral-500">
+                  {timeAgo(a.publishedAt)}
+                </div>
+                <Link
+                  href={articleHref(a)}
+                  className="mt-0.5 block text-sm font-medium leading-snug hover:text-brand"
+                >
+                  {a.title}
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </aside>
+
+        <div className="lg:col-span-2">
           {secondary.length > 0 && (
-            <div className="mt-6 grid gap-6 sm:grid-cols-2">
+            <div className="grid gap-6 sm:grid-cols-2">
               {secondary.map((a) => (
                 <ArticleCard key={a.slug} article={a} />
               ))}
@@ -97,33 +135,6 @@ export function HomePage({ lang = "ru" }: { lang?: Lang }) {
         </div>
 
         <aside className="space-y-6">
-          <div className="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
-            <div className="flex items-baseline justify-between">
-              <h3 className="text-sm font-bold uppercase tracking-wider">{t(lang, "feed")}</h3>
-              <Link href={allHref} className="text-xs font-medium text-brand hover:underline">
-                {t(lang, "seeAll")} →
-              </Link>
-            </div>
-            <ol className="mt-1">
-              {rail.map((a) => (
-                <li
-                  key={a.slug}
-                  className="border-b border-neutral-100 py-2.5 last:border-0 dark:border-neutral-800"
-                >
-                  <div className="text-[11px] font-medium uppercase tracking-wider text-neutral-500">
-                    {timeAgo(a.publishedAt)}
-                  </div>
-                  <Link
-                    href={articleHref(a)}
-                    className="mt-0.5 block text-sm font-medium leading-snug hover:text-brand"
-                  >
-                    {a.title}
-                  </Link>
-                </li>
-              ))}
-            </ol>
-          </div>
-
           <WeatherWidget />
 
           <CurrencyWidget />
@@ -136,22 +147,13 @@ export function HomePage({ lang = "ru" }: { lang?: Lang }) {
         </aside>
       </section>
 
-      {latest.length > 0 && (
-        <section className="mt-12">
-          <div className="flex items-baseline justify-between border-b border-neutral-200 pb-3 dark:border-neutral-800">
-            <h2 className="font-serif text-2xl font-bold">{t(lang, "main")}</h2>
-            <Link href={allHref} className="text-sm font-medium text-brand hover:underline">
-              {t(lang, "all")} →
-            </Link>
-          </div>
-          <div className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {latest.map((a) => (
-              <ArticleCard key={a.slug} article={a} />
-            ))}
-          </div>
-        </section>
-      )}
-
+      {/*
+        Секции «Главное» здесь больше нет (решение владельца 10.08.2026).
+        Она показывала шесть карточек ровно того же вида, что и рубричные
+        блоки ниже, и отличалась от них только заголовком: свежесть на
+        главной уже держат герой, «Лента» и карточки под ними. Освободившиеся
+        шесть материалов теперь достаются рубрикам — `used` их не занимает.
+      */}
       <RubricSection lang={lang} rubricSlug="politics" exclude={used} />
       <RubricSection lang={lang} rubricSlug="economy" exclude={used} />
       <RubricSection lang={lang} rubricSlug="society" exclude={used} />

@@ -278,14 +278,64 @@ for (const b of badLinks) {
   console.error(`✗ ${b.file}: внутренняя ссылка ${b.url} — ${b.why}`);
 }
 
+// ── Спорт не бывает «Миром» ────────────────────────────────────────────
+//
+// `world` — не «всё зарубежное», а география для сюжетов из политики,
+// экономики и общества, у которых нет узбекской привязки. У спорта своя
+// рубрика, и она сильнее географии. 09.08.2026 трансфер Бруну Гимарайнша
+// из «Ньюкасла» в «Арсенал» уехал в «Мир»: правило «зарубежное без узбекской
+// привязки → world» сработало раньше предметного.
+//
+// Смотрим только теги: они выставлены редакцией осознанно, а в alt-текстах
+// попадается «в футболках с логотипом» и прочие ложные совпадения.
+// Сравнение точное, не по началу строки: «transfer and reinstatement» —
+// это перевод и восстановление студентов, а не футбольный трансфер.
+const SPORT_TAGS = new Set([
+  "футбол", "спорт", "трансферы", "трансфер", "уефа", "фифа", "бокс", "дзюдо",
+  "теннис", "шахматы", "хоккей", "баскетбол", "волейбол", "велоспорт",
+  "плавание", "олимпийские игры", "тяжёлая атлетика", "лёгкая атлетика",
+  "futbol", "sport", "transferlar", "boks", "shaxmat", "tennis", "xokkey",
+  "basketbol", "voleybol", "olimpiada o'yinlari",
+  "football", "soccer", "sports", "transfers", "boxing", "judo", "chess",
+  "hockey", "basketball", "volleyball", "olympic games",
+]);
+const miscategorised = [];
+for (const { path: file } of files) {
+  const head = readFileSync(file, "utf8").split(/\n---/, 1)[0];
+  const cat = (head.match(/^category:\s*"?([a-z]+)"?/m) ?? [])[1];
+  if (!cat || cat === "sport") continue;
+  const tags = (head.match(/^tags:\s*\[(.*)\]/m) ?? [])[1] ?? "";
+  const hit = tags
+    .split(",")
+    .map((s) => s.trim().replace(/^["']|["']$/g, "").toLowerCase())
+    .find((tag) => SPORT_TAGS.has(tag));
+  if (hit) {
+    miscategorised.push({ file: file.replace(ROOT + "/", ""), cat, tag: hit });
+  }
+}
+for (const m of miscategorised) {
+  console.error(
+    `✗ ${m.file}: category "${m.cat}" при спортивном теге «${m.tag}» — у спорта своя рубрика, география её не перебивает`,
+  );
+}
+
 for (const l of leaks) {
   console.error(`✗ ${l.file}: служебная разметка агента в тексте (${l.markers.join(", ")}) — вычистить руками`);
 }
 console.error(
   fix
-    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}`
-    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}`,
+    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}, рубрика мимо ${miscategorised.length}`
+    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}, рубрика мимо ${miscategorised.length}`,
 );
 // Утечка разметки — ошибка всегда, даже в режиме --fix: чинить её
 // автоматически нельзя, а выпускать материал с ней нельзя тем более.
-process.exit(leaks.length || cards.length || badLinks.length || dateProblems.length || (!fix && findings.length) ? 1 : 0);
+process.exit(
+  leaks.length ||
+  cards.length ||
+  badLinks.length ||
+  dateProblems.length ||
+  miscategorised.length ||
+  (!fix && findings.length)
+    ? 1
+    : 0,
+);
