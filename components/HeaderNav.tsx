@@ -27,7 +27,7 @@ export function HeaderNav() {
             : "bg-brand/10 text-brand hover:bg-brand/15"
         }`}
       >
-        {tr(lang, "all")}
+        {tr(lang, "feed")}
       </Link>
       <span
         aria-hidden
@@ -72,7 +72,7 @@ export function MobileNav() {
           isAllActive ? "bg-brand text-white" : "bg-brand/5 text-brand hover:bg-brand/10"
         }`}
       >
-        {tr(lang, "all")}
+        {tr(lang, "feed")}
       </Link>
       <span
         aria-hidden

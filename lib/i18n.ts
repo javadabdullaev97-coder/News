@@ -132,6 +132,33 @@ export function rubricTitle(slug: string, lang: Lang, fallback?: string): string
 }
 
 /**
+ * Подпись ссылки на рубрику в шапке секции: «Лента экономики», а не «все».
+ *
+ * В секции рубрики две ссылки ведут в одно и то же место — плашка `leap ·
+ * economy` слева и ссылка справа, — и обе раньше не говорили, куда ведут.
+ * Теперь правая называет пункт назначения словами (решение владельца
+ * 09.08.2026). Формы прописаны руками, а не склеены из «Лента» + название:
+ * по-русски нужен родительный падеж, и «Лента мира» звучало бы не о том.
+ */
+const RUBRIC_FEED: Record<string, Record<Lang, string>> = {
+  politics: { ru: "Лента политики", uz: "Siyosat lentasi", en: "Politics feed" },
+  economy: { ru: "Лента экономики", uz: "Iqtisodiyot lentasi", en: "Economy feed" },
+  business: { ru: "Лента бизнеса", uz: "Biznes lentasi", en: "Business feed" },
+  society: { ru: "Лента общества", uz: "Jamiyat lentasi", en: "Society feed" },
+  sport: { ru: "Лента спорта", uz: "Sport lentasi", en: "Sport feed" },
+  world: { ru: "Лента мировых новостей", uz: "Dunyo yangiliklari lentasi", en: "World news feed" },
+  tech: { ru: "Лента технологий", uz: "Texnologiyalar lentasi", en: "Tech feed" },
+  culture: { ru: "Лента культуры", uz: "Madaniyat lentasi", en: "Culture feed" },
+};
+
+export function rubricFeedLabel(slug: string, lang: Lang): string {
+  return (
+    RUBRIC_FEED[slug]?.[lang] ??
+    `${t(lang, "feed")} · ${rubricTitle(slug, lang)}`
+  );
+}
+
+/**
  * Домашний адрес языка. Русская версия живёт в корне — так исторически
  * проиндексированы все ссылки, и переезд ради симметрии стоил бы больше,
  * чем даёт.
