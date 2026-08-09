@@ -61,8 +61,12 @@ export function HomePage({ lang = "ru" }: { lang?: Lang }) {
   const hero = articles.slice(0, HERO_PIN_WINDOW).find((a) => a.featured) ?? articles[0];
   used.add(hero.slug);
 
-  const secondary = take(2); // крупные карточки под героем
-  const underHero = take(4); // компактная строка — добивает высоту левой колонки под сайдбар
+  // Четыре карточки под героем, двумя рядами по две. Компактной строки
+  // с миниатюрами под ними больше нет (решение владельца 10.08.2026):
+  // третий тип карточки на одном экране заставлял глаз переучиваться,
+  // а высота левой колонки теперь задаётся рядами, к которым справа
+  // подстраиваются виджеты.
+  const secondary = take(4);
   // Пять, а не шесть: «Лента» стоит в одной строке грида с героем и тянется
   // до его нижнего края. Шестая карточка перерастала картинку, и коробка
   // висела ниже неё (замечание владельца 10.08.2026).
@@ -116,35 +120,42 @@ export function HomePage({ lang = "ru" }: { lang?: Lang }) {
           </ol>
         </aside>
 
-        <div className="lg:col-span-2">
-          {secondary.length > 0 && (
-            <div className="grid gap-6 sm:grid-cols-2">
-              {secondary.map((a) => (
-                <ArticleCard key={a.slug} article={a} />
-              ))}
-            </div>
-          )}
-
-          {underHero.length > 0 && (
-            <div className="mt-6 border-t border-neutral-200 pt-2 dark:border-neutral-800">
-              {underHero.map((a) => (
-                <ArticleCard key={a.slug} article={a} variant="compact" />
-              ))}
-            </div>
-          )}
+        {/*
+          Вторая и третья строки: по две карточки слева, по виджету справа.
+          Виджет — сосед карточек по строке грида, поэтому растягивается
+          ровно на их высоту, и справа не остаётся рваного края. На узком
+          экране колонок нет, и виджеты уходят в конец: на телефоне читатель
+          пришёл за новостями, а не за погодой между ними.
+        */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:col-span-2">
+          {secondary.slice(0, 2).map((a) => (
+            <ArticleCard key={a.slug} article={a} />
+          ))}
         </div>
 
-        <aside className="space-y-6">
-          <WeatherWidget />
+        <div className="order-last lg:order-none">
+          <WeatherWidget className="h-full" />
+        </div>
 
-          <CurrencyWidget />
+        {secondary.length > 2 && (
+          <div className="grid gap-6 sm:grid-cols-2 lg:col-span-2">
+            {secondary.slice(2).map((a) => (
+              <ArticleCard key={a.slug} article={a} />
+            ))}
+          </div>
+        )}
 
-          <AdSlot
-            id="home-sidebar-rect"
-            size="300x250"
-            label="Сайдбар главной"
+        {/*
+          Пять валют, а не три: виджет тянется на высоту двух карточек,
+          и лишнее место честнее занять курсами, которые ЦБ и так отдаёт,
+          чем распределённым воздухом между тремя строками.
+        */}
+        <div className="order-last lg:order-none">
+          <CurrencyWidget
+            codes={["USD", "EUR", "RUB", "CNY", "KZT"]}
+            className="h-full"
           />
-        </aside>
+        </div>
       </section>
 
       {/*
