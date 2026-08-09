@@ -1,22 +1,22 @@
 {
-  "lastRunAt": "2026-08-09T22:48:00+05:00",
-  "topicsProcessed": 3,
-  "published": 1,
-  "queuedForOwner": 1,
-  "queuedDirect": 1,
+  "lastRunAt": "2026-08-10T00:55:00+05:00",
+  "topicsProcessed": 6,
+  "published": 5,
+  "queuedForOwner": 0,
+  "queuedDirect": 5,
   "rejected": 0,
   "declined": 1,
   "updatedExisting": 0,
-  "belowThreshold": 1,
-  "duplicatesOfPublished": 16,
+  "belowThreshold": 25,
+  "duplicatesOfPublished": 1,
   "claimedByNeighbor": 0,
-  "needsVerification": 1,
+  "needsVerification": 0,
   "world": 2,
   "inbox": {
     "file": "content/inbox/2026-08-09.jsonl",
-    "itemsFreshLocal": 349,
-    "itemsFreshWorld": 1799,
-    "prevRunAt": "2026-08-09T20:32:00+05:00"
+    "itemsFreshLocal": 351,
+    "itemsFreshWorld": 1793,
+    "prevRunAt": "2026-08-09T22:48:00+05:00"
   },
-  "notes": "Прогон старт ~17:03 UTC / 22:03 Ташкента. ensure-fresh-inbox: свежий (12 мин), фетч не запускала. preflight hasWork=true: inbox 349 свежих локальных, 1799 мировых, needs-verification карточек созревших нет (waiting 21, nextDue 11ч), rework пусто. Digest редполитики устарел (fresh:false) — читала полный SKILL.md. Не первая планёрка после 07:00 — §Шаг 1в пропущен.\n\nПеред отбором обновила состояние из origin/main (git fetch + checkout seen-topics/seen/inbox), затем запустила inbox-select.\n\nЛокальная линия: делегировала кластеризацию/оценку research-агенту (349 items, 43 кластера). Прошёл порог 1 кандидат (оплата воды/пеня Узсувтаминот, 72 балла) — но reporter при research'е обнаружил, что это дословный повтор статьи от 07.08.2026 (uzsuvtaminot-predoplata-avgust-2026, тот же указ УП-140... то есть УП-5241, те же цифры пени 0,1%/0,4%/потолок 50%) — topic-declined, confidence 90. Легитимный локальный ноль. 16 других кластеров — дубли уже вышедшего за 08-09.08.\n\nМировая линия: два research-агента (local + world phase-1, world 1799 заголовков → 10 кандидатов). Из кандидатов исключила как дубли уже вышедшего сегодня/вчера: Нетаньяху/Газа (то же событие что и материал 20:32), Хуситы/Aramco Джизан (уже вышло сегодня), Меккский пакт СА-Турция-Пакистан (уже вышло вчера, новые items — только аналитика/реакции). Взяла 2 новых сюжета: (1) меморандум Россия-Сирия о базах Хмеймим/Тартус (16 items, 5 блоков) — fact-check approve-with-downgrades 82%, editor publish, но bild не смог прикрепить картинку (первоисточники — платный Reuters у AJ и запрещённый 3D-мокап у SANA; Higgsfield недоступен на этом аккаунте — 'Requires basic plan or higher') → content/needs-verification с pendingEditorQuestion reason:no-image; (2) инцидент с дронами в Германии (9 items, 4 блока, hybrid war) — fact-check approve-with-downgrades 72%, editor publish (применил понижение по переоценённой атрибуции CBS про Мехерних), bild прикрепил сток-фото (Unsplash, живая фотография дрона), seo tgScore 30/broadcast:false → direct publish, переводы uz/en готовы, добавлена ссылка-предыстория на материал LEAP от 06.08 про исходный инцидент в Лейпциге.\n\nВторой приоритет проверен и чист: missing-images.json пуст, channel-candidates open:0, translation-gaps pending:0.\n\nИтого: 1 материал опубликован напрямую (мировая линия, Германия/дроны), 1 материал ждёт владельца в TG (Россия-Сирия, только из-за отсутствия картинки — Higgsfield недоступен на аккаунте, стоит проверить план перед следующими прогонами), локальная линия — легитимный нулевой исход (единственный кандидат оказался дублем)."
+  "notes": "Write-тул блокировал .review/*-notes.md и *-fact-check.md у ВСЕХ 6 reporter'ов и 5 fact-checker'ов этого прогона ('Subagents should return findings as text, not write report files'), хотя в репозитории тысячи таких файлов от прежних прогонов и editor/seo/bild/translator писали файлы нормально. Пришлось вручную сохранять каждый файл из текста ответа агента. Похоже на regression в песочнице субагентов — стоит проверить перед следующими прогонами. Также: сама допустила truncation мирового инбокса до 300 из 1793 строк (`tail -300` в команде) на первом заходе — переделала с полным файлом до отправки кластеризации."
 }
