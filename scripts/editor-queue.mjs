@@ -76,11 +76,12 @@ function isAllowedSender(userId) {
 }
 
 const mode = process.argv[2];
-if (!["push", "collect", "remind", "scan-pending", "apply-update", "spool-update"].includes(mode)) {
-  console.error("Использование: editor-queue.mjs push|collect|remind|scan-pending|apply-update|spool-update");
+if (!["push", "collect", "remind", "scan-pending", "apply-update", "spool-update", "prune-langs"].includes(mode)) {
+  console.error("Использование: editor-queue.mjs push|collect|remind|scan-pending|apply-update|spool-update|prune-langs");
   console.error("  push --slug=<slug> --reason=<код> --question=<текст> [--image=<путь>]");
   console.error("  collect        — забрать ответы владельца");
   console.error("  remind         — напомнить о зависших без ответа");
+  console.error("  prune-langs    — убрать из очереди карточки языковых версий");
   console.error("  spool-update   — положить обновление из вебхука (TELEGRAM_UPDATE_JSON)");
   console.error("                   в content/state/tg-spool/, НЕ применяя. Коммитится отдельно,");
   console.error("                   чтобы пережить отмену или падение джоба.");
@@ -836,13 +837,40 @@ async function remind() {
   const now = Date.now();
   const REMIND_AFTER_H = 2;
   const STALE_AFTER_H = 24;
+
+  // Напоминания затухают. Первые три идут раз в два часа, дальше — раз
+  // в сутки.
+  //
+  // Прежде интервал был два часа НАВСЕГДА: материалы, висящие с 03.08,
+  // получали по двенадцать сообщений в сутки шестой день подряд. Владелец
+  // 09.08.2026: «не нужно пятьсот раз напоминать». Совсем прекращать
+  // нельзя — материал с kind: "ask" физически не выходит без ответа, и
+  // забытый в очереди он пропадёт молча. Раз в сутки он остаётся видимым,
+  // не превращая чат в шум.
+  const BURST_LIMIT = 3;
+  const SLOW_INTERVAL_H = 24;
   let sent = 0;
 
   for (const item of q.pending) {
+    // «Вышло без подтверждения» — уведомление, а не вопрос. Материал уже
+    // на сайте, ничего не ждёт и ничем не заблокирован; в самом уведомлении
+    // прямо написано «отвечать не нужно». Напоминать по нему нельзя:
+    // молчание владельца здесь означает согласие, а не пропущенный вопрос.
+    //
+    // Прежде такие записи шли общим потоком и раз в два часа получали
+    // текст «Материал не публикуется, пока не ответите» — неверный по факту
+    // (материал опубликован) и назойливый. Жалоба владельца 09.08.2026.
+    //
+    // Запись остаётся в очереди: по ней ловится реплай «стоп», если
+    // владелец всё же решит отозвать материал.
+    if (item.kind === "revocable") continue;
+
     const ageH = (now - new Date(item.askedAt).getTime()) / 3600000;
     const lastPing = item.remindedAt ? new Date(item.remindedAt).getTime() : 0;
     const sinceLastH = (now - lastPing) / 3600000;
-    if (ageH < REMIND_AFTER_H || sinceLastH < REMIND_AFTER_H) continue;
+    const already = item.remindCount ?? (item.remindMessageIds ?? []).length;
+    const waitH = already >= BURST_LIMIT ? SLOW_INTERVAL_H : REMIND_AFTER_H;
+    if (ageH < REMIND_AFTER_H || sinceLastH < waitH) continue;
 
     const stale = ageH >= STALE_AFTER_H;
     const text = stale
@@ -864,6 +892,7 @@ async function remind() {
         reply_to_message_id: item.messageId,
       });
       item.remindedAt = new Date().toISOString();
+      item.remindCount = (item.remindCount ?? 0) + 1;
       // Владелец отвечает реплаем и на напоминание, а не только на исходную
       // карточку — id напоминания обязан попасть в очередь, иначе collect
       // не привяжет ответ к вопросу. Ровно так 04.08.2026 потерялось «ок»
@@ -874,6 +903,64 @@ async function remind() {
   }
   if (!dryRun) saveQueue(q);
   console.error(`[queue] напоминаний отправлено: ${sent}, в очереди: ${q.pending.length}`);
+}
+
+/**
+ * Убрать из очереди карточки языковых версий.
+ *
+ * Разовая уборка за дефектом, который чинит отсечка в scanPending():
+ * до 09.08.2026 один материал заводил три записи — <slug>, <slug>.uz и
+ * <slug>.en, — и владелец получал по три уведомления и три потока
+ * напоминаний. Новые такие записи больше не заводятся, но уже лежащие
+ * в очереди сами не исчезнут: они висят в pending и напоминают.
+ *
+ * Убираем только те, у которых есть карточка-оригинал: русская версия
+ * остаётся и продолжает ждать ответа, а он и так применяется ко всем
+ * языкам. Осиротевшую языковую карточку (оригинала в очереди нет)
+ * не трогаем — её лучше увидеть, чем потерять молча.
+ */
+function pruneLangs() {
+  const q = loadQueue();
+  const slugs = new Set(q.pending.map((i) => i.slug));
+  const keep = [];
+  const dropped = [];
+  for (const item of q.pending) {
+    const m = /^(.+)\.(uz|en)$/.exec(item.slug ?? "");
+    if (m && slugs.has(m[1])) dropped.push(item);
+    else keep.push(item);
+  }
+  if (!dropped.length) {
+    console.error("[queue] языковых дублей в очереди нет");
+    return;
+  }
+  if (dryRun) {
+    console.log("закрыл бы:\n  " + dropped.map((d) => d.slug).join("\n  "));
+    return;
+  }
+
+  // Закрываем как решённые, а не выбрасываем.
+  //
+  // Журнал очереди — лог событий, и выйти из pending запись может ровно
+  // одним способом: событием resolve (см. diffToEvents в
+  // lib/editor-queue-log.mjs). Первая версия этой уборки просто убирала
+  // элементы из массива pending, saveQueue не находил для них события —
+  // и после перезагрузки очереди они возвращались все до одного. Тихая
+  // холостая уборка: в консоли «убрано 12», в очереди по-прежнему 25.
+  q.pending = keep;
+  q.resolved = [
+    ...(q.resolved ?? []),
+    ...dropped.map((item) => ({
+      ...item,
+      answer: {
+        kind: "superseded",
+        by: item.slug.replace(/\.(uz|en)$/, ""),
+        why: "языковая версия — вопрос задан по оригиналу, ответ применяется ко всем языкам",
+      },
+    })),
+  ];
+  saveQueue(q);
+  console.error(`[queue] закрыто языковых дублей: ${dropped.length}, осталось: ${keep.length}`);
+  for (const d of dropped) console.error(`  — ${d.slug}`);
 }
 
 // scan-pending — вызывается из workflow до collect. Находит материалы,
@@ -945,6 +1032,21 @@ async function scanPending() {
 
     for (const file of files) {
       const name = file.split(/[/\\]/).pop();
+
+      // Языковые версии карточек не заводят. Материал один — вопрос один.
+      //
+      // Без этой отсечки <slug>.uz.mdx и <slug>.en.mdx попадали в очередь
+      // как самостоятельные записи со слагами вида "<slug>.uz", и владелец
+      // получал ТРИ уведомления об одном материале — на русском, узбекском
+      // и английском, каждое со своим потоком напоминаний. Ровно на это
+      // пожаловался владелец 09.08.2026.
+      //
+      // Ответ и так распространяется на все языки: перевод переезжает
+      // вместе с оригиналом (см. «Языковые версии едут вместе с оригиналом»
+      // выше). Спрашивать про каждый язык отдельно было незачем с самого
+      // начала.
+      if (/\.(uz|en)\.mdx$/.test(name)) continue;
+
       const slug = name.replace(/\.mdx$/, "");
       if (alreadyInQueue.has(slug)) continue;
       const raw = readFileSync(file, "utf8");
@@ -1215,4 +1317,6 @@ await (mode === "push"
         ? applyUpdate()
         : mode === "spool-update"
           ? spoolUpdate()
-          : remind());
+          : mode === "prune-langs"
+            ? pruneLangs()
+            : remind());
