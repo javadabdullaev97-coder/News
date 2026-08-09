@@ -1,22 +1,22 @@
 {
-  "lastRunAt": "2026-08-09T20:32:00+05:00",
-  "topicsProcessed": 1,
+  "lastRunAt": "2026-08-09T22:48:00+05:00",
+  "topicsProcessed": 3,
   "published": 1,
-  "queuedForOwner": 0,
+  "queuedForOwner": 1,
   "queuedDirect": 1,
   "rejected": 0,
-  "declined": 0,
+  "declined": 1,
   "updatedExisting": 0,
-  "belowThreshold": 14,
-  "duplicatesOfPublished": 9,
+  "belowThreshold": 1,
+  "duplicatesOfPublished": 16,
   "claimedByNeighbor": 0,
-  "needsVerification": 2,
-  "world": 1,
+  "needsVerification": 1,
+  "world": 2,
   "inbox": {
     "file": "content/inbox/2026-08-09.jsonl",
-    "itemsFreshLocal": 367,
-    "itemsFreshWorld": 1782,
-    "prevRunAt": "2026-08-09T19:49:00+05:00"
+    "itemsFreshLocal": 349,
+    "itemsFreshWorld": 1799,
+    "prevRunAt": "2026-08-09T20:32:00+05:00"
   },
-  "notes": "Прогон старт ~15:04 UTC / 20:04 Ташкента. ensure-fresh-inbox: свежий (12 мин), фетч не запускала. preflight hasWork=true: needs-verification 2 карточки созрели, inbox 367 свежих локальных. Digest редполитики устарел (fresh:false) — читала полный SKILL.md. rework пусто. Не первая планёрка после 07:00 — §Шаг 1в пропущен.\n\n§Шаг 1б (needs-verification, до отбора новых тем): обе созревшие карточки разобраны параллельно через reporter с RECHECK_INPUT. kashkadarya-hiv-certificate-bribery — recheck #4, по-прежнему нет первоисточника (все 6 официальных каналов молчат), recheckAt сдвинут на 2026-08-12 с явной пометкой «последняя проверка перед списанием в rejected». uzsuv-enclave-village-drinking-water-aug2026 — фактуры (название села, района, цифры) так и нет, recheckAt на 2026-08-15; попутно зафиксированы 2 кандидата в источники (@fvhokimligi, @UzSuvTaminotFargona) в candidate-sources.jsonl.\n\nЛокальная линия: делегировала кластеризацию/оценку research-агенту (367 items). Легитимный ноль: 9 тем оказались дублями уже опубликованного за 07-09.08 (закон об АП, пенсия по инвалидности, оплата в автобусе, автокредиты на EV, риэлторы, ЗВР+590млн, УзЦЕРТ, канализация Каракалпакстана, поздравление строителям) и исключены; из оставшихся ни одна не набрала порог 55 (везде либо нет первоисточника при сигнале конкурентов, либо чистый пересказ одного релиза). Ближе всего — выездной приём Верховного суда, 36 баллов.\n\nМировая линия: делегировала кластеризацию отдельному research-агенту (1782 заголовка, two-phase titles→expand). Прошёл порог 1 кандидат — «Нетаньяху отверг план Трампа из 15 пунктов по Газе» (mustPublish, 5 блоков: anglo/mena/euro/ru-business/ru-state). ВАЖНО: прошлый прогон (19:49) уже рассматривал эту же тему и отклонил её как «дословный повтор» материала от 05.08 (netanyahu-gaza-peace-plan-rejection). Я перепроверила лично прямым WebFetch на Al Jazeera: сегодняшняя статья — отдельное событие (заседание кабмина в воскресенье 9 августа, новая формулировка «документ из 15 пунктов», новые дословные цитаты про «тяжёлое/лёгкое/всё оружие» и «пока я премьер-министр, палестинского государства не будет»), не совпадающее текстуально с видеообращением от 5 августа. Расценила как легитимное развитие сюжета — добавила в статью явную ссылку-предысторию на материал от 05.08 (это сделал я, не reporter/editor, отдельной точечной правкой после editor-verdict, до постановки в очередь). Полный цикл: reporter (confidence 82) → fact-checker (approve-with-downgrades, confidence 90, 4 понижения применены editor'ом) → editor (publish) → bild (STATUS: attached, флаг Израиля с Unsplash — фото Нетаньяху не нашлось без риска лицензии AFP/AP/Getty/Reuters, reporter заранее одобрил fallback) → seo (tgScore 45, broadcast:false) → direct publish (все ворота directPublish.gates пройдены) → переводы uz/en (пришли уже после того как публикатор забрал ru-версию из очереди — довела вручную, перенесла .uz.mdx/.en.mdx из content/queue в content/posts/2026-08-09 с тем же publishedAt). PushNotification отправлен с полной сводкой и явным упоминанием разногласия с прошлым прогоном.\n\nВторой приоритет проверен и чист: missing-images.json пуст, channel-candidates open:0, translation-gaps pending:0 (кроме двух свежих переводов этого прогона, которые уже пристроены).\n\nИтого: 1 материал опубликован (мировая линия), локальная линия — легитимный нулевой исход, 2 needs-verification карточки перепроверены и остаются в работе."
+  "notes": "Прогон старт ~17:03 UTC / 22:03 Ташкента. ensure-fresh-inbox: свежий (12 мин), фетч не запускала. preflight hasWork=true: inbox 349 свежих локальных, 1799 мировых, needs-verification карточек созревших нет (waiting 21, nextDue 11ч), rework пусто. Digest редполитики устарел (fresh:false) — читала полный SKILL.md. Не первая планёрка после 07:00 — §Шаг 1в пропущен.\n\nПеред отбором обновила состояние из origin/main (git fetch + checkout seen-topics/seen/inbox), затем запустила inbox-select.\n\nЛокальная линия: делегировала кластеризацию/оценку research-агенту (349 items, 43 кластера). Прошёл порог 1 кандидат (оплата воды/пеня Узсувтаминот, 72 балла) — но reporter при research'е обнаружил, что это дословный повтор статьи от 07.08.2026 (uzsuvtaminot-predoplata-avgust-2026, тот же указ УП-140... то есть УП-5241, те же цифры пени 0,1%/0,4%/потолок 50%) — topic-declined, confidence 90. Легитимный локальный ноль. 16 других кластеров — дубли уже вышедшего за 08-09.08.\n\nМировая линия: два research-агента (local + world phase-1, world 1799 заголовков → 10 кандидатов). Из кандидатов исключила как дубли уже вышедшего сегодня/вчера: Нетаньяху/Газа (то же событие что и материал 20:32), Хуситы/Aramco Джизан (уже вышло сегодня), Меккский пакт СА-Турция-Пакистан (уже вышло вчера, новые items — только аналитика/реакции). Взяла 2 новых сюжета: (1) меморандум Россия-Сирия о базах Хмеймим/Тартус (16 items, 5 блоков) — fact-check approve-with-downgrades 82%, editor publish, но bild не смог прикрепить картинку (первоисточники — платный Reuters у AJ и запрещённый 3D-мокап у SANA; Higgsfield недоступен на этом аккаунте — 'Requires basic plan or higher') → content/needs-verification с pendingEditorQuestion reason:no-image; (2) инцидент с дронами в Германии (9 items, 4 блока, hybrid war) — fact-check approve-with-downgrades 72%, editor publish (применил понижение по переоценённой атрибуции CBS про Мехерних), bild прикрепил сток-фото (Unsplash, живая фотография дрона), seo tgScore 30/broadcast:false → direct publish, переводы uz/en готовы, добавлена ссылка-предыстория на материал LEAP от 06.08 про исходный инцидент в Лейпциге.\n\nВторой приоритет проверен и чист: missing-images.json пуст, channel-candidates open:0, translation-gaps pending:0.\n\nИтого: 1 материал опубликован напрямую (мировая линия, Германия/дроны), 1 материал ждёт владельца в TG (Россия-Сирия, только из-за отсутствия картинки — Higgsfield недоступен на аккаунте, стоит проверить план перед следующими прогонами), локальная линия — легитимный нулевой исход (единственный кандидат оказался дублем)."
 }
