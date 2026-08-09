@@ -93,6 +93,19 @@ jobs:
         # умирать ему нельзя — падение будет видно в логе шага.
         continue-on-error: true
 
+      # Ротация инбокса. Читаются только сегодняшний и вчерашний файлы
+      # (readInbox в lib/inbox-core.mjs), окно свежести — сутки; всё, что
+      # старше, не открывает никто. Замер 09.08.2026: 26 МБ в двадцати
+      # файлах, рост около 3 МБ в сутки без границы. Планёрка работает
+      # в свежем клоне и тянет этот вес трижды в час.
+      #
+      # Здесь, а не отдельным расписанием: каталог только что изменён этим
+      # же прогоном, и удаление уедет тем же коммитом. История остаётся
+      # в git — старый файл достаётся `git show <коммит>:<путь>`.
+      - name: Rotate stale inbox files
+        run: node scripts/rotate-inbox.mjs --apply
+        continue-on-error: true
+
       - name: Commit and push if changed
         run: |
           if [[ -z $(git status --porcelain content/inbox content/state/breaking-alerts.json content/state/channel-candidates.jsonl) ]]; then
