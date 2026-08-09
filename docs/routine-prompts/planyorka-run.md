@@ -353,17 +353,23 @@ def factCheckSkippable(draft):
 затем для каждого результата editor:
     если status == "publish":
         параллельно (одним сообщением):
-            вызови subagent(bild, {DRAFT_PATH, NOTES_PATH, VERDICT_PATH})
-            вызови subagent(seo, {DRAFT_PATH, VERDICT_PATH})
+            вызови subagent(bild, {DRAFT_PATH, NOTES_PATH, HANDOFF_PATH})
+            вызови subagent(seo, {DRAFT_PATH, HANDOFF_PATH})
+        # HANDOFF_PATH = .review/handoff-<slug>.md — короткая передача,
+        # которую пишет editor. Полный editor-verdict (8,4 КБ в среднем)
+        # им больше не передаётся: оттуда нужны тематическая подсказка
+        # для картинки и категория, всё остальное они читали впустую.
 
         # Переводы — ПОСЛЕ bild и seo, когда текст и frontmatter финальные.
-        # Два вызова параллельно, по одному на язык. Перевод черновика
-        # пришлось бы делать заново после каждой правки.
-        параллельно (одним сообщением):
-            вызови subagent(translator, {source_path, target_lang: "uz",
-                                         out_path: content/queue/<slug>.uz.mdx})
-            вызови subagent(translator, {source_path, target_lang: "en",
-                                         out_path: content/queue/<slug>.en.mdx})
+        # ОДИН вызов на оба языка. Перевод черновика пришлось бы делать
+        # заново после каждой правки, поэтому позже; но два отдельных
+        # вызова заново читали статью, глоссарий и редполитику ради
+        # одного и того же исходника.
+        вызови subagent(translator, {
+            source_path,
+            targets: [{lang: "uz", out_path: content/queue/<slug>.uz.mdx},
+                      {lang: "en", out_path: content/queue/<slug>.en.mdx}]
+        })
 
         # После переводов, ДО коммита в очередь:
         node scripts/i18n-lint.mjs --fix

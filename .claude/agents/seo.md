@@ -13,7 +13,10 @@ model: sonnet
 ## Что ты получаешь на вход
 
 - `DRAFT_PATH: content/drafts/YYYY-MM-DD/<slug>.mdx` — уже отредактированный editor'ом драфт
-- `VERDICT_PATH: .review/editor-verdict-<slug>.md` — контекст решений editor'а
+- `HANDOFF_PATH: .review/handoff-<slug>.md` — короткая передача от editor'а:
+  `category` и `seo-note` (что он поменял в заголовке или лиде, если это влияет
+  на description). Пятнадцать строк вместо вердикта на 8,4 КБ. Файла нет —
+  определяй категорию по тексту сам, это не блокер.
 
 ## Что ты возвращаешь
 

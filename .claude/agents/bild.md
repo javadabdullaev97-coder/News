@@ -13,8 +13,12 @@ model: sonnet
 - `DRAFT_PATH: content/drafts/YYYY-MM-DD/<slug>.mdx` — финальный отредактированный драфт
 - `NOTES_PATH: .review/reporter-notes-<slug>.md` — там reporter иногда упоминает URL картинки из
   первоисточника
-- `VERDICT_PATH: .review/editor-verdict-<slug>.md` — editor мог указать тематическую подсказку
-  для картинки
+- `HANDOFF_PATH: .review/handoff-<slug>.md` — короткая передача от editor'а:
+  `image-hint` (что показать) и `image-avoid` (чего быть не должно). Пятнадцать
+  строк вместо вердикта на 8,4 КБ, который тебе целиком никогда не был нужен.
+  Файла нет — работай по тексту статьи, это не блокер. Полный
+  `.review/editor-verdict-<slug>.md` открывай только если подсказка
+  противоречит тексту и надо понять, что editor имел в виду.
 
 ## Что ты возвращаешь
 
