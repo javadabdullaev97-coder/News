@@ -22,14 +22,19 @@
 // check-doc-digest.mjs сторожит расхождение SKILL.md с выжимкой CORE.md —
 // добавь третью сущность, и сторожить придётся её тоже.
 //
+// КТО ЭТО ЗАПУСКАЕТ. Оркестратор планёрки, один раз за прогон, режимом
+// --all. Сами субагенты запустить скрипт не могут: у seo, fact-checker
+// и translator в `tools:` нет Bash (только Read/Grep/Glob и Edit/Write),
+// поэтому им остаётся прочитать готовый файл из config/generated/.
+// Заодно это дешевле: срезы собираются один раз, а не по разу на агента.
+//
 // Использование:
-//   node scripts/policy-slice.mjs --for=seo
-//   node scripts/policy-slice.mjs --for=translator
-//   node scripts/policy-slice.mjs --for=fact-checker
+//   node scripts/policy-slice.mjs --all               — собрать все срезы в файлы
+//   node scripts/policy-slice.mjs --for=seo           — вывести один в stdout
 //   node scripts/policy-slice.mjs --sections=4,5      — произвольный набор
 //   node scripts/policy-slice.mjs --list              — какие разделы есть
 
-import { readFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { ROOT } from "../lib/inbox-core.mjs";
 
@@ -78,6 +83,51 @@ if (process.argv.includes("--list")) {
 
 const role = opt("for", null);
 const explicit = opt("sections", null);
+const all = process.argv.includes("--all");
+
+/** Собрать срез по номерам разделов. Отсутствующий раздел — ошибка, не пропуск. */
+function slice(want, forRole) {
+  const missing = want.filter((n) => !blocks.some((b) => b.n === n));
+  if (missing.length) {
+    // Молча отдать меньше, чем просили, — значит убрать у агента правило
+    // и не сказать об этом. Такое падает.
+    console.error(
+      `[policy-slice] в SKILL.md нет разделов ${missing.join(", ")} — ` +
+        "структура редполитики изменилась, поправь набор ролей в этом скрипте"
+    );
+    process.exit(2);
+  }
+  // Шапка файла (назначение редполитики и её статус) едет всегда: без неё
+  // срез читается как набор правил без указания, чей он и что главнее.
+  return (
+    [
+      head.join("\n").trim(),
+      "",
+      `<!-- Срез редполитики${forRole ? ` для роли ${forRole}` : ""}: разделы ${want.join(", ")} из ${blocks.length}.`,
+      "     ПРОИЗВОДНЫЙ ФАЙЛ, не редактируй. Источник истины —",
+      "     .claude/skills/leap-editorial-style/SKILL.md. Нужен раздел, которого",
+      "     здесь нет, — открой SKILL.md, не додумывай. -->",
+      "",
+      ...want
+        .map((n) => blocks.find((b) => b.n === n))
+        .sort((a, b) => a.n - b.n)
+        .map((b) => b.lines.join("\n").trim()),
+    ].join("\n\n") + "\n"
+  );
+}
+
+if (all) {
+  const dir = join(ROOT, "config/generated");
+  mkdirSync(dir, { recursive: true });
+  const written = [];
+  for (const [name, want] of Object.entries(ROLES)) {
+    const file = join(dir, `policy-${name}.md`);
+    writeFileSync(file, slice(want, name));
+    written.push(`policy-${name}.md`);
+  }
+  console.error(`[policy-slice] собрано: ${written.join(", ")} в config/generated/`);
+  process.exit(0);
+}
 
 let want;
 if (explicit) {
@@ -92,34 +142,8 @@ if (explicit) {
     process.exit(2);
   }
 } else {
-  console.error("[policy-slice] нужен --for=<роль> или --sections=1,2,3 (или --list)");
+  console.error("[policy-slice] нужен --all, --for=<роль> или --sections=1,2,3 (или --list)");
   process.exit(2);
 }
 
-const missing = want.filter((n) => !blocks.some((b) => b.n === n));
-if (missing.length) {
-  // Молча отдать меньше, чем просили, — значит убрать у агента правило
-  // и не сказать об этом. Такое падает.
-  console.error(
-    `[policy-slice] в SKILL.md нет разделов ${missing.join(", ")} — ` +
-      "структура редполитики изменилась, поправь набор ролей в этом скрипте"
-  );
-  process.exit(2);
-}
-
-// Шапка файла (назначение редполитики и её статус) едет всегда: без неё
-// срез читается как набор правил без указания, чей он и что главнее.
-const out = [
-  head.join("\n").trim(),
-  "",
-  `<!-- Срез редполитики${role ? ` для роли ${role}` : ""}: разделы ${want.join(", ")} из ${blocks.length}.`,
-  "     Источник истины — .claude/skills/leap-editorial-style/SKILL.md.",
-  "     Нужен раздел, которого здесь нет, — открой SKILL.md, не додумывай. -->",
-  "",
-  ...want
-    .map((n) => blocks.find((b) => b.n === n))
-    .sort((a, b) => a.n - b.n)
-    .map((b) => b.lines.join("\n").trim()),
-];
-
-process.stdout.write(out.join("\n\n") + "\n");
+process.stdout.write(slice(want, role));
