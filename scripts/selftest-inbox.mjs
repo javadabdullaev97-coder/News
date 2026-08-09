@@ -224,7 +224,22 @@ check("хеш совпадает с форматом живого seen-topics.js
   const h = hashLink("https://example.com/a");
   if (!/^sha256:[0-9a-f]{64}$/.test(h)) throw new Error(`формат хеша: ${h}`);
 
-  const live = loadSeenHashes(REPO_ROOT);
+  // Сверяемся с ПОЛНЫМ журналом, а не с одним seen-topics.json.
+  //
+  // Прежняя версия брала loadSeenHashes — то есть только исторический
+  // seen-topics.json. Он по устройству отстаёт: свежие темы пишутся в
+  // пофайловые content/state/seen/<день>-<runId>.jsonl, а в общий файл
+  // переезжают только при `topic-journal compact`. К этому моменту их
+  // ссылки старше суток и из инбокса уже вышли. Поэтому проверка падала
+  // всегда, кроме узкого окна сразу после уплотнения, и выглядела как
+  // «схема хеширования разошлась», хотя ничего не расходилось.
+  //
+  // Замер 09.08.2026 на живых данных: seen-topics.json 1115 хешей, 0
+  // совпадений с инбоксом; полный журнал 3732 хеша, 301 совпадение.
+  //
+  // Производство читает именно loadJournal (inbox-select, preflight) —
+  // его и проверяем.
+  const live = { hashes: loadJournal(REPO_ROOT, Date.now()).blocked };
   if (!live.hashes.size) {
     console.log("       (журнал репозитория пуст — сверка с живыми данными пропущена)");
     return;

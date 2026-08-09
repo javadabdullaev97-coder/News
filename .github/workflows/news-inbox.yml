@@ -106,9 +106,25 @@ jobs:
         run: node scripts/rotate-inbox.mjs --apply
         continue-on-error: true
 
+      # Уплотнение журнала тем. Каждый прогон планёрки пишет свой файл
+      # content/state/seen/<день>-<runId>.jsonl — так сделано намеренно,
+      # чтобы соседние прогоны не конфликтовали при rebase. Уплотнение
+      # сворачивает старые файлы в общий seen-topics.json.
+      #
+      # Оно существовало, но не было заведено никуда: замер 09.08.2026 —
+      # 516 файлов на 2,5 МБ, накопленных с 03.08, и loadJournal читает
+      # их ВСЕ на каждом вызове (планёрка, preflight, inbox-select).
+      # Шапка самого topic-journal.mjs предупреждает, что несвязанные
+      # вызовы «плодят мелкие файлы», — так и вышло.
+      #
+      # Окно 3 суток: свежие файлы трогать нельзя, по ним живут брони.
+      - name: Compact topic journal
+        run: node scripts/topic-journal.mjs compact --older-than-days=3
+        continue-on-error: true
+
       - name: Commit and push if changed
         run: |
-          if [[ -z $(git status --porcelain content/inbox content/state/breaking-alerts.json content/state/channel-candidates.jsonl) ]]; then
+          if [[ -z $(git status --porcelain content/inbox content/state/breaking-alerts.json content/state/channel-candidates.jsonl content/state/seen content/state/seen-topics.json) ]]; then
             echo "Ничего нового — не коммитим."
             exit 0
           fi
@@ -123,5 +139,11 @@ jobs:
           # Кандидаты в источники: ТГ-каналы из статей конкурентов с контекстом
           # упоминания. Копятся фетчерами, разбирает планёрка.
           git add content/state/channel-candidates.jsonl 2>/dev/null || true
+          # Результат уплотнения журнала: свёрнутые файлы удалены,
+          # seen-topics.json пополнен. Без этих двух путей уплотнение
+          # отработало бы вхолостую — файлы бы удалялись в рабочем дереве
+          # раннера и воскресали на следующем запуске.
+          git add content/state/seen 2>/dev/null || true
+          git add content/state/seen-topics.json 2>/dev/null || true
           git commit -m "inbox: $STAMP Ташкента"
           bash .github/scripts/git-push-with-rebase.sh
