@@ -1,22 +1,20 @@
 {
-  "lastRunAt": "2026-08-10T03:04:00+05:00",
-  "topicsProcessed": 0,
-  "published": 0,
+  "lastRunAt": "2026-08-09T23:04:00+05:00",
+  "topicsProcessed": 5,
+  "published": 2,
+  "queuedDirect": 2,
   "queuedForOwner": 0,
-  "queuedDirect": 0,
   "rejected": 0,
-  "declined": 0,
-  "updatedExisting": 0,
-  "belowThreshold": 392,
-  "duplicatesOfPublished": 6,
-  "claimedByNeighbor": 0,
-  "needsVerification": 0,
-  "world": 0,
+  "declined": 2,
+  "needsVerification": 1,
+  "world": 1,
+  "belowThreshold": 386,
+  "duplicatesOfPublished": 1,
+  "claimedByNeighbor": 1,
   "inbox": {
     "file": "content/inbox/2026-08-10.jsonl",
-    "itemsFreshLocal": 392,
-    "itemsFreshWorld": 1790,
-    "prevRunAt": "2026-08-10T02:17:00+05:00"
+    "itemsFreshLocal": 391,
+    "itemsFreshWorld": 1794
   },
-  "notes": "47 минут после прошлого прогона, инбокс почти тот же набор. Проверил вручную 6 самых сильных кандидатов (резервы ЦБ $590М, автобусы Ташкента с 1 сентября, UZCERT-кибератаки, наличная валюта $500 без паспорта, Ормузский пролив, Газа-план) — все уже опубликованы за последние 1–9 дней, включая три из них прошлым прогоном (02:17) минуты назад. needs-verification (21 карточка) — ни одна не созрела до 09:00+. Rework, переводы архива, кандидаты в источники — пусто. Ноль тем — честный итог, не сбой."
+  "notes": "Инструмент Write у 4 из 5 reporter-вызовов блокировал файлы с подстрокой 'report' в пути ('Subagents should return findings as text') — заметки пришлось сохранять оркестратору вручную из текста ответа. Дважды (bus-fare, houthis) editor/reporter выставили publishedAt в драфт вопреки запрету — снял вручную перед queue. Тема автобусов Ташкента пересекалась по содержанию с уже опубликованной статьёй про штрафы безбилетников (title-дубчек не поймал) — добавлена явная сквозная ссылка."
 }
