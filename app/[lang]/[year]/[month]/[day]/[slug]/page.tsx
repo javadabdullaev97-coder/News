@@ -221,10 +221,10 @@ export default async function ArticlePage({
                   {rubric.title}
                 </Link>
               )}
-              <h1 className="mt-4 max-w-[610px] text-[26px] font-extrabold leading-[1.18] tracking-tight md:text-[30px] lg:text-[34px]">
+              <h1 className="mt-4 text-[26px] font-extrabold leading-[1.18] tracking-tight md:text-[30px] lg:text-[34px]">
                 {article.title}
               </h1>
-              <p className="mt-3 max-w-[610px] text-base font-medium leading-[1.45] text-neutral-700 md:mt-4 md:text-[19px] dark:text-neutral-300">
+              <p className="mt-3 text-base font-medium leading-[1.45] text-neutral-700 md:mt-4 md:text-[19px] dark:text-neutral-300">
                 {article.leadRich ? renderInline(article.leadRich) : article.lead}
               </p>
             </div>
@@ -267,7 +267,7 @@ export default async function ArticlePage({
               </figcaption>
             </figure>
 
-            <aside className="mt-6 max-w-[610px] rounded-xl border-l-4 border-brand bg-brand-50 px-5 py-4 text-sm dark:bg-brand/10">
+            <aside className="mt-6 rounded-xl border-l-4 border-brand bg-brand-50 px-5 py-4 text-sm dark:bg-brand/10">
               <div className="text-xs font-bold uppercase tracking-wider text-brand">
                 ⚡ Прочитать за 30 секунд
               </div>
@@ -276,20 +276,28 @@ export default async function ArticlePage({
               </p>
             </aside>
 
-            {/* Вертикальный ритм снят с spot.uz (17px/1.5, отступ абзаца 10px,
-                колонка 610px) — владелец выбрал их плотность 08.08.2026.
+            {/* Вертикальный ритм снят с spot.uz (17px/1.5, отступ абзаца 10px) —
+                владелец выбрал их плотность 08.08.2026.
+
+                Ширина колонки при этом ОСТАЁТСЯ прежней, 775px: сузив её до
+                610px «как у spot.uz», получили текст и блок «за 30 секунд»
+                заметно уже картинки — владелец забраковал 09.08.2026. Раньше
+                стояло max-w-[68ch], что при кегле 19px и давало 775px; кегль
+                теперь 17px, поэтому те же 68ch дали бы 693px — мера зафиксирована
+                в пикселях, чтобы не плыла вслед за кеглем.
+
                 Отступы у абзацев и списков заданы ТОЛЬКО снизу: маргины
                 соседей схлопываются, и при парном my-* верхний отступ абзаца
                 перебивал бы нижний отступ заголовка — подзаголовок отрывался
                 от своего текста. Здесь нижний отступ H2 (8px) работает как есть.
                 Дефолты @tailwindcss/typography заданы в em и дают 57px перед H2
                 против 20px между абзацами, поэтому переопределены явно. */}
-            <div className="prose prose-neutral mt-8 max-w-[610px] text-[16px] leading-[1.5] tracking-[-0.005em] md:text-[17px] dark:prose-invert prose-p:mt-0 prose-p:mb-[10px] prose-h2:mt-6 prose-h2:mb-2 prose-h2:text-[20px] prose-h2:leading-[1.3] md:prose-h2:text-[22px] prose-h3:mt-5 prose-h3:mb-1.5 prose-h3:text-[18px] prose-h3:leading-[1.35] md:prose-h3:text-[19px] prose-h4:mt-[18px] prose-h4:mb-1 prose-h4:text-[17px] prose-ul:mt-0 prose-ul:mb-[10px] prose-li:my-[3px] prose-blockquote:my-[15px] prose-blockquote:border-l-4 prose-blockquote:border-brand prose-blockquote:bg-neutral-50 prose-blockquote:px-5 prose-blockquote:py-3 prose-blockquote:not-italic prose-blockquote:font-medium dark:prose-blockquote:bg-neutral-900">
+            <div className="prose prose-neutral mt-8 max-w-[775px] text-[16px] leading-[1.5] tracking-[-0.005em] md:text-[17px] dark:prose-invert prose-p:mt-0 prose-p:mb-[10px] prose-h2:mt-6 prose-h2:mb-2 prose-h2:text-[20px] prose-h2:leading-[1.3] md:prose-h2:text-[22px] prose-h3:mt-5 prose-h3:mb-1.5 prose-h3:text-[18px] prose-h3:leading-[1.35] md:prose-h3:text-[19px] prose-h4:mt-[18px] prose-h4:mb-1 prose-h4:text-[17px] prose-ul:mt-0 prose-ul:mb-[10px] prose-li:my-[3px] prose-blockquote:my-[15px] prose-blockquote:border-l-4 prose-blockquote:border-brand prose-blockquote:bg-neutral-50 prose-blockquote:px-5 prose-blockquote:py-3 prose-blockquote:not-italic prose-blockquote:font-medium dark:prose-blockquote:bg-neutral-900">
               {article.body.map((block, i) => renderBlock(block, i))}
             </div>
 
             {article.sources && article.sources.length > 0 && (
-              <section className="mt-8 max-w-[610px] rounded-xl border border-neutral-200 px-5 py-4 dark:border-neutral-800">
+              <section className="mt-8 rounded-xl border border-neutral-200 px-5 py-4 dark:border-neutral-800">
                 <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-500">
                   Источники
                 </h2>
