@@ -650,3 +650,24 @@
 {"ev":"ask","at":"2026-08-09T14:09:22.673Z","item":{"slug":"world-thailand-school-shooting-toll-nine.en","title":"Thailand School Shooting Death Toll Near Bangkok Rises to Nine","kind":"revocable","reason":"policy-edge","messageId":787,"askedAt":"2026-08-09T14:09:22.673Z"}}
 {"ev":"ask","at":"2026-08-09T14:09:22.849Z","item":{"slug":"world-thailand-school-shooting-toll-nine","title":"Число погибших при стрельбе в школе в Таиланде выросло до 9 человек","kind":"revocable","reason":"policy-edge","messageId":788,"askedAt":"2026-08-09T14:09:22.849Z"}}
 {"ev":"ask","at":"2026-08-09T14:09:23.020Z","item":{"slug":"world-thailand-school-shooting-toll-nine.uz","title":"Tailanddagi maktabda otishma qurbonlari soni 9 kishiga yetdi","kind":"revocable","reason":"policy-edge","messageId":789,"askedAt":"2026-08-09T14:09:23.020Z"}}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"us-polysilicon-tariff-signed-aug2026","askedAt":"2026-08-07T01:09:31.794Z","remindedAt":"2026-08-09T15:10:40.272Z","messageId":790}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"dprk-missile-launch-tokyo-seoul-protest","askedAt":"2026-08-07T06:09:25.576Z","remindedAt":"2026-08-09T15:10:40.599Z","messageId":791}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"president-ai-award-deadline-week-left.en","askedAt":"2026-08-07T07:09:23.959Z","remindedAt":"2026-08-09T15:10:40.734Z","messageId":792}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"president-ai-award-deadline-week-left","askedAt":"2026-08-07T07:09:24.116Z","remindedAt":"2026-08-09T15:10:40.873Z","messageId":793}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"president-ai-award-deadline-week-left.uz","askedAt":"2026-08-07T07:09:24.269Z","remindedAt":"2026-08-09T15:10:41.012Z","messageId":794}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"tashkent-bektemir-gas-outage-aug7","askedAt":"2026-08-07T22:59:58.524Z","remindedAt":"2026-08-09T15:10:41.148Z","messageId":795}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"res-red-category-transformers-sept1","askedAt":"2026-08-08T03:09:20.383Z","remindedAt":"2026-08-09T15:10:41.285Z","messageId":796}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"traffic-safety-stats-2025.en","askedAt":"2026-08-08T03:09:20.586Z","remindedAt":"2026-08-09T15:10:41.427Z","messageId":797}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"traffic-safety-stats-2025","askedAt":"2026-08-08T03:09:20.799Z","remindedAt":"2026-08-09T15:10:41.558Z","messageId":798}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"traffic-safety-stats-2025.uz","askedAt":"2026-08-08T03:09:20.995Z","remindedAt":"2026-08-09T15:10:41.698Z","messageId":799}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"trump-fed-cook-fire-attempt-renewed.en","askedAt":"2026-08-08T08:07:57.595Z","remindedAt":"2026-08-09T15:10:41.835Z","messageId":800}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"trump-fed-cook-fire-attempt-renewed","askedAt":"2026-08-08T08:07:57.716Z","remindedAt":"2026-08-09T15:10:41.971Z","messageId":801}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"trump-fed-cook-fire-attempt-renewed.uz","askedAt":"2026-08-08T08:07:57.842Z","remindedAt":"2026-08-09T15:10:42.113Z","messageId":802}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"gold-forex-reserves-july2026.en","askedAt":"2026-08-08T13:15:34.158Z","remindedAt":"2026-08-09T15:10:42.249Z","messageId":803}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"gold-forex-reserves-july2026","askedAt":"2026-08-08T13:15:34.283Z","remindedAt":"2026-08-09T15:10:42.398Z","messageId":804}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"gold-forex-reserves-july2026.uz","askedAt":"2026-08-08T13:15:34.414Z","remindedAt":"2026-08-09T15:10:42.536Z","messageId":805}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"yemen-un-warns-civil-war-risk-aug2026","askedAt":"2026-08-08T13:55:25.686Z","remindedAt":"2026-08-09T15:10:42.676Z","messageId":806}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"iran-missile-strike-adnoc-tanker-hormuz.en","askedAt":"2026-08-08T15:09:20.866Z","remindedAt":"2026-08-09T15:10:42.822Z","messageId":807}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"iran-missile-strike-adnoc-tanker-hormuz","askedAt":"2026-08-08T15:09:21.067Z","remindedAt":"2026-08-09T15:10:42.953Z","messageId":808}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"iran-missile-strike-adnoc-tanker-hormuz.uz","askedAt":"2026-08-08T15:09:21.255Z","remindedAt":"2026-08-09T15:10:43.097Z","messageId":809}
+{"ev":"remind","at":"2026-08-09T15:10:43.235Z","slug":"samarkand-city-expands-district-abolished","askedAt":"2026-08-09T01:03:49.821Z","remindedAt":"2026-08-09T15:10:43.235Z","messageId":810}
