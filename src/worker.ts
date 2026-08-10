@@ -43,17 +43,25 @@
 //                       напрямую, минуя GitHub. Без него сторож молчит.
 //   TG_ALERT_CHAT_ID  — куда писать тревогу (личный чат владельца).
 
+import { collectWeather } from "./weather";
+
 export interface Env {
   ASSETS: { fetch: (request: Request) => Promise<Response> };
   GH_DISPATCH_TOKEN?: string;
   TG_WEBHOOK_SECRET?: string;
   TG_BOT_TOKEN?: string;
   TG_ALERT_CHAT_ID?: string;
+  //   AQICN_TOKEN — бесплатный токен aqicn.org для индекса качества воздуха.
+  //                 Не задан — блок воздуха на сайте не показывается вовсе.
+  //                 Прогноз погоды от него не зависит: у MET Norway ключа нет.
+  AQICN_TOKEN?: string;
 }
 
 const REPO = "javadabdullaev97-coder/News";
 const HOOK_PATH = "/api/tg-hook";
 const WATCHDOG_TEST_PATH = "/api/watchdog-test";
+const WEATHER_PATH = "/api/weather";
+const WEATHER_TTL_SEC = 3600;
 
 // Сколько репозиторий может молчать, прежде чем это тревога. Редакция коммитит
 // постоянно — инбокс раз в десять минут, — поэтому тишина дольше часа означает,
@@ -213,7 +221,7 @@ async function watchdog(env: Env, now: number, force = false): Promise<string> {
 }
 
 export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
 
     if (url.pathname === HOOK_PATH) {
@@ -280,6 +288,38 @@ export default {
         });
       } catch (err) {
         return new Response(`сторож упал: ${(err as Error).message}\n`, { status: 500 });
+      }
+    }
+
+    // Погода и воздух. Виджеты не ходят к météo-сервисам сами: MET Norway
+    // требует опознаваемый User-Agent (браузер его не даст), у AQICN токен,
+    // который нельзя показывать читателю, а ответ один на всех — держать его
+    // в кэше на границе дешевле, чем повторять запрос на каждого посетителя.
+    //
+    // Час — их же рекомендация: MET просит не запрашивать чаще, чем сказано
+    // в Expires, станции Узгидромета обновляются раз в час.
+    if (url.pathname === WEATHER_PATH) {
+      const cache = caches.default;
+      const hit = await cache.match(request);
+      if (hit) return hit;
+      try {
+        const payload = await collectWeather(env.AQICN_TOKEN);
+        const res = new Response(JSON.stringify(payload), {
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "Cache-Control": `public, max-age=${WEATHER_TTL_SEC}`,
+          },
+        });
+        ctx.waitUntil(cache.put(request, res.clone()));
+        return res;
+      } catch (err) {
+        console.error(`[weather] ${(err as Error).message}`);
+        // 503, а не пустой ответ: виджет должен отличить «данных нет»
+        // от «сегодня плюс ноль».
+        return new Response(JSON.stringify({ error: "upstream" }), {
+          status: 503,
+          headers: { "Content-Type": "application/json; charset=utf-8" },
+        });
       }
     }
 

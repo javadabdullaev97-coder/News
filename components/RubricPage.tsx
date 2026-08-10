@@ -88,7 +88,7 @@ export function RubricPage({ slug, lang = "ru" }: { slug: string; lang?: Lang })
             label="Сайдбар рубрики"
           />
 
-          <WeatherWidget />
+          <WeatherWidget lang={lang} />
 
           {slug === "business" && (
             <CurrencyWidget

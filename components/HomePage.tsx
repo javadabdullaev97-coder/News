@@ -3,6 +3,7 @@ import { AdSlot } from "@/components/AdSlot";
 import { RubricSection } from "@/components/RubricSection";
 import { CurrencyWidget } from "@/components/CurrencyWidget";
 import { WeatherWidget } from "@/components/WeatherWidget";
+import { AirWidget } from "@/components/AirWidget";
 import { articleHref, articlesByLang, rubrics, timeAgo, type Article, type Lang } from "@/lib/data";
 import { rubricTitle, t } from "@/lib/i18n";
 import Link from "next/link";
@@ -133,8 +134,16 @@ export function HomePage({ lang = "ru" }: { lang?: Lang }) {
           ))}
         </div>
 
-        <div className="order-last lg:order-none">
-          <WeatherWidget className="h-full" />
+        {/*
+          Погода и воздух — в одной ячейке, одна под другой: так порядок
+          в колонке остаётся погода → воздух → курсы, а строка грида по-прежнему
+          равняется на пару карточек слева. Воздух умеет исчезать (не задан
+          токен, станция молчит) — тогда погода забирает всю высоту сама,
+          и выравнивание не ломается.
+        */}
+        <div className="order-last flex flex-col gap-4 lg:order-none">
+          <WeatherWidget lang={lang} className="flex-1" />
+          <AirWidget lang={lang} />
         </div>
 
         {secondary.length > 2 && (
