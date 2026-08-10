@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-10T09:05:00+05:00",
-  "topicsProcessed": 6,
+  "lastRunAt": "2026-08-10T10:37:00+05:00",
+  "topicsProcessed": 2,
   "published": 0,
   "queuedDirect": 2,
-  "queuedForOwner": 1,
+  "queuedForOwner": 0,
   "rejected": 0,
-  "declined": 3,
-  "needsVerification": 6,
-  "world": 0,
-  "belowThreshold": 27,
-  "duplicatesOfPublished": 0,
+  "declined": 0,
+  "needsVerification": 0,
+  "world": 1,
+  "belowThreshold": 376,
+  "duplicatesOfPublished": 1,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-10.jsonl",
-    "itemsFreshLocal": 347,
-    "itemsFreshWorld": 1912
+    "itemsFreshLocal": 378,
+    "itemsFreshWorld": 1966
   },
-  "notes": "Write-инструмент субагентов блокирует .md-пути с подстрокой 'report' (reporter-notes-*.md, fact-check reports) — notes/fact-check/verdict файлы приходится пересоздавать вручную под конвенцией <slug>-notes.md по возвращённому тексту, повторяется на каждом прогоне. Три reporter-драфта пришли с уже проставленным publishedAt/updatedAt в frontmatter — снимала перед передачей дальше (прямое нарушение правила 'дату публикации не ставит никто, кроме публикатора'). У bild нет доступа к Higgsfield в этой сессии — fallback-генерация недоступна, no-image уходит владельцу. Мировую линию пропустила (локальных тем хватило)."
+  "notes": "Write-инструмент субагентов по-прежнему блокирует .md-пути с подстрокой 'report' (reporter-notes-*.md) — второй прогон подряд, стоит завести конвенцию <slug>-notes.md сразу в промпте reporter'а, а не чинить постфактум. Одна мировая тема (падение добычи газа H1 2026) оказалась дублем материала, отклонённого 07.08 — dupecheck поймал верно, публикатор не пострадал."
 }
