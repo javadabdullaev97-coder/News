@@ -111,7 +111,7 @@ TZ=Asia/Tashkent date '+%Y-%m-%dT%H:%M:00+05:00'
 чтения и до вызова любого субагента:
 
 ```bash
-node scripts/build-source-index.mjs        # индекс источников — тебе
+node scripts/build-source-index.mjs --used-only   # индекс источников — тебе
 node scripts/build-policy-projection.mjs   # политика без чужих секций — тебе
 node scripts/policy-slice.mjs --all        # срезы редполитики — субагентам
 node scripts/build-posts-index.mjs         # словарь тегов и индекс тем
@@ -125,7 +125,13 @@ Bash — запустить скрипт они не могут и прочит�
 Что появляется в `config/generated/` (в git этих файлов нет — производные,
 пересобираются каждый прогон и разойтись с исходниками не могут):
 
-- `policy-orchestrator.json` и `source-index.json` — **читаешь ты**;
+- `policy-orchestrator.json` и `source-index.json` — **читаешь ты**.
+  Индекс собирается с `--used-only`: только источники, реально
+  встречающиеся в текущем инбоксе (105 из 172 на замере 09.08.2026).
+  Отсев безопасен по построению — множество задаётся самим инбоксом,
+  поэтому item со «своим» sourceId без записи в индексе появиться
+  не может. Понадобился источник, которого в инбоксе нет, — пересобери
+  без флага;
 - `policy-{reporter,editor,fact-checker,seo,translator}.md` — срезы редполитики,
   каждый субагент читает свой;
 - `tag-vocabulary.json` — словарь тегов для `seo`;

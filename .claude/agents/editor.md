@@ -235,6 +235,7 @@ research, а не косметика. С этими триггерами так�
 ```
 FINAL_DRAFT_PATH: content/drafts/2026-07-31/cb-rate-hike-15pct.mdx
 VERDICT_PATH: .review/editor-verdict-cb-rate-hike-15pct.md
+HANDOFF_PATH: .review/handoff-cb-rate-hike-15pct.md
 STATUS: publish | back-to-reporter | killed
 SUMMARY: Одно предложение — что сделал.
 NEXT_AGENT: seo | reporter | none

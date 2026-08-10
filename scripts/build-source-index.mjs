@@ -18,12 +18,15 @@
 // кому нужны остальные поля: reporter, fact-checker, фетчеры, source-health.
 //
 // Использование:
-//   node scripts/build-source-index.mjs            — записать config/generated/source-index.json
-//   node scripts/build-source-index.mjs --stdout   — вывести, ничего не записывая
+//   node scripts/build-source-index.mjs             — записать config/generated/source-index.json
+//   node scripts/build-source-index.mjs --stdout    — вывести, ничего не записывая
+//   node scripts/build-source-index.mjs --used-only — только источники, реально
+//                                                     встречающиеся в текущем инбоксе
 
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { readInbox } from "../lib/inbox-core.mjs";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const OUT = join(ROOT, "config/generated/source-index.json");
@@ -65,6 +68,42 @@ const sources = [
   ...(news.htmlScrape ?? []).map((s) => entry(s, { kind: "scrape" })),
 ];
 
+// Отсев по факту присутствия в инбоксе.
+//
+// Оркестратору индекс нужен ровно затем, чтобы понять про КАЖДЫЙ item в
+// инбоксе: годится ли источник как первоисточник, можно ли на него
+// ссылаться, какой у него приоритет. Источник, которого в инбоксе нет,
+// в этом решении не участвует — а места занимает столько же.
+// Замер 09.08.2026: в индексе 172 источника, в инбоксе за сутки
+// встречается 83.
+//
+// Отсев безопасен по построению: множество оставленных задаётся самим
+// инбоксом, поэтому item со «своим» sourceId без записи в индексе
+// появиться не может. Ровно этот дефект в прошлом уже ловили с
+// htmlScrape — там источники в индекс не попадали, и оркестратор
+// встречал незнакомый sourceId.
+//
+// excluded, legend и blocs остаются целиком всегда: excluded нужен, чтобы
+// проверить ЛЮБУЮ ссылку, а не только пришедшую из инбокса.
+const usedOnly = process.argv.includes("--used-only");
+let kept = sources;
+let omitted = 0;
+if (usedOnly) {
+  const at = Date.now();
+  const seenIds = new Set();
+  for (const world of [false, true]) {
+    for (const it of readInbox(ROOT, { world, at }).items) {
+      if (it.sourceId) seenIds.add(it.sourceId);
+    }
+  }
+  // Пустой инбокс — не повод отдать пустой индекс: это не «источников нет»,
+  // а «нечего фильтровать». Отдаём полный.
+  if (seenIds.size) {
+    kept = sources.filter((s) => seenIds.has(s.id));
+    omitted = sources.length - kept.length;
+  }
+}
+
 const index = {
   $comment:
     "ПРОИЗВОДНЫЙ ФАЙЛ, не редактируй. Собирается scripts/build-source-index.mjs из " +
@@ -72,8 +111,17 @@ const index = {
   generatedAt: new Date().toISOString(),
   counts: {
     total: sources.length,
-    byKind: sources.reduce((a, s) => ((a[s.kind] = (a[s.kind] ?? 0) + 1), a), {}),
+    returned: kept.length,
+    byKind: kept.reduce((a, s) => ((a[s.kind] = (a[s.kind] ?? 0) + 1), a), {}),
   },
+  ...(omitted
+    ? {
+        $omitted:
+          `${omitted} источник(ов) не показаны — их нет в текущем инбоксе, ` +
+          "и в отборе они не участвуют. Нужен полный список: " +
+          "node scripts/build-source-index.mjs (без --used-only).",
+      }
+    : {}),
   // Никогда не публиковать и никогда не ссылаться — редакционное решение.
   excluded: {
     domains: (news.excluded ?? []).map((e) => e.domain).filter(Boolean),
@@ -86,7 +134,7 @@ const index = {
   // Независимые блоки — по ним считается, подтверждён ли мировой сюжет
   // несколькими сторонами, а не одной юрисдикцией.
   blocs: news.blocs ?? null,
-  sources,
+  sources: kept,
 };
 
 // Без отступов: файл читает модель, а не человек, и на структуре из полутора
@@ -100,7 +148,9 @@ if (process.argv.includes("--stdout")) {
   mkdirSync(dirname(OUT), { recursive: true });
   writeFileSync(OUT, text);
   console.error(
-    `[source-index] ${sources.length} источников → config/generated/source-index.json ` +
+    `[source-index] ${kept.length} из ${sources.length} источников` +
+      (omitted ? ` (скрыто ${omitted} — нет в инбоксе)` : "") +
+      ` → config/generated/source-index.json ` +
       `(${text.length} байт против ${
         readFileSync(join(ROOT, "config/news-sources.json")).length +
         readFileSync(join(ROOT, "config/telegram-channels.json")).length
