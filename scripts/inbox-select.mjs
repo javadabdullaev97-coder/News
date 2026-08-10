@@ -25,6 +25,8 @@
 //   node scripts/inbox-select.mjs --max-age-world=24 — окно свежести мирового
 //   node scripts/inbox-select.mjs --limit=200        — потолок числа кандидатов
 //   node scripts/inbox-select.mjs --full-snippet     — не подрезать сниппеты
+//   node scripts/inbox-select.mjs --all-candidates   — показать и то, что
+//                                                     уже смотрели и не взяли
 //
 // ВЫВОД БЕЗ ОТСТУПОВ ПО УМОЛЧАНИЮ. Первый вариант печатал JSON.stringify с
 // отступом 2 — и на живых данных выдал 806 КБ там, где сырьё занимало 440 КБ.
@@ -72,6 +74,7 @@ const asJsonl = flag("jsonl");
 const pretty = flag("pretty");
 const fullSnippet = flag("full-snippet");
 const both = flag("both");
+const showReviewed = flag("all-candidates");
 const worldOnly = flag("world") && !both;
 
 // Сниппет — единственное, что говорит о содержании помимо заголовка: по нему
@@ -114,6 +117,11 @@ function build(world) {
   const sel = selectFresh(raw.items, {
     seen: journal.blocked,
     claimed: journal.claimed,
+    // Скрываем то, что оркестратор уже смотрел и не взял. Отметку ставит
+    // он сам в конце прогона (topic-journal review), живёт сутки.
+    // Флаг --all-candidates её игнорирует — для разбора «почему тема
+    // не всплыла».
+    reviewed: showReviewed ? null : journal.reviewed,
     at,
     maxAgeHours: world ? maxAgeWorldHours : maxAgeHours,
   });
@@ -233,6 +241,9 @@ for (const key of ["local", "world"]) {
     `[inbox-select:${key}] ${s.returned} кандидат(ов) из ${s.raw} сырых · ` +
       `повторов ${s.duplicates} · уже обработано ${s.alreadySeen}` +
       (s.claimedByOther ? ` · занято соседом ${s.claimedByOther}` : "") +
+      // Скрытое обязано быть видно числом. Молчаливый отсев — это отсев,
+      // о котором узнают через неделю по ненаписанной новости.
+      (s.reviewedEarlier ? ` · смотрел и не взял ранее ${s.reviewedEarlier}` : "") +
       ` · старше ${part.maxAgeHours}ч ${s.stale}` +
       (s.ageUnknown ? ` · без даты ${s.ageUnknown} (взяты)` : "") +
       (s.truncated ? ` · срезано потолком ${s.truncated}` : ""),

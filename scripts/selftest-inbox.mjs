@@ -261,6 +261,93 @@ check("хеш совпадает с форматом живого seen-topics.js
   }
 });
 
+// ─── 6б. reviewed — «смотрел и не взял» ───
+//
+// Окно отбора сутки, заходы ежечасные: 96% пула повторяется от часа к часу
+// (замер 09.08.2026 — местный поток прирастает на ~20 при пуле ~480,
+// мировой на ~98 при пуле ~2350). Отметка прячет уже отвергнутое, но
+// обязана соблюдать три свойства, иначе тихо потеряет темы.
+
+check("reviewed прячет item из отбора и считается отдельной строкой", () => {
+  const link = "https://uza.uz/seen-but-not-taken";
+  const { fresh, stats } = selectFresh(
+    [{ link, fetchedAt: new Date(NOON - HOUR).toISOString() }],
+    { seen: new Set(), reviewed: new Set([hashLink(link)]), at: NOON },
+  );
+  eq(fresh.length, 0, "отобрано");
+  eq(stats.reviewedEarlier, 1, "учтено как просмотренное");
+});
+
+check("reviewed НЕ мешает взять тему: это не блокировка, а скрытие", () => {
+  // Прямая проверка контракта: скрытый item виден при reviewed=null.
+  const link = "https://uza.uz/hidden";
+  const item = { link, fetchedAt: new Date(NOON - HOUR).toISOString() };
+  const hidden = selectFresh([item], {
+    seen: new Set(),
+    reviewed: new Set([hashLink(link)]),
+    at: NOON,
+  });
+  const shown = selectFresh([item], { seen: new Set(), reviewed: null, at: NOON });
+  eq(hidden.fresh.length, 0, "скрыт при активной отметке");
+  eq(shown.fresh.length, 1, "показан без отметки (флаг --all-candidates)");
+});
+
+check("развитие сюжета всплывает само: новая ссылка — новый хеш", () => {
+  // Главная защита от потери тем. Отметка ставится по хешу КОНКРЕТНОЙ
+  // ссылки, поэтому сюжет, получивший новую публикацию, возвращается
+  // в пул без всякого таймера.
+  const old = "https://uza.uz/story";
+  const fresh2 = "https://uza.uz/story-update";
+  const { fresh } = selectFresh(
+    [
+      { link: old, fetchedAt: new Date(NOON - HOUR).toISOString() },
+      { link: fresh2, fetchedAt: new Date(NOON - HOUR).toISOString() },
+    ],
+    { seen: new Set(), reviewed: new Set([hashLink(old)]), at: NOON },
+  );
+  eq(fresh.length, 1, "отобрано");
+  eq(fresh[0].link, fresh2, "всплыла именно новая ссылка сюжета");
+});
+
+check("отметка протухает — тема возвращается в пул", () => {
+  const link = "https://uza.uz/expired-review";
+  const root = fixture({
+    "content/state/seen/2026-08-09-run1.jsonl":
+      JSON.stringify({
+        h: hashLink(link),
+        s: "below-threshold",
+        st: "reviewed",
+        at: new Date(NOON - 30 * HOUR).toISOString(),
+        exp: new Date(NOON - 6 * HOUR).toISOString(),
+      }) + "\n",
+  });
+  const j = loadJournal(root, NOON);
+  eq(j.reviewed.size, 0, "просроченных отметок в журнале");
+  eq(j.blocked.size, 0, "reviewed не попадает в blocked ни при каких условиях");
+});
+
+check("done вычищает reviewed: решённое не притворяется просмотренным", () => {
+  const link = "https://uza.uz/reviewed-then-done";
+  const h = hashLink(link);
+  const root = fixture({
+    "content/state/seen/2026-08-09-run1.jsonl":
+      JSON.stringify({
+        h,
+        s: "t",
+        st: "reviewed",
+        at: new Date(NOON - HOUR).toISOString(),
+        exp: new Date(NOON + 20 * HOUR).toISOString(),
+      }) +
+      "\n" +
+      JSON.stringify({ h, s: "t", st: "done", at: new Date(NOON).toISOString() }) +
+      "\n",
+  });
+  const j = loadJournal(root, NOON);
+  eq(j.done.has(h), true, "тема в done");
+  eq(j.reviewed.has(h), false, "и убрана из reviewed");
+  eq(j.blocked.has(h), true, "и заблокирована по-настоящему");
+});
+
 // ─── 7. Битые строки JSONL не роняют файл ───
 
 check("битая строка пропускается, остальные читаются", () => {
