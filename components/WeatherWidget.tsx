@@ -90,7 +90,10 @@ export function WeatherWidget({
       </div>
 
       <ul className="mt-4 divide-y divide-neutral-100 border-t border-neutral-100 dark:divide-neutral-800 dark:border-neutral-800">
-        {data.days.map((d, i) => (
+        {/* Рядом стоит блок воздуха — вчетвером дни перерастают пару
+            карточек слева, и под ними открывается полоса пустоты.
+            Четвёртый день там же, в «Ленте» его никто не ищет. */}
+        {data.days.slice(0, data.air ? 3 : 4).map((d, i) => (
           <li key={d.date} className="flex items-center gap-3 py-2">
             <span className="w-16 shrink-0 text-[10px] uppercase tracking-wider text-neutral-500">
               {dayLabel(d.date, i, lang)}

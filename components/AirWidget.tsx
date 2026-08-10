@@ -46,23 +46,20 @@ export function AirWidget({
         <span className="truncate text-[10px] text-neutral-500">{air.station}</span>
       </div>
 
-      <div className="mt-3 flex items-end gap-3">
-        <span className={`text-4xl font-bold tabular-nums ${band.tone}`}>
+      <div className="mt-2 flex items-end gap-3">
+        <span className={`text-4xl font-bold leading-none tabular-nums ${band.tone}`}>
           {air.aqi}
         </span>
-        <span className={`pb-1 text-xs font-semibold ${band.tone}`}>
+        <span className={`text-xs font-semibold leading-tight ${band.tone}`}>
           {band.label}
+        </span>
+        <span className="ml-auto text-right text-[11px] leading-tight tabular-nums text-neutral-500">
+          {air.pm25 !== null && <span className="block">PM2.5 · {air.pm25}</span>}
+          {air.pm10 !== null && <span className="block">PM10 · {air.pm10}</span>}
         </span>
       </div>
 
-      {(air.pm25 !== null || air.pm10 !== null) && (
-        <div className="mt-2 flex gap-4 text-xs tabular-nums text-neutral-500">
-          {air.pm25 !== null && <span>PM2.5 · {air.pm25}</span>}
-          {air.pm10 !== null && <span>PM10 · {air.pm10}</span>}
-        </div>
-      )}
-
-      <div className="mt-3 border-t border-neutral-200 pt-2 text-[10px] text-neutral-500 dark:border-neutral-800">
+      <div className="mt-2 text-[10px] text-neutral-500">
         <a
           href="https://aqicn.org/city/tashkent/"
           target="_blank"
