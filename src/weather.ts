@@ -149,11 +149,18 @@ async function fetchAir(token: string): Promise<WeatherPayload["air"]> {
   if (json.status !== "ok" || typeof json.data?.aqi !== "number") {
     throw new Error(`waqi: ${json.status ?? "нет данных"}`);
   }
+  // Станция приходит как «Tashkent Chilanzar, Uzbekistan». Страну убираем:
+  // на узбекистанском сайте она не сообщает читателю ничего, а в шапке
+  // виджета место дорогое — название иначе обрезается на полуслове.
+  const station = (json.data.city?.name ?? "Tashkent").replace(
+    /,\s*Uzbekistan\s*$/i,
+    "",
+  );
   return {
     aqi: json.data.aqi,
     pm25: json.data.iaqi?.pm25?.v ?? null,
     pm10: json.data.iaqi?.pm10?.v ?? null,
-    station: json.data.city?.name ?? "Ташкент",
+    station,
     measuredAt: json.data.time?.iso ?? json.data.time?.s ?? "",
   };
 }
