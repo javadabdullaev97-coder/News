@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-10T07:36:00+05:00",
-  "topicsProcessed": 6,
-  "published": 5,
-  "queuedDirect": 5,
+  "lastRunAt": "2026-08-10T08:04:00+05:00",
+  "topicsProcessed": 3,
+  "published": 0,
+  "queuedDirect": 0,
   "queuedForOwner": 0,
-  "rejected": 1,
+  "rejected": 3,
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 361,
-  "duplicatesOfPublished": 1,
+  "belowThreshold": 355,
+  "duplicatesOfPublished": 3,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-10.jsonl",
-    "itemsFreshLocal": 367,
-    "itemsFreshWorld": 1827
+    "itemsFreshLocal": 358,
+    "itemsFreshWorld": 1859
   },
-  "notes": "Отбор шёл по P0/P1 official-source кластерам инбокса (367 fresh), не по полному скорингу всех тем. cyberattacks-state-orgs (UZCERT/RDP) — дубль уже опубликованной 08.08.2026 статьи, topic-dupecheck не поймал из-за разной формулировки заголовка при совпадении первоисточника; обнаружено на этапе SEO. Мировая линия: целевой grep по mustPublish-категориям (ФРС/ЕЦБ, теракт, инаугурация, перемирие, ВТО/ОПЕК) ничего не дал сверх рутины РФ-Украины — 0 тем. Write-инструмент у reporter/fact-checker систематически блокирует .md-пути с подстрокой 'report' — писала .review-файлы вручную по 5 из 6 тем."
+  "notes": "Все 3 темы дошли до editor (одна — до bild+seo) и лишь тогда оказались дублями: dupecheck при брони видел только signal-ссылки (kun.uz/gazeta.uz/anhor.uz), совпадение всплыло, когда reporter нашёл настоящий первоисточник (cbu.uz/gov.uz/lex.uz) и повторный dupecheck дал duplicate. Все три дублируют материалы прогона 07:36 этого же дня или 06-08.08. Write-инструмент снова блокировал .md-пути с подстрокой 'report' — notes/fact-check писала вручную. Стоит гонять dupecheck повторно, как только reporter называет реальный первоисточник."
 }
