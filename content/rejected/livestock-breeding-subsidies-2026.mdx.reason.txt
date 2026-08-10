@@ -1,0 +1,12 @@
+REJECTED as duplicate (orchestrator decision, post-editor).
+
+topic-dupecheck.mjs with the actual primary-source link (lex.uz/ru/docs/8377591,
+ПП-293, discovered by reporter after topic was claimed) returned "duplicate":
+content/rejected/livestock-subsidy-decree.mdx already used the same lex.uz/8377591
+link and was itself rejected 2026-08-08 as a duplicate of
+content/posts/.../chorvachilik-subsidy-pq293-aug2026.mdx (published 2026-08-06,
+same decree, same 1.5/2/1/1 млн sum figures). This draft independently
+rediscovered the same ПП-293 decree plus ПП-179 (already used as background
+source in content/posts/2026-08-05/uzbekistan-livestock-poultry-895m-2028.mdx).
+No genuine new information beyond material published 4-5 days earlier. Initial
+dupecheck at claim time only had the anhor.uz signal link and missed this.
