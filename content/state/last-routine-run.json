@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-10T10:37:00+05:00",
-  "topicsProcessed": 2,
+  "lastRunAt": "2026-08-10T11:26:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
-  "queuedDirect": 2,
+  "queuedDirect": 0,
   "queuedForOwner": 0,
   "rejected": 0,
   "declined": 0,
-  "needsVerification": 0,
-  "world": 1,
-  "belowThreshold": 376,
-  "duplicatesOfPublished": 1,
+  "needsVerification": 1,
+  "world": 0,
+  "belowThreshold": 426,
+  "duplicatesOfPublished": 3,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-10.jsonl",
-    "itemsFreshLocal": 378,
-    "itemsFreshWorld": 1966
+    "itemsFreshLocal": 427,
+    "itemsFreshWorld": 2024
   },
-  "notes": "Write-инструмент субагентов по-прежнему блокирует .md-пути с подстрокой 'report' (reporter-notes-*.md) — второй прогон подряд, стоит завести конвенцию <slug>-notes.md сразу в промпте reporter'а, а не чинить постфактум. Одна мировая тема (падение добычи газа H1 2026) оказалась дублем материала, отклонённого 07.08 — dupecheck поймал верно, публикатор не пострадал."
+  "notes": "Разобраны 2 созревшие карточки needs-verification (лолазор, барьеры УзКз) — первоисточников по-прежнему нет, интервалы увеличены. Из инбокса отобрана 1 тема (итоговое утверждение Сенатом упразднения Самаркандского района); первоисточник (senat.uz — SPA/JS, t.me/senatuz/46690 — видео без подписи) не читается доступными инструментами, тема ушла в needs-verification. Остальные заметные кандидаты (риелторская лицензия, IT-режим Enterprise Uzbekistan, добыча газа H1) оказались дублями уже опубликованных/отклонённых сегодня материалов — отсеяны на dupecheck до вызова reporter'а."
 }
