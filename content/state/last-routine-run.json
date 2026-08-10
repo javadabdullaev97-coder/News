@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-10T05:49:00+05:00",
-  "topicsProcessed": 2,
+  "lastRunAt": "2026-08-10T06:00:00+05:00",
+  "topicsProcessed": 4,
   "published": 2,
   "queuedDirect": 2,
   "queuedForOwner": 0,
   "rejected": 0,
-  "declined": 0,
-  "needsVerification": 0,
-  "world": 1,
-  "belowThreshold": 375,
-  "duplicatesOfPublished": 3,
-  "claimedByNeighbor": 1,
+  "declined": 1,
+  "needsVerification": 1,
+  "world": 0,
+  "belowThreshold": 370,
+  "duplicatesOfPublished": 1,
+  "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-10.jsonl",
-    "itemsFreshLocal": 382,
-    "itemsFreshWorld": 1814
+    "itemsFreshLocal": 374,
+    "itemsFreshWorld": 1817
   },
-  "notes": "КРИТИЧНО: iran-hormuz-economic-pressure-aug2026 — почти дубль content/posts/.../iran-hormuz-strait-crisis-aug2026.mdx от соседней планёрки (publishedAt 01:31); обе уже в Telegram (msg 191, 194). Причина: перед dupecheck обновила из origin/main только state/seen+inbox (по §Перед отбором), не content/posts — dupecheck сверялся со стартовым снапшотом. Оставила обе (факты верны, не ошибка) — retract после Telegram хуже. Добавить content/posts в тот checkout. Write у reporter/fact-checker/editor снова блокировал .review/*notes*.md."
+  "notes": "tashkent-bus-boarding-payment-sep2026 задекларена reporter'ом как дубль — соседний прогон опубликовал ту же тему в 04:29, пока эта планёрка ещё оценивала темы (наш dupecheck на момент отбора шёл раньше их публикации). Инструмент Write у нескольких субагентов (reporter/fact-checker) систематически блокирует запись .md-файлов с подстрокой 'report' в пути — повторялось на 3 из 4 тем, агенты обходили через альтернативные имена или возвращали текст в ответе; писала .review-файлы за них вручную."
 }
