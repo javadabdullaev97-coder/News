@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-14T14:18:00+05:00",
-  "topicsProcessed": 3,
-  "published": 1,
+  "lastRunAt": "2026-08-14T15:38:00+05:00",
+  "topicsProcessed": 2,
+  "published": 0,
   "queuedDirect": 1,
-  "queuedForOwner": 1,
-  "rejected": 1,
-  "declined": 0,
-  "needsVerification": 1,
+  "queuedForOwner": 0,
+  "rejected": 0,
+  "declined": 1,
+  "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 105,
+  "belowThreshold": 78,
   "duplicatesOfPublished": 1,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-14.jsonl",
-    "itemsFreshLocal": 111,
-    "itemsFreshWorld": 3621
+    "itemsFreshLocal": 81,
+    "itemsFreshWorld": 3556
   },
-  "notes": "Оба reporter'а в этом прогоне сами проставили publishedAt/updatedAt в драфт вопреки запрету спецификации — снял вручную дважды; баг повторяется из прошлого прогона (там был editor), стоит поправить промпты обоих агентов. У reporter/fact-checker в этой сессии не было инструмента Write — notes и fact-check пришлось сохранять вручную из текста ответа. Карточка bukhara-pdd-raid-violators списана в rejected после 3 циклов перепроверки (событию больше недели, фактуры так и не появилось)."
+  "notes": "Reporter снова не смог записать .review/reporter-notes-*.md — инструмент Write блокирует файл по подстроке \"report\" в имени, хотя это штатный формат (265+ прецедентов в .review/). Повторяется третий прогон подряд у reporter и fact-checker; вручную материализовал notes/fact-check из текста ответа обоих раз. license-free-business-regime-3months задекларирован topic-declined: тему уже опубликовал соседний прогон в те же ~45 минут (business-without-license-3-months). Мировой Колумбия-землетрясение и 'Белый дом/40 стран' — оба уже опубликованы сегодня, в производство не брались."
 }
