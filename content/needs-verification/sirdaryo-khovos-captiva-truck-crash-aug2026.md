@@ -1,6 +1,6 @@
 ---
-recheckAt: "2026-08-14T10:00:00+05:00"
-status: needs-verification
+recheckAt: null
+status: resolved-drafted
 ---
 
 # В Ховосском районе Сырдарьинской области Captiva столкнулась с грузовиком — погибли трое
