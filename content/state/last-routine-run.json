@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-14T13:13:00+05:00",
-  "topicsProcessed": 4,
-  "published": 2,
-  "queuedDirect": 2,
-  "queuedForOwner": 2,
-  "rejected": 4,
-  "declined": 0,
-  "needsVerification": 1,
+  "lastRunAt": "2026-08-14T14:03:00+05:00",
+  "topicsProcessed": 9,
+  "published": 3,
+  "queuedDirect": 3,
+  "queuedForOwner": 0,
+  "rejected": 3,
+  "declined": 1,
+  "needsVerification": 3,
   "world": 1,
-  "belowThreshold": 536,
+  "belowThreshold": 22,
   "duplicatesOfPublished": 1,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-14.jsonl",
-    "itemsFreshLocal": 1023,
-    "itemsFreshWorld": 3668
+    "itemsFreshLocal": 1057,
+    "itemsFreshWorld": 3636
   },
-  "notes": "needs-verification recheck: 5 карточек обработаны (потолок), 4 списаны в rejected (недельный порог протухания), 1 (trade-barriers) — recheckAt+7д. Мировая: землетрясение в Колумбии оказалось дублем уже вышедшего поста — dupecheck поймал. bild спутал технический MAX_CROP скрипта (0.45) с редакционным порогом crop-risky (0.25) на фото здания Администрации — поймано вручную, ушло к владельцу. policy-editor.md §5 расходится с живыми реестрами источников по названию Агентства статистики (Нацкомстат vs актуальное) — нужна сверка. Старый баг publish-tick.mjs (нет publishedAt у part переводов olim-davlatov) всё ещё не починен."
+  "notes": "Найден и исправлен баг: переводчик оставил хвост служебной разметки (</content>) в опубликованных en/uz anthropic-ipo — publish-tick успел вынести файл в posts раньше, чем это поймал i18n-lint; правка ушла отдельным коммитом в posts напрямую. Editor трижды подряд сам добавлял publishedAt/updatedAt в драфт вопреки прямому запрету спецификации — снимал вручную каждый раз, стоит поправить инструкцию editor'а. coal-market-social-support-418 (needs-verification) оказался дублем статьи, вышедшей 08.08 другим путём — 3-дневное окно dupecheck разрыв в 6 дней не поймало, нашёл вручную по .review-файлам. kashkadarya-856 опубликован с одним источником (verified, но не в config/telegram-channels.json) — решение fact-checker'а, канал стоит завести в конфиг."
 }
