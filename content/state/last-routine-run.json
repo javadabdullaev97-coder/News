@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-14T18:53:00+05:00",
-  "topicsProcessed": 0,
+  "lastRunAt": "2026-08-14T19:43:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
-  "queuedDirect": 0,
+  "queuedDirect": 1,
   "queuedForOwner": 0,
   "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
-  "world": 0,
-  "belowThreshold": 108,
+  "world": 1,
+  "belowThreshold": 13,
   "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-14.jsonl",
-    "itemsFreshLocal": 108,
-    "itemsFreshWorld": 3107
+    "itemsFreshLocal": 13,
+    "itemsFreshWorld": 3214
   },
-  "notes": "Порог не прошла ни одна тема. Два кластера рассмотрены и отклонены: ж/д Китай-Кыргызстан-Узбекистан (Жапаров про согласие Путина, 3 сигнала — gazeta.uz/podrobno/bbc-uzbek, но нет первоисточника в пуле) и незаконные высотки в Ташкенте (кластер kun.uz, 1 сигнал, нет первоисточника). Сильные темы дня уже забрал прогон 18:33. Мировая линия просмотрена по заголовкам — mustPublish/publishIfQuality не найдено."
+  "notes": "Местный пул — только 13 свежих items, ни один не прошёл порог: дубли уже опубликованного (power outage, Правосудие-2030), stale (fuel-stats 4 дня, BBC про Татарстан 4 дня, forbiddenTopics), trend.az не про Узбекистан. Мировая линия: эскалация вокруг Ормузского пролива (атака на танкеры ADNOC 13.08, взаимные заявления Ирана/Трампа о контроле) — новый поворот сюжета, ушла напрямую в очередь, confidence 86. i18n-lint попутно нашёл баги в чужих уже опубликованных материалах (olim-davlatov-presidential-advisor: нет publishedAt у переводов; cbu-fx-operations-h1-2026: хвост `</content>` в тексте) — не трогал, вне темы этого прогона, нужна ручная чистка."
 }
