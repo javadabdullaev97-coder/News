@@ -317,6 +317,15 @@
       "publishRate": "3-5/day"
     },
     {
+      "id": "uzmetaxborotxizmati",
+      "handle": "@uzmetaxborotxizmati",
+      "url": "https://t.me/s/uzmetaxborotxizmati",
+      "name": "«O'zbekiston milliy elektr tarmoqlari» АО (Национальные электрические сети Узбекистана)",
+      "type": "source",
+      "priority": "P2",
+      "note": "Госкомпания-оператор магистральных сетей и подстанций, подведомственна Минэнерго. Добавлена 14.08.2026 по кандидату из content/state/candidate-sources.jsonl (spottedBy: reporter, тема ca-power-outage-aug14) — при авариях и отключениях даёт более технические/оперативные детали, чем министерский канал."
+    },
+    {
       "id": "agrouz",
       "handle": "@agrouz",
       "url": "https://t.me/s/agrouz",
