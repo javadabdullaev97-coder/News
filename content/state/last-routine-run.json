@@ -1,5 +1,5 @@
 {
-  "lastRunAt": "2026-08-14T23:07:00+05:00",
+  "lastRunAt": "2026-08-15T00:06:00+05:00",
   "topicsProcessed": 0,
   "published": 0,
   "queuedDirect": 0,
@@ -8,13 +8,13 @@
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 44,
-  "duplicatesOfPublished": 7,
+  "belowThreshold": 24,
+  "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-14.jsonl",
-    "itemsFreshLocal": 44,
-    "itemsFreshWorld": 3274
+    "itemsFreshLocal": 24,
+    "itemsFreshWorld": 3288
   },
-  "notes": "Подтверждает вывод прогона 22:08. «Adolat/Odil sudlov – 2030» (указ Мирзиёева) продолжает давать сигналы (kun.uz, zamon_lavhalar, anhoruz, minecofinuz) — тема уже опубликована как uzbekistan-justice-2030-strategy.mdx, включая Реестр прецедентов. Блэкаут ЦА и землетрясение в Колумбии тоже опубликованы. Остальное — единичные P2/P3 сигналы без первоисточника или незначимые события. Мировой пул (400 заголовков после дедупа) просмотрен по mustPublish/quality — ничего сверх уже опубликованного (Колумбия, Западный берег)."
+  "notes": "Локальный пул (24 items) — рутина без первоисточника: ТГ-посты, устаревшие сигналы, блэкаут ЦА уже опубликован (ca-power-outage-aug14). Мировой пул просмотрен по ключевым словам категорий tiers (ФРС/ЕЦБ, IPO, теракт, землетрясение, санкции, ВТО) по всему файлу — ни один кластер не набрал 2 несовпадающих блока + непророссийский блок из mustPublish/quality. Худсити-Aramco и Таджикистан-Афганистан обстрел — только ru-state/ru-business, без независимого блока."
 }
