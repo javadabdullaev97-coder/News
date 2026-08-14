@@ -1,0 +1,13 @@
+REJECTED as duplicate (fact-checker verdict, planyorka 14.08.2026 11:00).
+
+content/posts/2026-08-10/senate-father-name-surname-law.mdx already published
+2026-08-10 covering the SAME Senate approval (8 August, Family Code art.69 amendment
+allowing surname from father's given name), same two core sources
+(senat.uz/plenary-sessions/post-5876, gov.uz/ru/advice/58/document/563). This 14.08
+draft added a third source (lex.uz text of art.69) but zero new facts — the law is
+still unsigned 4 days later, same as already reported on 10.08.
+
+topic-dupecheck.mjs (3-day window, since=2026-08-11) did not catch this: the original
+published 2026-08-10 fell one day outside the window. Process note for future runs:
+verify slowly-developing legislative topics against content/posts/ by keyword even
+when topic-dupecheck returns "clear".
