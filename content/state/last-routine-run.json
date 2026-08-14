@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-14T09:57:00+05:00",
-  "topicsProcessed": 9,
-  "published": 8,
-  "queuedDirect": 8,
-  "queuedForOwner": 0,
+  "lastRunAt": "2026-08-14T12:00:00+05:00",
+  "topicsProcessed": 10,
+  "published": 3,
+  "queuedDirect": 4,
+  "queuedForOwner": 2,
   "rejected": 1,
   "declined": 0,
-  "needsVerification": 0,
-  "world": 2,
-  "belowThreshold": 950,
-  "duplicatesOfPublished": 0,
+  "needsVerification": 1,
+  "world": 0,
+  "belowThreshold": 476,
+  "duplicatesOfPublished": 1,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-14.jsonl",
-    "itemsFreshLocal": 981,
-    "itemsFreshWorld": 3732
+    "itemsFreshLocal": 1022,
+    "itemsFreshWorld": 3689
   },
-  "notes": "Разобраны 21 матурировавшая карточка needs-verification: 5 взяты в перепроверку (потолок), 16 отложены на следующий прогон. Одна (пенсии по инвалидности) закрыта как дубликат уже опубликованной 08.08 статьи. Найден первоисточник УзА (обзор 18-й сессии Сената), снявший блокер сразу для 3 карточек. Черновик про рекламу кредитов killed на стадии SEO — оказался дубликатом content/posts/2026-08-08/senate-credit-ads-risk-warning-law.mdx (тот же закон, статья от 8.08 ошибочно его идентифицировала) — стоит поправить старую статью вручную."
+  "notes": "Разобраны 16 матурировавших карточек needs-verification (потолок 5): sirdaryo и pdd-violations нашли первоисточник и дали статьи (pdd-violations опубликована, sirdaryo — forbiddenTopic, ушла владельцу), namangan-ex-hokim тоже дал статью (forbiddenTopic, вопрос владельцу), uk-culture и uzbekneftegaz остались needs-verification. 11 отложены на 12:00. Новая тема family-code-surname-from-father оказалась дубликатом content/posts/2026-08-10/senate-father-name-surname-law.mdx — topic-dupecheck (окно 3 суток) не поймал, оригинал вышел на день раньше границы окна; рекомендация — расширить окно для медленно развивающихся законодательных тем. ВАЖНО: обнаружен инфраструктурный баг scripts/publish-tick.mjs — при встрече материала без картинки в очереди должен переносить его в needs-verification с вопросом о фото, но коммитит только удаление из queue без соответствующего добавления файла (см. историю коммитов 'publish: ничего'/'publish: <slug>' с одними лишь удалениями). Затронул 3 материала (pdd-violations, cbu-microloan-debt-burden, davletov) — все восстановлены вручную из локальных копий агентов-редакторов, ни один не потерян, но при похожем случае без ручного вмешательства статья исчезнет безвозвратно. Нужна проверка git-add шага в workflow публикатора."
 }
