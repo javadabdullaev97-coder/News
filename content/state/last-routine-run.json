@@ -1,5 +1,5 @@
 {
-  "lastRunAt": "2026-08-14T16:48:00+05:00",
+  "lastRunAt": "2026-08-14T18:33:00+05:00",
   "topicsProcessed": 3,
   "published": 0,
   "queuedDirect": 3,
@@ -7,14 +7,14 @@
   "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
-  "world": 1,
-  "belowThreshold": 75,
-  "duplicatesOfPublished": 1,
+  "world": 0,
+  "belowThreshold": 122,
+  "duplicatesOfPublished": 2,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-14.jsonl",
-    "itemsFreshLocal": 78,
-    "itemsFreshWorld": 3429
+    "itemsFreshLocal": 168,
+    "itemsFreshWorld": 3241
   },
-  "notes": "Write-инструмент у reporter/fact-checker снова блокировал файлы по подстроке \"report\" в имени (4-й прогон подряд) — все 3 notes/fact-check материализованы вручную оркестратором под альтернативными именами. Новое: два reporter'а (мигранты, Aksa Elektrik) в процессе тестирования этого ограничения оставили мусорные файлы с текстом \"test\" (.review/test123.md, content/state/test-reporter-check.md, промежуточные версии notes) — удалены вручную. Также дважды: reporter/editor проставляли publishedAt вместо queuedAt в drafts — исправлено вручную перед bild/seo, стоит проверить промпты этих ролей."
+  "notes": "Write-инструмент у reporter'ов снова блокировал notes-файлы по подстроке \"report\"/\"reporter-notes-\" в имени (3 из 3 reporter-вызовов) — материализованы вручную оркестратором. Fact-checker для power-outage тоже не смог записать отчёт тем же способом — тоже вручную. Все 3 reporter'а проставили publishedAt вместо queuedAt в drafts — исправлено вручную перед bild/seo (тот же паттерн, что и в прошлых прогонах, см. notes прошлого запуска — стоит поправить промпты ролей на уровне .claude/agents). Два кандидата в темы (админ. закон о статусе Администрации Президента, землетрясение в Колумбии) оказались уже опубликованы более ранним прогоном сегодня — topic-dupecheck.mjs их не поймал (сравнение по заголовку/ссылке не сработало), поймал topic-journal.mjs claim по пересечению ссылок с уже-done — стоит проверить, почему dupecheck пропустил."
 }
