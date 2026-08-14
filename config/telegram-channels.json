@@ -968,6 +968,17 @@
       "subscribers": null,
       "publishRate": null,
       "notes": "Кандидат из channel-candidates.jsonl (упомянут kurbanoffnet 13.08.2026, юмористическое видео). Лайфстайл-блог о пеших прогулках по Ташкенту — не новостной первоисточник, читаем для контекста городской повестки, не цитируем."
+    },
+    {
+      "id": "incidentinmahalla",
+      "handle": "@incidentinmahalla",
+      "url": "https://t.me/s/incidentinmahalla",
+      "name": "Incident в махалле",
+      "type": "signal",
+      "priority": "P3",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Кандидат из channel-candidates.jsonl (упомянут tashkentpeshkom 14.08.2026 как «наш коллега»). Тематический блог о городской/пешеходной инфраструктуре, не ведомство — не первоисточник, читаем для сигнала, не цитируем."
     }
   ]
 }
