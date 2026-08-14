@@ -1,5 +1,5 @@
 {
-  "lastRunAt": "2026-08-14T22:08:00+05:00",
+  "lastRunAt": "2026-08-14T23:07:00+05:00",
   "topicsProcessed": 0,
   "published": 0,
   "queuedDirect": 0,
@@ -8,13 +8,13 @@
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 59,
-  "duplicatesOfPublished": 3,
+  "belowThreshold": 44,
+  "duplicatesOfPublished": 7,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-14.jsonl",
-    "itemsFreshLocal": 59,
-    "itemsFreshWorld": 3189
+    "itemsFreshLocal": 44,
+    "itemsFreshWorld": 3274
   },
-  "notes": "Сильные кластеры (Правосудие-2030, блэкаут ЦА/Сурхандарья, курс/переводы ЦБ H1) уже опубликованы недавним прогоном (posts/2026-08-14/) — cbu-fx-operations-h1-2026.mdx покрывает и покупку валюты банками, и денежные переводы, дублирующие сигналы Anhor/Kapital.uz. Остальное в инбоксе — сигналы без первоисточника (P2, единично) или незначимые локальные события. Мировой пул (3189 заголовков) просмотрен по ключевым словам mustPublish/quality — новых кандидатов сверх уже опубликованного (землетрясение в Колумбии, Итуруп/Япония) нет."
+  "notes": "Подтверждает вывод прогона 22:08. «Adolat/Odil sudlov – 2030» (указ Мирзиёева) продолжает давать сигналы (kun.uz, zamon_lavhalar, anhoruz, minecofinuz) — тема уже опубликована как uzbekistan-justice-2030-strategy.mdx, включая Реестр прецедентов. Блэкаут ЦА и землетрясение в Колумбии тоже опубликованы. Остальное — единичные P2/P3 сигналы без первоисточника или незначимые события. Мировой пул (400 заголовков после дедупа) просмотрен по mustPublish/quality — ничего сверх уже опубликованного (Колумбия, Западный берег)."
 }
