@@ -935,6 +935,39 @@
       "subscribers": null,
       "publishRate": null,
       "notes": "Кандидат из channel-candidates.jsonl (упомянут poytaxt_uz 08.08.2026, пост с подписью «мухбир: Sohiba Akromova», городская тематика Ташкента). Признаков официальной принадлежности ведомству нет — рядовой городской новостной канал с собственными корреспондентами. Читаем для сигнала о повестке, не цитируем в статьях."
+    },
+    {
+      "id": "uzbekistantv_rasmiy",
+      "handle": "@uzbekistantv_rasmiy",
+      "url": "https://t.me/s/uzbekistantv_rasmiy",
+      "name": "Uzbekistan TV Rasmiy",
+      "type": "signal",
+      "priority": "P3",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Кандидат из channel-candidates.jsonl (тегнут uzsuv 12.08.2026 в развлекательном видео про цены на воду). Название содержит «rasmiy» («официальный»), но принадлежность конкретному ведомству контекстом не подтверждена — общий медийный/развлекательный канал. Читаем для сигнала, не цитируем."
+    },
+    {
+      "id": "suvchiorginal",
+      "handle": "@suvchiorginal",
+      "url": "https://t.me/s/suvchiorginal",
+      "name": "Suvchi Orginal",
+      "type": "signal",
+      "priority": "P3",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Кандидат из channel-candidates.jsonl (тегнут uzsuv 13.08.2026 в тривиа-посте #Bilasizmi). Личный блогерский аккаунт, не официальный канал ведомства. Читаем для сигнала, не цитируем."
+    },
+    {
+      "id": "tashkentpeshkom",
+      "handle": "@tashkentpeshkom",
+      "url": "https://t.me/s/tashkentpeshkom",
+      "name": "Tashkent Peshkom",
+      "type": "signal",
+      "priority": "P3",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Кандидат из channel-candidates.jsonl (упомянут kurbanoffnet 13.08.2026, юмористическое видео). Лайфстайл-блог о пеших прогулках по Ташкенту — не новостной первоисточник, читаем для контекста городской повестки, не цитируем."
     }
   ]
 }
