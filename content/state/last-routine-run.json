@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-14T19:43:00+05:00",
-  "topicsProcessed": 1,
+  "lastRunAt": "2026-08-14T20:48:00+05:00",
+  "topicsProcessed": 2,
   "published": 0,
   "queuedDirect": 1,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 1,
   "declined": 0,
   "needsVerification": 0,
-  "world": 1,
-  "belowThreshold": 13,
-  "duplicatesOfPublished": 0,
+  "world": 0,
+  "belowThreshold": 62,
+  "duplicatesOfPublished": 1,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-14.jsonl",
-    "itemsFreshLocal": 13,
-    "itemsFreshWorld": 3214
+    "itemsFreshLocal": 65,
+    "itemsFreshWorld": 3124
   },
-  "notes": "Местный пул — 13 свежих items, ни один не прошёл порог: дубли уже опубликованного, stale (4+ дня), forbiddenTopics, не про Узбекистан. Мировая линия: эскалация вокруг Ормузского пролива (атака на танкеры ADNOC 13.08, взаимные заявления Ирана/Трампа о контроле) — новый поворот, ушла напрямую в очередь, confidence 86. i18n-lint попутно нашёл баги в чужих уже опубликованных материалах (olim-davlatov-presidential-advisor: нет publishedAt у переводов; cbu-fx-operations-h1-2026: хвост `</content>` в тексте) — не трогал, вне темы прогона."
+  "notes": "4 из 6 кандидатов (Администрация президента, лицензия-фри бизнес, блэкаут ЦА, фамилия по отцу) оказались уже опубликованы соседним прогоном до моего dupecheck — не производились, просто не выбраны. roads-law-toll-regulation прошёл dupecheck (окно 3 суток), но fact-checker нашёл дубль с постом от 06.08 (тот же закон ЗРУ-1162) — отклонён вручную, в rejected/. Вывод: окно dupecheck слепо к републикации одного и того же статичного закона недельной давности."
 }
