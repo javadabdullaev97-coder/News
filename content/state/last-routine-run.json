@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-15T02:17:00+05:00",
-  "topicsProcessed": 1,
+  "lastRunAt": "2026-08-15T03:07:00+05:00",
+  "topicsProcessed": 0,
   "published": 0,
   "queuedDirect": 0,
   "queuedForOwner": 0,
-  "rejected": 1,
+  "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
-  "world": 1,
-  "belowThreshold": 19,
-  "duplicatesOfPublished": 1,
+  "world": 0,
+  "belowThreshold": 49,
+  "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-15.jsonl",
-    "itemsFreshLocal": 19,
-    "itemsFreshWorld": 3338
+    "itemsFreshLocal": 49,
+    "itemsFreshWorld": 3347
   },
-  "notes": "Единственная взятая тема (Трамп: пошлины на дроны) оказалась дублем content/posts/2026-08-14/trump-drone-tariffs-china-transshipment.mdx — совпадение вскрылось только после reporter'а, по общей ссылке на fact-sheet Белого дома (исходный дедуп по сигнальным ссылкам кластера дал clear, т.к. вчерашняя статья использовала другие сигнальные источники). Локальный пул (19 items) — рутина без первоисточника. Мировой: Ормузский пролив/ADNOC — тоже дубль вчерашней публикации. Второй приоритет выполнен: 3 архивных перевода (uz+en), 3 канала-кандидата разобраны в signal."
+  "notes": "Локальный пул (49 items) — рутина без первоисточника: ТГ-промо (suvchiorginal, tashkentpeshkom, uzbekistantv_rasmiy), землетрясения вне Узбекистана, погода в Бишкеке. Подписание Конституционного закона об Администрации Президента (suvchiorginal) — уже опубликовано (admin-president-constitutional-law.mdx). Мировой пул просмотрен по ключевым словам категорий tiers (ФРС/ЕЦБ, перемирие/переворот, теракт, землетрясение M7+, санкции/ВТО, IPO, Оскар/Грэмми, выборы G7/СНГ+ЦА, M&A, крипто, узб. спортсмены) по всему файлу — ни один кластер не набрал нужного числа несовпадающих блоков + непророссийский блок. Байвыборы Фараджа (Clacton) — несколько блоков, но это локальные довыборы одного округа, не национальные выборы G7. Кушнер/Газа, Paramount-WBD слияние, OpenAI — процессные новости без перелома. Пошлины на дроны (обвинение 40+ стран) — дубль вчерашней публикации trump-drone-tariffs-china-transshipment.mdx. needs-verification: карточек не созрело (ближайшая — lolazor, 11:00). Rework пуст."
 }
