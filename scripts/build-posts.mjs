@@ -196,6 +196,24 @@ function build() {
       continue;
     }
 
+    // Материал без разбираемой даты выхода на сайт не идёт.
+    //
+    // Это не косметика, а защита деплоя. 14.08.2026 два перевода переехали
+    // в content/posts без publishedAt, и сборка легла целиком:
+    // «RangeError: Invalid time value» на prerender карты сайта — она зовёт
+    // toISOString у каждой статьи. Сайт не деплоился сутки из-за пустого
+    // поля в двух файлах. Ровно то же было 07.08.2026, и тогда починили
+    // сами файлы, а не механику: одна плохая дата по-прежнему могла уронить
+    // выпуск всего издания. Теперь не может — статья просто не попадает
+    // в индекс, а строчка ниже говорит, какая именно.
+    const publishedAt = typeof fm.publishedAt === "string" ? fm.publishedAt.trim() : "";
+    if (!publishedAt || Number.isNaN(Date.parse(publishedAt))) {
+      held.push(
+        `${rel}: publishedAt ${publishedAt ? `«${publishedAt}» не разбирается` : "пуст"} — на сайт не выпущен`,
+      );
+      continue;
+    }
+
     // Картинки нет — материал на сайт не идёт. Тем же механизмом, что и
     // awaitingEditor: не предупреждением в логе, а физическим отсутствием
     // в lib/generated-posts.ts.
@@ -236,7 +254,7 @@ function build() {
       body,
       rubric,
       urgency: KNOWN_URGENCY.has(urgency) ? urgency : "standard",
-      publishedAt: fm.publishedAt || "",
+      publishedAt,
       cover: image.url || "",
       tags: Array.isArray(fm.tags) ? fm.tags : [],
       description: typeof fm.description === "string" ? fm.description : undefined,
