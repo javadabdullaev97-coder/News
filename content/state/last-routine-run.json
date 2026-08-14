@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-14T20:48:00+05:00",
-  "topicsProcessed": 2,
+  "lastRunAt": "2026-08-14T21:14:00+05:00",
+  "topicsProcessed": 0,
   "published": 0,
-  "queuedDirect": 1,
+  "queuedDirect": 0,
   "queuedForOwner": 0,
-  "rejected": 1,
+  "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 62,
-  "duplicatesOfPublished": 1,
+  "belowThreshold": 51,
+  "duplicatesOfPublished": 5,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-14.jsonl",
-    "itemsFreshLocal": 65,
-    "itemsFreshWorld": 3124
+    "itemsFreshLocal": 51,
+    "itemsFreshWorld": 3025
   },
-  "notes": "4 из 6 кандидатов (Администрация президента, лицензия-фри бизнес, блэкаут ЦА, фамилия по отцу) оказались уже опубликованы соседним прогоном до моего dupecheck — не производились, просто не выбраны. roads-law-toll-regulation прошёл dupecheck (окно 3 суток), но fact-checker нашёл дубль с постом от 06.08 (тот же закон ЗРУ-1162) — отклонён вручную, в rejected/. Вывод: окно dupecheck слепо к републикации одного и того же статичного закона недельной давности."
+  "notes": "Все сильные кластеры (Правосудие-2030, блэкаут ЦА/Сурхондарья, закон об Администрации президента, лицензия-фри бизнес, фамилия по отцу) уже опубликованы соседним прогоном 26 минут назад — обнаружено прямым просмотром content/posts/2026-08-14/, т.к. topic-dupecheck (фаззи-заголовки) пропустил 3 из 5 совпадений. Остальное в инбоксе — единичные сигналы без первоисточника или незначимые события. Мировой пул просмотрен целиком (148 заголовков) — ни одна тема не проходит minDistinctBlocs/значимость."
 }
