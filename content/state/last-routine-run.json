@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-14T18:33:00+05:00",
-  "topicsProcessed": 3,
+  "lastRunAt": "2026-08-14T18:53:00+05:00",
+  "topicsProcessed": 0,
   "published": 0,
-  "queuedDirect": 3,
+  "queuedDirect": 0,
   "queuedForOwner": 0,
   "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 122,
-  "duplicatesOfPublished": 2,
+  "belowThreshold": 108,
+  "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-14.jsonl",
-    "itemsFreshLocal": 168,
-    "itemsFreshWorld": 3241
+    "itemsFreshLocal": 108,
+    "itemsFreshWorld": 3107
   },
-  "notes": "Write-инструмент у reporter'ов снова блокировал notes-файлы по подстроке \"report\"/\"reporter-notes-\" в имени (3 из 3 reporter-вызовов) — материализованы вручную оркестратором. Fact-checker для power-outage тоже не смог записать отчёт тем же способом — тоже вручную. Все 3 reporter'а проставили publishedAt вместо queuedAt в drafts — исправлено вручную перед bild/seo (тот же паттерн, что и в прошлых прогонах, см. notes прошлого запуска — стоит поправить промпты ролей на уровне .claude/agents). Два кандидата в темы (админ. закон о статусе Администрации Президента, землетрясение в Колумбии) оказались уже опубликованы более ранним прогоном сегодня — topic-dupecheck.mjs их не поймал (сравнение по заголовку/ссылке не сработало), поймал topic-journal.mjs claim по пересечению ссылок с уже-done — стоит проверить, почему dupecheck пропустил."
+  "notes": "Порог не прошла ни одна тема. Два кластера рассмотрены и отклонены: ж/д Китай-Кыргызстан-Узбекистан (Жапаров про согласие Путина, 3 сигнала — gazeta.uz/podrobno/bbc-uzbek, но нет первоисточника в пуле) и незаконные высотки в Ташкенте (кластер kun.uz, 1 сигнал, нет первоисточника). Сильные темы дня уже забрал прогон 18:33. Мировая линия просмотрена по заголовкам — mustPublish/publishIfQuality не найдено."
 }
