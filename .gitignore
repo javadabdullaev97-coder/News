@@ -29,3 +29,7 @@ config/generated/
 # content/needs-verification или content/rejected, сам черновик в git
 # не попадает никогда (история это подтверждает).
 content/drafts/
+
+# Изолированные git worktree для субагентов (Agent isolation: "worktree").
+# Локальная инфраструктура сессии Claude Code, не редакционный артефакт.
+.claude/worktrees/
