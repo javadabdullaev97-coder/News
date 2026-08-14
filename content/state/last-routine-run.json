@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-14T14:03:00+05:00",
-  "topicsProcessed": 9,
-  "published": 3,
-  "queuedDirect": 3,
-  "queuedForOwner": 0,
-  "rejected": 3,
-  "declined": 1,
-  "needsVerification": 3,
-  "world": 1,
-  "belowThreshold": 22,
+  "lastRunAt": "2026-08-14T14:18:00+05:00",
+  "topicsProcessed": 3,
+  "published": 1,
+  "queuedDirect": 1,
+  "queuedForOwner": 1,
+  "rejected": 1,
+  "declined": 0,
+  "needsVerification": 1,
+  "world": 0,
+  "belowThreshold": 105,
   "duplicatesOfPublished": 1,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-14.jsonl",
-    "itemsFreshLocal": 1057,
-    "itemsFreshWorld": 3636
+    "itemsFreshLocal": 111,
+    "itemsFreshWorld": 3621
   },
-  "notes": "Найден и исправлен баг: переводчик оставил хвост служебной разметки (</content>) в опубликованных en/uz anthropic-ipo — publish-tick успел вынести файл в posts раньше, чем это поймал i18n-lint; правка ушла отдельным коммитом в posts напрямую. Editor трижды подряд сам добавлял publishedAt/updatedAt в драфт вопреки прямому запрету спецификации — снимал вручную каждый раз, стоит поправить инструкцию editor'а. coal-market-social-support-418 (needs-verification) оказался дублем статьи, вышедшей 08.08 другим путём — 3-дневное окно dupecheck разрыв в 6 дней не поймало, нашёл вручную по .review-файлам. kashkadarya-856 опубликован с одним источником (verified, но не в config/telegram-channels.json) — решение fact-checker'а, канал стоит завести в конфиг."
+  "notes": "Оба reporter'а в этом прогоне сами проставили publishedAt/updatedAt в драфт вопреки запрету спецификации — снял вручную дважды; баг повторяется из прошлого прогона (там был editor), стоит поправить промпты обоих агентов. У reporter/fact-checker в этой сессии не было инструмента Write — notes и fact-check пришлось сохранять вручную из текста ответа. Карточка bukhara-pdd-raid-violators списана в rejected после 3 циклов перепроверки (событию больше недели, фактуры так и не появилось)."
 }
