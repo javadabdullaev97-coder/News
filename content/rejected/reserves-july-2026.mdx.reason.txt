@@ -1,0 +1,10 @@
+REJECTED as duplicate (orchestrator decision, post-bild/seo).
+
+topic-dupecheck.mjs with the actual primary-source links (discovered by reporter
+after topic was claimed) returned "duplicate": content/posts/2026-08-08/gold-forex-reserves-july2026.mdx
+already covers the exact same CBU release — same two primary sources
+(cbu.uz/ru/statistics/intlreserves/4320433 and /4124475), same figures ($590M
+growth, $64.34-64.35B total, $56.12B gold, $7.65B currency). Initial dupecheck at
+claim time only had signal-source links (gazeta.uz/kapital.uz) and missed this;
+the overlap only became visible once the reporter found the real CBU URLs.
+No genuine new information beyond the original piece published two days earlier.

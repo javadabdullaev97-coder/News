@@ -1,0 +1,23 @@
+REJECTED as duplicate (orchestrator decision, post-editor).
+
+content/posts/2026-08-08/world-iran-us-hormuz-strait-deal.mdx was already published
+today (publishedAt 2026-08-08T09:30:00+05:00) covering the same evolving US-Iran/Hormuz
+negotiation story: Trump's "war can't go much longer" comments, FT report on Kharg
+terminal idling, and — critically — the SAME Bloomberg source (2026-08-06, "Iran seeks
+bar on US ships in Hormuz as deal with Oman advances") already cited there as sources[4].
+
+This draft (Bessent's 30-60 day ceasefire quote, Iran-Oman framework, -34% transit drop)
+does add some incrementally new details (Bessent's specific timeline statement, updated
+transit figures) but overlaps heavily on the core narrative and shares a primary source
+with the already-published piece. Per newsroom policy rule #2 ("не производи тему,
+которая уже выходила... новое развитие сюжета — законный материал, но пиши его как
+развитие, со ссылкой на вышедший текст"), a legitimate follow-up must explicitly
+reference the earlier LEAP piece and focus on what's new — this draft was written as a
+standalone article, not framed as a development, and doesn't cite the morning piece.
+
+Editor (agent) did not flag this at review time — reviewed and rejected by the orchestrator
+during the pre-publish duplicate check (same class of issue caught for
+uzcert-cyberattack-warning earlier in this run, see content/rejected/uzcert-cyberattack-warning.mdx.reason.txt).
+
+Fact-check verdict was APPROVE-WITH-DOWNGRADES, confidence 78 — rejection here is about
+duplication, not about factual accuracy of the draft itself.

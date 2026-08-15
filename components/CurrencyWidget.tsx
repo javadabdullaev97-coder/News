@@ -11,8 +11,10 @@ const DEFAULT_CODES = ["USD", "EUR", "RUB"];
 
 export async function CurrencyWidget({
   codes = DEFAULT_CODES,
+  className = "",
 }: {
   codes?: string[];
+  className?: string;
 }) {
   const { rates: all, fetchedAt } = await fetchCbuSnapshot();
   const rates = pickRates(all, codes);
@@ -20,7 +22,11 @@ export async function CurrencyWidget({
   const updated = formatFetchedAt(fetchedAt);
 
   return (
-    <div className="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+    // См. WeatherWidget: растянуть виджет просит вызывающий через className.
+    // Слабину распределяет список валют, «обновлено» остаётся у нижнего края.
+    <div
+      className={`flex flex-col rounded-xl border border-neutral-200 p-4 dark:border-neutral-800 ${className}`}
+    >
       <div className="flex items-baseline justify-between gap-2">
         <h3 className="text-sm font-bold uppercase tracking-wider">Курсы</h3>
         {rateDate && (
@@ -29,7 +35,7 @@ export async function CurrencyWidget({
           </span>
         )}
       </div>
-      <ul className="mt-2 divide-y divide-neutral-100 dark:divide-neutral-800">
+      <ul className="mt-2 flex flex-1 flex-col justify-around divide-y divide-neutral-100 dark:divide-neutral-800">
         {rates.map((r) => {
           const down = r.diff < 0;
           return (

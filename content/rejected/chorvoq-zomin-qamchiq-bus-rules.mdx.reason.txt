@@ -1,0 +1,11 @@
+REJECTED as duplicate (orchestrator decision, post-bild/seo).
+
+topic-dupecheck.mjs with the actual primary-source link (gov.uz/ru/uzbektourism/news/view/201920,
+discovered by reporter after topic was claimed) returned "duplicate": the same
+gov.uz tourism-committee release was already mined twice today for different
+facets — content/posts/2026-08-10/aerodromes-tourism-lease-small-aviation.mdx
+(small aviation regulation) and content/posts/2026-08-10/mountain-border-permit-online.mdx
+(border-zone permits). Per spec rule 2 ("duplicate — ссылки уже разобраны, тему не
+бери"), a link already mined counts as spent regardless of which facet of the
+source document this draft focused on (bus rules). Initial dupecheck at claim
+time only had the kun.uz signal link and missed this.

@@ -42,3 +42,7 @@ data/
 # в репозиторий идёт только кодировочная таблица output/qualitative.csv.
 output/qualitative-sample.json
 output/validation-sample.json
+
+# Изолированные git worktree для субагентов (Agent isolation: "worktree").
+# Локальная инфраструктура сессии Claude Code, не редакционный артефакт.
+.claude/worktrees/

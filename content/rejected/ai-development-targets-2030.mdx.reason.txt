@@ -1,0 +1,7 @@
+REJECTED as duplicate (orchestrator decision, post-bild/seo).
+
+content/posts/2026-08-07/uzbekistan-ai-ecosystem-1-5bn-target.mdx already published
+2026-08-07 covering the SAME presidential summit/same primary source
+(president.uz/ru/lists/view/9488, 7 August), just emphasizing a different angle ($1.5bn/200
+projects vs 100 projects/top-50). SEO agent flagged this explicitly as near-duplicate coverage
+of one event on consecutive days plus a category inconsistency (economy vs tech) between siblings.

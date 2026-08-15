@@ -51,6 +51,14 @@ export function AdSlot({
     );
   }
 
+  // Непроданное место читателю не показываем. Пунктирная коробка с надписью
+  // «реклама · 300x250 · slot: home-sidebar-rect» — это разметка для нас,
+  // а на сайте она читается как сломанный блок (замечание владельца
+  // 09.08.2026: две таких висели на главной, живой креатив был только
+  // у верхнего баннера). Слот остаётся в разметке: появится креатив
+  // в lib/ads.ts — баннер встанет на место сам.
+  if (process.env.NODE_ENV !== "development") return null;
+
   return (
     <div
       data-ad-slot={id}
@@ -106,9 +114,13 @@ export function NativeAdCard({
   );
 }
 
+// Липучка внизу мобильного экрана. Креатива у неё нет вовсе — значит на
+// телефоне читатель видел пунктирную полосу «320×50 · sticky mobile»,
+// перекрывающую текст. Показываем только в разработке, как и остальные
+// непроданные места.
 export function MobileStickyAd() {
   const [open, setOpen] = useState(true);
-  if (!open) return null;
+  if (!open || process.env.NODE_ENV !== "development") return null;
   return (
     <div className="fixed inset-x-0 bottom-0 z-30 md:hidden">
       <div className="relative mx-auto flex h-[60px] w-full items-center justify-center border-t-2 border-dashed border-neutral-400 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-900">

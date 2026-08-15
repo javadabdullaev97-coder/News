@@ -48,19 +48,34 @@ jobs:
       - name: Install deps (для lib/frontmatter.mjs)
         run: npm install --no-audit --no-fund --no-save
 
-      # Выжимки инструкций не должны молча отставать от источников.
-      # Планёрка при рассинхроне не ломается (читает полный документ и пишет
-      # в отчёт), но каждый её прогон дорожает — красный прогон здесь заметнее.
+      # ВСЕ проверки идут до конца, даже если предыдущая упала.
+      #
+      # Здесь был боевой отказ. Проверки стояли подряд без
+      # continue-on-error, и первая же красная обрывала job целиком:
+      # 06.08 упал i18n-lint — дрейф не проверялся; 09.08 упал дайджест —
+      # не проверялись ни переводы, ни дрейф. Четыре дня подряд
+      # (06-09.08) ежедневная проверка редполитики не работала вообще,
+      # и об этом никто не узнал: красный прогон виден только тому, кто
+      # сам откроет вкладку Actions.
+      #
+      # Теперь каждая проверка отмечается, а падает job в конце — разом
+      # и со списком. Одна поломка больше не прячет остальные.
       - name: Check doc digests freshness
+        id: digests
         run: node scripts/check-doc-digest.mjs --strict
+        continue-on-error: true
 
       # Узбекские тексты: проценты словом, прямой апостроф, узбекские
-      # номера актов. Переводчики расходятся в этом систематически,
-      # и без ежедневной проверки расхождения копятся молча.
+      # номера актов. Плюс утечки служебной разметки агента (</content>,
+      # </invoke>) — 09.08 такие хвосты нашлись в двух ОПУБЛИКОВАННЫХ
+      # статьях, потому что проверка была заглушена падением выше.
       - name: Check translation writing rules
+        id: i18n
         run: node scripts/i18n-lint.mjs
+        continue-on-error: true
 
       - name: Check drift
+        id: drift
         run: |
           DAYS="${{ github.event.inputs.days || '7' }}"
           node scripts/check-policy-drift.mjs --days="$DAYS" --verbose
@@ -77,3 +92,34 @@ jobs:
           git add content/state/policy-drift.md
           git commit -m "drift: daily policy check"
           bash .github/scripts/git-push-with-rebase.sh
+
+      # Владельцу — в Telegram, а не в молчаливую вкладку Actions.
+      # Именно отсутствие этого шага дало четыре дня незамеченного отказа.
+      - name: Tell the owner if anything is red
+        if: steps.digests.outcome == 'failure' || steps.i18n.outcome == 'failure' || steps.drift.outcome == 'failure'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
+        run: |
+          FAILED=""
+          [[ "${{ steps.digests.outcome }}" == "failure" ]] && FAILED="$FAILED%0A• выжимка редполитики отстала от SKILL.md (check-doc-digest)"
+          [[ "${{ steps.i18n.outcome }}" == "failure" ]] && FAILED="$FAILED%0A• переводы: нарушения правил или утечка разметки агента (i18n-lint)"
+          [[ "${{ steps.drift.outcome }}" == "failure" ]] && FAILED="$FAILED%0A• дрейф политики (check-policy-drift)"
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          curl -sS -X POST \
+            "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d "chat_id=${TELEGRAM_EDITOR_CHAT_ID}" \
+            -d "parse_mode=HTML" \
+            -d "text=⚠️ <b>Ежедневная проверка редполитики</b> красная:${FAILED}%0A%0A<a href=\"${RUN_URL}\">лог прогона</a>" \
+            >/dev/null || echo "не смог отправить в Telegram — смотри лог прогона"
+        continue-on-error: true
+
+      # Итоговый гейт: job красный, если красной была любая проверка.
+      # Стоит последним, чтобы не съесть ни отчёт, ни уведомление.
+      - name: Fail if any check failed
+        if: steps.digests.outcome == 'failure' || steps.i18n.outcome == 'failure' || steps.drift.outcome == 'failure'
+        run: |
+          echo "выжимки: ${{ steps.digests.outcome }}"
+          echo "переводы: ${{ steps.i18n.outcome }}"
+          echo "дрейф:    ${{ steps.drift.outcome }}"
+          exit 1

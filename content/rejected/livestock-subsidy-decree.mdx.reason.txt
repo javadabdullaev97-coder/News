@@ -1,0 +1,7 @@
+REJECTED as duplicate (orchestrator decision, post-SEO).
+
+SEO agent found: content/posts/2026-08-06/chorvachilik-subsidy-pq293-aug2026.mdx already
+published 2026-08-06 covering the exact same decree (ПП-293), same figures (1.5/2/1/1 млн
+sums), same primary sources (@huquqiyaxborot/20227, lex.uz, CBU rate archive), same
+service-enterprise detail. This draft is a near-duplicate produced independently two days
+later with a different slug/title/lead. No genuine new information beyond the original piece.

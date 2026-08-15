@@ -35,6 +35,10 @@ on:
       - "package.json"
       - "package-lock.json"
       - "next.config.mjs"
+      # Сборщик индекса статей: он решает, что вообще попадёт на сайт
+      # (ворота по image.url и утечкам разметки). Правка здесь меняет
+      # выдачу так же, как правка контента, — значит и деплой нужен.
+      - "scripts/build-posts.mjs"
   workflow_dispatch:
 
 permissions:

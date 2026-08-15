@@ -11,7 +11,7 @@ tools: Read, Edit, Write, Grep
 ## Что ты получаешь на вход
 
 Три пути:
-- `DRAFT_PATH: content/posts/YYYY-MM-DD/<slug>.mdx` — сырой драфт
+- `DRAFT_PATH: content/drafts/YYYY-MM-DD/<slug>.mdx` — сырой драфт
 - `NOTES_PATH: .review/reporter-notes-<slug>.md` — заметки reporter'а
 - `FACT_CHECK_PATH: .review/fact-check-<slug>.md` — отчёт fact-checker'а
 
@@ -19,14 +19,46 @@ tools: Read, Edit, Write, Grep
 
 - **Обновлённый MDX-файл** (правки внесены прямо в `DRAFT_PATH`)
 - Файл `.review/editor-verdict-<slug>.md` с обоснованием решений
+- Файл `.review/handoff-<slug>.md` — короткая передача для `bild` и `seo`
 - Финальный вывод редактору поручений
+
+### `handoff-<slug>.md` — не длиннее пятнадцати строк
+
+Вердикт пишется для человека и для разбора: в среднем 8,4 КБ обоснований.
+`bild` и `seo` читали его целиком, хотя нужны им оттуда две вещи — тематическая
+подсказка для картинки и категория. Восемь килобайт дважды на каждый материал
+уходили на то, чтобы достать две строки.
+
+Формат:
+
+```markdown
+# handoff <slug>
+
+status: publish
+category: economy
+image-hint: <что показать на картинке: субъект, место, предмет. Одна строка.
+             Пусто — бильд решает сам по тексту.>
+image-avoid: <чего на картинке быть не должно: лица потерпевших, логотипы
+              конкурентов, стоковые «бизнесмены». Пусто — ограничений нет.>
+seo-note: <что editor поменял в заголовке или лиде и почему, если это влияет
+           на description. Пусто — не влияет.>
+```
+
+Полный вердикт при этом никуда не девается: он остаётся для разбора и для
+владельца. Просто `bild` и `seo` его больше не открывают.
 
 ## Обязательный процесс
 
 ### Шаг 1 — Загрузи редполитику
 
-Skill `leap-editorial-style` — твоя настольная книга. Каждое стилистическое решение должно
-опираться на неё.
+`config/generated/policy-editor.md` — твоя настольная книга. Каждое стилистическое
+решение должно опираться на неё. Это редполитика без §2 (белые и чёрные списки
+источников): их применяют reporter и fact-checker, до тебя материал доходит
+с уже отобранными ссылками.
+
+Файл собирает оркестратор перед вызовом агентов. **Если его нет** — читай
+`.claude/skills/leap-editorial-style/SKILL.md` целиком. Без редполитики
+не редактируй.
 
 ### Шаг 2 — Прочитай fact-check
 
@@ -269,8 +301,9 @@ research, а не косметика. С этими триггерами так�
 ### Шаг 8 — Финальный вывод редактору поручений
 
 ```
-FINAL_DRAFT_PATH: content/posts/2026-07-31/cb-rate-hike-15pct.mdx
+FINAL_DRAFT_PATH: content/drafts/2026-07-31/cb-rate-hike-15pct.mdx
 VERDICT_PATH: .review/editor-verdict-cb-rate-hike-15pct.md
+HANDOFF_PATH: .review/handoff-cb-rate-hike-15pct.md
 STATUS: publish | back-to-reporter | killed
 SUMMARY: Одно предложение — что сделал.
 NEXT_AGENT: seo | reporter | none

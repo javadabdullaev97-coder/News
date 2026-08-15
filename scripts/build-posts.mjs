@@ -165,11 +165,14 @@ function build() {
     ];
     const raw = readFileSync(file, "utf8");
     const leaks = LEAK_PATTERNS.filter((sig) => raw.includes(sig));
+    // Предупреждения было мало: 07.08.2026 четыре перевода вышли на сайт
+    // с хвостом «</content></invoke>» в последнем абзаце — лог никто не
+    // читал. Теперь такой файл на сайт не идёт, пока его не вычистят.
     if (leaks.length) {
-      problems.push(
-        `${rel}: в текст просочилась служебная разметка агента (${leaks.join(", ")}) — ` +
-          `это попадёт на сайт как есть, статью нужно вычистить`,
+      held.push(
+        `${rel}: служебная разметка агента (${leaks.join(", ")}) — на сайт не выпущен, вычисти файл`,
       );
+      continue;
     }
 
     // Материал ждёт ответа владельца — на сайт он не идёт.
@@ -193,9 +196,40 @@ function build() {
       continue;
     }
 
+    // Материал без разбираемой даты выхода на сайт не идёт.
+    //
+    // Это не косметика, а защита деплоя. 14.08.2026 два перевода переехали
+    // в content/posts без publishedAt, и сборка легла целиком:
+    // «RangeError: Invalid time value» на prerender карты сайта — она зовёт
+    // toISOString у каждой статьи. Сайт не деплоился сутки из-за пустого
+    // поля в двух файлах. Ровно то же было 07.08.2026, и тогда починили
+    // сами файлы, а не механику: одна плохая дата по-прежнему могла уронить
+    // выпуск всего издания. Теперь не может — статья просто не попадает
+    // в индекс, а строчка ниже говорит, какая именно.
+    const publishedAt = typeof fm.publishedAt === "string" ? fm.publishedAt.trim() : "";
+    if (!publishedAt || Number.isNaN(Date.parse(publishedAt))) {
+      held.push(
+        `${rel}: publishedAt ${publishedAt ? `«${publishedAt}» не разбирается` : "пуст"} — на сайт не выпущен`,
+      );
+      continue;
+    }
+
+    // Картинки нет — материал на сайт не идёт. Тем же механизмом, что и
+    // awaitingEditor: не предупреждением в логе, а физическим отсутствием
+    // в lib/generated-posts.ts.
+    //
+    // Предупреждения оказалось мало. 08.08.2026 три черновика корреспондента
+    // (`image.url: null`, фактчек ещё не пройден) легли прямо в content/posts
+    // — путь черновика в спеке агента указывал на боевую папку — и вышли на
+    // главную серыми прямоугольниками, минуя и бильда, и ворота публикатора.
+    // Причину поправили, но полагаться на то, что в content/posts попадает
+    // только проверенное, больше нельзя: это единственное место, через
+    // которое проходят ВСЕ пути на сайт, здесь и держим правило владельца
+    // 04.08.2026 «нельзя чтобы статьи выходили без картинки».
     const image = fm.image && typeof fm.image === "object" ? fm.image : {};
     if (!image.url) {
-      problems.push(`${rel}: не заполнен image.url — статью нечем показать в карточке`);
+      held.push(`${rel}: нет image.url — на сайт не выпущен`);
+      continue;
     }
 
     // urgency задаёт срок годности материала: его читает Telegram-постер
@@ -220,7 +254,7 @@ function build() {
       body,
       rubric,
       urgency: KNOWN_URGENCY.has(urgency) ? urgency : "standard",
-      publishedAt: fm.publishedAt || "",
+      publishedAt,
       cover: image.url || "",
       tags: Array.isArray(fm.tags) ? fm.tags : [],
       description: typeof fm.description === "string" ? fm.description : undefined,

@@ -1,0 +1,22 @@
+REJECTED: duplicate of content/posts/2026-08-07/uzbekistan-realtor-attestation-law.mdx
+
+Тот же сюжет (новая редакция закона «О риэлторской деятельности», ЗРУ-1163 от 7 августа 2026,
+тот же первоисточник — Telegram-канал Минюста «Huquqiy axborot», пост /20233) уже произведён
+другой сессией планёрки под слагом uzbekistan-realtor-attestation-law и опубликован
+2026-08-07T22:37:00+05:00 (content/posts/2026-08-07/, есть en/uz переводы).
+
+Тема прошла полный цикл (reporter → fact-checker → editor, вердикт publish, confidence 74%)
+до обнаружения дубликата — совпадение обнаружено при попытке сохранить editor-verdict:
+в .review/ уже лежали reporter-notes/fact-check/editor-verdict/bild-notes с тем же реальным
+событием под слагом *-attestation-law, а content/posts/2026-08-07/ содержал готовую
+опубликованную статью. Топик был забронирован в journal под другим слагом
+(uzbekistan-realtor-law-aug2026) и другими ссылками (podrobno.uz, lex.uz/acts/1714039),
+из-за чего дедуп по ссылкам его не поймал — реальный первоисточник (huquqiyaxborot/20233)
+совпал только после того, как reporter нашла его сама.
+
+Новой фактуры сверх уже опубликованного материала нет — не публикуем как «развитие сюжета».
+
+Reporter-notes: .review/reporter-notes-uzbekistan-realtor-law-aug2026.md
+Fact-check: .review/fact-check-uzbekistan-realtor-law-aug2026.md
+Editor-verdict: .review/editor-verdict-uzbekistan-realtor-law-aug2026.md
+Rejected: 2026-08-08, планёрка 04:00 Ташкента

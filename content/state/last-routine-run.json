@@ -1,18 +1,20 @@
 {
-  "lastRunAt": "2026-08-08T00:10:00+05:00",
-  "topicsProcessed": 4,
-  "published": 2,
-  "queued": 0,
-  "rejected": 1,
+  "lastRunAt": "2026-08-15T19:08:00+05:00",
+  "topicsProcessed": 1,
+  "published": 0,
+  "queuedDirect": 1,
+  "queuedForOwner": 0,
+  "rejected": 0,
+  "declined": 0,
   "needsVerification": 0,
-  "needsMoreResearch": 0,
-  "declined": 1,
   "world": 0,
+  "belowThreshold": 421,
+  "duplicatesOfPublished": 0,
+  "claimedByNeighbor": 0,
   "inbox": {
-    "file": "content/inbox/2026-08-07.jsonl",
-    "itemsFreshLocal": 1075,
-    "itemsFreshWorld": 3752,
-    "prevRunAt": "2026-08-07T23:32:00+05:00"
+    "file": "content/inbox/2026-08-15.jsonl",
+    "itemsFreshLocal": 75,
+    "itemsFreshWorld": 347
   },
-  "notes": "ПРОГОН ~18:04-19:10 UTC / 23:04-00:10 Ташкента (ветка claude/upbeat-albattani-c2jz84). Инбокс свежий (12 мин), фетч не потребовался. Preflight: hasWork=true (1075 local fresh, rework пуст, needs-verification созрело 0 из 18 ждущих). Не первая планёрка после 07:00 — утреннюю ревизию (§Шаг 1в) пропустила по той же причине.\n\nЛокальный поток: 1075 items кластеризованы и оценены одним агентом против таблицы selection.score (score>=45 как расширенный пул, затем отсечка редактором на 55). Порог 55 прошли 5 тем, из них при финальной сверке на дубли (content/posts за 3 дня + content/queue) одна (Минтранс — National Transport Hackathon, счёт 56) оказалась точным дублем уже опубликованного 06.08 материала — отсеяна на этапе отбора, journal claim не делался. В производство взято 4: (1) Узбекнефтегаз — наращивание добычи газа авг-сент (счёт 82), (2) НАПП — 3-я сделка по ипотечным облигациям (счёт 66), (3) Генпрокуратура — новая система защиты женщин/детей, указ УП-33 (счёт 62), (4) звонок Мирзиёев-Трамп (счёт 57).\n\nРезультаты по темам:\n- uzbekneftegaz-aug-sept-gas-production-ramp: reporter(78%)→fact-checker(approve-with-downgrades, 88%)→editor(publish, 92%)→bild(фото с совещания из первоисточника)+seo(tgScore 30→broadcast false, скорректировал P1→P2 приоритет источника и убрал необоснованный +money). Прошла directPublish gates → content/queue → переводы uz/en. Между постановкой в очередь и завершением переводов публикатор (публикатор работает независимо, публикует раньше, чем готовы переводы) уже перенёс RU-версию в content/posts — переводы \"осиротели\" в очереди; оркестратор вручную перенёс их в content/posts/2026-08-07/ с тем же publishedAt, воспроизведя логику stamp() из publish-tick.mjs. PushNotification отправлен.\n- genprokuratura-women-children-protection-system-up33: reporter(62%, чувствительная тема — насилие в отношении женщин/детей, forbiddenTopics не сработали — материал про подготовку следователей, не про конкретное дело)→fact-checker(approve, 90%, подтвердил дословным узб. текстом имя/должность спикера, которые reporter не смог получить)→editor(publish, 92%)→bild(нейтральное фото Фемиды, НЕ дубль фото из статьи-предшественника от 06.08)+seo. Прошла directPublish gates → content/queue → переводы. Та же гонка с публикатором: EN и один заход UZ пришли после переноса RU в posts — перенесены вручную тем же способом; финальный UZ-перевод переводчик сам корректно направил в content/posts (заметил, что источник уже опубликован).\n- napp-mortgage-bonds-3rd-exchange-deal: reporter(70%, отметил тему как эксклюзив)→fact-checker(REJECT, 25%) — обнаружил точный дубликат content/posts/2026-08-04/mortgage-bonds-third-exchange-deal.mdx (то же событие, опубликовано 4 дня назад с более полными источниками); reporter и оркестратор пропустили дубль на этапе отбора, потому что предпубличная проверка охватывала только последние 3 дня, а не 4. → content/rejected/ с обоснованием.\n- mirziyoyev-trump-phone-call-aug2026: reporter на этапе research обнаружил, что тема уже опубликована ДРУГИМ параллельным прогоном (publishedAt 20:08, за 3 часа до начала обработки этой темы в этой сессии) — status topic-declined, черновик не создавался, тема закрыта в журнале без производства.\n\nМировая линия не разбиралась (вторичный приоритет, 3752 fresh items) — время ушло на 4 темы полного цикла плюс разбор двух дублей.\n\nВторичные задачи (missing-images — список пуст, translation-gaps, channel-candidates) не выполнялись, время ушло на основной цикл.\n\nПОДТВЕРЖДЁН известный баг: у reporter/fact-checker Write блокирует запись .review/*.md файлов («Subagents should return findings as text, not write report files») — 5 файлов (.review/reporter-notes-*×2, .review/fact-check-*×3) создавала вручную оркестратором из текста, возвращённого агентами. editor/bild/seo пишут .review/*.md сами без проблем.\n\nНОВОЕ наблюдение: гонка между постановкой в очередь и публикатором. Публикатор (внешний воркфлоу) может перенести RU-версию из content/queue в content/posts раньше, чем оркестратор успевает получить и закоммитить переводы (переводчики занимают 1.5-3 минуты каждый, публикатор тикает чаще). Переводы, приходящие после переноса RU, остаются сиротами в content/queue — их нужно вручную переносить в content/posts/<день>/ с тем же publishedAt. Один из переводчиков в этом прогоне сам заметил ситуацию и скорректировал out_path — вероятно стоит явно прописать это поведение в инструкции translator (проверять, не опубликован ли уже source_path, и если да — писать сразу в content/posts рядом с оригиналом, а не в очередь)."
+  "notes": ""
 }

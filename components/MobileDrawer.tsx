@@ -80,7 +80,7 @@ export function MobileMenuButton() {
             }`}
           >
             <span aria-hidden className="text-base">≡</span>
-            {tr(lang, "all")}
+            {tr(lang, "feed")}
           </Link>
 
           <div className="px-3 pb-1 pt-4 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArticleCard } from "./ArticleCard";
 import { LeapTag } from "./LeapTag";
 import { articlesByLang, getRubric, type Lang } from "@/lib/data";
-import { t as tr } from "@/lib/i18n";
+import { rubricFeedLabel } from "@/lib/i18n";
 
 // Классы Tailwind должны быть написаны литералами: динамическая строка вида
 // `lg:grid-cols-${n}` не попадёт в сборку и колонки развалятся.
@@ -35,7 +35,7 @@ export function RubricSection({
   const rubric = getRubric(rubricSlug);
   const items = articlesByLang(lang)
     .filter((a) => a.rubric === rubricSlug && !exclude?.has(a.slug))
-    .slice(0, 5);
+    .slice(0, 6);
   if (!rubric || items.length === 0) return null;
 
   const href =
@@ -47,7 +47,7 @@ export function RubricSection({
         href={href}
         className="text-sm font-medium text-brand transition-colors hover:underline"
       >
-        {tr(lang, "all")} →
+        {rubricFeedLabel(rubric.slug, lang)} →
       </Link>
     </div>
   );
@@ -71,14 +71,19 @@ export function RubricSection({
     );
   }
 
+  // Колонки половина на половину, а не 3:2. При широкой главной карточке
+  // (3/5 контейнера) её высота вдвое превышала стопку компактных, и
+  // justify-between растаскивал четыре карточки полосами воздуха по 70 px —
+  // правая колонка выглядела недоверстанной (замечание владельца 09.08.2026).
+  // Половина ширины опускает главную карточку примерно до 530 px, а пятый
+  // компактный материал добирает стопку до той же высоты: промежутки
+  // сжимаются до ~18 px, и обе колонки кончаются на одной линии.
   return (
     <section className="mt-14">
       {header}
-      <div className="mt-6 grid gap-8 lg:grid-cols-5">
-        <div className="lg:col-span-3">
-          <ArticleCard article={main} variant="default" />
-        </div>
-        <div className="flex flex-col justify-between gap-1 lg:col-span-2">
+      <div className="mt-6 grid gap-8 lg:grid-cols-2">
+        <ArticleCard article={main} variant="default" />
+        <div className="flex flex-col justify-between gap-2">
           {rest.map((a) => (
             <ArticleCard key={a.slug} article={a} variant="compact" />
           ))}

@@ -38,13 +38,19 @@ import {
   unlinkSync,
 } from "node:fs";
 import { join } from "node:path";
-import { ROOT, hashLink, loadJournal, CLAIM_TTL_MINUTES } from "../lib/inbox-core.mjs";
+import {
+  ROOT,
+  hashLink,
+  loadJournal,
+  CLAIM_TTL_MINUTES,
+  REVIEW_TTL_HOURS,
+} from "../lib/inbox-core.mjs";
 
 const SEEN_DIR = join(ROOT, "content/state/seen");
 const LEGACY = join(ROOT, "content/state/seen-topics.json");
 
 const mode = process.argv[2];
-const MODES = ["claim", "done", "release", "status", "compact"];
+const MODES = ["claim", "done", "release", "review", "status", "compact"];
 if (!MODES.includes(mode)) {
   console.error(`Использование: topic-journal.mjs ${MODES.join("|")} [опции]`);
   process.exit(1);
@@ -94,8 +100,8 @@ function append(records) {
 
 // ─── claim / done / release ───
 
-if (mode === "claim" || mode === "done" || mode === "release") {
-  const slug = opt("slug");
+if (mode === "claim" || mode === "done" || mode === "release" || mode === "review") {
+  const slug = opt("slug", mode === "review" ? "below-threshold" : null);
   if (!slug) {
     console.error("[journal] --slug обязателен");
     process.exit(2);
@@ -114,11 +120,24 @@ if (mode === "claim" || mode === "done" || mode === "release") {
   // поэтому броня не работала ВООБЩЕ: записи ложились в файл, читались,
   // молча не подходили ни под одну ветку и отбрасывались. Внешне всё
   // выглядело исправным — скрипт рапортовал об успешной брони.
-  const STATE = { claim: "claimed", done: "done", release: "released" };
+  const STATE = {
+    claim: "claimed",
+    done: "done",
+    release: "released",
+    review: "reviewed",
+  };
+  // review — «смотрел, не взял». Живёт сутки: ровно окно отбора, дальше
+  // item и так выпадает по возрасту. Отметка НЕ блокирует тему — она
+  // только убирает её из выдачи отбора, чтобы каждый час не предъявлять
+  // одно и то же (замер: ~96% пула повторяются от часа к часу).
+  const reviewTtlMin = Number(opt("ttl-hours", REVIEW_TTL_HOURS)) * 60;
   const records = links.map((link) => {
     const rec = { h: hashLink(link), s: slug, st: STATE[mode], at: now.toISOString() };
     if (mode === "claim") {
       rec.exp = new Date(now.getTime() + ttl * 60000).toISOString();
+    }
+    if (mode === "review") {
+      rec.exp = new Date(now.getTime() + reviewTtlMin * 60000).toISOString();
     }
     return rec;
   });
@@ -205,6 +224,11 @@ if (mode === "compact") {
         const rec = JSON.parse(s);
         // Только done. Протухшую бронь сворачивать нельзя: тема не была
         // обработана, и запирать её навсегда — значит потерять.
+        //
+        // Отметки `reviewed` отбрасываются здесь же и намеренно: они живут
+        // сутки, а уплотнение трогает файлы старше трёх дней — к этому
+        // моменту любая из них давно просрочена. Свернуть живую отметку
+        // этот код не может по построению.
         if (rec?.h && rec.st === "done") {
           hashes.add(rec.h);
           foldedRecords++;

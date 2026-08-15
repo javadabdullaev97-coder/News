@@ -237,6 +237,16 @@
       "publishRate": "5-10/day"
     },
     {
+      "id": "uzpharmcontrol",
+      "handle": "@uzpharmcontrol",
+      "url": "https://t.me/s/uzpharmcontrol",
+      "name": "Центр безопасности фармацевтической продукции при Минздраве",
+      "type": "source",
+      "priority": "P2",
+      "publishRate": "1-3/day",
+      "notes": "Подтверждено планёркой 15.08.2026: bio канала прямо объявляет его официальным каналом госучреждения (телефон, домен uzpharm-control.uz указаны), контент дублируется @ssvuz. Сайт uzpharm-control.uz отдавал 503 при проверке — не расхождение."
+    },
+    {
       "id": "minecofinuz",
       "handle": "@minecofinuz",
       "url": "https://t.me/s/minecofinuz",
@@ -315,6 +325,15 @@
       "priority": "P2",
       "subscribers": 50000,
       "publishRate": "3-5/day"
+    },
+    {
+      "id": "uzmetaxborotxizmati",
+      "handle": "@uzmetaxborotxizmati",
+      "url": "https://t.me/s/uzmetaxborotxizmati",
+      "name": "«O'zbekiston milliy elektr tarmoqlari» АО (Национальные электрические сети Узбекистана)",
+      "type": "source",
+      "priority": "P2",
+      "note": "Госкомпания-оператор магистральных сетей и подстанций, подведомственна Минэнерго. Добавлена 14.08.2026 по кандидату из content/state/candidate-sources.jsonl (spottedBy: reporter, тема ca-power-outage-aug14) — при авариях и отключениях даёт более технические/оперативные детали, чем министерский канал."
     },
     {
       "id": "agrouz",
@@ -915,6 +934,61 @@
       "subscribers": null,
       "publishRate": null,
       "notes": "Кандидат из channel-candidates.jsonl (упомянут mintrans_uz 07.08.2026 как канал корреспондента). Российское государственное издание (аналог ТАСС/РИА) с локальной редакцией по Узбекистану — конкурентное СМИ, не первоисточник. Читаем для сигнала о повестке, не цитируем в статьях."
+    },
+    {
+      "id": "zamon_lavhalar",
+      "handle": "@zamon_lavhalar",
+      "url": "https://t.me/s/zamon_lavhalar",
+      "name": "Zamon Lavhalari",
+      "type": "signal",
+      "priority": "P2",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Кандидат из channel-candidates.jsonl (упомянут poytaxt_uz 08.08.2026, пост с подписью «мухбир: Sohiba Akromova», городская тематика Ташкента). Признаков официальной принадлежности ведомству нет — рядовой городской новостной канал с собственными корреспондентами. Читаем для сигнала о повестке, не цитируем в статьях."
+    },
+    {
+      "id": "uzbekistantv_rasmiy",
+      "handle": "@uzbekistantv_rasmiy",
+      "url": "https://t.me/s/uzbekistantv_rasmiy",
+      "name": "Uzbekistan TV Rasmiy",
+      "type": "signal",
+      "priority": "P3",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Кандидат из channel-candidates.jsonl (тегнут uzsuv 12.08.2026 в развлекательном видео про цены на воду). Название содержит «rasmiy» («официальный»), но принадлежность конкретному ведомству контекстом не подтверждена — общий медийный/развлекательный канал. Читаем для сигнала, не цитируем."
+    },
+    {
+      "id": "suvchiorginal",
+      "handle": "@suvchiorginal",
+      "url": "https://t.me/s/suvchiorginal",
+      "name": "Suvchi Orginal",
+      "type": "signal",
+      "priority": "P3",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Кандидат из channel-candidates.jsonl (тегнут uzsuv 13.08.2026 в тривиа-посте #Bilasizmi). Личный блогерский аккаунт, не официальный канал ведомства. Читаем для сигнала, не цитируем."
+    },
+    {
+      "id": "tashkentpeshkom",
+      "handle": "@tashkentpeshkom",
+      "url": "https://t.me/s/tashkentpeshkom",
+      "name": "Tashkent Peshkom",
+      "type": "signal",
+      "priority": "P3",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Кандидат из channel-candidates.jsonl (упомянут kurbanoffnet 13.08.2026, юмористическое видео). Лайфстайл-блог о пеших прогулках по Ташкенту — не новостной первоисточник, читаем для контекста городской повестки, не цитируем."
+    },
+    {
+      "id": "incidentinmahalla",
+      "handle": "@incidentinmahalla",
+      "url": "https://t.me/s/incidentinmahalla",
+      "name": "Incident в махалле",
+      "type": "signal",
+      "priority": "P3",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Кандидат из channel-candidates.jsonl (упомянут tashkentpeshkom 14.08.2026 как «наш коллега»). Тематический блог о городской/пешеходной инфраструктуре, не ведомство — не первоисточник, читаем для сигнала, не цитируем."
     }
   ]
 }
