@@ -751,6 +751,28 @@
       "publishRate": "30-50/day"
     },
     {
+      "id": "tribunauznews",
+      "handle": "@tribunauznews",
+      "url": "https://t.me/s/tribunauznews",
+      "name": "Tribuna.uz",
+      "type": "signal",
+      "priority": "P2",
+      "subscribers": 176000,
+      "publishRate": "неизвестно, судя по объёму — высокий",
+      "notes": "Добавлен 15.08.2026 по запросу владельца — расширение охвата спортивных тем. RSS сайта tribuna.uz отключён в config/news-sources.json 03.08.2026 (Cloudflare-заглушка, 403 без браузера) — Telegram-канал того же издания это ограничение обходит, парсится штатным t.me/s/ механизмом без Playwright. Контент смещён к мировому футболу и трансферам, не только к узбекскому спорту — особенно полезен для тем «узбекский спортсмен за рубежом» (config/generated/policy-orchestrator.json → world.specialRules.uzbekAthleteAnywhere)."
+    },
+    {
+      "id": "uzdev",
+      "handle": "@Uzdev",
+      "url": "https://t.me/s/Uzdev",
+      "name": "UzDev — IT-события и новости Узбекистана",
+      "type": "signal",
+      "priority": "P3",
+      "subscribers": 807,
+      "publishRate": "низкий",
+      "notes": "Добавлен 15.08.2026 по запросу владельца — расширение охвата технологических тем. Нишевой канал: IT-конференции, хакатоны, стартап-конкурсы, GameDev. Небольшая аудитория, но специализированный сигнал по теме, которой раньше не было в конфиге за пределами официального канала Минцифры."
+    },
+    {
       "id": "repostuz",
       "handle": "@repostuz",
       "url": "https://t.me/s/repostuz",
