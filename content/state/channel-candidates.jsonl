@@ -58,3 +58,8 @@
 {"ev":"seen","handle":"spotuz","at":"2026-08-15T15:21:39.540Z","link":"https://t.me/uzdev/261","sourceId":"uzdev","context":"у и алгоритмическому программированию. Участвовать из Узбекистана тоже можно: https://www.spot.uz/ru/2020/08/18/rucode/?utm_source=push&utm_medium=telegram ➖ @spotuz ➖"}
 {"ev":"seen","handle":"gamedevgoethe","at":"2026-08-15T15:21:39.540Z","link":"https://t.me/uzdev/274","sourceId":"uzdev","context":"астников проекта. Открытие состоится 23 июля в 19:00 на территории Гете-института в Ташкенте, с прямой трансляцией в Онлайн формате . 🔔 Подпишитесь на канал @GameDevGoethe чтобы не пропустить регистрацию на мероприятие."}
 {"ev":"seen","handle":"newsnurkz","at":"2026-08-15T16:51:52.542Z","link":"https://t.me/Tashkent_Land/77456","sourceId":"tashkent_land","context":"осфера — просто 🔥. 🇺🇿 На стадионе — десятки, а возможно, и сотни ташкентцев, которые отправились в Алматы ради этого исторического концерта. Видео и фото: @newsnurkz @Tashkent_Land"}
+{"ev":"resolve","handle":"spotuz","at":"2026-08-15T19:29:35.705Z","addedAs":"signal"}
+{"ev":"resolve","handle":"superliganews","at":"2026-08-15T19:29:35.705Z","addedAs":"signal"}
+{"ev":"dismiss","handle":"salihoff","at":"2026-08-15T19:29:35.705Z","reason":"личный контакт организатора воркшопа, не новостной канал"}
+{"ev":"dismiss","handle":"gamedevgoethe","at":"2026-08-15T19:29:35.705Z","reason":"разовый канал мероприятия Гёте-института, не новостной канал"}
+{"ev":"resolve","handle":"newsnurkz","at":"2026-08-15T19:29:35.705Z","addedAs":"signal"}

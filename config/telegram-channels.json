@@ -1011,6 +1011,39 @@
       "subscribers": null,
       "publishRate": null,
       "notes": "Кандидат из channel-candidates.jsonl (упомянут tashkentpeshkom 14.08.2026 как «наш коллега»). Тематический блог о городской/пешеходной инфраструктуре, не ведомство — не первоисточник, читаем для сигнала, не цитируем."
+    },
+    {
+      "id": "spotuz_tg",
+      "handle": "@spotuz",
+      "url": "https://t.me/s/spotuz",
+      "name": "Spot.uz (альтернативный/устаревший хендл)",
+      "type": "signal",
+      "priority": "P3",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Кандидат из channel-candidates.jsonl (подпись в собственных статьях spot.uz, замечено 15.08.2026 через uzdev). ВНИМАНИЕ: в конфиге уже есть отдельная запись spotug/@spotug (P1) для Spot.uz — возможно тот же канал под другим/устаревшим хендлом, возможно опечатка в источнике. Не проверено напрямую. Добавлено как signal с низким приоритетом до уточнения; конкурентное СМИ, не цитируем в любом случае."
+    },
+    {
+      "id": "superliganews",
+      "handle": "@Superliganews",
+      "url": "https://t.me/s/Superliganews",
+      "name": "Superliga News — узбекский футбол",
+      "type": "signal",
+      "priority": "P3",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Кандидат из channel-candidates.jsonl (упомянут tribunauznews 15.08.2026 в анонсе трансляции матча Суперлиги). Отраслевой спортивный канал, не ведомство — не первоисточник, читаем для сигнала о повестке узбекского футбола, не цитируем."
+    },
+    {
+      "id": "newsnurkz",
+      "handle": "@newsnurkz",
+      "url": "https://t.me/s/newsnurkz",
+      "name": "NUR.KZ News",
+      "type": "signal",
+      "priority": "P3",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Кандидат из channel-candidates.jsonl (упомянут tashkent_land 15.08.2026 в материале о концерте в Алматы). Казахстанское новостное издание — конкурентное зарубежное СМИ, не первоисточник по темам об Узбекистане, читаем для сигнала, не цитируем."
     }
   ]
 }
