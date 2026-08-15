@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-15T18:36:00+05:00",
+  "lastRunAt": "2026-08-15T19:08:00+05:00",
   "topicsProcessed": 1,
   "published": 0,
   "queuedDirect": 1,
   "queuedForOwner": 0,
-  "rejected": 1,
+  "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 52,
+  "belowThreshold": 421,
   "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-15.jsonl",
-    "itemsFreshLocal": 52,
-    "itemsFreshWorld": null
+    "itemsFreshLocal": 75,
+    "itemsFreshWorld": 347
   },
-  "notes": "Байсун М-25 (закрытие аварийной скважины Узбекнефтегазом) — директ-паблиш, confidence 82%. Закон об Администрации Президента и стратегия «Одил судлов/Правосудие-2030» уже выходили 14.08 — сегодняшние повторы это дубли, не брали. Карточка needs-verification про анклавное село (Узсувтаъминот) списана в rejected — 9 дней без первоисточника."
+  "notes": ""
 }
