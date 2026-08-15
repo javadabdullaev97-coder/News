@@ -1,7 +1,7 @@
-# Policy drift check — 2026-08-14T04:00:56.630Z
+# Policy drift check — 2026-08-15T04:01:12.979Z
 
-Проверено: 1245 .mdx за последние 7 дней
-Ошибок: 0, предупреждений: 413
+Проверено: 1344 .mdx за последние 7 дней
+Ошибок: 0, предупреждений: 468
 
 ## ⚠️ Предупреждения
 
@@ -388,6 +388,57 @@
 - **content/posts/2026-08-10/state-banks-npl-share-70pct.en.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/» не цитируется в теле — балласт
 - **content/posts/2026-08-10/state-banks-npl-share-70pct.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/» не цитируется в теле — балласт
 - **content/posts/2026-08-10/state-banks-npl-share-70pct.uz.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/» не цитируется в теле — балласт
+- **content/posts/2026-08-14/admin-president-constitutional-law.en.mdx** — sources[].url «https://t.me/shmirziyoyev/35047» не цитируется в теле — балласт
+- **content/posts/2026-08-14/admin-president-constitutional-law.mdx** — sources[].url «https://t.me/shmirziyoyev/35047» не цитируется в теле — балласт
+- **content/posts/2026-08-14/admin-president-constitutional-law.uz.mdx** — sources[].url «https://t.me/shmirziyoyev/35047» не цитируется в теле — балласт
+- **content/posts/2026-08-14/cbu-fx-operations-h1-2026.en.mdx** — sources[].url «https://cbu.uz/uz/press_center/reviews/4342919/» не цитируется в теле — балласт
+- **content/posts/2026-08-14/cbu-fx-operations-h1-2026.en.mdx** — sources[].url «https://t.me/centralbankuzbekistan/13421» не цитируется в теле — балласт
+- **content/posts/2026-08-14/cbu-fx-operations-h1-2026.mdx** — sources[].url «https://cbu.uz/uz/press_center/reviews/4342919/» не цитируется в теле — балласт
+- **content/posts/2026-08-14/cbu-fx-operations-h1-2026.mdx** — sources[].url «https://t.me/centralbankuzbekistan/13421» не цитируется в теле — балласт
+- **content/posts/2026-08-14/cbu-fx-operations-h1-2026.uz.mdx** — sources[].url «https://cbu.uz/uz/press_center/reviews/4342919/» не цитируется в теле — балласт
+- **content/posts/2026-08-14/cbu-fx-operations-h1-2026.uz.mdx** — sources[].url «https://t.me/centralbankuzbekistan/13421» не цитируется в теле — балласт
+- **content/posts/2026-08-14/cbu-microloan-debt-burden-risk.en.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/json/USD/2026-01-01/» не цитируется в теле — балласт
+- **content/posts/2026-08-14/cbu-microloan-debt-burden-risk.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/json/USD/2026-01-01/» не цитируется в теле — балласт
+- **content/posts/2026-08-14/cbu-microloan-debt-burden-risk.uz.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/json/USD/2026-01-01/» не цитируется в теле — балласт
+- **content/posts/2026-08-14/energy-grid-14-districts-5yr-program.en.mdx** — sources[].url «https://t.me/shmirziyoyev/35043» не цитируется в теле — балласт
+- **content/posts/2026-08-14/energy-grid-14-districts-5yr-program.mdx** — sources[].url «https://t.me/shmirziyoyev/35043» не цитируется в теле — балласт
+- **content/posts/2026-08-14/energy-grid-14-districts-5yr-program.uz.mdx** — sources[].url «https://t.me/shmirziyoyev/35043» не цитируется в теле — балласт
+- **content/posts/2026-08-14/entrepreneur-day-2026-awards-dialogue.en.mdx** — sources[].url «https://t.me/shmirziyoyev/35041» не цитируется в теле — балласт
+- **content/posts/2026-08-14/entrepreneur-day-2026-awards-dialogue.en.mdx** — sources[].url «https://t.me/shmirziyoyev/35042» не цитируется в теле — балласт
+- **content/posts/2026-08-14/entrepreneur-day-2026-awards-dialogue.en.mdx** — sources[].url «https://t.me/shmirziyoyev/35037» не цитируется в теле — балласт
+- **content/posts/2026-08-14/entrepreneur-day-2026-awards-dialogue.mdx** — sources[].url «https://t.me/shmirziyoyev/35041» не цитируется в теле — балласт
+- **content/posts/2026-08-14/entrepreneur-day-2026-awards-dialogue.mdx** — sources[].url «https://t.me/shmirziyoyev/35042» не цитируется в теле — балласт
+- **content/posts/2026-08-14/entrepreneur-day-2026-awards-dialogue.mdx** — sources[].url «https://t.me/shmirziyoyev/35037» не цитируется в теле — балласт
+- **content/posts/2026-08-14/entrepreneur-day-2026-awards-dialogue.uz.mdx** — sources[].url «https://t.me/shmirziyoyev/35041» не цитируется в теле — балласт
+- **content/posts/2026-08-14/entrepreneur-day-2026-awards-dialogue.uz.mdx** — sources[].url «https://t.me/shmirziyoyev/35042» не цитируется в теле — балласт
+- **content/posts/2026-08-14/entrepreneur-day-2026-awards-dialogue.uz.mdx** — sources[].url «https://t.me/shmirziyoyev/35037» не цитируется в теле — балласт
+- **content/posts/2026-08-14/fly-khiva-termez-medina-flight-delay.en.mdx** — sources[].url «https://t.me/uzbairportsuz/9354» не цитируется в теле — балласт
+- **content/posts/2026-08-14/fly-khiva-termez-medina-flight-delay.mdx** — sources[].url «https://t.me/uzbairportsuz/9354» не цитируется в теле — балласт
+- **content/posts/2026-08-14/fly-khiva-termez-medina-flight-delay.uz.mdx** — sources[].url «https://t.me/uzbairportsuz/9354» не цитируется в теле — балласт
+- **content/posts/2026-08-14/market-supervision-law-approved.en.mdx** — sources[].url «https://t.me/senatuz/46654» не цитируется в теле — балласт
+- **content/posts/2026-08-14/market-supervision-law-approved.mdx** — sources[].url «https://t.me/senatuz/46654» не цитируется в теле — балласт
+- **content/posts/2026-08-14/market-supervision-law-approved.uz.mdx** — sources[].url «https://t.me/senatuz/46654» не цитируется в теле — балласт
+- **content/posts/2026-08-14/russia-migrant-patent-income-law-2027.en.mdx** — sources[].url «https://www.vedomosti.ru/society/articles/2026/02/10/1175134-migrantov-obyazhut-soderzhat-chlenov-svoih-semei-na-urovne-prozhitochnogo-minimuma» не цитируется в теле — балласт
+- **content/posts/2026-08-14/russia-migrant-patent-income-law-2027.mdx** — sources[].url «https://www.vedomosti.ru/society/articles/2026/02/10/1175134-migrantov-obyazhut-soderzhat-chlenov-svoih-semei-na-urovne-prozhitochnogo-minimuma» не цитируется в теле — балласт
+- **content/posts/2026-08-14/russia-migrant-patent-income-law-2027.uz.mdx** — sources[].url «https://www.vedomosti.ru/society/articles/2026/02/10/1175134-migrantov-obyazhut-soderzhat-chlenov-svoih-semei-na-urovne-prozhitochnogo-minimuma» не цитируется в теле — балласт
+- **content/posts/2026-08-14/samarkand-district-senate-resolution-adopted.en.mdx** — sources[].url «https://t.me/senatuz/46689» не цитируется в теле — балласт
+- **content/posts/2026-08-14/samarkand-district-senate-resolution-adopted.mdx** — sources[].url «https://t.me/senatuz/46689» не цитируется в теле — балласт
+- **content/posts/2026-08-14/samarkand-district-senate-resolution-adopted.uz.mdx** — sources[].url «https://t.me/senatuz/46689» не цитируется в теле — балласт
+- **content/posts/2026-08-14/transport-benefits-veterans-chernobyl.en.mdx** — sources[].url «https://president.uz/oz/lists/view/9483» не цитируется в теле — балласт
+- **content/posts/2026-08-14/transport-benefits-veterans-chernobyl.mdx** — sources[].url «https://president.uz/oz/lists/view/9483» не цитируется в теле — балласт
+- **content/posts/2026-08-14/transport-benefits-veterans-chernobyl.uz.mdx** — sources[].url «https://president.uz/oz/lists/view/9483» не цитируется в теле — балласт
+- **content/posts/2026-08-14/uzbekistan-justice-2030-strategy.en.mdx** — sources[].url «https://t.me/shmirziyoyev/35048» не цитируется в теле — балласт
+- **content/posts/2026-08-14/uzbekistan-justice-2030-strategy.en.mdx** — sources[].url «https://t.me/oliysuduz/51475» не цитируется в теле — балласт
+- **content/posts/2026-08-14/uzbekistan-justice-2030-strategy.mdx** — sources[].url «https://t.me/shmirziyoyev/35048» не цитируется в теле — балласт
+- **content/posts/2026-08-14/uzbekistan-justice-2030-strategy.mdx** — sources[].url «https://t.me/oliysuduz/51475» не цитируется в теле — балласт
+- **content/posts/2026-08-14/uzbekistan-justice-2030-strategy.uz.mdx** — sources[].url «https://t.me/shmirziyoyev/35048» не цитируется в теле — балласт
+- **content/posts/2026-08-14/uzbekistan-justice-2030-strategy.uz.mdx** — sources[].url «https://t.me/oliysuduz/51475» не цитируется в теле — балласт
+- **content/posts/2026-08-14/world-west-bank-settler-siege.en.mdx** — sources[].url «https://www.aljazeera.com/news/2026/8/13/israeli-settlers-besiege-three-palestinian-families-in-occupied-west-bank» не цитируется в теле — балласт
+- **content/posts/2026-08-14/world-west-bank-settler-siege.en.mdx** — sources[].url «https://www.lemonde.fr/en/international/article/2026/08/13/west-bank-us-ambassador-to-israel-denounces-siege-of-palestinian-homes-as-horrific-act-of-terror_6756455_4.html» не цитируется в теле — балласт
+- **content/posts/2026-08-14/world-west-bank-settler-siege.mdx** — sources[].url «https://www.aljazeera.com/news/2026/8/13/israeli-settlers-besiege-three-palestinian-families-in-occupied-west-bank» не цитируется в теле — балласт
+- **content/posts/2026-08-14/world-west-bank-settler-siege.mdx** — sources[].url «https://www.lemonde.fr/en/international/article/2026/08/13/west-bank-us-ambassador-to-israel-denounces-siege-of-palestinian-homes-as-horrific-act-of-terror_6756455_4.html» не цитируется в теле — балласт
+- **content/posts/2026-08-14/world-west-bank-settler-siege.uz.mdx** — sources[].url «https://www.aljazeera.com/news/2026/8/13/israeli-settlers-besiege-three-palestinian-families-in-occupied-west-bank» не цитируется в теле — балласт
+- **content/posts/2026-08-14/world-west-bank-settler-siege.uz.mdx** — sources[].url «https://www.lemonde.fr/en/international/article/2026/08/13/west-bank-us-ambassador-to-israel-denounces-siege-of-palestinian-homes-as-horrific-act-of-terror_6756455_4.html» не цитируется в теле — балласт
 - **content/posts/2026-08-01/** — категория "society": 15 материалов за день (порог 9)
 - **content/posts/2026-08-01/** — категория "economy": 24 материалов за день (порог 9)
 - **content/posts/2026-08-02/** — категория "society": 12 материалов за день (порог 9)
@@ -418,6 +469,10 @@
 - **content/posts/2026-08-10/** — категория "economy": 21 материалов за день (порог 9)
 - **content/posts/2026-08-10/** — категория "society": 12 материалов за день (порог 9)
 - **content/posts/2026-08-10/** — категория "world": 15 материалов за день (порог 9)
+- **content/posts/2026-08-14/** — категория "politics": 21 материалов за день (порог 9)
+- **content/posts/2026-08-14/** — категория "world": 21 материалов за день (порог 9)
+- **content/posts/2026-08-14/** — категория "economy": 27 материалов за день (порог 9)
+- **content/posts/2026-08-14/** — категория "society": 21 материалов за день (порог 9)
 
 ## Распределение по дням и категориям
 
@@ -431,3 +486,5 @@
 - **2026-08-08** (177): society 84, politics 9, economy 36, world 24, tech 21, culture 3
 - **2026-08-09** (99): world 30, economy 21, sport 9, society 30, politics 3, business 3, tech 3
 - **2026-08-10** (60): economy 21, society 12, world 15, tech 3, sport 3, politics 6
+- **2026-08-14** (90): politics 21, world 21, economy 27, society 21
+- **2026-08-15** (9): world 6, economy 3
