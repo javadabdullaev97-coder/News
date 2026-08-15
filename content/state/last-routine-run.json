@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-15T10:35:00+05:00",
-  "topicsProcessed": 2,
+  "lastRunAt": "2026-08-15T11:33:00+05:00",
+  "topicsProcessed": 5,
   "published": 0,
-  "queuedDirect": 0,
-  "queuedForOwner": 2,
+  "queuedDirect": 5,
+  "queuedForOwner": 0,
   "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
-  "world": 0,
-  "belowThreshold": 39,
+  "world": 2,
+  "belowThreshold": 35,
   "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-15.jsonl",
-    "itemsFreshLocal": 42,
-    "itemsFreshWorld": 3319
+    "itemsFreshLocal": 49,
+    "itemsFreshWorld": 3207
   },
-  "notes": "Оба топика прогона упёрлись в bild: GDP-структура (stock-render — единственная картинка релиза stat.uz оказалась декоративным 3D-рендером) и некролог Рискиева (no-image — единственное живое архивное фото есть только в Telegram-превью 267×374, ниже MIN_SOURCE=600px; альтернативный кадр IBA отклонён editor'ом как больничный). Оба ушли в needs-verification с pendingEditorQuestion. Riskiev: первоисточник карточки — Telegram Федерации бокса Узбекистана (@boxinguzbekistan), не в config/telegram-channels.json (пробел каталога, verified+self-bio подтверждают подлинность), занесён кандидатом. Reporter и editor дважды каждый пытались проставить publishedAt/updatedAt в драфтах — снимала вручную оба раза, оба раза по разным агентам. Мировая линия: Hormuz и Indonesia M7.7 — обе mustPublish-кандидата уже вышли более ранним прогоном сегодня, повторно не бралось."
+  "notes": "5/5 тем ушли в directPublish (ворота пройдены у всех). Мировые: землетрясение M7,7 Флорес (mustPublish, 2 блока) и пошлины США на дроны до 100% (mustPublish, 3 блока — reporter сам исправил ошибочно заданные некитируемые SCMP/Anadolu на whitehouse.gov+Euronews+Bloomberg). Во всех 5 reporter- и части fact-checker-вызовов инструмент Write блокировал запись .review/*.md как 'report file' — notes/fact-check пришлось создавать вручную по тексту в ответе агента, дважды. Лолазор (needs-verification): 7-й прогон подряд без первоисточника, recheckAt перенесён на 22.08."
 }
