@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-15T14:30:00+05:00",
-  "topicsProcessed": 2,
+  "lastRunAt": "2026-08-15T15:03:00+05:00",
+  "topicsProcessed": 3,
   "published": 0,
-  "queuedDirect": 0,
-  "queuedForOwner": 1,
-  "rejected": 1,
+  "queuedDirect": 2,
+  "queuedForOwner": 0,
+  "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 105,
-  "duplicatesOfPublished": 1,
+  "belowThreshold": 39,
+  "duplicatesOfPublished": 2,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-15.jsonl",
-    "itemsFreshLocal": 104,
-    "itemsFreshWorld": 3065
+    "itemsFreshLocal": 42,
+    "itemsFreshWorld": 3074
   },
-  "notes": "judicial-reform-decree-2030 дошла до bild, и только там всплыло, что тема уже опубликована 14.08 под другим слагом (uzbekistan-justice-2030-strategy) — dupecheck на входе не поймал совпадение из-за разных link/title. Отклонена как дубль, работа субагентов потрачена впустую. Reporter и editor у обеих тем снова проставляли publishedAt в драфт вместо queuedAt — поправлено вручную. Write у reporter/fact-checker снова блокировал запись .review/*.md — заметки сохранял вручную."
+  "notes": "Тема вступительных мандатов оказалась дублем: два параллельных прогона уже опубликовали её (minvuz-mandate-results-2026-2027, uzbekistan-university-admission-results-2026) с тем же первоисточником @BaholashUz — dupecheck.mjs не поймал (разная формулировка заголовка, разные ссылки в кластере). Мировая тема (землетрясение в Индонезии) тоже оказалась дублем, найдена только вручную. Write у reporter/fact-checker снова блокировал .review/*.md — сохранял вручную. Reporter снова ставил publishedAt в драфт — поправлено. Переводчик поймал расхождение лида и тела (часы vs час) в готовой статье — исправлено до постановки в очередь."
 }
