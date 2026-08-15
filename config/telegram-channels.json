@@ -237,6 +237,16 @@
       "publishRate": "5-10/day"
     },
     {
+      "id": "uzpharmcontrol",
+      "handle": "@uzpharmcontrol",
+      "url": "https://t.me/s/uzpharmcontrol",
+      "name": "Центр безопасности фармацевтической продукции при Минздраве",
+      "type": "source",
+      "priority": "P2",
+      "publishRate": "1-3/day",
+      "notes": "Подтверждено планёркой 15.08.2026: bio канала прямо объявляет его официальным каналом госучреждения (телефон, домен uzpharm-control.uz указаны), контент дублируется @ssvuz. Сайт uzpharm-control.uz отдавал 503 при проверке — не расхождение."
+    },
+    {
       "id": "minecofinuz",
       "handle": "@minecofinuz",
       "url": "https://t.me/s/minecofinuz",
