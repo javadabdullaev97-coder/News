@@ -216,6 +216,61 @@ function publishedKeys() {
 
 const knownArticles = publishedKeys();
 
+// Общая ссылка на первоисточник = то же событие.
+//
+// 15.08.2026 один удар по югу Ливана вышел тремя статьями за семь часов:
+// три планёрки подряд увидели его в инбоксе с разных агентств и завели
+// как новую тему. Две ушли в оба Telegram-канала. Сверка тем у нас есть
+// (scripts/topic-dupecheck.mjs) и дубль ловит — заголовки совпали на 0,5
+// при пороге 0,45, а у двух материалов вообще стояла одна и та же ссылка
+// на Al Jazeera, — но у неё в шапке написано «это справка, а не сторож»:
+// код возврата всегда 0, решение за оркестратором. Трижды подряд решение
+// было «выпускаем».
+//
+// Совпадение URL первоисточника — не догадка по словам, а доказательство:
+// две статьи пересказывают один и тот же материал. Законного случая
+// выпустить по нему второй самостоятельный текст в пределах трёх суток
+// не существует; развитие сюжета оформляется правкой вышедшего.
+const DUPE_WINDOW_DAYS = 3;
+const SOURCE_URL = /^\s*url:\s*"(https?:\/\/[^"]+)"/gm;
+
+/** Ссылки на первоисточники → где уже выходили, за окно сверки. */
+function recentSourceUrls() {
+  const byUrl = new Map();
+  if (!existsSync(POSTS_DIR)) return byUrl;
+  const since = new Date(Date.now() - DUPE_WINDOW_DAYS * 86400_000)
+    .toISOString()
+    .slice(0, 10);
+  for (const day of readdirSync(POSTS_DIR)) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || day < since) continue;
+    for (const f of readdirSync(join(POSTS_DIR, day))) {
+      // Переводы несут те же ссылки, что и оригинал, — считать их
+      // отдельными выходами нельзя.
+      if (!f.endsWith(".mdx") || /\.(uz|en)\.mdx$/.test(f)) continue;
+      const head = readFileSync(join(POSTS_DIR, day, f), "utf8").split(/\n---/, 1)[0];
+      for (const m of head.matchAll(SOURCE_URL)) {
+        // Ссылка на самих себя — законная перелинковка, а не первоисточник.
+        if (m[1].includes("leap.uz")) continue;
+        if (!byUrl.has(m[1])) byUrl.set(m[1], { slug: f.replace(/\.mdx$/, ""), day });
+      }
+    }
+  }
+  return byUrl;
+}
+
+function duplicateOfPublished(item) {
+  const recent = recentSourceUrls();
+  const head = item.raw.split(/\n---/, 1)[0];
+  for (const m of head.matchAll(SOURCE_URL)) {
+    if (m[1].includes("leap.uz")) continue;
+    const hit = recent.get(m[1]);
+    if (hit && hit.slug !== item.slug) {
+      return `тот же первоисточник, что у «${hit.slug}» (${hit.day}): ${m[1]}`;
+    }
+  }
+  return null;
+}
+
 function contentProblem(item) {
   const leak = LEAK_MARKERS.find((sig) => item.raw.includes(sig));
   if (leak) return `в тексте служебная разметка агента (${leak})`;
@@ -245,6 +300,8 @@ function blockedReason(item) {
   if (!item.hasImage) return "нет картинки (gates.requiresImage)";
   const problem = contentProblem(item);
   if (problem) return problem;
+  const dupe = duplicateOfPublished(item);
+  if (dupe) return `дубль темы — ${dupe}`;
   return null;
 }
 

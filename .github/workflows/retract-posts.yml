@@ -1,0 +1,76 @@
+name: Retract posts
+
+# Снимает материал с раздачи: удаляет его посты из каналов всех языков
+# и отзывает записи в реестре.
+#
+# Удалить статью с сайта можно коммитом, а пост в канале — только через
+# Bot API, и до 15.08.2026 инструмента под это не было: revoke-lang-posts
+# снимает все посты языка разом, cleanup-telegram-duplicates разбирает
+# конкретную аварию 04.08.2026. Точечного отзыва не хватало ровно тогда,
+# когда он нужнее всего — при снятии дубля темы.
+#
+# Заявка кладётся в content/state/retract-request.json, пуш её и запускает:
+#   { "slugs": ["…"], "reason": "…", "requestedAt": "…" }
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/state/retract-request.json"
+  repository_dispatch:
+    types: [retract-posts]
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: "Слаги через запятую (пусто — взять из файла заявки)"
+        required: false
+        default: ""
+      dry_run:
+        description: "1 = только показать, что удалил бы"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  # Та же очередь, что у автопоста и остальных чистильщиков: реестр
+  # «что уже отправлено» лежит в git, и параллельный прогон прочитал бы
+  # устаревший файл. Отмена ожидающего прогона здесь недопустима —
+  # пропущенный отзыв оставит пост в канале навсегда.
+  group: telegram-channel
+  cancel-in-progress: false
+
+jobs:
+  retract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Retract
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          TELEGRAM_CHANNEL_UZ: ${{ secrets.TELEGRAM_CHANNEL_UZ }}
+          SLUGS: ${{ github.event.inputs.slugs }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
+        run: node scripts/retract-posts.mjs
+
+      - name: Commit registry
+        if: github.event.inputs.dry_run != '1'
+        run: |
+          if [[ -z $(git status --porcelain -- content/state/telegram-posted.jsonl) ]]; then
+            echo "Реестр не менялся."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/state/telegram-posted.jsonl
+          git commit -m "state: посты сняты с раздачи (retract)"
+          bash .github/scripts/git-push-with-rebase.sh
