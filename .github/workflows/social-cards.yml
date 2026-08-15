@@ -1,0 +1,89 @@
+name: Social cards
+
+# Рисует карточки 1080×1350 для Instagram и Facebook.
+#
+# ЗАЧЕМ ОТДЕЛЬНО ОТ ПОСТИНГА. Instagram забирает картинку по публичному URL,
+# а не байтами, как Telegram. Значит карточка обязана оказаться на leap.uz
+# раньше, чем вызывается API публикации. Цепочка:
+#
+#   content/posts + картинка от bild
+#     → ЭТОТ воркфлоу рисует карточку и пушит в public/images/social
+#     → deploy-site выкладывает сайт (public/** у него в путях запуска)
+#     → social-autopost публикует, Meta забирает карточку по адресу
+#
+# Если рисовать карточку внутри постера, публиковать было бы нечего:
+# файл существует в раннере, но по адресу его ещё нет.
+#
+# Токенов не стоит: заголовок берётся из frontmatter, рубрика — по словарю
+# config/social.json, рисует Pillow.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/posts/**/*.mdx"
+      # Картинка приходит отдельным коммитом bild-агента уже после статьи —
+      # без этого пути карточка для такого материала не нарисовалась бы,
+      # пока в статью не внесут ещё какую-нибудь правку.
+      - "public/images/posts/**"
+      - "config/social.json"
+      - "scripts/render-social-card.py"
+      - "scripts/render-social-cards.mjs"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "1 = перерисовать карточки, которые уже есть"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  # Одна очередь: два прогона одновременно рисовали бы одни и те же файлы
+  # и дрались за пуш. Отмена ожидающего безопасна — скрипт каждый раз
+  # обходит content/posts целиком, пропущенное подхватит следующий запуск.
+  group: social-cards
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          # Полная глубина — git-push-with-rebase.sh делает rebase на свежий
+          # origin/main, shallow-клон при rebase может отвалиться.
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: |
+          npm install --no-audit --no-fund --no-save
+          # Pillow — единственная зависимость рендера. ImageMagick на раннере
+          # нет, и ставить его незачем: prepare-image.py тоже на Pillow.
+          python3 -m pip install --quiet --disable-pip-version-check "Pillow>=10,<12"
+
+      - name: Render cards
+        env:
+          SITE_URL: "https://leap.uz"
+          FORCE: ${{ github.event.inputs.force }}
+        run: node scripts/render-social-cards.mjs
+
+      - name: Commit cards
+        run: |
+          if [[ -z $(git status --porcelain public/images/social) ]]; then
+            echo "Новых карточек нет."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images/social
+          git commit -m "cards: карточки для соцсетей"
+          bash .github/scripts/git-push-with-rebase.sh
