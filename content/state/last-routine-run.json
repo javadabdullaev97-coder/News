@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-16T03:04:00+05:00",
-  "topicsProcessed": 2,
-  "published": 2,
-  "queuedDirect": 2,
+  "lastRunAt": "2026-08-16T04:04:00+05:00",
+  "topicsProcessed": 0,
+  "published": 0,
+  "queuedDirect": 0,
   "queuedForOwner": 0,
   "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
-  "world": 2,
-  "belowThreshold": 73,
-  "duplicatesOfPublished": 0,
+  "world": 0,
+  "belowThreshold": 55,
+  "duplicatesOfPublished": 2,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-16.jsonl",
-    "itemsFreshLocal": 9,
-    "itemsFreshWorld": 69
+    "itemsFreshLocal": 1,
+    "itemsFreshWorld": 54
   },
-  "notes": "Локальный пул (9 items) не дал тем выше порога 55. Опубликованы 2 мировые: землетрясение M7,7 Флорес (5-й пост об этом же событии за сутки — topic-dupecheck дал clear на новых ссылках, дубль не поймал; вручную сверил с уже опубликованными и добавил обязательную ссылку-развитие). Катар-Иран пилоты: fact-checker поймал реальную фактическую ошибку reporter'а (перепутаны стороны в разделе про 2 марта), editor исправил. Оба reporter — Write блокировал файлы reporter-notes-*.md, notes сохранены оркестратором вручную из ответа агента."
+  "notes": "Локальный пул почти пуст (1 item, ниже порога). Единственные мировые кандидаты с 2+ независимыми блоками — землетрясение M7,7 Флорес и катар-иранские пилоты — topic-dupecheck дал duplicate: оба уже опубликованы предыдущим прогоном (03:04). Тем к производству не найдено, ноль коммитов статей."
 }
