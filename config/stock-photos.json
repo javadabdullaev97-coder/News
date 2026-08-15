@@ -1,0 +1,78 @@
+{
+  "_": [
+    "Собственная фототека редакции: кадры, которые можно ставить к темам,",
+    "где официального фото не бывает в природе — ставка ЦБ, курс сума,",
+    "инфляция, денежная масса. Раньше на все такие материалы шёл один",
+    "и тот же снимок, и лента выглядела как повтор одной новости.",
+    "",
+    "КАК ПОЛЬЗОВАТЬСЯ. Не выбирай глазами — спроси:",
+    "  node scripts/pick-stock.mjs --topic cbu",
+    "Скрипт считает, где какой кадр уже стоит, и отдаёт самый давно",
+    "не использованный. Так ротация получается сама собой, а не обещанием.",
+    "",
+    "minWidth — реальная ширина файла. Кадры уже вышедших в вебе размеров,",
+    "апскейла нет намеренно: растянутая до 1600×900 картинка на герое",
+    "выглядит мыльной. Меньше 1000 px в герой не ставим (проверяет скрипт).",
+    "",
+    "credit — происхождение снимков владелец прислал без указания автора;",
+    "до уточнения стоит нейтральная формула. Узнаем автора — правим здесь,",
+    "во всех статьях подпись подтянется при следующей правке frontmatter."
+  ],
+  "photos": [
+    {
+      "file": "/images/stock/cbu-building-01.jpg",
+      "topics": ["cbu", "monetary-policy", "banking"],
+      "width": 640,
+      "credit": "Фото: из открытых источников",
+      "alt": {
+        "ru": "Здание Центрального банка Республики Узбекистан в Ташкенте, гранитный фасад с названием на английском и флаги у входа",
+        "uz": "Toshkentdagi O'zbekiston Respublikasi Markaziy banki binosi: granit fasad va kirish oldidagi bayroqlar",
+        "en": "The Central Bank of the Republic of Uzbekistan building in Tashkent, granite facade and flags at the entrance"
+      }
+    },
+    {
+      "file": "/images/stock/cbu-building-02.jpg",
+      "topics": ["cbu", "monetary-policy", "banking"],
+      "width": 547,
+      "credit": "Фото: из открытых источников",
+      "alt": {
+        "ru": "Фасад Центрального банка Республики Узбекистан с названием на узбекском языке",
+        "uz": "O'zbekiston Respublikasi Markaziy banki binosi fasadi va o'zbekcha yozuv",
+        "en": "Facade of the Central Bank of the Republic of Uzbekistan with the name in Uzbek"
+      }
+    },
+    {
+      "file": "/images/stock/sum-banknotes-01.jpg",
+      "topics": ["sum", "cash", "inflation", "prices", "budget"],
+      "width": 1280,
+      "credit": "Фото: из открытых источников",
+      "alt": {
+        "ru": "Пачка банкнот номиналом 200 000 сумов образца 2022 года",
+        "uz": "2022-yilgi namunadagi 200 000 so'mlik banknotalar dastasi",
+        "en": "A stack of 200,000-sum banknotes of the 2022 series"
+      }
+    },
+    {
+      "file": "/images/stock/sum-banknotes-02.jpg",
+      "topics": ["sum", "cash", "inflation", "prices", "salaries"],
+      "width": 737,
+      "credit": "Фото: из открытых источников",
+      "alt": {
+        "ru": "Перевязанные пачки узбекских банкнот номиналом 50 000 сумов",
+        "uz": "50 000 so'mlik o'zbek banknotalarining bog'langan dastalari",
+        "en": "Bundled stacks of Uzbek 50,000-sum banknotes"
+      }
+    },
+    {
+      "file": "/images/stock/sum-banknotes-03.jpg",
+      "topics": ["sum", "cash", "banking", "salaries", "payments"],
+      "width": 547,
+      "credit": "Фото: из открытых источников",
+      "alt": {
+        "ru": "Пачка банкнот по 50 000 сумов на клавиатуре ноутбука",
+        "uz": "Noutbuk klaviaturasidagi 50 000 so'mlik banknotalar dastasi",
+        "en": "A stack of 50,000-sum banknotes on a laptop keyboard"
+      }
+    }
+  ]
+}
