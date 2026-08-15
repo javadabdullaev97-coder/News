@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-15T07:04:37+05:00",
-  "topicsProcessed": 0,
+  "lastRunAt": "2026-08-15T08:28:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
-  "queuedDirect": 0,
+  "queuedDirect": 1,
   "queuedForOwner": 0,
   "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 22,
-  "duplicatesOfPublished": 0,
+  "belowThreshold": 8,
+  "duplicatesOfPublished": 1,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-15.jsonl",
-    "itemsFreshLocal": 13,
-    "itemsFreshWorld": 3275
+    "itemsFreshLocal": 8,
+    "itemsFreshWorld": 3269
   },
-  "notes": "Порог не прошла ни одна тема. Локальный пул почти пуст (13 items) — сейсмособытия Индонезии/Японии/Курил, погодный пост Yuz.uz, ТВ-клип о штрафах за загрязнение общепитом (без первоисточника-документа), статья Diplomat про Индонезию-Тайвань, Trend AZ про ОПЕК — ни одного УЗ-профильного с фактурой. Мировой: рассмотрены победа Фараджа на довыборах в Клактоне (не общенациональные выборы), развитие темы землетрясения в Колумбии (продолжение уже опубликованного), переговоры в Венесуэле, речь президента Индонезии — ни один не набрал tier. Утренняя ревизия (§Шаг 1в, первая планёрка после 07:00): nightAuto-публикаций за ночь не было, шаг пропущен."
+  "notes": "1 тема в очередь: денежные переводы в УЗ +13% до $9,28 млрд (ЦБ РУз, P0, фактчек пропущен по правилу skip). Мировой кандидат — землетрясение M7,7 у Флореса (Индонезия, 2 блока anglo+mena) — оказался дублем: уже опубликован соседним прогоном сегодня в 06:16 (indonesia-flores-m77-earthquake-tsunami-warning-aug2026). Needs-verification: ни одна из 9 карточек не созрела (все recheckAt в будущем)."
 }
