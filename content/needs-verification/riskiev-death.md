@@ -1,7 +1,19 @@
 ---
 recheckAt: "2026-08-15T14:00:00+05:00"
-status: needs-verification
+status: resolved
+resolvedAt: "2026-08-15T16:00:00+05:00"
+resolvedDraft: "content/drafts/2026-08-15/rufat-riskiev-boxing-legend-dies.mdx"
 ---
+
+## Решено (15.08.2026, повторная проверка)
+
+Официальный первоисточник найден: верифицированный Telegram-канал Федерации бокса Узбекистана,
+[t.me/boxinguzbekistan/46793](https://t.me/boxinguzbekistan/46793) — «Руфат Рисқиев ...
+76 ёшида вафот этди» (умер в 76 лет после продолжительной болезни). Возраст 76 лет, а не 80,
+как в исходном сигнале Tashkent_Land — подтверждает независимые биографические данные,
+упомянутые ниже. Канал не числился в `config/telegram-channels.json` — занесён как кандидат
+в `content/state/candidate-sources.jsonl`. Драфт: `content/drafts/2026-08-15/rufat-riskiev-boxing-legend-dies.mdx`,
+notes: `.review/rufat-riskiev-boxing-legend-dies-notes.md`.
 
 # Сообщение о смерти боксёра Руфата Рискиева
 
