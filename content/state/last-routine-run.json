@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-16T13:06:00+05:00",
-  "topicsProcessed": 0,
+  "lastRunAt": "2026-08-16T14:07:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
   "queuedDirect": 0,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 1,
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 444,
-  "duplicatesOfPublished": 0,
+  "belowThreshold": 128,
+  "duplicatesOfPublished": 1,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-16.jsonl",
-    "itemsFreshLocal": 37,
-    "itemsFreshWorld": 407
+    "itemsFreshLocal": 41,
+    "itemsFreshWorld": 88
   },
-  "notes": "Ни одна тема порога не набрала. Заметный кандидат: Омск, пожар на стройке — двое граждан Узбекистана среди пострадавших (Anhor.uz), но первоисточник (МИД) в инбоксе не индексирован, единственный сигнал — ниже порога. Мировая: землетрясение M7,4 в Колумбии (294 погибших) подтверждено только одним блоком (anglo/Bloomberg) — не хватает minDistinctBlocs=2, держим на следующий заход. Индонезия/Флорес уже в очереди с 15.08, апдейт не дублировали. Рутина РФ-Украина и UFC — вне правил (ruUaHighBar, спорт без ЦА). rework, matured needs-verification, missing-images, translation-gaps, channel-candidates — пусто."
+  "notes": "Единственная прошедшая порог тема (Худудгаз Каракалпакстан, ущерб 251,5 млрд сумов) оказалась дублем: тот же первоисточник t.me/Department_uz/12993 уже вышел 15.08 21:07 (content/posts/2026-08-15/hududgaz-karakalpakstan-damage-case.mdx). Topic-dupecheck перед запуском reporter'а сверялся по ссылке из сегодняшнего inbox-сигнала (gazeta.uz), не по первоисточнику, и не поймал совпадение — тот же класс сбоя уже фиксировался в прогоне 05:26 того же дня. Reporter написал драфт, fact-checker остановлен до завершения проверки, топик закрыт как дубль. Мировой поток — тихо: РФ-Украина рутина вне ruUaHighBar, остальное — единичные блоки без minDistinctBlocs=2."
 }
