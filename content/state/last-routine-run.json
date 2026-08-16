@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-16T23:04:00+05:00",
-  "topicsProcessed": 0,
+  "lastRunAt": "2026-08-17T00:28:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
-  "queuedDirect": 0,
+  "queuedDirect": 1,
   "queuedForOwner": 0,
   "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
-  "world": 0,
-  "belowThreshold": 400,
+  "world": 1,
+  "belowThreshold": 118,
   "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-16.jsonl",
-    "itemsFreshLocal": 26,
-    "itemsFreshWorld": 374
+    "itemsFreshLocal": 27,
+    "itemsFreshWorld": 96
   },
-  "notes": "Ни местных, ни мировых тем не набралось выше порога — вечерний инбокс тонкий (96% уже просмотрено часом ранее), сильных первоисточников не было. Flores-землетрясение (тol 53) уже в очереди (queuedAt 03:28) — публикатор сам подхватит, не трогала. Rework x2 (Рискиев, ВВП H1) не переоткрывала: у обоих pendingEditorQuestion rework-ready уже отправлен предыдущим прогоном (15:20 Ташкента), ответа владельца пока нет."
+  "notes": "Местных тем выше порога не было (пул тонкий: транспортные заголовки, спортивные слухи-signal, старые Diplomat/BBC Uzbek материалы, ГУЧС-пожар в Мирзо-Улугбеке без официального первоисточника — только Tashkent_Land, signal). Мировая тема: Кушнер встретился с лидером ХАМАС по дорожной карте Газы, 8 стран обвинили Израиль — 4 непророссийских блока, ушла в очередь напрямую (approve-with-downgrades 80%, издатель применил всё). Rework x2 (Рискиев, ВВП H1) не трогала: у обоих pendingEditorQuestion rework-ready уже отправлен и напомнен предыдущим прогоном, ответа владельца пока нет. needs-verification: 0 карточек созрело (ближайшая — 18.08 10:00)."
 }
