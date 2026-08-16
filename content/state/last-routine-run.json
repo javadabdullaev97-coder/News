@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-16T17:05:00+05:00",
-  "topicsProcessed": 0,
+  "lastRunAt": "2026-08-16T18:46:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
-  "queuedDirect": 0,
+  "queuedDirect": 1,
   "queuedForOwner": 0,
   "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
-  "world": 0,
-  "belowThreshold": 5,
-  "duplicatesOfPublished": 3,
+  "world": 1,
+  "belowThreshold": 20,
+  "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-16.jsonl",
-    "itemsFreshLocal": 34,
-    "itemsFreshWorld": 188
+    "itemsFreshLocal": 20,
+    "itemsFreshWorld": 92
   },
-  "notes": "Три кластера — оценка недвижимости в Ташкенте, дело «Худудгаз Каракалпакстан», доля мигрантов в СНГ/Европе — рекапы материалов, вышедших/поставленных в очередь 15–16.08 (tashkent-cadastre-revaluation-tax-base, hududgaz-karakalpakstan-damage-case, uzbek-labor-migration-shift-europe-cis); dupecheck по свежим ссылкам не поймал, сверено вручную. Остальное — снос незаконных построек и опровержение ВС — не набрало порог. Мировой поток: землетрясение в Индонезии уже в очереди (dead-47), автобус в Венгрии — skip-категория (происшествие без межд. последствий), Ормузский пролив уже отклонён ранее."
+  "notes": "Локальный поток — ни одной темы с первоисточником P0/P1 выше порога (спорт, шоу-бизнес, listicle, соседские ДТП без узб. привязки). Мировая: Израиль эскалировал удары по югу Ливана (11 погибших 15.08) — anglo/mena/euro блоки, mustPublish. Обнаружено пересечение с уже опубликованной сегодня статьёй israel-strikes-lebanon-ansar-11-killed (dupecheck по точным ссылкам не поймал — разные конкретные URL одного события); материал переупакован editor'ом как развитие сюжета (акцент на воскресную эскалацию и дедлайн перемирия США-Иран 17.08), а не повтор факта «11 погибших». Картинка сменена бильдом со сцены удара (дубль с опубликованной статьёй) на танкер/Ормузский пролив."
 }
