@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-17T00:28:00+05:00",
-  "topicsProcessed": 1,
+  "lastRunAt": "2026-08-17T01:06:00+05:00",
+  "topicsProcessed": 0,
   "published": 0,
-  "queuedDirect": 1,
+  "queuedDirect": 0,
   "queuedForOwner": 0,
   "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
-  "world": 1,
-  "belowThreshold": 118,
-  "duplicatesOfPublished": 0,
+  "world": 0,
+  "belowThreshold": 10,
+  "duplicatesOfPublished": 1,
   "claimedByNeighbor": 0,
   "inbox": {
-    "file": "content/inbox/2026-08-16.jsonl",
-    "itemsFreshLocal": 27,
-    "itemsFreshWorld": 96
+    "file": "content/inbox/2026-08-17.jsonl",
+    "itemsFreshLocal": 10,
+    "itemsFreshWorld": 77
   },
-  "notes": "Местных тем выше порога не было (пул тонкий: транспортные заголовки, спортивные слухи-signal, старые Diplomat/BBC Uzbek материалы, ГУЧС-пожар в Мирзо-Улугбеке без официального первоисточника — только Tashkent_Land, signal). Мировая тема: Кушнер встретился с лидером ХАМАС по дорожной карте Газы, 8 стран обвинили Израиль — 4 непророссийских блока, ушла в очередь напрямую (approve-with-downgrades 80%, издатель применил всё). Rework x2 (Рискиев, ВВП H1) не трогала: у обоих pendingEditorQuestion rework-ready уже отправлен и напомнен предыдущим прогоном, ответа владельца пока нет. needs-verification: 0 карточек созрело (ближайшая — 18.08 10:00)."
+  "notes": "Порог не прошла ни одна тема. Локально 10 items (спорт-signal, реклама ТВ-шоу, жалобы на трафик, потушенный пожар без первоисточника, WTO без узбекского угла). Мировые 77: почти всё шоубиз/спорт-friendly/рутина РФ-Украина (ruUaHighBar). Kushner-Hamas (NYT+AlJazeera, anglo+mena) — тот же сюжет, что вчера ушёл в очередь (kushner-gaza-roadmap-hamas-meeting); topic-dupecheck.mjs вернул clear по этим двум ссылкам (заголовки разошлись), дубль поймала только ручная сверка с content/queue — отметила done журналом задним числом. Rework x2 (Рискиев, ВВП H1) без изменений, ответа владельца всё ещё нет."
 }
