@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-16T11:04:00+05:00",
-  "topicsProcessed": 1,
+  "lastRunAt": "2026-08-16T12:08:00+05:00",
+  "topicsProcessed": 0,
   "published": 0,
   "queuedDirect": 0,
   "queuedForOwner": 0,
   "rejected": 0,
-  "declined": 1,
+  "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 43,
-  "duplicatesOfPublished": 0,
+  "belowThreshold": 32,
+  "duplicatesOfPublished": 1,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-16.jsonl",
-    "itemsFreshLocal": 45,
-    "itemsFreshWorld": 194
+    "itemsFreshLocal": 32,
+    "itemsFreshWorld": 306
   },
-  "notes": "Мировая тема (землетрясение на Флоресе) уже была в content/queue/ у соседнего прогона — не дублировали. Единственный местный кандидат сверх порога — заявление МИД об отсутствии пострадавших узбекистанцев (affectsEveryoneNegativeFact) — отклонён reporter'ом: mfa.uz и официальный канал @uzbekmfa заявления не публиковали, единственный сигнал Anhor.uz, condition '3+ независимых изданий' для правила понижения не выполнено. Reporter нашёл кандидата @TIVmatbuot (пресс-секретарь МИД) и залогировал в channel-candidates — при проверке дал противоречивые факты (два разных имени пресс-секретаря, две разных даты поста), не верифицирован."
+  "notes": "Ни одна местная тема порога не набрала. Мировая: Индонезия/Флорес — тот же сюжет, что уже пятой статьёй вышел 15.08 и лежит в очереди (toll 47, ещё не опубликован) — апдейт до 51 не дублировали. Рутина РФ-Украина и UFC пропущены по правилам (ruUaHighBar, спорт вне ЦА). missing-images, translation-gaps, channel-candidates — пусто."
 }
