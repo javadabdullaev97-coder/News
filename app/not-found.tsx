@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { rubrics } from "@/lib/data";
-import { IconChevron } from "@/components/brand/Logos";
+import { IconMark } from "@/components/brand/Logos";
 
 export const metadata = {
   title: "Страница не найдена",
@@ -10,7 +10,7 @@ export default function NotFound() {
   return (
     <div className="container-news flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
       <div className="opacity-90">
-        <IconChevron size={84} />
+        <IconMark size={84} alt="LEAP" />
       </div>
       <h1 className="mt-6 font-serif text-5xl font-bold md:text-6xl">404</h1>
       <p className="mt-3 max-w-md text-lg text-neutral-600 dark:text-neutral-400">

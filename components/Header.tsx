@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
-import { LogoChevron } from "./brand/Logos";
+
 import { HeaderNav } from "./HeaderNav";
 import { SearchButton } from "./SearchModal";
 import { MobileMenuButton } from "./MobileDrawer";

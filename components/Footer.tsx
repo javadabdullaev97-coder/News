@@ -1,13 +1,13 @@
 import { rubrics } from "@/lib/data";
 import Link from "next/link";
-import { LogoChevron } from "./brand/Logos";
+import { LogoMark } from "./brand/Logos";
 
 export function Footer() {
   return (
     <footer className="mt-16 border-t border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900">
       <div className="container-news grid gap-8 py-10 md:grid-cols-4">
         <div>
-          <LogoChevron size={32} />
+          <LogoMark size={32} />
           <p className="mt-3 text-sm text-neutral-600 dark:text-neutral-400">
             Новости, которые опережают.
           </p>
