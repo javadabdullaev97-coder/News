@@ -79,6 +79,10 @@ MARK_PATH = Path(__file__).resolve().parent.parent / "public" / "brand" / "mark.
 # часть снимка и перестаёт читаться.
 HEADLINE_ZONE = 430
 
+# Прозрачность подписи в подвале. Знак и «LEAP NEWS» не должны спорить
+# с заголовком: это выходные данные, а не второй заголовок.
+FOOTER_ALPHA = 0.72
+
 # Максимальная доля исходника, которую разрешено срезать по любой оси.
 # Больше — переходим в contain на размытую подложку. Правило и порог
 # повторяют prepare-image.py: карточка не должна резать иначе, чем статья.
@@ -222,22 +226,53 @@ def fit_headline(draw, title, max_width, max_height, max_lines=5):
     return font, lines, leading, 38
 
 
-def paste_mark(card, x, y, height):
-    """Знак из public/brand/mark.png в подвал карточки.
+def load_mark(height):
+    """Знак из public/brand/mark.png, вписанный по высоте.
 
     Тот же файл, что в шапке сайта: репост без подписи всё равно опознаётся.
-    Если файла нет — молча пропускаем, карточка важнее логотипа.
+    Если файла нет — возвращаем None, карточка важнее логотипа.
     """
     if not MARK_PATH.exists():
-        return 0
+        return None
     mark = Image.open(MARK_PATH).convert("RGBA")
     box = mark.getchannel("A").point(lambda v: 255 if v > 8 else 0).getbbox()
     if box:
         mark = mark.crop(box)
     scale = height / mark.height
-    mark = mark.resize((round(mark.width * scale), height), Image.LANCZOS)
-    card.paste(mark, (x, y), mark)
-    return mark.width
+    return mark.resize((round(mark.width * scale), height), Image.LANCZOS)
+
+
+def draw_footer(card, x, center_y, text, mark_h=46):
+    """Знак и подпись на одной оптической линии, слегка прозрачные.
+
+    Рисуется на отдельном слое RGBA и накладывается с общей прозрачностью:
+    так знак и текст гаснут одинаково. Если гасить их по отдельности,
+    оранжевый уходит в фон быстрее белого и подпись начинает разъезжаться
+    по яркости.
+
+    Выравнивание по РЕАЛЬНЫМ границам букв (textbbox), а не по кеглю:
+    у прописных без выносных элементов верх строки далеко от верха кегля,
+    и выравнивание по строке уводит текст вниз.
+    """
+    layer = Image.new("RGBA", card.size, (0, 0, 0, 0))
+    dr = ImageDraw.Draw(layer)
+
+    mark = load_mark(mark_h)
+    if mark is not None:
+        layer.paste(mark, (x, int(center_y - mark.height / 2)), mark)
+        x += mark.width + 18
+
+    font = load_font(28, "ExtraBold")
+    box = dr.textbbox((0, 0), text, font=font)
+    y = center_y - (box[1] + box[3]) / 2
+
+    # Прописные без разрядки сбиваются в пятно, поэтому посимвольно.
+    for ch in text:
+        dr.text((x, y), ch, font=font, fill=(*TEXT, 255))
+        x += dr.textlength(ch, font=font) + 2.2
+
+    layer.putalpha(layer.getchannel("A").point(lambda a: int(a * FOOTER_ALPHA)))
+    return Image.alpha_composite(card.convert("RGBA"), layer).convert("RGB")
 
 
 def render(source, title, kicker, out_path, footer="LEAP NEWS"):
@@ -283,14 +318,7 @@ def render(source, title, kicker, out_path, footer="LEAP NEWS"):
         draw.text((PAD, y), line, font=font, fill=TEXT)
         y += leading
 
-    mark_w = paste_mark(card, PAD, footer_y, footer_h)
-    # Прописные буквы без разрядки сбиваются в пятно, поэтому подпись
-    # рисуется посимвольно с межбуквенным просветом.
-    ff = load_font(28, "ExtraBold")
-    x = PAD + mark_w + 18
-    for ch in footer:
-        draw.text((x, footer_y + 10), ch, font=ff, fill=TEXT)
-        x += draw.textlength(ch, font=ff) + 2.2
+    card = draw_footer(card, PAD, footer_y + footer_h / 2, footer, mark_h=footer_h)
 
     out = Path(out_path)
     out.parent.mkdir(parents=True, exist_ok=True)
