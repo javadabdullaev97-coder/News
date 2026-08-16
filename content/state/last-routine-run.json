@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-16T20:20:00+05:00",
-  "topicsProcessed": 2,
+  "lastRunAt": "2026-08-16T21:04:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
-  "queuedDirect": 0,
-  "queuedForOwner": 2,
+  "queuedDirect": 1,
+  "queuedForOwner": 0,
   "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
   "belowThreshold": 22,
-  "duplicatesOfPublished": 2,
+  "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-16.jsonl",
-    "itemsFreshLocal": 22,
-    "itemsFreshWorld": 87
+    "itemsFreshLocal": 23,
+    "itemsFreshWorld": 185
   },
-  "notes": "Rework x2 (Рискиев, ВВП H1) доведены до pendingEditorQuestion(rework-ready) — оба bild-агента при заполнении image ошибочно снимали awaitingEditor целиком вместо возврата в editor-queue; поправлено вручную. Новых тем 0: два кандидата (закон об Администрации Президента, импорт электромобилей) — дубли постов от 14.08 по topic-dupecheck; остальной local-пул (22 items) — спорт/шоубиз/рутина без первоисточника. World-пул (87) без темы, прошедшей tiers."
+  "notes": "Rework x2 (Рискиев, ВВП H1) с прошлого прогона — вопрос rework-ready уже отправлен владельцу в 15:20, ответа нет, второй раз не спрашивал, пропустил. Единственная новая тема (рабочая группа УзКг по обмену сёлами) переиспользовала факты уже опубликованного 04.08 материала — reporter подал их как непроверенные по формуле §10, хотя LEAP уже подтверждал часть (регистрация 2,5 тыс. жителей, дорога Сай-Таян) со ссылкой на Коммерсантъ; переписал абзац с явной ссылкой на собственный материал перед публикацией. Editor также ошибочно проставил publishedAt в frontmatter (запрещено правилом) — заменил на queuedAt вручную."
 }
