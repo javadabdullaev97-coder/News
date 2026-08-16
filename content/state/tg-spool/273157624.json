@@ -1,0 +1,72 @@
+{
+  "message": {
+    "chat": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "last_name": "Abdullaev",
+      "type": "private",
+      "username": "javad_abdullaev"
+    },
+    "date": 1786912962,
+    "from": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "is_bot": false,
+      "is_premium": true,
+      "language_code": "en",
+      "last_name": "Abdullaev",
+      "username": "javad_abdullaev"
+    },
+    "message_id": 981,
+    "reply_to_message": {
+      "chat": {
+        "first_name": "Javad",
+        "id": 1104500,
+        "last_name": "Abdullaev",
+        "type": "private",
+        "username": "javad_abdullaev"
+      },
+      "date": 1786901668,
+      "entities": [
+        {
+          "length": 18,
+          "offset": 0,
+          "type": "bold"
+        },
+        {
+          "length": 76,
+          "offset": 20,
+          "type": "bold"
+        },
+        {
+          "length": 66,
+          "offset": 375,
+          "type": "url"
+        },
+        {
+          "length": 59,
+          "offset": 650,
+          "type": "url"
+        },
+        {
+          "length": 34,
+          "offset": 1494,
+          "type": "italic"
+        }
+      ],
+      "from": {
+        "first_name": "LEAP News - ADMIN",
+        "id": 8652303606,
+        "is_bot": true,
+        "username": "leap_news_bot"
+      },
+      "link_preview_options": {
+        "url": "http://e0.365dm.com/26/08/1600x900/skysports-arsenal-man-city_7323378.jpg"
+      },
+      "message_id": 976,
+      "text": "НУЖНО ВАШЕ РЕШЕНИЕ\n\nХусанов отыграл весь финал Суперкубка Англии — «Сити» уступил «Арсеналу» 0:3\n\nПочему спрашиваю: картинки нет вообще — ни в первоисточнике, ни в стоке.\n\nmainVisualSubject — Хусанов в форме «Сити», в идеале с этого матча. Проверил все 4 sources: og:image Al Jazeera и фото в теле статьи — с пометкой getty_*.jpg (Getty, чёрный список); og:image Sky Sports (e0.365dm.com/26/08/1600x900/skysports-arsenal-man-city_7323378.jpg) — это Арсенал (Эдегор/Дзолис/Калафьори) празднуют гол, не Хусанов, и снимок агентский без подтверждённой лицензии; SI — текстовые оценки без привязанного фото у записи Хусанова. У Fox Sports нашёл headshot (b.fssta.com/uploads/application/soccer/headshots/113638.png, 1000×1214) — вертикальный, форма сборной Узбекистана, не «Сити»; и GFX-графику 'Khusanovs bounce back' (900×506, горизонтальная) — но это composited-графика Fox (alt: 'Abdukodir Khusanov Man City GFX'), апрель 2026, не эта игра, происхождение подложенного фото не проверить. Фототека редакции (config/stock-photos.json) — только ЦБ/сум/инфляция, футбольных тем нет. Unsplash и Pexels в этой среде отдают бот-защиту (403 / Anubis-challenge), API-ключей нет. Higgsfield недоступен в этой сессии как инструмент, и AI-генерация людей запрещена редполитикой в любом случае. Нужно фото Хусанова в форме «Манчестер Сити» (пришлите файл, либо подтвердите использование Fox Sports GFX с пометкой архивного кадра, либо разрешите горизонтальное фото Principality Stadium как fallback-объект).\n\nОтветьте реплаем на это сообщение:\n• пришлите фото — оно станет главной картинкой\n• «ок» — публиковать как есть\n• «стоп» — снять материал\n• любой другой текст — уйдёт в правку как комментарий"
+    },
+    "text": "Да поищи в сети должно быть фото хусанова"
+  },
+  "update_id": 273157624
+}
