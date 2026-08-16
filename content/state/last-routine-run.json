@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-16T22:32:00+05:00",
-  "topicsProcessed": 5,
+  "lastRunAt": "2026-08-16T23:04:00+05:00",
+  "topicsProcessed": 0,
   "published": 0,
-  "queuedDirect": 1,
-  "queuedForOwner": 3,
+  "queuedDirect": 0,
+  "queuedForOwner": 0,
   "rejected": 0,
-  "declined": 1,
+  "declined": 0,
   "needsVerification": 0,
-  "world": 1,
-  "belowThreshold": 31,
+  "world": 0,
+  "belowThreshold": 400,
   "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-16.jsonl",
-    "itemsFreshLocal": 34,
-    "itemsFreshWorld": 277
+    "itemsFreshLocal": 26,
+    "itemsFreshWorld": 374
   },
-  "notes": "Rework x2 (Рискиев, ВВП H1) обработаны — оба снова ушли владельцу с pendingEditorQuestion (rework-ready). Bild по Рискиеву сам проставил awaitingEditor:false без вопроса — исправила вручную, промпт для bild в rework-цикле должен явно напоминать про rework-ready. Reporter/fact-checker субагенты несколько раз не могли записать .review/*.md (Write блокирует как report-file) — сохраняла отчёты сама. Хусанов (Суперкубок Англии) — картинки не нашли (Getty/чужой субъект/agency без лицензии), ушёл владельцу no-image. Импорт бензина +54% отклонён — первоисточник не нашёлся, найденные официальные цифры (H1: +73,7-78,5%) с сигналом daryo.uz не совпали."
+  "notes": "Ни местных, ни мировых тем не набралось выше порога — вечерний инбокс тонкий (96% уже просмотрено часом ранее), сильных первоисточников не было. Flores-землетрясение (тol 53) уже в очереди (queuedAt 03:28) — публикатор сам подхватит, не трогала. Rework x2 (Рискиев, ВВП H1) не переоткрывала: у обоих pendingEditorQuestion rework-ready уже отправлен предыдущим прогоном (15:20 Ташкента), ответа владельца пока нет."
 }
