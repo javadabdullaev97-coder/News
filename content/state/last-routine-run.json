@@ -1,5 +1,5 @@
 {
-  "lastRunAt": "2026-08-16T08:03:00+05:00",
+  "lastRunAt": "2026-08-16T09:05:00+05:00",
   "topicsProcessed": 0,
   "published": 0,
   "queuedDirect": 0,
@@ -8,13 +8,13 @@
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 54,
+  "belowThreshold": 72,
   "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-16.jsonl",
-    "itemsFreshLocal": 2,
-    "itemsFreshWorld": 52
+    "itemsFreshLocal": 12,
+    "itemsFreshWorld": 60
   },
-  "notes": "Ноль тем прошли порог. Локальный пул — 2 (спортивная сводка, CPI-строка Trend.az), оба без фактуры. Мировой пул — 52, почти целиком рутина войны РФ–Украина (сбитые дроны над Москвой, фронт) под ruUaHighBar, остальное — единичные блоки без подтверждения (Иран-Оман, Колумбия-Трамп) или lifestyle-сюжеты вне категорий tiers. Rework пуст, needs-verification карточки не созрели (ближайшая — uzbekneftegaz, 18.08), ночных публикаций для утренней ревизии не было. Второй приоритет (missing-images, переводы, channel-candidates) — пусто."
+  "notes": "Ноль тем прошли порог. Локальный пул — 12, ни одна не набирает фактуры (погода, спорт-анонсы, техподдержка ЦБ, землетрясение M6.1 Вануату — далеко и ниже порога >M7). Мировой пул — 60, почти целиком рутина войны РФ–Украина под ruUaHighBar; вне неё — Катар/Иран (пленные пилоты) и карта CENTCOM Газа/Израиль, оба однобло́ковые, не хватает второго небольшого блока. Rework пуст. needs-verification: удалена устаревшая resolved-карточка riskiev-death.md (статья уже давно ушла в awaitingEditor как rufat-riskiev-boxing-legend-dies.mdx, карточку забыли вычистить прошлым прогоном); остальные 7 карточек не созрели (ближайшая — uzbekneftegaz, 18.08). Утренняя ревизия не требовалась — не первая планёрка после 07:00. Второй приоритет (missing-images, переводы, channel-candidates) — пусто/готово."
 }
