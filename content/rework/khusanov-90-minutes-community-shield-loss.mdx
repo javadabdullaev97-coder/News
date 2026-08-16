@@ -22,6 +22,18 @@ image:
   alt: null
   credit: null
 awaitingEditor: true
+updatedAt: "2026-08-16T21:30:00+05:00"
+photoLeads:
+  - name: "Yahoo Sports (синдикация галереи Manchester City «Khusanov's City career so far»)"
+    pageUrl: "https://sports.yahoo.com/articles/gallery-khusanov-city-career-far-100100282.html"
+    imageUrl: "https://media.zenfs.com/en/manchester_city_fc_articles_899/6c0415719ff24995e1c83f4f5a1dadd7"
+    note: "Проверено визуально (1920x1080, горизонтальная). Хусанов со спины, футболка «KHUSANOV 45» Манчестер Сити, на поле вечернего матча; графика клуба поверх фото «ABDUKODIR KHUSANOV 2031» — фирменный анонс продления контракта. Оригинал — официальная статья mancity.com «Khusanov pens new City contract» (https://www.mancity.com/news/mens/abdukodir-khusanov-new-manchester-city-contract-63920567, 25-27 июля 2026), которая напрямую отдаёт 403 через WebFetch (бот-защита); файл на media.zenfs.com — легальная синдикация Yahoo Sports, блок обходит. Не из этого матча (Суперкубка Англии), фото времени подписания контракта в июле 2026 — но соответствует fallback-формулировке mainVisualSubject «любое свежее фото Хусанова в форме Сити». Юрист/бильд должен решить, обрезать ли текстовую графику «2031» с фото."
+  - name: "Getty Images (снимок именно с матча 16 августа 2026)"
+    pageUrl: "https://www.gettyimages.com/detail/news-photo/riccardo-calafiori-of-arsenal-is-challenged-by-abdukodir-news-photo/2290722376"
+    note: "Подтверждает, что фотография Хусанова с самого финала Суперкубка существует (эпизод с Калафьори, симуляция, 38-я минута): «CARDIFF, WALES - AUGUST 16: Riccardo Calafiori of Arsenal is challenged by Abdukodir Khusanov of Manchester City... Photo by Shaun Botterill/Getty Images». НЕ для скачивания напрямую — Getty в чёрном списке bild (платный, риск иска). Приведено только как подтверждение существования кадра с матча, на случай если у владельца/редакции есть иначе оформленный доступ к Getty (лицензия, embed)."
+  - name: "mancity.com — официальные страницы (404/403 при прямом WebFetch)"
+    pageUrl: "https://www.mancity.com/news/mens/arsenal-manchester-city-community-shield-match-report-63922483"
+    note: "Официальный отчёт клуба о матче 16 августа, Хусанов играл все 90 минут — вероятно есть фото с матча. WebFetch стабильно возвращает 403 (бот-защита mancity.com) и для reporter, и ранее для bild (см. bild-notes). Стоит попробовать через curl/иной User-Agent в Bash, если инструмент это позволяет; либо искать дальнейшую Yahoo/зеркальную синдикацию этой конкретной статьи."
 ---
 
 Узбекский защитник «Манчестер Сити» Абдукодир Хусанов провёл на поле все 90 минут финала Суперкубка Англии против «Арсенала» 16 августа 2026 года — его команда уступила 0:3.
