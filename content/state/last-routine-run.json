@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-16T07:14:00+05:00",
-  "topicsProcessed": 1,
+  "lastRunAt": "2026-08-16T08:03:00+05:00",
+  "topicsProcessed": 0,
   "published": 0,
   "queuedDirect": 0,
   "queuedForOwner": 0,
   "rejected": 0,
-  "declined": 1,
+  "declined": 0,
   "needsVerification": 0,
-  "world": 1,
-  "belowThreshold": 57,
-  "duplicatesOfPublished": 1,
+  "world": 0,
+  "belowThreshold": 54,
+  "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-16.jsonl",
-    "itemsFreshLocal": 11,
-    "itemsFreshWorld": 49
+    "itemsFreshLocal": 2,
+    "itemsFreshWorld": 52
   },
-  "notes": "Локальный пул — 11, ни один не набрал 55 (протокольные заметки, старьё, погода, без первоисточника). Мировая тема (толл землетрясения Флорес до 47) собрана reporter'ом почти до готовности, но topic-dupecheck по реальным ссылкам показал: сосед по прогону уже сделал ту же тему другими источниками (BBC/DW) и она лежит в content/queue готовой. Мой draft снят, fact-checker остановлен до запуска, тему закрыл как дубликат. Причина пропуска на раннем dupecheck — разные наборы ссылок/иная формулировка заголовка, совпадений не нашлось до момента, пока не проверил точными ссылками из очереди."
+  "notes": "Ноль тем прошли порог. Локальный пул — 2 (спортивная сводка, CPI-строка Trend.az), оба без фактуры. Мировой пул — 52, почти целиком рутина войны РФ–Украина (сбитые дроны над Москвой, фронт) под ruUaHighBar, остальное — единичные блоки без подтверждения (Иран-Оман, Колумбия-Трамп) или lifestyle-сюжеты вне категорий tiers. Rework пуст, needs-verification карточки не созрели (ближайшая — uzbekneftegaz, 18.08), ночных публикаций для утренней ревизии не было. Второй приоритет (missing-images, переводы, channel-candidates) — пусто."
 }
