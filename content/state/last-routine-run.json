@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-17T02:22:00+05:00",
-  "topicsProcessed": 1,
+  "lastRunAt": "2026-08-17T03:31:00+05:00",
+  "topicsProcessed": 0,
   "published": 0,
   "queuedDirect": 0,
-  "queuedForOwner": 1,
+  "queuedForOwner": 0,
   "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 12,
+  "belowThreshold": 274,
   "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-17.jsonl",
-    "itemsFreshLocal": 12,
-    "itemsFreshWorld": 164
+    "itemsFreshLocal": 5,
+    "itemsFreshWorld": 269
   },
-  "notes": "Порог не прошла ни одна новая тема (локально 12 свежих — спорт-signal на узбекском без первоисточника, шум; мировые 164 по заголовкам — ничего не прошло tiers/minDistinctBlocs, Kushner-Hamas похож на дубль вчерашнего). Rework khusanov-90-minutes-community-shield-loss (iteration 1): владелец попросил найти фото — reporter нашёл рабочую наводку в обход 403 mancity.com (Yahoo/zenfs синдикация), fact-checker подтвердил approve/93 (файл фактчека пришлось записать вручную — у агента нет Write), editor и bild/seo завершили цикл. Материал снова в editor-queue с pendingEditorQuestion.reason=rework-ready — фото не с самого матча (анонс контракта, июль 2026), честно помечено в alt."
+  "notes": "Порог не прошла ни одна тема. Локально 5 свежих — шум (Georgian politics context, футбольный TG-сигнал на узбекском, 'Channel created', погода Бишкека P3, землетрясение M4.5 Аргентина), первоисточника по Узбекистану нет ни у одного. Мировые 269 по заголовкам — ни один кластер не подобрал minDistinctBlocs+категорию tiers: Zimbabwe ferry (84 погибших) и Ireland ДТП — skip как внутристрановые происшествия без международных последствий; Kushner-Hamas Gaza — процесс переговоров, не подпадает под категорию 'мирное соглашение' (сама категория про факт соглашения, не про очередной раунд), к тому же уже освещался. Rework и needs-verification пустые — ни одна карточка не созрела (ближайший recheckAt 18.08 10:00). Ничего не публиковалось, коммитов кроме журнала отбора и этого файла нет."
 }
