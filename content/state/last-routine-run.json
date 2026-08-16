@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-16T06:30:00+05:00",
-  "topicsProcessed": 0,
+  "lastRunAt": "2026-08-16T07:14:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
   "queuedDirect": 0,
   "queuedForOwner": 0,
   "rejected": 0,
-  "declined": 0,
+  "declined": 1,
   "needsVerification": 0,
-  "world": 0,
-  "belowThreshold": 47,
-  "duplicatesOfPublished": 0,
+  "world": 1,
+  "belowThreshold": 57,
+  "duplicatesOfPublished": 1,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-16.jsonl",
-    "itemsFreshLocal": 1,
-    "itemsFreshWorld": 46
+    "itemsFreshLocal": 11,
+    "itemsFreshWorld": 49
   },
-  "notes": "Локальный пул — 1 item (тендер Азерэнергосети, не узбекский инфоповод). Мировой пул — 46: землетрясения Индонезия/Колумбия и Иран-Ормуз/Ливан уже опубликованы или в очереди прошлыми прогонами, остальное — рутина войны РФ-Украина, шоу-бизнес или бытовые темы РФ вне tier. Второй приоритет пуст: missing-images 0, channel-candidates open 0, translation-gaps 0. Ноль тем, ноль коммитов статей."
+  "notes": "Локальный пул — 11, ни один не набрал 55 (протокольные заметки, старьё, погода, без первоисточника). Мировая тема (толл землетрясения Флорес до 47) собрана reporter'ом почти до готовности, но topic-dupecheck по реальным ссылкам показал: сосед по прогону уже сделал ту же тему другими источниками (BBC/DW) и она лежит в content/queue готовой. Мой draft снят, fact-checker остановлен до запуска, тему закрыл как дубликат. Причина пропуска на раннем dupecheck — разные наборы ссылок/иная формулировка заголовка, совпадений не нашлось до момента, пока не проверил точными ссылками из очереди."
 }
