@@ -1,7 +1,7 @@
-# Policy drift check — 2026-08-15T04:01:12.979Z
+# Policy drift check — 2026-08-16T04:00:48.981Z
 
-Проверено: 1344 .mdx за последние 7 дней
-Ошибок: 0, предупреждений: 468
+Проверено: 1401 .mdx за последние 7 дней
+Ошибок: 0, предупреждений: 479
 
 ## ⚠️ Предупреждения
 
@@ -439,6 +439,15 @@
 - **content/posts/2026-08-14/world-west-bank-settler-siege.mdx** — sources[].url «https://www.lemonde.fr/en/international/article/2026/08/13/west-bank-us-ambassador-to-israel-denounces-siege-of-palestinian-homes-as-horrific-act-of-terror_6756455_4.html» не цитируется в теле — балласт
 - **content/posts/2026-08-14/world-west-bank-settler-siege.uz.mdx** — sources[].url «https://www.aljazeera.com/news/2026/8/13/israeli-settlers-besiege-three-palestinian-families-in-occupied-west-bank» не цитируется в теле — балласт
 - **content/posts/2026-08-14/world-west-bank-settler-siege.uz.mdx** — sources[].url «https://www.lemonde.fr/en/international/article/2026/08/13/west-bank-us-ambassador-to-israel-denounces-siege-of-palestinian-homes-as-horrific-act-of-terror_6756455_4.html» не цитируется в теле — балласт
+- **content/posts/2026-08-15/hududgaz-karakalpakstan-damage-case.en.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/» не цитируется в теле — балласт
+- **content/posts/2026-08-15/hududgaz-karakalpakstan-damage-case.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/» не цитируется в теле — балласт
+- **content/posts/2026-08-15/hududgaz-karakalpakstan-damage-case.uz.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/» не цитируется в теле — балласт
+- **content/posts/2026-08-15/tashkent-cadastre-revaluation-tax-base.en.mdx** — sources[].url «https://t.me/minecofinuz/16259» не цитируется в теле — балласт
+- **content/posts/2026-08-15/tashkent-cadastre-revaluation-tax-base.mdx** — sources[].url «https://t.me/minecofinuz/16259» не цитируется в теле — балласт
+- **content/posts/2026-08-15/tashkent-cadastre-revaluation-tax-base.uz.mdx** — sources[].url «https://t.me/minecofinuz/16259» не цитируется в теле — балласт
+- **content/posts/2026-08-15/veterans-chernobyl-transport-benefits.en.mdx** — sources[].url «https://www.norma.uz/novoe_v_zakonodatelstve/komu_predostavlyaetsya_besplatnyy_i_lgotnyy_proezd_na_samoletah_poezdah_i_avtobusah» не цитируется в теле — балласт
+- **content/posts/2026-08-15/veterans-chernobyl-transport-benefits.mdx** — sources[].url «https://www.norma.uz/novoe_v_zakonodatelstve/komu_predostavlyaetsya_besplatnyy_i_lgotnyy_proezd_na_samoletah_poezdah_i_avtobusah» не цитируется в теле — балласт
+- **content/posts/2026-08-15/veterans-chernobyl-transport-benefits.uz.mdx** — sources[].url «https://www.norma.uz/novoe_v_zakonodatelstve/komu_predostavlyaetsya_besplatnyy_i_lgotnyy_proezd_na_samoletah_poezdah_i_avtobusah» не цитируется в теле — балласт
 - **content/posts/2026-08-01/** — категория "society": 15 материалов за день (порог 9)
 - **content/posts/2026-08-01/** — категория "economy": 24 материалов за день (порог 9)
 - **content/posts/2026-08-02/** — категория "society": 12 материалов за день (порог 9)
@@ -473,6 +482,8 @@
 - **content/posts/2026-08-14/** — категория "world": 21 материалов за день (порог 9)
 - **content/posts/2026-08-14/** — категория "economy": 27 материалов за день (порог 9)
 - **content/posts/2026-08-14/** — категория "society": 21 материалов за день (порог 9)
+- **content/posts/2026-08-15/** — категория "world": 21 материалов за день (порог 9)
+- **content/posts/2026-08-15/** — категория "society": 24 материалов за день (порог 9)
 
 ## Распределение по дням и категориям
 
@@ -487,4 +498,5 @@
 - **2026-08-09** (99): world 30, economy 21, sport 9, society 30, politics 3, business 3, tech 3
 - **2026-08-10** (60): economy 21, society 12, world 15, tech 3, sport 3, politics 6
 - **2026-08-14** (90): politics 21, world 21, economy 27, society 21
-- **2026-08-15** (9): world 6, economy 3
+- **2026-08-15** (60): world 21, society 24, economy 9, politics 6
+- **2026-08-16** (6): world 6
