@@ -60,15 +60,20 @@ facebook.uz@leap.uz
 знак в обоих сжат к центру и углы не задевает.
 
 ```
-public/brand/avatar-chevron.jpg
-public/brand/avatar-wordmark.jpg
+public/brand/avatar-dark.jpg      знак на тёмном
+public/brand/avatar-light.jpg     знак на белом
+public/brand/cover-facebook.jpg   обложка 2048×768
 ```
 
-После деплоя они же скачиваются с телефона по адресам
-`leap.uz/brand/avatar-chevron.jpg` и `leap.uz/brand/avatar-wordmark.jpg` —
-удобно, потому что аватар в Instagram ставится именно с телефона.
-Перерисовать: `python3 scripts/render-avatar.py --out public/brand`
-(геометрия берётся из того же знака, что на сайте).
+После деплоя они скачиваются с телефона по адресам вида
+`leap.uz/brand/avatar-dark.jpg` — удобно, потому что аватар в Instagram
+ставится именно с телефона.
+
+Оба варианта аватара сделаны из того же файла, что и знак на сайте
+(`public/brand/mark.png`), поэтому профиль и шапка сайта показывают одну
+фигуру. Вариант «оранжевое поле без шестиугольника» забракован: заливка
+в исходнике чуть отличается от чистого #FF4D2E и по контуру проступает
+призрачное кольцо.
 
 **Тексты профиля.** Готовы, ниже в шаге 1. Лимит описания Instagram —
 150 символов, наши укладываются.
