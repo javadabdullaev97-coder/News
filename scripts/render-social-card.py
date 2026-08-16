@@ -6,14 +6,17 @@
 меньше экрана, чем кадр 4:5. Соотношение 4:5 — максимальная разрешённая
 высота, то есть максимум площади под один пост.
 
-ПОЧЕМУ НЕ ФОТО НА ВЕСЬ КАДР С ТЕКСТОМ ПОВЕРХ. Чтобы залить 1080×1350 (0.8:1)
-исходником 1.78:1, пришлось бы срезать 55% ширины — это не кадрирование,
-а другой снимок. Поэтому кадр разделён: фото сверху, заголовок на плашке
-снизу. Обрезка фото при этом укладывается в те же 22%, что и в
-prepare-image.py.
+КАК УСТРОЕН КАДР. Фотография занимает верх и уходит в тёмное градиентом,
+заголовок лежит на затемнении. Жёсткой границы между фото и текстом нет.
+
+Залить 1080×1350 целиком исходником 1.78:1 нельзя — срезало бы 55% ширины,
+это уже другой снимок. Поэтому фотография заполняет только верх, а её
+высота подбирается под каждый снимок так, чтобы обрезка укладывалась
+в те же 22%, что и в prepare-image.py. Градиент делает разницу в высоте
+незаметной, и лента остаётся однородной.
 
 НОЛЬ ТОКЕНОВ. Заголовок берётся из frontmatter как есть, рубрика — по словарю
-из config/instagram.json. Модель в рендере не участвует: это Pillow и данные,
+из config/social.json. Модель в рендере не участвует: это Pillow и данные,
 уже произведённые редакцией.
 
 Использование:
@@ -40,24 +43,41 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 # Полотно 1080×1350 — 4:5, максимум площади в ленте Instagram.
 CARD_W, CARD_H = 1080, 1350
 
-# Фото занимает верхние 760 px (1080×760 ≈ 1.42:1). Высота подобрана так,
-# чтобы обрезка исходника 1.78:1 по ширине укладывалась в 22% — тот же
-# потолок, что в prepare-image.py. Ниже 720 обрезка выходит за него.
-PHOTO_H = 760
+# Высота фото НЕ фиксирована. Кадр «фото уходит в тёмное» тем сильнее,
+# чем выше фотография, но чем она выше, тем уже кадрируется исходник:
+# при 900 px из 16:9 срезается 32% ширины, а это на новостном снимке
+# запросто уносит человека или вывеску за край.
+#
+# Поэтому высота подбирается под каждый снимок: берём максимум, при
+# котором обрезка укладывается в 22% (тот же потолок, что в
+# prepare-image.py), и зажимаем в разумные границы. Для обычного 16:9
+# выходит около 780 px. Читатель разницы не видит — низ фотографии
+# всё равно уведён в чёрное градиентом, жёсткой границы нет.
+PHOTO_H_MIN, PHOTO_H_MAX = 700, 900
 
-# Брендовая полоса между фото и текстом.
-RULE_H = 6
+# Длина растушёвки: на сколько пикселей вверх от низа фотографии
+# тянется уход в фон. Константа, а не доля, — иначе при разной высоте
+# фото градиент читался бы по-разному.
+FADE_H = 470
+
+# Цвет, в который уходит фотография и на котором лежит текст.
+GROUND = (8, 8, 10)
 
 PAD = 72  # поля текстовой зоны
 TEXT_W = CARD_W - PAD * 2
 
 # ─── Цвета ───
 BRAND = (255, 77, 46)  # #FF4D2E, тот же, что в tailwind.config.ts
-PANEL = (17, 19, 24)  # почти чёрный, читается в обеих темах ленты
 TEXT = (255, 255, 255)
 MUTED = (138, 143, 152)
 
 FONT_PATH = Path(__file__).resolve().parent.parent / "assets" / "fonts" / "Manrope[wght].ttf"
+MARK_PATH = Path(__file__).resolve().parent.parent / "public" / "brand" / "mark.png"
+
+# Сколько по высоте отдано заголовку. Ограничение нужно, чтобы длинный
+# заголовок не полез на середину фотографии: он тогда упирается в светлую
+# часть снимка и перестаёт читаться.
+HEADLINE_ZONE = 430
 
 # Максимальная доля исходника, которую разрешено срезать по любой оси.
 # Больше — переходим в contain на размытую подложку. Правило и порог
@@ -86,8 +106,27 @@ def load_font(size, weight="Bold"):
     return font
 
 
-def fit_photo(src_path):
-    """Кадрирует фото под 1080×760.
+def photo_height(src_path):
+    """Максимальная высота фото, при которой обрезка укладывается в MAX_CROP.
+
+    Обрезка по ширине = 1 - (кадр / исходник) по соотношению сторон. Чем
+    ниже кадр, тем он шире по пропорции и тем меньше срезается. Отсюда
+    прямая формула, без перебора.
+    """
+    im = Image.open(src_path)
+    sw, sh = im.size
+    src_ratio = sw / sh
+    if src_ratio <= 1:
+        # Вертикальный или квадратный исходник заполняет кадр без потерь
+        # по ширине — берём максимум.
+        return PHOTO_H_MAX
+    min_ratio = src_ratio * (1 - MAX_CROP)
+    h = CARD_W / min_ratio
+    return int(max(PHOTO_H_MIN, min(PHOTO_H_MAX, h)))
+
+
+def fit_photo(src_path, photo_h):
+    """Кадрирует фото под 1080×photo_h.
 
     Возвращает (изображение, отчёт). Режим cover — обычный кадр с обрезкой,
     contain — исходник вписан целиком на размытую подложку из самого себя.
@@ -96,7 +135,7 @@ def fit_photo(src_path):
     if im.mode != "RGB":
         im = im.convert("RGB")
     sw, sh = im.size
-    target_ratio = CARD_W / PHOTO_H
+    target_ratio = CARD_W / photo_h
     src_ratio = sw / sh
 
     # Сколько срежется, если заполнять кадр целиком.
@@ -108,17 +147,17 @@ def fit_photo(src_path):
         axis = "height"
 
     # Масштаб, необходимый для режима cover.
-    scale = max(CARD_W / sw, PHOTO_H / sh)
+    scale = max(CARD_W / sw, photo_h / sh)
 
     if crop_share <= MAX_CROP and scale <= MAX_UPSCALE:
-        new = (max(CARD_W, round(sw * scale)), max(PHOTO_H, round(sh * scale)))
+        new = (max(CARD_W, round(sw * scale)), max(photo_h, round(sh * scale)))
         resized = im.resize(new, Image.LANCZOS)
         left = (new[0] - CARD_W) // 2
         # Кадрируем от верхней трети, а не от центра: на новостном фото
         # значимое (лицо, вывеска, трибуна) почти всегда выше геометрического
         # центра, и симметричная обрезка срезает именно его.
-        top = min(max((new[1] - PHOTO_H) // 3, 0), new[1] - PHOTO_H)
-        photo = resized.crop((left, top, left + CARD_W, top + PHOTO_H))
+        top = min(max((new[1] - photo_h) // 3, 0), new[1] - photo_h)
+        photo = resized.crop((left, top, left + CARD_W, top + photo_h))
         return photo, {
             "mode": "cover",
             "scale": round(scale, 3),
@@ -127,12 +166,12 @@ def fit_photo(src_path):
         }
 
     # contain: вписываем целиком, фон — размытая растянутая копия.
-    backdrop = im.resize((CARD_W, PHOTO_H), Image.LANCZOS).filter(
+    backdrop = im.resize((CARD_W, photo_h), Image.LANCZOS).filter(
         ImageFilter.GaussianBlur(40)
     )
-    fit = min(CARD_W / sw, PHOTO_H / sh, MAX_UPSCALE)
+    fit = min(CARD_W / sw, photo_h / sh, MAX_UPSCALE)
     inner = im.resize((round(sw * fit), round(sh * fit)), Image.LANCZOS)
-    backdrop.paste(inner, ((CARD_W - inner.width) // 2, (PHOTO_H - inner.height) // 2))
+    backdrop.paste(inner, ((CARD_W - inner.width) // 2, (photo_h - inner.height) // 2))
     return backdrop, {
         "mode": "contain",
         "scale": round(fit, 3),
@@ -183,34 +222,75 @@ def fit_headline(draw, title, max_width, max_height, max_lines=5):
     return font, lines, leading, 38
 
 
-def render(source, title, kicker, out_path, footer="leap.uz"):
-    card = Image.new("RGB", (CARD_W, CARD_H), PANEL)
-    photo, photo_report = fit_photo(source)
+def paste_mark(card, x, y, height):
+    """Знак из public/brand/mark.png в подвал карточки.
+
+    Тот же файл, что в шапке сайта: репост без подписи всё равно опознаётся.
+    Если файла нет — молча пропускаем, карточка важнее логотипа.
+    """
+    if not MARK_PATH.exists():
+        return 0
+    mark = Image.open(MARK_PATH).convert("RGBA")
+    box = mark.getchannel("A").point(lambda v: 255 if v > 8 else 0).getbbox()
+    if box:
+        mark = mark.crop(box)
+    scale = height / mark.height
+    mark = mark.resize((round(mark.width * scale), height), Image.LANCZOS)
+    card.paste(mark, (x, y), mark)
+    return mark.width
+
+
+def render(source, title, kicker, out_path, footer="LEAP NEWS"):
+    """Фото уходит в тёмное, заголовок лежит на затемнении.
+
+    Жёсткой границы между фотографией и текстом нет — вместо плашки
+    градиент, который начинается внутри снимка. Поэтому высота фото может
+    меняться от материала к материалу (см. photo_height), а лента при этом
+    выглядит однородной.
+    """
+    photo_h = photo_height(source)
+    card = Image.new("RGB", (CARD_W, CARD_H), GROUND)
+    photo, photo_report = fit_photo(source, photo_h)
     card.paste(photo, (0, 0))
 
-    draw = ImageDraw.Draw(card)
-    draw.rectangle([0, PHOTO_H, CARD_W, PHOTO_H + RULE_H], fill=BRAND)
+    # Растушёвка: маска яркости от прозрачной к сплошной, с показателем
+    # больше единицы — иначе затемнение наползает на снимок слишком рано
+    # и съедает его середину.
+    fade = min(FADE_H, photo_h)
+    ramp = Image.new("L", (1, fade))
+    for i in range(fade):
+        ramp.putpixel((0, i), int(255 * (i / fade) ** 1.6))
+    card.paste(
+        Image.new("RGB", (CARD_W, fade), GROUND),
+        (0, photo_h - fade),
+        ramp.resize((CARD_W, fade)),
+    )
 
-    zone_top = PHOTO_H + RULE_H
-    y = zone_top + 44
+    draw = ImageDraw.Draw(card)
+
+    # Собираем снизу вверх: подвал прижат к низу, над ним заголовок,
+    # над заголовком рубрика. При коротком заголовке текст опускается
+    # ниже и открывает больше фотографии — это правильно.
+    footer_h = 46
+    footer_y = CARD_H - PAD - footer_h
+    font, lines, leading, size = fit_headline(draw, title, TEXT_W, HEADLINE_ZONE)
+    y = footer_y - 52 - len(lines) * leading
 
     if kicker:
-        kf = load_font(28, "Bold")
-        draw.text((PAD, y), kicker.upper(), font=kf, fill=BRAND)
-        y += 28 + 26
+        draw.text((PAD, y - 54), kicker.upper(), font=load_font(28, "Bold"), fill=BRAND)
 
-    # Подвал прижат к низу, заголовок занимает всё, что осталось между ним
-    # и рубрикой.
-    footer_font = load_font(30, "Bold")
-    footer_y = CARD_H - PAD - 30
-    headline_zone = footer_y - y - 32
-
-    font, lines, leading, size = fit_headline(draw, title, TEXT_W, headline_zone)
     for line in lines:
         draw.text((PAD, y), line, font=font, fill=TEXT)
         y += leading
 
-    draw.text((PAD, footer_y), footer, font=footer_font, fill=MUTED)
+    mark_w = paste_mark(card, PAD, footer_y, footer_h)
+    # Прописные буквы без разрядки сбиваются в пятно, поэтому подпись
+    # рисуется посимвольно с межбуквенным просветом.
+    ff = load_font(28, "ExtraBold")
+    x = PAD + mark_w + 18
+    for ch in footer:
+        draw.text((x, footer_y + 10), ch, font=ff, fill=TEXT)
+        x += draw.textlength(ch, font=ff) + 2.2
 
     out = Path(out_path)
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -242,7 +322,7 @@ def main():
     ap.add_argument("--source", required=True, help="исходная картинка статьи")
     ap.add_argument("--title", required=True, help="заголовок из frontmatter")
     ap.add_argument("--kicker", default="", help="рубрика, выводится капсом")
-    ap.add_argument("--footer", default="leap.uz")
+    ap.add_argument("--footer", default="LEAP NEWS")
     ap.add_argument("--out", required=True, help="куда положить карточку")
     args = ap.parse_args()
 
