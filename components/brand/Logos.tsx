@@ -1,5 +1,56 @@
 type IconProps = { size?: number; className?: string };
 
+// ─── Действующий знак ────────────────────────────────────────────────
+//
+// Шестиугольник с белой «L». Растр с прозрачным фоном лежит в
+// public/brand/mark.png — не в components/, потому что Next отдаёт
+// статику только из public/.
+//
+// Файл ОДИН на обе темы, светлую и тёмную. Оранжевый читается и на
+// #ffffff, и на #0a0a0a (токен --bg в app/globals.css), поэтому вторая
+// версия знака не нужна. Меняется только слово LEAP рядом: цвет оно не
+// задаёт и наследует --fg, то есть переключается вместе с темой.
+//
+// Ниже по файлу лежат черновые концепты знака (шевроны, стрелки,
+// лестницы) — они остались для страницы /brand, где их сравнивали.
+// В шапке, подвале и на 404 используется то, что здесь.
+
+// Пропорции исходника: 401×457 непрозрачных пикселей. Ширина считается
+// от высоты, иначе при вписывании в квадрат знак болтается в кадре и
+// расстояние до текста скачет.
+const MARK_RATIO = 401 / 457;
+
+export function IconMark({ size = 40, className = "", alt = "" }: IconProps & { alt?: string }) {
+  return (
+    // Обычный <img>, а не next/image: сайт собирается статически
+    // (output: "export") с images.unoptimized, так что оптимизатор всё
+    // равно не работает, а тег без обёртки предсказуемее.
+    <img
+      src="/brand/mark.png"
+      alt={alt}
+      width={Math.round(size * MARK_RATIO)}
+      height={size}
+      className={className}
+      style={{ height: size, width: "auto" }}
+      decoding="async"
+    />
+  );
+}
+
+export function LogoMark({ size = 32, className = "" }: LogoProps) {
+  return (
+    <div className={`flex items-center gap-2 ${className}`}>
+      <IconMark size={size} />
+      <span
+        className="font-sans font-black uppercase tracking-tight"
+        style={{ fontSize: size * 0.7, lineHeight: 1 }}
+      >
+        LEAP
+      </span>
+    </div>
+  );
+}
+
 export function IconLeapArrow({ size = 40, className = "" }: IconProps) {
   return (
     <svg

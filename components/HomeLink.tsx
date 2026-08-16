@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LogoChevron } from "./brand/Logos";
+import { LogoMark } from "./brand/Logos";
 import { homeHref } from "@/lib/i18n";
 import type { Lang } from "@/lib/types";
 
@@ -21,7 +21,7 @@ export function HomeLink() {
       aria-label="LEAP — на главную"
       className="transition-transform active:scale-95"
     >
-      <LogoChevron size={32} />
+      <LogoMark size={32} />
     </Link>
   );
 }

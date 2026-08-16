@@ -1,0 +1,99 @@
+name: Social autopost
+
+# Публикует статьи в Instagram и на страницы Facebook.
+#
+# ЗАПУСК ПОСЛЕ ДЕПЛОЯ, А НЕ ПО ПУШУ. Instagram забирает картинку по
+# публичному URL: пока deploy-site не выложил карточку на leap.uz,
+# публиковать нечего. Поэтому триггер — завершение «Deploy site», а не push
+# в content/posts. Постер это ещё и перепроверяет запросом HEAD по адресу
+# карточки; не ответила — материал не публикуется и НЕ отмечается
+# отправленным, его заберёт следующий прогон.
+#
+# Стоимость поста в токенах — ноль: скрипт детерминированный, модель
+# в цикле публикации не участвует.
+
+on:
+  workflow_run:
+    workflows: ["Deploy site"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "1 = показать, что ушло бы, и ничего не отправлять"
+        required: false
+        default: "0"
+      only_network:
+        description: "instagram | facebook — ограничить одной сетью"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  # ОДНА очередь на всё, что публикует в аккаунты. Реестр отправленного лежит
+  # в git, поэтому прогон, начавшийся до пуша соседа, читал бы устаревший файл
+  # и опубликовал материал повторно. Ровно так 05.08.2026 в Telegram дважды
+  # ушёл разбор закона об антикоррупции.
+  #
+  # Отмена ожидающего прогона безопасна: post-to-social.mjs каждый раз обходит
+  # content/posts целиком, а не список изменённого.
+  group: social-accounts
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    # Деплой упал — сайт не обновился, карточки по адресу нет, публиковать
+    # нечего. Ручной запуск проходит всегда: у него нет предшествующего
+    # прогона, и conclusion пустой.
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund --no-save
+
+      - name: Post to Instagram and Facebook
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          IG_USER_ID_RU: ${{ secrets.IG_USER_ID_RU }}
+          IG_USER_ID_UZ: ${{ secrets.IG_USER_ID_UZ }}
+          FB_PAGE_ID_RU: ${{ secrets.FB_PAGE_ID_RU }}
+          FB_PAGE_ID_UZ: ${{ secrets.FB_PAGE_ID_UZ }}
+          # Необязательные: отдельные токены страниц, если системный
+          # пользователь не имеет права публиковать от их имени.
+          FB_PAGE_TOKEN_RU: ${{ secrets.FB_PAGE_TOKEN_RU }}
+          FB_PAGE_TOKEN_UZ: ${{ secrets.FB_PAGE_TOKEN_UZ }}
+          SITE_URL: "https://leap.uz"
+          GRAPH_VERSION: "v25.0"
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+          ONLY_NETWORK: ${{ github.event.inputs.only_network }}
+        run: node scripts/post-to-social.mjs
+
+      - name: Commit state changes
+        if: github.event.inputs.dry_run != '1'
+        run: |
+          # Журнал создаётся только при первой записи, а `git add` на
+          # несуществующий путь падает с кодом 128 и роняет весь шаг.
+          touch content/state/social-posted.jsonl
+          if [[ -z $(git status --porcelain content/state/social-posted.jsonl) ]]; then
+            echo "Изменений состояния нет."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/state/social-posted.jsonl
+          git commit -m "state: social-posted updated"
+          bash .github/scripts/git-push-with-rebase.sh
