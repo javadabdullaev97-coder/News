@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-17T01:06:00+05:00",
-  "topicsProcessed": 0,
+  "lastRunAt": "2026-08-17T02:22:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
   "queuedDirect": 0,
-  "queuedForOwner": 0,
+  "queuedForOwner": 1,
   "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 10,
-  "duplicatesOfPublished": 1,
+  "belowThreshold": 12,
+  "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-17.jsonl",
-    "itemsFreshLocal": 10,
-    "itemsFreshWorld": 77
+    "itemsFreshLocal": 12,
+    "itemsFreshWorld": 164
   },
-  "notes": "Порог не прошла ни одна тема. Локально 10 items (спорт-signal, реклама ТВ-шоу, жалобы на трафик, потушенный пожар без первоисточника, WTO без узбекского угла). Мировые 77: почти всё шоубиз/спорт-friendly/рутина РФ-Украина (ruUaHighBar). Kushner-Hamas (NYT+AlJazeera, anglo+mena) — тот же сюжет, что вчера ушёл в очередь (kushner-gaza-roadmap-hamas-meeting); topic-dupecheck.mjs вернул clear по этим двум ссылкам (заголовки разошлись), дубль поймала только ручная сверка с content/queue — отметила done журналом задним числом. Rework x2 (Рискиев, ВВП H1) без изменений, ответа владельца всё ещё нет."
+  "notes": "Порог не прошла ни одна новая тема (локально 12 свежих — спорт-signal на узбекском без первоисточника, шум; мировые 164 по заголовкам — ничего не прошло tiers/minDistinctBlocs, Kushner-Hamas похож на дубль вчерашнего). Rework khusanov-90-minutes-community-shield-loss (iteration 1): владелец попросил найти фото — reporter нашёл рабочую наводку в обход 403 mancity.com (Yahoo/zenfs синдикация), fact-checker подтвердил approve/93 (файл фактчека пришлось записать вручную — у агента нет Write), editor и bild/seo завершили цикл. Материал снова в editor-queue с pendingEditorQuestion.reason=rework-ready — фото не с самого матча (анонс контракта, июль 2026), честно помечено в alt."
 }
