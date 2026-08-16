@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-16T15:41:00+05:00",
-  "topicsProcessed": 2,
+  "lastRunAt": "2026-08-16T16:38:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
   "queuedDirect": 1,
   "queuedForOwner": 0,
   "rejected": 0,
-  "declined": 1,
+  "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 138,
-  "duplicatesOfPublished": 1,
+  "belowThreshold": 40,
+  "duplicatesOfPublished": 2,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-16.jsonl",
-    "itemsFreshLocal": 26,
-    "itemsFreshWorld": 114
+    "itemsFreshLocal": 41,
+    "itemsFreshWorld": 89
   },
-  "notes": "Тема кадастровой переоценки Ташкента (7,4x/14x) — дубль: тот же сюжет вышел 15.08 (content/posts/2026-08-15/tashkent-cadastre-revaluation-tax-base.mdx), мой предварительный topic-dupecheck по ссылке daryo.uz не поймал совпадение (первоисточник у вышедшей статьи — другой URL gov.uz/ru/imv/news/view/206361), поймал уже reporter при research. Опубликована тема о гибели 8 граждан Узбекистана при ударе дрона по Нижнекамску (Татарстан) 10.08 — первоисточник Eurasianet/Fergana.agency/Dunyo.info, событию неделя, но новый повод (репатриация 12.08, комиссия). Dunyo.info использован как первоисточник МИД РУз, но не формализован в config/news-sources.json как citableReference — стоит добавить. Мировой поток: землетрясение M7.7 в Индонезии (51 погибший) уже в очереди у другого прогона (content/queue/indonesia-flores-earthquake-m77-dead-47.mdx), не дублировал."
+  "notes": "Два кластера сегодняшнего инбокса (массовая оценка недвижимости в Ташкенте, блэкаут в Центральной Азии от Токтогул ГЭС) оказались рекапами уже вышедших 15.08 материалов (tashkent-cadastre-revaluation-tax-base, toktogul-hpp-accident-surkhandarya) — dupecheck по свежим ссылкам их не ловит, поймала только сверка содержимого постов вручную. Мировой поток слабый: только рутина РФ-Украина (не проходит ruUaHighBar) и спорт ниже порога."
 }
