@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-16T16:38:00+05:00",
-  "topicsProcessed": 1,
+  "lastRunAt": "2026-08-16T17:05:00+05:00",
+  "topicsProcessed": 0,
   "published": 0,
-  "queuedDirect": 1,
+  "queuedDirect": 0,
   "queuedForOwner": 0,
   "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 40,
-  "duplicatesOfPublished": 2,
+  "belowThreshold": 5,
+  "duplicatesOfPublished": 3,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-16.jsonl",
-    "itemsFreshLocal": 41,
-    "itemsFreshWorld": 89
+    "itemsFreshLocal": 34,
+    "itemsFreshWorld": 188
   },
-  "notes": "Два кластера сегодняшнего инбокса (массовая оценка недвижимости в Ташкенте, блэкаут в Центральной Азии от Токтогул ГЭС) оказались рекапами уже вышедших 15.08 материалов (tashkent-cadastre-revaluation-tax-base, toktogul-hpp-accident-surkhandarya) — dupecheck по свежим ссылкам их не ловит, поймала только сверка содержимого постов вручную. Мировой поток слабый: только рутина РФ-Украина (не проходит ruUaHighBar) и спорт ниже порога."
+  "notes": "Три кластера — оценка недвижимости в Ташкенте, дело «Худудгаз Каракалпакстан», доля мигрантов в СНГ/Европе — рекапы материалов, вышедших/поставленных в очередь 15–16.08 (tashkent-cadastre-revaluation-tax-base, hududgaz-karakalpakstan-damage-case, uzbek-labor-migration-shift-europe-cis); dupecheck по свежим ссылкам не поймал, сверено вручную. Остальное — снос незаконных построек и опровержение ВС — не набрало порог. Мировой поток: землетрясение в Индонезии уже в очереди (dead-47), автобус в Венгрии — skip-категория (происшествие без межд. последствий), Ормузский пролив уже отклонён ранее."
 }
