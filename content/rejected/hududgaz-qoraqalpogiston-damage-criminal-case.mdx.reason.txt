@@ -1,0 +1,18 @@
+REJECTED as duplicate (orchestrator decision, post-bild).
+
+content/posts/2026-08-15/hududgaz-karakalpakstan-damage-case.mdx already published
+2026-08-15 21:07 Tashkent, covering the SAME event and the SAME primary source
+(t.me/Department_uz/12993) — the 251,5 bln so'm damage case in "Hududgaz
+Qoraqalpog'iston" / filial of AO "Hududgaztaminot", articles 167/205 of the
+Criminal Code. Same figures, same department, same criminal case.
+
+Topic-dupecheck run before dispatching reporter (title/links from inbox signals:
+kun.uz, daryo.uz) returned "clear" — it did not catch the duplicate because the
+inbox signal links differ from the primary-source link the reporter later found;
+the dupecheck was not re-run against the primary source. Bild flagged the
+duplicate independently while sourcing the image (same stock photo, same
+credit "Unsplash / Dariy P.", was picked again for the same underlying story).
+
+Full pipeline (reporter → fact-checker approve-with-downgrades/74 → editor
+publish → bild) already ran before the duplicate surfaced; rejecting post-hoc
+rather than publishing a second article on an already-covered event.
