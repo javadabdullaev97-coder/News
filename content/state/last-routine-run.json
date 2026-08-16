@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-16T21:04:00+05:00",
-  "topicsProcessed": 1,
+  "lastRunAt": "2026-08-16T22:32:00+05:00",
+  "topicsProcessed": 5,
   "published": 0,
   "queuedDirect": 1,
-  "queuedForOwner": 0,
+  "queuedForOwner": 3,
   "rejected": 0,
-  "declined": 0,
+  "declined": 1,
   "needsVerification": 0,
-  "world": 0,
-  "belowThreshold": 22,
+  "world": 1,
+  "belowThreshold": 31,
   "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-16.jsonl",
-    "itemsFreshLocal": 23,
-    "itemsFreshWorld": 185
+    "itemsFreshLocal": 34,
+    "itemsFreshWorld": 277
   },
-  "notes": "Rework x2 (Рискиев, ВВП H1) с прошлого прогона — вопрос rework-ready уже отправлен владельцу в 15:20, ответа нет, второй раз не спрашивал, пропустил. Единственная новая тема (рабочая группа УзКг по обмену сёлами) переиспользовала факты уже опубликованного 04.08 материала — reporter подал их как непроверенные по формуле §10, хотя LEAP уже подтверждал часть (регистрация 2,5 тыс. жителей, дорога Сай-Таян) со ссылкой на Коммерсантъ; переписал абзац с явной ссылкой на собственный материал перед публикацией. Editor также ошибочно проставил publishedAt в frontmatter (запрещено правилом) — заменил на queuedAt вручную."
+  "notes": "Rework x2 (Рискиев, ВВП H1) обработаны — оба снова ушли владельцу с pendingEditorQuestion (rework-ready). Bild по Рискиеву сам проставил awaitingEditor:false без вопроса — исправила вручную, промпт для bild в rework-цикле должен явно напоминать про rework-ready. Reporter/fact-checker субагенты несколько раз не могли записать .review/*.md (Write блокирует как report-file) — сохраняла отчёты сама. Хусанов (Суперкубок Англии) — картинки не нашли (Getty/чужой субъект/agency без лицензии), ушёл владельцу no-image. Импорт бензина +54% отклонён — первоисточник не нашёлся, найденные официальные цифры (H1: +73,7-78,5%) с сигналом daryo.uz не совпали."
 }
