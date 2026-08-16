@@ -1,0 +1,59 @@
+{
+  "message": {
+    "chat": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "last_name": "Abdullaev",
+      "type": "private",
+      "username": "javad_abdullaev"
+    },
+    "date": 1786857184,
+    "from": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "is_bot": false,
+      "is_premium": true,
+      "language_code": "en",
+      "last_name": "Abdullaev",
+      "username": "javad_abdullaev"
+    },
+    "message_id": 955,
+    "reply_to_message": {
+      "chat": {
+        "first_name": "Javad",
+        "id": 1104500,
+        "last_name": "Abdullaev",
+        "type": "private",
+        "username": "javad_abdullaev"
+      },
+      "date": 1786297594,
+      "entities": [
+        {
+          "length": 18,
+          "offset": 0,
+          "type": "bold"
+        },
+        {
+          "length": 73,
+          "offset": 20,
+          "type": "bold"
+        },
+        {
+          "length": 34,
+          "offset": 721,
+          "type": "italic"
+        }
+      ],
+      "from": {
+        "first_name": "LEAP News - ADMIN",
+        "id": 8652303606,
+        "is_bot": true,
+        "username": "leap_news_bot"
+      },
+      "message_id": 815,
+      "text": "НУЖНО ВАШЕ РЕШЕНИЕ\n\nРоссия и Сирия подписали меморандум о преобразовании баз Хмеймим и Тартус\n\nПочему спрашиваю: картинки нет вообще — ни в первоисточнике, ни в стоке.\n\nЖивого фото Хмеймима/Тартуса без риска лицензии не нашёл: у Al Jazeera снимок Reuters/Planet Labs (платная лицензия), у SANA — только глянцевый 3D-мокап флагов с их водяным знаком (запрещённая по стилю заготовка + чужой брендинг). Unsplash/Pexels/DVIDS по этим базам пусто. AI-генерация через Higgsfield — штатный фолбэк по правилам, но в этом прогоне инструмент технически недоступен агенту. Нужно либо прислать фото Хмеймима/Тартуса (архивное подойдёт), либо подтвердить, что можно опубликовать без фото / отправить на генерацию отдельным прогоном.\n\nОтветьте реплаем на это сообщение:\n• пришлите фото — оно станет главной картинкой\n• «ок» — публиковать как есть\n• «стоп» — снять материал\n• любой другой текст — уйдёт в правку как комментарий"
+    },
+    "text": "Стоп"
+  },
+  "update_id": 273157618
+}
