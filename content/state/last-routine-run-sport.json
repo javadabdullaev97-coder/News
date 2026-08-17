@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-17T18:10:00+05:00",
-  "topicsProcessed": 2,
-  "published": 2,
+  "lastRunAt": "2026-08-17T16:30:00+05:00",
+  "topicsProcessed": 0,
+  "published": 0,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 146,
-  "notes": "Bild нашёл уже опубликованную ранее сегодня статью fury-joshua-uk-showdown-talks по той же развивающейся истории (площадка боя) — dupecheck дал clear (разная формулировка заголовка). Добавил в текст явную ссылку-развитие на неё вручную, не как факт-правку."
+  "belowThreshold": 127,
+  "notes": "Ни одна тема не набрала порог 40. Аномалия: ленты cbs-sports-soccer и cbs-sports-mma (36+36 записей, больше половины пула) отдают бэклог с датами от апреля до 12-16.08 как свежепойманные (fetchedAt сегодня) — Salah/Trabzonspor (pubDate 05.08), Vinicius contract (06.08), Super Cup (11-12.08) и т.д. Без сверки pubDate это выглядело бы как сегодняшние темы. Сломанный фетчер/ре-серв старого контента, не тема — стоит проверить конфиг этих двух источников."
 }
