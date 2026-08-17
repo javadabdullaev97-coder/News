@@ -366,8 +366,8 @@ reporter'а своей темы, но не чужой:
 #
 # Прозой правило жило с 04.08.2026 и не работало: семь условий, которые
 # ты должна была проверять на глаз посреди прогона. Замер 17.08.2026 —
-# под правило подпадает 16% материалов, а отметка «пропущен» стоит
-# в одном отчёте фактчекера из 26, то есть в 4%. Разрыв вчетверо.
+# под правило подпадает 16% материалов, а в архиве пропуск отмечен
+# в 24 вердиктах редактора из 627, то есть в 3,8%. Разрыв вчетверо.
 #
 # Смысл правила: reporter уже прочитал первоисточник целиком, второй проход
 # по тому же указу ничего не находит (27 статей аудита, 0 CONTRADICTED).
@@ -1015,6 +1015,7 @@ node scripts/topic-journal.mjs done --slug=<slug> --links="<те же ссылк
 ## Расход
 - Subagent calls: A × reporter, B × fact-checker, C × editor
 - Фактчек пропущен гейтом: N из M
+- Бильд пропущен фототекой: N из M
 - Duration: ~M минут
 ```
 
@@ -1024,7 +1025,7 @@ node scripts/topic-journal.mjs done --slug=<slug> --links="<те же ссылк
 ```bash
 node scripts/record-run-cost.mjs --stage reporter --calls 4 --fetches 22 --minutes 6
 node scripts/record-run-cost.mjs --stage fact-checker --calls 2 --fetches 5 --minutes 3
-node scripts/record-run-cost.mjs --topics 6 --published 3 --skipped-factcheck 2
+node scripts/record-run-cost.mjs --topics 6 --published 3 --skipped-factcheck 2 --skipped-bild 1
 ```
 
 `fetches` берётся из строки `FETCHES: N`, которую возвращают reporter
