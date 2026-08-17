@@ -1,0 +1,51 @@
+---
+title: "Hacker Claims Theft of 3.6 Million Employee Records From Azure at Fortune 500 Firms"
+description: "A hacker using the alias TheHatman claims to have stolen 3.6 million employee records from McDonald's, Vodafone and TCS via Azure and put the data up for sale."
+queuedAt: "2026-08-18T02:15:00+05:00"
+updatedAt: "2026-08-18T14:20:00+05:00"
+category: "tech"
+tags: ["Microsoft", "Azure", "cybersecurity", "data breach"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "BleepingComputer"
+    url: "https://www.bleepingcomputer.com/news/security/hacker-claims-36-million-azure-account-records-stolen-from-major-companies/"
+  - name: "SecurityWeek"
+    url: "https://www.securityweek.com/fortune-500-companies-hit-in-azure-data-theft-campaign/"
+image:
+  url: "/images/posts/2026-08/azure-breach-claim-2026-08-01.jpg"
+  alt: "A sign with the Microsoft logo and name on an office building facade, seen from below"
+  credit: "Unsplash / Simon Ray"
+tgScore: 25
+broadcast: false
+lang: "en"
+translatedFrom: "ru"
+---
+
+A hacker using the alias TheHatman claims to have stolen 3.6 million employee accounts from nine companies, including McDonald's, Vodafone and TCS, from the Microsoft Azure cloud, [BleepingComputer](https://www.bleepingcomputer.com/news/security/hacker-claims-36-million-azure-account-records-stolen-from-major-companies/) reported on August 17.
+
+According to the hacker, the data was pulled directly from Azure and Entra ID tenants (isolated cloud environments for individual customers). Entra ID is Microsoft's account management service, formerly known as Azure AD. In the listing offering the data for sale, the hacker wrote: "Selling McDonald's Corporation employee dump, pulled directly from an Azure tenant using compromised credentials." [BleepingComputer](https://www.bleepingcomputer.com/news/security/hacker-claims-36-million-azure-account-records-stolen-from-major-companies/) quotes the listing.
+
+The hacker described the access method as password spraying and MFA fatigue — an attack that floods a victim with login confirmation requests until they accidentally approve one, granting access. [BleepingComputer](https://www.bleepingcomputer.com/news/security/hacker-claims-36-million-azure-account-records-stolen-from-major-companies/) reported this. The seller has been publishing databases under this alias since July 31.
+
+## Which Companies Were Named
+
+McDonald's accounts for the most records — more than 1.7 million. According to [BleepingComputer](https://www.bleepingcomputer.com/news/security/hacker-claims-36-million-azure-account-records-stolen-from-major-companies/) and [SecurityWeek](https://www.securityweek.com/fortune-500-companies-hit-in-azure-data-theft-campaign/), the hacker listed smaller volumes for the other companies:
+
+- Tata Consultancy Services (TCS) — at least 800,000
+- Vodafone — at least 425,000
+- HCL Technologies — at least 250,000
+- InterContinental Hotels Group (IHG) — at least 185,000
+- Kyndryl — at least 170,000
+- Gap Inc. — at least 80,000
+- Hexaware Technologies — at least 20,000
+- Wyndham Hotels — at least 9,000
+
+The stolen records, according to the hacker, include employee names, work email addresses, job titles, phone numbers and addresses, as well as account and service record data, [the listing states](https://www.bleepingcomputer.com/news/security/hacker-claims-36-million-azure-account-records-stolen-from-major-companies/).
+
+## TCS Denies Evidence of a Breach, Gap Disputes the Data's Significance
+
+BleepingComputer sent requests to every company on the list. As of publication, only two had responded. Tata Consultancy Services said it found "no convincing evidence of a breach of TCS systems or client environments." Some of the data, the company said, is "dated at least four years ago." Gap Inc. said that, based on the company's preliminary findings, "the volume of data is limited, does not contain sensitive information and is dated several years ago," [BleepingComputer reported](https://www.bleepingcomputer.com/news/security/hacker-claims-36-million-azure-account-records-stolen-from-major-companies/).
+
+Neither BleepingComputer nor [SecurityWeek](https://www.securityweek.com/fortune-500-companies-hit-in-azure-data-theft-campaign/), which independently covered the same case on August 17, mentions a request to Microsoft or a response from the company. According to an assessment by research firm Hudson Rock, cited by SecurityWeek, the data theft likely relied on credentials stolen by a separate infostealer program. An infostealer is malware that steals passwords and cookie files from infected devices.
+
+Neither BleepingComputer nor SecurityWeek provided its own technical confirmation of the breach. Both outlets rely on the data seller's claims and on Hudson Rock researchers' analysis of sample fragments of the database.

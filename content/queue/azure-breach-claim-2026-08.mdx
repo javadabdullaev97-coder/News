@@ -1,0 +1,49 @@
+---
+title: "Хакер заявил о краже 3,6 млн записей сотрудников из Azure у компаний Fortune 500"
+description: "Хакер под псевдонимом TheHatman заявил о краже 3,6 млн записей сотрудников McDonald's, Vodafone и TCS из Azure и выставил данные на продажу."
+queuedAt: "2026-08-18T02:15:00+05:00"
+updatedAt: "2026-08-18T14:20:00+05:00"
+category: "tech"
+tags: ["Microsoft", "Azure", "кибербезопасность", "утечка данных"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "BleepingComputer"
+    url: "https://www.bleepingcomputer.com/news/security/hacker-claims-36-million-azure-account-records-stolen-from-major-companies/"
+  - name: "SecurityWeek"
+    url: "https://www.securityweek.com/fortune-500-companies-hit-in-azure-data-theft-campaign/"
+image:
+  url: "/images/posts/2026-08/azure-breach-claim-2026-08-01.jpg"
+  alt: "Табличка с логотипом и названием Microsoft на фасаде офисного здания, вид снизу"
+  credit: "Unsplash / Simon Ray"
+tgScore: 25
+broadcast: false
+---
+
+Хакер под псевдонимом TheHatman заявил о краже 3,6 млн учётных записей сотрудников девяти компаний, включая McDonald's, Vodafone и TCS, из облака Microsoft Azure, сообщил 17 августа портал [BleepingComputer](https://www.bleepingcomputer.com/news/security/hacker-claims-36-million-azure-account-records-stolen-from-major-companies/).
+
+По словам хакера, данные выгружены напрямую из тенантов (изолированных облачных сред клиентов) Azure и Entra ID. Entra ID — сервис Microsoft для управления учётными записями, ранее известный как Azure AD. В объявлении о продаже данных хакер написал (перевод с английского): «Продаю дамп сотрудников McDonald's Corporation, скачанный напрямую из тенанта Azure с использованием скомпрометированных учётных данных». Цитату приводит [BleepingComputer](https://www.bleepingcomputer.com/news/security/hacker-claims-36-million-azure-account-records-stolen-from-major-companies/).
+
+Доступ хакер описал как перебор паролей (password spray) и MFA fatigue — атаку, при которой жертву заваливают запросами на подтверждение входа. Она случайно одобряет один из них, что и даёт доступ. Об этом сообщил [BleepingComputer](https://www.bleepingcomputer.com/news/security/hacker-claims-36-million-azure-account-records-stolen-from-major-companies/). Продавец публикует базы под этим псевдонимом с 31 июля.
+
+## Какие компании упомянуты
+
+Больше всего записей приходится на McDonald's — свыше 1,7 млн. По данным [BleepingComputer](https://www.bleepingcomputer.com/news/security/hacker-claims-36-million-azure-account-records-stolen-from-major-companies/) и [SecurityWeek](https://www.securityweek.com/fortune-500-companies-hit-in-azure-data-theft-campaign/), у остальных компаний хакер указал меньшие объёмы:
+
+- Tata Consultancy Services (TCS) — не менее 800 тысяч
+- Vodafone — не менее 425 тысяч
+- HCL Technologies — не менее 250 тысяч
+- InterContinental Hotels Group (IHG) — не менее 185 тысяч
+- Kyndryl — не менее 170 тысяч
+- Gap Inc. — не менее 80 тысяч
+- Hexaware Technologies — не менее 20 тысяч
+- Wyndham Hotels — не менее 9 тысяч
+
+Похищенные записи, по словам хакера, включают имена, рабочие email-адреса, должности, телефоны и адреса сотрудников, а также данные учётных и сервисных записей, [говорится в публикации](https://www.bleepingcomputer.com/news/security/hacker-claims-36-million-azure-account-records-stolen-from-major-companies/).
+
+## TCS отрицает доказательства взлома, Gap оспаривает значимость данных
+
+BleepingComputer направил запросы всем компаниям из списка. На момент публикации статьи ответили только две. Tata Consultancy Services заявила, что не нашла «убедительных доказательств взлома систем TCS или клиентских сред». Часть данных, по словам компании, «датирована минимум четырьмя годами назад». Gap Inc. сообщила, что, по предварительным данным компании, «объём данных ограничен, они не содержат чувствительной информации и датированы несколькими годами ранее», [передаёт BleepingComputer](https://www.bleepingcomputer.com/news/security/hacker-claims-36-million-azure-account-records-stolen-from-major-companies/).
+
+Ни BleepingComputer, ни [SecurityWeek](https://www.securityweek.com/fortune-500-companies-hit-in-azure-data-theft-campaign/), независимо описавший тот же случай 17 августа, не упоминают ни запроса к Microsoft, ни её ответа. По оценке исследовательской компании Hudson Rock, которую приводит SecurityWeek, для кражи данных, вероятно, использовались учётные данные, похищенные отдельной программой-инфостилером. Инфостилер — вредоносное ПО, ворующее пароли и файлы cookie с заражённых устройств.
+
+Ни BleepingComputer, ни SecurityWeek не привели собственного технического подтверждения взлома. Оба издания опираются на слова продавца данных и на анализ выборочных фрагментов базы исследователями Hudson Rock.
