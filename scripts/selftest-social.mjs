@@ -11,8 +11,9 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 
 import { isPosted, loadPosted, markPosted, markRevoked, summarize } from "../lib/social-posted.mjs";
-import { cardPaths, collectPublishable, hashtagsFor, kickerFor } from "../lib/social-queue.mjs";
+import { cardPaths, collectPublishable, hashtagsFor, kickerFor, tagToHashtag } from "../lib/social-queue.mjs";
 import { langFromPath, slugFromPath, dateFromPath, articleUrl } from "../lib/article-paths.mjs";
+import { extractSummary } from "../lib/frontmatter.mjs";
 
 let failed = 0;
 const ok = (cond, msg) => {
@@ -248,6 +249,93 @@ function writePost(root, { date, name, title, lang, extra = "" }) {
     }
   }
   ok(over.length === 0, `config/social.json: ни одна рубрика не превышает лимит ${over.join(", ")}`);
+}
+
+// ── хештеги берутся из тем материала, а не из одной рубрики ───────────
+//
+// До 17.08.2026 пять слотов уходили на одни и те же слова, и материал
+// про португальца в саудовском клубе выходил с «#узбекистан», а стройка
+// в Хорезме — с «#ташкент». Проверяем оба случая на боевом конфиге.
+{
+  const real = JSON.parse(readFileSync(new URL("../config/social.json", import.meta.url), "utf8"));
+  const max = real.hashtags.maxPerPost;
+
+  const ronaldo = {
+    title: "Роналду допустил, что нынешний сезон может стать последним",
+    tags: ["Криштиану Роналду", "Аль-Наср", "футбол", "чемпионат мира-2026"],
+  };
+  const r = hashtagsFor(real, "ru", "sport", ronaldo);
+  ok(r.length === max, `тем хватает на все ${max} слотов`);
+  ok(r.includes("#криштиануроналду"), "тема материала попадает в хештеги");
+  ok(!r.includes("#узбекистан"), "без узбекской привязки нет #узбекистан");
+  ok(!r.includes("#ташкент"), "без Ташкента нет #ташкент");
+  ok(r[0] === "#leapnews", "марка издания остаётся первой");
+
+  const urgench = {
+    title: "Аэропорт Ургенча реконструируют за $264 млн",
+    tags: ["Ургенч", "аэропорт", "Хорезмская область", "инвестиции"],
+  };
+  const u = hashtagsFor(real, "ru", "economy", urgench);
+  ok(u.includes("#узбекистан"), "узбекская привязка даёт #узбекистан");
+  ok(!u.includes("#ташкент"), "Хорезм не превращается в #ташкент");
+  ok(u.includes("#ургенч"), "город материала попадает в хештеги");
+
+  const tashkent = { title: "В Ташкенте изменят схему движения", tags: ["Ташкент", "дороги"] };
+  ok(hashtagsFor(real, "ru", "society", tashkent).includes("#ташкент"), "Ташкент даёт #ташкент");
+
+  const uz = {
+    title: "Urganch aeroporti rekonstruksiya qilinadi",
+    tags: ["Urganch", "aeroport", "Xorazm viloyati"],
+  };
+  ok(hashtagsFor(real, "uz", "economy", uz).includes("#ozbekiston"), "узбекский язык: своя привязка");
+
+  // Ни один хештег не должен нести пробел или знак: Instagram обрежет его
+  // по первому же из них, и вместо тега получится обрывок.
+  const all = [r, u, hashtagsFor(real, "uz", "economy", uz)].flat();
+  ok(all.every((h) => /^#[\p{L}\p{N}]+$/u.test(h)), "хештеги без пробелов и знаков");
+  ok(all.every((h) => h.length <= 31), "хештеги не длиннее 30 знаков");
+
+  // Тег без пригодного остатка не должен давать «#».
+  ok(tagToHashtag("—") === null, "тег без букв и цифр хештегом не становится");
+  ok(tagToHashtag("O'zbekiston Markaziy banki") === "#ozbekistonmarkaziybanki", "апострофы и пробелы убираются");
+  ok(tagToHashtag("чемпионат мира-2026") === "#чемпионатмира2026", "дефисы убираются, цифры остаются");
+
+  // Материал без тегов не должен остаться с двумя хештегами.
+  const bare = hashtagsFor(real, "ru", "economy", { title: "Без тегов", tags: [] });
+  ok(bare.length === max, "без тегов слоты добираются из справочника");
+}
+
+// ── в подпись идёт несколько абзацев, а не одно предложение ───────────
+{
+  const article = [
+    "---",
+    'title: "Т"',
+    "---",
+    "",
+    "Первый абзац про суть новости.",
+    "",
+    "## Подзаголовок",
+    "",
+    "![фото](/x.jpg)",
+    "",
+    "> цитата",
+    "",
+    "Второй абзац с [ссылкой](https://example.com) внутри.",
+    "",
+    "Третий абзац.",
+  ].join("\n");
+
+  const full = extractSummary(article, 800);
+  ok(full.split("\n\n").length === 3, "берутся все абзацы, влезающие в лимит");
+  ok(!full.includes("Подзаголовок"), "подзаголовки в подпись не идут");
+  ok(!full.includes("![") && !full.includes("цитата"), "картинки и цитаты в подпись не идут");
+  ok(full.includes("со ссылкой") === false && full.includes("ссылкой"), "разметка ссылок снимается");
+  ok(!full.includes("https://example.com"), "адрес из markdown-ссылки в подпись не попадает");
+
+  const tight = extractSummary(article, 40);
+  ok(tight === "Первый абзац про суть новости.", "первый абзац идёт всегда, даже если лимит мал");
+  ok(extractSummary(article, 800).length <= 800, "лимит соблюдается");
+  ok(extractSummary("---\ntitle: T\n---\n", 800) === "", "пустое тело — пустая подпись, не падение");
 }
 
 console.log(failed ? `\n${failed} проверок упало` : "\nвсе проверки прошли");

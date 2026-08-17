@@ -31,7 +31,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { decodeEntities, extractLede } from "../lib/frontmatter.mjs";
+import { decodeEntities, extractSummary } from "../lib/frontmatter.mjs";
 import { collectPublishable, hashtagsFor } from "../lib/social-queue.mjs";
 import { isPosted, markPosted } from "../lib/social-posted.mjs";
 
@@ -74,8 +74,11 @@ function trimLede(lede, limit) {
 
 function buildCaption(item, network) {
   const title = decodeEntities(String(item.fm.title || "")).trim();
-  const lede = trimLede(extractLede(item.raw), config.caption.ledeLimit);
-  const tags = hashtagsFor(config, item.lang, item.category);
+  const lede = trimLede(
+    extractSummary(item.raw, config.caption.bodyLimit ?? 800),
+    config.caption.ledeLimit,
+  );
+  const tags = hashtagsFor(config, item.lang, item.category, item.fm);
   const readMore = config.caption.readMore?.[network]?.[item.lang] ?? "";
 
   const parts = [title, lede];
@@ -93,7 +96,7 @@ function buildCaption(item, network) {
   const limit = config.networks[network]?.captionLimit ?? 2200;
   if (caption.length > limit) {
     for (const shorter of [600, 400, 250, 120, 0]) {
-      const lede2 = shorter ? trimLede(extractLede(item.raw), shorter) : "";
+      const lede2 = shorter ? trimLede(extractSummary(item.raw, shorter), shorter) : "";
       const p = [title, lede2];
       if (network === "facebook") p.push(`${readMore} ${item.url}`.trim());
       else if (readMore) p.push(readMore);
