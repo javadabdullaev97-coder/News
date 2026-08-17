@@ -21,19 +21,19 @@ on:
   workflow_dispatch:
     inputs:
       list:
-        description: "1 = только показать последние посты и дубли"
+        description: "list — 1 = только показать последние посты и дубли"
         required: false
         default: "0"
       scopes:
-        description: "1 = показать права токена (диагностика отказа #10)"
+        description: "scopes — 1 = показать права токена (диагностика отказа #10)"
         required: false
         default: "0"
       posts:
-        description: "Медиа-id через запятую (пусто — взять из заявки)"
+        description: "posts — медиа-id через запятую (пусто — взять из заявки)"
         required: false
         default: ""
       dry_run:
-        description: "1 = показать, что удалил бы"
+        description: "dry_run — 1 = показать, что удалил бы"
         required: false
         default: "0"
 

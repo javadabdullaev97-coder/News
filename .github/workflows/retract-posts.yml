@@ -22,11 +22,11 @@ on:
   workflow_dispatch:
     inputs:
       slugs:
-        description: "Слаги через запятую (пусто — взять из файла заявки)"
+        description: "slugs — через запятую (пусто — взять из файла заявки)"
         required: false
         default: ""
       dry_run:
-        description: "1 = только показать, что удалил бы"
+        description: "dry_run — 1 = только показать, что удалил бы"
         required: false
         default: "0"
 
