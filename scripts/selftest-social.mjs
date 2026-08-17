@@ -6,7 +6,7 @@
 // широкий гейт — публикация недоделанного материала. Проверяем ровно те
 // места, где это может повториться.
 
-import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 
@@ -218,6 +218,36 @@ function writePost(root, { date, name, title, lang, extra = "" }) {
   const tags = hashtagsFor(CONFIG, "ru", "economy");
   ok(tags.length === new Set(tags).size, "хештеги не дублируются при пересечении наборов");
   ok(hashtagsFor(CONFIG, "en", "economy").length === 0, "языка без словаря — без хештегов");
+}
+
+// ── потолок в пять хештегов ───────────────────────────────────────────
+{
+  const fat = {
+    hashtags: {
+      maxPerPost: 5,
+      base: { ru: ["#a", "#b"] },
+      byCategory: { ru: { economy: ["#c", "#d", "#e", "#f", "#g"] } },
+    },
+  };
+  const tags = hashtagsFor(fat, "ru", "economy");
+  ok(tags.length === 5, "справочник на семь хештегов режется до пяти (лимит Instagram)");
+  ok(
+    tags[0] === "#a" && tags[1] === "#b",
+    "общие хештеги не вытесняются рубричными при обрезке",
+  );
+}
+
+// ── боевой справочник уложен в лимит ──────────────────────────────────
+{
+  const real = JSON.parse(readFileSync(new URL("../config/social.json", import.meta.url), "utf8"));
+  const over = [];
+  for (const lang of Object.keys(real.hashtags.byCategory)) {
+    for (const cat of Object.keys(real.hashtags.byCategory[lang])) {
+      const n = hashtagsFor(real, lang, cat).length;
+      if (n > (real.hashtags.maxPerPost ?? 5)) over.push(`${lang}/${cat}=${n}`);
+    }
+  }
+  ok(over.length === 0, `config/social.json: ни одна рубрика не превышает лимит ${over.join(", ")}`);
 }
 
 console.log(failed ? `\n${failed} проверок упало` : "\nвсе проверки прошли");
