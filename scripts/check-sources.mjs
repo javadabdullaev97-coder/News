@@ -46,6 +46,9 @@ async function check(src) {
     priority: src.priority,
     url: src.url,
     disabled: Boolean(src.disabled),
+    // Отказ, который не воспроизводится из контура проверки. Такой источник
+    // из песочницы отвечает нормально, и попадать в список «ожили» ему нельзя.
+    disabledEnvironmentSpecific: Boolean(src.disabledEnvironmentSpecific),
     requiresPlaywright: Boolean(src.requiresPlaywright),
   };
 
@@ -179,11 +182,23 @@ const scrapeBroken = scrapeResults.filter((r) => !r.healthy);
 
 const active = results.filter((r) => !r.disabled && !r.requiresPlaywright);
 const broken = active.filter((r) => !r.healthy);
-const revived = results.filter((r) => r.disabled && r.healthy);
+const revived = results.filter(
+  (r) => r.disabled && r.healthy && !r.disabledEnvironmentSpecific,
+);
+// Отключены из-за отказа, которого в этом контуре не видно. Отдельный список,
+// потому что совет «снять флаг» для них — прямой путь вернуть поломку.
+//
+// Повод: 17.08.2026 пять лент Transfermarkt отключили после того, как боевой
+// прогон в Actions получил от них пустой HTTP 202. Из песочницы те же адреса
+// отдают 200 и десять записей — то есть чекер, запущенный оттуда, немедленно
+// предложил бы флаг снять и вернуть фетчеру пять мёртвых лент.
+const envSpecific = results.filter(
+  (r) => r.disabled && r.healthy && r.disabledEnvironmentSpecific,
+);
 const neverFetched = results.filter((r) => r.requiresPlaywright && !r.disabled);
 
 if (asJson) {
-  console.log(JSON.stringify({ results, broken, revived, neverFetched, scrapeResults, scrapeBroken }, null, 2));
+  console.log(JSON.stringify({ results, broken, revived, envSpecific, neverFetched, scrapeResults, scrapeBroken }, null, 2));
 } else {
   console.log(
     `Проверено ${results.length} лент · активных ${active.length} · сломано ${broken.length}`,
@@ -219,6 +234,19 @@ if (asJson) {
     for (const r of revived) {
       console.log(`  ${r.id.padEnd(16)} items=${String(r.items).padEnd(4)} ${r.url}`);
     }
+  }
+
+  if (envSpecific.length) {
+    console.log(
+      "\nОТВЕЧАЮТ ЗДЕСЬ, НО ОТКЛЮЧЕНЫ (отказ виден только из прода — флаг НЕ снимать):",
+    );
+    for (const r of envSpecific) {
+      console.log(`  ${r.id.padEnd(16)} items=${String(r.items).padEnd(4)} ${r.url}`);
+    }
+    console.log(
+      "  Причина у каждого в $disabledReason. Проверять такие ленты можно только" +
+        " прогоном в GitHub Actions, а не отсюда.",
+    );
   }
 
   if (neverFetched.length) {

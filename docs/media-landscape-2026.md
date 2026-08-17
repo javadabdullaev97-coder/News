@@ -227,8 +227,8 @@ Gazeta.uz, Daryo.uz и Repost.uz**.
 | Дисциплина | Что закрывает | Ленты в конфиге |
 |---|---|---|
 | Футбол | топ-5 лиг Европы, еврокубки, сборные | `bbc-sport-football`, `guardian-football`, `cbs-sports-soccer`, `football-italia`, `football-espana`, `marca-en`, `bulinews`, `fourfourtwo`, `sportsru-football`, `sport-express-football` |
-| Трансферы | суммы, переходы, рыночные оценки | `transfermarkt-uk/de/es/it/tr`, `sport-express-transfers` |
-| Турция и узбекские легионеры | Суперлига, Шомуродов, Файзуллаев | `trt-spor-futbol`, `transfermarkt-tr`, `football-italia` |
+| Трансферы | суммы, переходы, рыночные оценки | `sport-express-transfers`, плюс футбольные ленты BBC, Guardian, Sky, Marca. Ранний сигнал — `caughtoffside` и `eyefootball-transfers` с `citable:false`. Пять лент `transfermarkt-*` отключены 17.08.2026, разбор ниже |
+| Турция и узбекские легионеры | Суперлига, Шомуродов, Файзуллаев | `trt-spor-futbol`, `football-italia` |
 | ММА / UFC | карды, рейтинги, контракты | `sherdog-news`, `mma-fighting`, `cbs-sports-mma`, `sportsru-fight`, `one-championship` |
 | Бокс | топ-бои, титулы, санкционирование | `boxingscene`, `fightnews`, `wbc-boxing`, `wba-boxing`, `wbo-boxing`, `sportsru-fight` |
 | Теннис | Grand Slam, ATP/WTA, рейтинги | `bbc-tennis`, `guardian-tennis`, `tennismajors`, `tennis365`, `ubitennis`, `sportsru-tennis`, `sport-express-tennis` |
@@ -331,6 +331,23 @@ Economist, The Verge и Ars Technica — все они в проде живы.
 воркфлоу, а не отбрасывается по ответу песочницы.** Стоит это одну минуту
 и один пуш в свою ветку. Триггер — `push` в ветку, а не `workflow_dispatch`:
 кнопку «Run workflow» GitHub показывает только для воркфлоу, лежащих в `main`.
+
+### Обратная ошибка стоит столько же: Transfermarkt
+
+17.08.2026 пять лент Transfermarkt завели по проверке из песочницы — HTTP 200,
+валидный XML, 10 записей у каждой. Первый же боевой прогон фетчера уронил все
+пять: «Unable to parse XML».
+
+Диагностика в Actions показала причину: **Transfermarkt отдаёт дата-центрам
+пустой HTTP 202** с `content-type: text/html` и нулевым телом. Ровно то же
+поведение, что у ESPN. Ленты отключены (`disabled: true`), записи в конфиге
+сохранены вместе с разбором.
+
+Вывод симметричен предыдущему и важнее его: **проверка из песочницы не
+доказывает НИ ЖИЗНЬ источника, НИ его смерть.** `check-sources.mjs` тут ни при
+чём — он бы это поймал, `items=0` для него признак поломки; но запускали его
+оттуда же, из песочницы, где лента отвечает. Новый источник проверяется
+прогоном в Actions до мержа, а не после.
 
 Следствия, с которыми живём сегодня: **первоисточника в теннисе нет** (WTA
 мертва наверняка, ATP под вопросом); **Саудовская Про-лига** покрывается только
