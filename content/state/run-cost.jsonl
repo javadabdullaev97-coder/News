@@ -34,3 +34,5 @@
 {"run":"2026-08-17T21:38","topics":1,"published":1,"skippedFactcheck":0,"skippedBild":0}
 {"run":"2026-08-17T21:55","stage":"reporter","calls":1,"fetches":19,"minutes":7}
 {"run":"2026-08-17T21:55","stage":"fact-checker","calls":1,"fetches":1,"minutes":3}
+{"run":"2026-08-17T21:56","stage":"reporter","calls":1,"fetches":10,"minutes":7}
+{"run":"2026-08-17T21:56","stage":"fact-checker","calls":1,"fetches":7,"minutes":4}
