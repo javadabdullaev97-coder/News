@@ -1,0 +1,56 @@
+name: Audit telegram duplicates
+
+# Сверяет реестр отправленного с тем, что реально висит в каналах.
+#
+# ЗАЧЕМ ОТДЕЛЬНЫМ ПРОГОНОМ. Реестр лежит в git, канал живёт своей жизнью,
+# и расхождение между ними не видит никто — пока не напишет подписчик.
+# 18.08.2026 владелец нашёл статью в пяти экземплярах; когда механику
+# починили, сплошная сверка подняла ещё двадцать четыре лишних сообщения
+# в спортивных каналах, про которые не знал никто.
+#
+# Прогон краснеет, если в канале живут две копии одного материала. Это
+# не поломка сборки, а сигнал: зайди и посмотри. Заявку на снятие
+# собирает тот же скрипт с флагом --request.
+#
+# Секретов не требует: проверка идёт по публичной странице t.me.
+
+on:
+  schedule:
+    # Раз в шесть часов. Точность здесь не нужна — расхождение живёт
+    # часами, а не минутами, поэтому обычного расписания GitHub хватает
+    # (внешние часы заведены для публикации, где минуты важны).
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      all:
+        description: "all — 1 = смотреть и то, что бот уже не сможет удалить (старше 48 ч)"
+        required: false
+        default: "0"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: audit-telegram
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Сверить каналы с реестром
+        run: |
+          if [[ "${{ github.event.inputs.all }}" == "1" ]]; then
+            node scripts/audit-telegram-duplicates.mjs --all
+          else
+            node scripts/audit-telegram-duplicates.mjs
+          fi
