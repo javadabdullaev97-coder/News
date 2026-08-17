@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-17T09:07:00+05:00",
-  "topicsProcessed": 0,
+  "lastRunAt": "2026-08-17T10:31:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
   "queuedDirect": 0,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 1,
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 99,
-  "duplicatesOfPublished": 0,
+  "belowThreshold": 110,
+  "duplicatesOfPublished": 1,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-17.jsonl",
-    "itemsFreshLocal": 30,
-    "itemsFreshWorld": 69
+    "itemsFreshLocal": 111,
+    "itemsFreshWorld": 145
   },
-  "notes": "Порог не прошла ни одна тема. needs-verification: 7 карточек .md, ни одна не созрела (recheckAt в будущем, ближайшая 18.08 10:00). rework пуст. Местный поток (30 items) — погода/пыль (Узгидромет), гороскоп, спорт, самопиар каналов, статистика Агентства статистики (7,7 млн туристов, P1, но без actionable/affectsEveryone — не набрала порог), развитие блэкаута 14.08 (Times CA, «conflicting accounts») — не новый факт, расхождение KEGOC/Токтогул уже отражено в content/posts/2026-08-15/toktogul-hpp-accident-surkhandarya.mdx. Мировой поток (69 items) — почти целиком рутина войны РФ-Украина (skip по specialRules.ruUaHighBar) и внутрироссийские заметки ru-state/ru-business без второго блока; пожар на Саламине уже опубликован (content/queue/belgium-high-fens-wildfire-greece-salamina.mdx); давка в Бихаре (7 погибших, только tass) не проходит порог жертв и minDistinctBlocs; смерть Хейден Панеттьери — не входит ни в одну категорию tiers."
+  "notes": "1 тема прошла порог: указ УП-160 «Правосудие – 2030» (судебная реформа), P0 huquqiyaxborot, score ~70 (primary source + exclusive). Прогнана через reporter → fact-check (approve-with-downgrades, 65%) → editor: killed — дубликат, тот же указ уже опубликован дважды (content/posts/2026-08-14/uzbekistan-justice-2030-strategy.mdx и .../2026-08-16/uzbekistan-judicial-reform-court-trust-2026.mdx), topic-dupecheck.mjs это не поймал (новый линк не совпал по хешу/заголовку), поймал editor при финальной сверке. Черновик и 8 fact-check понижений сохранены в content/rejected/ и .review/ на случай, если владелец захочет добавить 3 новые детали (319=227+92 штат, срок my.sud.uz, точная дата 1 января 2028) в статью от 16 августа через штатный процесс «Исправления». Местный поток (111 fresh) — остальное: рутинные пожары без пострадавших, кошки в метро, спорт, статистика без actionable/affectsEveryone, спам-эмодзи посты госканалов. Мировой поток (145 fresh) — почти целиком рутина войны РФ-Украина (skip по ruUaHighBar) и ru-business без второго блока; смерть Хейден Панеттьери (Heroes/Nashville, 36 лет) — anglo+ru-business блоки есть, но не оценена как «громкое событие» уровня Тейлор Свифт/крупных премий из примеров showbiz-категории — не взята, тихого дня (<5 материалов) недостаточно для этой натяжки. missing-images, translation-gaps, channel-candidates — пусто."
 }
