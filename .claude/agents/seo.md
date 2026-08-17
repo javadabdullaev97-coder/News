@@ -130,7 +130,8 @@ Editor уже выставил, но иногда путает границу po
 - politics / economy / world → +25
 - tech / business → +15
 - society → +10
-- culture / sport → +5
+- sport → **+20** (поднято 06.08.2026 по замеру конкурентов — см. `$sportComment` в конфиге)
+- culture → +5
 
 **По первоисточнику** (`byPrimarySource` — берём наивысший приоритет из sources):
 - Есть P0-источник (Минюст, ЦБ, Президент, ГУВД) → +20
@@ -144,6 +145,7 @@ Editor уже выставил, но иногда путает границу po
 - `impactUzbekistan: +15` — международная новость с прямыми последствиями для UZ
 - `exclusive: +10` — первоисточник есть, конкуренты ещё не написали
 - `historicalImportance: +10` — впервые за N лет / рекорд
+- `longform: +10` — основной текст длиннее медианы выпуска, примерно 290 слов. Считай слова тела статьи без frontmatter
 
 **Named actors и клубы** — прочитай список `namedActors` в `config/telegram-scoring.json`:
 - Упоминание любой персоны из `politicians` / `techInfluencers` / `sportStars` / `showbiz` → **+15**
