@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-17T14:41:00+05:00",
+  "lastRunAt": "2026-08-17T15:30:00+05:00",
   "mode": "main",
-  "topicsProcessed": 5,
-  "published": 3,
+  "topicsProcessed": 1,
+  "published": 0,
   "queuedForOwner": 0,
-  "rejected": 2,
+  "rejected": 1,
   "needsVerification": 0,
-  "belowThreshold": 167,
+  "belowThreshold": 7,
   "rework": 0,
-  "notes": "Обнаружен баг в scripts/i18n-lint.mjs --fix: замена \"%\"→\" foiz\" срабатывает и внутри URL-кодировки (%E2%80%99 → \" foiz80 foiz99\"), корёжит ссылки в чужих статьях при обычном прогоне линтера. Задел content/posts/2026-08-17/meta-youth-safety-trial-29-states.uz.mdx — откатил вручную, не закоммитил. Также reporter/fact-checker субагенты систематически не могут Write в .review/*notes*.md и *factcheck*.md (харнесс блокирует по подстроке 'report' в имени файла) — оркестратор сохранял их содержимое вручную по тексту ответа, это на каждую тему +1 ручной шаг."
+  "notes": "Тема urganch-airport-modernization-264m прошла dupecheck как clear на отборе, но параллельный прогон опубликовал ту же тему (urgench-airport-reconstruction) раньше, чем этот дошёл до editor'а — race между конкурентными планёрками, editor поймал и отклонил как дубль до bild/seo. Повторно: субагенты (reporter, editor) не могут Write в .review/*notes*.md и *factcheck*.md — харнесс блокирует по подстроке 'report'/похожим именам, приходится сохранять их текст вручную."
 }
