@@ -1,0 +1,10 @@
+{
+  "lastRunAt": "2026-08-17T12:00:00+05:00",
+  "topicsProcessed": 3,
+  "published": 3,
+  "queuedForOwner": 0,
+  "rejected": 0,
+  "needsVerification": 0,
+  "belowThreshold": 6,
+  "notes": "Первый прогон отдельной sport-планёрки (файла ещё не было). build-source-index.mjs --used-only сканирует только local/world потоки, sport-only источники (boxingscene, sherdog-news, guardian-tennis, ubitennis и др.) в source-index.json не попадают — reporter/fact-checker получали citable-статус вручную из news-sources.json. Также telegram-scoring.json не содержит слагаемого за финал турнира, хотя newsroom-policy.json sport.$mainChannelNote на него ссылается — оба пробела стоит закрыть."
+}
