@@ -28,6 +28,7 @@
 
 import {
   existsSync,
+  readdirSync,
   statSync,
   readFileSync,
   writeFileSync,
@@ -156,20 +157,39 @@ function checkInbox() {
   return null;
 }
 
+// Отметка о прогоне у КАЖДОЙ планёрки своя: last-routine-run.json у основной,
+// last-routine-run-sport.json и -tech.json у профильных.
+//
+// ЗАЧЕМ ВРОЗЬ. Планёрок стало три, работают они одновременно, и общий файл —
+// единственное, что они переписывали ЦЕЛИКОМ. Для git это конфликт, а
+// git-push-with-rebase.sh на конфликте делает abort и выходит с кодом 2:
+// прогон теряет не отметку, а весь свой пуш — вместе со статьями, потому что
+// раннер эфемерный. Разные файлы не конфликтуют при rebase никогда — тот же
+// приём, что с пофайловым журналом тем в content/state/seen/.
+//
+// Сторожу нужен факт «хоть одна планёрка жива», поэтому берём самую свежую
+// отметку из всех. Молчание ВСЕХ трёх — это авария; молчание одной при живых
+// соседях сторож не поймает, и это осознанно: у него нет способа отличить
+// сломанную Routine от выключенной владельцем.
 function checkRoutine() {
-  const file = join(STATE_DIR, "last-routine-run.json");
-  if (!existsSync(file)) {
-    // Первый запуск, файла нет — ничего не алертим.
+  const files = readdirSync(STATE_DIR).filter(
+    (n) => n === "last-routine-run.json" || /^last-routine-run-[a-z0-9-]+\.json$/.test(n),
+  );
+  if (!files.length) {
+    // Первый запуск, файлов нет — ничего не алертим.
     return null;
   }
-  const age = hoursSince(statSync(file).mtimeMs);
+  const age = Math.min(
+    ...files.map((n) => hoursSince(statSync(join(STATE_DIR, n)).mtimeMs)),
+  );
   if (age > ROUTINE_STALE_HOURS) {
     return {
       channel: "routine-stale",
       severity: "warn",
       message:
-        `⚠️ <b>Планёрка молчит</b>: last-routine-run.json не обновлялся ${age.toFixed(1)}ч ` +
-        `(порог ${ROUTINE_STALE_HOURS}ч). Проверь code.claude.com → LEAP Planyorka → History.`,
+        `⚠️ <b>Планёрки молчат</b>: ни одна отметка last-routine-run*.json ` +
+        `не обновлялась ${age.toFixed(1)}ч (порог ${ROUTINE_STALE_HOURS}ч). ` +
+        `Проверь code.claude.com → LEAP Planyorka → History.`,
     };
   }
   return null;

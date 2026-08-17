@@ -553,7 +553,12 @@ node -e "import('./lib/editor-queue-log.mjs').then(m => {
 
 ## Шаг 6. Обнови state-файлы
 
-**`content/state/last-routine-run.json`**:
+**`content/state/last-routine-run.json`** — у профильных планёрок **свой файл**:
+`last-routine-run-sport.json` у спортивной, `last-routine-run-tech.json` у
+технологической. Общий файл был бы единственным, что три одновременные
+планёрки переписывают целиком, а это конфликт при rebase и потерянный пуш —
+вместе со статьями, потому что раннер эфемерный. Сторож (`heartbeat.mjs`)
+берёт самую свежую отметку из всех.
 ```json
 {
   "lastRunAt": "2026-07-31T13:00:00+05:00",
