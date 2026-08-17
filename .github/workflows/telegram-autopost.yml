@@ -71,20 +71,37 @@ jobs:
           DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: node scripts/post-to-telegram.mjs
 
+      # if: always() и проверка НЕОТПРАВЛЕННЫХ КОММИТОВ, а не грязного дерева.
+      #
+      # Скрипт коммитит запись сам после каждого поста, поэтому дерево после
+      # него чистое. Прежняя проверка `git status` видела пустоту и печатала
+      # «No state changes to commit» — а в это время записи лежали
+      # в локальных коммитах, которые не удалось запушить, и умирали вместе
+      # с раннером. 17.08.2026 материал про OpenRouter ушёл в @leap_techno
+      # пять раз именно так: прогоны зелёные, посты уходят, реестр пуст.
+      #
+      # always() — потому что шаг публикации падает как раз в тех случаях,
+      # когда догнать реестр важнее всего.
       - name: Commit state changes
-        if: github.event.inputs.dry_run != '1'
+        if: always() && github.event.inputs.dry_run != '1'
         run: |
           # Журналы состояния создаются только при первой записи, а `git add`
           # на несуществующий путь падает с кодом 128 и роняет весь шаг —
           # так 03.08.2026 четыре прогона подряд не смогли применить ответы
           # владельца. touch делает путь существующим всегда.
           touch content/state/telegram-posted.jsonl
-          if [[ -z $(git status --porcelain content/state/telegram-posted.jsonl) ]]; then
-            echo "No state changes to commit."
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add content/state/telegram-posted.jsonl
-          git commit -m "state: telegram-posted updated"
+
+          if [[ -n $(git status --porcelain content/state/telegram-posted.jsonl) ]]; then
+            git add content/state/telegram-posted.jsonl
+            git commit -m "state: telegram-posted updated"
+          fi
+
+          git fetch --quiet origin main || true
+          if [[ -z $(git log --oneline origin/main..HEAD) ]]; then
+            echo "Реестр совпадает с main — догонять нечего."
+            exit 0
+          fi
+          echo "Неотправленных коммитов: $(git log --oneline origin/main..HEAD | wc -l)"
           bash .github/scripts/git-push-with-rebase.sh

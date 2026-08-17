@@ -20,7 +20,14 @@
 set -euo pipefail
 
 BRANCH="${GIT_TARGET_BRANCH:-main}"
-MAX_ATTEMPTS=4
+
+# Число попыток настраивается: постер в Telegram пушит маленький журнал
+# после каждого сообщения и делает это ровно тогда, когда планёрка пачками
+# коммитит очередь, картинки и журнал тем. 17.08.2026 четырёх попыток
+# не хватило — пуши не прошли, записи о постах остались в мёртвых локальных
+# коммитах, и материал ушёл в канал пять раз. Для таких коротких пушей
+# терпение дешевле повтора у подписчиков.
+MAX_ATTEMPTS="${GIT_PUSH_ATTEMPTS:-4}"
 
 for attempt in $(seq 1 $MAX_ATTEMPTS); do
   echo "[git-push] attempt $attempt/$MAX_ATTEMPTS on branch=$BRANCH"
@@ -51,8 +58,10 @@ for attempt in $(seq 1 $MAX_ATTEMPTS); do
     exit 0
   fi
 
+  # Джиттер: без него два постера, стартовавшие одновременно, повторяют
+  # попытку в одну и ту же секунду и мешают друг другу столько же раз.
   echo "[git-push] push failed, will re-fetch and retry"
-  sleep $((2 ** attempt))
+  sleep $(( (2 ** attempt) + (RANDOM % 3) ))
 done
 
 echo "[git-push] exhausted $MAX_ATTEMPTS attempts"

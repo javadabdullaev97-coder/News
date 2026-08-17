@@ -258,14 +258,104 @@ function recentSourceUrls() {
   return byUrl;
 }
 
+/**
+ * Тот же сюжет под другим адресом.
+ *
+ * Точного совпадения ссылок не хватает. 17.08.2026 материал про покупку
+ * OpenRouter вышел дважды, и первоисточники были такие:
+ *
+ *   bloomberg.com/news/articles/2026-08-16/stripe-nears-deal-to-buy-ai-firm-openrouter-for-over-7-billion
+ *   bloomberg.com/news/videos/2026-08-17/stripe-to-buy-ai-firm-openrouter-in-7-billion-deal-video
+ *
+ * Один материал издания — заметка и видео. Строки разные, гейт молчал,
+ * статья ушла в канал вторым слагом, и подписчик увидел одну новость дважды.
+ *
+ * СОВПАДЕНИЕ ИЩЕТСЯ ПО ТРЁМ УСЛОВИЯМ СРАЗУ, и каждое отсекает свой класс
+ * ложных срабатываний (замер на 122 материалах за 14–18.08):
+ *
+ *   1. только последний сегмент пути. Без этого «politics/international/
+ *      relations» роднило визит Путина на Итуруп с пошлинами Трампа;
+ *   2. только редкие слова — те, что встречаются не более чем у трёх
+ *      материалов окна. Иначе «press», «news» и «2026» роднят всё подряд;
+ *   3. у слагов статей обязано быть общее слово. Это отсекает законный
+ *      случай «две статьи про разные законы одного пленарного заседания»:
+ *      источник общий, сюжеты разные — и слаги ничего общего не имеют.
+ *
+ * На тех же 122 материалах правило даёт пять пар, и все пять — настоящие
+ * повторы сюжета.
+ */
+function lastSegmentWords(url) {
+  try {
+    const u = new URL(url);
+    const segs = u.pathname.toLowerCase().split("/").filter(Boolean);
+    return {
+      host: u.hostname.replace(/^www\./, "").toLowerCase(),
+      words: new Set(
+        (segs.at(-1) ?? "")
+          .split(/[^a-z0-9а-яё]+/i)
+          .filter((w) => w.length >= 4 && !/^\d+$/.test(w)),
+      ),
+    };
+  } catch {
+    return null;
+  }
+}
+
+const slugWords = (slug) =>
+  new Set(String(slug).split("-").filter((w) => w.length >= 4 && !/^\d/.test(w)));
+
+const RARE_MAX_ARTICLES = 3;
+const SHARED_WORDS_FOR_DUPE = 3;
+
 function duplicateOfPublished(item) {
   const recent = recentSourceUrls();
   const head = item.raw.split(/\n---/, 1)[0];
-  for (const m of head.matchAll(SOURCE_URL)) {
-    if (m[1].includes("leap.uz")) continue;
-    const hit = recent.get(m[1]);
+  const mine = [...head.matchAll(SOURCE_URL)]
+    .map((m) => m[1])
+    .filter((u) => !u.includes("leap.uz"));
+
+  for (const url of mine) {
+    const hit = recent.get(url);
     if (hit && hit.slug !== item.slug) {
-      return `тот же первоисточник, что у «${hit.slug}» (${hit.day}): ${m[1]}`;
+      return `тот же первоисточник, что у «${hit.slug}» (${hit.day}): ${url}`;
+    }
+  }
+
+  // Насколько слово редкое: у скольких материалов окна оно встречается.
+  const df = new Map();
+  const byArticle = new Map();
+  for (const [url, hit] of recent) {
+    const fp = lastSegmentWords(url);
+    if (!fp) continue;
+    byArticle.set(hit.slug, [...(byArticle.get(hit.slug) ?? []), { ...fp, hit }]);
+  }
+  for (const [, fps] of byArticle) {
+    const seen = new Set();
+    for (const fp of fps) for (const w of fp.words) seen.add(w);
+    for (const w of seen) df.set(w, (df.get(w) ?? 0) + 1);
+  }
+
+  const myWords = slugWords(item.slug);
+  for (const url of mine) {
+    const a = lastSegmentWords(url);
+    if (!a) continue;
+    for (const [slug, fps] of byArticle) {
+      if (slug === item.slug) continue;
+      const slugShared = [...myWords].filter((w) => slugWords(slug).has(w));
+      if (!slugShared.length) continue;
+      for (const b of fps) {
+        if (b.host !== a.host) continue;
+        const shared = [...a.words].filter(
+          (w) => b.words.has(w) && (df.get(w) ?? 0) <= RARE_MAX_ARTICLES,
+        );
+        if (shared.length >= SHARED_WORDS_FOR_DUPE) {
+          return (
+            `тот же сюжет, что у «${slug}» (${b.hit.day}): ${a.host}, ` +
+            `общее в слагах — ${slugShared.join(", ")}; ` +
+            `в адресах — ${shared.slice(0, 6).join(", ")}`
+          );
+        }
+      }
     }
   }
   return null;

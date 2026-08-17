@@ -34,7 +34,7 @@
 // и скрипт про это честно скажет: молча «успешно» на неудалённом посте
 // хуже, чем видимая ошибка.
 
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { appendLog } from "../lib/state-log.mjs";
@@ -189,4 +189,35 @@ for (const t of targets) {
 console.error(
   `[retract] удалено ${removed}, уже не было ${gone}, не удалось ${failed}`,
 );
+
+// ─── Заявка обнуляется сразу после исполнения ───
+//
+// Иначе она остаётся в репозитории заряженной, и следующий её пуш — ревертом,
+// ребейзом, чем угодно — снимет уже другие сообщения: номера-то в канале
+// с тех пор сдвинулись. Тот же порядок, что у scripts/retract-social.mjs.
+//
+// При сбое не трогаем: заявку нужно доисполнить, а не переписать.
+if (!failed && !dryRun) {
+  writeFileSync(
+    REQUEST,
+    `${JSON.stringify(
+      {
+        $comment: [
+          "Заявка исполнена и обнулена скриптом. Заряженной она не остаётся:",
+          "номера сообщений в канале со временем указывают уже на другие посты.",
+          "",
+          "Как снять: slugs — по реестру, messages — по номерам вида",
+          "«tech-uz:89» для постов, которых в реестре нет.",
+        ],
+        slugs: [],
+        messages: [],
+        lastRun: { at: new Date().toISOString(), removed, alreadyGone: gone },
+      },
+      null,
+      2,
+    )}\n`,
+  );
+  console.error("[retract] заявка обнулена");
+}
+
 process.exit(failed ? 1 : 0);

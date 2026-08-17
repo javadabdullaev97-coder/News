@@ -288,16 +288,24 @@ jobs:
           SITE_URL: "https://leap.uz"
         run: node scripts/post-to-telegram.mjs
 
+      # Проверяются НЕОТПРАВЛЕННЫЕ КОММИТЫ, а не грязное дерево: постер
+      # коммитит запись сам после каждого поста. Разбор —
+      # в .github/workflows/telegram-autopost.yml.
       - name: Commit telegram state
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Тот же случай, что и выше: путь обязан существовать до git add.
           touch content/state/telegram-posted.jsonl
-          if [[ -z $(git status --porcelain -- content/state/telegram-posted.jsonl) ]]; then
-            echo "В канал ничего не уходило."
+          if [[ -n $(git status --porcelain -- content/state/telegram-posted.jsonl) ]]; then
+            git add content/state/telegram-posted.jsonl
+            git commit -m "state: telegram-posted обновлён после ответа редактора"
+          fi
+          git fetch --quiet origin main || true
+          if [[ -z $(git log --oneline origin/main..HEAD) ]]; then
+            echo "Реестр совпадает с main — догонять нечего."
             exit 0
           fi
-          git add content/state/telegram-posted.jsonl
-          git commit -m "state: telegram-posted обновлён после ответа редактора"
+          echo "Неотправленных коммитов: $(git log --oneline origin/main..HEAD | wc -l)"
           bash .github/scripts/git-push-with-rebase.sh

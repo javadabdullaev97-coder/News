@@ -439,6 +439,11 @@ const GIT_IDENTITY = [
   "-c", "user.email=41898282+github-actions[bot]@users.noreply.github.com",
 ];
 
+// Записи, закоммиченные локально, но не доехавшие до main. Проверяется
+// в конце прогона: пустой список — единственный признак того, что реестр
+// и канал сошлись.
+const unpushed = [];
+
 function publishStateRecord(label) {
   // Только в Actions: локальный прогон не должен трогать историю репозитория.
   if (dryRun || process.env.GITHUB_ACTIONS !== "true") return;
@@ -454,15 +459,81 @@ function publishStateRecord(label) {
       [...GIT_IDENTITY, "commit", "-m", `state: telegram-posted +${label}`],
       { cwd: ROOT, stdio: "pipe" },
     );
+    // Шесть попыток вместо четырёх: этот пуш идёт наперегонки с пачками
+    // коммитов планёрки, а цена проигранной гонки — повтор у подписчиков.
     execFileSync("bash", [".github/scripts/git-push-with-rebase.sh"], {
       cwd: ROOT,
       stdio: "pipe",
+      env: { ...process.env, GIT_PUSH_ATTEMPTS: "6" },
     });
   } catch (err) {
+    // Коммит сделан, пуш не прошёл. САМОЕ ОПАСНОЕ МЕСТО ВО ВСЁМ СКРИПТЕ:
+    // запись о посте лежит теперь в локальном коммите, рабочее дерево
+    // чистое, и шаг воркфлоу «Commit state changes» скажет «нечего
+    // коммитить» и ничего не отправит. Коммит умрёт вместе с раннером,
+    // а следующий прогон отправит статью заново.
+    //
+    // Ровно так 17.08.2026 материал про OpenRouter ушёл в @leap_techno
+    // пять раз: прогоны были зелёными, посты уходили, записи оставались
+    // в мёртвых коммитах.
+    //
+    // Поэтому: не глотаем. Помечаем долг и печатаем причину целиком —
+    // обрезанные 80 знаков в тот раз скрыли ровно то, что было нужно.
+    unpushed.push(label);
+    const detail = [err.message, err.stdout?.toString(), err.stderr?.toString()]
+      .filter(Boolean)
+      .join(" | ")
+      .slice(0, 400);
+    console.error(`  ⚠ запись «${label}» закоммичена, но не уехала в main: ${detail}`);
+  }
+}
+
+/**
+ * Догоняющий пуш в конце прогона.
+ *
+ * Проверяет НЕОТПРАВЛЕННЫЕ КОММИТЫ, а не грязное дерево. Разница
+ * принципиальная: publishStateRecord коммитит сам, поэтому дерево после
+ * него чистое, и проверка «git status» видит пустоту там, где на самом
+ * деле висит долг.
+ *
+ * Не смог отправить — это провал прогона, а не предупреждение. Зелёный
+ * прогон, потерявший записи о постах, гарантирует повторную отправку
+ * тех же материалов; лучше красный воркфлоу и остановленная лента.
+ */
+function flushStateCommits() {
+  if (dryRun || process.env.GITHUB_ACTIONS !== "true") return true;
+  let ahead = "";
+  try {
+    execFileSync("git", ["fetch", "--quiet", "origin", "main"], { cwd: ROOT, stdio: "pipe" });
+    ahead = execFileSync("git", ["log", "--oneline", "origin/main..HEAD"], {
+      cwd: ROOT,
+      encoding: "utf8",
+    }).trim();
+  } catch (err) {
+    console.error(`[tg] не удалось сверить HEAD с origin/main: ${err.message}`);
+  }
+  if (!ahead) {
+    if (unpushed.length) {
+      console.error(`[tg] долг закрыт: записи (${unpushed.length}) уже в main`);
+    }
+    return true;
+  }
+  console.error(`[tg] неотправленных коммитов: ${ahead.split("\n").length}, догоняю`);
+  try {
+    execFileSync("bash", [".github/scripts/git-push-with-rebase.sh"], {
+      cwd: ROOT,
+      stdio: "inherit",
+      env: { ...process.env, GIT_PUSH_ATTEMPTS: "8" },
+    });
+    console.error("[tg] догоняющий пуш прошёл — записи в main");
+    return true;
+  } catch {
     console.error(
-      `  ⚠ запись о посте не уехала в main (${String(err.message).slice(0, 80)}). ` +
-        "Пост отправлен, файл на диске — доберёт шаг в конце прогона.",
+      `[tg] ✗ ЗАПИСИ О ПОСТАХ НЕ УЕХАЛИ В MAIN. Посты отправлены, реестр их не помнит — ` +
+        `следующий прогон отправит те же материалы повторно. Разберись до следующего запуска: ` +
+        `${unpushed.join(", ") || ahead.split("\n")[0]}`,
     );
+    return false;
   }
 }
 
@@ -748,4 +819,7 @@ for (let i = 0; i < pending.length; i++) {
 }
 
 console.error(`[tg] posted ${ok}, failed ${failed}`);
-if (failed) process.exit(1);
+
+// Реестр обязан догнать канал ДО завершения прогона.
+const flushed = flushStateCommits();
+if (failed || !flushed) process.exit(1);
