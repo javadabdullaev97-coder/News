@@ -21,7 +21,7 @@ const item = (slug, agoMin = 0, extra = {}) => ({
   ...extra,
 });
 // Детерминированный «случай»: без него тест ловил бы разные планы.
-const noJitter = { random: () => 0.5 };
+const noJitter = { jitter: 0 };  // разброс детерминирован от слага, глушим его целиком
 
 // ── вне очереди ───────────────────────────────────────────────────────
 {
@@ -101,20 +101,32 @@ const noJitter = { random: () => 0.5 };
 
 // ── разброс ───────────────────────────────────────────────────────────
 {
-  const mk = (rnd) =>
+  const mk = (opts = {}) =>
     planReleases([item("a", 3), item("b", 2), item("c", 1)], {
-      now: T0, nextBatchAt: T0 + min(30), random: rnd,
+      now: T0, nextBatchAt: T0 + min(30), ...opts,
     }).map((p) => p.dueAt);
 
-  const flat = mk(() => 0.5);
-  const noisy = mk(() => 0.9);
+  const flat = mk({ jitter: 0 });
+  const noisy = mk();
   ok(JSON.stringify(flat) !== JSON.stringify(noisy),
      "разброс реально сдвигает слоты — лента не идёт метрономом");
+
+  // Разброс детерминированный: тот же слаг — тот же сдвиг при любом числе
+  // пересчётов. Публикатор считает план на каждом тике, и прыгающий срок
+  // означал бы бесконечно меняющуюся подсказку часам — 48 пустых коммитов
+  // в сутки, каждый со своим пушем и пересборкой сайта (06.08.2026).
+  ok(JSON.stringify(mk()) === JSON.stringify(mk()),
+     "повторный расчёт того же плана даёт тот же результат");
+  const other = planReleases([item("z", 3), item("y", 2), item("x", 1)], {
+    now: T0, nextBatchAt: T0 + min(30),
+  }).map((p) => p.dueAt);
+  ok(JSON.stringify(other) !== JSON.stringify(noisy),
+     "у других слагов — другой разброс, а не общий на всех");
 
   // Двести прогонов со случайным разбросом: порядок обязан держаться всегда.
   let broken = 0;
   for (let n = 0; n < 200; n++) {
-    const due = mk(Math.random);
+    const due = mk({ random: Math.random });
     for (let i = 1; i < due.length; i++) if (due[i] < due[i - 1]) broken++;
   }
   ok(broken === 0, "при любом разбросе порядок выпуска не ломается (200 прогонов)");

@@ -85,7 +85,38 @@ const EN_RULES = Object.entries(MINISTRIES).map(([word, full]) => ({
   to: () => `Ministry of ${full}`,
 }));
 
-const RULES_BY_LANG = { uz: UZ_RULES, en: EN_RULES };
+// Русский: узбекских префиксов актов быть не должно. Номер один и тот же,
+// меняется только буква вида документа (lex.uz: УП-140 = PF-140-son).
+// Правило существовало с 04.08.2026, но с лазейкой «если русской публикации
+// ещё нет — оставь узбекский номер», и через неё ПФ, ЎРҚ и УРК разошлись
+// по двум десяткам материалов (06.08.2026). Лазейка закрыта, проверка здесь.
+const RU_RULES = [
+  {
+    name: "закон — ЗРУ, не ЎРҚ/УРК/O'RQ",
+    re: /\b(?:ЎРҚ|УРК|O'RQ|ORQ)[-–]?(\d+)(?:-сон)?/g,
+    to: (m, n) => `ЗРУ-${n}`,
+  },
+  {
+    name: "указ — УП, не ПФ/PF",
+    re: /\b(?:ПФ|PF)[-–]?(\d+)(?:-сон)?/g,
+    to: (m, n) => `УП-${n}`,
+  },
+  {
+    name: "постановление — ПП, не ПҚ/PQ",
+    re: /\b(?:ПҚ|ПК|PQ)[-–]?(\d+)(?:-сон)?/g,
+    to: (m, n) => `ПП-${n}`,
+  },
+];
+
+// Английский берёт русскую нумерацию: читатель идёт за документом
+// на русскую страницу lex.uz, узбекской он там не найдёт.
+const EN_ACT_RULES = [
+  { name: "закон — ZRU, не O'RQ", re: /\b(?:O'RQ|ORQ)[-–]?(\d+)/g, to: (m, n) => `ZRU-${n}` },
+  { name: "указ — UP, не PF", re: /\bPF[-–]?(\d+)/g, to: (m, n) => `UP-${n}` },
+  { name: "постановление — PP, не PQ", re: /\bPQ[-–]?(\d+)/g, to: (m, n) => `PP-${n}` },
+];
+
+const RULES_BY_LANG = { ru: RU_RULES, uz: UZ_RULES, en: [...EN_RULES, ...EN_ACT_RULES] };
 
 // Хвосты служебной разметки агентов. Проверяются во ВСЕХ языках, включая
 // русский, и не чинятся автоматически: обрывок tool-call'а в тексте обычно
@@ -145,14 +176,51 @@ for (const { path: file, lang } of files) {
 for (const f of findings) {
   console.error(`${fix ? "✓" : "✗"} ${f.file}: ${f.rules.join("; ")}`);
 }
+// Карточки needs-verification обязаны нести машиночитаемый срок возврата.
+//
+// Без recheckAt карточку не разморозит никто: §Шаг 1б спецификации отбирает
+// созревшие именно по этому полю, а прозаическое «через 4 часа» в теле
+// от какой даты считать — не следует. Так папка два дня работала на запись
+// (03.08.2026), и так же 06.08.2026 в ней нашлись карточки без срока.
+//
+// Проверяются только .md и .mdx БЕЗ языкового суффикса: перевод — не карточка,
+// своего срока у него нет, он уезжает вместе с оригиналом.
+const NV_DIR = join(ROOT, "content/needs-verification");
+const cards = [];
+const overdue = [];
+if (existsSync(NV_DIR)) {
+  for (const f of readdirSync(NV_DIR)) {
+    if (!/\.mdx?$/.test(f) || /\.(uz|en)\.mdx$/.test(f)) continue;
+    const text = readFileSync(join(NV_DIR, f), "utf8");
+    // Материал, ждущий владельца, живёт по другому правилу: у него срок —
+    // ответ человека, а не календарь. Его подгоняет editor-queue remind.
+    if (/^awaitingEditor:\s*(true|"true")/m.test(text)) continue;
+    const m = text.match(/^recheckAt:\s*"?([0-9T:+\-.]+)"?/m);
+    if (!m) { cards.push(f); continue; }
+    // Просрочка — не дефект файла, а редакционный долг: карточку не разморозили
+    // вовремя. Не роняем прогон, но показываем, иначе она тихо стареет
+    // (06.08.2026 одна ждала 55 часов).
+    const due = Date.parse(m[1].length <= 10 ? `${m[1]}T00:00:00+05:00` : m[1]);
+    if (Number.isFinite(due) && Date.now() - due > 24 * 3600 * 1000) {
+      overdue.push({ file: f, hours: Math.round((Date.now() - due) / 3600000) });
+    }
+  }
+}
+for (const o of overdue) {
+  console.error(`… content/needs-verification/${o.file}: срок перепроверки прошёл ${o.hours} ч назад`);
+}
+for (const c of cards) {
+  console.error(`✗ content/needs-verification/${c}: нет recheckAt — карточку некому разморозить`);
+}
+
 for (const l of leaks) {
   console.error(`✗ ${l.file}: служебная разметка агента в тексте (${l.markers.join(", ")}) — вычистить руками`);
 }
 console.error(
   fix
-    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}`
-    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}`,
+    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}`
+    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}`,
 );
 // Утечка разметки — ошибка всегда, даже в режиме --fix: чинить её
 // автоматически нельзя, а выпускать материал с ней нельзя тем более.
-process.exit(leaks.length || (!fix && findings.length) ? 1 : 0);
+process.exit(leaks.length || cards.length || (!fix && findings.length) ? 1 : 0);
