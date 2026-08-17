@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T01:39:00+05:00",
+  "lastRunAt": "2026-08-18T02:07:00+05:00",
   "mode": "main",
-  "topicsProcessed": 0,
-  "published": 0,
+  "topicsProcessed": 1,
+  "published": 1,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 9,
+  "belowThreshold": 5,
   "rework": 0,
-  "notes": "Ноль тем: 9 свежих local-кандидатов — реклама (SQB ипотека), одиночный influencer-сигнал без первоисточника, землетрясение M4.8 на Шпицбергене (не по региону), Родри/Барселона (не узбекский трансфер), два казахстанских/азербайджанских бизнес-сюжета, Hook.report (чёрный список) и вуз-PR — все ниже порога 55. Мировой поток (2305 items) просмотрен на ключевые категории mustPublish/publishIfQuality — ничего не набрало minDistinctBlocs с непророссийским блоком; Nvidia $105 млрд в дата-центр OpenAI подтверждён только Kommersant (ru-business), один блок. check-doc-digest.mjs: fresh=false — CORE.md отстал от SKILL.md, нужно обновить дайджест."
+  "notes": "Local-поток пуст по существу (5 items, ни один не по теме/региону). Единственная тема — мировая, развитие сюжета США-Иран (MoU истёк). check-doc-digest: fresh=false, CORE.md всё ещё отстаёт от SKILL.md — дайджест нужно обновить руками. Reporter-агент не смог Write в файл с подстрокой 'report' в имени (reporter-notes-*.md) — блокировка инструмента, orchestrator сохранил notes сам. node_modules отсутствовал в свежем клоне — потребовался npm install перед claims-lint/factcheck-gate."
 }
