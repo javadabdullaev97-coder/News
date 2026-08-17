@@ -1,0 +1,28 @@
+REJECTED as duplicate (editor decision, pre-seo/bild).
+
+content/posts/2026-08-17/urgench-airport-reconstruction.mdx already published
+2026-08-17T15:13:00+05:00 (updatedAt 18:10, broadcast:true, live on ru+uz,
+Telegram-posted at 10:14-10:15 UTC per content/state/telegram-posted.jsonl) and
+covers the SAME event with the SAME primary source
+(https://president.uz/ru/lists/view/9501, 17 August): $264m PPP modernization
+with южнокорейской Incheon International Airport Corporation, capacity growth
+300 -> 1300 passengers/hour (>4x), reception of Boeing 747 / Airbus A350,
+president's visit to Khorezm region 17 August, new VIP terminal, stage-1 apron
+for 18 aircraft, taxiway, border/visa control, business lounge, duty free.
+
+This draft (urgench-airport-modernization-264m) adds only supplementary color
+not present in the published version: airport founding year (1960),
+international-status year (1992), area (285+ ha), and 2026 revenue
+(126 bn sums, +31% YoY, with USD conversion). It deliberately omits two things
+the published version has: the $223m (May 2025) -> $264m (Aug 2026) cost-growth
+comparison and the PPP signing date. Net informational overlap is high enough
+(same headline number, same partner, same capacity claim, same aircraft types,
+same news hook) that publishing this as a second full article same day would
+read as a near-duplicate to readers and cannibalize the already-broadcast post.
+
+Recommendation to owner/queue editor: if the airport-history and revenue-stat
+details are worth keeping, add them to the already-published post
+(content/posts/2026-08-17/urgench-airport-reconstruction.mdx) as a dated
+update per редполитика §"Исправления и право на ответ", rather than running
+this draft as a standalone article. Editor-verdict with full reasoning:
+.review/editor-verdict-urgench-airport-modernization-264m.md.
