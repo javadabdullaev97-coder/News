@@ -218,6 +218,49 @@ Gazeta.uz, Daryo.uz и Repost.uz**.
 | CACI Analyst | cacianalyst.org | HTML | Академический анализ безопасности |
 | CABAR.asia | cabar.asia | `cabar.asia/feed/` | Аналитический портал ЦА |
 
+## Раздел 3.1 — Спортивные источники
+
+Заведены 17.08.2026 отдельным заходом: до этого на 75 лент приходилось четыре
+спортивные, из них одна отключённая. Приоритетные дисциплины — футбол,
+ММА/UFC, бокс, теннис, «Формула-1»; остальные виды не покрываем.
+
+| Дисциплина | Что закрывает | Ленты в конфиге |
+|---|---|---|
+| Футбол | топ-5 лиг Европы, еврокубки, сборные | `bbc-sport-football`, `cbs-sports-soccer`, `football-italia`, `football-espana`, `bulinews`, `sportsru-football`, `sport-express-football` |
+| Трансферы | суммы, переходы, рыночные оценки | `transfermarkt-uk/de/es/it/tr`, `sport-express-transfers` |
+| Турция и узбекские легионеры | Суперлига, Шомуродов, Файзуллаев | `trt-spor-futbol`, `transfermarkt-tr`, `football-italia` |
+| ММА / UFC | карды, рейтинги, контракты | `sherdog-news`, `mma-fighting`, `cbs-sports-mma`, `sportsru-fight`, `one-championship` |
+| Бокс | топ-бои, титулы, санкционирование | `boxingscene`, `fightnews`, `wbc-boxing`, `wba-boxing`, `wbo-boxing`, `sportsru-fight` |
+| Теннис | Grand Slam, ATP/WTA, рейтинги | `tennis365`, `ubitennis`, `sportsru-tennis`, `sport-express-tennis` |
+| «Формула-1» | Гран-при, регламент, контракты пилотов | `motorsport-f1`, `skysports-f1`, `sportsru-f1`, `fia-official` |
+
+### Чего в спорте не существует — проверено 17.08.2026
+
+Отрицательный результат важнее списка: без него эти адреса будут предлагать
+снова и снова. Все проверены прямым запросом, не по описанию.
+
+| Организация | Ожидаемый адрес | Что на самом деле |
+|---|---|---|
+| UFC | — | открытой ленты нет, только закрытый API приложения |
+| Formula 1 | formula1.com | ленты нет, регулятор закрывается через FIA |
+| FIFA | `fifa.com/rss/news.xml` | отдаёт HTML, не XML |
+| UEFA | `uefa.com/rss/news/index.xml` | HTTP 404, других адресов не найдено |
+| AFC | `the-afc.com/en/rss.xml` | HTTP 404 |
+| ATP | `atptour.com/en/media/rss-feeds/news-all` | HTTP 403, Cloudflare |
+| WTA | `wtatennis.com/rss/news` | HTTP 404 |
+| Premier League, LaLiga | `/rss/news` | HTTP 404 у обеих |
+| «Аль-Наср» | `alnassr.sa/feed` | HTTP 403 |
+| «Аль-Хиляль» | `alhilal.com/feed/news` | HTTP 404 |
+| Saudi Pro League | `spl.com.sa/en/rss` | HTTP 404 |
+| «Истанбул Башакшехир» | `ibfk.com.tr/rss.xml` | HTTP 404 на всех вариантах |
+| Ассоциация футбола Узбекистана | `uff.uz/feed/` | домен резолвится, соединение не устанавливается |
+| ESPN | `espn.com/espn/rss/soccer/news` | под нашим UA пустой HTTP 202 — то же, что в 2026-08 |
+
+Следствия, с которыми живём: **первоисточника в теннисе у нас нет вообще**;
+**Саудовская Про-лига** покрывается только тем, что попадает в общие
+футбольные ленты; **узбекского футбола** первоисточником не закрыть, остаются
+`sports-uz` и телеграм-каналы.
+
 ## Раздел 4 — Техника парсинга
 
 ### 4.1. Публичные RSS
