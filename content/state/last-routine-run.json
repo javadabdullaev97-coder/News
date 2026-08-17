@@ -1,5 +1,5 @@
 {
-  "lastRunAt": "2026-08-17T08:02:00+05:00",
+  "lastRunAt": "2026-08-17T09:07:00+05:00",
   "topicsProcessed": 0,
   "published": 0,
   "queuedDirect": 0,
@@ -8,13 +8,13 @@
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 127,
-  "duplicatesOfPublished": 1,
+  "belowThreshold": 99,
+  "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-17.jsonl",
-    "itemsFreshLocal": 11,
-    "itemsFreshWorld": 116
+    "itemsFreshLocal": 30,
+    "itemsFreshWorld": 69
   },
-  "notes": "Порог не прошла ни одна тема. Местный поток (11 items) — погода, чужой регион (Кыргызстан/Бельгия), Ferrari-аукцион, спекулятивная заметка Kun.uz без первоисточника, attributed-канал Xavfsizlik. Мировой поток (116 items): кластер Газа/Кушнер-ХАМАС/МИД-8-стран — дубликат уже вышедшего сегодня content/posts/2026-08-17/kushner-hamas-leader-gaza-road-map.mdx (topic-dupecheck: duplicate), не бралась повторно. Эбола в ДРК (2325 погибших, mena+euro) — barrier по числу блоков пройден, но ни под одну категорию tiers в policy-orchestrator.json не подпадает (нет 'эпидемия/пандемия' среди примеров), решила не брать. Остальное — рутина войны РФ-Украина (skip по specialRules.ruUaHighBar) или один блок ru-state/ru-business без подтверждения."
+  "notes": "Порог не прошла ни одна тема. needs-verification: 7 карточек .md, ни одна не созрела (recheckAt в будущем, ближайшая 18.08 10:00). rework пуст. Местный поток (30 items) — погода/пыль (Узгидромет), гороскоп, спорт, самопиар каналов, статистика Агентства статистики (7,7 млн туристов, P1, но без actionable/affectsEveryone — не набрала порог), развитие блэкаута 14.08 (Times CA, «conflicting accounts») — не новый факт, расхождение KEGOC/Токтогул уже отражено в content/posts/2026-08-15/toktogul-hpp-accident-surkhandarya.mdx. Мировой поток (69 items) — почти целиком рутина войны РФ-Украина (skip по specialRules.ruUaHighBar) и внутрироссийские заметки ru-state/ru-business без второго блока; пожар на Саламине уже опубликован (content/queue/belgium-high-fens-wildfire-greece-salamina.mdx); давка в Бихаре (7 погибших, только tass) не проходит порог жертв и minDistinctBlocs; смерть Хейден Панеттьери — не входит ни в одну категорию tiers."
 }
