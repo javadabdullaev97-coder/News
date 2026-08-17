@@ -1,7 +1,7 @@
-# Policy drift check — 2026-08-16T04:00:48.981Z
+# Policy drift check — 2026-08-17T04:00:44.280Z
 
-Проверено: 1401 .mdx за последние 7 дней
-Ошибок: 0, предупреждений: 479
+Проверено: 1425 .mdx за последние 7 дней
+Ошибок: 0, предупреждений: 486
 
 ## ⚠️ Предупреждения
 
@@ -448,6 +448,12 @@
 - **content/posts/2026-08-15/veterans-chernobyl-transport-benefits.en.mdx** — sources[].url «https://www.norma.uz/novoe_v_zakonodatelstve/komu_predostavlyaetsya_besplatnyy_i_lgotnyy_proezd_na_samoletah_poezdah_i_avtobusah» не цитируется в теле — балласт
 - **content/posts/2026-08-15/veterans-chernobyl-transport-benefits.mdx** — sources[].url «https://www.norma.uz/novoe_v_zakonodatelstve/komu_predostavlyaetsya_besplatnyy_i_lgotnyy_proezd_na_samoletah_poezdah_i_avtobusah» не цитируется в теле — балласт
 - **content/posts/2026-08-15/veterans-chernobyl-transport-benefits.uz.mdx** — sources[].url «https://www.norma.uz/novoe_v_zakonodatelstve/komu_predostavlyaetsya_besplatnyy_i_lgotnyy_proezd_na_samoletah_poezdah_i_avtobusah» не цитируется в теле — балласт
+- **content/posts/2026-08-16/uz-kg-border-exchange-working-group.en.mdx** — sources[].url «https://www.batken.gov.kg/ru» не цитируется в теле — балласт
+- **content/posts/2026-08-16/uz-kg-border-exchange-working-group.en.mdx** — sources[].url «https://gov.uz/uz/iiv» не цитируется в теле — балласт
+- **content/posts/2026-08-16/uz-kg-border-exchange-working-group.mdx** — sources[].url «https://www.batken.gov.kg/ru» не цитируется в теле — балласт
+- **content/posts/2026-08-16/uz-kg-border-exchange-working-group.mdx** — sources[].url «https://gov.uz/uz/iiv» не цитируется в теле — балласт
+- **content/posts/2026-08-16/uz-kg-border-exchange-working-group.uz.mdx** — sources[].url «https://www.batken.gov.kg/ru» не цитируется в теле — балласт
+- **content/posts/2026-08-16/uz-kg-border-exchange-working-group.uz.mdx** — sources[].url «https://gov.uz/uz/iiv» не цитируется в теле — балласт
 - **content/posts/2026-08-01/** — категория "society": 15 материалов за день (порог 9)
 - **content/posts/2026-08-01/** — категория "economy": 24 материалов за день (порог 9)
 - **content/posts/2026-08-02/** — категория "society": 12 материалов за день (порог 9)
@@ -484,6 +490,7 @@
 - **content/posts/2026-08-14/** — категория "society": 21 материалов за день (порог 9)
 - **content/posts/2026-08-15/** — категория "world": 21 материалов за день (порог 9)
 - **content/posts/2026-08-15/** — категория "society": 24 материалов за день (порог 9)
+- **content/posts/2026-08-16/** — категория "world": 12 материалов за день (порог 9)
 
 ## Распределение по дням и категориям
 
@@ -499,4 +506,5 @@
 - **2026-08-10** (60): economy 21, society 12, world 15, tech 3, sport 3, politics 6
 - **2026-08-14** (90): politics 21, world 21, economy 27, society 21
 - **2026-08-15** (60): world 21, society 24, economy 9, politics 6
-- **2026-08-16** (6): world 6
+- **2026-08-16** (21): world 12, politics 6, society 3
+- **2026-08-17** (9): world 6, sport 3
