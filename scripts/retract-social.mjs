@@ -34,7 +34,7 @@
 //
 //   DRY_RUN=1 — показать, ничего не удаляя.
 
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadPosted, markRevoked } from "../lib/social-posted.mjs";
@@ -108,8 +108,13 @@ if (wantList && !META_ACCESS_TOKEN && !dryRun) {
 if (wantList && META_ACCESS_TOKEN) {
   for (const [lang, igUser] of [["ru", IG_USER_ID_RU], ["uz", IG_USER_ID_UZ]]) {
     if (!igUser) continue;
+    // media_url — чтобы было видно, какая именно картинка ушла. Instagram
+    // забирает карточку по URL, и если CDN между правкой и публикацией
+    // отдал старые байты, по подписи этого не понять вовсе: текст верный,
+    // картинка прежняя. Сверять байтами нельзя — Instagram пережимает
+    // загруженное, — а вот открыть и посмотреть глазами по ссылке можно.
     const data = await graph(`${igUser}/media`, {
-      fields: "id,caption,timestamp,permalink",
+      fields: "id,caption,timestamp,permalink,media_url",
       limit: 50,
     });
     const items = data.data ?? [];
@@ -124,6 +129,7 @@ if (wantList && META_ACCESS_TOKEN) {
       const dupe = (byHead.get(head) ?? []).length > 1 ? "  ← ДУБЛЬ" : "";
       console.error(`${m.id}  ${m.timestamp}  ${m.permalink}`);
       console.error(`    ${head.slice(0, 90)}${dupe}`);
+      if (m.media_url) console.error(`    фото: ${m.media_url}`);
     }
     const dupes = [...byHead.entries()].filter(([, ids]) => ids.length > 1);
     if (dupes.length) {
@@ -205,4 +211,45 @@ for (const t of targets) {
 }
 
 console.error(`[retract-social] удалено ${removed}, уже не было ${gone}, не удалось ${failed}`);
+
+// ─── Заявка обнуляется сразу после исполнения ───
+//
+// Иначе она остаётся в репозитории заряженной. Материал с repost: true
+// к этому моменту уже переопубликован — новая запись в реестре свежее
+// отзыва, — и повторный прогон по той же заявке снял бы НОВЫЙ пост
+// и выпустил материал в третий раз. Пуш заявки её же и запускает,
+// так что «случайно повторить» — это один git revert или ребейз.
+//
+// При сбое не трогаем: заявку нужно будет доисполнить, а не переписывать.
+if (!failed) {
+  writeFileSync(
+    REQUEST,
+    `${JSON.stringify(
+      {
+        $comment: [
+          "Заявка исполнена и обнулена скриптом. Заряженной в репозитории",
+          "она не остаётся: повторный прогон снял бы уже переопубликованные",
+          "посты и выпустил материалы заново.",
+          "",
+          "Как снять посты: перечисли медиа-id в posts (по списку из режима",
+          "LIST) либо слаги в slugs (по реестру), repost: true — если снятое",
+          "должно уйти заново исправленным.",
+        ],
+        posts: [],
+        slugs: [],
+        repost: false,
+        lastRun: {
+          at: new Date().toISOString(),
+          removed,
+          alreadyGone: gone,
+          reason: req.reason ?? null,
+        },
+      },
+      null,
+      2,
+    )}\n`,
+  );
+  console.error("[retract-social] заявка обнулена");
+}
+
 process.exit(failed ? 1 : 0);
