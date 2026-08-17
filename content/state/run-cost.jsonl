@@ -11,3 +11,5 @@
 {"run":"2026-08-17T20:09","stage":"editor","calls":1,"fetches":0,"minutes":9}
 {"run":"2026-08-17T20:13","stage":"bild","calls":1,"fetches":0,"minutes":3}
 {"run":"2026-08-17T20:15","topics":0,"published":0,"skippedFactcheck":0,"skippedBild":0}
+{"run":"2026-08-17T20:16","stage":"translator","calls":1,"fetches":0,"minutes":3}
+{"run":"2026-08-17T20:16","topics":1,"published":1,"skippedFactcheck":1,"skippedBild":0}
