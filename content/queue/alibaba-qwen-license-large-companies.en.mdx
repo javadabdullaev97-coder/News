@@ -1,0 +1,51 @@
+---
+title: "Alibaba Imposes Paid License on Qwen3.8-Max AI Model for Businesses Earning Over $50 Million"
+description: "The company opened free access to the weights of its flagship Qwen3.8-Max model but required businesses with annual revenue above $50 million to buy a commercial license."
+queuedAt: "2026-08-18T01:21:00+05:00"
+updatedAt: "2026-08-17T18:30:00+05:00"
+category: "tech"
+tags: ["Alibaba", "Qwen", "artificial intelligence", "licensing"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "Qwen3.8-Max Model License, Hugging Face"
+    url: "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B/blob/main/LICENSE"
+  - name: "Qwen3.8-Max Model Card, Hugging Face"
+    url: "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+  - name: "South China Morning Post"
+    url: "https://www.scmp.com/tech/tech-trends/article/3363927/alibaba-adds-commercial-restrictions-open-weight-qwen38-max-ai-model"
+  - name: "AI Business"
+    url: "https://aibusiness.com/generative-ai/alibaba-qwen-3-8-27b-model-targets-edge-ai"
+image:
+  url: "/images/posts/2026-08/alibaba-qwen-license-large-companies-01.jpg"
+  alt: "Close-up of a computer screen showing a fragment of Python code — illustration for a story about licensing open AI models for development"
+  credit: "Unsplash / Chris Ried"
+tgScore: 50
+broadcast: false
+mainChannelGate: industryShift
+lang: "en"
+translatedFrom: "ru"
+---
+
+Alibaba on August 13 required businesses with annual revenue above $50 million to buy a separate commercial license to use the open weights of its flagship artificial intelligence model Qwen3.8-Max, the South China Morning Post [reported](https://www.scmp.com/tech/tech-trends/article/3363927/alibaba-adds-commercial-restrictions-open-weight-qwen38-max-ai-model). The terms are described in the [model's license](https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B/blob/main/LICENSE), published alongside its files on the Hugging Face platform.
+
+Qwen3.8-Max is an open-weight model: files with its parameters can be downloaded for free and run on a company's own servers without accessing the developer's cloud. The model has [2.4 trillion parameters](https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B) — the first model in the Max class that Alibaba has opened for download, after previously keeping the lineup's most powerful models closed, SCMP [notes](https://www.scmp.com/tech/tech-trends/article/3363927/alibaba-adds-commercial-restrictions-open-weight-qwen38-max-ai-model).
+
+Under the license terms, companies that run a "model as a service" (MaaS) business must obtain a separate license from Qwen. That means giving third parties access to inference — running an already-trained model to generate responses — or to fine-tuning it through an application programming interface (API). The requirement also applies to those building AI assistants for coding and office work on top of Qwen3.8-Max. The license becomes mandatory once a company's revenue from such a business exceeds $50 million over any 12 consecutive months.
+
+A separate requirement covers products with wide reach. The threshold is 100 million monthly active users or $20 million in monthly revenue. A service based on Qwen3.8-Max that exceeds it must prominently display the model's name in its interface. Internal use of the model without third-party access does not require a license.
+
+Developers who fall below these thresholds can download, copy, modify and distribute the model for free — they pay only for computing power. An alternative to deploying the model themselves is Qwen's cloud application programming interface (API). Access to it is sold by tokens — units of text into which the model splits words during processing. In China, access costs 12 yuan (about $1.8) per million input tokens and 36 yuan per million output tokens. Prices are lower elsewhere — $2 and $6, respectively, the outlet [writes](https://www.scmp.com/tech/tech-trends/article/3363927/alibaba-adds-commercial-restrictions-open-weight-qwen38-max-ai-model).
+
+Alibaba itself calls Qwen3.8-Max "the most powerful generation of open Qwen models to date." The company cites its own test results, according to the [model card](https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B) on Hugging Face. Qwen3.8-Max scored 86.6 points on the Terminal Bench 2.1 engineering test and 67.7 points on the SWE-Bench Pro coding test. These are the company's own claims and measurements; no independent benchmarks appear in the sources.
+
+## A Compact Version for Running on a Laptop
+
+At the same time, Alibaba released Qwen3.8-27B — a model with 27 billion parameters, 88 times smaller than the flagship, AI Business [writes](https://aibusiness.com/generative-ai/alibaba-qwen-3-8-27b-model-targets-edge-ai). It is designed for edge AI — running an artificial intelligence program directly on a user's device rather than in the developer's cloud — and can run locally on a laptop.
+
+Unlike the flagship, the smaller model is distributed under the Apache 2.0 license — fully open, without revenue or user-count thresholds, the outlet reports.
+
+## Why Alibaba Is Opening Up Its Flagship Model
+
+Opening the weights of Qwen3.8-Max fits into a strategy of competing with other developers' open models, said Lian Jye Su, an analyst at research firm Omdia. "Qwen is an important way for them to market themselves. They want to continue carrying the open-source flag," he [told](https://aibusiness.com/generative-ai/alibaba-qwen-3-8-27b-model-targets-edge-ai) AI Business.
+
+According to the analyst, Qwen's openness is also linked to Alibaba's partnership with Apple: the company supplies AI features for Apple devices sold in China. "All Apple users in China will likely use Qwen instead of Gemini, so Qwen benefits from entering this market with its large installed base," Su said.
