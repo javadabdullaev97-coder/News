@@ -24,6 +24,7 @@ import { fileURLToPath } from "node:url";
 import {
   MAIN_TARGET,
   SPORT_TARGET,
+  TECH_TARGET,
   isPostedNow,
   loadPostedByLangSlug,
   markPosted,
@@ -48,6 +49,8 @@ const {
   TELEGRAM_CHANNEL_UZ,
   TELEGRAM_CHANNEL_SPORT,
   TELEGRAM_CHANNEL_SPORT_UZ,
+  TELEGRAM_CHANNEL_TECH,
+  TELEGRAM_CHANNEL_TECH_UZ,
   SITE_URL = "https://leap.uz",
   DRY_RUN,
 } = process.env;
@@ -61,17 +64,33 @@ const CHANNEL_BY_LANG = {
   uz: TELEGRAM_CHANNEL_UZ,
 };
 
-// Спортивные каналы — вторая линия, заведена 17.08.2026. Спорт уходит сюда
-// весь, а в основной канал языка — только то, что набрало broadcast:true.
-// Важный сюжет попадает в оба канала: странно, если главная новость дня есть
-// в общем канале и её нет в профильном (решение владельца 17.08.2026).
+// Профильные каналы — вторая линия, заведена 17.08.2026 спортом, 17.08.2026
+// же расширена технологиями. Материал рубрики уходит в её канал целиком, а в
+// основной канал языка — только то, что набрало broadcast:true. Важный сюжет
+// попадает в оба канала: странно, если главная новость дня есть в общем
+// канале и её нет в профильном (решение владельца 17.08.2026).
 //
-// Языка без спортивного канала постер просто не касается — тот же механизм,
+// Языка без профильного канала постер просто не касается — тот же механизм,
 // что и для английского: нет секрета, нет отправки, нет записи в реестр.
-const SPORT_CHANNEL_BY_LANG = {
-  ru: TELEGRAM_CHANNEL_SPORT,
-  uz: TELEGRAM_CHANNEL_SPORT_UZ,
-};
+//
+// Таблица, а не пара if'ов: третья рубрика со своим каналом заводится строкой
+// здесь и строкой в config/telegram-scoring.json, без правки маршрутизации.
+const PROFILE_TARGETS = [
+  {
+    target: SPORT_TARGET,
+    category: "sport",
+    configKey: "sport",
+    channelByLang: { ru: TELEGRAM_CHANNEL_SPORT, uz: TELEGRAM_CHANNEL_SPORT_UZ },
+  },
+  {
+    target: TECH_TARGET,
+    category: "tech",
+    configKey: "tech",
+    channelByLang: { ru: TELEGRAM_CHANNEL_TECH, uz: TELEGRAM_CHANNEL_TECH_UZ },
+  },
+];
+
+const PROFILE_BY_TARGET = new Map(PROFILE_TARGETS.map((p) => [p.target, p]));
 
 // Дата, с которой канал ведётся. Материал, вышедший раньше, в него не уходит.
 //
@@ -80,18 +99,20 @@ const SPORT_CHANNEL_BY_LANG = {
 // и без отсечки первый же прогон вывалил бы их залпом — подписчик увидел
 // бы позавчерашние новости как свежие. Правила — config/telegram-scoring.json.
 function channelStartAt(lang, target = MAIN_TARGET) {
-  const node =
-    target === SPORT_TARGET
-      ? tgConfig.channels?.sport?.[lang]
-      : tgConfig.channels?.[lang];
+  const profile = PROFILE_BY_TARGET.get(target);
+  const node = profile
+    ? tgConfig.channels?.[profile.configKey]?.[lang]
+    : tgConfig.channels?.[lang];
   const v = node?.startAt;
   const t = v ? Date.parse(v) : NaN;
   return Number.isFinite(t) ? t : null;
 }
 
-// Материал спортивный? Категорию ставит SEO-агент, она же решает рубрику сайта.
-function isSport(fm) {
-  return String(fm.category ?? "").toLowerCase() === "sport";
+// Профиль материала по рубрике. Категорию ставит SEO-агент, она же решает
+// рубрику сайта — одна ошибка в ней уводит материал мимо канала.
+function profileOf(fm) {
+  const category = String(fm.category ?? "").toLowerCase();
+  return PROFILE_TARGETS.find((p) => p.category === category) ?? null;
 }
 
 const dryRun = DRY_RUN === "1" || DRY_RUN === "true";
@@ -352,11 +373,13 @@ const allMdx = collectMdx(POSTS_DIR).sort();
 // может уже лежать в основном канале и ещё не уйти в спортивный.
 const posted = {
   [MAIN_TARGET]: loadPostedByLangSlug(ROOT, MAIN_TARGET),
-  [SPORT_TARGET]: loadPostedByLangSlug(ROOT, SPORT_TARGET),
+  ...Object.fromEntries(
+    PROFILE_TARGETS.map((p) => [p.target, loadPostedByLangSlug(ROOT, p.target)]),
+  ),
 };
 const CHANNELS_BY_TARGET = {
   [MAIN_TARGET]: CHANNEL_BY_LANG,
-  [SPORT_TARGET]: SPORT_CHANNEL_BY_LANG,
+  ...Object.fromEntries(PROFILE_TARGETS.map((p) => [p.target, p.channelByLang])),
 };
 const pending = [];
 
@@ -407,19 +430,21 @@ for (const mdxPath of allMdx) {
   // Основной канал — по-прежнему только явный broadcast:true (fail-closed,
   // разбор ниже по тексту).
   //
-  // Спортивный канал — весь спорт, закрывший редакционный цикл. Порог в
-  // баллах здесь нулевой (config → sportBroadcastThreshold): владелец
-  // 17.08.2026 — «туда будем много контента вливать». Но fail-closed остаётся:
-  // признаком закрытого цикла считаем НАЛИЧИЕ поля broadcast — любое значение.
-  // Его проставляет SEO-агент последним шагом, поэтому материал без поля —
-  // это недоделка, ровно та, что 2 и 3 августа уходила в канал по старому
-  // умолчанию. broadcast:false у спортивной статьи означает «не в основной
+  // Профильный канал (спорт, технологии) — вся рубрика, закрывшая
+  // редакционный цикл. Порог в баллах здесь нулевой (config →
+  // sportBroadcastThreshold, techBroadcastThreshold): владелец 17.08.2026 —
+  // «туда будем много контента вливать». Но fail-closed остаётся: признаком
+  // закрытого цикла считаем НАЛИЧИЕ поля broadcast — любое значение. Его
+  // проставляет SEO-агент последним шагом, поэтому материал без поля — это
+  // недоделка, ровно та, что 2 и 3 августа уходила в канал по старому
+  // умолчанию. broadcast:false у профильной статьи означает «не в основной
   // канал», а не «никуда».
   const broadcast = fm.broadcast === true || fm.broadcast === "true";
   const seoDone = fm.broadcast !== undefined;
+  const profile = profileOf(fm);
   const targets = [];
   if (broadcast) targets.push(MAIN_TARGET);
-  if (isSport(fm) && seoDone) targets.push(SPORT_TARGET);
+  if (profile && seoDone) targets.push(profile.target);
   if (!targets.length) {
     const why = fm.broadcast === undefined ? "поля broadcast нет" : "broadcast:false";
     console.error(`[skip] ${rel}: ${why} (tgScore ${fm.tgScore ?? "?"}) — только сайт`);
@@ -454,7 +479,7 @@ for (const mdxPath of allMdx) {
   for (const target of targets) {
     const channel = CHANNELS_BY_TARGET[target][lang];
     if (!channel && !dryRun) {
-      // Языка без канала (английский уходит в Twitter; спортивных каналов
+      // Языка без канала (английский уходит в Twitter; профильного канала
       // может ещё не быть в секретах) просто не касаемся: ни отправки, ни
       // записи в реестр. Заведут канал — материалы уедут туда с этого места.
       continue;

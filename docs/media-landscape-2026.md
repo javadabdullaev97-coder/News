@@ -354,6 +354,100 @@ Economist, The Verge и Ars Technica — все они в проде живы.
 общими футбольными лентами; **узбекского футбола** первоисточником не закрыть,
 остаются `sports-uz` и телеграм-каналы.
 
+## Раздел 3.2 — Технологические источники
+
+Заведены 17.08.2026 вторым профильным заходом, сразу после спортивного. До
+него на 120 лент приходилось три технологические — TechCrunch, The Verge и
+Ars Technica, все три с приоритетом P3, то есть в аварийный сбор не попадали
+вовсе. Стало 76 живых лент. Приоритеты владельца: ИИ, стартапы, финтех,
+SpaceX, Google, Apple, Tesla, Nvidia, Microsoft, Revolut, Telegram и «Плата»
+Олега Тинькова.
+
+| Направление | Что закрывает | Ленты в конфиге |
+|---|---|---|
+| ИИ — лаборатории | релизы моделей и исследования из первых рук | `openai-news`, `anthropic-news`, `deepmind-blog`, `google-ai-blog`, `microsoft-ai-source`, `huggingface-blog`, `nvidia-blog` |
+| ИИ — разборы | что релиз означает на самом деле | `techcrunch-ai`, `the-decoder`, `verge-ai`, `mit-tech-review`, `venturebeat`, `ai-business`, `ieee-spectrum-ai`, `platformer` |
+| Big Tech — ньюсрумы | цифры отчётов, даты, официальные заявления | `apple-newsroom`, `google-keyword`, `microsoft-blogs`, `amazon-news`, `meta-newsroom`, `samsung-newsroom`, `nvidia-newsroom`, `intel-newsroom`, `amd-newsroom` |
+| Big Tech — независимо | суды, антимонопольные дела, реакция рынка | `bloomberg-tech`, `cnbc-tech`, `ft-tech`, `bbc-tech`, `wired`, `the-register`, `engadget`, `fortune-tech`, `siliconangle`, `guardian-tech` |
+| Стартапы и венчур | раунды, оценки, выходы, закрытия | `techcrunch-startups`, `techcrunch-venture`, `crunchbase-news`, `sifted`, `eu-startups`, `tech-eu`, `geekwire`, `rest-of-world` |
+| Финтех | необанки, платежи, лицензии — Revolut, Wise, Plata | `finextra`, `pymnts`, `techcrunch-fintech`, `banking-dive`, `payments-dive`, `stripe-blog`, `latamlist`, `iupana` |
+| Криптовалюты | биржи, регулирование, институционалы | `coindesk`, `the-block`; ранний сигнал — `cointelegraph`, `decrypt` с `citable:false` |
+| Космос и SpaceX | пуски, контракты, миссии | `spacenews`, `spaceflight-now`, `nasaspaceflight`, `ars-space`, `nasa-news`, `esa-news` |
+| Tesla и электромобили | продажи, модели, автопилот | `electrek`, `insideevs`; ранний сигнал — `teslarati` с `citable:false` |
+| Apple и Google — экосистемы | релизы iOS и Android, App Store | `nine-to-five-mac`, `nine-to-five-google`; слухи — `macrumors` с `citable:false` |
+| Железо и инфраструктура | чипы, фабрики, дата-центры под ИИ | `digitimes`, `datacenterdynamics` |
+| Кибербезопасность | утечки, вымогатели, схемы мошенничества | `bleeping-computer`, `krebs-on-security` |
+| Платформы | Telegram, соцсети, модерация | TG-каналы `@durov` и `@telegram`, плюс `platformer` и `rest-of-world` |
+| По-русски | ранний сигнал и терминология | `habr-news`, `vc-ru` — оба `citable:false`, блок `ru-tech` |
+
+### Технологии идут отдельным потоком инбокса
+
+С 17.08.2026 у направления свой файл — `content/inbox/tech-YYYY-MM-DD.jsonl`.
+Механика ровно та же, что у спорта: поле `stream: "tech"` у ленты,
+разводка в `scripts/pull-news-inbox.mjs`, чтение через `inbox-select.mjs --tech`.
+
+Повод — замер боевого прогона 17.08.2026: 1204 технологические записи за один
+заход, то есть столько же, сколько даёт спорт. В общей линии они перекрыли бы
+мировую целиком.
+
+Разводка касается **только записей, не прошедших фильтр региона**. Вложение
+Nvidia в узбекский дата-центр или запуск Starlink в стране идут в основной
+инбокс — правило `tech.specialRules.uzbekTechAnywhere` без этого потеряло бы
+свои поводы.
+
+Одно отличие от спорта пришлось внести в код. У спортивных лент все записи
+были типа `context`, и фильтр региона работал на них по умолчанию.
+Корпоративные ньюсрумы — это `type: source`, а фильтр по региону на `source`
+не распространялся: без правки пресс-релизы Apple и OpenAI целиком уехали бы
+в местный инбокс. Теперь фильтр применяется к любой ленте с полем `stream`,
+независимо от типа.
+
+### Корпоративный ньюсрум — первоисточник о себе и только о себе
+
+Для лент вида `apple-newsroom`, `openai-news`, `nvidia-newsroom` заведён
+отдельный блок `corp-tech`. Смысл — в арифметике независимых подтверждений:
+пять пресс-релизов пяти вендоров об одном событии это пять заинтересованных
+сторон, а не пять источников. Отсюда правило
+`tech.specialRules.vendorSpeaksAboutItself`: цифры отчёта и дата запуска
+берутся из релиза как факт, оценки («самая быстрая модель в мире») — только
+с атрибуцией или никак. Заявленные бенчмарки подаются как заявление компании
+(`benchmarkClaims`).
+
+### Архивные ленты — почему у фетчера появилась отсечка по дате
+
+`openai.com/news/rss.xml` отдаёт 1129 записей, `huggingface.co/blog/feed.xml` —
+842: это не лента новостей, а весь архив. Возраст записи в системе считается
+по `fetchedAt`, а не по `pubDate` (у половины лент дата кривая или её нет),
+поэтому первый же прогон предъявил бы планёрке несколько тысяч «свежих»
+новостей трёхлетней давности.
+
+Решение — потолок `MAX_ITEM_AGE_DAYS = 7` в `scripts/pull-news-inbox.mjs`:
+запись с разобранным `pubDate` старше недели в инбокс не попадает. Записи без
+даты проходят как раньше — для них в `selectFresh` есть отдельный счётчик
+`ageUnknown`. На боевом прогоне отсечка сняла 2412 архивных записей из 3616.
+
+### Чего в технологиях нет и не будет
+
+Проверено прямым запросом 17.08.2026, записи оставлены в конфиге с
+`disabled: true`, чтобы никто не заводил их заново:
+
+| Компания | Адрес | Что на самом деле |
+|---|---|---|
+| Revolut | `revolut.com/news/rss/`, `blog.revolut.com/rss/` | 403 от Cloudflare на обоих |
+| Tesla | `tesla.com/blog/rss` | Access Denied |
+| SpaceX | `spacex.com/updates/` | ленты нет, только HTML |
+| Telegram | `telegram.org/blog/rss` | редирект на главную; вместо ленты — каналы `@durov` и `@telegram` |
+| IT Park | `it-park.uz/rss` и ещё четыре варианта | HTTP 404 на всех; закрывается каналом `@itpark_uz` |
+| FinTech Futures | `fintechfutures.com/feed` | 403 и 301 в никуда |
+| Anthropic | `anthropic.com/rss.xml` | HTTP 404; рабочая лента — через FeedBurner |
+| Mistral AI | `mistral.ai/news/feed.xml` | HTTP 404, открытой ленты нет |
+| AnandTech | `anandtech.com/rss/` | издание закрыто, лента не обновляется |
+
+Правило чтения отрицательного результата из спортивного раздела действует и
+здесь: 403 из песочницы ничего не доказывает. Wired, ZDNet, Guardian, FT,
+The Verge и Ars Technica отдавали из контура агента 403, а прямым запросом —
+200 и валидный XML. Все шесть оставлены в конфиге живыми.
+
 ## Раздел 4 — Техника парсинга
 
 ### 4.1. Публичные RSS

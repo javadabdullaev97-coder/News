@@ -36,6 +36,25 @@ const CONCURRENCY = 8;
 const FETCH_TIMEOUT_MS = 35_000;
 const SNIPPET_MAX = 500;
 
+// Потолок возраста записи на входе. Отсекает архивные ленты — те, что отдают
+// не последние новости, а всё, что было опубликовано за годы.
+//
+// Зачем. Возраст item'а считается по fetchedAt, а не по pubDate
+// (lib/inbox-core.mjs → itemAgeHours: дата забора первична, потому что у
+// половины лент pubDate либо кривой, либо отсутствует). Значит запись,
+// впервые увиденная сегодня, для планёрки свежая — даже если написана в
+// 2023 году. Пока ленты отдавали по 10-50 последних записей, это никого не
+// задевало. С технологическим слоем задело сразу: openai.com/news/rss.xml
+// отдаёт 1129 записей, huggingface.co/blog/feed.xml — 842. Без отсечки
+// первый же прогон вывалил бы в инбокс два десятка тысяч старых новостей,
+// и tech-планёрка начала бы работу с разбора релизов трёхлетней давности.
+//
+// Отсекаем ТОЛЬКО при разобранном pubDate. Нет даты или дата не парсится —
+// запись проходит: молча выбрасывать ленту с плохими датами нельзя, для
+// этого случая в selectFresh уже есть отдельный счётчик ageUnknown.
+const MAX_ITEM_AGE_DAYS = 7;
+const MAX_ITEM_AGE_MS = MAX_ITEM_AGE_DAYS * 24 * 3600 * 1000;
+
 const argv = process.argv.slice(2);
 const filters = {
   priority: findArg("--priority"),
@@ -99,10 +118,18 @@ function cleanText(s) {
     .trim();
 }
 
+// Запись старше потолка? Только при разобранной дате — см. MAX_ITEM_AGE_DAYS.
+function tooOld(item, now = Date.now()) {
+  const t = Date.parse(item.isoDate || item.pubDate || "");
+  return Number.isFinite(t) && now - t > MAX_ITEM_AGE_MS;
+}
+
 async function fetchOne(src) {
   try {
     const feed = await parser.parseURL(src.url);
-    const items = (feed.items || []).map((item) => {
+    const raw = feed.items || [];
+    const recent = raw.filter((item) => !tooOld(item));
+    const items = recent.map((item) => {
       const snippet = cleanText(
         item.contentSnippet || item.content || item.summary || item.title || "",
       ).slice(0, SNIPPET_MAX);
@@ -119,7 +146,7 @@ async function fetchOne(src) {
         fetchedAt: new Date().toISOString(),
       };
     });
-    return { ok: true, src, items };
+    return { ok: true, src, items, archived: raw.length - recent.length };
   } catch (err) {
     return { ok: false, src, error: err.message || String(err) };
   }
@@ -192,7 +219,13 @@ const relevantById = new Map(sources.map((s) => [s.id, s]));
 function isRelevant(item) {
   const src = relevantById.get(item.sourceId);
   if (!src) return true;
-  if (src.type !== "context") return true;      // source и signal — без фильтра
+  // Лента с полем stream живёт в своём потоке, и фильтр региона работает для
+  // неё независимо от типа. Иначе корпоративные ньюсрумы (Apple, OpenAI,
+  // Nvidia — это type:source) целиком уехали бы в местный инбокс: пресс-релиз
+  // Apple действительно первоисточник, но первоисточник про Apple, а не про
+  // Узбекистан. У спортивных лент вопрос не возникал — там все ленты
+  // context'ы, и разводка держалась на этом по случайности.
+  if (src.type !== "context" && !src.stream) return true;
   if (src.regionDedicated) return true;          // лента целиком про регион
   const blob = `${item.title || ""} ${item.snippet || ""}`.toLowerCase();
   return REGION_TERMS.some((term) => blob.includes(term));
@@ -223,7 +256,7 @@ const offRegion = allItems
   })
   .filter((it) => it.bloc !== "unknown" && it.link && !seen.has(it.link));
 
-// ─── Третья линия: спорт ───
+// ─── Профильные линии: спорт и технологии ───
 //
 // Спортивных лент в конфиге 47 против шести до 17.08.2026, и дают они около
 // семисот записей за полный опрос. В общей мировой линии этот объём
@@ -231,14 +264,31 @@ const offRegion = allItems
 // трансферные слухи, чтобы найти мировой сюжет. У спорта отдельный
 // телеграм-канал и своя витрина, поэтому и файл отдельный.
 //
+// Технологических лент в тот же день стало 76 против трёх, и рассуждение
+// повторяется дословно: ИИ, финтех, космос и корпоративные ньюсрумы дают
+// сопоставимый объём, у направления свой канал и своя витрина.
+//
+// Поток задаётся полем stream у ленты — новую линию заводит конфиг, а не
+// правка этого файла. Хардкода списка потоков здесь нет намеренно.
+//
 // ВАЖНО: разводка касается только записей, НЕ прошедших фильтр региона.
 // Спортивная новость с упоминанием Узбекистана — Хусанов в АПЛ, узбекский
 // боец в UFC — идёт в основной инбокс, как и раньше. Иначе правило
 // specialRules.uzbekAthleteAnywhere («узбекский спортсмен на международной
-// арене публикуется всегда») потеряло бы половину поводов.
-const isSportSource = (it) => relevantById.get(it.sourceId)?.stream === "sport";
-const sportCandidates = offRegion.filter(isSportSource);
-const worldCandidates = offRegion.filter((it) => !isSportSource(it));
+// арене публикуется всегда») потеряло бы половину поводов. Ровно так же
+// вложения Nvidia в узбекский дата-центр остаются местной темой.
+const streamOf = (it) => relevantById.get(it.sourceId)?.stream || null;
+const byStream = new Map();
+const worldCandidates = [];
+for (const it of offRegion) {
+  const stream = streamOf(it);
+  if (!stream) {
+    worldCandidates.push(it);
+    continue;
+  }
+  if (!byStream.has(stream)) byStream.set(stream, []);
+  byStream.get(stream).push(it);
+}
 
 const fresh = relevant.filter((it) => it.link && !seen.has(it.link));
 const droppedIrrelevant = allItems.length - relevant.length;
@@ -263,12 +313,12 @@ if (worldCandidates.length) {
   );
 }
 
-// Спортивная линия — по той же причине, что и мировая, только этажом ниже.
-if (sportCandidates.length) {
-  const sportFile = join(INBOX_DIR, `sport-${today}.jsonl`);
+// Профильные линии — по той же причине, что и мировая, только этажом ниже.
+for (const [stream, items] of byStream) {
+  if (!items.length) continue;
   appendFileSync(
-    sportFile,
-    sportCandidates.map((x) => JSON.stringify(x)).join("\n") + "\n",
+    join(INBOX_DIR, `${stream}-${today}.jsonl`),
+    items.map((x) => JSON.stringify(x)).join("\n") + "\n",
   );
 }
 
@@ -289,10 +339,17 @@ if (fresh.length) {
 }
 
 // Отчёт
+const archivedTotal = ok.reduce((s, r) => s + (r.archived || 0), 0);
+const streamReport = [...byStream.entries()]
+  .map(([stream, items]) => `${stream} ${items.length}`)
+  .join(", ");
 console.error(
   `[news-inbox] fetched ${allItems.length}, ` +
+    (archivedTotal ? `старше ${MAX_ITEM_AGE_DAYS} дней отброшено ${archivedTotal}, ` : "") +
     `вне региона ${droppedIrrelevant} ` +
-    `(в мировую линию ${worldCandidates.length}, в спортивную ${sportCandidates.length}), ` +
+    `(в мировую линию ${worldCandidates.length}` +
+    (streamReport ? `, по профильным: ${streamReport}` : "") +
+    `), ` +
     `fresh ${fresh.length}, ` +
     `failed ${failed.length}/${sources.length}, day=${today}`,
 );

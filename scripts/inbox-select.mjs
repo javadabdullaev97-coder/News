@@ -16,8 +16,9 @@
 //   node scripts/inbox-select.mjs                    — местный поток
 //   node scripts/inbox-select.mjs --world            — мировой поток
 //   node scripts/inbox-select.mjs --sport            — спортивный поток
+//   node scripts/inbox-select.mjs --tech             — технологический поток
 //   node scripts/inbox-select.mjs --both             — местный и мировой
-//   node scripts/inbox-select.mjs --both --sport     — все три
+//   node scripts/inbox-select.mjs --both --sport     — с добавкой спортивного
 //   node scripts/inbox-select.mjs --jsonl            — по item'у на строку
 //   node scripts/inbox-select.mjs --pretty           — с отступами, для человека
 //   node scripts/inbox-select.mjs --both --titles    — фаза 1: только заголовки и блоки
@@ -26,6 +27,7 @@
 //   node scripts/inbox-select.mjs --max-age=48       — окно свежести местного, часов
 //   node scripts/inbox-select.mjs --max-age-world=24 — окно свежести мирового
 //   node scripts/inbox-select.mjs --max-age-sport=24 — окно свежести спортивного
+//   node scripts/inbox-select.mjs --max-age-tech=24  — окно свежести технологического
 //   node scripts/inbox-select.mjs --limit=200        — потолок числа кандидатов
 //   node scripts/inbox-select.mjs --full-snippet     — не подрезать сниппеты
 //   node scripts/inbox-select.mjs --all-candidates   — показать и то, что
@@ -76,6 +78,12 @@ const maxAgeWorldHours = Number(opt("max-age-world", 24));
 // «отказал клубу» и «согласовал контракт» — разные стадии одной темы, и
 // вторая приходит через день-два. Короткое окно резало бы именно связки.
 const maxAgeSportHours = Number(opt("max-age-sport", 24));
+// Технологическое окно — тоже сутки. Причина другая, чем у спорта, но ответ
+// тот же: сюжет об ИИ или раунде вызревает не быстрее суток — сначала блог
+// компании, через несколько часов разбор в профильном издании, к вечеру
+// реакция рынка. Более короткое окно резало бы как раз вторую и третью
+// стадии, то есть всё, из чего делается материал.
+const maxAgeTechHours = Number(opt("max-age-tech", 24));
 const limit = Number(opt("limit", 0)) || Infinity;
 const asJsonl = flag("jsonl");
 const pretty = flag("pretty");
@@ -84,6 +92,7 @@ const both = flag("both");
 const showReviewed = flag("all-candidates");
 const worldOnly = flag("world") && !both;
 const wantSport = flag("sport");
+const wantTech = flag("tech");
 
 // Сниппет — единственное, что говорит о содержании помимо заголовка: по нему
 // идёт кластеризация и половина оценки. Режем по верхней границе, а не по
@@ -124,6 +133,7 @@ const MAX_AGE_BY_STREAM = {
   local: () => maxAgeHours,
   world: () => maxAgeWorldHours,
   sport: () => maxAgeSportHours,
+  tech: () => maxAgeTechHours,
 };
 
 function build(stream) {
@@ -182,7 +192,7 @@ function titleLines(part, stream) {
     .join("\n");
 }
 
-const STREAM_KEYS = ["local", "world", "sport"];
+const STREAM_KEYS = ["local", "world", "sport", "tech"];
 
 const expandSpec = opt("expand", null);
 
@@ -197,17 +207,18 @@ const result = {
 };
 if (!journal.ok) result.warning = journal.note;
 
-// --sport добавляет спортивный поток к тому, что запрошено, а в одиночку
-// означает «только спорт»: планёрке спортивного канала местный поток не нужен.
+// --sport и --tech добавляют профильный поток к тому, что запрошено, а в
+// одиночку означают «только он»: профильной планёрке местный поток не нужен.
 if (both) {
   result.local = build("local");
   result.world = build("world");
 } else if (worldOnly) {
   result.world = build("world");
-} else if (!wantSport) {
+} else if (!wantSport && !wantTech) {
   result.local = build("local");
 }
 if (wantSport) result.sport = build("sport");
+if (wantTech) result.tech = build("tech");
 
 if (expandSpec !== null) {
   // --expand=world:12,world:45,local:3 — вернуть полные записи по индексам

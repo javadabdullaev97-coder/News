@@ -55,6 +55,7 @@ import { spawnSync } from "node:child_process";
 import { join } from "node:path";
 import {
   ROOT,
+  STREAM_PREFIX,
   readInbox,
   dedupeByLink,
   inboxFreshnessMinutes,
@@ -72,11 +73,15 @@ const priority = opt("priority", "P0,P1");
 const tgPriority = opt("tg-priority", "P0,P1,P2,P3");
 const at = Date.now();
 
+// Свежесть считаем по ВСЕМ потокам сразу. Профильные линии (sport, tech)
+// наполняет тот же фетчер тем же прогоном, и прогон, принёсший только
+// технологические записи, — доказательство, что фетчер жив. Считать
+// свежесть по двум потокам из четырёх значило бы гонять лишний сбор
+// каждый раз, когда в местном и мировом было тихо.
 function newestAgeMinutes() {
-  const items = dedupeByLink([
-    ...readInbox(ROOT, { at }).items,
-    ...readInbox(ROOT, { world: true, at }).items,
-  ]);
+  const items = dedupeByLink(
+    Object.keys(STREAM_PREFIX).flatMap((stream) => readInbox(ROOT, { stream, at }).items),
+  );
   return { age: inboxFreshnessMinutes(items, at), count: items.length };
 }
 

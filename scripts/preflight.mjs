@@ -21,6 +21,7 @@
 //   node scripts/preflight.mjs --sport    — спортивная планёрка: работа считается
 //                                           по спортивному потоку, местный и мировой
 //                                           не смотрим
+//   node scripts/preflight.mjs --tech     — то же для технологической планёрки
 
 import {
   ROOT,
@@ -34,10 +35,12 @@ import {
 } from "../lib/inbox-core.mjs";
 
 const human = process.argv.includes("--human");
-// Спортивный режим. Планёрки две и работают независимо: основная не должна
-// просыпаться из-за трансферного слуха, спортивная — из-за тарифов на воду.
-// Поэтому и признак «есть работа» у каждой считается по своему потоку.
-const sportMode = process.argv.includes("--sport");
+// Профильные режимы. Планёрок три, и работают они независимо: основная не
+// должна просыпаться из-за трансферного слуха, спортивная — из-за тарифов
+// на воду, технологическая — из-за ни того, ни другого. Поэтому и признак
+// «есть работа» у каждой считается по своему потоку.
+const STREAM_MODES = ["sport", "tech"];
+const streamMode = STREAM_MODES.find((s) => process.argv.includes(`--${s}`)) ?? null;
 const at = Date.now();
 
 const journal = loadJournal(ROOT, at);
@@ -45,10 +48,10 @@ const local = readInbox(ROOT, { world: false, at });
 const world = readInbox(ROOT, { world: true, at });
 const localSel = selectFresh(local.items, { seen: journal.blocked, claimed: journal.claimed, at });
 const worldSel = selectFresh(world.items, { seen: journal.blocked, claimed: journal.claimed, at });
-const sport = sportMode
-  ? readInbox(ROOT, { stream: "sport", at })
+const profile = streamMode
+  ? readInbox(ROOT, { stream: streamMode, at })
   : { files: [], items: [], badLines: 0 };
-const sportSel = selectFresh(sport.items, {
+const profileSel = selectFresh(profile.items, {
   seen: journal.blocked,
   claimed: journal.claimed,
   at,
@@ -61,10 +64,12 @@ const cards = listMaturedCards(ROOT, at);
 // значимости), и прогон ради одних только мировых кандидатов почти всегда
 // заканчивается ничем. Но если работа уже есть — они идут в тот же прогон.
 const reasons = [];
-if (sportMode) {
-  // Спортивной планёрке rework и карточки не адресованы: их разгребает
+if (streamMode) {
+  // Профильной планёрке rework и карточки не адресованы: их разгребает
   // основная, и продублировать эту работу означало бы взять чужую бронь.
-  if (sportSel.stats.fresh) reasons.push(`sport-inbox: ${sportSel.stats.fresh} новых item(ов)`);
+  if (profileSel.stats.fresh) {
+    reasons.push(`${streamMode}-inbox: ${profileSel.stats.fresh} новых item(ов)`);
+  }
 } else {
   if (rework.length) reasons.push(`rework: ${rework.length} материал(ов) на переделке`);
   if (cards.matured.length) reasons.push(`needs-verification: ${cards.matured.length} карточк(и) созрели`);
@@ -108,7 +113,7 @@ if (!local.files.length) warnings.push("инбокса за сегодня и в
 
 const report = {
   hasWork: reasons.length > 0,
-  mode: sportMode ? "sport" : "main",
+  mode: streamMode ?? "main",
   reasons,
   tashkentDay: tashkentDay(at),
   generatedAt: new Date(at).toISOString(),
@@ -123,9 +128,11 @@ const report = {
     ...worldSel.stats,
     note: "мировые кандидаты сами по себе прогон не запускают — берутся, если прогон уже идёт",
   },
-  sport: sportMode
-    ? { files: sport.files, ...sportSel.stats }
-    : { note: "не считался: режим --sport выключен" },
+  // Ключ profile, а не sport: у профильного потока имя переменное, и писать
+  // технологические числа в поле «sport» значило бы врать в отчёте.
+  profile: streamMode
+    ? { stream: streamMode, files: profile.files, ...profileSel.stats }
+    : { note: "не считался: профильный режим (--sport, --tech) выключен" },
   rework,
   cards: {
     matured: cards.matured,
@@ -147,15 +154,15 @@ process.stdout.write(JSON.stringify(report, null, 2) + "\n");
 
 if (human) {
   const verdict = report.hasWork ? "РАБОТА ЕСТЬ" : "работы нет";
-  // В спортивном режиме печатаем ТОЛЬКО спортивные числа. Иначе строка
+  // В профильном режиме печатаем ТОЛЬКО его числа. Иначе строка
   // «работы нет · inbox 542 новых» читается как противоречие: это чужой
-  // поток, за который спортивная планёрка не отвечает, и показывать его
+  // поток, за который профильная планёрка не отвечает, и показывать его
   // рядом с её вердиктом — приглашение взяться за чужую работу.
-  if (sportMode) {
-    const sp = report.sport;
+  if (streamMode) {
+    const sp = report.profile;
     console.error(
-      `[preflight:sport] ${verdict} · ` +
-        `sport-inbox ${sp.fresh} новых из ${sp.raw} ` +
+      `[preflight:${streamMode}] ${verdict} · ` +
+        `${streamMode}-inbox ${sp.fresh} новых из ${sp.raw} ` +
         `(дублей ${sp.duplicates}, виденных ${sp.alreadySeen}, старых ${sp.stale})` +
         (journal.claimed.size ? ` · занято соседом ${journal.claimed.size} ссыл.` : "") +
         (newestAgeMinutes === null ? "" : ` · свежесть инбокса ${newestAgeMinutes} мин`),

@@ -213,10 +213,39 @@ const nowTashkent = new Date(Date.now() + 5 * 3600 * 1000);
 const today = nowTashkent.toISOString().slice(0, 10);
 const dayFile = join(INBOX_DIR, `${today}.jsonl`);
 
-if (fresh.length) {
-  const lines = fresh.map((x) => JSON.stringify(x)).join("\n") + "\n";
-  appendFileSync(dayFile, lines);
+// Канал с полем stream уходит в профильную линию, как и лента с тем же полем
+// в config/news-sources.json. Заведено 17.08.2026 под @durov и @telegram:
+// платформа Telegram — тема технологической рубрики, а не местной повестки,
+// и в местном инбоксе посты Дурова оказались бы среди тарифов и НПА.
+//
+// Фильтр региона здесь не нужен и не применяется: каналов в конфиге сотня,
+// стрим стоит у единиц, и стоит он там осознанно.
+const streamOfChannel = new Map(channels.map((ch) => [ch.id, ch.stream || null]));
+const byStream = new Map();
+const freshLocal = [];
+for (const it of fresh) {
+  const stream = streamOfChannel.get(it.sourceId);
+  if (!stream) {
+    freshLocal.push(it);
+    continue;
+  }
+  if (!byStream.has(stream)) byStream.set(stream, []);
+  byStream.get(stream).push(it);
+}
 
+for (const [stream, items] of byStream) {
+  appendFileSync(
+    join(INBOX_DIR, `${stream}-${today}.jsonl`),
+    items.map((x) => JSON.stringify(x)).join("\n") + "\n",
+  );
+}
+
+if (freshLocal.length) {
+  const lines = freshLocal.map((x) => JSON.stringify(x)).join("\n") + "\n";
+  appendFileSync(dayFile, lines);
+}
+
+if (fresh.length) {
   for (const it of fresh) seen.add(it.link);
   saveSeenLinks(seen, ROOT);
 
@@ -228,9 +257,14 @@ if (fresh.length) {
   }
 }
 
+const tgStreamReport = [...byStream.entries()]
+  .map(([stream, items]) => `${stream} ${items.length}`)
+  .join(", ");
 console.error(
-  `[tg-inbox] fetched ${allItems.length}, fresh ${fresh.length}, ` +
-    `failed ${failed.length}/${channels.length}, day=${today}`,
+  `[tg-inbox] fetched ${allItems.length}, fresh ${fresh.length} ` +
+    `(в местный ${freshLocal.length}` +
+    (tgStreamReport ? `, по профильным: ${tgStreamReport}` : "") +
+    `), failed ${failed.length}/${channels.length}, day=${today}`,
 );
 
 if (fresh.length) {

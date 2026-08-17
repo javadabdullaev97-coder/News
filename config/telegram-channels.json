@@ -1,8 +1,8 @@
 {
   "$schema": "./telegram-channels.schema.json",
   "version": 1,
-  "generated": "2026-07-31",
-  "note": "Каталог Telegram-каналов для скрипта scripts/pull-telegram-inbox.mjs. Парсинг через t.me/s/<slug> без API-ключей. См. docs/media-landscape-2026.md.",
+  "generated": "2026-08-17",
+  "note": "Каталог Telegram-каналов для скрипта scripts/pull-telegram-inbox.mjs. Парсинг через t.me/s/<slug> без API-ключей. См. docs/media-landscape-2026.md. Поле stream у канала уводит его записи в профильную линию инбокса (content/inbox/<stream>-YYYY-MM-DD.jsonl) — та же механика, что у лент в config/news-sources.json.",
   "excluded": [
     {
       "handle": "@ozodlikradiosi",
@@ -1044,6 +1044,52 @@
       "subscribers": null,
       "publishRate": null,
       "notes": "Кандидат из channel-candidates.jsonl (упомянут tashkent_land 15.08.2026 в материале о концерте в Алматы). Казахстанское новостное издание — конкурентное зарубежное СМИ, не первоисточник по темам об Узбекистане, читаем для сигнала, не цитируем."
+    },
+    {
+      "id": "durov",
+      "handle": "@durov",
+      "url": "https://t.me/s/durov",
+      "name": "Павел Дуров — личный канал",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": null,
+      "publishRate": null,
+      "stream": "tech",
+      "notes": "Первоисточник по решениям Telegram и по позиции самого Дурова: блокировки, ограничения, судебные разбирательства во Франции, планы платформы. Заведён 17.08.2026 вместе с технологическим направлением. Поле stream уводит записи в технологическую линию инбокса: платформа Telegram — тема tech-рубрики, а не местной повестки. Проверено 17.08.2026: t.me/s/durov отдаёт публичную ленту, 20 сообщений на странице."
+    },
+    {
+      "id": "telegram",
+      "handle": "@telegram",
+      "url": "https://t.me/s/telegram",
+      "name": "Telegram — официальный канал",
+      "type": "source",
+      "priority": "P2",
+      "subscribers": null,
+      "publishRate": null,
+      "stream": "tech",
+      "notes": "Первоисточник по релизам и функциям мессенджера. Аудитория Узбекистана — один из крупнейших рынков Telegram, поэтому изменения платформы читаются здесь как местная тема даже без узбекской привязки. Записи уходят в технологическую линию (stream: tech). Проверено 17.08.2026: 20 сообщений на странице."
+    },
+    {
+      "id": "uzumbank",
+      "handle": "@uzumbank",
+      "url": "https://t.me/s/uzumbank",
+      "name": "Uzum Bank",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Корпоративный канал крупнейшего узбекского финтех-игрока: запуски продуктов, сбои, тарифы, раунды. Первоисточник по себе самому — заявление компании о собственных делах, а не независимое подтверждение. Заведён 17.08.2026 под финтех-повестку. Проверено 17.08.2026: канал публичный, лента отдаётся."
+    },
+    {
+      "id": "payme_uz",
+      "handle": "@payme_uz",
+      "url": "https://t.me/s/payme_uz",
+      "name": "Payme",
+      "type": "source",
+      "priority": "P3",
+      "subscribers": null,
+      "publishRate": null,
+      "notes": "Корпоративный канал платёжного сервиса: изменения тарифов, сбои, новые функции. Тот же статус первоисточника-о-себе, что и у @uzumbank. Проверено 17.08.2026: канал публичный."
     }
   ]
 }

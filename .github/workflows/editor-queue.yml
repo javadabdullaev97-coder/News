@@ -248,6 +248,8 @@ jobs:
           TELEGRAM_CHANNEL_UZ: ${{ secrets.TELEGRAM_CHANNEL_UZ }}
           TELEGRAM_CHANNEL_SPORT: ${{ secrets.TELEGRAM_CHANNEL_SPORT }}
           TELEGRAM_CHANNEL_SPORT_UZ: ${{ secrets.TELEGRAM_CHANNEL_SPORT_UZ }}
+          TELEGRAM_CHANNEL_TECH: ${{ secrets.TELEGRAM_CHANNEL_TECH }}
+          TELEGRAM_CHANNEL_TECH_UZ: ${{ secrets.TELEGRAM_CHANNEL_TECH_UZ }}
           SITE_URL: "https://leap.uz"
         run: node scripts/post-to-telegram.mjs
 

@@ -17,6 +17,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import {
   ROOT as REPO_ROOT,
+  STREAM_PREFIX,
   hashLink,
   inboxFreshnessMinutes,
   loadSeenHashes,
@@ -457,15 +458,30 @@ check("местный и мировой потоки не смешиваются
 // утекший в мировую линию, перекрывает её объёмом, а мировой сюжет,
 // утекший в спортивную, не увидит никто — у потоков разные планёрки.
 
-check("спортивный поток отделён от местного и мирового", () => {
+check("профильные потоки отделены от местного и мирового", () => {
   const root = fixture({
     [`content/inbox/${TODAY}.jsonl`]: jsonl([{ link: "local", fetchedAt: new Date(NOON).toISOString() }]),
     [`content/inbox/world-${TODAY}.jsonl`]: jsonl([{ link: "world", fetchedAt: new Date(NOON).toISOString() }]),
     [`content/inbox/sport-${TODAY}.jsonl`]: jsonl([{ link: "sport", fetchedAt: new Date(NOON).toISOString() }]),
+    [`content/inbox/tech-${TODAY}.jsonl`]: jsonl([{ link: "tech", fetchedAt: new Date(NOON).toISOString() }]),
   });
   eq(readInbox(root, { stream: "local", at: NOON }).items.map((i) => i.link), ["local"], "местный");
   eq(readInbox(root, { stream: "world", at: NOON }).items.map((i) => i.link), ["world"], "мировой");
   eq(readInbox(root, { stream: "sport", at: NOON }).items.map((i) => i.link), ["sport"], "спортивный");
+  eq(readInbox(root, { stream: "tech", at: NOON }).items.map((i) => i.link), ["tech"], "технологический");
+});
+
+// Поток заводится ОДНИМ местом — таблицей STREAM_PREFIX. Проверка ловит
+// ситуацию, когда поток добавили в конфиг источников (stream: "tech" у ленты),
+// а в ядро — забыли: фетчер писал бы файл tech-*.jsonl, readInbox падал бы
+// на «неизвестный поток», и записи копились бы на диске, не доходя ни до
+// одной планёрки.
+check("потоки из STREAM_PREFIX читаются все до одного", () => {
+  const root = fixture({});
+  for (const stream of Object.keys(STREAM_PREFIX)) {
+    readInbox(root, { stream, at: NOON });
+  }
+  eq(Object.keys(STREAM_PREFIX).includes("tech"), true, "tech заведён в ядре");
 });
 
 check("старый вызов { world: true } равен { stream: \"world\" }", () => {

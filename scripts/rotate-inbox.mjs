@@ -39,7 +39,10 @@ const apply = process.argv.includes("--apply");
 const keep = Math.max(2, Number(opt("keep", 3)));
 
 const DIR = join(ROOT, "content/inbox");
-const DATED = /^(?:world-|sport-)?(\d{4}-\d{2}-\d{2})\.jsonl$/;
+// Префикс потока — любой: world-, sport-, tech- и всё, что заведут дальше
+// полем stream в config/news-sources.json. Перечислять их здесь по именам
+// значило бы копить файлы потока, о котором забыли поправить этот регэксп.
+const DATED = /^(?:[a-z][a-z0-9-]*-)?(\d{4}-\d{2}-\d{2})\.jsonl$/;
 
 const horizon = tashkentDay(Date.now() - keep * 24 * 3600 * 1000);
 
