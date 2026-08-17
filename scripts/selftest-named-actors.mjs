@@ -1,5 +1,12 @@
 #!/usr/bin/env node
-// Регрессия на списки узнаваемых имён.
+// Регрессия на списки узнаваемых имён — спорт и технологии.
+//
+// Оба направления решали одну задачу и пришли к ней с разных сторон, поэтому
+// словарь у них свой: у спорта уровни globalIcons/notable, у технологий тиры
+// tier1..tier3 плюс defenseTech и locallyPresent. Сводить их к одному
+// названию здесь не стали — проверка смотрит на каждую половину по её
+// собственным правилам, а общего у них ровно то, ради чего файл и заведён:
+// список отбора обязан сходиться со списком рассылки.
 //
 // Зачем. Списки живут в двух местах, и это не дублирование, а разные роли:
 //
@@ -113,6 +120,111 @@ ok(furyJoshua >= minScore, `переговоры двух икон: ${furyJoshua
 
 const slamFinal = score.majorFinal + score.topCompetition + score.notableAthlete;
 ok(slamFinal >= minScore, `финал шлема с notable-игроком: ${slamFinal} >= порога ${minScore}`);
+
+// ═══ Технологии ═══
+//
+// Та же болезнь, замеренная на технологическом потоке 17.08.2026: имя знакомо
+// скорингу только у 43% из 1357 записей, а продукты не считались вовсе — при
+// том что «Pixel» упоминается 120 раз против 128 у Google. Отсюда тиры,
+// продукты в списках и два симметричных правила: tier1Floor не даёт крупному
+// имени провалиться, noNameNoNews не пускает безымянный стартап.
+
+const tech = policy.tech ?? {};
+const tni = tech.namedInterest ?? {};
+ok(Boolean(tni.tier1), "tech.namedInterest на месте и разбит на тиры");
+
+const TECH_TIERS = ["tier1", "tier2", "tier3", "defenseTech", "locallyPresent"];
+for (const tier of TECH_TIERS) {
+  ok(flatten(tni[tier]).length > 0, `tech.namedInterest.${tier} не пуст (${flatten(tni[tier]).length})`);
+}
+
+// Продукты — половина технологической повестки. Читатель узнаёт тему по
+// названию того, чем пользуется, а не по названию юрлица.
+ok(
+  (tni.tier1?.products ?? []).length >= 8,
+  `tier1.products: ${(tni.tier1?.products ?? []).length} имён (нужно хотя бы 8)`,
+);
+
+// Автопроход обесценивается, если в тир-1 попадает всё подряд.
+ok(flatten(tni.tier1).length <= 80, `tier1 остался коротким (${flatten(tni.tier1).length} ≤ 80)`);
+
+// Имя короче трёх знаков совпадёт с половиной потока: «Arm» ловится в «harm».
+const tooShort = TECH_TIERS.flatMap((t) => flatten(tni[t])).filter((n) => String(n).trim().length < 3);
+ok(tooShort.length === 0, tooShort.length ? `слишком короткие имена: ${tooShort.join(", ")}` : "нет имён короче трёх знаков");
+
+// Пересечение тиров = два балла за один субъект. Исключений два и оба
+// описаны в конфиге: defenseTech намеренно повторяет ИИ-лаборатории с
+// оборонными контрактами, locallyPresent — глобальные бренды, работающие
+// в стране.
+const seenTier = new Map();
+const techDupes = [];
+for (const tier of ["tier1", "tier2", "tier3"]) {
+  for (const name of flatten(tni[tier])) {
+    if (seenTier.has(name)) techDupes.push(`${name} (${seenTier.get(name)} и ${tier})`);
+    seenTier.set(name, tier);
+  }
+}
+ok(techDupes.length === 0, techDupes.length ? `имена в двух тирах: ${techDupes.join("; ")}` : "тиры 1-3 не пересекаются");
+
+// ── Синхронность с рассылкой ──
+const techScoring = new Set([
+  ...(scoring.namedActors?.techCompanies ?? []),
+  ...(scoring.namedActors?.techPeople ?? []),
+  ...(scoring.namedActors?.techProducts ?? []),
+]);
+ok(techScoring.size > 0, `namedActors.tech* не пусты (${techScoring.size} имён)`);
+
+for (const tier of ["tier1", "tier2", "defenseTech", "locallyPresent"]) {
+  const missingTech = flatten(tni[tier]).filter((n) => !techScoring.has(n));
+  ok(
+    missingTech.length === 0,
+    missingTech.length === 0
+      ? `все имена ${tier} есть в namedActors.tech*`
+      : `в namedActors нет ${missingTech.length} имён из ${tier}: ${missingTech.slice(0, 8).join(", ")}${missingTech.length > 8 ? "…" : ""}`,
+  );
+}
+
+// Плоский ключ свернулся в три новых. Воскрес — значит список правили по
+// памяти, и половина имён разъедется.
+ok(!scoring.namedActors?.techInfluencers, "плоский techInfluencers не воскрес");
+
+// ── Шкала и правила ──
+const ts = tech.score ?? {};
+for (const key of ["namedActorTier1", "namedActorTier2", "namedActorTier3", "locallyPresentActor", "unknownActor"]) {
+  ok(typeof ts[key] === "number", `tech.score.${key} задан числом`);
+}
+ok(ts.namedActorTier1 > ts.namedActorTier2, `тир-1 (${ts.namedActorTier1}) весит больше тир-2 (${ts.namedActorTier2})`);
+ok(ts.namedActorTier2 > ts.namedActorTier3, `тир-2 (${ts.namedActorTier2}) весит больше тир-3 (${ts.namedActorTier3})`);
+ok(
+  ts.locallyPresentActor >= ts.namedActorTier1,
+  `узбекская привязка (${ts.locallyPresentActor}) не слабее тир-1 (${ts.namedActorTier1})`,
+);
+ok(ts.unknownActor < 0, `unknownActor (${ts.unknownActor}) — штраф`);
+
+for (const rule of ["tier1Floor", "noNameNoNews", "oneActorOneScore", "uzbekTechAnywhere"]) {
+  ok(Boolean(tech.specialRules?.[rule]), `tech.specialRules.${rule} описано`);
+}
+
+// ── Контрольные примеры, считаются из конфига ──
+const techMin = tech.minScore ?? 40;
+
+// Аналог Шелтона: стартап без имени с релизом модели. Не должен проходить.
+const namelessStartup = ts.frontierAI + ts.unknownActor;
+ok(namelessStartup < techMin, `безымянный стартап с релизом: ${namelessStartup} < порога ${techMin}`);
+
+// Аналог Фьюри: анонс тир-1 без суммы и без узбекской привязки. Обязан
+// проходить — и без правила tier1Floor не прошёл бы.
+const tier1Announcement = ts.namedActorTier1 + ts.massProduct;
+ok(tier1Announcement >= techMin, `анонс тир-1 с массовым продуктом: ${tier1Announcement} >= порога ${techMin}`);
+
+// Локальный сюжет обязан проходить сам по себе: ради него всё и читается.
+const localStory = ts.locallyPresentActor + ts.fintechForReader;
+ok(localStory >= techMin, `узбекский финтех: ${localStory} >= порога ${techMin}`);
+
+// Обзор гаджета не спасает даже тир-1 — обзоры в neverTake, но и по баллам
+// он обязан оставаться под порогом.
+const gadgetReview = ts.namedActorTier1 + ts.reviewOrBenchmark;
+ok(gadgetReview < techMin, `обзор устройства с именем тир-1: ${gadgetReview} < порога ${techMin}`);
 
 console.log(failed ? `\nпровалено ${failed}` : "\nвсе проверки пройдены");
 process.exit(failed ? 1 : 0);
