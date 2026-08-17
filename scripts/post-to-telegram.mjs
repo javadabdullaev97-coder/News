@@ -466,6 +466,47 @@ function publishStateRecord(label) {
   }
 }
 
+
+// ─── Реестр перечитывается из origin/main ПЕРЕД каждой отправкой ───
+//
+// Дедуп и бронь читают файл из СВОЕГО клона. Пока постящий воркфлоу один,
+// этого хватает. Но их три — telegram-autopost, publish-tick и editor-queue, —
+// и запуск, начавшийся до чужого пуша, о чужой записи не знает в принципе:
+// у него на диске снимок момента checkout.
+//
+// 17.08.2026 в 14:15 nvidia-3bn-sb-energy-openai-ohio ушла в @leap_techno
+// двумя сообщениями подряд (184 и 185), в реестр попало одно. Так же
+// сдвоились три соседние статьи в обоих технологических каналах. Общая
+// очередь concurrency этого не ловит: она сериализует запуски, но запуск,
+// уже стартовавший, продолжает работать со своим клоном.
+//
+// Поэтому перед каждой отправкой подтягиваем свежий журнал из origin/main
+// и сливаем со своим. Журнал append-only, строка = событие, поэтому слияние —
+// это объединение множеств строк; порядок и содержимое не страдают.
+// Стоимость — один fetch на пост при паузе между постами в 30 секунд.
+function refreshRegistryFromOrigin() {
+  if (dryRun || process.env.GITHUB_ACTIONS !== "true") return;
+  const abs = join(ROOT, POSTED_LOG);
+  try {
+    execFileSync("git", ["fetch", "--quiet", "origin", "main"], { cwd: ROOT, stdio: "pipe" });
+    const remote = execFileSync("git", ["show", `origin/main:${POSTED_LOG}`], {
+      cwd: ROOT,
+      encoding: "utf8",
+      stdio: ["pipe", "pipe", "pipe"],
+    });
+    const local = existsSync(abs) ? readFileSync(abs, "utf8") : "";
+    const seen = new Set(local.split("\n").filter(Boolean));
+    const extra = remote.split("\n").filter((l) => l && !seen.has(l));
+    if (!extra.length) return;
+    writeFileSync(abs, (local.endsWith("\n") || !local ? local : local + "\n") + extra.join("\n") + "\n");
+    console.error(`[tg] реестр подтянут из origin/main: +${extra.length} записей соседних прогонов`);
+  } catch (err) {
+    // Нет сети или файла в origin — работаем по своему клону. Хуже, чем
+    // со свежим, но не хуже, чем было до этой функции.
+    console.error(`  ⚠ реестр не обновился из origin/main (${String(err.message).slice(0, 60)})`);
+  }
+}
+
 // ─── main ───
 const allMdx = collectMdx(POSTS_DIR).sort();
 // Дедуп по паре ЯЗЫК + СЛАГ. По одному слагу нельзя: русская и узбекская
@@ -641,6 +682,7 @@ for (let i = 0; i < pending.length; i++) {
   // Последняя проверка перед отправкой — по журналу с диска, а не по снимку.
   // Между построением pending и этим моментом прошли паузы между постами и
   // сетевые ретраи; за это время запись мог дописать параллельный прогон.
+  refreshRegistryFromOrigin();
   const already = !dryRun && isPostedNow(ROOT, p.lang, slug, p.target);
   if (already) {
     console.error(
