@@ -338,47 +338,43 @@ reporter'а своей темы, но не чужой:
     если status == "topic-declined":
         зафиксируй причину в отчёте, пропусти
     иначе если status == "ready-for-factcheck":
-        # Экономия: fact-checker пропускается для чистых P0-первоисточников —
-        # reporter уже читал первоисточник, второй проход по тому же URL
-        # ничего не находит (проверено на 27 статьях аудита: 0 CONTRADICTED).
-        если factCheckSkippable(draft):
+        # Звать ли фактчекера — решает скрипт, не ты.
+        node scripts/factcheck-gate.mjs <DRAFT_PATH> --json
+        если .skip == true:
             factCheck = { verdict: "approve", confidence: 90,
-                          summary: "skipped: P0 primary source, single-source article" }
-            зафиксируй в отчёте: skipped-factcheck = true
+                          summary: "пропущен гейтом: " + .reason }
+            зафиксируй в отчёте: skipped-factcheck += 1
         иначе:
-            вызови subagent(fact-checker, {DRAFT_PATH, NOTES_PATH})
+            вызови subagent(fact-checker, {DRAFT_PATH, NOTES_PATH, CLAIMS_PATH})
+            сохрани его ответ в .review/fact-check-<slug>.md сам —
+            у фактчекера нет Write, файл пишешь ты
     иначе если status == "needs-more-research":
         двигай тему в content/needs-verification/, зафиксируй
 
-# Правило пропуска fact-checker'а
+# Правило пропуска fact-checker'а — в коде, а не здесь
 #
-# Смотрит на ПЕРВОИСТОЧНИК, а не на все источники подряд. Прежняя версия
-# требовала P0 от каждой ссылки — и не срабатывала практически никогда:
-# редполитика требует минимум два источника, второй почти всегда P1 или
-# международное агентство. Замер 06.08.2026: из 53 материалов за сутки
-# под правило подпадали два, то есть экономии не было вовсе.
+# Условия живут в scripts/factcheck-gate.mjs и config/newsroom-policy.json
+# (секция factCheckSkip). Скрипт печатает каждое условие с галочкой или
+# крестиком — по выводу видно, почему решение такое.
 #
-# Смысл правила в том, что reporter уже прочитал первоисточник целиком.
-# Второй проход по тому же указу на lex.uz ничего не находит — проверено
-# на 27 статьях аудита, 0 CONTRADICTED. Подтверждающие ссылки риска
-# не добавляют: они цитируют тот же документ.
-def factCheckSkippable(draft):
-    sources = draft.frontmatter.sources
-    if len(sources) > 3:
-        return False   # четыре и больше — уже компиляция, а не пересказ документа
-    if any(s.type == "attributed" for s in sources):
-        return False   # каналы типа Xavfsizlik всегда требуют проверки
-    if sources[0].priority != "P0" or sources[0].type != "source":
-        return False   # первоисточник обязан быть официальным P0
-    if draft.category == "world":
-        return False   # международные материалы всегда проверяем
-    if draft.touchesForbiddenTopics:
-        return False   # уголовные дела, обвинения, жертвы — всегда проверяем
-    if draft.hasNumbersNotInPrimarySource:
-        return False   # цифра пришла из второго источника — её надо сверить
-    if draft.reworkIteration and draft.reworkIteration > 0:
-        return False   # материал в rework — владелец уже что-то заметил
-    return True   # пересказ одного официального документа
+# Прозой правило жило с 04.08.2026 и не работало: семь условий, которые
+# ты должна была проверять на глаз посреди прогона. Замер 17.08.2026 —
+# под правило подпадает 16% материалов, а отметка «пропущен» стоит
+# в одном отчёте фактчекера из 26, то есть в 4%. Разрыв вчетверо.
+#
+# Смысл правила: reporter уже прочитал первоисточник целиком, второй проход
+# по тому же указу ничего не находит (27 статей аудита, 0 CONTRADICTED).
+# Риск живёт не в официальном документе, а в СКЛЕЙКЕ разных документов —
+# поэтому скрипт считает происхождения, а не ссылки: четыре поста одного
+# канала это один документ, четыре ведомства это уже компиляция.
+#
+# Гейт НИКОГДА не пропускает: мировую рубрику, каналы с неподтверждённой
+# принадлежностью, уголовку и жертвы, материал в rework, любую ссылку
+# на неофициальный источник.
+#
+# Решение гейта не обсуждается «интуицией», но обсуждается фактами:
+# считаешь, что он неправ — правь список доменов в конфиге, а не обходи
+# скрипт молча.
 
 затем для каждого результата fact-checker:
     если verdict == "approve" или "approve-with-downgrades":
@@ -985,8 +981,26 @@ node scripts/topic-journal.mjs done --slug=<slug> --links="<те же ссылк
 
 ## Расход
 - Subagent calls: A × reporter, B × fact-checker, C × editor
+- Фактчек пропущен гейтом: N из M
 - Duration: ~M минут
 ```
+
+**Расход не только печатается, но и записывается.** По ходу прогона, после
+каждой стадии:
+
+```bash
+node scripts/record-run-cost.mjs --stage reporter --calls 4 --fetches 22 --minutes 6
+node scripts/record-run-cost.mjs --stage fact-checker --calls 2 --fetches 5 --minutes 3
+node scripts/record-run-cost.mjs --topics 6 --published 3 --skipped-factcheck 2
+```
+
+`fetches` берётся из строки `FETCHES: N`, которую возвращают reporter
+и fact-checker. Сводка за прошлые прогоны — `--summary`.
+
+Зачем это нужно: 17.08.2026 цепочку сокращали ради скорости и токенов,
+и оказалось, что подтвердить эффект нечем — строка «Subagent calls» никуда
+не сохранялась. Теперь сохраняется. Прогон без записи расхода — это прогон,
+про который через неделю нельзя сказать, стало лучше или хуже.
 
 **PR-цикл больше не основной путь** — страховка на случай
 `directPublish.enabled: false`. Полоса ЧП (`breakingLane`) имеет собственный
