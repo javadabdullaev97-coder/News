@@ -24,6 +24,10 @@ on:
         description: "1 = только показать последние посты и дубли"
         required: false
         default: "0"
+      scopes:
+        description: "1 = показать права токена (диагностика отказа #10)"
+        required: false
+        default: "0"
       posts:
         description: "Медиа-id через запятую (пусто — взять из заявки)"
         required: false
@@ -60,6 +64,7 @@ jobs:
           IG_USER_ID_RU: ${{ secrets.IG_USER_ID_RU }}
           IG_USER_ID_UZ: ${{ secrets.IG_USER_ID_UZ }}
           LIST: ${{ github.event.inputs.list || '0' }}
+          SCOPES: ${{ github.event.inputs.scopes || '0' }}
           POSTS: ${{ github.event.inputs.posts }}
           DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
         run: node scripts/retract-social.mjs

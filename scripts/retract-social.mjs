@@ -77,6 +77,24 @@ function request() {
   }
 }
 
+// ─── Права токена ───
+//
+// Удаление отвалилось с «(#10) Insufficient permissions», и по самой
+// ошибке не понять, какого разрешения не хватает. debug_token показывает
+// выданные права — по нему видно, что добавлять в приложении Meta.
+if (process.env.SCOPES === "1") {
+  if (!META_ACCESS_TOKEN) {
+    console.error("Нужен META_ACCESS_TOKEN.");
+    process.exit(1);
+  }
+  const info = await graph("debug_token", { input_token: META_ACCESS_TOKEN });
+  const d = info.data ?? {};
+  console.error("тип токена:", d.type, "| приложение:", d.app_id);
+  console.error("бессрочный:", d.expires_at === 0 ? "да" : new Date((d.expires_at ?? 0) * 1000).toISOString());
+  console.error("выданные права:", (d.scopes ?? []).join(", ") || "(пусто)");
+  process.exit(0);
+}
+
 // ─── Список ───
 //
 // Печатается и как самостоятельный режим, и перед снятием, если заявка
