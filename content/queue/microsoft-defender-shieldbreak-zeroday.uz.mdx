@@ -1,0 +1,45 @@
+---
+title: "Microsoft Defender'dagi ShieldBreak zaifligi (CVE-2026-69414) uchun patch tayyorlamoqda"
+description: "Microsoft Defender'dagi ShieldBreak zaifligi (CVE-2026-69414) uchun patch tayyorlamoqda — u RoguePlanet uchun chiqarilgan patchni chetlab o'tib, SYSTEM huquqlarini beradi; patch hali chiqmagan."
+lang: "uz"
+translatedFrom: "ru"
+queuedAt: "2026-08-17T16:12:00+05:00"
+category: "tech"
+tags: ["Microsoft", "Windows Defender", "nol kunlik zaiflik", "CVE-2026-69414", "kiberxavfsizlik"]
+tgScore: 50
+broadcast: true
+authors: ["reporter", "editor"]
+sources:
+  - name: "MSRC — CVE-2026-69414 haqida xabarnoma"
+    url: "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69414"
+  - name: "NVD — CVE-2026-69414 yozuvi"
+    url: "https://nvd.nist.gov/vuln/detail/CVE-2026-69414"
+  - name: "MITRE/CVE.org — CVE-2026-69414 kartochkasi"
+    url: "https://www.cve.org/CVERecord?id=CVE-2026-69414"
+  - name: "Nightmare Eclipse — ShieldBreak zaifligi haqidagi nashr"
+    url: "https://blog.projectnightcrawler.dev/posts/2026-08-11-shieldbreak-august-2026-disclosure/"
+image:
+  url: "/images/posts/2026-08/microsoft-defender-shieldbreak-zeroday-01.jpg"
+  alt: "Xira tortilgan qorong'i ekranda dasturiy kod satrlarining yaqindan ko'rinishi — himoya dasturidagi zaiflikning ramziy tasviri"
+  credit: "Unsplash / Markus Spiske"
+---
+
+Microsoft 2026-yil 14-avgustda Defenderdagi ShieldBreak nomli nol kunlik zaiflikni tasdiqladi — unga [CVE-2026-69414](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69414) raqami berilgan, u avval chiqarilgan patchni chetlab o'tib, SYSTEM huquqlarini olish imkonini beradi.
+
+Zaiflikni 11-avgustda Nightmare Eclipse taxallusli tadqiqotchi eksploit kodini o'z ichiga olgan [nashrida](https://blog.projectnightcrawler.dev/posts/2026-08-11-shieldbreak-august-2026-disclosure/) fosh qildi — bir nechta texnik nashrlarning ma'lumotlariga ko'ra, bu Microsoft'ga oldindan xabar bermasdan amalga oshirilgan. Kompaniya muammoni bartaraf etish uchun "sifatli xavfsizlik yangilanishi ustida ishlayotganini" [ma'lum qildi](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69414). 17-avgust holatiga ko'ra patch chiqarilmagan.
+
+Zaiflik Malware Protection Engine'ga taalluqli — bu Defenderning skanerlash yadrosi bo'lib, u barcha joriy Windows versiyalariga standart tarzda o'rnatilgan. AQSh milliy zaifliklar ma'lumotlar bazasi ([NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69414)) uni CVSS 3.1 shkalasi bo'yicha 10 balldan 7,8 ball deb baholadi — bu yuqori xavf darajasi hisoblanadi.
+
+Tadqiqotchining so'zlariga ko'ra, ShieldBreak Defenderdagi boshqa bir zaiflik — RoguePlanet (CVE-2026-50656) uchun chiqarilgan patchni chetlab o'tadi; Microsoft bu zaiflikni 2026-yil 8-iyulda yopgan edi. Nightmare Eclipse eksploit to'liq yangilangan Windows 11 25H2 va Windows Server 2025'da uning testlarida yuz foizlik natija bilan ishlaganini ma'lum qildi.
+
+## Bu qanday ishlaydi
+
+Eksploit foydalanuvchi callback-huki'dan foydalanadi — u Defenderning Cloud Filter API (cfapi) orqali amalga oshiriladigan bulutli skanerlash jarayonida fayl mazmunini almashtiradi; tadqiqotchi mexanizmni o'z nashrida shunday tasvirlaydi.
+
+## Bu foydalanuvchilar uchun nimani anglatadi
+
+ShieldBreak ishlashi uchun tajovuzkorda tizimga oddiy foydalanuvchi huquqlari bilan mahalliy kirish imkoniyati bo'lishi shart. Zaiflikning CVSS vektori — mahalliy hujum vektori, talab qilinadigan imtiyozlar darajasi past, foydalanuvchi ishtirokisiz. Bu eksploit kompyuterga masofadan kirish imkonini bermasligini anglatadi. U tajovuzkor tizimga boshqa yo'l bilan — masalan, zararli fayl yoki fishing orqali kirib olganidan keyingina huquqlarni oshiradi.
+
+Microsoft'dan hozircha vaqtinchalik yechim yo'q. Kompaniya Malware Protection Engine yangilanishini kutishni tavsiya qiladi — u Windows Update orqali foydalanuvchi ishtirokisiz avtomatik o'rnatiladi, uy foydalanuvchilaridan alohida harakat talab qilinmaydi. Tashkilotlarga patch chiqquncha eksploitni yakuniy nuqtalar monitoringida hisobga olish tavsiya etiladi.
+
+Bir nechta texnik nashrlarning ma'lumotlariga ko'ra, ShieldBreak — Nightmare Eclipse 2026-yil aprelidan beri fosh qilgan kamida to'qqizinchi nol kunlik zaiflikdir. Fosh etishlar tadqiqotchining Microsoft bilan zaifliklar uchun mukofot dasturi qoidalari va ma'lumotlarni oshkor qilish tartibi yuzasidan davom etayotgan ochiq bahsi fonida sodir bo'lmoqda. ShieldBreak uchun patch chiqish sanasi hali e'lon qilinmagan.
