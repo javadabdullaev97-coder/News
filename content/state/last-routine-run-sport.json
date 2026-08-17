@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-18T00:52:00+05:00",
-  "topicsProcessed": 3,
-  "published": 2,
+  "lastRunAt": "2026-08-18T01:11:00+05:00",
+  "topicsProcessed": 0,
+  "published": 0,
   "queuedForOwner": 0,
-  "rejected": 1,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 24,
-  "notes": "cbs-sports-soccer бэклог-аномалия сохраняется (Salah/Trabzonspor, Vinicius contract, Diomande $155M — pubDate 05-08.08, fetchedAt свежий); третий подряд прогон видит те же старые items, не почищена. Тема Fury-Joshua (Dana White) отклонена как дубль — на момент отбора на main уже было ДВА материала по этому же спору (uk-showdown-talks, cancel-risk), topic-dupecheck не поймал из-за разных source-ссылок и заголовков. Reporter-агенты трижды жаловались, что Write блокирует имя файла с подстрокой 'report'/'notes' внутри 'reporter' — заметки писал редактор поручений вручную под другим именем."
+  "belowThreshold": 378,
+  "notes": "Ни одна тема не набрала 40: поток в основном трансферные слухи без названной суммы, цитаты/реакции, betting-picks (cbs-sports-mma дайджесты) и рутинные подтверждения без named actor. cbs-sports-soccer бэклог-аномалия сохраняется (Salah/Trabzonspor, Vinicius contract, Diomande $155M — pubDate 05-06.08, fetchedAt свежий), четвёртый прогон подряд. Родри (Ман Сити → Барселона, ~$80M, медосмотр 17.08) — реальный сюжет, но 20+10=30 без него в named-actors; кандидат в notable/globalIcons, см. отчёт."
 }
