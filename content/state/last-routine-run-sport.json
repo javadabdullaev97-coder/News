@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-17T16:30:00+05:00",
+  "lastRunAt": "2026-08-17T17:38:00+05:00",
   "topicsProcessed": 0,
   "published": 0,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 127,
-  "notes": "Ни одна тема не набрала порог 40. Аномалия: ленты cbs-sports-soccer и cbs-sports-mma (36+36 записей, больше половины пула) отдают бэклог с датами от апреля до 12-16.08 как свежепойманные (fetchedAt сегодня) — Salah/Trabzonspor (pubDate 05.08), Vinicius contract (06.08), Super Cup (11-12.08) и т.д. Без сверки pubDate это выглядело бы как сегодняшние темы. Сломанный фетчер/ре-серв старого контента, не тема — стоит проверить конфиг этих двух источников."
+  "belowThreshold": 114,
+  "notes": "Второй подряд прогон с 0 тем. Аномалия cbs-sports-soccer/cbs-sports-mma (бэклог 05-12.08 подаётся как свежий по fetchedAt) сохраняется — Rodri/Barcelona, Salah/Trabzonspor, Vinicius contract, Diomande $155M всё ещё в пуле с теми же старыми pubDate. Источники не почищены с прошлого прогона. Rodri (Ballon d'Or, Ман Сити) отсутствует в config/named-actors/sport.json globalIcons — предложение на добавление."
 }
