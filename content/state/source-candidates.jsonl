@@ -175,3 +175,14 @@
 {"ev":"dismiss","domain":"joqargikenes.uz","at":"2026-08-17T11:38:01.682Z","reason":"Собственный сайт уже отслеживаемого источника joqargikenes"}
 {"ev":"dismiss","domain":"octobank.uz","at":"2026-08-17T11:38:01.682Z","reason":"Разовое партнёрское объявление, недостаточно системности"}
 {"ev":"dismiss","domain":"aab.uz","at":"2026-08-17T11:38:01.682Z","reason":"Разовое партнёрское объявление, недостаточно системности"}
+{"ev":"seen","domain":"icrich.uz","at":"2026-08-17T11:51:28.320Z","url":"https://icrich.uz/","foundIn":"https://t.me/madaniyatvazirligi/61169","sourceId":"madaniyatvazirligi","context":"🇺🇿🇰🇷 O‘zbekiston nomoddiy madaniy merosini raqamli targ‘ib qilish bo‘yicha xalqaro loyiha shartnomasi imzolandi\n\n⚡️ Madaniyatshunoslik va nomoddiy madaniy meros ilmiy-tadqiqot instituti hamda Osiyo-Tinch okeani mintaqasida nomoddiy madaniy meros muhofazasi bo‘yicha YUNESKO ma"}
+{"ev":"seen","domain":"itch.io","at":"2026-08-17T11:51:28.320Z","url":"http://itch.io/","foundIn":"https://t.me/itpark_uz/20654","sourceId":"itpark_uz","context":"🌠 LVL Game Jam ishtirokchilari uchun qo‘shimcha imkoniyat\n\nAsosiy Game Jamdan tashqari, ishtirokchilar ixtiyoriy ravishda 35 darajali brauzer kazual o‘yinini yaratib, qo‘shimcha sovrin uchun kurashishi mumkin.\n\n🎮 Ushbu \"Side quest\"da qatnashish shartlari :\n\n✅ Format: Kazual jan"}
+{"ev":"seen","domain":"egov.uz","at":"2026-08-17T11:51:28.320Z","url":"http://egov.uz/","foundIn":"https://t.me/MyGovUz/3983","sourceId":"mygovuz","context":"🇺🇿🇺🇿🇺🇿🇺🇿🇺🇿🇺🇿\n\n🗣 086-tibbiy ma’lumotnoma uchun poliklinikaga qayta borish shart emas!\n\n⏱ Ilgari ma’lumotnoma olish uchun ko‘rikdan o‘tgach ham, uni rasmiylashtirish, imzo va muhr yig‘ish uchun qayta-qayta borib, soatlab navbatda turishga majbur edik.\n\n👍 Endi barchasi"}
+{"ev":"fetched","at":"2026-08-17T11:51:31.118Z","link":"https://www.spot.uz/ru/2026/08/17/urgench-khiva-rail/","status":"200","found":3}
+{"ev":"fetched","at":"2026-08-17T11:51:31.118Z","link":"https://anhor.uz/ru/novosti/urgench-aeroport-zheleznaya-doroga","status":"200","found":14}
+{"ev":"fetched","at":"2026-08-17T11:51:31.118Z","link":"https://www.spot.uz/ru/2026/08/17/interception-points/","status":"200","found":4}
+{"ev":"fetched","at":"2026-08-17T11:51:31.118Z","link":"https://www.spot.uz/ru/2026/08/17/renovation-compensation/","status":"200","found":3}
+{"ev":"fetched","at":"2026-08-17T11:51:31.118Z","link":"https://www.gazeta.uz/ru/2026/08/17/trade/","status":"200","found":2}
+{"ev":"fetched","at":"2026-08-17T11:51:31.118Z","link":"https://www.gazeta.uz/ru/2026/08/17/urgench-khiva/","status":"200","found":7}
+{"ev":"fetched","at":"2026-08-17T11:51:31.118Z","link":"https://kun.uz/news/2026/08/17/prezident-yangi-elektropoyezdda-urganchdan-xivaga-bordi","status":"200","found":0}
+{"ev":"fetched","at":"2026-08-17T11:51:31.118Z","link":"https://nuz.uz/2026/08/17/v-urgenche-molodezh-budut-obuchat-vostrebovannym-professiyam/","status":"200","found":55}
