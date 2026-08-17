@@ -69,12 +69,19 @@ jobs:
       - name: Commit registry
         if: github.event.inputs.dry_run != '1'
         run: |
-          if [[ -z $(git status --porcelain -- content/state/telegram-posted.jsonl) ]]; then
-            echo "Реестр не менялся."
+          # Коммитим и реестр, и саму заявку: скрипт обнуляет её после
+          # исполнения, и это обнуление обязано доехать до main. Иначе она
+          # остаётся заряженной, а номера сообщений в канале со временем
+          # указывают уже на другие посты — повторный пуш той же заявки
+          # снял бы чужое. 18.08.2026 прогон #7 обнулил заявку у себя,
+          # шаг смотрел только на реестр и ничего не отправил.
+          PATHS="content/state/telegram-posted.jsonl content/state/retract-request.json"
+          if [[ -z $(git status --porcelain -- $PATHS) ]]; then
+            echo "Ни реестр, ни заявка не менялись."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add content/state/telegram-posted.jsonl
+          git add $PATHS
           git commit -m "state: посты сняты с раздачи (retract)"
           bash .github/scripts/git-push-with-rebase.sh
