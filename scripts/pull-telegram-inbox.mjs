@@ -25,6 +25,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadSeenLinks, saveSeenLinks } from "../lib/inbox-core.mjs";
 import { collectChannelCandidates } from "../lib/channel-candidates.mjs";
+import { collectSourceCandidates } from "../lib/source-candidates.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(HERE);
@@ -113,6 +114,10 @@ async function fetchWithTimeout(url, timeoutMs) {
   }
 }
 
+// Ссылки, найденные в постах этого прогона: permalink → [url]. Наполняется
+// в fetchChannel, разбирается один раз в конце — см. сбор кандидатов ниже.
+const linksByPost = new Map();
+
 async function fetchChannel(ch) {
   try {
     const res = await fetchWithTimeout(ch.url, FETCH_TIMEOUT_MS);
@@ -137,6 +142,18 @@ async function fetchChannel(ch) {
       // Текст поста
       const textEl = wrap.querySelector(".tgme_widget_message_text");
       const rawText = textEl ? textEl.innerHTML : "";
+
+      // Ссылки поста — ДО того, как ниже вырежутся теги. Иначе href пропадает
+      // вместе с разметкой, и наводка на источник теряется бесплатно: канал
+      // ведомства, ссылающийся на lex.uz или сайт другого ведомства, — это
+      // ровно то, что просил собирать владелец 17.08.2026. Отдельных запросов
+      // здесь не делается, разбирается уже скачанная страница.
+      const outboundLinks = textEl
+        ? textEl
+            .querySelectorAll("a[href]")
+            .map((a) => a.getAttribute("href"))
+            .filter((h) => h && /^https?:\/\//i.test(h))
+        : [];
       // Заменим <br> на \n, потом стрипнем теги
       const text = normalizeText(
         rawText
@@ -175,6 +192,12 @@ async function fetchChannel(ch) {
         views,
         fetchedAt: new Date().toISOString(),
       });
+
+      // В сам item ссылки не кладём: инбокс коммитится в репозиторий, а поле
+      // на десяток адресов в каждой записи — это рост файла ради данных,
+      // которые нужны ровно один раз и одному потребителю. Держим их рядом,
+      // до конца прогона.
+      if (outboundLinks.length) linksByPost.set(permalink, outboundLinks);
     }
 
     return { ok: true, ch, items };
@@ -254,6 +277,25 @@ if (fresh.length) {
   const cand = collectChannelCandidates(ROOT, fresh);
   if (cand.appended) {
     console.error(`[tg] кандидаты в источники: +${cand.appended} (${cand.handles.join(", ")})`);
+  }
+
+  // Сайты, на которые ссылаются каналы. Правило владельца 17.08.2026: смотреть,
+  // на кого ссылаются те, кого мы читаем, и так постепенно собрать все
+  // источники по Узбекистану. Здесь это бесплатно — страницы уже скачаны.
+  const sightings = [];
+  for (const it of fresh) {
+    for (const url of linksByPost.get(it.link) ?? []) {
+      sightings.push({
+        url,
+        foundIn: it.link,
+        sourceId: it.sourceId,
+        context: it.snippet,
+      });
+    }
+  }
+  const web = collectSourceCandidates(ROOT, sightings);
+  if (web.appended) {
+    console.error(`[tg] кандидаты-сайты: +${web.appended} (${web.domains.join(", ")})`);
   }
 }
 

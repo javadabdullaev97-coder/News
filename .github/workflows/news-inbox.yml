@@ -60,6 +60,17 @@ jobs:
           node scripts/pull-telegram-inbox.mjs $ARGS
         continue-on-error: true
 
+      # На кого ссылаются конкуренты. Правило владельца 17.08.2026: смотреть
+      # источники в чужих статьях и так постепенно собрать все источники по
+      # Узбекистану. Единственное место, где мы ходим за конкурентом отдельным
+      # запросом, поэтому потолок жёсткий — восемь статей за прогон, каждая
+      # ровно один раз за всё время. При трёх прогонах в час это две с
+      # половиной сотни статей в сутки, то есть весь поток конкурентов с
+      # запасом, и при этом ноль повторных заходов.
+      - name: Harvest source links from competitors
+        run: node scripts/harvest-source-links.mjs --limit=8
+        continue-on-error: true
+
       # Сайты без работающего RSS: daryo, repost, turkmenportal, eurasianet.
       # Разбираются по форме адреса из HTML — подробности в скрипте.
       - name: Scrape sites without RSS
@@ -124,7 +135,7 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          if [[ -z $(git status --porcelain content/inbox content/state/breaking-alerts.json content/state/channel-candidates.jsonl content/state/seen content/state/seen-topics.json) ]]; then
+          if [[ -z $(git status --porcelain content/inbox content/state/breaking-alerts.json content/state/channel-candidates.jsonl content/state/source-candidates.jsonl content/state/seen content/state/seen-topics.json) ]]; then
             echo "Ничего нового — не коммитим."
             exit 0
           fi
@@ -139,6 +150,10 @@ jobs:
           # Кандидаты в источники: ТГ-каналы из статей конкурентов с контекстом
           # упоминания. Копятся фетчерами, разбирает планёрка.
           git add content/state/channel-candidates.jsonl 2>/dev/null || true
+          # Второй журнал того же механизма: сайты, на которые ссылаются
+          # конкуренты в текстах. Без коммита harvest открывал бы одни и те же
+          # статьи заново на каждом прогоне — отметка fetched живёт здесь же.
+          git add content/state/source-candidates.jsonl 2>/dev/null || true
           # Результат уплотнения журнала: свёрнутые файлы удалены,
           # seen-topics.json пополнен. Без этих двух путей уплотнение
           # отработало бы вхолостую — файлы бы удалялись в рабочем дереве

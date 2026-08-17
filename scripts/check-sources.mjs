@@ -14,6 +14,7 @@
 //   node scripts/check-sources.mjs              — проверить всё, вывести таблицу
 //   node scripts/check-sources.mjs --json       — машиночитаемый вывод
 //   node scripts/check-sources.mjs --max-dead=3 — упасть, если мёртвых больше трёх
+//   node scripts/check-sources.mjs --id=lex-uz   — только одна лента (или список)
 
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -24,6 +25,12 @@ const CONFIG_PATH = join(ROOT, "config/news-sources.json");
 
 const argv = process.argv.slice(2);
 const asJson = argv.includes("--json");
+// Проверить одну ленту, а не все 176. Нужно ровно в момент заведения нового
+// источника: планёрка добавляет домен из кандидатов (planyorka-run.md, §6б)
+// и обязана убедиться, что адрес отдаёт записи, — гонять ради этого полный
+// прогон на три минуты незачем.
+const idArg = argv.find((a) => a.startsWith("--id="));
+const onlyIds = idArg ? new Set(idArg.slice(5).split(",").map((s) => s.trim())) : null;
 const maxDeadArg = argv.find((a) => a.startsWith("--max-dead="));
 const maxDead = maxDeadArg ? Number(maxDeadArg.split("=")[1]) : Infinity;
 
@@ -113,7 +120,12 @@ async function pool(items, worker, limit) {
 
 // Проверяем и отключённые тоже: если у Reuters снова появится фид, мы должны
 // об этом узнать, а не держать запись отключённой вечно.
-const results = await pool(config.rss, check, CONCURRENCY);
+const rssToCheck = onlyIds ? config.rss.filter((s) => onlyIds.has(s.id)) : config.rss;
+if (onlyIds && !rssToCheck.length) {
+  console.error(`[check-sources] нет лент с id: ${[...onlyIds].join(", ")}`);
+  process.exit(2);
+}
+const results = await pool(rssToCheck, check, CONCURRENCY);
 
 // ─── Сайты без RSS, которые разбирает pull-scrape-inbox.mjs ───
 //
@@ -181,7 +193,9 @@ async function checkScrape(rule) {
   }
 }
 
-const scrapeRules = (config.htmlScrape ?? []).filter((r) => !r.disabled);
+const scrapeRules = onlyIds
+  ? []
+  : (config.htmlScrape ?? []).filter((r) => !r.disabled);
 const scrapeResults = scrapeRules.length
   ? await pool(scrapeRules, checkScrape, CONCURRENCY)
   : [];
