@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T04:10:00+05:00",
+  "lastRunAt": "2026-08-18T04:41:00+05:00",
   "mode": "main",
-  "topicsProcessed": 1,
-  "published": 1,
+  "topicsProcessed": 0,
+  "published": 0,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 7,
+  "belowThreshold": 2532,
   "rework": 0,
-  "notes": "Local-поток пуст по существу (7 fresh items, ни один не по теме/значимости). Единственная тема — мировая (землетрясение на Флоресе, обновление счёта). DRC Ebola-кластер найден, но оказался дублем уже опубликованного 17.08 материала — не производился повторно. check-doc-digest: fresh=false второй прогон подряд — CORE.md отстаёт от SKILL.md, нужно ручное обновление дайджеста. Write-инструмент у reporter'а блокирует пути с подстрокой 'report' (та же проблема, что в прошлом прогоне) — notes сохранены под другим именем. node_modules отсутствовал в свежем клоне — npm install перед claims-lint/factcheck-gate потребовался снова."
+  "notes": "Порог не прошла ни одна тема. Local-поток — 13 fresh (кадровая перестановка советника от influencer-канала без официального подтверждения, дежурный пост Минздрава, землетрясения M5.3 в Микронезии, региональная статистика Кыргызстана, архивные новости ООН) — ни одна не в формате новости с первоисточником. World-поток — 2519 fresh, кластеризован вручную по mustPublish/publishIfQuality категориям (ФРС/ЕЦБ, война/перемирие, теракты, смена власти, катастрофы M7+, санкции/ВТО, IPO, M&A $10B+, крипто, отчётность топ-6, премьеры) — совпадений с minDistinctBlocs и requireNonRussianBloc не найдено; РФ-Украина рутина отсеяна ruUaHighBar. check-doc-digest: fresh=false третий прогон подряд — CORE.md отстаёт от SKILL.md, нужно ручное обновление дайджеста (node scripts/check-doc-digest.mjs --update)."
 }
