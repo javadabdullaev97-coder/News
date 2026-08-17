@@ -12,18 +12,20 @@
 | 8 | Epic не считает, что передача дела на согласительную сессию сейчас продвинет урегулирование | https://9to5mac.com/wp-content/uploads/sites/6/2026/08/gov.uscourts.cand_.364265.1713.0.pdf | «Epic does not believe the prospects of such settlement would be meaningfully advanced through referral to a settlement conference at this juncture» |
 | 9 | Если суд назначит сессию, Epic примет в ней добросовестное участие | https://9to5mac.com/wp-content/uploads/sites/6/2026/08/gov.uscourts.cand_.364265.1713.0.pdf | «Of course, should this Court order referral to a settlement conference, Epic will participate in good faith» |
 | 10 | Epic Games подала иск против Apple в 2020 году после удаления Fortnite из App Store за обход комиссии | https://9to5mac.com/wp-content/uploads/sites/6/2026/08/gov.uscourts.cand_.364265.1710.0.pdf | — прямой цитаты об удалении Fortnite в этих двух документах нет: факт общеизвестен по номеру и году дела (Epic Games, Inc. v. Apple Inc., Case No. 4:20-cv-05640-YGR, отсчёт с 2020 года — сам номер года "20" в номере дела и хронология судебных решений в этом же деле); отдельного подтверждающего источника про сам инцидент с Fortnite в материал не заводил, это общий контекст спора |
-| 11 | Apple 13 августа предложила новую структуру комиссий: 15% для обычных приложений | https://9to5mac.com/2026/08/13/apple-proposes-commissions-of-up-to-15-for-off-app-store-purchases-in-the-us/ | — дословной цитаты нет: изложено по итогам чтения статьи 9to5mac (WebFetch), в самой статье указано «15% for standard apps (those subject to 30% in-app purchase commission)» как формулировка автора статьи, не прямая цитата из ходатайства Apple |
-| 12 | 10% — для программ Video, News и Mini Apps Partner, а также для продлений подписок | https://9to5mac.com/2026/08/13/apple-proposes-commissions-of-up-to-15-for-off-app-store-purchases-in-the-us/ | — дословной цитаты нет: «10% for Video Partner Program, News Partner Program, Mini Apps Partner Program, and subscription renewals» — формулировка статьи 9to5mac по итогам WebFetch, не первоисточник напрямую |
-| 13 | 5% — для участников Small Business Program | https://9to5mac.com/2026/08/13/apple-proposes-commissions-of-up-to-15-for-off-app-store-purchases-in-the-us/ | — дословной цитаты нет: «5% for Small Business Program apps» — формулировка статьи 9to5mac по итогам WebFetch |
+| 11 | Apple 13 августа предложила новую структуру комиссий (15/10/5%) — LEAP News писал об этом подробнее в день подачи | внутренняя ссылка на собственный материал LEAP News (content/posts/2026-08-17/apple-appstore-15pct-commission-epic.mdx) | не требует внешней цитаты — факт уже проверен и опубликован LEAP News отдельным материалом 17.08.2026; здесь упоминается как контекст развития сюжета, без прямой ссылки на сторонний источник |
 
 ## Примечание для fact-checker'а
-Строки 11–13 (структура комиссий 15/10/5%) взяты из вторичного пересказа 9to5mac
-(через WebFetch-инструмент, не из самого судебного документа с предложением Apple по
-комиссиям — этот документ в материал не запрашивался отдельно). Числа совпадают
-у нескольких независимых изданий (Benzinga, MacObserver, Gizmodo) по данным WebSearch,
-но рекомендую при возможности свериться с самим ходатайством Apple о комиссиях
-(поданным также 13 августа, отдельный документ от Document 1710), если оно будет
-использовано в отдельном материале о комиссиях.
+Правка 18.08.2026: строки про структуру комиссий (15/10/5%) больше не цитируют 9to5mac
+напрямую — этот же факт уже проверен и опубликован LEAP News отдельным материалом
+(content/posts/2026-08-17/apple-appstore-15pct-commission-epic.mdx, вышел 17.08.2026 в 14:37,
+источники — судебный докет №1708 + MacRumors + 9to5Mac). Изначально черновик цитировал
+9to5mac напрямую для этого фонового абзаца, но повторный topic-dupecheck.mjs с реальными
+ссылками первоисточников показал совпадение по этой самой ссылке с уже опубликованным
+материалом — по редполитике (§4: «развитие сюжета давать можно и нужно, но как факт со
+ссылкой на свой материал») абзац переформулирован как отсылка к собственному прошлому
+материалу вместо повторной внешней цитаты. Основной новостной факт этого черновика —
+ходатайство о переговорах (Document 1710) и ответ Epic (Document 1713) — уникален и не
+пересекается с уже опубликованным материалом о комиссиях (Document 1708, другая тема).
 
 ## Правка 17.08.2026 (claims-lint)
 Источник https://9to5mac.com/2026/08/17/epic-responds-to-apples-bid-for-settlement-talks-in-app-store-case/
