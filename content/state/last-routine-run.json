@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-17T11:52:00+05:00",
-  "mode": "sport",
-  "topicsProcessed": 2,
-  "published": 1,
-  "queuedForOwner": 0,
-  "rejected": 1,
-  "needsVerification": 0,
-  "belowThreshold": 13,
-  "rework": 0,
-  "notes": "Отклонена makhachev-ufc-win-streak-record (UFC 330) — гонка с основной планёркой: та опубликовала тот же бой раньше под другим слагом (makhachev-welterweight-record-ufc330), dupecheck на старте отбора темы не поймал (материал вышел уже после отбора). Обнаружено на этапе bild, вычищено, зафиксировано в content/rejected/. Reporter/fact-checker Write-инструмент дважды блокировал запись .review/*.md как «report file» — файлы пересоздавал вручную из инлайн-текста ответа."
+  "lastRunAt": "2026-08-17T12:37:00+05:00",
+  "mode": "main",
+  "topicsProcessed": 5,
+  "published": 2,
+  "queuedForOwner": 1,
+  "rejected": 0,
+  "needsVerification": 1,
+  "belowThreshold": 449,
+  "rework": 1,
+  "notes": "Два отобранных кандидата (BNPL-регулирование рассрочки, закон о фамилии по имени отца) и мировой кандидат (землетрясение M7.7 у Флореса) оказались дублями уже произведённого/опубликованного другими прогонами — обнаружено dupecheck'ом до/после запуска reporter, работа не дублирована. last-routine-run.json был перезаписан спортивной планёркой (mode:sport) вместо её собственного last-routine-run-sport.json — файл разделения нет, стоит завести."
 }
