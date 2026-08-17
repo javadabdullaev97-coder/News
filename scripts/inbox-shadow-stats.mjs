@@ -60,7 +60,7 @@ const MIN_SCORE = policy.selection.minScore;
 const MODEL_MAX = SCORE.affectsEveryone + SCORE.actionable + SCORE.money;
 
 // Российские блоки: сюжет, подтверждённый только ими, барьер не проходит.
-const RU_BLOCS = new Set(["ru-state", "ru-business"]);
+const RU_BLOCS = new Set(["ru-state", "ru-business", "ru-sport"]);
 
 const at = Date.now();
 const journal = loadJournal(ROOT, at);
