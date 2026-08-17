@@ -319,13 +319,40 @@ for (const m of miscategorised) {
   );
 }
 
+// ─── Перевод без картинки, когда у оригинала она есть ───
+//
+// Переводчик копирует блок image из русского файла тем, каким тот был
+// в момент перевода. Если bild доставил фото позже, в переводе остаются
+// `url: null` — и build-posts придерживает эти версии: статья выходит
+// по-русски, а по-узбекски и по-английски её на сайте просто нет.
+// 17.08.2026 так потерялись обе версии материала про IOI 2026 в Ташкенте,
+// и заметно это стало только по счётчику «на сайт не выпущен».
+const imageUrlOf = (raw) =>
+  ((raw.match(/^image:\s*\n(?:\s+\w+: .*\n)*?\s+url:\s*(.+)$/m) ?? [])[1] ?? "").trim();
+const imagelessTranslations = [];
+for (const { path: file } of files) {
+  if (!/\.(uz|en)\.mdx$/.test(file)) continue;
+  const url = imageUrlOf(readFileSync(file, "utf8"));
+  if (url && url !== "null" && url !== '""') continue;
+  const origin = file.replace(/\.(uz|en)\.mdx$/, ".mdx");
+  if (!existsSync(origin)) continue;
+  const originUrl = imageUrlOf(readFileSync(origin, "utf8"));
+  if (!originUrl || originUrl === "null" || originUrl === '""') continue;
+  imagelessTranslations.push({ file: file.replace(ROOT + "/", ""), originUrl });
+}
+for (const t of imagelessTranslations) {
+  console.error(
+    `✗ ${t.file}: image.url пуст, а у русского оригинала ${t.originUrl} — перевод не выйдет на сайт, перенеси картинку`,
+  );
+}
+
 for (const l of leaks) {
   console.error(`✗ ${l.file}: служебная разметка агента в тексте (${l.markers.join(", ")}) — вычистить руками`);
 }
 console.error(
   fix
-    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}, рубрика мимо ${miscategorised.length}`
-    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}, рубрика мимо ${miscategorised.length}`,
+    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}, рубрика мимо ${miscategorised.length}, переводов без картинки ${imagelessTranslations.length}`
+    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}, рубрика мимо ${miscategorised.length}, переводов без картинки ${imagelessTranslations.length}`,
 );
 // Утечка разметки — ошибка всегда, даже в режиме --fix: чинить её
 // автоматически нельзя, а выпускать материал с ней нельзя тем более.
@@ -335,6 +362,7 @@ process.exit(
   badLinks.length ||
   dateProblems.length ||
   miscategorised.length ||
+  imagelessTranslations.length ||
   (!fix && findings.length)
     ? 1
     : 0,

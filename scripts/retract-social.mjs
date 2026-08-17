@@ -37,8 +37,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { appendLog } from "../lib/state-log.mjs";
-import { loadPosted, SOCIAL_LOG } from "../lib/social-posted.mjs";
+import { loadPosted, markRevoked } from "../lib/social-posted.mjs";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const {
@@ -195,14 +194,13 @@ for (const t of targets) {
       continue;
     }
   }
-  if (repost && t.url) {
-    appendLog(join(ROOT, SOCIAL_LOG), {
-      network: "instagram",
-      url: t.url,
-      postId: t.postId,
-      revokedAt: new Date().toISOString(),
-      reason: req.reason ?? "retract",
-    });
+  // Отзыв пишем ключом реестра «сеть язык слаг» — тем же, каким читается
+  // журнал. Строка без lang/slug ключа не образует, loadPosted её молча
+  // выбрасывает, и материал навсегда числится отправленным: пост удалён,
+  // а переотправки нет. Отсюда и markRevoked вместо ручного appendLog.
+  if (repost && t.key) {
+    const [network, lang, slug] = t.key.split(" ");
+    markRevoked(ROOT, { network, lang, slug, reason: req.reason ?? "retract" });
   }
 }
 

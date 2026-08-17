@@ -14,6 +14,11 @@
     "апскейла нет намеренно: растянутая до 1600×900 картинка на герое",
     "выглядит мыльной. Меньше 1000 px в герой не ставим (проверяет скрипт).",
     "",
+    "ШИРИНА ВАЖНА И ДЛЯ КАРТОЧКИ СОЦСЕТЕЙ. 1080×1350 из кадра 640×360",
+    "не собирается: рендер упирается в потолок апскейла и уходит на подложку",
+    "с размытием — те самые посты с блюром по краям от 17.08.2026. Кадры",
+    "ниже 1000 px годятся только внутрь текста, в герой и в карточку — нет.",
+    "",
     "credit — происхождение снимков владелец прислал без указания автора;",
     "до уточнения стоит нейтральная формула. Узнаем автора — правим здесь,",
     "во всех статьях подпись подтянется при следующей правке frontmatter."
@@ -39,6 +44,28 @@
         "ru": "Фасад Центрального банка Республики Узбекистан с названием на узбекском языке",
         "uz": "O'zbekiston Respublikasi Markaziy banki binosi fasadi va o'zbekcha yozuv",
         "en": "Facade of the Central Bank of the Republic of Uzbekistan with the name in Uzbek"
+      }
+    },
+    {
+      "file": "/images/stock/cbu-tower-01.jpg",
+      "topics": ["cbu", "monetary-policy", "banking", "payments"],
+      "width": 1600,
+      "credit": "Центральный банк Узбекистана (cbu.uz)",
+      "alt": {
+        "ru": "Фасад здания Центрального банка Узбекистана в Ташкенте со стеклянными шахтами лифтовых башен, вид снизу на фоне неба",
+        "uz": "Toshkentdagi O'zbekiston Markaziy banki binosi fasadi: shishali lift minoralari, pastdan olingan kadr",
+        "en": "Facade of the Central Bank of Uzbekistan in Tashkent with its glass lift towers, shot from below against the sky"
+      }
+    },
+    {
+      "file": "/images/stock/usd-cash-01.jpg",
+      "topics": ["fx", "dollar", "cash", "rates"],
+      "width": 1600,
+      "credit": "Unsplash / Giorgio Trovato",
+      "alt": {
+        "ru": "Пачки стодолларовых банкнот США внахлёст крупным планом, без людей и логотипов банков",
+        "uz": "Yaqindan olingan yuz dollarlik AQSh banknotalari, odamlarsiz va bank logotiplarisiz",
+        "en": "Close-up of overlapping US hundred-dollar bills, no people or bank logos"
       }
     },
     {
