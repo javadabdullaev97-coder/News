@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-17T15:30:00+05:00",
+  "lastRunAt": "2026-08-17T16:35:00+05:00",
   "mode": "main",
-  "topicsProcessed": 1,
-  "published": 0,
+  "topicsProcessed": 2,
+  "published": 1,
   "queuedForOwner": 0,
   "rejected": 1,
   "needsVerification": 0,
   "belowThreshold": 7,
   "rework": 0,
-  "notes": "Тема urganch-airport-modernization-264m прошла dupecheck как clear на отборе, но параллельный прогон опубликовал ту же тему (urgench-airport-reconstruction) раньше, чем этот дошёл до editor'а — race между конкурентными планёрками, editor поймал и отклонил как дубль до bild/seo. Повторно: субагенты (reporter, editor) не могут Write в .review/*notes*.md и *factcheck*.md — харнесс блокирует по подстроке 'report'/похожим именам, приходится сохранять их текст вручную."
+  "notes": "tashkent-property-revaluation отклонена reporter'ом как дубль публикации 15.08 (tashkent-cadastre-revaluation-tax-base) — верный первоисточник Минэкономфин уже был использован тогда, сегодняшние сигналы — republication. Переводчик оставил в обоих файлах (uz/en) хвост служебной разметки </content> в конце тела — i18n-lint --fix это не поймал (регэксп не сработал), вычищено вручную построчно перед коммитом. Повторно то же самое: субагенты (reporter, fact-checker) не могут Write в .review/*notes*.md и *factcheck*.md — харнесс блокирует по подстроке 'report', пришлось сохранять их текст вручную."
 }
