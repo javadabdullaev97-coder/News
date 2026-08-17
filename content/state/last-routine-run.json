@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-17T13:30:00+05:00",
+  "lastRunAt": "2026-08-17T14:41:00+05:00",
   "mode": "main",
-  "topicsProcessed": 2,
-  "published": 1,
+  "topicsProcessed": 5,
+  "published": 3,
   "queuedForOwner": 0,
-  "rejected": 0,
-  "needsVerification": 1,
-  "belowThreshold": 16,
+  "rejected": 2,
+  "needsVerification": 0,
+  "belowThreshold": 167,
   "rework": 0,
-  "notes": "Fact-checker (нет Write в tools) не смог сохранить .review/fact-check-*.md — оркестратор сохранил вручную из текста ответа. Оба reporter'а получили блок записи файла на подстроку 'report' в имени (пришлось называть notes-*, а не reporter-notes-*) — стоит поправить фильтр инструмента записи. В content/posts/2026-08-17/ben-gvir-gaza-kill-30-40-nightly.{en,uz}.mdx (не моя правка) — утечка служебной разметки (</content>), нужно вычистить руками."
+  "notes": "Обнаружен баг в scripts/i18n-lint.mjs --fix: замена \"%\"→\" foiz\" срабатывает и внутри URL-кодировки (%E2%80%99 → \" foiz80 foiz99\"), корёжит ссылки в чужих статьях при обычном прогоне линтера. Задел content/posts/2026-08-17/meta-youth-safety-trial-29-states.uz.mdx — откатил вручную, не закоммитил. Также reporter/fact-checker субагенты систематически не могут Write в .review/*notes*.md и *factcheck*.md (харнесс блокирует по подстроке 'report' в имени файла) — оркестратор сохранял их содержимое вручную по тексту ответа, это на каждую тему +1 ручной шаг."
 }
