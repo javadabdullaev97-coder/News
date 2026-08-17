@@ -1,0 +1,19 @@
+DUPLICATE — та же тема уже опубликована 2026-08-17T18:37:00+05:00:
+content/posts/2026-08-17/iren-delivers-ai-capacity-microsoft-texas.mdx (broadcast: true, tgScore: 60)
+
+Обнаружено на стадии перевода (translator сверил заголовки с уже опубликованными
+статьями того же дня — content/posts/2026-08-17/), после того как первичный
+topic-dupecheck.mjs при отборе темы прошёл с verdict "clear" (в момент отбора
+единственной известной ссылкой кластера была The Block, а не GlobeNewswire/SEC —
+опубликованная статья использует именно эти две ссылки как sources, и совпадение
+всплыло только когда reporter сам нашёл первоисточники). Повторный
+topic-dupecheck.mjs с фактическими ссылками первоисточников (GlobeNewswire,
+SEC EDGAR) подтвердил verdict: duplicate, matchedByLink → iren-delivers-ai-capacity-microsoft-texas.
+
+Материал прошёл весь цикл (reporter → fact-checker approve-with-downgrades 85% →
+editor publish → bild publish-ready, картинка переиспользована из опубликованной
+статьи) до того, как дубль вскрылся. В очередь (content/queue/) не выпущен,
+переводы (.uz/.en) удалены без публикации.
+
+Тема закрыта в журнале как обработанная (below-threshold/duplicate), повторно
+не брать.
