@@ -29,6 +29,17 @@ const MANIFEST = join(ROOT, "config/stock-photos.json");
 // нормально — там ширина втрое меньше.
 const HERO_MIN_WIDTH = 1000;
 
+// Снимок статьи уходит не только на сайт: из него рендерится карточка
+// 1080×1350 для Instagram (scripts/render-social-card.py). Кадр фотографии
+// там до 900 px высотой, то есть исходник 16:9 должен быть не меньше
+// 768×432 — иначе рендер откажется, и материал останется без карточки.
+//
+// 17.08.2026 из фототеки ушёл снимок 640×360, и в ленте Instagram
+// фотография повисла маленьким прямоугольником в размытой подложке.
+// Поэтому отдаём только то, что заведомо пройдёт рендер; мелкое лежит
+// в манифесте, но выдаётся лишь по явному --any.
+const SOCIAL_MIN_WIDTH = 768;
+
 const args = process.argv.slice(2);
 const flag = (name) => {
   const i = args.indexOf(`--${name}`);
@@ -86,11 +97,21 @@ if (!topic) {
 }
 
 let pool = withUsage.filter((p) => p.topics.includes(topic));
+const tooSmall = pool.filter((p) => p.width < SOCIAL_MIN_WIDTH).map((p) => p.file);
+if (!has("any")) pool = pool.filter((p) => p.width >= SOCIAL_MIN_WIDTH);
 if (has("hero")) pool = pool.filter((p) => p.width >= HERO_MIN_WIDTH);
+if (tooSmall.length && !has("any")) {
+  console.error(
+    `[pick-stock] пропущено как мелкое для карточки Instagram (<${SOCIAL_MIN_WIDTH} px): ` +
+      tooSmall.join(", "),
+  );
+}
 
 if (!pool.length) {
   console.error(
-    `в фототеке нет кадров по теме «${topic}»${has("hero") ? " шириной от " + HERO_MIN_WIDTH + " px" : ""}`,
+    `в фототеке нет кадров по теме «${topic}», годных для карточки` +
+      `${has("hero") ? ` и героя (от ${HERO_MIN_WIDTH} px)` : ` (от ${SOCIAL_MIN_WIDTH} px)`}` +
+      ". Ищи снимок обычным путём — у первоисточника или в стоке.",
   );
   process.exit(1);
 }
