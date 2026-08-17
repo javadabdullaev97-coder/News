@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T02:07:00+05:00",
+  "lastRunAt": "2026-08-18T04:10:00+05:00",
   "mode": "main",
   "topicsProcessed": 1,
   "published": 1,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 5,
+  "belowThreshold": 7,
   "rework": 0,
-  "notes": "Local-поток пуст по существу (5 items, ни один не по теме/региону). Единственная тема — мировая, развитие сюжета США-Иран (MoU истёк). check-doc-digest: fresh=false, CORE.md всё ещё отстаёт от SKILL.md — дайджест нужно обновить руками. Reporter-агент не смог Write в файл с подстрокой 'report' в имени (reporter-notes-*.md) — блокировка инструмента, orchestrator сохранил notes сам. node_modules отсутствовал в свежем клоне — потребовался npm install перед claims-lint/factcheck-gate."
+  "notes": "Local-поток пуст по существу (7 fresh items, ни один не по теме/значимости). Единственная тема — мировая (землетрясение на Флоресе, обновление счёта). DRC Ebola-кластер найден, но оказался дублем уже опубликованного 17.08 материала — не производился повторно. check-doc-digest: fresh=false второй прогон подряд — CORE.md отстаёт от SKILL.md, нужно ручное обновление дайджеста. Write-инструмент у reporter'а блокирует пути с подстрокой 'report' (та же проблема, что в прошлом прогоне) — notes сохранены под другим именем. node_modules отсутствовал в свежем клоне — npm install перед claims-lint/factcheck-gate потребовался снова."
 }
