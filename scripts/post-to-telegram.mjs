@@ -21,7 +21,13 @@ import {
 } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { isPostedNow, loadPostedByLangSlug, markPosted } from "../lib/telegram-posted.mjs";
+import {
+  MAIN_TARGET,
+  SPORT_TARGET,
+  isPostedNow,
+  loadPostedByLangSlug,
+  markPosted,
+} from "../lib/telegram-posted.mjs";
 
 import {
   parseFrontmatter,
@@ -40,6 +46,8 @@ const {
   TELEGRAM_BOT_TOKEN,
   TELEGRAM_CHANNEL,
   TELEGRAM_CHANNEL_UZ,
+  TELEGRAM_CHANNEL_SPORT,
+  TELEGRAM_CHANNEL_SPORT_UZ,
   SITE_URL = "https://leap.uz",
   DRY_RUN,
 } = process.env;
@@ -53,16 +61,37 @@ const CHANNEL_BY_LANG = {
   uz: TELEGRAM_CHANNEL_UZ,
 };
 
+// Спортивные каналы — вторая линия, заведена 17.08.2026. Спорт уходит сюда
+// весь, а в основной канал языка — только то, что набрало broadcast:true.
+// Важный сюжет попадает в оба канала: странно, если главная новость дня есть
+// в общем канале и её нет в профильном (решение владельца 17.08.2026).
+//
+// Языка без спортивного канала постер просто не касается — тот же механизм,
+// что и для английского: нет секрета, нет отправки, нет записи в реестр.
+const SPORT_CHANNEL_BY_LANG = {
+  ru: TELEGRAM_CHANNEL_SPORT,
+  uz: TELEGRAM_CHANNEL_SPORT_UZ,
+};
+
 // Дата, с которой канал ведётся. Материал, вышедший раньше, в него не уходит.
 //
 // Нужна ровно в момент подключения нового канала: 05.08.2026 к появлению
 // @leap_news_uz в репозитории уже лежали 37 узбекских переводов архива,
 // и без отсечки первый же прогон вывалил бы их залпом — подписчик увидел
 // бы позавчерашние новости как свежие. Правила — config/telegram-scoring.json.
-function channelStartAt(lang) {
-  const v = tgConfig.channels?.[lang]?.startAt;
+function channelStartAt(lang, target = MAIN_TARGET) {
+  const node =
+    target === SPORT_TARGET
+      ? tgConfig.channels?.sport?.[lang]
+      : tgConfig.channels?.[lang];
+  const v = node?.startAt;
   const t = v ? Date.parse(v) : NaN;
   return Number.isFinite(t) ? t : null;
+}
+
+// Материал спортивный? Категорию ставит SEO-агент, она же решает рубрику сайта.
+function isSport(fm) {
+  return String(fm.category ?? "").toLowerCase() === "sport";
 }
 
 const dryRun = DRY_RUN === "1" || DRY_RUN === "true";
@@ -253,7 +282,7 @@ async function tgApi(method, body) {
   return data.result;
 }
 
-async function postArticle(mdxPath, fm, channel = TELEGRAM_CHANNEL) {
+async function postArticle(mdxPath, fm, channel = TELEGRAM_CHANNEL, target = MAIN_TARGET) {
   const date = dateFromPath(mdxPath);
   const slug = slugFromPath(mdxPath);
   const lang = langFromPath(mdxPath);
@@ -271,6 +300,7 @@ async function postArticle(mdxPath, fm, channel = TELEGRAM_CHANNEL) {
     console.log("=".repeat(60));
     console.log("SLUG:", slug);
     console.log("LANG:", lang, "→ канал", channel || "(не заведён — не постим)");
+    console.log("TARGET:", target);
     console.log("URL:", url);
     console.log("IMAGE:", hasImage ? fm.image.url : "(none)");
     console.log("SILENT:", silent ? "да — ночь в Ташкенте, без звука" : "нет");
@@ -318,7 +348,16 @@ const allMdx = collectMdx(POSTS_DIR).sort();
 // версии — разные каналы и разные подписчики, вторая отправка не дубль.
 // А по URL нельзя тем более: смена формата адреса 04.08.2026 обнулила
 // URL-дедуп и вылила в канал 36 старых статей волнами.
-const posted = loadPostedByLangSlug(ROOT);
+// Снимок реестра на каждый канал назначения отдельно: одна и та же статья
+// может уже лежать в основном канале и ещё не уйти в спортивный.
+const posted = {
+  [MAIN_TARGET]: loadPostedByLangSlug(ROOT, MAIN_TARGET),
+  [SPORT_TARGET]: loadPostedByLangSlug(ROOT, SPORT_TARGET),
+};
+const CHANNELS_BY_TARGET = {
+  [MAIN_TARGET]: CHANNEL_BY_LANG,
+  [SPORT_TARGET]: SPORT_CHANNEL_BY_LANG,
+};
 const pending = [];
 
 for (const mdxPath of allMdx) {
@@ -363,8 +402,25 @@ for (const mdxPath of allMdx) {
   // в content/state/telegram-posted.jsonl и повторно не отправляются, а новые
   // получают флаг от SEO-агента. Цена ошибки несимметрична: не отправить
   // вовремя — досадно, отправить непроверенное — уже случилось дважды.
+  // Куда этот материал вообще может уйти.
+  //
+  // Основной канал — по-прежнему только явный broadcast:true (fail-closed,
+  // разбор ниже по тексту).
+  //
+  // Спортивный канал — весь спорт, закрывший редакционный цикл. Порог в
+  // баллах здесь нулевой (config → sportBroadcastThreshold): владелец
+  // 17.08.2026 — «туда будем много контента вливать». Но fail-closed остаётся:
+  // признаком закрытого цикла считаем НАЛИЧИЕ поля broadcast — любое значение.
+  // Его проставляет SEO-агент последним шагом, поэтому материал без поля —
+  // это недоделка, ровно та, что 2 и 3 августа уходила в канал по старому
+  // умолчанию. broadcast:false у спортивной статьи означает «не в основной
+  // канал», а не «никуда».
   const broadcast = fm.broadcast === true || fm.broadcast === "true";
-  if (!broadcast) {
+  const seoDone = fm.broadcast !== undefined;
+  const targets = [];
+  if (broadcast) targets.push(MAIN_TARGET);
+  if (isSport(fm) && seoDone) targets.push(SPORT_TARGET);
+  if (!targets.length) {
     const why = fm.broadcast === undefined ? "поля broadcast нет" : "broadcast:false";
     console.error(`[skip] ${rel}: ${why} (tgScore ${fm.tgScore ?? "?"}) — только сайт`);
     continue;
@@ -392,25 +448,28 @@ for (const mdxPath of allMdx) {
   const date = dateFromPath(mdxPath);
   const slug = slugFromPath(mdxPath);
   const lang = langFromPath(mdxPath);
-  const channel = CHANNEL_BY_LANG[lang];
-  if (!channel && !dryRun) {
-    // Языка без канала (сейчас — английский, он уйдёт в Twitter) просто
-    // не касаемся: ни отправки, ни записи в реестр. Заведут канал —
-    // материалы уедут туда с этого же места.
-    continue;
-  }
   const url = articleUrl(date, slug, lang);
-  if (posted.has(`${lang} ${slug}`)) {
-    continue; // уже постили в канал ЭТОГО языка
-  }
-  const startAt = channelStartAt(lang);
   const publishedTs = Date.parse(fm.publishedAt ?? "");
-  if (startAt && Number.isFinite(publishedTs) && publishedTs < startAt) {
-    // Материал старше канала — молча пропускаем и в реестр не пишем:
-    // захотят наполнить канал архивом, сдвинут startAt назад.
-    continue;
+
+  for (const target of targets) {
+    const channel = CHANNELS_BY_TARGET[target][lang];
+    if (!channel && !dryRun) {
+      // Языка без канала (английский уходит в Twitter; спортивных каналов
+      // может ещё не быть в секретах) просто не касаемся: ни отправки, ни
+      // записи в реестр. Заведут канал — материалы уедут туда с этого места.
+      continue;
+    }
+    if (posted[target].has(`${lang} ${slug}`)) {
+      continue; // уже постили в этот канал
+    }
+    const startAt = channelStartAt(lang, target);
+    if (startAt && Number.isFinite(publishedTs) && publishedTs < startAt) {
+      // Материал старше канала — молча пропускаем и в реестр не пишем:
+      // захотят наполнить канал архивом, сдвинут startAt назад.
+      continue;
+    }
+    pending.push({ mdxPath, fm, url, rel, lang, channel, target });
   }
-  pending.push({ mdxPath, fm, url, rel, lang, channel });
 }
 
 console.error(`[tg] ${pending.length} new post(s) to publish`);
@@ -438,21 +497,25 @@ for (let i = 0; i < pending.length; i++) {
   // Последняя проверка перед отправкой — по журналу с диска, а не по снимку.
   // Между построением pending и этим моментом прошли паузы между постами и
   // сетевые ретраи; за это время запись мог дописать параллельный прогон.
-  const already = !dryRun && isPostedNow(ROOT, p.lang, slug);
+  const already = !dryRun && isPostedNow(ROOT, p.lang, slug, p.target);
   if (already) {
     console.error(
-      `  ⤼ ${p.rel}: уже в канале (${p.lang}, message ${already.messageId}) — пропуск`,
+      `  ⤼ ${p.rel}: уже в канале ${p.target} (${p.lang}, message ${already.messageId}) — пропуск`,
     );
     continue;
   }
   try {
-    const result = await postArticle(p.mdxPath, p.fm, p.channel);
+    const result = await postArticle(p.mdxPath, p.fm, p.channel, p.target);
     if (!dryRun) {
-      const rec = markPosted(ROOT, { url: p.url, messageId: result.messageId });
-      posted.set(`${p.lang} ${slug}`, rec);
+      const rec = markPosted(ROOT, {
+        url: p.url,
+        messageId: result.messageId,
+        target: p.target,
+      });
+      posted[p.target].set(`${p.lang} ${slug}`, rec);
     }
     ok++;
-    console.error(`  ✓ ${p.rel} → ${p.lang}`);
+    console.error(`  ✓ ${p.rel} → ${p.lang}/${p.target}`);
   } catch (err) {
     failed++;
     console.error(`  ✗ ${p.rel}: ${err.message}`);

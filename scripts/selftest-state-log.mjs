@@ -8,7 +8,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { appendLog, foldByKey, readLog } from "../lib/state-log.mjs";
-import { isPostedNow, loadPosted, loadPostedByLangSlug, loadPostedBySlug, markPosted, slugOfUrl, POSTED_LOG, POSTED_LEGACY } from "../lib/telegram-posted.mjs";
+import { isPostedNow, loadPosted, loadPostedByLangSlug, loadPostedBySlug, markPosted, slugOfUrl, MAIN_TARGET, SPORT_TARGET, POSTED_LOG, POSTED_LEGACY } from "../lib/telegram-posted.mjs";
 
 let failed = 0;
 const ok = (cond, msg) => {
@@ -146,6 +146,61 @@ const fresh = () => {
     { url, messageId: 127, revokedAt: "2026-08-05T21:00:00Z", reason: "wrong-channel" });
   ok(isPostedNow(root, "ru", slug) === null,
      "после отзыва материал снова можно отправить");
+}
+
+// ── спортивный канал: вторая отправка того же материала ───────────────
+// Заведён 17.08.2026. Важный спортивный сюжет уходит и в основной канал
+// языка, и в спортивный канал того же языка — по решению владельца это не
+// дубль. Свёртка реестра шла по одному url, поэтому без измерения «канал»
+// вторая запись затирала первую, а дедуп не выпускал вторую отправку.
+{
+  const root = fresh();
+  const url = "https://leap.uz/ru/2026/08/17/khusanov-90-minutes-community-shield-loss";
+  const slug = "khusanov-90-minutes-community-shield-loss";
+
+  markPosted(root, { url, messageId: 500, postedAt: "2026-08-17T06:00:00Z" });
+  ok(isPostedNow(root, "ru", slug)?.messageId === 500,
+     "основной канал: запись на месте");
+  ok(isPostedNow(root, "ru", slug, SPORT_TARGET) === null,
+     "спортивный канал материал ещё не получил — отправка разрешена");
+
+  markPosted(root, { url, messageId: 900, postedAt: "2026-08-17T06:01:00Z", target: SPORT_TARGET });
+  ok(isPostedNow(root, "ru", slug, SPORT_TARGET)?.messageId === 900,
+     "вторая отправка записана отдельно, а не затёрла первую");
+  ok(isPostedNow(root, "ru", slug)?.messageId === 500,
+     "запись основного канала уцелела после отправки в спортивный");
+
+  // Метрики строят адрес embed-страницы основного канала по message_id из
+  // loadPosted. Идентификатор из спортивного канала дал бы им чужой пост,
+  // и просмотры считались бы не с того сообщения.
+  const main = loadPosted(root);
+  ok(main.get(url)?.messageId === 500,
+     "loadPosted отдаёт основной канал, а не последнюю по времени запись");
+
+  // Отзыв одного канала не трогает другой.
+  appendLog(join(root, POSTED_LOG),
+    { url, messageId: 900, target: SPORT_TARGET, revokedAt: "2026-08-17T07:00:00Z", reason: "test" });
+  ok(isPostedNow(root, "ru", slug, SPORT_TARGET) === null,
+     "отзыв спортивного поста вернул материал в работу");
+  ok(isPostedNow(root, "ru", slug)?.messageId === 500,
+     "и не задел пост в основном канале");
+}
+
+// ── обратная совместимость реестра ────────────────────────────────────
+// В журнале 350 записей, сделанных до появления поля target. Прочитаться
+// они обязаны ровно как основной канал: иначе первый же прогон сочтёт весь
+// архив неотправленным и вывалит его подписчикам заново.
+{
+  const root = fresh();
+  const url = "https://leap.uz/ru/2026/08/03/legacy-record";
+  writeFileSync(join(root, POSTED_LOG),
+    JSON.stringify({ url, messageId: 44, postedAt: "2026-08-04T05:26:16.378Z" }) + "\n");
+  ok(isPostedNow(root, "ru", "legacy-record")?.messageId === 44,
+     "запись без target читается как основной канал");
+  ok(isPostedNow(root, "ru", "legacy-record", SPORT_TARGET) === null,
+     "и не считается отправкой в спортивный");
+  ok(markPosted(root, { url: "u", messageId: 1 }).target === MAIN_TARGET,
+     "markPosted без target пишет в основной канал");
 }
 
 console.log(failed ? `\nпровалено ${failed}` : "\nвсе проверки пройдены");
