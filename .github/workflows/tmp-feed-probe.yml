@@ -8,8 +8,13 @@ name: TMP feed probe
 # судьбу источника по её ответу нельзя. Этот воркфлоу спрашивает те же адреса
 # из того же окружения, где работает фетчер — GitHub Actions.
 
+# Триггер по пушу в саму ветку, а не workflow_dispatch: GitHub показывает
+# кнопку «Run workflow» только для воркфлоу, лежащих в main, а трогать main
+# ради разовой проверки незачем.
 on:
-  workflow_dispatch:
+  push:
+    branches: [claude/sports-news-optimization-aer7t9]
+    paths: [".github/workflows/tmp-feed-probe.yml"]
 
 permissions:
   contents: read
