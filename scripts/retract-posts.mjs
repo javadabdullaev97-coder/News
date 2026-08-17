@@ -31,16 +31,16 @@ import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { appendLog } from "../lib/state-log.mjs";
-import { loadPostedByLangSlug, POSTED_LOG } from "../lib/telegram-posted.mjs";
+import { loadPostedAll, resolveChannels, POSTED_LOG } from "../lib/telegram-posted.mjs";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const { TELEGRAM_BOT_TOKEN, DRY_RUN, SLUGS } = process.env;
 const dryRun = DRY_RUN === "1" || DRY_RUN === "true";
 
-const CHANNEL = {
-  ru: process.env.TELEGRAM_CHANNEL,
-  uz: process.env.TELEGRAM_CHANNEL_UZ,
-};
+// Каналы всех назначений, а не только основные. До 17.08.2026 здесь была
+// пара {ru, uz}, и снятие материала оставляло его посты в профильных каналах
+// висеть: скрипт про них попросту не знал. Таблица общая — lib/telegram-posted.
+const CHANNELS = resolveChannels();
 
 const REQUEST = join(ROOT, "content/state/retract-request.json");
 
@@ -63,18 +63,23 @@ if (!slugs.size) {
 }
 console.error(`[retract] слагов в запросе: ${slugs.size} — ${[...slugs].join(", ")}`);
 
+// Берём КАЖДУЮ живую отправку по всем каналам. Если материал ушёл дважды
+// в один канал, снимаем оба сообщения — иначе дубль переживёт снятие.
 const targets = [];
-for (const [key, rec] of loadPostedByLangSlug(ROOT)) {
-  const [lang, slug] = key.split(" ");
-  if (!slugs.has(slug) || !rec.messageId) continue;
-  targets.push({ lang, slug, url: rec.url, messageId: rec.messageId });
+for (const [key, recs] of loadPostedAll(ROOT)) {
+  const [target, lang, slug] = key.split(" ");
+  if (!slugs.has(slug)) continue;
+  for (const rec of recs) {
+    if (!rec.messageId) continue;
+    targets.push({ target, lang, slug, url: rec.url, messageId: rec.messageId });
+  }
 }
 
 if (!targets.length) {
   console.error("[retract] в каналах этих материалов нет — снимать нечего");
   process.exit(0);
 }
-for (const t of targets) console.error(`   ${t.lang} #${t.messageId} ${t.url}`);
+for (const t of targets) console.error(`   ${t.target}/${t.lang} #${t.messageId} ${t.url}`);
 
 if (dryRun) {
   console.error("[retract] DRY_RUN — ничего не удалено");
@@ -89,9 +94,11 @@ let removed = 0;
 let gone = 0;
 let failed = 0;
 for (const t of targets) {
-  const chat = CHANNEL[t.lang];
+  const chat = CHANNELS[t.target]?.[t.lang];
   if (!chat) {
-    console.error(`  ✗ ${t.lang}: канал не задан, #${t.messageId} остался в канале`);
+    console.error(
+      `  ✗ ${t.target}/${t.lang}: канал не задан, #${t.messageId} остался в канале`,
+    );
     failed++;
     continue;
   }
@@ -109,17 +116,22 @@ for (const t of targets) {
     gone++;
   } else {
     failed++;
-    console.error(`  ✗ ${t.lang} #${t.messageId}: ${data.description}`);
+    console.error(`  ✗ ${t.target}/${t.lang} #${t.messageId}: ${data.description}`);
     // Пост остался в канале — запись не трогаем: отозвав её, мы бы
     // разрешили автопосту отправить материал ещё раз.
     continue;
   }
-  appendLog(join(ROOT, POSTED_LOG), {
+  // Отзыв обязан нести канал назначения: свёртка реестра идёт по паре
+  // «канал + url», и отзыв без target погасил бы запись основного канала,
+  // а профильную оставил живой.
+  const revoke = {
     url: t.url,
     messageId: t.messageId,
     revokedAt: new Date().toISOString(),
     reason: "retract",
-  });
+  };
+  if (t.target !== "main") revoke.target = t.target;
+  appendLog(join(ROOT, POSTED_LOG), revoke);
 }
 
 console.error(

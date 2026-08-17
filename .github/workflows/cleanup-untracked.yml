@@ -1,0 +1,75 @@
+name: Cleanup untracked duplicates
+
+# Снимает дубли, которых нет в реестре.
+#
+# Повод — 17.08.2026: записи о постах коммитились одним шагом после всего
+# цикла отправки, цикл со вторым каналом вырос до двадцати минут, и прогоны,
+# обогнанные соседним воркфлоу, отправляли посты, теряя записи. Материалы
+# ушли в канал по пять-шесть раз, а реестр знает про одну отправку из каждой
+# серии — остальные для системы не существуют.
+#
+# Штатный cleanup-tg-duplicates работает ПО РЕЕСТРУ и такие копии не видит.
+# Этот воркфлоу читает публичную ленту канала и находит дубли по факту.
+#
+# ПО УМОЛЧАНИЮ НИЧЕГО НЕ УДАЛЯЕТ. Сначала запусти как есть и посмотри список,
+# потом — с apply=1.
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "1 = удалить найденное. Пусто = только показать список"
+        required: false
+        default: ""
+      targets:
+        description: "Каналы через запятую: main, sport, tech. Пусто = все"
+        required: false
+        default: ""
+      slugs:
+        description: "Слаги через запятую. Пусто = все найденные дубли"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: telegram-cleanup
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Find and remove untracked duplicates
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          TELEGRAM_CHANNEL_UZ: ${{ secrets.TELEGRAM_CHANNEL_UZ }}
+          TELEGRAM_CHANNEL_SPORT: ${{ secrets.TELEGRAM_CHANNEL_SPORT }}
+          TELEGRAM_CHANNEL_SPORT_UZ: ${{ secrets.TELEGRAM_CHANNEL_SPORT_UZ }}
+          TELEGRAM_CHANNEL_TECH: ${{ secrets.TELEGRAM_CHANNEL_TECH }}
+          TELEGRAM_CHANNEL_TECH_UZ: ${{ secrets.TELEGRAM_CHANNEL_TECH_UZ }}
+          APPLY: ${{ github.event.inputs.apply }}
+          TARGETS: ${{ github.event.inputs.targets }}
+          SLUGS: ${{ github.event.inputs.slugs }}
+        run: node scripts/cleanup-untracked-duplicates.mjs
+
+      - name: Commit revocations
+        if: github.event.inputs.apply == '1'
+        run: |
+          touch content/state/telegram-posted.jsonl
+          if [[ -z $(git status --porcelain -- content/state/telegram-posted.jsonl) ]]; then
+            echo "Отзывов нет — коммитить нечего."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/state/telegram-posted.jsonl
+          git commit -m "state: отозваны дубли, снятые из каналов"
+          bash .github/scripts/git-push-with-rebase.sh
