@@ -231,35 +231,74 @@ Gazeta.uz, Daryo.uz и Repost.uz**.
 | Турция и узбекские легионеры | Суперлига, Шомуродов, Файзуллаев | `trt-spor-futbol`, `transfermarkt-tr`, `football-italia` |
 | ММА / UFC | карды, рейтинги, контракты | `sherdog-news`, `mma-fighting`, `cbs-sports-mma`, `sportsru-fight`, `one-championship` |
 | Бокс | топ-бои, титулы, санкционирование | `boxingscene`, `fightnews`, `wbc-boxing`, `wba-boxing`, `wbo-boxing`, `sportsru-fight` |
-| Теннис | Grand Slam, ATP/WTA, рейтинги | `tennis365`, `ubitennis`, `sportsru-tennis`, `sport-express-tennis` |
-| «Формула-1» | Гран-при, регламент, контракты пилотов | `motorsport-f1`, `skysports-f1`, `sportsru-f1`, `fia-official` |
+| Теннис | Grand Slam, ATP/WTA, рейтинги | `bbc-tennis`, `guardian-tennis`, `tennismajors`, `tennis365`, `ubitennis`, `sportsru-tennis`, `sport-express-tennis` |
+| «Формула-1» | Гран-при, регламент, контракты пилотов | `formula1-official`, `motorsport-f1`, `skysports-f1`, `the-race-f1`, `sportsru-f1`, `fia-official` |
 
-### Чего в спорте не существует — проверено 17.08.2026
+Ленты `boxingnews24`, `eyefootball-transfers` и `caughtoffside` заведены с
+`citable: false` намеренно: это пересказ таблоидов и слухов. Они дают ранний
+сигнал «о переходе или бое заговорили», но ссылкой в статье быть не могут —
+факт подтверждается у клуба, промоутера или санкционирующей организации.
 
-Отрицательный результат важнее списка: без него эти адреса будут предлагать
-снова и снова. Все проверены прямым запросом, не по описанию.
+### Как читать отрицательный результат
 
-| Организация | Ожидаемый адрес | Что на самом деле |
+**403, 202 и таймаут из агентской песочницы ничего не доказывают.** Контур,
+в котором работает агент, ходит через прокси, и часть площадок его режет.
+Проверка: прогон `source-health` в Actions от 16.08.2026 нашёл сломанными
+2 ленты из 75, тогда как из песочницы 403 отдавали Guardian, NYT, FT,
+Economist, The Verge и Ars Technica — все они в проде живы.
+
+Отсюда правило: **источник признаётся мёртвым только по тому отказу, который
+не зависит от сети** — HTTP 404, отдача HTML вместо XML, битая кодировка,
+замороженная лента. Всё остальное проверяется прогоном в Actions, и до этого
+момента источник не выбрасывается, а помечается как неподтверждённый.
+
+### Мёртвые адреса — отказ не зависит от контура (17.08.2026)
+
+| Организация | Адрес | Что на самом деле |
 |---|---|---|
 | UFC | — | открытой ленты нет, только закрытый API приложения |
-| Formula 1 | formula1.com | ленты нет, регулятор закрывается через FIA |
 | FIFA | `fifa.com/rss/news.xml` | отдаёт HTML, не XML |
-| UEFA | `uefa.com/rss/news/index.xml` | HTTP 404, других адресов не найдено |
+| UEFA | `uefa.com/rss/news/index.xml` | HTTP 404 |
 | AFC | `the-afc.com/en/rss.xml` | HTTP 404 |
-| ATP | `atptour.com/en/media/rss-feeds/news-all` | HTTP 403, Cloudflare |
 | WTA | `wtatennis.com/rss/news` | HTTP 404 |
 | Premier League, LaLiga | `/rss/news` | HTTP 404 у обеих |
-| «Аль-Наср» | `alnassr.sa/feed` | HTTP 403 |
 | «Аль-Хиляль» | `alhilal.com/feed/news` | HTTP 404 |
 | Saudi Pro League | `spl.com.sa/en/rss` | HTTP 404 |
 | «Истанбул Башакшехир» | `ibfk.com.tr/rss.xml` | HTTP 404 на всех вариантах |
-| Ассоциация футбола Узбекистана | `uff.uz/feed/` | домен резолвится, соединение не устанавливается |
-| ESPN | `espn.com/espn/rss/soccer/news` | под нашим UA пустой HTTP 202 — то же, что в 2026-08 |
+| BoxingScene | `boxingscene.com/rss.xml` | HTTP 404 — рабочий адрес `/feed` |
+| Pitpass | `pitpass.com/rss/f1_news.xml` | HTTP 404 |
+| Sports.ru | `sports.ru/rss/all.xml` | HTTP 404 — рабочие рубричные `rubric.xml?s=` |
+| championat.asia | `championat.asia/ru/rss` | HTTP 404 |
+| Goal.com | `goal.com/*/feeds/news` | HTTP 404 |
+| BBC legacy | `newsrss.bbc.co.uk/rss/sportonline_uk_edition/*` | адреса выведены из строя |
+| 90min | `90min.com/posts.rss` | лента заморожена на сентябре 2025 |
+| World Soccer | `worldsoccer.com/feed` | последняя запись 31.07.2026 |
+| Inside Tennis, BoxingInsider | `/feed` | обновляются раз в 9–10 дней |
+| f1-world.ru | `f1-world.ru/news/rssexp6.xml` | cp1251 без объявления кодировки, кириллица приходит мусором |
 
-Следствия, с которыми живём: **первоисточника в теннисе у нас нет вообще**;
-**Саудовская Про-лига** покрывается только тем, что попадает в общие
-футбольные ленты; **узбекского футбола** первоисточником не закрыть, остаются
-`sports-uz` и телеграм-каналы.
+**Formula 1 ленту отдаёт** — `formula1.com/en/latest/all.xml`, 10 записей,
+заведена как `formula1-official`. У записей нет `pubDate`, но это безопасно:
+`lib/inbox-core.mjs` берёт время из `fetchedAt` и обращается к `pubDate` только
+запасным.
+
+### Неподтверждённые — режет песочница, прод не проверен
+
+Эти адреса из контура агента дают 403 или пустой 202. Прежде чем считать их
+мёртвыми, нужен прогон в Actions.
+
+| Источник | Адрес | Ответ из песочницы |
+|---|---|---|
+| ESPN (soccer, mma, tennis, boxing) | `espn.com/espn/rss/*/news` | HTTP 202 без записей |
+| ATP | `atptour.com/en/media/rss-feeds/news-all` | HTTP 403 |
+| Marca (англ.) | `marca.com/en/rss/googlenews/football.xml` | HTTP 403 после одной удачной выдачи в 48 записей |
+| «Аль-Наср» | `alnassr.sa/feed` | HTTP 403 |
+| Ассоциация футбола Узбекистана | `uff.uz/feed/` | домен резолвится, соединение не встаёт |
+| RaceFans | `racefans.net/feed/` | HTTP 429 |
+
+Следствия, с которыми живём сегодня: **первоисточника в теннисе нет** (WTA
+мертва наверняка, ATP под вопросом); **Саудовская Про-лига** покрывается только
+общими футбольными лентами; **узбекского футбола** первоисточником не закрыть,
+остаются `sports-uz` и телеграм-каналы.
 
 ## Раздел 4 — Техника парсинга
 
