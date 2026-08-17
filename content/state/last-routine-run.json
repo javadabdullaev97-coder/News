@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-17T18:53:00+05:00",
+  "lastRunAt": "2026-08-17T23:54:00+05:00",
   "mode": "main",
-  "topicsProcessed": 6,
-  "published": 3,
+  "topicsProcessed": 1,
+  "published": 0,
   "queuedForOwner": 0,
   "rejected": 0,
-  "needsVerification": 2,
-  "belowThreshold": 134,
+  "needsVerification": 1,
+  "belowThreshold": 363,
   "rework": 0,
-  "notes": "khiva-urganch-railway прошёл весь цикл до готовности к очереди, но перед коммитом обнаружился дубликат — соседняя планёрка уже опубликовала urgench-khiva-railway/urgench-airport-reconstruction с теми же ссылками (гонка после брони темы). Не опубликован, закрыт в журнале, см. .review/khiva-urganch-railway-decision.md. Write-тул по-прежнему блокирует report-подобные пути у reporter/fact-checker (100% вызовов) — сохранял заметки вручную под тем же именем. 4 уже опубликованных материала (anthropic-claude-text-watermark-eu, apple-cook-steps-down-ternus-ceo, ben-gvir-gaza-kill-30-40-nightly, openai-enterprise-revenue-bigger-consumer) на сайте с хвостом служебной разметки агента (</content>) — нужна ручная чистка, вне мандата этой сессии."
+  "notes": "Инбокс на 23:54 почти целиком совпадал с уже опубликованным сегодня (130+ статей за день, включая соседние планёрки): Хорезм/Ургенч, рассрочка, курс доллара, землетрясение в Индонезии, Иран-Оман — всё уже вышло. Единственный новый кластер (снижение налогов после переоценки недвижимости, Spot.uz) — 1 сигнал, reporter не подтвердил первоисточник (Фискальная стратегия 2027-2029 говорит скорее о повышении ставок ресурсных налогов), ушёл в needs-verification с recheckAt 19.08 00:08."
 }
