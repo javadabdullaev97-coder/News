@@ -114,6 +114,18 @@ function saveQueue(q) {
   if (written) queueSnapshot = snapshotQueue(q);
 }
 
+// Telegram HTML parse_mode требует экранирования &, < и > в свободном
+// тексте — иначе одиночный «<» или «&» в названии/вопросе (не входящий
+// в поддерживаемый тег) роняет весь sendMessage/sendPhoto с ошибкой
+// "can't parse entities". Заголовки статей и текст вопроса пишут агенты
+// на естественном языке, гарантии на отсутствие таких символов нет.
+function escapeHtml(s) {
+  return String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
 async function tg(method, body) {
   const res = await fetch(
     `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/${method}`,
@@ -187,23 +199,42 @@ async function push() {
   }
 
   const reasonText = REASONS[reason] || reason;
-  const lines = [
+  const header = [
     "<b>НУЖНО ВАШЕ РЕШЕНИЕ</b>",
     "",
-    `<b>${title}</b>`,
+    `<b>${escapeHtml(title)}</b>`,
     "",
     `Почему спрашиваю: ${reasonText}.`,
-  ];
-  if (question) lines.push("", question);
-  lines.push(
-    "",
+  ].join("\n");
+  const footer = [
     "<i>Ответьте реплаем на это сообщение:</i>",
     "• пришлите фото — оно станет главной картинкой",
     "• «ок» — публиковать как есть",
     "• «стоп» — снять материал",
     "• любой другой текст — уйдёт в правку как комментарий",
-  );
-  const text = lines.join("\n");
+  ].join("\n");
+  const questionEscaped = escapeHtml(question);
+
+  // Telegram-лимиты: caption у sendPhoto — 1024 символа, text у sendMessage —
+  // 4096. Раньше собранный HTML резался слепым .slice(0, 1024) — если срез
+  // приходился на середину `<i>...</i>` в footer, тег оставался незакрытым
+  // и Telegram отвечал "can't parse entities", а вопрос вообще не уходил
+  // владельцу (найдено 17.08.2026 на manchester-city-rodri-barcelona-bid —
+  // question был достаточно длинным, чтобы вытолкнуть footer за границу).
+  // Теперь режем только свободный текст question (plain text, без тегов —
+  // резать его безопасно), а header и footer со структурными тегами
+  // остаются целыми всегда.
+  function buildText(limit) {
+    const overhead = header.length + footer.length + (questionEscaped ? 4 : 2);
+    if (!questionEscaped) return `${header}\n\n${footer}`;
+    const full = `${header}\n\n${questionEscaped}\n\n${footer}`;
+    if (full.length <= limit) return full;
+    const budget = Math.max(0, limit - overhead - 1);
+    const truncated = questionEscaped.slice(0, budget) + "…";
+    return `${header}\n\n${truncated}\n\n${footer}`;
+  }
+
+  const text = buildText(4096);
 
   if (dryRun) {
     console.log("=".repeat(60));
@@ -218,7 +249,7 @@ async function push() {
     const form = new FormData();
     form.append("chat_id", TELEGRAM_EDITOR_CHAT_ID);
     form.append("photo", new Blob([readFileSync(join(ROOT, imagePath))]), "current.jpg");
-    form.append("caption", text.slice(0, 1024));
+    form.append("caption", buildText(1024));
     form.append("parse_mode", "HTML");
     const res = await fetch(
       `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`,
