@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-17T06:37:00+05:00",
-  "topicsProcessed": 2,
+  "lastRunAt": "2026-08-17T07:30:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
   "queuedDirect": 1,
-  "queuedForOwner": 1,
+  "queuedForOwner": 0,
   "rejected": 0,
   "declined": 0,
-  "needsVerification": 1,
-  "world": 2,
-  "belowThreshold": 58,
+  "needsVerification": 0,
+  "world": 1,
+  "belowThreshold": 13,
   "duplicatesOfPublished": 0,
   "claimedByNeighbor": 0,
   "inbox": {
     "file": "content/inbox/2026-08-17.jsonl",
     "itemsFreshLocal": 10,
-    "itemsFreshWorld": 54
+    "itemsFreshWorld": 50
   },
-  "notes": "Местный поток пуст по существу (10 items, ни один не прошёл порог — землетрясение Фиджи, аналитика The Diplomat, минорный кейс от attributed-канала). Взяты 2 мировые темы (Газа/мирный план, Ливан-Иран эскалация), обе mustPublish по war/эскалация с 2+ блоками. gaza-peace-plan-crisis ушла в needs-verification: bild не нашёл фото без риска по правам, Higgsfield был недоступен инструментарию бильда в этом прогоне — стоит проверить доступность генерации в следующий заход."
+  "notes": "Местный поток пуст по существу — 10 items, всё спам/шум/дубли землетрясений Индонезии/дело о наркотиках без первоисточника. Взята 1 мировая тема (Бен-Гвир, призыв убивать 30-40 человек в Газе ежедневно) — mustPublish по war/эскалация, ru-business+mena. Fact-check approve-with-downgrades 72%: нашёл фабрикацию (несуществующая ссылка на МУС ООН) и неверную атрибуцию цитаты — editor снял/поправил. Bild не нашёл фото Бен-Гвира с чистой лицензией (агентское EPA, права не подтверждены) и на такой острой теме решил не рисковать; Higgsfield был недоступен как инструмент — взял нейтральное фото флага Израиля с Unsplash."
 }
