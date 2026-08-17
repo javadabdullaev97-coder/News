@@ -2627,7 +2627,7 @@
     {
       "id": "cnbc-tech",
       "name": "CNBC Technology",
-      "url": "https://www.cnbc.com/id/19854910/device/rss/rss.html",
+      "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19854910",
       "type": "context",
       "priority": "P2",
       "language": "en",
@@ -2636,7 +2636,7 @@
       "citable": true,
       "citableNote": "Профильное издание с собственной редакцией и репортёрской работой — ссылка в статье разрешена.",
       "bloc": "anglo",
-      "notes": "Проверено 17.08.2026: HTTP 200, валидный XML, записи с датами, свежесть в пределах недели.",
+      "notes": "Адрес вида cnbc.com/id/<N>/device/rss/rss.html отдаёт 403 и из прокси, и напрямую (проверено 17.08.2026 трижды) — рабочий вход только через search.cnbc.com. Проверено 17.08.2026: HTTP 200, 30 записей.",
       "stream": "tech"
     },
     {
