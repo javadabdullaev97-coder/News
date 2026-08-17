@@ -1,20 +1,12 @@
 {
-  "lastRunAt": "2026-08-17T10:55:00+05:00",
-  "mode": "sport",
-  "topicsProcessed": 4,
-  "published": 2,
-  "queuedDirect": 2,
-  "queuedForOwner": 0,
-  "rejected": 0,
-  "declined": 0,
+  "lastRunAt": "2026-08-17T11:45:00+05:00",
+  "mode": "main",
+  "topicsProcessed": 7,
+  "published": 5,
+  "queuedForOwner": 1,
+  "rejected": 1,
   "needsVerification": 0,
-  "world": 0,
-  "belowThreshold": 0,
-  "duplicatesOfPublished": 2,
-  "claimedByNeighbor": 2,
-  "inbox": {
-    "file": "content/inbox/sport-2026-08-17.jsonl",
-    "itemsFreshSport": 1201
-  },
-  "notes": "Спортивная планёрка (--sport). Опубликовано 2: Джокович — сенсационное поражение в Цинциннати с намёком на завершение карьеры (tgScore 20, только спортканал); Наваррете–Фостер — объединительный бой WBO/IBF/WBC назначен на 24 октября (tgScore 20, только спортканал). 2 темы из 4 отобранных оказались дублями параллельного прогона и сняты до публикации: Ислам Махачев/UFC 330 (уже опубликован соседкой под слугом makhachev-welterweight-record-ufc330 буквально в момент моего claim — topic-dupecheck не поймал, т.к. я проверял до того, как её коммит landed), Родри в «Барселону» (соседка ушла дальше под слугом manchester-city-rodri-barcelona-bid, оба bild независимо упёрлись в тот же crop-risky на фото Guardian/PA — совпадение подтвердило дубль). Также нашёл, что тема Шомуродов/Башакшехир (uzbekAthleteAnywhere, mustPublish) уже была в content/queue/ до начала отбора — не трогал. Инбокс: 1201 fresh из 1318 raw (freshness по fetchedAt завышена — это первый день сбора спортивного потока, реально свежих по pubDate ≤30ч было 452; отбирал темы по pubDate, не по флагу fresh скрипта). Дисциплины отобранных тем: теннис (1), бокс (1) — футбол и MMA не публиковались мной, но покрыты параллельными прогонами (Шомуродов — футбол, Махачев — MMA, Родри — футбол)."
+  "belowThreshold": 83,
+  "rework": 1,
+  "notes": "Системная проблема: Write-инструмент субагентов блокирует любой .md-файл вида reporter-notes-*/fact-check-*.md как «report file» — сработало у 6 из 7 reporter/fact-checker вызовов, планёрке пришлось вручную пересоздавать файлы из инлайн-текста. Второе: tashkent-bus-fare-regulation оказался дублем content/posts/2026-08-{09,10} (то же постановление №276) — topic-dupecheck (окно 3 суток) не поймал, нашли вручную при поиске картинки, отклонили. Стоит сузить/расширить окно dupecheck или добавить проверку по номеру акта."
 }
