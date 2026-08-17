@@ -107,6 +107,13 @@ function buildCaption(item, network) {
 
 // ─── Graph API ───
 
+// У fetch в Node тайм-аута нет вовсе: зависшее соединение висит бесконечно.
+// 17.08.2026 прогон постера простоял так больше получаса при собственном
+// потолке в четырнадцать минут, держа очередь social-accounts, — а значит
+// и всю публикацию в аккаунты. Предела у джоба тоже не было, так что ждать
+// пришлось бы шесть часов до таймаута раннера.
+const REQUEST_TIMEOUT_MS = 60_000;
+
 async function graph(path, params, method = "POST") {
   const url = new URL(`${GRAPH}/${path}`);
   const body = new URLSearchParams();
@@ -115,7 +122,11 @@ async function graph(path, params, method = "POST") {
     if (method === "GET") url.searchParams.set(k, String(v));
     else body.set(k, String(v));
   }
-  const res = await fetch(url, method === "GET" ? {} : { method: "POST", body });
+  const signal = AbortSignal.timeout(REQUEST_TIMEOUT_MS);
+  const res = await fetch(
+    url,
+    method === "GET" ? { signal } : { method: "POST", body, signal },
+  );
   const data = await res.json().catch(() => ({}));
   if (!res.ok || data.error) {
     const e = data.error ?? {};
@@ -137,7 +148,11 @@ async function graph(path, params, method = "POST") {
  */
 async function isPubliclyReachable(url) {
   try {
-    const res = await fetch(url, { method: "HEAD", redirect: "follow" });
+    const res = await fetch(url, {
+      method: "HEAD",
+      redirect: "follow",
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+    });
     return res.ok;
   } catch {
     return false;

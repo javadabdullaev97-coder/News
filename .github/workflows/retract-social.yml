@@ -43,12 +43,21 @@ permissions:
 concurrency:
   # Общая очередь со «Social autopost»: реестр лежит в git, параллельный
   # прогон прочитал бы устаревший файл и отправил снятое заново.
-  group: social-networks
+  #
+  # Имя группы обязано совпадать с группой автопостинга буква в букву.
+  # До 17.08.2026 здесь стояло social-networks против social-accounts
+  # у постера: комментарий обещал общую очередь, а очереди не было —
+  # снятие и публикация спокойно шли параллельно и читали один и тот же
+  # реестр в разных состояниях.
+  group: social-accounts
   cancel-in-progress: false
 
 jobs:
   retract:
     runs-on: ubuntu-latest
+    # Предел на случай зависшего запроса: без него джоб держит очередь
+    # social-accounts до шестичасового таймаута раннера.
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
