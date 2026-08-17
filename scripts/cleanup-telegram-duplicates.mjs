@@ -1,5 +1,18 @@
 #!/usr/bin/env node
-// Убирает из канала дубли, оставленные аварией 04.08.2026.
+// Убирает из каналов дубли одного и того же материала.
+//
+// ПЕРЕПИСАН 17.08.2026 ПОД НЕСКОЛЬКО КАНАЛОВ. Прежняя версия группировала
+// записи по одному слагу и удаляла все сообщения, кроме самого раннего, из
+// канала TELEGRAM_CHANNEL. С появлением языковых и профильных каналов это
+// стало опасно: у одного слага теперь ЗАКОННО существует до шести отправок —
+// русская, узбекская и английская версии в основном канале плюс те же в
+// спортивном или технологическом. Старая логика посчитала бы пять из них
+// дублями и попыталась удалить чужие message_id в основном канале, а
+// нумерация сообщений у каждого канала своя — то есть удалила бы
+// произвольные посты, случайно совпавшие по номеру.
+//
+// Теперь ключ группировки — тройка (канал, язык, слаг), и удаление идёт
+// в том канале, куда сообщение было отправлено.
 //
 // ЧТО СЛУЧИЛОСЬ. Переезд адресов обнулил URL-дедуп постера, и все ранее
 // отправленные статьи ушли в канал повторно — волнами, потому что несколько
@@ -27,12 +40,39 @@ import { readLog } from "../lib/state-log.mjs";
 import { slugOfUrl, POSTED_LOG, POSTED_LEGACY } from "../lib/telegram-posted.mjs";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
-const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHANNEL, DRY_RUN } = process.env;
+const {
+  TELEGRAM_BOT_TOKEN,
+  TELEGRAM_CHANNEL,
+  TELEGRAM_CHANNEL_UZ,
+  TELEGRAM_CHANNEL_SPORT,
+  TELEGRAM_CHANNEL_SPORT_UZ,
+  TELEGRAM_CHANNEL_TECH,
+  TELEGRAM_CHANNEL_TECH_UZ,
+  DRY_RUN,
+} = process.env;
 const dryRun = DRY_RUN === "1" || DRY_RUN === "true";
 
 if (!dryRun && (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHANNEL)) {
   console.error("Нужны TELEGRAM_BOT_TOKEN и TELEGRAM_CHANNEL (или DRY_RUN=1).");
   process.exit(1);
+}
+
+// Куда какая запись реестра была отправлена. Ключ — target из записи
+// (main по умолчанию для всего, что писалось до появления профильных
+// каналов) плюс язык, вычисленный из адреса статьи.
+const CHANNELS = {
+  "main\u0000ru": TELEGRAM_CHANNEL,
+  "main\u0000uz": TELEGRAM_CHANNEL_UZ,
+  "sport\u0000ru": TELEGRAM_CHANNEL_SPORT,
+  "sport\u0000uz": TELEGRAM_CHANNEL_SPORT_UZ,
+  "tech\u0000ru": TELEGRAM_CHANNEL_TECH,
+  "tech\u0000uz": TELEGRAM_CHANNEL_TECH_UZ,
+};
+
+// Язык из адреса: https://leap.uz/<lang>/2026/08/17/<slug>.
+function langOfUrl(url) {
+  const m = String(url).match(/^https?:\/\/[^/]+\/([a-z]{2})\//);
+  return m ? m[1] : "ru";
 }
 
 // Все события, а не свёрнутое состояние: у одного слага могло быть
@@ -50,26 +90,42 @@ if (existsSync(legacy)) {
 }
 events.push(...readLog(join(ROOT, POSTED_LOG)).events);
 
-const bySlug = new Map();
+// Отозванные записи в счёт не идут: сообщения уже нет в канале.
+const revoked = new Set();
 for (const e of events) {
-  if (!e?.url || !e.messageId) continue;
-  const slug = slugOfUrl(e.url);
-  (bySlug.get(slug) ?? bySlug.set(slug, []).get(slug)).push(e);
+  if (e?.ev === "revoked" && e.messageId) revoked.add(`${e.target ?? "main"}\u0000${e.messageId}`);
+}
+
+const byPost = new Map();
+for (const e of events) {
+  if (!e?.url || !e.messageId || e.ev === "revoked") continue;
+  const target = e.target ?? "main";
+  const lang = langOfUrl(e.url);
+  if (revoked.has(`${target}\u0000${e.messageId}`)) continue;
+  const key = `${target}\u0000${lang}\u0000${slugOfUrl(e.url)}`;
+  (byPost.get(key) ?? byPost.set(key, []).get(key)).push({ ...e, target, lang });
 }
 
 const toDelete = [];
-for (const [slug, list] of bySlug) {
+for (const [key, list] of byPost) {
+  const [target, lang, slug] = key.split("\u0000");
   list.sort((a, b) => String(a.postedAt).localeCompare(String(b.postedAt)));
   const keep = list[0];
   const dupes = [...new Set(list.slice(1).map((e) => e.messageId))].filter(
     (id) => id !== keep.messageId,
   );
-  for (const id of dupes) toDelete.push({ slug, messageId: id, keep: keep.messageId });
+  for (const id of dupes) {
+    toDelete.push({ slug, lang, target, messageId: id, keep: keep.messageId });
+  }
 }
 
-console.error(`[cleanup] слагов в реестре: ${bySlug.size}, дублей к удалению: ${toDelete.length}`);
+console.error(
+  `[cleanup] отправок в реестре: ${byPost.size}, дублей к удалению: ${toDelete.length}`,
+);
 for (const d of toDelete) {
-  console.error(`   ${d.slug}: удалить message ${d.messageId} (оригинал ${d.keep})`);
+  console.error(
+    `   ${d.slug} [${d.target}/${d.lang}]: удалить message ${d.messageId} (оригинал ${d.keep})`,
+  );
 }
 
 if (dryRun) {
@@ -81,15 +137,22 @@ let okCount = 0;
 let gone = 0;
 let failed = 0;
 for (const d of toDelete) {
+  const chat = CHANNELS[`${d.target}\u0000${d.lang}`];
+  if (!chat) {
+    // Канала для этой пары нет в секретах — трогать чужую нумерацию нельзя.
+    failed++;
+    console.error(`  ✗ ${d.slug} [${d.target}/${d.lang}] #${d.messageId}: канал не задан в секретах`);
+    continue;
+  }
   const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/deleteMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ chat_id: TELEGRAM_CHANNEL, message_id: d.messageId }),
+    body: JSON.stringify({ chat_id: chat, message_id: d.messageId }),
   });
   const data = await res.json();
   if (data.ok) {
     okCount++;
-    console.error(`  ✓ ${d.slug} #${d.messageId}`);
+    console.error(`  ✓ ${d.slug} [${d.target}/${d.lang}] #${d.messageId}`);
   } else if (/not found|to delete/i.test(data.description ?? "")) {
     gone++;
     console.error(`  – ${d.slug} #${d.messageId}: уже удалено`);

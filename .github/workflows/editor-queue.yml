@@ -70,6 +70,10 @@ concurrency:
 
 jobs:
   collect:
+    # Пробрасываем наружу: постинг вынесен в отдельный джоб, и ему нужно
+    # знать, было ли что применять.
+    outputs:
+      applied: ${{ steps.collected.outputs.applied }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -240,8 +244,39 @@ jobs:
             bash .github/scripts/git-push-with-rebase.sh
           fi
 
+  # Постинг вынесен отдельным джобом в общую очередь telegram-channel.
+  #
+  # До 17.08.2026 он стоял шагом внутри collect, у которого своя группа
+  # concurrency на каждый update_id вебхука. То есть постить могли
+  # одновременно этот воркфлоу, publish-tick и telegram-autopost, а реестр
+  # отправленного лежит в git: прогон, начавшийся до пуша соседа, читает
+  # устаревший файл и шлёт материал повторно. Так 17.08.2026 заметка о
+  # солнечной фабрике Tesla ушла в технологический канал дважды.
+  #
+  # Группа общая по репозиторию — одинаковое имя ставит джобы разных
+  # воркфлоу в одну очередь. Своя группа вебхука при этом сохраняется: она
+  # на джобе collect и отвечает за приём ответов владельца, а не за канал.
+  telegram:
+    needs: collect
+    if: needs.collect.outputs.applied == 'true'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: telegram-channel
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund --no-save
+
       - name: Post approved articles to Telegram
-        if: success() && steps.collected.outputs.applied == 'true'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
@@ -254,7 +289,6 @@ jobs:
         run: node scripts/post-to-telegram.mjs
 
       - name: Commit telegram state
-        if: success() && steps.collected.outputs.applied == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

@@ -117,6 +117,49 @@ function profileOf(fm) {
   return PROFILE_TARGETS.find((p) => p.category === category) ?? null;
 }
 
+// Повышенный барьер профильной рубрики в ОСНОВНОЙ канал.
+//
+// ЗАЧЕМ ПРОВЕРКА В КОДЕ, А НЕ ТОЛЬКО В ИНСТРУКЦИИ АГЕНТА. Барьер описан в
+// config/telegram-scoring.json и применяется seo-агентом при подсчёте
+// tgScore. Замер 17.08.2026 показал, чего стоит держать такое правило на
+// одной дисциплине: из 50 технологических статей в основной канал ушли 26 —
+// половина, при том что правило «туда только очень важное» действовало с
+// самого начала. Причина арифметическая: категория даёт 15 баллов,
+// упоминание любого из 180 имён — ещё 15, сумма в тексте — 10, и порог 50
+// набирался сам собой на анонсе очередного устройства.
+//
+// Здесь стоит вторая, механическая проверка того же барьера: балл ниже
+// планки — в основной канал не уходит, что бы ни стояло в broadcast.
+// В профильный канал материал при этом идёт как обычно: это не отказ от
+// публикации, а выбор витрины.
+// Узбекская привязка проходит по ОБЫЧНОМУ порогу, а не по повышенному.
+// Иначе барьер бьёт ровно по тому, ради чего канал и существует: замер
+// 17.08.2026 показал, что планка 70 отсекает «доверенность на авто стала
+// самой востребованной услугой my.gov» (65) наравне с раундом
+// американского стартапа. Признак ставит seo-агент полем mainChannelGate —
+// машина узбекскую привязку в тексте не видит.
+function passesProfileBar(fm, profile, rel) {
+  if (!profile) return true;
+  const bar = tgConfig[`${profile.configKey}ToMainChannelBar`];
+  if (!Number.isFinite(bar)) return true;
+  const score = Number(fm.tgScore);
+  // Балла нет — доверяем решению агента: у старых материалов поля может не
+  // быть вовсе, и молча снимать их с рассылки нельзя.
+  if (!Number.isFinite(score)) return true;
+
+  const gate = String(fm.mainChannelGate ?? "");
+  const localBar = tgConfig.broadcastThreshold ?? 50;
+  if (gate === "uzbekImpact" && score >= localBar) return true;
+  if (score >= bar) return true;
+
+  console.error(
+    `[skip:main] ${rel}: tgScore ${score} ниже барьера ${bar} для рубрики ` +
+      `«${profile.category}»${gate ? ` (ворота ${gate})` : " (ворота не проставлены)"}` +
+      " — уходит только в профильный канал",
+  );
+  return false;
+}
+
 const dryRun = DRY_RUN === "1" || DRY_RUN === "true";
 
 if (!dryRun && (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHANNEL)) {
@@ -440,6 +483,8 @@ const CHANNELS_BY_TARGET = {
   ...Object.fromEntries(PROFILE_TARGETS.map((p) => [p.target, p.channelByLang])),
 };
 const pending = [];
+// Что уже поставлено в очередь ЭТИМ прогоном: target + язык + слаг.
+const queuedNow = new Set();
 
 for (const mdxPath of allMdx) {
   const rel = relative(ROOT, mdxPath);
@@ -501,7 +546,7 @@ for (const mdxPath of allMdx) {
   const seoDone = fm.broadcast !== undefined;
   const profile = profileOf(fm);
   const targets = [];
-  if (broadcast) targets.push(MAIN_TARGET);
+  if (broadcast && passesProfileBar(fm, profile, rel)) targets.push(MAIN_TARGET);
   if (profile && seoDone) targets.push(profile.target);
   if (!targets.length) {
     const why = fm.broadcast === undefined ? "поля broadcast нет" : "broadcast:false";
@@ -551,6 +596,20 @@ for (const mdxPath of allMdx) {
       // захотят наполнить канал архивом, сдвинут startAt назад.
       continue;
     }
+    // Вторая линия защиты от дубля — внутри одного прогона.
+    //
+    // Реестр читается снимком на старте, поэтому пара (язык, слаг),
+    // попавшая в очередь дважды за один проход, отправится дважды: снимок
+    // о первой отправке ещё не знает. Между воркфлоу это лечится общей
+    // очередью concurrency (см. .github/workflows), но внутри прогона
+    // очередь не помогает, а причина попадания может быть любой — от
+    // одинакового слага в двух дневных папках до правки обхода каталога.
+    const guard = `${target}\u0000${lang}\u0000${slug}`;
+    if (queuedNow.has(guard)) {
+      console.error(`[skip] ${rel}: уже в очереди этого прогона (${lang}/${target})`);
+      continue;
+    }
+    queuedNow.add(guard);
     pending.push({ mdxPath, fm, url, rel, lang, channel, target });
   }
 }

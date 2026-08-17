@@ -62,6 +62,10 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
           TELEGRAM_CHANNEL_UZ: ${{ secrets.TELEGRAM_CHANNEL_UZ }}
+          TELEGRAM_CHANNEL_SPORT: ${{ secrets.TELEGRAM_CHANNEL_SPORT }}
+          TELEGRAM_CHANNEL_SPORT_UZ: ${{ secrets.TELEGRAM_CHANNEL_SPORT_UZ }}
+          TELEGRAM_CHANNEL_TECH: ${{ secrets.TELEGRAM_CHANNEL_TECH }}
+          TELEGRAM_CHANNEL_TECH_UZ: ${{ secrets.TELEGRAM_CHANNEL_TECH_UZ }}
           DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
         run: |
           TASK=$(node -e "try{console.log(require('./content/state/tg-cleanup-request.json').task||'')}catch{console.log('')}")

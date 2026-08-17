@@ -1,9 +1,15 @@
 {
-  "task": "retract",
+  "$comment": "Запрос на снятие постов с раздачи. Пуш этого файла в main запускает retract-posts.yml. После снятия записи помечаются отозванными, и очередной прогон постера отправляет материал заново — уже с исправленным заголовком.",
   "slugs": [
-    "israel-lebanon-strikes-truce-violation",
-    "lebanon-israel-strikes-ansar-aug15"
+    "uzcert-cyberattack-government-systems",
+    "microsoft-patch-tuesday-august-2026",
+    "twitch-ai-training-opt-out-default",
+    "microsoft-defender-shieldbreak-zeroday",
+    "gemini-3-7-flash-google-coding-agents",
+    "revolut-french-banking-licence",
+    "apple-appstore-15pct-commission-epic",
+    "tashkent-transport-hackathon-ai"
   ],
-  "reason": "дубль темы: один удар по югу Ливана вышел тремя статьями, оставлен israel-strikes-lebanon-ansar-11-killed",
-  "requestedAt": "2026-08-15T20:15:00Z"
+  "reason": "разбор владельца 17.08.2026: технические термины в заголовках непонятны обычному читателю, узбекские переводы искажали смысл. Заголовки и тексты исправлены во всех языковых версиях — посты снимаются и уходят заново.",
+  "requestedAt": "2026-08-17T12:00:00Z"
 }
