@@ -23,10 +23,99 @@
     "до уточнения стоит нейтральная формула. Узнаем автора — правим здесь,",
     "во всех статьях подпись подтянется при следующей правке frontmatter."
   ],
+  "$topicKeywordsNote": [
+    "Что в статье означает тему фототеки. По этой таблице scripts/bild-gate.mjs",
+    "решает, можно ли обойтись готовым кадром вместо вызова бильд-агента.",
+    "",
+    "Ключ ищется в тегах и заголовке по границам слова. Список нарочно узкий:",
+    "фототека закрывает ровно те темы, к которым официального фото не бывает",
+    "в природе — ставка, курс, инфляция, наличные. Всё остальное снимает",
+    "бильд у первоисточника, и это лучше любого стока."
+  ],
+  "topicKeywords": {
+    "cbu": [
+      "цб руз",
+      "центральный банк",
+      "markaziy bank",
+      "цб",
+      "регулятор"
+    ],
+    "monetary-policy": [
+      "ставка",
+      "ключевая ставка",
+      "денежно-кредитн",
+      "monetary"
+    ],
+    "fx": [
+      "курс доллара",
+      "курс сума",
+      "валютный рынок",
+      "валюта",
+      "so'm kursi",
+      "valyuta"
+    ],
+    "sum": [
+      "сум",
+      "so'm",
+      "наличны",
+      "денежная масса"
+    ],
+    "inflation": [
+      "инфляц",
+      "inflatsiya",
+      "подорожа",
+      "цены"
+    ],
+    "banking": [
+      "банк",
+      "вклад",
+      "депозит",
+      "кредит",
+      "bank"
+    ],
+    "payments": [
+      "платеж",
+      "рассрочк",
+      "эквайринг",
+      "перевод средств",
+      "to'lov"
+    ]
+  },
+  "$neverStockNote": [
+    "Признаки того, что у материала есть настоящий герой съёмки. Списки",
+    "config/named-actors/* для этого не годятся: они про ГЛОБАЛЬНУЮ",
+    "узнаваемость и местных чиновников не содержат намеренно — президенту",
+    "Узбекистана незачем давать бонус к рассылке в узбекском издании.",
+    "А для картинки он как раз главный: под указ президента идёт снимок",
+    "с совещания, а не пачка купюр.",
+    "",
+    "Ищутся в заголовке и тегах. Нашлось — зовём бильда, он снимет фото",
+    "у первоисточника."
+  ],
+  "neverStockMarkers": [
+    "президент",
+    "мирзиёев",
+    "prezident",
+    "mirziyoyev",
+    "премьер",
+    "хоким",
+    "hokim",
+    "министр",
+    "vazir",
+    "глава цб",
+    "председатель",
+    "raisi",
+    "сенат",
+    "депутат"
+  ],
   "photos": [
     {
       "file": "/images/stock/cbu-building-01.jpg",
-      "topics": ["cbu", "monetary-policy", "banking"],
+      "topics": [
+        "cbu",
+        "monetary-policy",
+        "banking"
+      ],
       "width": 640,
       "credit": "Фото: из открытых источников",
       "alt": {
@@ -37,7 +126,11 @@
     },
     {
       "file": "/images/stock/cbu-building-02.jpg",
-      "topics": ["cbu", "monetary-policy", "banking"],
+      "topics": [
+        "cbu",
+        "monetary-policy",
+        "banking"
+      ],
       "width": 547,
       "credit": "Фото: из открытых источников",
       "alt": {
@@ -48,7 +141,12 @@
     },
     {
       "file": "/images/stock/cbu-tower-01.jpg",
-      "topics": ["cbu", "monetary-policy", "banking", "payments"],
+      "topics": [
+        "cbu",
+        "monetary-policy",
+        "banking",
+        "payments"
+      ],
       "width": 1600,
       "credit": "Центральный банк Узбекистана (cbu.uz)",
       "alt": {
@@ -59,7 +157,12 @@
     },
     {
       "file": "/images/stock/usd-cash-01.jpg",
-      "topics": ["fx", "dollar", "cash", "rates"],
+      "topics": [
+        "fx",
+        "dollar",
+        "cash",
+        "rates"
+      ],
       "width": 1600,
       "credit": "Unsplash / Giorgio Trovato",
       "alt": {
@@ -70,7 +173,13 @@
     },
     {
       "file": "/images/stock/sum-banknotes-01.jpg",
-      "topics": ["sum", "cash", "inflation", "prices", "budget"],
+      "topics": [
+        "sum",
+        "cash",
+        "inflation",
+        "prices",
+        "budget"
+      ],
       "width": 1280,
       "credit": "Фото: из открытых источников",
       "alt": {
@@ -81,7 +190,13 @@
     },
     {
       "file": "/images/stock/sum-banknotes-02.jpg",
-      "topics": ["sum", "cash", "inflation", "prices", "salaries"],
+      "topics": [
+        "sum",
+        "cash",
+        "inflation",
+        "prices",
+        "salaries"
+      ],
       "width": 737,
       "credit": "Фото: из открытых источников",
       "alt": {
@@ -92,7 +207,13 @@
     },
     {
       "file": "/images/stock/sum-banknotes-03.jpg",
-      "topics": ["sum", "cash", "banking", "salaries", "payments"],
+      "topics": [
+        "sum",
+        "cash",
+        "banking",
+        "salaries",
+        "payments"
+      ],
       "width": 547,
       "credit": "Фото: из открытых источников",
       "alt": {
