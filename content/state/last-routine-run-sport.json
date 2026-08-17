@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-17T17:38:00+05:00",
-  "topicsProcessed": 0,
-  "published": 0,
+  "lastRunAt": "2026-08-17T18:41:00+05:00",
+  "topicsProcessed": 1,
+  "published": 1,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 114,
-  "notes": "Второй подряд прогон с 0 тем. Аномалия cbs-sports-soccer/cbs-sports-mma (бэклог 05-12.08 подаётся как свежий по fetchedAt) сохраняется — Rodri/Barcelona, Salah/Trabzonspor, Vinicius contract, Diomande $155M всё ещё в пуле с теми же старыми pubDate. Источники не почищены с прошлого прогона. Rodri (Ballon d'Or, Ман Сити) отсутствует в config/named-actors/sport.json globalIcons — предложение на добавление."
+  "belowThreshold": 91,
+  "notes": "cbs-sports-soccer бэклог-аномалия (Rodri/Barcelona, Salah/Trabzonspor, Vinicius contract, Diomande $155M — pubDate 05-09.08, но fetchedAt свежий) сохраняется третий прогон подряд, не почищена. Опубликованная тема (Dana White/Joshua-Fury) пересеклась по сюжету с content/posts/2026-08-17/fury-joshua-uk-showdown-talks.mdx — не дубль, подана как развитие со ссылкой на вышедший материал. Rodri (Ballon d'Or, Ман Сити) по-прежнему отсутствует в named-actors/sport.json globalIcons."
 }

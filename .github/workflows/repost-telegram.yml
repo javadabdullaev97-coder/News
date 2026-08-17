@@ -66,6 +66,10 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          TELEGRAM_CHANNEL_SPORT: ${{ secrets.TELEGRAM_CHANNEL_SPORT }}
+          TELEGRAM_CHANNEL_SPORT_UZ: ${{ secrets.TELEGRAM_CHANNEL_SPORT_UZ }}
+          TELEGRAM_CHANNEL_TECH: ${{ secrets.TELEGRAM_CHANNEL_TECH }}
+          TELEGRAM_CHANNEL_TECH_UZ: ${{ secrets.TELEGRAM_CHANNEL_TECH_UZ }}
           SITE_URL: "https://leap.uz"
           SLUG: ${{ github.event.inputs.slug || github.event.client_payload.slug }}
           DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}

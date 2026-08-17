@@ -1,5 +1,16 @@
 {
-  "slugs": ["ronaldo-last-season"],
-  "reason": "обрезанное фото: у Роналду срезана верхняя часть головы. Картинка заменена, материал уходит в каналы заново",
-  "requestedAt": "2026-08-17T13:40:00Z"
+  "$comment": "Запрос на снятие постов с раздачи. Пуш этого файла в main запускает retract-posts.yml. После снятия записи помечаются отозванными, и очередной прогон постера отправляет материал заново — уже с исправленным заголовком.",
+  "slugs": [
+    "uzcert-cyberattack-government-systems",
+    "microsoft-patch-tuesday-august-2026",
+    "twitch-ai-training-opt-out-default",
+    "microsoft-defender-shieldbreak-zeroday",
+    "gemini-3-7-flash-google-coding-agents",
+    "revolut-french-banking-licence",
+    "apple-appstore-15pct-commission-epic",
+    "tashkent-transport-hackathon-ai",
+    "ronaldo-last-season"
+  ],
+  "reason": "разбор владельца 17.08.2026: технические термины в заголовках непонятны обычному читателю, узбекские переводы искажали смысл. Заголовки и тексты исправлены во всех языковых версиях — посты снимаются и уходят заново. | ronaldo-last-season: обрезанное фото (срезана верхняя часть головы), картинка заменена — материал уходит заново",
+  "requestedAt": "2026-08-17T12:00:00Z"
 }
