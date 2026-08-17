@@ -1,20 +1,20 @@
 {
-  "lastRunAt": "2026-08-17T10:31:00+05:00",
-  "topicsProcessed": 1,
-  "published": 0,
-  "queuedDirect": 0,
+  "lastRunAt": "2026-08-17T10:55:00+05:00",
+  "mode": "sport",
+  "topicsProcessed": 4,
+  "published": 2,
+  "queuedDirect": 2,
   "queuedForOwner": 0,
-  "rejected": 1,
+  "rejected": 0,
   "declined": 0,
   "needsVerification": 0,
   "world": 0,
-  "belowThreshold": 110,
-  "duplicatesOfPublished": 1,
-  "claimedByNeighbor": 0,
+  "belowThreshold": 0,
+  "duplicatesOfPublished": 2,
+  "claimedByNeighbor": 2,
   "inbox": {
-    "file": "content/inbox/2026-08-17.jsonl",
-    "itemsFreshLocal": 111,
-    "itemsFreshWorld": 145
+    "file": "content/inbox/sport-2026-08-17.jsonl",
+    "itemsFreshSport": 1201
   },
-  "notes": "1 тема прошла порог: указ УП-160 «Правосудие – 2030» (судебная реформа), P0 huquqiyaxborot, score ~70 (primary source + exclusive). Прогнана через reporter → fact-check (approve-with-downgrades, 65%) → editor: killed — дубликат, тот же указ уже опубликован дважды (content/posts/2026-08-14/uzbekistan-justice-2030-strategy.mdx и .../2026-08-16/uzbekistan-judicial-reform-court-trust-2026.mdx), topic-dupecheck.mjs это не поймал (новый линк не совпал по хешу/заголовку), поймал editor при финальной сверке. Черновик и 8 fact-check понижений сохранены в content/rejected/ и .review/ на случай, если владелец захочет добавить 3 новые детали (319=227+92 штат, срок my.sud.uz, точная дата 1 января 2028) в статью от 16 августа через штатный процесс «Исправления». Местный поток (111 fresh) — остальное: рутинные пожары без пострадавших, кошки в метро, спорт, статистика без actionable/affectsEveryone, спам-эмодзи посты госканалов. Мировой поток (145 fresh) — почти целиком рутина войны РФ-Украина (skip по ruUaHighBar) и ru-business без второго блока; смерть Хейден Панеттьери (Heroes/Nashville, 36 лет) — anglo+ru-business блоки есть, но не оценена как «громкое событие» уровня Тейлор Свифт/крупных премий из примеров showbiz-категории — не взята, тихого дня (<5 материалов) недостаточно для этой натяжки. missing-images, translation-gaps, channel-candidates — пусто."
+  "notes": "Спортивная планёрка (--sport). Опубликовано 2: Джокович — сенсационное поражение в Цинциннати с намёком на завершение карьеры (tgScore 20, только спортканал); Наваррете–Фостер — объединительный бой WBO/IBF/WBC назначен на 24 октября (tgScore 20, только спортканал). 2 темы из 4 отобранных оказались дублями параллельного прогона и сняты до публикации: Ислам Махачев/UFC 330 (уже опубликован соседкой под слугом makhachev-welterweight-record-ufc330 буквально в момент моего claim — topic-dupecheck не поймал, т.к. я проверял до того, как её коммит landed), Родри в «Барселону» (соседка ушла дальше под слугом manchester-city-rodri-barcelona-bid, оба bild независимо упёрлись в тот же crop-risky на фото Guardian/PA — совпадение подтвердило дубль). Также нашёл, что тема Шомуродов/Башакшехир (uzbekAthleteAnywhere, mustPublish) уже была в content/queue/ до начала отбора — не трогал. Инбокс: 1201 fresh из 1318 raw (freshness по fetchedAt завышена — это первый день сбора спортивного потока, реально свежих по pubDate ≤30ч было 452; отбирал темы по pubDate, не по флагу fresh скрипта). Дисциплины отобранных тем: теннис (1), бокс (1) — футбол и MMA не публиковались мной, но покрыты параллельными прогонами (Шомуродов — футбол, Махачев — MMA, Родри — футбол)."
 }
