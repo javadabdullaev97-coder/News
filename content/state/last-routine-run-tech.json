@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-18T02:15:00+05:00",
-  "topicsProcessed": 6,
-  "published": 5,
+  "lastRunAt": "2026-08-18T03:07:00+05:00",
+  "topicsProcessed": 1,
+  "published": 1,
   "queuedForOwner": 0,
-  "rejected": 1,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 29,
-  "notes": "iren-microsoft-ai-deal-2026-08 прошла весь цикл (fact-check 85%, editor publish, bild) и вскрылась как дубль content/posts/2026-08-17/iren-delivers-ai-capacity-microsoft-texas.mdx только на стадии translator — первичный dupecheck по ссылке инбокса (The Block) не совпал, совпадение всплыло по ссылкам первоисточников (GlobeNewswire/SEC), найденным уже репортёром. Отправлена в rejected. Отдельно: markup-хвост агента (</content>) просочился в uz/en переводы apple-spyware-alert и azure-breach-claim — у apple-spyware-alert обнаружено уже после публикации (publish-tick забрал из очереди раньше, чем прогнал общий i18n-lint), исправлено на месте в content/posts. Reporter-субагенты систематически не могут писать файлы с 'reporter' в имени (Write-tool blocker) — notes сохранялись под альтернативными путями, оркестратор передавал их вручную."
+  "belowThreshold": 28,
+  "notes": "Stripe/OpenRouter ($7 млрд) прошла отбор по баллам (tier2+fundingOrDeal=40), но dupecheck после отбора показал: уже опубликована конкурентным прогоном (content/posts/2026-08-18/stripe-openrouter-7bn-deal-bloomberg.mdx) — снята до брони. Editor выставил updatedAt в будущее (14:30 вместо факта ~03:07 Ташкента) и publishedAt:null вместо queuedAt в опубликованном материале — тот же баг унаследовали оба перевода; исправлено вручную во всех трёх файлах перед коммитом в очередь. reporter-агент по-прежнему не может писать файлы с 'report' в пути (Write-tool blocker) — notes сохранялись оркестратором вручную."
 }
