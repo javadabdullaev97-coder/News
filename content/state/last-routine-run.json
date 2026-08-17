@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-17T12:37:00+05:00",
+  "lastRunAt": "2026-08-17T13:30:00+05:00",
   "mode": "main",
-  "topicsProcessed": 5,
-  "published": 2,
-  "queuedForOwner": 1,
+  "topicsProcessed": 2,
+  "published": 1,
+  "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 1,
-  "belowThreshold": 449,
-  "rework": 1,
-  "notes": "Два отобранных кандидата (BNPL-регулирование рассрочки, закон о фамилии по имени отца) и мировой кандидат (землетрясение M7.7 у Флореса) оказались дублями уже произведённого/опубликованного другими прогонами — обнаружено dupecheck'ом до/после запуска reporter, работа не дублирована. last-routine-run.json был перезаписан спортивной планёркой (mode:sport) вместо её собственного last-routine-run-sport.json — файл разделения нет, стоит завести."
+  "belowThreshold": 16,
+  "rework": 0,
+  "notes": "Fact-checker (нет Write в tools) не смог сохранить .review/fact-check-*.md — оркестратор сохранил вручную из текста ответа. Оба reporter'а получили блок записи файла на подстроку 'report' в имени (пришлось называть notes-*, а не reporter-notes-*) — стоит поправить фильтр инструмента записи. В content/posts/2026-08-17/ben-gvir-gaza-kill-30-40-nightly.{en,uz}.mdx (не моя правка) — утечка служебной разметки (</content>), нужно вычистить руками."
 }
