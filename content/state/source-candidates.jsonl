@@ -395,3 +395,16 @@
 {"ev":"fetched","at":"2026-08-17T22:51:05.000Z","link":"https://daryo.uz/2026/08/17/bavariya-oz-aksiyalarining-5-foizini-250-million-yevroga-sotishi-mumkin","status":"200","found":40}
 {"ev":"fetched","at":"2026-08-17T22:51:05.000Z","link":"https://www.spot.uz/ru/2026/08/17/dollar-lowest/","status":"200","found":5}
 {"ev":"fetched","at":"2026-08-17T22:51:05.000Z","link":"https://daryo.uz/2026/08/17/tadbirkorlarning-energiya-manbalariga-ulanish-huquqi-qonun-bilan-belgilandi","status":"200","found":40}
+{"ev":"resolve","domain":"egov.uz","at":"2026-08-17T23:16:12.201Z","addedAs":"citableReference"}
+{"ev":"resolve","domain":"uzpharm-control.uz","at":"2026-08-17T23:16:12.202Z","addedAs":"citableReference"}
+{"ev":"resolve","domain":"e-auksion.uz","at":"2026-08-17T23:16:12.202Z","addedAs":"citableReference"}
+{"ev":"resolve","domain":"mf.uz","at":"2026-08-17T23:16:12.202Z","addedAs":"citableReference"}
+{"ev":"dismiss","domain":"reuters.com","at":"2026-08-17T23:16:12.202Z","reason":"уже учтён в doNotAdd (id: reuters) — citable по белому списку §2, публичный RSS агентство закрыло"}
+{"ev":"dismiss","domain":"forms.gle","at":"2026-08-17T23:16:12.202Z","reason":"ссылка на форму Google Forms (опрос), не источник новостей"}
+{"ev":"dismiss","domain":"boosty.to","at":"2026-08-17T23:16:12.202Z","reason":"донат-платформа, не источник новостей"}
+{"ev":"dismiss","domain":"patreon.com","at":"2026-08-17T23:16:12.202Z","reason":"донат-платформа, не источник новостей"}
+{"ev":"dismiss","domain":"aksaelektrik.com.tr","at":"2026-08-17T23:16:12.202Z","reason":"сайт турецкой коммерческой компании, разовое упоминание, не повторяющийся источник"}
+{"ev":"dismiss","domain":"yandex.ru","at":"2026-08-17T23:16:12.202Z","reason":"общий домен поисковика/агрегатора, не самостоятельный новостной источник"}
+{"ev":"dismiss","domain":"pr.uz","at":"2026-08-17T23:16:12.202Z","reason":"площадка размещения пресс-релизов без собственной редакции"}
+{"ev":"dismiss","domain":"indexpr.uz","at":"2026-08-17T23:16:12.202Z","reason":"площадка размещения пресс-релизов без собственной редакции"}
+{"ev":"dismiss","domain":"nur.kz","at":"2026-08-17T23:16:12.202Z","reason":"казахстанское СМИ вне утверждённого списка региональных агентств (Kazinform/Kabar/Trend/Turkmenportal), не первоисточник"}

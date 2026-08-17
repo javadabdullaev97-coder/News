@@ -2912,6 +2912,42 @@
         "priority": "P2",
         "citable": true,
         "addedBecause": "Планёрка 17.08.2026 16:00, source-candidates: официальная метеослужба, важна для штормовых предупреждений и полосы ЧП."
+      },
+      {
+        "id": "egov-uz",
+        "name": "Единый портал интерактивных госуслуг (egov.uz / my.gov.uz)",
+        "url": "https://egov.uz",
+        "type": "source",
+        "priority": "P1",
+        "citable": true,
+        "addedBecause": "Планёрка 18.08.2026 04:00, source-candidates: канал @mygovuz за прогон 4 раза ссылался на портал (справки, электронные документы) — официальный правительственный сервис, первоисточник по темам госуслуг. RSS не проверен, заведено как право на ссылку без фетча."
+      },
+      {
+        "id": "uzpharm-control-uz",
+        "name": "Агентство по контролю в сфере фармацевтики при Минздраве (uzpharm-control.uz)",
+        "url": "https://uzpharm-control.uz",
+        "type": "source",
+        "priority": "P2",
+        "citable": true,
+        "addedBecause": "Планёрка 18.08.2026 04:00, source-candidates: канал @uzpharmcontrol 4 раза за прогон ссылался на front.uzpharm-control.uz/news/, регулятор фармрынка — официальный источник по лицензированию и предупреждениям о сертификатах. RSS не проверен, заведено как право на ссылку без фетча."
+      },
+      {
+        "id": "e-auksion-uz",
+        "name": "Единый портал электронных госзакупок (e-auksion.uz)",
+        "url": "https://e-auksion.uz",
+        "type": "source",
+        "priority": "P1",
+        "citable": true,
+        "addedBecause": "Планёрка 18.08.2026 04:00, source-candidates: два независимых канала (davaktivuz, spot-uz) ссылались на портал. Уже упомянут в редполитике §8 как официальный реестр для тем госзакупок/коррупции, но в конфиге источников отсутствовал. RSS не проверен, заведено как право на ссылку без фетча."
+      },
+      {
+        "id": "mf-uz",
+        "name": "Министерство финансов Республики Узбекистан (mf.uz)",
+        "url": "https://www.mf.uz",
+        "type": "source",
+        "priority": "P0",
+        "citable": true,
+        "addedBecause": "Планёрка 18.08.2026 04:00, source-candidates: два конкурентных СМИ (gazeta-uz, podrobno-uz) ссылались на mf.uz. Домен уже числился в factCheckSkip.officialDomains (policy-orchestrator) как официальный, но в каталоге источников отсутствовал — расхождение исправлено. RSS не проверен, заведено как право на ссылку без фетча."
       }
     ]
   },

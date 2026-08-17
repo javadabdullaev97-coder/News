@@ -70,3 +70,5 @@
 {"ev":"seen","handle":"tashkentvokrug","at":"2026-08-17T07:20:51.795Z","link":"https://t.me/tashkentpeshkom/363","sourceId":"tashkentpeshkom","context":"А ещё давайте познакомимся с нашей новой любовью — знаком по улице Темура Малика 🥺 @tashkentvokrug А ещё давайте познакомимся с нашей новой любовью — знаком по улице Темура Малика 🥺 @tashkentvokrug"}
 {"ev":"dismiss","handle":"contest","at":"2026-08-17T11:35:52.164Z","reason":"Промо-канал конкурсов Дурова, не новостной"}
 {"ev":"seen","handle":"oilavaqtii","at":"2026-08-17T12:21:40.317Z","link":"https://t.me/uzbekistantv_rasmiy/6539","sourceId":"uzbekistantv_rasmiy","context":"Sportchilar bilan qiziqarli tezkor savol javob⚡️ Sportchilar bilan qiziqarli tezkor savol javob⚡️ Oila vaqti 17-avgust 2026-yil 🎥 @oilavaqtii @uzbekistantv_rasmiy"}
+{"ev":"dismiss","handle":"tashkentvokrug","at":"2026-08-17T23:13:40.140Z","reason":"лайфстайл-канал о городских местах/достопримечательностях Ташкента, не новостной"}
+{"ev":"resolve","handle":"oilavaqtii","at":"2026-08-17T23:13:40.180Z","addedAs":"signal"}
