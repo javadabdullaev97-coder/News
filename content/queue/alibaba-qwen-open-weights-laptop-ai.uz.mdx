@@ -1,0 +1,34 @@
+---
+title: "Alibaba Qwen3.8-Max vaznlarini ochdi va ixcham Qwen3.8-27B'ni chiqardi"
+description: "Alibaba Cloud flagman Qwen3.8-Max (2,4 trln parametr) vaznlarini ochdi va oddiy kompyuterlarda ishga tushirish uchun ixcham Qwen3.8-27B'ni chiqardi."
+queuedAt: "2026-08-17T18:14:00+05:00"
+updatedAt: "2026-08-17T18:30:00+05:00"
+category: "tech"
+tags: ["Alibaba", "Qwen", "Meta", "sun'iy intellekt", "ochiq vaznlar"]
+authors: ["reporter", "editor"]
+tgScore: 50
+broadcast: true
+sources:
+  - name: "Qwen3.8-2.4T-A95B modeli kartasi, Hugging Face"
+    url: "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+  - name: "Qwen3.8-27B modeli kartasi, Hugging Face"
+    url: "https://huggingface.co/Qwen/Qwen3.8-27B"
+  - name: "Meta AI Research — Muse Glimmer taqdimoti"
+    url: "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model"
+image:
+  url: "/images/posts/2026-08/alibaba-qwen-open-weights-laptop-ai-01.jpg"
+  alt: "Tizim blokidagi GeForce RTX videokartasi — Qwen3.8-27B va shunga o'xshash ixcham modellar aynan shunday iste'molchi videokartalarida lokal ishga tushirish uchun mo'ljallangan"
+  credit: "Unsplash / Christian Wiediger"
+lang: "uz"
+translatedFrom: "ru"
+---
+
+Alibaba Cloud 2026-yil avgust oyida Qwen3.8-Max'ning katta modeli vaznlarini ochdi, ko'p o'tmay esa bitta iste'molchi kompyuterida ishga tushirishga mo'ljallangan ixcham Qwen3.8-27B'ni chiqardi.
+
+Ochiq vaznlarga [Qwen3.8-2.4T-A95B](https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B) modeli ega bo'ldi — u Qwen3.8-Max bulutli xizmatining asosini tashkil etadi. Modelda jami 2,4 trln parametr bor. MoE (mixture of experts) arxitekturasi tufayli har bir so'rovni qayta ishlashda ulardan taxminan 95 mlrd tasi ishlatiladi — buni Hugging Face'dagi model kartasi shunday tasvirlaydi. Modelning arxitekturasi gibrid: 92 qatlam, ular Gated DeltaNet chiziqli e'tibori va odatdagi Gated Attention qatlamlarini birlashtiradi. Har bir token uchun marshrutizator 512 «ekspert»dan 10 tasini, shuningdek bitta umumiy blokni ishga tushiradi. Kontekst oynasi — 262 144 token, 1 mlngacha kengaytiriladi. Ochiq versiya faqat matnni qabul qiladi: bulutli Qwen3.8-Max'dan farqli o'laroq, u tasvir va video bilan ishlamaydi. Vaznlar Apache 2.0 emas, alohida Qwen litsenziyasi asosida tarqatiladi. Model kartasida Qwen jamoasi shunday ko'rsatadi: «Qwen-Max sinfidagi model birinchi marta ochiq relizga ega bo'ldi». Ilgari Max qatoridagi eng yuqori modellar faqat bulutli API orqali tarqatilar edi, vaznlarni yuklab olib bo'lmasdi.
+
+Ikkinchi model — [Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B) — 2026-yil avgust oyida Apache 2.0 litsenziyasi ostida chiqdi: bu litsenziya vaznlardan hech qanday cheklovsiz, jumladan tijorat mahsulotlarida ham foydalanish imkonini beradi. Model zich (dense), MoE'siz, 27 mlrd parametrdan iborat va matn, tasvir hamda videoni tushunadi. Kontekst oynasi — xuddi shu 262 144 token, 1 mlngacha kengaytiriladi. Qwen jamoasi Qwen3.8-27B'ni lokal joylashtirish uchun ixcham model sifatida taqdim etadi — data-markazda emas, balki bitta videokartali ish stansiyalari va o'yin kompyuterlarida ishlatish uchun. Qwen3.8-27B uchun model kartasida thinking mode fikrlash rejimi tasvirlangan: u default holatda yoqilgan. Fikrlash chuqurligini reasoning_effort parametri orqali sozlash mumkin, rejimning o'zini esa tezroq javob olish uchun o'chirish mumkin. Modelni ishga tushirish uchun Qwen Hugging Face Transformers kutubxonasi hamda vLLM, SGLang va TokenSpeed inference serverlarini sanab o'tadi.
+
+## Meta relizi fonida
+
+Alibaba ikkala modelni ham Meta o'zining ochiq Muse Glimmer modelini [chiqarganidan](https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model) bir necha kun o'tib e'lon qildi. Meta uni 10-avgustda taqdim etdi. Bu Apache 2.0 litsenziyasi ostidagi 30 mlrd parametrli zich model. Ishlab chiquvchi ma'lumotlariga ko'ra, kvantlashdan foydalanilganda u bitta iste'molchi videokartasi bo'lgan Mac yoki PC'ga sig'adi. Meta Muse Glimmer'ning maqsadli stsenariylarini lokal agentlar, funksiyalarni chaqirish, qurilmada dasturlash va modelni boshqa tizimlarni baholovchi avtomatik judge sifatida ishlatish deb ta'riflaydi. Ikkala kompaniya ham avgustning bir haftasi ichida data-markazlardan tashqarida lokal ishga tushirishga mo'ljallangan modellarni chiqardi — Alibaba esa qo'shimcha ravishda kattaroq flagman modelning vaznlarini ochdi.

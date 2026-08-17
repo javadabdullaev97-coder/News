@@ -1,0 +1,34 @@
+---
+title: "Alibaba opens Qwen3.8-Max weights, releases compact Qwen3.8-27B"
+description: "Alibaba Cloud opened the weights of its flagship Qwen3.8-Max (2.4 trillion parameters) and released the compact Qwen3.8-27B for running on ordinary computers."
+queuedAt: "2026-08-17T18:14:00+05:00"
+updatedAt: "2026-08-17T18:30:00+05:00"
+category: "tech"
+tags: ["Alibaba", "Qwen", "Meta", "artificial intelligence", "open weights"]
+authors: ["reporter", "editor"]
+tgScore: 50
+broadcast: true
+sources:
+  - name: "Qwen3.8-2.4T-A95B model card, Hugging Face"
+    url: "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+  - name: "Qwen3.8-27B model card, Hugging Face"
+    url: "https://huggingface.co/Qwen/Qwen3.8-27B"
+  - name: "Meta AI Research — Muse Glimmer announcement"
+    url: "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model"
+image:
+  url: "/images/posts/2026-08/alibaba-qwen-open-weights-laptop-ai-01.jpg"
+  alt: "A GeForce RTX graphics card inside a desktop PC case — consumer cards like this are what Qwen3.8-27B and similar compact models are designed to run on locally"
+  credit: "Unsplash / Christian Wiediger"
+lang: "en"
+translatedFrom: "ru"
+---
+
+In August 2026, Alibaba Cloud opened the weights of its flagship Qwen3.8-Max model, and soon after released the compact Qwen3.8-27B, designed to run on a single consumer computer.
+
+The open weights went to the [Qwen3.8-2.4T-A95B](https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B) model — it underpins the cloud service Qwen3.8-Max. The model has 2.4 trillion parameters in total. Thanks to its MoE (mixture of experts) architecture, about 95 billion of them are activated to process each request — that is how the Hugging Face model card describes it. The model has a hybrid architecture: 92 layers combining Gated DeltaNet linear attention with regular Gated Attention layers. For each token, the router activates 10 of 512 "experts" plus one shared block. The context window is 262,144 tokens, expandable to 1 million. The open version accepts text only: unlike the cloud Qwen3.8-Max, it does not work with images and video. The weights are distributed under a separate Qwen license, not Apache 2.0. In the model card, the Qwen team states: "for the first time, a Qwen-Max-class model has received an open release." Previously, top-tier models in the Max lineup were distributed only through the cloud API, and their weights could not be downloaded.
+
+The second model, [Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B), was released in August 2026 under the Apache 2.0 license — it allows the weights to be used without restrictions, including in commercial products. The model is dense, without MoE, contains 27 billion parameters and understands text, images and video. The context window is the same 262,144 tokens, expandable to 1 million. The Qwen team positions Qwen3.8-27B as a compact model for local deployment — on workstations and gaming PCs with a single graphics card, rather than in a data center. For Qwen3.8-27B, the model card describes a thinking mode: it is enabled by default. Reasoning depth can be adjusted with the reasoning_effort parameter, and the mode itself can be disabled for faster responses. To run the model, Qwen lists the Hugging Face Transformers library and the vLLM, SGLang and TokenSpeed inference servers.
+
+## Against the backdrop of Meta's release
+
+Alibaba published both models a few days after Meta [released](https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model) its own open model, Muse Glimmer. Meta unveiled it on August 10. It is a dense model with 30 billion parameters under the Apache 2.0 license. According to the developer, it fits on a Mac or PC with a single consumer graphics card when using quantization. Meta describes Muse Glimmer's target use cases as local agents, function calling, on-device coding, and using the model as an automatic judge to evaluate other systems. Within the same week in August, both companies released models designed to run locally outside data centers — Alibaba additionally opened the weights of its larger flagship model.
