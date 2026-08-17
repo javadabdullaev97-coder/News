@@ -22,6 +22,13 @@
 //
 //   DRY_RUN=1 node scripts/retract-posts.mjs        — показать, что снял бы
 //   SLUGS=a,b node scripts/retract-posts.mjs        — без файла запроса
+//   MESSAGES=uz:225,uz:226 node scripts/retract-posts.mjs
+//
+// Форма MESSAGES нужна для постов, которых НЕТ в реестре. Такие бывают:
+// 17.08.2026 три сообщения ушли в узбекский канал и не записались — по
+// слагу их не найти, а удалять надо. Номер сообщения виден в его ссылке
+// (t.me/leap_news_uz/225). Тот же список можно положить в заявку полем
+// "messages": ["uz:225", "uz:226"].
 //
 // Bot API удаляет сообщения 48 часов. Что старше — останется в канале,
 // и скрипт про это честно скажет: молча «успешно» на неудалённом посте
@@ -53,6 +60,34 @@ const TARGETS = ["main", "sport", "tech"];
 
 const REQUEST = join(ROOT, "content/state/retract-request.json");
 
+/** Явные номера сообщений: ["uz:225", "ru:271"] → [{lang, messageId}]. */
+function wantedMessages() {
+  const raw = [];
+  if (process.env.MESSAGES) raw.push(...process.env.MESSAGES.split(","));
+  if (existsSync(REQUEST)) {
+    try {
+      const req = JSON.parse(readFileSync(REQUEST, "utf8"));
+      if (Array.isArray(req.messages)) raw.push(...req.messages);
+    } catch {
+      // разбор заявки уже отчитается ниже, в wantedSlugs
+    }
+  }
+  const out = [];
+  for (const item of raw) {
+    // Форма «uz:225» — основной канал; «tech-uz:64» — профильный.
+    const m = String(item).trim().match(/^(?:(sport|tech)-)?(ru|uz):(\d+)$/);
+    if (!m) {
+      console.error(
+        `[retract] пропускаю «${item}»: нужен вид язык:номер (uz:225) ` +
+          "или канал-язык:номер (tech-uz:64)",
+      );
+      continue;
+    }
+    out.push({ target: m[1] ?? "main", lang: m[2], messageId: Number(m[3]) });
+  }
+  return out;
+}
+
 function wantedSlugs() {
   if (SLUGS) return SLUGS.split(",").map((s) => s.trim()).filter(Boolean);
   if (!existsSync(REQUEST)) return [];
@@ -66,13 +101,25 @@ function wantedSlugs() {
 }
 
 const slugs = new Set(wantedSlugs());
-if (!slugs.size) {
-  console.error("[retract] нечего снимать — список слагов пуст");
+const explicit = wantedMessages();
+if (!slugs.size && !explicit.length) {
+  console.error("[retract] нечего снимать — ни слагов, ни номеров сообщений");
   process.exit(0);
 }
-console.error(`[retract] слагов в запросе: ${slugs.size} — ${[...slugs].join(", ")}`);
+if (slugs.size) console.error(`[retract] слагов в запросе: ${slugs.size} — ${[...slugs].join(", ")}`);
+if (explicit.length) {
+  console.error(
+    `[retract] номеров сообщений: ${explicit.length} — ` +
+      explicit.map((e) => `${e.lang}:${e.messageId}`).join(", "),
+  );
+}
 
 const targets = [];
+// Явные номера идут первыми и без записи в реестре: их там и нет — ради
+// этого форма и добавлена. Отзывать в журнале нечего, url неизвестен.
+for (const e of explicit) {
+  targets.push({ target: e.target, lang: e.lang, slug: null, url: null, messageId: e.messageId });
+}
 for (const target of TARGETS) {
   for (const [key, rec] of loadPostedByLangSlug(ROOT, target)) {
     const [lang, slug] = key.split(" ");
@@ -125,6 +172,9 @@ for (const t of targets) {
     // разрешили автопосту отправить материал ещё раз.
     continue;
   }
+  // У поста, снятого по явному номеру, записи в реестре нет — и отзывать
+  // нечего: дедуп про него всё равно не знал.
+  if (!t.url) continue;
   appendLog(join(ROOT, POSTED_LOG), {
     url: t.url,
     messageId: t.messageId,

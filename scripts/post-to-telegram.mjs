@@ -30,6 +30,8 @@ import {
   isPostedNow,
   loadPostedByLangSlug,
   markPosted,
+  reservePost,
+  releaseReservation,
 } from "../lib/telegram-posted.mjs";
 
 import {
@@ -646,6 +648,15 @@ for (let i = 0; i < pending.length; i++) {
     );
     continue;
   }
+  // Бронь ДО отправки. Разбор — в lib/telegram-posted.mjs: потерянная
+  // запись должна означать непосланный пост, а не посланный трижды.
+  if (!dryRun) {
+    posted[p.target].set(
+      `${p.lang} ${slug}`,
+      reservePost(ROOT, { url: p.url, target: p.target }),
+    );
+    publishStateRecord(`бронь ${slug} (${p.lang}/${p.target})`);
+  }
   try {
     const result = await postArticle(p.mdxPath, p.fm, p.channel, p.target);
     if (!dryRun) {
@@ -662,6 +673,26 @@ for (let i = 0; i < pending.length; i++) {
   } catch (err) {
     failed++;
     console.error(`  ✗ ${p.rel}: ${err.message}`);
+    if (!dryRun) {
+      // Telegram отказал явно — сообщения нет, бронь снимаем, материал
+      // уйдёт следующим прогоном. Обрыв связи трактуем в другую сторону:
+      // ответ мог не дойти при доставленном сообщении.
+      if (/Telegram API error/.test(err.message)) {
+        releaseReservation(ROOT, {
+          url: p.url,
+          target: p.target,
+          reason: `send-rejected: ${err.message.slice(0, 80)}`,
+        });
+        posted[p.target].delete(`${p.lang} ${slug}`);
+        publishStateRecord(`снята бронь ${slug} (${p.lang}/${p.target})`);
+      } else {
+        console.error(
+          `  ⚠ бронь оставлена: связь оборвалась, сообщение могло уйти. ` +
+            `Проверь канал ${p.target}/${p.lang} и, если поста нет, ` +
+            `сними бронь вручную в ${POSTED_LOG}.`,
+        );
+      }
+    }
   }
   // Между постами MIN_GAP_MS. Между запусками воркфлоу этот sleep не сохраняется —
   // защита от залпов работает только внутри одного прогона post-to-telegram.mjs.
