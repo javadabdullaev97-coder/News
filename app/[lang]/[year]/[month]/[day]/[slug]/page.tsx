@@ -274,28 +274,16 @@ export default async function ArticlePage({
               {article.body.map((block, i) => renderBlock(block, i))}
             </div>
 
-            {article.sources && article.sources.length > 0 && (
-              <section className="mt-10 rounded-xl border border-neutral-200 px-5 py-4 dark:border-neutral-800">
-                <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-500">
-                  Источники
-                </h2>
-                <ol className="mt-3 space-y-2 text-sm">
-                  {article.sources.map((s) => (
-                    <li key={s.url} className="flex gap-2">
-                      <span aria-hidden className="text-neutral-400">
-                        ↗
-                      </span>
-                      <a
-                        href={s.url}
-                        className="text-brand underline decoration-brand/30 decoration-2 underline-offset-4 transition-colors hover:decoration-brand"
-                      >
-                        {s.name}
-                      </a>
-                    </li>
-                  ))}
-                </ol>
-              </section>
-            )}
+            {/*
+              Блок «Источники» убран 17.08.2026 по решению владельца. Список
+              из десятка чужих названий под каждым материалом читался как
+              признание в ретрансляции, хотя материал писался по документам.
+
+              Сам `frontmatter.sources` остаётся и никуда не девается: на нём
+              держатся фактчек и scripts/check-policy-drift.mjs. То есть
+              проверяемость сохранена, убрана только витрина. В разметку
+              schema.org блок не входил, поэтому на выдачу это не влияет.
+            */}
 
             <div className="mt-8 flex flex-wrap gap-2">
               {article.tags.map((t) => (
