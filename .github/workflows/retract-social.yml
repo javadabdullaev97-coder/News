@@ -1,0 +1,78 @@
+name: Retract social
+
+# Снимает посты из Instagram и отмечает записи отозванными.
+#
+# Telegram у нас снимался точечно с 15.08.2026, Instagram — ничем:
+# пост с браком висел, пока владелец не удалит его руками. 17.08.2026
+# таких набралось сразу несколько, и понадобился тот же инструмент.
+#
+# Заявка кладётся в content/state/retract-social-request.json, пуш её
+# и запускает. Режим списка (Run workflow → list = 1) ничего не удаляет,
+# а показывает последние посты аккаунта с их медиа-id и помечает
+# совпадающие подписи — по нему и составляется заявка.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/state/retract-social-request.json"
+  repository_dispatch:
+    types: [retract-social]
+  workflow_dispatch:
+    inputs:
+      list:
+        description: "1 = только показать последние посты и дубли"
+        required: false
+        default: "0"
+      posts:
+        description: "Медиа-id через запятую (пусто — взять из заявки)"
+        required: false
+        default: ""
+      dry_run:
+        description: "1 = показать, что удалил бы"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  # Общая очередь со «Social autopost»: реестр лежит в git, параллельный
+  # прогон прочитал бы устаревший файл и отправил снятое заново.
+  group: social-networks
+  cancel-in-progress: false
+
+jobs:
+  retract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Retract
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          IG_USER_ID_RU: ${{ secrets.IG_USER_ID_RU }}
+          IG_USER_ID_UZ: ${{ secrets.IG_USER_ID_UZ }}
+          LIST: ${{ github.event.inputs.list || '0' }}
+          POSTS: ${{ github.event.inputs.posts }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
+        run: node scripts/retract-social.mjs
+
+      - name: Commit registry
+        if: github.event.inputs.list != '1' && github.event.inputs.dry_run != '1'
+        run: |
+          if [[ -z $(git status --porcelain -- content/state/social-posted.jsonl) ]]; then
+            echo "Реестр не менялся."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/state/social-posted.jsonl
+          git commit -m "state: посты сняты из Instagram (retract-social)"
+          bash .github/scripts/git-push-with-rebase.sh
