@@ -226,13 +226,13 @@ Gazeta.uz, Daryo.uz и Repost.uz**.
 
 | Дисциплина | Что закрывает | Ленты в конфиге |
 |---|---|---|
-| Футбол | топ-5 лиг Европы, еврокубки, сборные | `bbc-sport-football`, `cbs-sports-soccer`, `football-italia`, `football-espana`, `bulinews`, `sportsru-football`, `sport-express-football` |
+| Футбол | топ-5 лиг Европы, еврокубки, сборные | `bbc-sport-football`, `guardian-football`, `cbs-sports-soccer`, `football-italia`, `football-espana`, `marca-en`, `bulinews`, `fourfourtwo`, `sportsru-football`, `sport-express-football` |
 | Трансферы | суммы, переходы, рыночные оценки | `transfermarkt-uk/de/es/it/tr`, `sport-express-transfers` |
 | Турция и узбекские легионеры | Суперлига, Шомуродов, Файзуллаев | `trt-spor-futbol`, `transfermarkt-tr`, `football-italia` |
 | ММА / UFC | карды, рейтинги, контракты | `sherdog-news`, `mma-fighting`, `cbs-sports-mma`, `sportsru-fight`, `one-championship` |
 | Бокс | топ-бои, титулы, санкционирование | `boxingscene`, `fightnews`, `wbc-boxing`, `wba-boxing`, `wbo-boxing`, `sportsru-fight` |
 | Теннис | Grand Slam, ATP/WTA, рейтинги | `bbc-tennis`, `guardian-tennis`, `tennismajors`, `tennis365`, `ubitennis`, `sportsru-tennis`, `sport-express-tennis` |
-| «Формула-1» | Гран-при, регламент, контракты пилотов | `formula1-official`, `motorsport-f1`, `skysports-f1`, `the-race-f1`, `sportsru-f1`, `fia-official` |
+| «Формула-1» | Гран-при, регламент, контракты пилотов | `formula1-official`, `motorsport-f1`, `skysports-f1`, `the-race-f1`, `racefans`, `sportsru-f1`, `fia-official` |
 
 ### Слухи о трансферах и боях — берём, а не ждём
 
@@ -295,19 +295,27 @@ Economist, The Verge и Ars Technica — все они в проде живы.
 `lib/inbox-core.mjs` берёт время из `fetchedAt` и обращается к `pubDate` только
 запасным.
 
-### Неподтверждённые — режет песочница, прод не проверен
+### Спорные адреса — разобраны прогоном в Actions 17.08.2026
 
-Эти адреса из контура агента дают 403 или пустой 202. Прежде чем считать их
-мёртвыми, нужен прогон в Actions.
+Шесть адресов давали из песочницы 403, 202 или таймаут. Разовый воркфлоу
+спросил их из окружения фетчера и закрыл вопрос. Итог: половина оказалась
+живой, половина мертва по-настоящему.
 
-| Источник | Адрес | Ответ из песочницы |
-|---|---|---|
-| ESPN (soccer, mma, tennis, boxing) | `espn.com/espn/rss/*/news` | HTTP 202 без записей |
-| ATP | `atptour.com/en/media/rss-feeds/news-all` | HTTP 403 |
-| Marca (англ.) | `marca.com/en/rss/googlenews/football.xml` | HTTP 403 после одной удачной выдачи в 48 записей |
-| «Аль-Наср» | `alnassr.sa/feed` | HTTP 403 |
-| Ассоциация футбола Узбекистана | `uff.uz/feed/` | домен резолвится, соединение не встаёт |
-| RaceFans | `racefans.net/feed/` | HTTP 429 |
+| Источник | Ответ из песочницы | Ответ из Actions | Итог |
+|---|---|---|---|
+| Guardian (футбол, теннис) | 403 | 200, 64 и 20 записей | заведены |
+| Marca (англ.) | 403 | 200, 48 записей | заведена |
+| RaceFans | 429 | 200, 20 записей | заведена |
+| ESPN (soccer, mma, tennis, boxing) | 202 без записей | не XML | мёртв окончательно |
+| ATP | 403 | 403 | мёртв, Cloudflare режет и дата-центры |
+| «Аль-Наср» | 403 | 403 | мёртв |
+| Ассоциация футбола Узбекистана | соединение не встаёт | то же | мёртв |
+| UEFA | 404 | таймаут | мёртв в любом контуре |
+
+Практический вывод на будущее: **спорный источник проверяется разовым
+воркфлоу, а не отбрасывается по ответу песочницы.** Стоит это одну минуту
+и один пуш в свою ветку. Триггер — `push` в ветку, а не `workflow_dispatch`:
+кнопку «Run workflow» GitHub показывает только для воркфлоу, лежащих в `main`.
 
 Следствия, с которыми живём сегодня: **первоисточника в теннисе нет** (WTA
 мертва наверняка, ATP под вопросом); **Саудовская Про-лига** покрывается только
