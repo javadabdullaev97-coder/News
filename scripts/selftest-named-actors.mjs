@@ -4,11 +4,19 @@
 // Оба направления решали одну задачу и пришли к ней с разных сторон, поэтому
 // словарь у них свой: у спорта уровни globalIcons/notable, у технологий тиры
 // tier1..tier3 плюс defenseTech и locallyPresent. Сводить их к одному
-// названию здесь не стали — проверка смотрит на каждую половину по её
-// собственным правилам, а общего у них ровно то, ради чего файл и заведён:
-// список отбора обязан сходиться со списком рассылки.
+// названию не стали — проверка смотрит на каждую половину по её собственным
+// правилам.
 //
-// Зачем. Списки живут в двух местах, и это не дублирование, а разные роли:
+// ЧТО ИЗМЕНИЛОСЬ 17.08.2026. Списки переехали в config/named-actors/ — файл
+// на направление, чтобы спортивная планёрка не тащила в контекст
+// технологические имена и наоборот. Заодно исчезла копия: раньше те же имена
+// лежали и в редполитике, и в telegram-scoring.json, и главной проверкой
+// этого файла была их синхронность. Теперь синхронять нечего — источник один,
+// и проверка сместилась на то, что список не разъехался с ШКАЛОЙ: балл за
+// группу задан в редполитике, а сама группа живёт в отдельном файле, и
+// переименовать её молча по-прежнему можно.
+//
+// Осталось от прежнего разбора (ниже по тексту оно же проверяется числами):
 //
 //   config/newsroom-policy.json → sport.namedInterest — отбор темы спортивной
 //     планёркой, с делением на globalIcons и notable;
@@ -35,7 +43,11 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const policy = JSON.parse(readFileSync(join(ROOT, "config/newsroom-policy.json"), "utf8"));
-const scoring = JSON.parse(readFileSync(join(ROOT, "config/telegram-scoring.json"), "utf8"));
+const actors = (name) =>
+  JSON.parse(readFileSync(join(ROOT, `config/named-actors/${name}.json`), "utf8"));
+const sportActors = actors("sport");
+const techActors = actors("tech");
+const globalActors = actors("global");
 
 let failed = 0;
 const ok = (cond, msg) => {
@@ -43,8 +55,12 @@ const ok = (cond, msg) => {
   if (!cond) failed++;
 };
 
-const ni = policy.sport?.namedInterest;
-ok(Boolean(ni), "sport.namedInterest на месте");
+const ni = sportActors;
+ok(Boolean(ni?.globalIcons), "config/named-actors/sport.json на месте");
+ok(
+  !policy.sport?.namedInterest,
+  "списка имён в редполитике не осталось — источник один, config/named-actors/",
+);
 
 /** Все имена из вложенных списков, кроме служебных ключей на $. */
 function flatten(node) {
@@ -60,20 +76,22 @@ function flatten(node) {
 
 const icons = flatten(ni?.globalIcons);
 const notable = flatten(ni?.notable);
-const stars = scoring.namedActors?.sportStars ?? [];
+// Плоского списка для рассылки больше нет: seo-агент читает этот же файл
+// целиком. Проверяем, что копия не воскресла в скоринге.
+const stars = flatten(ni);
 
 ok(icons.length > 0, `globalIcons не пуст (${icons.length} имён)`);
-ok(stars.length > 0, `namedActors.sportStars не пуст (${stars.length} имён)`);
+ok(stars.length > 0, `имён в файле спорта: ${stars.length}`);
 
-// ── Главная проверка ──
-const starSet = new Set(stars);
-const missing = icons.filter((name) => !starSet.has(name));
-ok(
-  missing.length === 0,
-  missing.length === 0
-    ? "все globalIcons есть в namedActors.sportStars"
-    : `в sportStars нет ${missing.length} имён из globalIcons: ${missing.slice(0, 8).join(", ")}${missing.length > 8 ? "…" : ""}`,
-);
+// ── Копий больше нет ──
+const scoring = JSON.parse(readFileSync(join(ROOT, "config/telegram-scoring.json"), "utf8"));
+for (const key of ["sportStars", "techCompanies", "techPeople", "techProducts", "politicians", "footballClubs"]) {
+  ok(
+    !scoring.namedActors?.[key],
+    `namedActors.${key} не воскрес в telegram-scoring.json — имена живут в config/named-actors/`,
+  );
+}
+ok(flatten(globalActors).length > 0, `config/named-actors/global.json не пуст (${flatten(globalActors).length} имён)`);
 
 // ── Уровни не пересекаются ──
 // Имя одновременно в globalIcons и notable означает, что при подсчёте
@@ -130,8 +148,9 @@ ok(slamFinal >= minScore, `финал шлема с notable-игроком: ${sl
 // имени провалиться, noNameNoNews не пускает безымянный стартап.
 
 const tech = policy.tech ?? {};
-const tni = tech.namedInterest ?? {};
-ok(Boolean(tni.tier1), "tech.namedInterest на месте и разбит на тиры");
+const tni = techActors;
+ok(Boolean(tni.tier1), "config/named-actors/tech.json на месте и разбит на тиры");
+ok(!tech.namedInterest, "списка имён в секции tech редполитики не осталось");
 
 const TECH_TIERS = ["tier1", "tier2", "tier3", "defenseTech", "locallyPresent"];
 for (const tier of TECH_TIERS) {
@@ -166,27 +185,16 @@ for (const tier of ["tier1", "tier2", "tier3"]) {
 }
 ok(techDupes.length === 0, techDupes.length ? `имена в двух тирах: ${techDupes.join("; ")}` : "тиры 1-3 не пересекаются");
 
-// ── Синхронность с рассылкой ──
-const techScoring = new Set([
-  ...(scoring.namedActors?.techCompanies ?? []),
-  ...(scoring.namedActors?.techPeople ?? []),
-  ...(scoring.namedActors?.techProducts ?? []),
-]);
-ok(techScoring.size > 0, `namedActors.tech* не пусты (${techScoring.size} имён)`);
-
-for (const tier of ["tier1", "tier2", "defenseTech", "locallyPresent"]) {
-  const missingTech = flatten(tni[tier]).filter((n) => !techScoring.has(n));
+// ── Шкала знает про каждую группу файла ──
+// Группа, переименованная в файле и не переименованная в шкале, молча
+// перестаёт давать баллы: балл ищется по имени группы, а его больше нет.
+const scoredGroups = { tier1: "namedActorTier1", tier2: "namedActorTier2", tier3: "namedActorTier3", locallyPresent: "locallyPresentActor" };
+for (const [group, key] of Object.entries(scoredGroups)) {
   ok(
-    missingTech.length === 0,
-    missingTech.length === 0
-      ? `все имена ${tier} есть в namedActors.tech*`
-      : `в namedActors нет ${missingTech.length} имён из ${tier}: ${missingTech.slice(0, 8).join(", ")}${missingTech.length > 8 ? "…" : ""}`,
+    flatten(tni[group]).length > 0 && typeof tech.score?.[key] === "number",
+    `группа ${group} есть в файле и оценена в шкале как ${key}`,
   );
 }
-
-// Плоский ключ свернулся в три новых. Воскрес — значит список правили по
-// памяти, и половина имён разъедется.
-ok(!scoring.namedActors?.techInfluencers, "плоский techInfluencers не воскрес");
 
 // ── Шкала и правила ──
 const ts = tech.score ?? {};
