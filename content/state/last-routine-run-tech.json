@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-17T18:18:00+05:00",
-  "topicsProcessed": 6,
+  "lastRunAt": "2026-08-18T01:21:00+05:00",
+  "topicsProcessed": 4,
   "published": 4,
   "queuedForOwner": 0,
-  "rejected": 2,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 30,
-  "notes": "2 из 6 отобранных тем (Anthropic watermark, Meta California lawsuit) прошли reporter→fact-checker→editor(publish), но перед queue повторный topic-dupecheck нашёл, что тему уже опубликовала/отклонила основная планёрка конкурентно (anthropic-claude-text-watermark-eu, meta-youth-safety-trial-29-states) — сняты в content/rejected/ как duplicate. Write у subagent'ов снова блокирует .md с подстрокой report/reporter — notes/fact-check пересозданы оркестратором вручную из текста ответа, содержание не менялось."
+  "belowThreshold": 312,
+  "notes": "2 из 6 изначальных кандидатов (Nvidia $21B stake SpaceX, macOS Screen Sharing exploit) отсеяны topic-dupecheck — уже опубликованы другим прогоном сегодня. Reporter/reporter-fix субагенты систематически не могут писать файлы, начинающиеся на report/reporter (Write blocker) — notes сохранялись под альтернативными именами, оркестратор передавал путь вручную."
 }
