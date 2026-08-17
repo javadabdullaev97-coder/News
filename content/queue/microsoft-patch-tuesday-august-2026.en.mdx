@@ -1,0 +1,44 @@
+---
+title: "Microsoft Fixes at Least 398 Windows Vulnerabilities in August Patch Tuesday"
+description: "Microsoft closed at least 398 Windows and Office vulnerabilities in its August 11 Patch Tuesday release — hackers are already exploiting one of them, with a fix deadline of August 25."
+category: "tech"
+tags: ["Microsoft", "Windows", "cybersecurity", "vulnerabilities"]
+tgScore: 65
+broadcast: true
+authors: ["reporter", "editor"]
+sources:
+  - name: "Microsoft Security Update Guide (CVRF, август 2026)"
+    url: "https://api.msrc.microsoft.com/cvrf/2026-Aug"
+  - name: "MSRC — advisory CVE-2026-68820"
+    url: "https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2026-68820"
+  - name: "National Vulnerability Database — CVE-2026-68820"
+    url: "https://nvd.nist.gov/vuln/detail/CVE-2026-68820"
+  - name: "Krebs on Security"
+    url: "https://krebsonsecurity.com/2026/08/microsoft-plugs-nearly-400-security-holes/"
+  - name: "Tenable"
+    url: "https://www.tenable.com/blog/microsofts-august-2026-patch-tuesday-addresses-398-cves-cve-2026-68820"
+  - name: "The Hacker News"
+    url: "https://thehackernews.com/2026/08/microsoft-patches-398-flaws-including.html"
+  - name: "Qualys"
+    url: "https://blog.qualys.com/vulnerabilities-threat-research/patch-tuesday/2026/08/11/microsoft-patch-tuesday-august-2026-security-update-review"
+image:
+  url: "/images/posts/2026-08/microsoft-patch-tuesday-august-2026-01.jpg"
+  alt: "Monitor screen showing a Windows update installation in progress: a loading indicator and the message \"Working on updates 4%, Don't turn off your PC\""
+  credit: "Flickr / campuscodi (CC0)"
+lang: "en"
+translatedFrom: "ru"
+---
+
+Microsoft closed at least 398 vulnerabilities in Windows and other supported software in its August Patch Tuesday release on August 11 — attackers are already exploiting one of the flaws.
+
+The company's own bulletin — the [Security Update Guide](https://api.msrc.microsoft.com/cvrf/2026-Aug) — lists 422 CVE entries for the August release. [Krebs on Security](https://krebsonsecurity.com/2026/08/microsoft-plugs-nearly-400-security-holes/) and [Tenable](https://www.tenable.com/blog/microsofts-august-2026-patch-tuesday-addresses-398-cves-cve-2026-68820) cite a narrower figure of 398, likely excluding republished entries from previous months. [Qualys](https://blog.qualys.com/vulnerabilities-threat-research/patch-tuesday/2026/08/11/microsoft-patch-tuesday-august-2026-security-update-review) gives its own total figure of 421. Sources rate between 42 ([Krebs](https://krebsonsecurity.com/2026/08/microsoft-plugs-nearly-400-security-holes/), [Tenable](https://www.tenable.com/blog/microsofts-august-2026-patch-tuesday-addresses-398-cves-cve-2026-68820)) and 62 vulnerabilities ([The Hacker News](https://thehackernews.com/2026/08/microsoft-patches-398-flaws-including.html), [Qualys](https://blog.qualys.com/vulnerabilities-threat-research/patch-tuesday/2026/08/11/microsoft-patch-tuesday-august-2026-security-update-review)) as critical.
+
+The already-exploited flaw is [CVE-2026-68820](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2026-68820) in the Ancillary Function Driver for WinSock (afd.sys), which handles Windows network connections. The use-after-free bug, rated CVSS 7.0, allows local privilege escalation to SYSTEM level. According to [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68820), the vulnerability is included in the catalog of actively exploited flaws maintained by the U.S. agency CISA. The agency recommended fixing it by August 25, [Qualys](https://blog.qualys.com/vulnerabilities-threat-research/patch-tuesday/2026/08/11/microsoft-patch-tuesday-august-2026-security-update-review) reports.
+
+Two more vulnerabilities were disclosed publicly before the patch shipped, but without confirmed exploitation. CVE-2026-62832 in the Windows User Profile Service was rated 7.8 — Microsoft considers exploitation likely. CVE-2026-72971 in the Windows container isolation driver scored 5.5 — here the company rates exploitation as unlikely.
+
+## What Users Should Do
+
+The main recommendation hasn't changed — install the August updates through Windows Update as quickly as possible, especially on internet-connected systems. Critical fixes include vulnerabilities in the Windows DNS Server and the Microsoft QUIC protocol, both rated CVSS 9.8. Both allow remote code execution without authentication, [The Hacker News](https://thehackernews.com/2026/08/microsoft-patches-398-flaws-including.html) reports. Administrators of on-premises SharePoint farms should verify that both the July and August fixes are installed — otherwise the vulnerability persists.
+
+The August release is smaller than July's, a record for 2026 — Microsoft closed more than 570 vulnerabilities that month — but twice the size of June's, around 200, [Krebs on Security](https://krebsonsecurity.com/2026/08/microsoft-plugs-nearly-400-security-holes/) reports.
