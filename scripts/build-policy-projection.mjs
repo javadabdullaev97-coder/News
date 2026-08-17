@@ -78,15 +78,22 @@ const out = {
 const text = JSON.stringify(out, null, 2) + "\n";
 
 if (process.argv.includes("--stdout")) {
-  process.stdout.write(text);
-  process.exit(0);
+  // process.exit сразу после write обрезал вывод ровно на 65536 байтах:
+  // когда stdout — это труба, запись асинхронная, и незаписанный хвост
+  // умирает вместе с процессом. Пока проекция была меньше буфера, это не
+  // проявлялось; 17.08.2026 она перевалила за 64 КБ, и `--stdout | jq`
+  // стал молча отдавать оборванный JSON.
+  //
+  // Ждём слива буфера и выходим нормально, кодом возврата по умолчанию.
+  process.stdout.write(text, () => process.exit(0));
+} else {
+  mkdirSync(join(ROOT, "config/generated"), { recursive: true });
+  writeFileSync(OUT, text);
+
+  const before = readFileSync(SRC, "utf8").length;
+  console.error(
+    `[policy-projection] ${text.length} знаков против ${before} в исходнике ` +
+      `(выброшено: ${dropped.join(", ") || "ничего"})`
+  );
 }
 
-mkdirSync(join(ROOT, "config/generated"), { recursive: true });
-writeFileSync(OUT, text);
-
-const before = readFileSync(SRC, "utf8").length;
-console.error(
-  `[policy-projection] ${text.length} знаков против ${before} в исходнике ` +
-    `(выброшено: ${dropped.join(", ") || "ничего"})`
-);
