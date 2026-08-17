@@ -215,13 +215,30 @@ const relevant = [...relevantSet];
 // ТАСС, РИА, Интерфакс, Коммерсантъ и РБК. Пять лент, но одна юрисдикция и
 // одна редакционная позиция. Правило блоков это отсекает.
 
-const worldCandidates = allItems
+const offRegion = allItems
   .filter((it) => !relevantSet.has(it))
   .map((it) => {
     const src = relevantById.get(it.sourceId);
     return { ...it, bloc: src?.bloc || "unknown" };
   })
   .filter((it) => it.bloc !== "unknown" && it.link && !seen.has(it.link));
+
+// ─── Третья линия: спорт ───
+//
+// Спортивных лент в конфиге 47 против шести до 17.08.2026, и дают они около
+// семисот записей за полный опрос. В общей мировой линии этот объём
+// перекрывал бы собой войну, экономику и выборы: планёрка просеивала бы
+// трансферные слухи, чтобы найти мировой сюжет. У спорта отдельный
+// телеграм-канал и своя витрина, поэтому и файл отдельный.
+//
+// ВАЖНО: разводка касается только записей, НЕ прошедших фильтр региона.
+// Спортивная новость с упоминанием Узбекистана — Хусанов в АПЛ, узбекский
+// боец в UFC — идёт в основной инбокс, как и раньше. Иначе правило
+// specialRules.uzbekAthleteAnywhere («узбекский спортсмен на международной
+// арене публикуется всегда») потеряло бы половину поводов.
+const isSportSource = (it) => relevantById.get(it.sourceId)?.stream === "sport";
+const sportCandidates = offRegion.filter(isSportSource);
+const worldCandidates = offRegion.filter((it) => !isSportSource(it));
 
 const fresh = relevant.filter((it) => it.link && !seen.has(it.link));
 const droppedIrrelevant = allItems.length - relevant.length;
@@ -246,6 +263,15 @@ if (worldCandidates.length) {
   );
 }
 
+// Спортивная линия — по той же причине, что и мировая, только этажом ниже.
+if (sportCandidates.length) {
+  const sportFile = join(INBOX_DIR, `sport-${today}.jsonl`);
+  appendFileSync(
+    sportFile,
+    sportCandidates.map((x) => JSON.stringify(x)).join("\n") + "\n",
+  );
+}
+
 if (fresh.length) {
   const lines = fresh.map((x) => JSON.stringify(x)).join("\n") + "\n";
   appendFileSync(dayFile, lines);
@@ -265,7 +291,8 @@ if (fresh.length) {
 // Отчёт
 console.error(
   `[news-inbox] fetched ${allItems.length}, ` +
-    `вне региона ${droppedIrrelevant} (в мировую линию ${worldCandidates.length}), ` +
+    `вне региона ${droppedIrrelevant} ` +
+    `(в мировую линию ${worldCandidates.length}, в спортивную ${sportCandidates.length}), ` +
     `fresh ${fresh.length}, ` +
     `failed ${failed.length}/${sources.length}, day=${today}`,
 );

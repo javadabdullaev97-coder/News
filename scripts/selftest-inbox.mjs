@@ -452,6 +452,46 @@ check("местный и мировой потоки не смешиваются
   eq(readInbox(root, { world: true, at: NOON }).items.map((i) => i.link), ["world"], "мировой");
 });
 
+// ─── 10a. Спортивный поток ───
+// Заведён 17.08.2026. Цена ошибки здесь та же, что и у мирового: спорт,
+// утекший в мировую линию, перекрывает её объёмом, а мировой сюжет,
+// утекший в спортивную, не увидит никто — у потоков разные планёрки.
+
+check("спортивный поток отделён от местного и мирового", () => {
+  const root = fixture({
+    [`content/inbox/${TODAY}.jsonl`]: jsonl([{ link: "local", fetchedAt: new Date(NOON).toISOString() }]),
+    [`content/inbox/world-${TODAY}.jsonl`]: jsonl([{ link: "world", fetchedAt: new Date(NOON).toISOString() }]),
+    [`content/inbox/sport-${TODAY}.jsonl`]: jsonl([{ link: "sport", fetchedAt: new Date(NOON).toISOString() }]),
+  });
+  eq(readInbox(root, { stream: "local", at: NOON }).items.map((i) => i.link), ["local"], "местный");
+  eq(readInbox(root, { stream: "world", at: NOON }).items.map((i) => i.link), ["world"], "мировой");
+  eq(readInbox(root, { stream: "sport", at: NOON }).items.map((i) => i.link), ["sport"], "спортивный");
+});
+
+check("старый вызов { world: true } равен { stream: \"world\" }", () => {
+  const root = fixture({
+    [`content/inbox/world-${TODAY}.jsonl`]: jsonl([
+      { link: "w1", bloc: "anglo", fetchedAt: new Date(NOON).toISOString() },
+    ]),
+  });
+  eq(
+    readInbox(root, { world: true, at: NOON }).items.map((i) => i.link),
+    readInbox(root, { stream: "world", at: NOON }).items.map((i) => i.link),
+    "оба вызова",
+  );
+});
+
+check("неизвестный поток падает, а не читает пустоту", () => {
+  const root = fixture({});
+  let threw = false;
+  try {
+    readInbox(root, { stream: "культура", at: NOON });
+  } catch {
+    threw = true;
+  }
+  eq(threw, true, "исключение");
+});
+
 // ─── 11. Журнал тем и бронь ───
 // Блок появился вместе с параллельными планёрками. Проверено на модели двух
 // клонов: две планёрки, дописавшие по хешу в общий seen-topics.json, дают

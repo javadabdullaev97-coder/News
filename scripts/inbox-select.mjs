@@ -15,7 +15,9 @@
 // Использование:
 //   node scripts/inbox-select.mjs                    — местный поток
 //   node scripts/inbox-select.mjs --world            — мировой поток
-//   node scripts/inbox-select.mjs --both             — оба, в одном объекте
+//   node scripts/inbox-select.mjs --sport            — спортивный поток
+//   node scripts/inbox-select.mjs --both             — местный и мировой
+//   node scripts/inbox-select.mjs --both --sport     — все три
 //   node scripts/inbox-select.mjs --jsonl            — по item'у на строку
 //   node scripts/inbox-select.mjs --pretty           — с отступами, для человека
 //   node scripts/inbox-select.mjs --both --titles    — фаза 1: только заголовки и блоки
@@ -23,6 +25,7 @@
 //                                                   — фаза 2: полные записи по индексам
 //   node scripts/inbox-select.mjs --max-age=48       — окно свежести местного, часов
 //   node scripts/inbox-select.mjs --max-age-world=24 — окно свежести мирового
+//   node scripts/inbox-select.mjs --max-age-sport=24 — окно свежести спортивного
 //   node scripts/inbox-select.mjs --limit=200        — потолок числа кандидатов
 //   node scripts/inbox-select.mjs --full-snippet     — не подрезать сниппеты
 //   node scripts/inbox-select.mjs --all-candidates   — показать и то, что
@@ -69,6 +72,10 @@ const maxAgeHours = Number(opt("max-age", 24));
 //
 // Экономию берём не окном, а двухфазным выводом (--titles / --expand).
 const maxAgeWorldHours = Number(opt("max-age-world", 24));
+// Спортивное окно такое же 24-часовое. Трансферный сюжет живёт дольше суток:
+// «отказал клубу» и «согласовал контракт» — разные стадии одной темы, и
+// вторая приходит через день-два. Короткое окно резало бы именно связки.
+const maxAgeSportHours = Number(opt("max-age-sport", 24));
 const limit = Number(opt("limit", 0)) || Infinity;
 const asJsonl = flag("jsonl");
 const pretty = flag("pretty");
@@ -76,6 +83,7 @@ const fullSnippet = flag("full-snippet");
 const both = flag("both");
 const showReviewed = flag("all-candidates");
 const worldOnly = flag("world") && !both;
+const wantSport = flag("sport");
 
 // Сниппет — единственное, что говорит о содержании помимо заголовка: по нему
 // идёт кластеризация и половина оценки. Режем по верхней границе, а не по
@@ -112,8 +120,15 @@ function compact(item) {
 
 const journal = loadJournal(ROOT, at);
 
-function build(world) {
-  const raw = readInbox(ROOT, { world, at });
+const MAX_AGE_BY_STREAM = {
+  local: () => maxAgeHours,
+  world: () => maxAgeWorldHours,
+  sport: () => maxAgeSportHours,
+};
+
+function build(stream) {
+  const raw = readInbox(ROOT, { stream, at });
+  const maxAge = MAX_AGE_BY_STREAM[stream]();
   const sel = selectFresh(raw.items, {
     seen: journal.blocked,
     claimed: journal.claimed,
@@ -123,7 +138,7 @@ function build(world) {
     // не всплыла».
     reviewed: showReviewed ? null : journal.reviewed,
     at,
-    maxAgeHours: world ? maxAgeWorldHours : maxAgeHours,
+    maxAgeHours: maxAge,
   });
   // Свежее сверху: если сработал потолок, отрезается самое старое.
   const sorted = sel.fresh.sort(
@@ -132,7 +147,7 @@ function build(world) {
   const kept = sorted.slice(0, limit);
   return {
     files: raw.files,
-    maxAgeHours: world ? maxAgeWorldHours : maxAgeHours,
+    maxAgeHours: maxAge,
     stats: {
       ...sel.stats,
       returned: kept.length,
@@ -167,6 +182,8 @@ function titleLines(part, stream) {
     .join("\n");
 }
 
+const STREAM_KEYS = ["local", "world", "sport"];
+
 const expandSpec = opt("expand", null);
 
 const result = {
@@ -180,14 +197,17 @@ const result = {
 };
 if (!journal.ok) result.warning = journal.note;
 
+// --sport добавляет спортивный поток к тому, что запрошено, а в одиночку
+// означает «только спорт»: планёрке спортивного канала местный поток не нужен.
 if (both) {
-  result.local = build(false);
-  result.world = build(true);
+  result.local = build("local");
+  result.world = build("world");
 } else if (worldOnly) {
-  result.world = build(true);
-} else {
-  result.local = build(false);
+  result.world = build("world");
+} else if (!wantSport) {
+  result.local = build("local");
 }
+if (wantSport) result.sport = build("sport");
 
 if (expandSpec !== null) {
   // --expand=world:12,world:45,local:3 — вернуть полные записи по индексам
@@ -217,14 +237,14 @@ if (expandSpec !== null) {
   }
   process.stdout.write(JSON.stringify(out, null, pretty ? 2 : 0) + "\n");
 } else if (flag("titles")) {
-  for (const key of ["local", "world"]) {
+  for (const key of STREAM_KEYS) {
     if (!result[key]) continue;
     process.stdout.write(`# ${key}: ${result[key].items.length} кандидат(ов)\n`);
     const lines = titleLines(result[key], key);
     if (lines) process.stdout.write(lines + "\n");
   }
 } else if (asJsonl) {
-  for (const key of ["local", "world"]) {
+  for (const key of STREAM_KEYS) {
     for (const item of result[key]?.items ?? []) {
       process.stdout.write(JSON.stringify({ stream: key, ...item }) + "\n");
     }
@@ -233,7 +253,7 @@ if (expandSpec !== null) {
   process.stdout.write(JSON.stringify(result, null, pretty ? 2 : 0) + "\n");
 }
 
-for (const key of ["local", "world"]) {
+for (const key of STREAM_KEYS) {
   const part = result[key];
   if (!part) continue;
   const s = part.stats;
