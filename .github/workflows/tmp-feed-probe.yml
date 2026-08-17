@@ -1,0 +1,76 @@
+name: TMP feed probe
+
+# ВРЕМЕННЫЙ воркфлоу, заведён 17.08.2026 и удаляется сразу после прогона.
+#
+# Повод: агентская песочница отдаёт 403 на Guardian, Marca и пустой 202 на
+# ESPN, но прод-прогон source-health от 16.08 показывает guardian-world
+# здоровым. Значит блокирует не сайт, а сетевой контур песочницы, и решать
+# судьбу источника по её ответу нельзя. Этот воркфлоу спрашивает те же адреса
+# из того же окружения, где работает фетчер — GitHub Actions.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Probe candidate feeds
+        run: |
+          cat > /tmp/probe.mjs <<'EOF'
+          const UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
+          const AC="application/rss+xml, application/atom+xml, application/xml;q=0.9, */*;q=0.5";
+          const C=[
+            ["guardian-tennis","https://www.theguardian.com/sport/tennis/rss"],
+            ["guardian-football","https://www.theguardian.com/football/rss"],
+            ["marca-en-football","https://www.marca.com/en/rss/googlenews/football.xml"],
+            ["espn-soccer","https://www.espn.com/espn/rss/soccer/news"],
+            ["espn-mma","https://www.espn.com/espn/rss/mma/news"],
+            ["espn-tennis","https://www.espn.com/espn/rss/tennis/news"],
+            ["espn-boxing","https://www.espn.com/espn/rss/boxing/news"],
+            ["atp-tour","https://www.atptour.com/en/media/rss-feeds/news-all"],
+            ["wta-tour","https://www.wtatennis.com/rss/news"],
+            ["uefa","https://www.uefa.com/rss/news/index.xml"],
+            ["fifa","https://www.fifa.com/rss/news.xml"],
+            ["afc","https://www.the-afc.com/en/rss.xml"],
+            ["alnassr","https://alnassr.sa/feed"],
+            ["alhilal","https://alhilal.com/feed/news"],
+            ["basaksehir","https://www.ibfk.com.tr/rss.xml"],
+            ["uff-uz","https://uff.uz/feed/"],
+            ["championat-asia","https://championat.asia/ru/rss"],
+            ["sports-ru-all","https://www.sports.ru/rss/all.xml"],
+            ["boxingscene-old","https://www.boxingscene.com/rss.xml"],
+            ["pitpass","https://www.pitpass.com/rss/f1_news.xml"],
+            ["racefans","https://www.racefans.net/feed/"],
+            ["90min","https://www.90min.com/posts.rss"],
+            ["worldsoccer","https://www.worldsoccer.com/feed"],
+            ["insidetennis","https://www.insidetennis.com/feed"],
+            ["boxinginsider","https://www.boxinginsider.com/feed"],
+            ["f1-world-ru","https://www.f1-world.ru/news/rssexp6.xml"]
+          ];
+          async function one([id,url]){
+            try{
+              const ac=new AbortController(); const to=setTimeout(()=>ac.abort(),25000);
+              const r=await fetch(url,{headers:{"User-Agent":UA,Accept:AC},redirect:"follow",signal:ac.signal});
+              clearTimeout(to);
+              const b=await r.text();
+              const items=(b.match(/<item[\s>]/gi)||[]).length+(b.match(/<entry[\s>]/gi)||[]).length;
+              const raw=[...b.matchAll(/<(?:pubDate|updated|published|dc:date)>([^<]+)</gi)].map(m=>m[1]);
+              const d=raw.map(s=>new Date(s.replace(/\bBST\b/,"+0100"))).filter(x=>!isNaN(x));
+              const latest=d.length?new Date(Math.max(...d)).toISOString().slice(0,10):(raw.length?"не парсится":"нет дат");
+              const isXml=/^\s*<\?xml|<rss|<feed/i.test(b.slice(0,400));
+              const v=!r.ok?`HTTP ${r.status}`:!isXml?"не XML":items===0?`XML, 0 записей (${r.status})`:"OK";
+              console.log(`${(v==="OK"?"OK  ":"--  ")}${id.padEnd(20)} ${String(items).padStart(3)} ${String(latest).padEnd(13)} ${v}`);
+            }catch(e){ console.log(`--  ${id.padEnd(20)}   0 ${"—".padEnd(13)} ${e.name==="AbortError"?"таймаут":e.message}`); }
+          }
+          let i=0;
+          await Promise.all(Array.from({length:6},async()=>{while(i<C.length){const k=i++;await one(C[k]);}}));
+          EOF
+          node /tmp/probe.mjs
