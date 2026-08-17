@@ -62,17 +62,6 @@
       "publishRate": "3-5/day"
     },
     {
-      "id": "tashkentpressuz",
-      "handle": "@tashkentpressuz",
-      "url": "https://t.me/s/tashkentpressuz",
-      "name": "Хокимият Ташкента",
-      "type": "source",
-      "priority": "P0",
-      "subscribers": 90000,
-      "publishRate": "15-20/day",
-      "notes": "ПРОВЕРИТЬ: две независимые проверки планёрки (03.08.2026, WebFetch на t.me/s/tashkentpressuz и telegram.me/s/tashkentpressuz) получили только стандартную заглушку Telegram «Contact @tashkentpressuz» без единого поста — хендл не отдаёт публичную ленту. Возможно устарел, переименован или закрыт. Реальный верифицированный канал пресс-службы хокимията Ташкента — похоже, @poytaxt_uz (см. его notes)."
-    },
-    {
       "id": "portal_gov_uz",
       "handle": "@portal_gov_uz",
       "url": "https://t.me/s/portal_gov_uz",
@@ -81,26 +70,6 @@
       "priority": "P1",
       "subscribers": 750,
       "publishRate": "1-3/day"
-    },
-    {
-      "id": "senat_uz",
-      "handle": "@senat_uz",
-      "url": "https://t.me/s/senat_uz",
-      "name": "Сенат Олий Мажлиса",
-      "type": "source",
-      "priority": "P2",
-      "subscribers": 18000,
-      "publishRate": "3-5/day"
-    },
-    {
-      "id": "parliamentuz",
-      "handle": "@parliamentuz",
-      "url": "https://t.me/s/parliamentuz",
-      "name": "Законодательная палата",
-      "type": "source",
-      "priority": "P2",
-      "subscribers": 12000,
-      "publishRate": "3-5/day"
     },
     {
       "id": "prokuraturauz",
@@ -123,16 +92,6 @@
       "subscribers": 20200,
       "publishRate": "2-4/day",
       "notes": "Правка 04.08.2026 планёркой: старый handle @sud_uz — мёртвый приватный канал (4 подписчика, только приветственные сообщения). Реальный официальный канал Верховного суда — @oliysuduz, 20,2 тыс. подписчиков. Даже рабочий канал — только республиканский уровень (пленумы, международные встречи); районные приговоры (напр. Мирзо-Улугбекский районный суд) на нём не публикуются — для них первоисточника в Telegram может не быть вообще."
-    },
-    {
-      "id": "mvd_uz",
-      "handle": "@mvd_uz",
-      "url": "https://t.me/s/mvd_uz",
-      "name": "МВД РУз",
-      "type": "source",
-      "priority": "P1",
-      "subscribers": 110000,
-      "publishRate": "5-10/day"
     },
     {
       "id": "xavfsizlik_uz",
@@ -217,16 +176,6 @@
       "notes": "Указан владельцем 03.08.2026 как популярный канал новостей Ташкента. 76 000+ постов, крупный агрегатор городских новостей. Не первоисточник — читаем для сигнала о городских темах, не цитируем в статьях."
     },
     {
-      "id": "mfa_uz",
-      "handle": "@mfa_uz",
-      "url": "https://t.me/s/mfa_uz",
-      "name": "МИД РУз",
-      "type": "source",
-      "priority": "P1",
-      "subscribers": 35000,
-      "publishRate": "2-5/day"
-    },
-    {
       "id": "ssvuz",
       "handle": "@ssvuz",
       "url": "https://t.me/s/ssvuz",
@@ -258,13 +207,14 @@
     },
     {
       "id": "digitaluzbekistan",
-      "handle": "@digitaluzbekistan",
-      "url": "https://t.me/s/digitaluzbekistan",
+      "handle": "@mitcuz",
+      "url": "https://t.me/s/mitcuz",
       "name": "Министерство цифровых технологий",
       "type": "source",
       "priority": "P2",
       "subscribers": 25000,
-      "publishRate": "3-5/day"
+      "publishRate": "3-5/day",
+      "notes": "ИСПРАВЛЕН HANDLE 17.08.2026. Старый @digitaluzbekistan заморожен на 2017 годе, за всё время наблюдения ноль записей. Живой канал ведомства — @mitcuz («Digital.uz»), свежесть в пределах двух дней."
     },
     {
       "id": "eduuz",
@@ -285,26 +235,6 @@
       "priority": "P2",
       "subscribers": 300000,
       "publishRate": "5-10/day"
-    },
-    {
-      "id": "mudofaavazirliqi",
-      "handle": "@mudofaavazirliqi",
-      "url": "https://t.me/s/mudofaavazirliqi",
-      "name": "Министерство обороны",
-      "type": "source",
-      "priority": "P2",
-      "subscribers": 40000,
-      "publishRate": "1-3/day"
-    },
-    {
-      "id": "miituz",
-      "handle": "@miituz",
-      "url": "https://t.me/s/miituz",
-      "name": "Мин. инвестиций, промышленности и торговли",
-      "type": "source",
-      "priority": "P2",
-      "subscribers": 20000,
-      "publishRate": "3-5/day"
     },
     {
       "id": "mintrans_uz",
@@ -346,16 +276,6 @@
       "publishRate": "2-4/day"
     },
     {
-      "id": "mcu_uz",
-      "handle": "@mcu_uz",
-      "url": "https://t.me/s/mcu_uz",
-      "name": "Мин. строительства и ЖКХ",
-      "type": "source",
-      "priority": "P2",
-      "subscribers": 22000,
-      "publishRate": "3-5/day"
-    },
-    {
       "id": "mehnatvazirligi",
       "handle": "@mehnatvazirligi",
       "url": "https://t.me/s/mehnatvazirligi",
@@ -394,26 +314,6 @@
       "priority": "P3",
       "subscribers": 15000,
       "publishRate": "2-4/day"
-    },
-    {
-      "id": "soliquz",
-      "handle": "@soliquz",
-      "url": "https://t.me/s/soliquz",
-      "name": "Государственный налоговый комитет",
-      "type": "source",
-      "priority": "P2",
-      "subscribers": 90000,
-      "publishRate": "3-5/day"
-    },
-    {
-      "id": "customsuz",
-      "handle": "@customsuz",
-      "url": "https://t.me/s/customsuz",
-      "name": "Государственный таможенный комитет",
-      "type": "source",
-      "priority": "P2",
-      "subscribers": 45000,
-      "publishRate": "3-5/day"
     },
     {
       "id": "uzstataxborot",
@@ -489,16 +389,6 @@
       "publishRate": "3-5/day"
     },
     {
-      "id": "ihmauz",
-      "handle": "@ihmauz",
-      "url": "https://t.me/s/ihmauz",
-      "name": "Нац. агентство социальной защиты",
-      "type": "source",
-      "priority": "P2",
-      "subscribers": 35000,
-      "publishRate": "3-5/day"
-    },
-    {
       "id": "mygovuz",
       "handle": "@mygovuz",
       "url": "https://t.me/s/mygovuz",
@@ -510,43 +400,14 @@
     },
     {
       "id": "toshvilpress",
-      "handle": "@toshvilpress",
-      "url": "https://t.me/s/toshvilpress",
+      "handle": "@toshvil",
+      "url": "https://t.me/s/toshvil",
       "name": "Хокимият Ташкентской области",
       "type": "source",
       "priority": "P2",
       "subscribers": 35000,
-      "publishRate": "5-10/day"
-    },
-    {
-      "id": "samarkandpress",
-      "handle": "@samarkandpress",
-      "url": "https://t.me/s/samarkandpress",
-      "name": "Хокимият Самаркандской области",
-      "type": "source",
-      "priority": "P2",
-      "subscribers": 40000,
-      "publishRate": "5-8/day"
-    },
-    {
-      "id": "ferganapress",
-      "handle": "@ferganapress",
-      "url": "https://t.me/s/ferganapress",
-      "name": "Хокимият Ферганской области",
-      "type": "source",
-      "priority": "P2",
-      "subscribers": 30000,
-      "publishRate": "5-8/day"
-    },
-    {
-      "id": "andijannews",
-      "handle": "@andijannews",
-      "url": "https://t.me/s/andijannews",
-      "name": "Хокимият Андижанской области",
-      "type": "source",
-      "priority": "P2",
-      "subscribers": 50000,
-      "publishRate": "8-12/day"
+      "publishRate": "5-10/day",
+      "notes": "ИСПРАВЛЕН HANDLE 17.08.2026. Старый @toshvilpress не обновлялся 598 дней. Живой канал — @toshvil («Toshkent viloyati»), 18 сообщений на странице."
     },
     {
       "id": "namanganpress",
@@ -559,70 +420,10 @@
       "publishRate": "5-8/day"
     },
     {
-      "id": "bukharapress",
-      "handle": "@bukharapress",
-      "url": "https://t.me/s/bukharapress",
-      "name": "Хокимият Бухарской области",
-      "type": "source",
-      "priority": "P3",
-      "subscribers": 20000,
-      "publishRate": "4-6/day"
-    },
-    {
-      "id": "xorazmpress",
-      "handle": "@xorazmpress",
-      "url": "https://t.me/s/xorazmpress",
-      "name": "Хокимият Хорезмской области",
-      "type": "source",
-      "priority": "P3",
-      "subscribers": 18000,
-      "publishRate": "3-5/day"
-    },
-    {
-      "id": "qashpress",
-      "handle": "@qashpress",
-      "url": "https://t.me/s/qashpress",
-      "name": "Хокимият Кашкадарьинской области",
-      "type": "source",
-      "priority": "P3",
-      "subscribers": 35000,
-      "publishRate": "5-8/day"
-    },
-    {
-      "id": "surxondaryopress",
-      "handle": "@surxondaryopress",
-      "url": "https://t.me/s/surxondaryopress",
-      "name": "Хокимият Сурхандарьинской области",
-      "type": "source",
-      "priority": "P3",
-      "subscribers": 22000,
-      "publishRate": "4-6/day"
-    },
-    {
       "id": "jizzaxpress",
       "handle": "@jizzaxpress",
       "url": "https://t.me/s/jizzaxpress",
       "name": "Хокимият Джизакской области",
-      "type": "source",
-      "priority": "P3",
-      "subscribers": 15000,
-      "publishRate": "3-5/day"
-    },
-    {
-      "id": "sirdaryopress",
-      "handle": "@sirdaryopress",
-      "url": "https://t.me/s/sirdaryopress",
-      "name": "Хокимият Сырдарьинской области",
-      "type": "source",
-      "priority": "P3",
-      "subscribers": 12000,
-      "publishRate": "3-5/day"
-    },
-    {
-      "id": "navoipress",
-      "handle": "@navoipress",
-      "url": "https://t.me/s/navoipress",
-      "name": "Хокимият Навоийской области",
       "type": "source",
       "priority": "P3",
       "subscribers": 15000,
@@ -640,16 +441,6 @@
       "notes": "Верховный Совет Республики Каракалпакстан. Самоописание канала: «Қарақалпақстан Республикасы Жоқарғы Кеңеси». Ранее в конфиге числился как Совет Министров — исправлено 01.08.2026"
     },
     {
-      "id": "uzrailways",
-      "handle": "@uzrailways",
-      "url": "https://t.me/s/uzrailways",
-      "name": "O'zbekiston Temir Yo'llari",
-      "type": "source",
-      "priority": "P2",
-      "subscribers": 35000,
-      "publishRate": "2-4/day"
-    },
-    {
       "id": "uzbekistanairways",
       "handle": "@uzbekistanairways",
       "url": "https://t.me/s/uzbekistanairways",
@@ -658,36 +449,6 @@
       "priority": "P2",
       "subscribers": 50000,
       "publishRate": "2-4/day"
-    },
-    {
-      "id": "uzbekneftegaz",
-      "handle": "@uzbekneftegaz",
-      "url": "https://t.me/s/uzbekneftegaz",
-      "name": "Узбекнефтегаз",
-      "type": "source",
-      "priority": "P2",
-      "subscribers": 25000,
-      "publishRate": "2-4/day"
-    },
-    {
-      "id": "uzavtosanoat_official",
-      "handle": "@uzavtosanoat_official",
-      "url": "https://t.me/s/uzavtosanoat_official",
-      "name": "Узавтосаноат",
-      "type": "source",
-      "priority": "P2",
-      "subscribers": 30000,
-      "publishRate": "2-4/day"
-    },
-    {
-      "id": "uzatom_official",
-      "handle": "@uzatom_official",
-      "url": "https://t.me/s/uzatom_official",
-      "name": "Узатом",
-      "type": "source",
-      "priority": "P3",
-      "subscribers": 8000,
-      "publishRate": "1-2/day"
     },
     {
       "id": "uzhydromet",
@@ -721,24 +482,15 @@
       "publishRate": "40-60/day"
     },
     {
-      "id": "daryo_ru",
-      "handle": "@daryo_ru",
-      "url": "https://t.me/s/daryo_ru",
-      "name": "Daryo.uz (RU)",
-      "type": "signal",
-      "priority": "P1",
-      "subscribers": 350000,
-      "publishRate": "80-120/day"
-    },
-    {
       "id": "spotug",
-      "handle": "@spotug",
-      "url": "https://t.me/s/spotug",
-      "name": "Spot.uz",
+      "handle": "@spotuz",
+      "url": "https://t.me/s/spotuz",
+      "name": "Spot.uz — бизнес и технологии",
       "type": "signal",
       "priority": "P1",
       "subscribers": 45000,
-      "publishRate": "15-25/day"
+      "publishRate": "15-25/day",
+      "notes": "ИСПРАВЛЕН HANDLE 17.08.2026. Старый @spotug — это вообще не Spot.uz, а личный аккаунт постороннего человека: канал не отдавал ни одной записи за всё время наблюдения. Живой канал издания — @spotuz, 20 сообщений на странице, свежесть в тот же день."
     },
     {
       "id": "podrobno",
@@ -803,26 +555,6 @@
       "publishRate": "30-40/day"
     },
     {
-      "id": "tribuna_uz",
-      "handle": "@tribuna_uz",
-      "url": "https://t.me/s/tribuna_uz",
-      "name": "Tribuna.uz",
-      "type": "signal",
-      "priority": "P2",
-      "subscribers": 80000,
-      "publishRate": "20-30/day"
-    },
-    {
-      "id": "kapitaluz",
-      "handle": "@kapitaluz",
-      "url": "https://t.me/s/kapitaluz",
-      "name": "Kapital.uz",
-      "type": "signal",
-      "priority": "P2",
-      "subscribers": 25000,
-      "publishRate": "15-20/day"
-    },
-    {
       "id": "afishauz",
       "handle": "@afishauz",
       "url": "https://t.me/s/afishauz",
@@ -853,16 +585,6 @@
       "publishRate": "2-5/day"
     },
     {
-      "id": "nuzuz",
-      "handle": "@nuzuz",
-      "url": "https://t.me/s/nuzuz",
-      "name": "Nuz.uz",
-      "type": "signal",
-      "priority": "P2",
-      "subscribers": 20000,
-      "publishRate": "15-25/day"
-    },
-    {
       "id": "moveruz",
       "handle": "@moveruz",
       "url": "https://t.me/s/moveruz",
@@ -881,16 +603,6 @@
       "priority": "P2",
       "publishRate": "5-10/day",
       "notes": "Политический обозреватель, законопроекты и назначения"
-    },
-    {
-      "id": "kurbanov",
-      "handle": "@KurbanovTelegram",
-      "url": "https://t.me/s/KurbanovTelegram",
-      "name": "Бахтиёр Курбанов (Bakiroo)",
-      "type": "influencer",
-      "priority": "P2",
-      "publishRate": "3-7/day",
-      "notes": "Экономический обозреватель, ЦБ и тарифы"
     },
     {
       "id": "allamjonov_ki",
@@ -945,17 +657,6 @@
       "subscribers": 25100,
       "publishRate": "неизвестно",
       "notes": "Найден 07.08.2026 в контексте у uzhydromet (упомянут тегом в посте о запуске спутника). Bio «источник важных событий и эксклюзивных новостей» — общий, без указания конкретного ведомства; лента охватывает разные темы (олимпиада, ИИ-премия, спутник, госслужба, уголовное дело) — похоже на общий новостной агрегатор/пресс-канал, не официальный канал одного органа. Официальной принадлежности не подтверждено — читаем как сигнал, ссылку в текстах не ставим."
-    },
-    {
-      "id": "sputnikuzbekistan",
-      "handle": "@sputnikuzbekistan",
-      "url": "https://t.me/s/sputnikuzbekistan",
-      "name": "Sputnik Узбекистан",
-      "type": "signal",
-      "priority": "P2",
-      "subscribers": null,
-      "publishRate": null,
-      "notes": "Кандидат из channel-candidates.jsonl (упомянут mintrans_uz 07.08.2026 как канал корреспондента). Российское государственное издание (аналог ТАСС/РИА) с локальной редакцией по Узбекистану — конкурентное СМИ, не первоисточник. Читаем для сигнала о повестке, не цитируем в статьях."
     },
     {
       "id": "zamon_lavhalar",
@@ -1090,6 +791,153 @@
       "subscribers": null,
       "publishRate": null,
       "notes": "Корпоративный канал платёжного сервиса: изменения тарифов, сбои, новые функции. Тот же статус первоисточника-о-себе, что и у @uzumbank. Проверено 17.08.2026: канал публичный."
+    }
+  ],
+  "$citableNotFetchedNote": "Каналы государственных органов, у которых НЕТ публичной веб-версии (t.me/s/<handle> отдаёт пустую страницу) либо лента заморожена больше года. Парсер физически не может их прочитать — за всё время наблюдения они дали ноль записей, продолжая занимать место в каждом прогоне. Из фетча убраны 17.08.2026. Право на ссылку при этом сохраняется: §2 редполитики разрешает ссылаться на госорган как на первоисточник, и отсутствие канала в каталоге фетчера этого права не отменяет — так же устроена секция citableReference в config/news-sources.json. Появится у канала публичная лента — заводите обратно в channels.",
+  "citableNotFetched": [
+    {
+      "id": "mvd_uz",
+      "handle": "@mvd_uz",
+      "name": "МВД РУз",
+      "reason": "сайт mvd.uz уже в секции scrape конфига источников"
+    },
+    {
+      "id": "mfa_uz",
+      "handle": "@mfa_uz",
+      "name": "МИД РУз",
+      "reason": "сайт mfa.uz уже в секции scrape конфига источников"
+    },
+    {
+      "id": "soliquz",
+      "handle": "@soliquz",
+      "name": "Налоговый комитет",
+      "reason": "сайт soliq.uz уже в секции scrape конфига источников"
+    },
+    {
+      "id": "tashkentpressuz",
+      "handle": "@tashkentpressuz",
+      "name": "Хокимият Ташкента",
+      "reason": "сайт tashkent.uz уже в секции scrape конфига источников"
+    },
+    {
+      "id": "senat_uz",
+      "handle": "@senat_uz",
+      "name": "Сенат Олий Мажлиса",
+      "reason": "заявления палаты проходят через gov.uz и @huquqiyaxborot"
+    },
+    {
+      "id": "parliamentuz",
+      "handle": "@parliamentuz",
+      "name": "Законодательная палата",
+      "reason": "то же, что у Сената"
+    },
+    {
+      "id": "mudofaavazirliqi",
+      "handle": "@mudofaavazirliqi",
+      "name": "Министерство обороны",
+      "reason": "публичной ленты нет"
+    },
+    {
+      "id": "miituz",
+      "handle": "@miituz",
+      "name": "Мининвест, промышленности и торговли",
+      "reason": "публичной ленты нет"
+    },
+    {
+      "id": "mcu_uz",
+      "handle": "@mcu_uz",
+      "name": "Министерство строительства и ЖКХ",
+      "reason": "публичной ленты нет"
+    },
+    {
+      "id": "ihmauz",
+      "handle": "@ihmauz",
+      "name": "Агентство по делам махалли",
+      "reason": "публичной ленты нет"
+    },
+    {
+      "id": "customsuz",
+      "handle": "@customsuz",
+      "name": "Таможенный комитет",
+      "reason": "лента заморожена с августа 2024"
+    },
+    {
+      "id": "uzrailways",
+      "handle": "@uzrailways",
+      "name": "«Ўзбекистон темир йўллари»",
+      "reason": "публичной ленты нет"
+    },
+    {
+      "id": "uzbekneftegaz",
+      "handle": "@uzbekneftegaz",
+      "name": "«Узбекнефтегаз»",
+      "reason": "публичной ленты нет; компанию читаем лентой uzbekneftegaz-teletype"
+    },
+    {
+      "id": "uzavtosanoat_official",
+      "handle": "@uzavtosanoat_official",
+      "name": "«Узавтосаноат»",
+      "reason": "публичной ленты нет"
+    },
+    {
+      "id": "uzatom_official",
+      "handle": "@uzatom_official",
+      "name": "«Узатом»",
+      "reason": "публичной ленты нет"
+    },
+    {
+      "id": "ferganapress",
+      "handle": "@ferganapress",
+      "name": "Хокимият Ферганской области",
+      "reason": "публичной ленты нет"
+    },
+    {
+      "id": "andijannews",
+      "handle": "@andijannews",
+      "name": "Хокимият Андижанской области",
+      "reason": "публичной ленты нет"
+    },
+    {
+      "id": "xorazmpress",
+      "handle": "@xorazmpress",
+      "name": "Хокимият Хорезмской области",
+      "reason": "публичной ленты нет"
+    },
+    {
+      "id": "qashpress",
+      "handle": "@qashpress",
+      "name": "Хокимият Кашкадарьинской области",
+      "reason": "публичной ленты нет"
+    },
+    {
+      "id": "surxondaryopress",
+      "handle": "@surxondaryopress",
+      "name": "Хокимият Сурхандарьинской области",
+      "reason": "публичной ленты нет"
+    },
+    {
+      "id": "sirdaryopress",
+      "handle": "@sirdaryopress",
+      "name": "Хокимият Сырдарьинской области",
+      "reason": "публичной ленты нет"
+    },
+    {
+      "id": "navoipress",
+      "handle": "@navoipress",
+      "name": "Хокимият Навоийской области",
+      "reason": "публичной ленты нет"
+    },
+    {
+      "id": "bukharapress",
+      "handle": "@bukharapress",
+      "name": "Хокимият Бухарской области",
+      "reason": "лента заморожена с ноября 2022"
+    },
+    {
+      "id": "samarkandpress",
+      "handle": "@samarkandpress",
+      "name": "Хокимият Самаркандской области",
+      "reason": "лента заморожена с марта 2020"
     }
   ]
 }

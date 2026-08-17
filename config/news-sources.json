@@ -82,38 +82,6 @@
       "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
-      "id": "daryo-uz",
-      "name": "Daryo.uz",
-      "url": "https://daryo.uz/rss/",
-      "type": "signal",
-      "priority": "P1",
-      "language": "uz",
-      "audience": 4500000,
-      "requiresPlaywright": true,
-      "focus": "универсальное, регионы, ЧП",
-      "notes": "HTTP 200, но 0 items — фид рендерится на JS, проверено 01.08.2026",
-      "citable": false,
-      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда.",
-      "disabled": true,
-      "$disabledReason": "RSS не работает: см. проверку 03.08.2026. Источник не потерян — он переехал в секцию htmlScrape и разбирается scripts/pull-scrape-inbox.mjs по форме адреса. Запись оставлена, чтобы никто не завёл его заново как ленту."
-    },
-    {
-      "id": "repost-uz",
-      "name": "Repost.uz",
-      "url": "https://repost.uz/rss",
-      "type": "signal",
-      "priority": "P2",
-      "language": "ru",
-      "audience": 1800000,
-      "requiresPlaywright": true,
-      "focus": "молодёжка, вирус, эксклюзивы",
-      "notes": "Cloudflare + reCAPTCHA",
-      "citable": false,
-      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда.",
-      "disabled": true,
-      "$disabledReason": "RSS не работает: см. проверку 03.08.2026. Источник не потерян — он переехал в секцию htmlScrape и разбирается scripts/pull-scrape-inbox.mjs по форме адреса. Запись оставлена, чтобы никто не завёл его заново как ленту."
-    },
-    {
       "id": "kapital-uz",
       "name": "Kapital.uz",
       "url": "https://kapital.uz/feed/",
@@ -153,21 +121,6 @@
       "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
     },
     {
-      "id": "yuz-uz",
-      "name": "Yuz.uz",
-      "url": "https://yuz.uz/rss",
-      "type": "signal",
-      "priority": "P2",
-      "language": "ru",
-      "audience": 500000,
-      "requiresPlaywright": false,
-      "focus": "полугосударственный, официальная трактовка НПА",
-      "disabled": true,
-      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss и /ru/rss.",
-      "citable": false,
-      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
-    },
-    {
       "id": "afisha-uz",
       "name": "Afisha.uz",
       "url": "https://www.afisha.uz/rss/",
@@ -192,22 +145,6 @@
       "focus": "соцаналитика, лонгриды",
       "citable": false,
       "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
-    },
-    {
-      "id": "tribuna-uz",
-      "name": "Tribuna.uz",
-      "url": "https://tribuna.uz/rss",
-      "type": "signal",
-      "priority": "P2",
-      "language": "ru",
-      "audience": 400000,
-      "requiresPlaywright": true,
-      "focus": "спорт",
-      "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026",
-      "citable": false,
-      "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда.",
-      "disabled": true,
-      "$disabledReason": "Требует настоящего браузера, и это проверено 03.08.2026: у tribuna.uz Cloudflare-заглушка (403 на любой запрос), у digital.uz новости отрисовываются скриптом — в HTML статических ссылок на них нет. Остальные четыре источника из этой группы обошлись без браузера и переехали в htmlScrape. Ради этих двух тянуть Playwright в каждый прогон несоразмерно: полторы-две минуты на установку при обходе в секунды."
     },
     {
       "id": "sports-uz",
@@ -245,20 +182,6 @@
       "citable": true
     },
     {
-      "id": "digital-uz",
-      "name": "Министерство цифровых технологий",
-      "url": "https://digital.uz/ru/rss",
-      "type": "source",
-      "priority": "P2",
-      "language": "ru",
-      "requiresPlaywright": true,
-      "focus": "цифровизация, IT-Park, госуслуги",
-      "notes": "HTTP 200, но 0 items — фид рендерится на JS, проверено 01.08.2026",
-      "citable": true,
-      "disabled": true,
-      "$disabledReason": "Требует настоящего браузера, и это проверено 03.08.2026: у tribuna.uz Cloudflare-заглушка (403 на любой запрос), у digital.uz новости отрисовываются скриптом — в HTML статических ссылок на них нет. Остальные четыре источника из этой группы обошлись без браузера и переехали в htmlScrape. Ради этих двух тянуть Playwright в каждый прогон несоразмерно: полторы-две минуты на установку при обходе в секунды."
-    },
-    {
       "id": "ictnews-uz",
       "name": "ICTNews.uz",
       "url": "https://ictnews.uz/feed/",
@@ -270,20 +193,6 @@
       "notes": "Добавлен 15.08.2026 по запросу владельца — расширение охвата технологических тем (digital-uz выше отключён и рендерится на JS, официальный канал Минцифры в telegram-channels.json уже покрывает госновости, но не независимую IT-журналистику). Частное издание, лицензия УзАПИ №0992 от 29.08.2013. Проверено 15.08.2026: /feed/ отдаёт валидный RSS, публикует редко — несколько материалов в месяц, отсюда P3.",
       "citable": false,
       "citableNote": "Конкурентное СМИ. §2: читаем как сигнал, ссылку в статье не ставим никогда."
-    },
-    {
-      "id": "reuters",
-      "name": "Reuters",
-      "url": "https://www.reutersagency.com/feed/",
-      "type": "context",
-      "priority": "P1",
-      "language": "en",
-      "requiresPlaywright": false,
-      "focus": "макроэкономика, энергетика ЦА",
-      "disabled": true,
-      "notes": "ОТКЛЮЧЁН 01.08.2026: 404. Публичных RSS у Reuters нет с 2020 года, reutersagency.com/feed отдаёт 404. Белый список редполитики на Reuters опирается, но фетчить его нечем — нужен либо платный доступ, либо Google News RSS как прокси.",
-      "citable": true,
-      "bloc": "anglo"
     },
     {
       "id": "bbc-uzbek",
@@ -409,21 +318,6 @@
       "bloc": "ru-business"
     },
     {
-      "id": "kazinform",
-      "name": "Kazinform (KZ)",
-      "url": "https://www.inform.kz/rss/rss.xml",
-      "type": "context",
-      "priority": "P2",
-      "language": "ru",
-      "requiresPlaywright": false,
-      "focus": "граница KZ-UZ, вода, ОТГ",
-      "disabled": true,
-      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/rss.xml, /rss, /ru/rss. Требует поиска актуального адреса.",
-      "regionDedicated": true,
-      "citable": true,
-      "bloc": "ca-regional"
-    },
-    {
       "id": "sputnik-kg",
       "name": "Sputnik Кыргызстан",
       "url": "https://ru.sputnik.kg/export/rss2/archive/index.xml",
@@ -438,21 +332,6 @@
       "bloc": "ru-state"
     },
     {
-      "id": "kabar-kg",
-      "name": "Kabar (KG)",
-      "url": "http://kabar.kg/rss/",
-      "type": "context",
-      "priority": "P3",
-      "language": "ru",
-      "requiresPlaywright": false,
-      "focus": "Памир, энергетика ЦА",
-      "disabled": true,
-      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/ и /rss/all/.",
-      "regionDedicated": true,
-      "citable": true,
-      "bloc": "ca-regional"
-    },
-    {
       "id": "trend-az",
       "name": "Trend (AZ)",
       "url": "https://www.trend.az/feeds/index.rss",
@@ -461,53 +340,6 @@
       "language": "ru",
       "requiresPlaywright": false,
       "focus": "Middle Corridor",
-      "regionDedicated": true,
-      "citable": true,
-      "bloc": "ca-regional"
-    },
-    {
-      "id": "turkmenportal",
-      "name": "Turkmenportal (TM)",
-      "url": "https://turkmenportal.com/rss",
-      "type": "context",
-      "priority": "P3",
-      "language": "ru",
-      "requiresPlaywright": true,
-      "focus": "газ, транзит, порты",
-      "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026",
-      "regionDedicated": true,
-      "citable": true,
-      "bloc": "ca-regional",
-      "disabled": true,
-      "$disabledReason": "RSS не работает: см. проверку 03.08.2026. Источник не потерян — он переехал в секцию htmlScrape и разбирается scripts/pull-scrape-inbox.mjs по форме адреса. Запись оставлена, чтобы никто не завёл его заново как ленту."
-    },
-    {
-      "id": "eurasianet",
-      "name": "Eurasianet",
-      "url": "https://eurasianet.org/rss.xml",
-      "type": "context",
-      "priority": "P1",
-      "language": "en",
-      "requiresPlaywright": true,
-      "focus": "глубокая экон-аналитика ЦА",
-      "notes": "403 от Cloudflare даже с браузерным UA, проверено 01.08.2026",
-      "regionDedicated": true,
-      "citable": true,
-      "bloc": "ca-regional",
-      "disabled": true,
-      "$disabledReason": "RSS не работает: см. проверку 03.08.2026. Источник не потерян — он переехал в секцию htmlScrape и разбирается scripts/pull-scrape-inbox.mjs по форме адреса. Запись оставлена, чтобы никто не завёл его заново как ленту."
-    },
-    {
-      "id": "fergana",
-      "name": "Fergana.agency",
-      "url": "https://fergana.agency/rss/",
-      "type": "context",
-      "priority": "P2",
-      "language": "ru",
-      "requiresPlaywright": false,
-      "focus": "права человека, миграция",
-      "disabled": true,
-      "notes": "ОТКЛЮЧЁН 01.08.2026: 404 на /rss/, /rss.xml, /feed/ и на fergana.ru. Фид, похоже, снят. Требует ручной проверки сайта.",
       "regionDedicated": true,
       "citable": true,
       "bloc": "ca-regional"
@@ -764,6 +596,8 @@
       "requiresPlaywright": false,
       "focus": "землетрясения магнитудой 4.5+, обновление в течение минут после события",
       "citable": true,
+      "mayBeEmpty": true,
+      "$mayBeEmptyNote": "Пустая лента — штатное состояние, а не поломка: окно часовое, а землетрясения M4.5+ случаются несколько раз в сутки. Флаг читает scripts/check-sources.mjs — без него сторож каждый день докладывал о поломке живого источника, а сторож, который кричит всегда, — это сторож, на которого перестают смотреть.",
       "citableNote": "Геологическая служба США — официальная сейсмослужба, первоисточник по пункту 1.2 редполитики. Добавлена 03.08.2026 под ночную полосу ЧП: землетрясение — самое частое ночное происшествие, а Узгидромет сообщает о нём с задержкой в десятки минут. USGS отдаёт данные роботом за минуты, поэтому ночная заметка может выйти со ссылкой на официальную сейсмологию, не дожидаясь узбекского ведомства. Днём приоритет всё равно за Узгидрометом — он ближе к читателю и даёт местную шкалу. ВНИМАНИЕ для check-sources: лента ЧАСОВАЯ, и items=0 — её нормальное состояние, а не поломка. Землетрясения M4.5+ случаются несколько раз в сутки, значит большую часть часов лента пуста. Часовое окно выбрано намеренно: фетч ходит каждые 20 минут, поэтому пропустить событие невозможно, а суточная лента тащила бы в инбокс толчки двадцатичасовой давности и выдавала бы их за свежие."
     },
     {
@@ -1176,92 +1010,6 @@
       "stream": "sport"
     },
     {
-      "id": "transfermarkt-uk",
-      "name": "Transfermarkt UK",
-      "url": "https://www.transfermarkt.co.uk/rss/news",
-      "type": "context",
-      "priority": "P2",
-      "language": "en",
-      "requiresPlaywright": false,
-      "focus": "трансферный рынок: суммы, рекордные переходы, оценки стоимости",
-      "citable": true,
-      "citableNote": "Собственные данные Transfermarkt по стоимости игроков цитируемы как факт. Записи с пометкой «gerücht» — слух: публикуются с атрибуцией по правилу sportTransferAndFightRumor, фактом перехода не подаются.",
-      "bloc": "anglo",
-      "notes": "Добавлен 17.08.2026 по итогам исследования спортивных источников. Проверено 17.08.2026: HTTP 200, валидный XML, 10 записей, свежесть в пределах недели.",
-      "stream": "sport",
-      "disabled": true,
-      "$disabledReason": "Отключена 17.08.2026 в день заведения. Transfermarkt отдаёт дата-центрам GitHub Actions ПУСТОЙ HTTP 202 с content-type text/html и нулевым телом — фетчер падает на «Unable to parse XML». Диагностика прогоном в Actions 04:34 UTC: все пять языковых лент, bytes=0. Из агентской песочницы те же адреса возвращают 200 и валидный XML на 10 записей, поэтому по её ответу отказ не воспроизводится. Это ровно то же поведение, что у ESPN. Восстановить можно только через прокси или другой источник данных о трансферах — сама лента формально жива.",
-      "disabledEnvironmentSpecific": true
-    },
-    {
-      "id": "transfermarkt-de",
-      "name": "Transfermarkt Germany",
-      "url": "https://www.transfermarkt.de/rss/news",
-      "type": "context",
-      "priority": "P3",
-      "language": "de",
-      "requiresPlaywright": false,
-      "focus": "Бундеслига и европейский трансферный рынок",
-      "citable": true,
-      "bloc": "euro",
-      "notes": "Добавлен 17.08.2026 по итогам исследования спортивных источников. Проверено 17.08.2026: HTTP 200, валидный XML, 10 записей, свежесть в пределах недели.",
-      "stream": "sport",
-      "disabled": true,
-      "$disabledReason": "Отключена 17.08.2026 в день заведения. Transfermarkt отдаёт дата-центрам GitHub Actions ПУСТОЙ HTTP 202 с content-type text/html и нулевым телом — фетчер падает на «Unable to parse XML». Диагностика прогоном в Actions 04:34 UTC: все пять языковых лент, bytes=0. Из агентской песочницы те же адреса возвращают 200 и валидный XML на 10 записей, поэтому по её ответу отказ не воспроизводится. Это ровно то же поведение, что у ESPN. Восстановить можно только через прокси или другой источник данных о трансферах — сама лента формально жива.",
-      "disabledEnvironmentSpecific": true
-    },
-    {
-      "id": "transfermarkt-es",
-      "name": "Transfermarkt Spain",
-      "url": "https://www.transfermarkt.es/rss/news",
-      "type": "context",
-      "priority": "P3",
-      "language": "es",
-      "requiresPlaywright": false,
-      "focus": "Ла Лига и испанский трансферный рынок",
-      "citable": true,
-      "bloc": "euro",
-      "notes": "Добавлен 17.08.2026 по итогам исследования спортивных источников. Проверено 17.08.2026: HTTP 200, валидный XML, 10 записей, свежесть в пределах недели.",
-      "stream": "sport",
-      "disabled": true,
-      "$disabledReason": "Отключена 17.08.2026 в день заведения. Transfermarkt отдаёт дата-центрам GitHub Actions ПУСТОЙ HTTP 202 с content-type text/html и нулевым телом — фетчер падает на «Unable to parse XML». Диагностика прогоном в Actions 04:34 UTC: все пять языковых лент, bytes=0. Из агентской песочницы те же адреса возвращают 200 и валидный XML на 10 записей, поэтому по её ответу отказ не воспроизводится. Это ровно то же поведение, что у ESPN. Восстановить можно только через прокси или другой источник данных о трансферах — сама лента формально жива.",
-      "disabledEnvironmentSpecific": true
-    },
-    {
-      "id": "transfermarkt-it",
-      "name": "Transfermarkt Italy",
-      "url": "https://www.transfermarkt.it/rss/news",
-      "type": "context",
-      "priority": "P3",
-      "language": "it",
-      "requiresPlaywright": false,
-      "focus": "Серия А и итальянский трансферный рынок",
-      "citable": true,
-      "bloc": "euro",
-      "notes": "Добавлен 17.08.2026 по итогам исследования спортивных источников. Проверено 17.08.2026: HTTP 200, валидный XML, 10 записей, свежесть в пределах недели.",
-      "stream": "sport",
-      "disabled": true,
-      "$disabledReason": "Отключена 17.08.2026 в день заведения. Transfermarkt отдаёт дата-центрам GitHub Actions ПУСТОЙ HTTP 202 с content-type text/html и нулевым телом — фетчер падает на «Unable to parse XML». Диагностика прогоном в Actions 04:34 UTC: все пять языковых лент, bytes=0. Из агентской песочницы те же адреса возвращают 200 и валидный XML на 10 записей, поэтому по её ответу отказ не воспроизводится. Это ровно то же поведение, что у ESPN. Восстановить можно только через прокси или другой источник данных о трансферах — сама лента формально жива.",
-      "disabledEnvironmentSpecific": true
-    },
-    {
-      "id": "transfermarkt-tr",
-      "name": "Transfermarkt Turkey",
-      "url": "https://www.transfermarkt.com.tr/rss/news",
-      "type": "context",
-      "priority": "P3",
-      "language": "tr",
-      "requiresPlaywright": false,
-      "focus": "Суперлига Турции и трансферы, включая узбекских легионеров",
-      "citable": true,
-      "bloc": "mena",
-      "notes": "Добавлен 17.08.2026 по итогам исследования спортивных источников. Проверено 17.08.2026: HTTP 200, валидный XML, 10 записей, свежесть в пределах недели.",
-      "stream": "sport",
-      "disabled": true,
-      "$disabledReason": "Отключена 17.08.2026 в день заведения. Transfermarkt отдаёт дата-центрам GitHub Actions ПУСТОЙ HTTP 202 с content-type text/html и нулевым телом — фетчер падает на «Unable to parse XML». Диагностика прогоном в Actions 04:34 UTC: все пять языковых лент, bytes=0. Из агентской песочницы те же адреса возвращают 200 и валидный XML на 10 записей, поэтому по её ответу отказ не воспроизводится. Это ровно то же поведение, что у ESPN. Восстановить можно только через прокси или другой источник данных о трансферах — сама лента формально жива.",
-      "disabledEnvironmentSpecific": true
-    },
-    {
       "id": "sherdog-news",
       "name": "Sherdog — новости",
       "url": "https://www.sherdog.com/rss/news.xml",
@@ -1641,19 +1389,6 @@
       "citable": true,
       "citableNote": "Официальный канал компании: подпись под материалами — «O‘zbekneftgaz» AJ Axborot xizmati. Первоисточник по своей отрасли, ссылку ставить можно. Язык узбекский — цифры и цитаты для русского материала переводим, атрибуцию сохраняем.",
       "notes": "Teletype — блог-платформа; RSS отдаётся по адресу без символа @ в имени (teletype.in/rss/<name>, не teletype.in/rss/@<name>) — по адресу с @ приходит 404, и именно на этом источник легко счесть нерабочим. Лента отдаёт 10 последних записей с полным текстом. Дублирует t.me/uzbekneftegaz не полностью: часть материалов выходит только здесь."
-    },
-    {
-      "id": "us-embassy-tashkent",
-      "name": "Посольство США в Узбекистане",
-      "url": "https://uz.usembassy.gov/feed/",
-      "type": "source",
-      "priority": "P1",
-      "language": "en",
-      "requiresPlaywright": false,
-      "focus": "визы, консульские правила, депортации и высылка узбекистанцев, программы обмена",
-      "citable": true,
-      "bloc": "anglo",
-      "notes": "Заведён 07.08.2026 после разбора пропущенных инфоповодов: тема визовых залогов США пришла в инбокс только от СМИ и потеряла 30 баллов за отсутствие первоисточника. Посольство — первоисточник по консульским правилам для узбекистанцев; в ленте на момент заведения был материал Removal of Uzbekistanis from the United States. Лента на английском, переводы помечать в статье."
     },
     {
       "id": "us-federal-register-visa",
@@ -2788,102 +2523,124 @@
       "bloc": "ru-tech",
       "notes": "Проверено 17.08.2026: HTTP 200, валидный XML, записи с датами, свежесть в пределах недели.",
       "stream": "tech"
+    }
+  ],
+  "$doNotAddNote": "Ленты, которых НЕ СУЩЕСТВУЕТ или которые не отдают записей. Раньше они лежали здесь полными записями с disabled: true — 23 источника по дюжине полей каждый. Смысла в этом не было: фетчер их пропускал, а чекер и планёрка на каждом заходе разбирали мёртвый груз. Осталась одна строка на источник — ровно то, ради чего запись держали: чтобы никто не завёл ленту заново, потратив час на тот же тупик. Проверено 17.08.2026 прямым запросом по каждому адресу.",
+  "doNotAdd": [
+    {
+      "id": "daryo-uz",
+      "url": "https://daryo.uz/rss/",
+      "reason": "лента рендерится на JS: HTTP 200, ноль записей. Источник живой — работает через секцию htmlScrape"
+    },
+    {
+      "id": "repost-uz",
+      "url": "https://repost.uz/rss",
+      "reason": "Cloudflare + reCAPTCHA. Источник живой — работает через секцию htmlScrape"
+    },
+    {
+      "id": "turkmenportal",
+      "url": "https://turkmenportal.com/rss",
+      "reason": "лента отключена площадкой. Источник живой — работает через секцию htmlScrape"
+    },
+    {
+      "id": "eurasianet",
+      "url": "https://eurasianet.org/rss.xml",
+      "reason": "HTTP 404. Источник живой — работает через секцию htmlScrape"
+    },
+    {
+      "id": "yuz-uz",
+      "url": "https://yuz.uz/rss",
+      "reason": "HTTP 404 на /rss и /ru/rss"
+    },
+    {
+      "id": "tribuna-uz",
+      "url": "https://tribuna.uz/rss",
+      "reason": "403 от Cloudflare даже с браузерным UA"
+    },
+    {
+      "id": "digital-uz",
+      "url": "https://digital.uz/ru/rss",
+      "reason": "HTTP 200, ноль записей. Мининфоком читаем через Telegram-канал @mitcuz"
+    },
+    {
+      "id": "reuters",
+      "url": "https://www.reutersagency.com/feed/",
+      "reason": "агентство закрыло публичные RSS. Право на ссылку сохраняется — Reuters в белом списке §2 редполитики"
+    },
+    {
+      "id": "kazinform",
+      "url": "https://www.inform.kz/rss/rss.xml",
+      "reason": "HTTP 404. Право на ссылку сохраняется — агентство в белом списке §2"
+    },
+    {
+      "id": "kabar-kg",
+      "url": "http://kabar.kg/rss/",
+      "reason": "лента не отвечает. Право на ссылку сохраняется — агентство в белом списке §2"
+    },
+    {
+      "id": "fergana",
+      "url": "https://fergana.agency/rss/",
+      "reason": "HTTP 404. Право на ссылку сохраняется — издание в белом списке §2"
+    },
+    {
+      "id": "us-embassy-tashkent",
+      "url": "https://uz.usembassy.gov/feed/",
+      "reason": "сайт отдаёт страницу «Technical Difficulties» на всех вариантах ленты (/feed/, /rss, /category/news/feed/), ноль записей за всё время наблюдения. Посольство остаётся первоисточником по визам и консульским правилам — ссылка разрешена, забор автоматом невозможен"
+    },
+    {
+      "id": "transfermarkt-uk",
+      "url": "https://www.transfermarkt.co.uk/rss/news",
+      "reason": "ПРОВЕРЯТЬ ТОЛЬКО В ACTIONS: из песочницы отдаёт 200 и десять записей, в проде — пустой HTTP 202. Заводить обратно по проверке из песочницы нельзя"
+    },
+    {
+      "id": "transfermarkt-de",
+      "url": "https://www.transfermarkt.de/rss/news",
+      "reason": "то же, что у transfermarkt-uk"
+    },
+    {
+      "id": "transfermarkt-es",
+      "url": "https://www.transfermarkt.es/rss/news",
+      "reason": "то же, что у transfermarkt-uk"
+    },
+    {
+      "id": "transfermarkt-it",
+      "url": "https://www.transfermarkt.it/rss/news",
+      "reason": "то же, что у transfermarkt-uk"
+    },
+    {
+      "id": "transfermarkt-tr",
+      "url": "https://www.transfermarkt.com.tr/rss/news",
+      "reason": "то же, что у transfermarkt-uk"
     },
     {
       "id": "revolut-newsroom",
-      "name": "Revolut — ньюсрум",
       "url": "https://www.revolut.com/news/",
-      "type": "source",
-      "priority": "P3",
-      "language": "en",
-      "requiresPlaywright": false,
-      "focus": "—",
-      "citable": true,
-      "citableNote": "Сайт компании остаётся первоисточником для ссылки в статье — отключена только лента.",
-      "bloc": "corp-tech",
-      "disabled": true,
-      "$disabledReason": "RSS у Revolut нет: /news/rss/ и blog.revolut.com/rss/ отдают 403 от Cloudflare (проверено 17.08.2026). Компанию закрываем лентами finextra, techcrunch-fintech, sifted и banking-dive — раунды, лицензии и запуски Revolut проходят там.",
-      "stream": "tech"
+      "reason": "403 от Cloudflare на /news/rss/ и blog.revolut.com/rss/. Компанию закрывают finextra, sifted, techcrunch-fintech, banking-dive"
     },
     {
       "id": "tesla-blog",
-      "name": "Tesla — блог",
       "url": "https://www.tesla.com/blog",
-      "type": "source",
-      "priority": "P3",
-      "language": "en",
-      "requiresPlaywright": false,
-      "focus": "—",
-      "citable": true,
-      "citableNote": "Сайт компании остаётся первоисточником для ссылки в статье — отключена только лента.",
-      "bloc": "corp-tech",
-      "disabled": true,
-      "$disabledReason": "RSS у Tesla нет: /blog/rss отдаёт Access Denied (проверено 17.08.2026). Компанию закрывают electrek, insideevs и teslarati плюс отчётности через bloomberg-tech и cnbc-tech.",
-      "stream": "tech"
+      "reason": "Access Denied на /blog/rss. Компанию закрывают electrek, insideevs, teslarati"
     },
     {
       "id": "spacex-updates",
-      "name": "SpaceX — обновления",
       "url": "https://www.spacex.com/updates/",
-      "type": "source",
-      "priority": "P3",
-      "language": "en",
-      "requiresPlaywright": false,
-      "focus": "—",
-      "citable": true,
-      "citableNote": "Сайт компании остаётся первоисточником для ссылки в статье — отключена только лента.",
-      "bloc": "corp-tech",
-      "disabled": true,
-      "$disabledReason": "RSS у SpaceX нет и никогда не было: страница обновлений отдаёт HTML без ленты (проверено 17.08.2026). Компанию закрывают spacenews, spaceflight-now, nasaspaceflight, ars-space и контракты через nasa-news.",
-      "stream": "tech"
+      "reason": "ленты нет и не было. Компанию закрывают spacenews, spaceflight-now, nasaspaceflight, ars-space, nasa-news"
     },
     {
       "id": "telegram-blog",
-      "name": "Telegram — блог",
       "url": "https://telegram.org/blog",
-      "type": "source",
-      "priority": "P3",
-      "language": "en",
-      "requiresPlaywright": false,
-      "focus": "—",
-      "citable": true,
-      "citableNote": "Сайт компании остаётся первоисточником для ссылки в статье — отключена только лента.",
-      "bloc": "corp-tech",
-      "disabled": true,
-      "$disabledReason": "RSS у telegram.org нет: /blog/rss и /blog/rss.xml отдают редирект на главную и 404 (проверено 17.08.2026). Платформу закрываем официальными каналами @durov и @telegram в config/telegram-channels.json — они и есть первоисточник.",
-      "stream": "tech"
+      "reason": "редирект на главную. Платформу закрывают каналы @durov и @telegram"
     },
     {
       "id": "it-park-uz",
-      "name": "IT Park Узбекистан",
       "url": "https://it-park.uz/",
-      "type": "source",
-      "priority": "P3",
-      "language": "en",
-      "requiresPlaywright": false,
-      "focus": "—",
-      "citable": true,
-      "citableNote": "Сайт компании остаётся первоисточником для ссылки в статье — отключена только лента.",
-      "bloc": "corp-tech",
-      "disabled": true,
-      "$disabledReason": "RSS нет: /rss, /ru/rss, /uz/rss, /feed, /rss.xml — все 404 (проверено 17.08.2026). IT Park закрываем его Telegram-каналом @itpark_uz из config/telegram-channels.json.",
-      "stream": "tech"
+      "reason": "HTTP 404 на /rss, /ru/rss, /uz/rss, /feed, /rss.xml. Закрывается каналом @itpark_uz"
     },
     {
       "id": "fintech-futures",
-      "name": "FinTech Futures",
       "url": "https://www.fintechfutures.com/",
-      "type": "source",
-      "priority": "P3",
-      "language": "en",
-      "requiresPlaywright": false,
-      "focus": "—",
-      "citable": true,
-      "citableNote": "Сайт компании остаётся первоисточником для ссылки в статье — отключена только лента.",
-      "bloc": "corp-tech",
-      "disabled": true,
-      "$disabledReason": "Лента закрыта Cloudflare: /feed и /feed/ отдают 403 и 301 в никуда (проверено 17.08.2026). Финтех-повестку закрывают finextra, pymnts, banking-dive и payments-dive.",
-      "stream": "tech"
+      "reason": "403 и 301 в никуда. Финтех закрывают finextra, pymnts, banking-dive, payments-dive"
     }
   ],
   "api": [
@@ -3157,7 +2914,7 @@
       "note": "Институт при Министерстве экономики и финансов, создан постановлением Президента. Публикует официальные заявления по налоговой и таможенной политике — «О предложении по тарифам на теплоснабжение», «О налогообложении процентных доходов по банковским вкладам». Это темы категории «затрагивает всех», и по ним институт первоисточник, а не комментатор.\nБерём через JSON-API, а не разбором HTML: список новостей на сайте рисуется скриптом, в разметке ссылок нет вообще — HTML-скрейпер нашёл бы ноль. Зато /api/v1/news отдаёт заголовок, слаг и дату готовыми полями, не зависящими от вёрстки. Разбирать HTML там, где есть API, значит выбирать более хрупкий путь из двух. Проверено 03.08.2026: 20 записей, title_ru и published_date заполнены, summary_ru пуст.\nmaxAgeDays=14: институт публикует несколько материалов в месяц, и суточное окно, годное для новостных лент, здесь отсекало бы почти всё."
     }
   ],
-  "$streamNote": "Поле stream у ленты уводит её записи в отдельный файл инбокса (content/inbox/<stream>-YYYY-MM-DD.jsonl) вместо мировой линии. Заведено 17.08.2026 под спорт: 45 спортивных лент дают около 700 записей за полный опрос и в общей мировой линии перекрывали собой всё остальное. Действует ТОЛЬКО на записи, не прошедшие фильтр региона: спортивная новость с упоминанием Узбекистана по-прежнему идёт в основной инбокс, иначе потерялось бы правило uzbekAthleteAnywhere. Потоков стало два — 17.08.2026 тем же порядком заведён stream: \"tech\": технологических лент было три из 120, стало 76 из 199, и в мировой линии они перекрыли бы её так же, как перекрыл бы спорт. То же исключение действует и здесь: новость о вложениях Nvidia в узбекский дата-центр проходит фильтр региона и идёт в основной инбокс.",
+  "$streamNote": "Поле stream у ленты уводит её записи в отдельный файл инбокса (content/inbox/<stream>-YYYY-MM-DD.jsonl) вместо мировой линии. Заведено 17.08.2026 под спорт: 45 спортивных лент дают около 700 записей за полный опрос и в общей мировой линии перекрывали собой всё остальное. Действует ТОЛЬКО на записи, не прошедшие фильтр региона: спортивная новость с упоминанием Узбекистана по-прежнему идёт в основной инбокс, иначе потерялось бы правило uzbekAthleteAnywhere. Потоков стало два — 17.08.2026 тем же порядком заведён stream: \"tech\": технологических лент было три из 120, стало 76 из 176, и в мировой линии они перекрыли бы её так же, как перекрыл бы спорт. То же исключение действует и здесь: новость о вложениях Nvidia в узбекский дата-центр проходит фильтр региона и идёт в основной инбокс.",
   "$streamValues": {
     "sport": "спортивная линия — content/inbox/sport-*.jsonl, разбирает спортивная планёрка (docs/routine-prompts/sport-planyorka.md)",
     "tech": "технологическая линия — content/inbox/tech-*.jsonl, разбирает tech-планёрка (docs/routine-prompts/tech-planyorka.md)"
