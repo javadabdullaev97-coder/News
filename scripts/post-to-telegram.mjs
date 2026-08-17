@@ -21,8 +21,10 @@ import {
 } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { execFileSync } from "node:child_process";
 import {
   MAIN_TARGET,
+  POSTED_LOG,
   SPORT_TARGET,
   TECH_TARGET,
   isPostedNow,
@@ -363,6 +365,62 @@ async function postArticle(mdxPath, fm, channel = TELEGRAM_CHANNEL, target = MAI
   return { messageId: msg.message_id, url };
 }
 
+// ─── Запись о посте становится общей СРАЗУ, а не в конце прогона ───
+//
+// Реестр — единственная защита от дубля, и работает он только пока запись
+// видна другим процессам. До 17.08.2026 её коммитил отдельный шаг воркфлоу
+// ПОСЛЕ всего цикла отправки, и это было терпимо, пока цикл длился секунды.
+//
+// Со вторым каналом цикл вырос до минут: у статьи теперь до четырёх постов
+// (ru и uz × основной и профильный), между постами пауза 30 секунд, а очередь
+// выпускает по несколько материалов разом. Боевой прогон publish-tick
+// 17.08.2026 07:38 держал шаг отправки четырнадцать минут, и всё это время
+// шаг «Commit telegram state» стоял в pending.
+//
+// В это окно попадает editor-queue: у него своя группа concurrency, он читает
+// СВОЙ клон репозитория, записи о только что отправленных постах там нет — и
+// он отправляет их заново. Так статья про Джоковича ушла в канал дважды.
+//
+// Поэтому коммитим и пушим после КАЖДОГО поста. Окно уязвимости схлопывается
+// с минут до секунд. Цена — push на пост, но между постами и так пауза в 30
+// секунд, а content/state/telegram-posted.jsonl не входит ни в один path-фильтр
+// воркфлоу, так что лишних запусков это не создаёт.
+//
+// Ошибку пуша глотаем намеренно: пост уже отправлен, и падать после этого
+// значит потерять запись гарантированно вместо «возможно». Файл на диске
+// остаётся, шаг воркфлоу в конце прогона доберёт то, что не уехало.
+const GIT_IDENTITY = [
+  "-c", "user.name=github-actions[bot]",
+  "-c", "user.email=41898282+github-actions[bot]@users.noreply.github.com",
+];
+
+function publishStateRecord(label) {
+  // Только в Actions: локальный прогон не должен трогать историю репозитория.
+  if (dryRun || process.env.GITHUB_ACTIONS !== "true") return;
+  try {
+    const dirty = execFileSync("git", ["status", "--porcelain", "--", POSTED_LOG], {
+      cwd: ROOT,
+      encoding: "utf8",
+    }).trim();
+    if (!dirty) return;
+    execFileSync("git", ["add", "--", POSTED_LOG], { cwd: ROOT, stdio: "pipe" });
+    execFileSync(
+      "git",
+      [...GIT_IDENTITY, "commit", "-m", `state: telegram-posted +${label}`],
+      { cwd: ROOT, stdio: "pipe" },
+    );
+    execFileSync("bash", [".github/scripts/git-push-with-rebase.sh"], {
+      cwd: ROOT,
+      stdio: "pipe",
+    });
+  } catch (err) {
+    console.error(
+      `  ⚠ запись о посте не уехала в main (${String(err.message).slice(0, 80)}). ` +
+        "Пост отправлен, файл на диске — доберёт шаг в конце прогона.",
+    );
+  }
+}
+
 // ─── main ───
 const allMdx = collectMdx(POSTS_DIR).sort();
 // Дедуп по паре ЯЗЫК + СЛАГ. По одному слагу нельзя: русская и узбекская
@@ -538,6 +596,7 @@ for (let i = 0; i < pending.length; i++) {
         target: p.target,
       });
       posted[p.target].set(`${p.lang} ${slug}`, rec);
+      publishStateRecord(`${slug} (${p.lang}/${p.target})`);
     }
     ok++;
     console.error(`  ✓ ${p.rel} → ${p.lang}/${p.target}`);
