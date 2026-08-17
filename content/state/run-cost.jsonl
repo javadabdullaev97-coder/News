@@ -23,3 +23,6 @@
 {"run":"2026-08-17T20:46","stage":"reporter","calls":6,"fetches":0,"minutes":0}
 {"run":"2026-08-17T21:12","stage":"fact-checker","calls":6,"fetches":0,"minutes":0}
 {"run":"2026-08-17T21:12","stage":"editor","calls":6,"fetches":0,"minutes":0}
+{"run":"2026-08-17T21:16","stage":"bild","calls":6,"fetches":0,"minutes":0}
+{"run":"2026-08-17T21:16","stage":"translator","calls":5,"fetches":0,"minutes":0}
+{"run":"2026-08-17T21:16","topics":6,"published":5,"skippedFactcheck":0,"skippedBild":0}

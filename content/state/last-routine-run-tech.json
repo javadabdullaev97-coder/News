@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-18T01:21:00+05:00",
-  "topicsProcessed": 4,
-  "published": 4,
+  "lastRunAt": "2026-08-18T02:15:00+05:00",
+  "topicsProcessed": 6,
+  "published": 5,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 1,
   "needsVerification": 0,
-  "belowThreshold": 312,
-  "notes": "2 из 6 изначальных кандидатов (Nvidia $21B stake SpaceX, macOS Screen Sharing exploit) отсеяны topic-dupecheck — уже опубликованы другим прогоном сегодня. Reporter/reporter-fix субагенты систематически не могут писать файлы, начинающиеся на report/reporter (Write blocker) — notes сохранялись под альтернативными именами, оркестратор передавал путь вручную."
+  "belowThreshold": 29,
+  "notes": "iren-microsoft-ai-deal-2026-08 прошла весь цикл (fact-check 85%, editor publish, bild) и вскрылась как дубль content/posts/2026-08-17/iren-delivers-ai-capacity-microsoft-texas.mdx только на стадии translator — первичный dupecheck по ссылке инбокса (The Block) не совпал, совпадение всплыло по ссылкам первоисточников (GlobeNewswire/SEC), найденным уже репортёром. Отправлена в rejected. Отдельно: markup-хвост агента (</content>) просочился в uz/en переводы apple-spyware-alert и azure-breach-claim — у apple-spyware-alert обнаружено уже после публикации (publish-tick забрал из очереди раньше, чем прогнал общий i18n-lint), исправлено на месте в content/posts. Reporter-субагенты систематически не могут писать файлы с 'reporter' в имени (Write-tool blocker) — notes сохранялись под альтернативными путями, оркестратор передавал их вручную."
 }
