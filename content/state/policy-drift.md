@@ -1,6 +1,6 @@
-# Policy drift check — 2026-08-17T03:14:29.803Z
+# Policy drift check — 2026-08-17T03:23:31.218Z
 
-Проверено: 626 .mdx за последние 7 дней
+Проверено: 633 .mdx за последние 7 дней
 Ошибок: 1, предупреждений: 3
 
 Источников не в теле, признанных нормой: 69 (подтверждающие и курс ЦБ для пересчёта — см. пункт 4 в шапке скрипта)
@@ -20,6 +20,6 @@
 - **2026-08-01** (13): society 5, economy 4, tech 2, politics 2
 - **2026-08-02** (6): economy 2, world 3, society 1
 - **2026-08-03** (22): economy 7, society 7, world 6, culture 1, business 1
-- **2026-08-04** (34): economy 9, society 12, world 7, business 2, politics 3, tech 1
+- **2026-08-04** (35): economy 10, society 12, world 7, business 2, politics 3, tech 1
 - **2026-08-05** (59): economy 16, society 19, world 14, sport 4, tech 3, politics 2, business 1
 - **2026-08-06** (70): society 39, economy 18, world 7, culture 1, tech 1, business 2, politics 1, sport 1
