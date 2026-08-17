@@ -51,7 +51,7 @@ model: sonnet
 5. **Сохраняешь новый драфт по тому же пути** (`content/rework/<slug>.mdx`), обновляешь `updatedAt` во frontmatter, оставляешь `editorComment` и `reworkIteration` как есть (не удаляй — editor-queue их читает)
 6. **Отвечаешь тем же форматом**: `DRAFT_PATH`, `NOTES_PATH`, `CONFIDENCE`, `STATUS: ready-for-factcheck`
 
-Дальше материал пройдёт fact-checker → editor → bild → seo как обычно, потом снова уйдёт владельцу через editor-queue. Цикл замкнут.
+Дальше материал пройдёт fact-checker → editor → bild как обычно, потом снова уйдёт владельцу через editor-queue. Цикл замкнут.
 
 Плюс общий контекст: сегодняшняя дата, категория (economy/politics/society/tech/culture/sport).
 

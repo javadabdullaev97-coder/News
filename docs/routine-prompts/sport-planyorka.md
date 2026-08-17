@@ -97,7 +97,7 @@ node scripts/policy-slice.mjs --all
 node scripts/build-posts-index.mjs
 ```
 
-Собрать обязан ты: у `seo`, `fact-checker` и `translator` нет Bash, они
+Собрать обязан ты: у `fact-checker` и `translator` нет Bash, они
 прочитают только готовый файл.
 
 Дальше — чтение:
@@ -204,7 +204,7 @@ node scripts/build-posts-index.mjs
 **`frontmatter.category` обязан быть `sport`.** По нему постер выбирает
 спортивный канал. Ошибёшься в категории — материал уйдёт мимо канала.
 
-Дальше решает `seo`-агент по общей шкале `config/telegram-scoring.json`:
+Дальше решает `scripts/tg-score.mjs` по общей шкале `config/telegram-scoring.json`:
 
 - в **спортивный канал** уходит весь спорт с проставленным полем `broadcast` —
   любым значением. Наличие поля означает, что цикл закрыт;
