@@ -2867,6 +2867,51 @@
         "bloc": "anglo",
         "focus": "уровень travel advisory по странам, включая Узбекистан",
         "notes": "В каталог фетчера не заводим: RSS-лента отдаёт полный список по всем странам (214 записей на каждый опрос) и забьёт инбокс. Смена уровня по Узбекистану — инфоповод, но ловить её надо точечной проверкой, а не лентой."
+      },
+      {
+        "id": "lex-uz",
+        "name": "Национальная база данных законодательства (Lex.uz)",
+        "url": "https://lex.uz",
+        "type": "source",
+        "priority": "P1",
+        "citable": true,
+        "addedBecause": "Планёрка 17.08.2026 16:00, source-candidates: официальная публикация НПА, регулярно цитируется в статьях (указы, постановления, законы), но не была в конфиге. Единой RSS-ленты нет — каждая карточка акта на отдельном URL."
+      },
+      {
+        "id": "dunyo-info",
+        "name": "Dunyo — государственное информационное агентство Узбекистана",
+        "url": "https://dunyo.info",
+        "type": "source",
+        "priority": "P1",
+        "citable": true,
+        "addedBecause": "Планёрка 17.08.2026 16:00, source-candidates: госагентство (аналог УзА), сегодня зафиксировано освещение консульского визита к пострадавшим в Омске узбекистанцам — потенциальный первоисточник для темы omsk-fire."
+      },
+      {
+        "id": "sud-uz",
+        "name": "Sud.uz — портал судебной системы Узбекистана",
+        "url": "https://sud.uz/",
+        "type": "source",
+        "priority": "P2",
+        "citable": true,
+        "addedBecause": "Планёрка 17.08.2026 16:00, source-candidates: официальный портал судов (экономические, административные), 12 наблюдений от sud_uz за один прогон."
+      },
+      {
+        "id": "mtrk-uz",
+        "name": "МТРК Узбекистана (Milliy TV va radiokompaniya)",
+        "url": "http://mtrk.uz/",
+        "type": "source",
+        "priority": "P2",
+        "citable": true,
+        "addedBecause": "Планёрка 17.08.2026 16:00, source-candidates: официальный государственный телерадиоканал, упомянут тремя разными отслеживаемыми каналами (uzmetaxborotxizmati, davaktivuz, napp_uz)."
+      },
+      {
+        "id": "uzhydromet",
+        "name": "Узгидромет (uzbekistonmet.uz)",
+        "url": "https://www.uzbekistonmet.uz",
+        "type": "source",
+        "priority": "P2",
+        "citable": true,
+        "addedBecause": "Планёрка 17.08.2026 16:00, source-candidates: официальная метеослужба, важна для штормовых предупреждений и полосы ЧП."
       }
     ]
   },

@@ -158,3 +158,20 @@
 {"ev":"fetched","at":"2026-08-17T11:21:26.841Z","link":"https://www.gazeta.uz/ru/2026/08/17/ioi/","status":"200","found":24}
 {"ev":"fetched","at":"2026-08-17T11:21:26.841Z","link":"https://daryo.uz/2026/08/17/ozbekiston-shakar-importini-rekord-darajada-oshirdi","status":"200","found":42}
 {"ev":"fetched","at":"2026-08-17T11:21:26.841Z","link":"https://daryo.uz/2026/08/17/prezident-urganchdagi-kasblar-shaharchasida-yoshlar-bilan-muloqot-qildi","status":"200","found":40}
+{"ev":"resolve","domain":"lex.uz","at":"2026-08-17T11:38:01.681Z","addedAs":"citableReference"}
+{"ev":"resolve","domain":"dunyo.info","at":"2026-08-17T11:38:01.681Z","addedAs":"citableReference"}
+{"ev":"resolve","domain":"sud.uz","at":"2026-08-17T11:38:01.681Z","addedAs":"citableReference"}
+{"ev":"resolve","domain":"mtrk.uz","at":"2026-08-17T11:38:01.681Z","addedAs":"citableReference"}
+{"ev":"resolve","domain":"uzbekistonmet.uz","at":"2026-08-17T11:38:01.681Z","addedAs":"citableReference"}
+{"ev":"dismiss","domain":"ulysmedia.kz","at":"2026-08-17T11:38:01.681Z","reason":"Казахстанское региональное СМИ по чувствительному делу о смерти гражданки — не добавляем, недостаточно оснований для type:context без более широкого паттерна использования"}
+{"ev":"dismiss","domain":"uznews.uz","at":"2026-08-17T11:38:01.681Z","reason":"Собственный сайт уже отслеживаемого Telegram-источника uznews (P2, signal)"}
+{"ev":"dismiss","domain":"uzsuv.uz","at":"2026-08-17T11:38:01.681Z","reason":"Собственный сайт уже отслеживаемого источника uzsuv (P1, source)"}
+{"ev":"dismiss","domain":"uzairways.com","at":"2026-08-17T11:38:01.681Z","reason":"Коммерческий/рекламный сайт авиакомпании (билеты, бизнес-класс), официальные объявления уже покрыты Telegram-каналом uzbekistanairways"}
+{"ev":"dismiss","domain":"mover.uz","at":"2026-08-17T11:38:01.682Z","reason":"Собственный сайт уже отслеживаемого агрегатора moveruz (P3, signal)"}
+{"ev":"dismiss","domain":"dreamd.uz","at":"2026-08-17T11:38:01.682Z","reason":"Реклама квартир (Dreamland Development), не новостной сайт"}
+{"ev":"dismiss","domain":"startupbase.uz","at":"2026-08-17T11:38:01.682Z","reason":"Собственный сайт уже отслеживаемого источника itpark_uz"}
+{"ev":"dismiss","domain":"napp.uz","at":"2026-08-17T11:38:01.682Z","reason":"Собственный сайт уже отслеживаемого источника napp_uz"}
+{"ev":"dismiss","domain":"mehnat.uz","at":"2026-08-17T11:38:01.682Z","reason":"Собственный сайт уже отслеживаемого источника mehnatvazirligi"}
+{"ev":"dismiss","domain":"joqargikenes.uz","at":"2026-08-17T11:38:01.682Z","reason":"Собственный сайт уже отслеживаемого источника joqargikenes"}
+{"ev":"dismiss","domain":"octobank.uz","at":"2026-08-17T11:38:01.682Z","reason":"Разовое партнёрское объявление, недостаточно системности"}
+{"ev":"dismiss","domain":"aab.uz","at":"2026-08-17T11:38:01.682Z","reason":"Разовое партнёрское объявление, недостаточно системности"}
