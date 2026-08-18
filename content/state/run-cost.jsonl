@@ -73,3 +73,5 @@
 {"run":"2026-08-18T06:10","topics":7,"published":5,"skippedFactcheck":2,"skippedBild":1}
 {"run":"2026-08-18T06:54","stage":"reporter","calls":2,"fetches":26,"minutes":9}
 {"run":"2026-08-18T06:58","stage":"fact-checker","calls":1,"fetches":4,"minutes":4}
+{"run":"2026-08-18T07:02","stage":"editor","calls":1,"fetches":0,"minutes":5}
+{"run":"2026-08-18T07:02","stage":"bild","calls":1,"fetches":0,"minutes":3}
