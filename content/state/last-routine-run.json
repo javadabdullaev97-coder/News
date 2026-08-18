@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T08:02:00+05:00",
+  "lastRunAt": "2026-08-18T08:38:00+05:00",
   "mode": "main",
-  "topicsProcessed": 1,
-  "published": 1,
+  "topicsProcessed": 0,
+  "published": 0,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 93,
+  "belowThreshold": 97,
   "rework": 0,
-  "notes": "1 тема прошла порог (world, mustPublish: землетрясение M7,4 в Колумбии, развитие сюжета — ущерб $9,6 млрд, 289 погибших). Local: 16 свежих items, ни одной новости с первоисточником (спам-пост водоканала, спортивный анонс, geopolitics-контекст The Diplomat, землетрясения на Фиджи не по региону). needs-verification: карточек созревших не было (все recheckAt позже текущего времени 07:39). Ночных nightAuto-публикаций не найдено — §Шаг 1в пропущен молча. check-doc-digest: fresh=false — прочитан полный SKILL.md сверх CORE.md."
+  "notes": "0 тем прошло порог. Local: 19 свежих items, ни одной с первоисточником и достаточным баллом (курс валют, погода, поздравления, спорт-госсип; AI-инвестиции $6 млрд — только один сигнал Yuz.uz без первоисточника). World: 78 candidates, почти все — рутина войны РФ–Украина (skip) или single-bloc. rework пуст, needs-verification: созревших карточек нет (ближайший recheckAt 09:00). §Шаг 1в пропущен — уже сделан прогоном 08:02. Второй приоритет пуст: missing-images, translation-gaps, channel/source-candidates — все 0."
 }
