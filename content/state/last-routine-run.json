@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T18:54:00+05:00",
+  "lastRunAt": "2026-08-18T20:08:00+05:00",
   "mode": "main",
-  "topicsProcessed": 4,
-  "published": 2,
-  "queuedForOwner": 1,
-  "rejected": 1,
+  "topicsProcessed": 2,
+  "published": 1,
+  "queuedForOwner": 0,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 81,
+  "belowThreshold": 75,
   "rework": 0,
-  "notes": "toll-road-urganch-khiva отклонена как дубль — конкурентная планёрка опубликовала ту же тему между claim'ом и reporter'ом, topic-dupecheck на этапе отбора её не увидел (ещё не существовала). Бильд-субагент не имеет доступа к MCP/Higgsfield в этой сессии — на wrestler-ismoilov сработал только no-image fallback, хотя правило предполагает генерацию как гарантированный запасной путь; стоит проверить tools: у .claude/agents/bild.md. Свежий клон требовал npm install (пакет yaml отсутствовал) до первого запуска claims-lint.mjs."
+  "notes": "xiaomi-profit-memory-crunch (needs-verification) закрыта как superseded-duplicate — тема уже опубликована под другим слагом (xiaomi-ai-no-rush-profit-drop) в прошлом прогоне этой же сессии, карточка удалена. Свежий клон требовал npm install (пакет yaml отсутствовал) до первого запуска claims-lint.mjs — после установки build-posts.mjs (postinstall) обнаружил 4 файла в content/posts/2026-08-18/ (apple-ai-model-china-alibaba, spacex-falcon9-turnaround-record, ru/en+uz) с хвостом служебной разметки агента (</content>), не выпущенные на сайт из-за этого; требуют ручной зачистки. photo-dupes.mjs также нашёл повтор кадра у 3 материалов от 17.08 (ai-infra-financing-wall-street, nvidia-3bn-sb-energy-openai-ohio, nvidia-wall-street-500bn-ai-infrastructure) — не связано с этим прогоном."
 }
