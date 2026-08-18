@@ -1,0 +1,47 @@
+---
+title: "Microsoft Windows 11'dan xakerlar foydalanadigan vositani olib tashlay boshladi"
+description: "Microsoft Windows 11'dan WMIC buyruqlar qatori vositasini olib tashlamoqda — uni yillar davomida to'lov so'rovchi virus operatorlari yashirin hujumlar uchun ishlatgan. O'rniga — PowerShell."
+queuedAt: "2026-08-18T13:44:00+05:00"
+updatedAt: "2026-08-18T16:20:00+05:00"
+category: "tech"
+tags: ["Microsoft", "Windows 11", "kiberxavfsizlik", "WMIC"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "Microsoft Learn — Release Preview Build 26100.9267/26200.9267 (KB5120998)"
+    url: "https://learn.microsoft.com/en-us/windows-insider/release-notes/release-preview-24h2-25h2/build-26100-9267-26200-9267"
+  - name: "Microsoft Learn — Windows 11 Insider Beta Preview Build 26220.9202"
+    url: "https://learn.microsoft.com/en-us/windows-insider/release-notes/beta/preview-build-26220-9202"
+  - name: "Microsoft Support — Windows Management Instrumentation Command-line (WMIC) removal from Windows"
+    url: "https://support.microsoft.com/en-us/topic/windows-management-instrumentation-command-line-wmic-removal-from-windows-e9e83c7f-4992-477f-ba1d-96f694b8665d"
+  - name: "BleepingComputer — Microsoft starts removing WMIC tool used by cybercriminals"
+    url: "https://www.bleepingcomputer.com/news/microsoft/microsoft-removes-wmic-lolbin-tool-in-windows-11-beta-builds/"
+image:
+  url: "/images/posts/2026-08/ms-wmic-removal-01.jpg"
+  alt: "Buyruqlar qatori chiqishi yashil matni bilan monitorning qorong'i ekrani yaqindan surati — WMIC vositasining ramziy tasviri"
+  credit: "Unsplash / Jake Walker"
+tgScore: 25
+broadcast: false
+mainChannelGate: massProductChange
+lang: "uz"
+translatedFrom: "ru"
+---
+
+Microsoft 2026-yil 14-avgustdan boshlab Windows 11'ning 24H2 va 25H2 versiyalaridan WMIC buyruqlar qatori vositasini olib tashlamoqda — bu eskirgan vositadan yillar davomida to'lov so'rovchi virus operatorlari va boshqa kiberjinoyatchilar foydalangan.
+
+WMIC (Windows Management Instrumentation Command-line — Windows boshqaruv vositalari buyruqlar qatori) — Windows tizimiga o'rnatilgan vosita bo'lib, u orqali matnli buyruqlar yordamida tizimni boshqarish va u haqida ma'lumot olish mumkin. Dastur Microsoftning o'zi tomonidan imzolangan, shuning uchun antiviruslar uni ko'pincha xavfsiz deb o'tkazib yuborgan, zararkunandalar esa yillar davomida WMIC'dan alohida dasturlar o'rnatmasdan zararli harakatlarni bajarish uchun foydalangan. Bunday vositalar LOLBin (living-off-the-land binary — "mavjud resurslar hisobiga yashovchi" vosita) deb ataladi: ular o'z-o'zicha qonuniy, ammo zararkunandalar qo'lida xavfli bo'ladi.
+
+O'zgarish Release Preview kanali uchun KB5120998 yangilanishi (26100.9267 va 26200.9267 sborkalari) izohlarida qayd etilgan. [Hujjatda ta'kidlanishicha](https://learn.microsoft.com/en-us/windows-insider/release-notes/release-preview-24h2-25h2/build-26100-9267-26200-9267): «2026-yil avgustidan boshlab Windows 11'ning 24H2 va 25H2 versiyalarida WMIC vositasi endi mavjud emas». Microsoftning aniqlashicha, WMIC ushbu versiyalarni yangidan o'rnatishda allaqachon standart bo'yicha olib tashlangan va endi qo'shimcha komponent (Feature on Demand) sifatida ham mavjud emas.
+
+Uch kundan so'ng, 17-avgustda, WMIC Windows 11 Insider Beta 26220.9202 sinov sborkasidan ham yo'qoldi. Microsoft unga oid izohlarda olib tashlash «WMIC'ni ekspluatatsiyadan chiqarish jarayonining davomi» ekanligini [ta'kidladi](https://learn.microsoft.com/en-us/windows-insider/release-notes/beta/preview-build-26220-9202).
+
+Vositaning asosida yotgan WMI (Windows Management Instrumentation — Windows boshqaruv vositalari) texnologiyasining o'zi dasturlar va administratorlarga tizim haqida ma'lumot olish imkonini beradi — u o'zgarishsiz qoladi. Faqat unga eskirgan buyruqlar qatori interfeysi olib tashlanmoqda. Buni Microsoft WMIC'ni olib tashlashga bag'ishlangan qo'llab-quvvatlash sahifasida alohida [tasdiqlaydi](https://support.microsoft.com/en-us/topic/windows-management-instrumentation-command-line-wmic-removal-from-windows-e9e83c7f-4992-477f-ba1d-96f694b8665d).
+
+## Zararkunandalar WMIC'dan qanday foydalangan
+
+[BleepingComputer](https://www.bleepingcomputer.com/news/microsoft/microsoft-removes-wmic-lolbin-tool-in-windows-11-beta-builds/) ma'lumotlariga ko'ra, to'lov so'rovchi dastur operatorlari Windows'dagi fayllarning soya nusxalarini o'chirish uchun WMIC'dan foydalangan. Bu qurbonni to'lov to'lamasdan shifrlangan ma'lumotlarni tiklash imkoniyatidan mahrum qiladi. Vosita, shuningdek, o'rnatilgan himoya yechimlarini aniqlash va o'chirish, Microsoft Defender antivirusiga istisnolar qo'shib, zararli fayllarni undan yashirish uchun ham ishlatilgan.
+
+Microsoftning o'zi vositani olib tashlashni «muhitning xavfsizligi va barqarorligini oshirish» istagi bilan izohlaydi — bu [qo'llab-quvvatlash sahifasida](https://support.microsoft.com/en-us/topic/windows-management-instrumentation-command-line-wmic-removal-from-windows-e9e83c7f-4992-477f-ba1d-96f694b8665d) shunday ta'riflangan. Shu yerda WMIC'ni ekspluatatsiyadan chiqarishning butun jarayoni tavsiflangan: vosita 2016-yildan boshlab bosqichma-bosqich o'chirib borilgan. 2024-yildan boshlab u Windows 11'ning 23H2 va 24H2 versiyalarida standart bo'yicha o'chirilgan bo'lib, alohida o'rnatiladigan komponent sifatida mavjud bo'lib qolgan.
+
+## Keyin nima bo'ladi
+
+O'sha [Microsoft qo'llab-quvvatlash sahifasi](https://support.microsoft.com/en-us/topic/windows-management-instrumentation-command-line-wmic-removal-from-windows-e9e83c7f-4992-477f-ba1d-96f694b8665d) ma'lumotlariga ko'ra, WMIC «Windows'ning navbatdagi yirik yangilanishida Windows 11'dan butunlay olib tashlanadi». Shundan keyin vositani hatto qo'shimcha komponent sifatida ham qaytarib bo'lmaydi. O'rniga kompaniya WMIC orqali hal qilinadigan vazifalar uchun PowerShell va boshqa zamonaviy vositalardan foydalanishni tavsiya qiladi.

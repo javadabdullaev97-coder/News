@@ -1,0 +1,45 @@
+---
+title: "Microsoft начала удалять из Windows 11 инструмент, которым пользуются хакеры"
+description: "Microsoft убирает из Windows 11 инструмент командной строки WMIC — годами его использовали вымогатели для скрытых атак. Взамен — PowerShell."
+queuedAt: "2026-08-18T13:44:00+05:00"
+updatedAt: "2026-08-18T16:20:00+05:00"
+category: "tech"
+tags: ["Microsoft", "Windows 11", "кибербезопасность", "WMIC"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "Microsoft Learn — Release Preview Build 26100.9267/26200.9267 (KB5120998)"
+    url: "https://learn.microsoft.com/en-us/windows-insider/release-notes/release-preview-24h2-25h2/build-26100-9267-26200-9267"
+  - name: "Microsoft Learn — Windows 11 Insider Beta Preview Build 26220.9202"
+    url: "https://learn.microsoft.com/en-us/windows-insider/release-notes/beta/preview-build-26220-9202"
+  - name: "Microsoft Support — Windows Management Instrumentation Command-line (WMIC) removal from Windows"
+    url: "https://support.microsoft.com/en-us/topic/windows-management-instrumentation-command-line-wmic-removal-from-windows-e9e83c7f-4992-477f-ba1d-96f694b8665d"
+  - name: "BleepingComputer — Microsoft starts removing WMIC tool used by cybercriminals"
+    url: "https://www.bleepingcomputer.com/news/microsoft/microsoft-removes-wmic-lolbin-tool-in-windows-11-beta-builds/"
+image:
+  url: "/images/posts/2026-08/ms-wmic-removal-01.jpg"
+  alt: "Крупный план тёмного экрана монитора с зелёным текстом вывода командной строки — символическое изображение утилиты WMIC"
+  credit: "Unsplash / Jake Walker"
+tgScore: 25
+broadcast: false
+mainChannelGate: massProductChange
+---
+
+Microsoft с 14 августа 2026 года убирает из Windows 11 версий 24H2 и 25H2 инструмент командной строки WMIC — устаревшую утилиту, которой годами пользовались вымогатели и другие киберпреступники.
+
+WMIC (Windows Management Instrumentation Command-line) — встроенный в Windows инструмент, через который можно текстовыми командами управлять системой и получать данные о ней. Программа подписана самой Microsoft, поэтому антивирусы часто пропускали её как безопасную, а злоумышленники годами применяли WMIC, чтобы выполнять вредоносные действия без установки отдельных программ. Такие инструменты называют LOLBin (living-off-the-land binary): они легитимны сами по себе, но опасны в руках злоумышленников.
+
+Изменение зафиксировано в примечаниях к обновлению KB5120998 (сборки 26100.9267 и 26200.9267) для канала Release Preview. [В документе говорится](https://learn.microsoft.com/en-us/windows-insider/release-notes/release-preview-24h2-25h2/build-26100-9267-26200-9267): «Начиная с августа 2026 года Windows 11 версий 24H2 и 25H2 больше не включают утилиту WMIC». WMIC уже удалена по умолчанию при новой установке этих версий и больше не доступна как дополнительный компонент (Feature on Demand), уточняет Microsoft.
+
+Тремя днями позже, 17 августа, WMIC исчез и из тестовой сборки Windows 11 Insider Beta 26220.9202. В примечаниях к ней Microsoft [указала](https://learn.microsoft.com/en-us/windows-insider/release-notes/beta/preview-build-26220-9202), что удаление «является частью продолжающегося вывода WMIC из эксплуатации».
+
+Сама технология WMI (Windows Management Instrumentation) лежит в основе утилиты и позволяет программам и администраторам получать данные о системе — она не пострадала. Убирают только устаревший интерфейс командной строки к ней. Это отдельно [подтверждает Microsoft](https://support.microsoft.com/en-us/topic/windows-management-instrumentation-command-line-wmic-removal-from-windows-e9e83c7f-4992-477f-ba1d-96f694b8665d) на странице поддержки, посвящённой удалению WMIC.
+
+## Как WMIC использовали злоумышленники
+
+По данным [BleepingComputer](https://www.bleepingcomputer.com/news/microsoft/microsoft-removes-wmic-lolbin-tool-in-windows-11-beta-builds/), операторы вымогательского ПО применяли WMIC для удаления теневых копий файлов в Windows. Это лишает жертву возможности восстановить данные после шифрования без выкупа. Инструмент также использовали, чтобы обнаруживать и удалять установленные защитные решения и добавлять исключения в антивирус Microsoft Defender, скрывая от него вредоносные файлы.
+
+Сама Microsoft объясняет удаление утилиты стремлением «повысить защищённость и устойчивость среды» — так сформулировано на [странице поддержки](https://support.microsoft.com/en-us/topic/windows-management-instrumentation-command-line-wmic-removal-from-windows-e9e83c7f-4992-477f-ba1d-96f694b8665d). Там же описан весь ход вывода WMIC из эксплуатации: инструмент отключали постепенно с 2016 года. С 2024 года он был выключен по умолчанию в Windows 11 версий 23H2 и 24H2, оставаясь доступным как отдельный устанавливаемый компонент.
+
+## Что дальше
+
+По данным той же [страницы поддержки Microsoft](https://support.microsoft.com/en-us/topic/windows-management-instrumentation-command-line-wmic-removal-from-windows-e9e83c7f-4992-477f-ba1d-96f694b8665d), WMIC «будет полностью удалён из Windows 11 в следующем крупном обновлении Windows». После этого утилиту не смогут добавить обратно даже как дополнительный компонент. Взамен компания рекомендует использовать PowerShell и другие современные инструменты для тех задач, которые раньше решались через WMIC.
