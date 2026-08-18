@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-18T18:09:00+05:00",
-  "topicsProcessed": 2,
-  "published": 0,
+  "lastRunAt": "2026-08-18T20:25:00+05:00",
+  "topicsProcessed": 8,
+  "published": 8,
   "queuedForOwner": 0,
-  "rejected": 2,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 45,
-  "notes": "Оба отбора этого прогона (openai-chatgpt-teens-13-17-launch, apple-app-store-commission-falls-epic-case) отклонены как дубли ПОСЛЕ editor'а, повторным topic-dupecheck.mjs перед bild — по прямой рекомендации из notes прошлого прогона (16:41). Сработало: поймали дубль openai-темы (уже вышла в 18:01 у параллельного прогона, другие вторичные источники — ссылочный claim при отборе совпадения не увидел) и дубль apple-темы (60% текста уже покрыто статьями 17.08 и сегодняшней 15:15). Рекомендация: gонять topic-dupecheck ещё раз сразу после editor'а стало общим правилом, а не разовым — стоит закрепить в спеке явно, не только в notes."
+  "belowThreshold": 39,
+  "notes": "Пропустила вызов bild для apple-att-prompt-changes-germany-eu на первом проходе (image.url остался null) — заметила и догнала шагом позже, до публикации в очередь. В content/posts/2026-08-18/ у apple-ai-model-china-alibaba и spacex-falcon9-turnaround-record (не мои темы, из другого прогона) найден хвост служебной разметки агента (</content>) в en/uz-версиях — i18n-lint помечает на каждом прогоне, но чинить не в мандате технологической планёрки."
 }
