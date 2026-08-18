@@ -1,0 +1,12 @@
+# Таблица цитат: ismoilov-world-champion-u20
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|---|---|---|
+| 1 | Исмоилов выиграл золото ЧМ U20 по греко-римской борьбе в весе 63 кг | https://t.me/minsportuz/90889 | «Xorazm o'g'loni Quvonchbek Ismoilov yunon-rum kurashi bo'yicha jahon chempionligini qo'lga kiritdi... Quvonchbek Ismoilov (63 kg) oltin medalni qo'lga kiritdi» (рус.: «Хорезмец Кувончбек Исмоилов завоевал звание чемпиона мира по греко-римской борьбе... Исмоилов (63 кг) завоевал золотую медаль») |
+| 2 | Турнир проходит в Братиславе, Словакия | https://t.me/minsportuz/90889 | «Slovakiyaning Bratislava shahrida bo'lib o'tayotgan sport kurashlari bo'yicha U20 jahon chempionatida» (рус.: «на чемпионате мира U20 по спортивной борьбе, который проходит в городе Братислава, Словакия») |
+| 3 | Счёт финала 9:7 | https://t.me/minsportuz/90889 | «Final bahsida Quvonchbek rossiyalik kurashchini 9:7 hisobida mag'lub etib» (рус.: «в финальном поединке Кувончбек победил российского борца со счётом 9:7») |
+| 4 | Соперник в финале — россиянин | https://t.me/OlympicUz/46326 | «rossiyalik Salim Karmaxov bilan bellashib, 9:7 hisobida g'alaba qozondi» (рус.: «встретился с россиянином Салимом Кармаховым и победил со счётом 9:7») |
+| 5 | Официальное написание фамилии соперника — Kazmakhov (Казмахов), категория 63 кг греко-римская борьба | https://uww.org/article/u20-world-championships-2026-entries | — прямой цитаты нет: сверено по официальному списку участников UWW (категория 63 кг, греко-римская борьба — Россия: Salim Kazmakhov, Узбекистан: Kuvonchbek Ismoilov) |
+| 6 | Президент UWW Ненад Лалович вручил Исмоилову чемпионский пояс | https://t.me/minsportuz/90890 | «Quvonchbek Ismoilovga Birlashgan kurash dunyosi (UWW) Prezidenti Nenad Lalovich tomonidan chempionlik kamari (World Championship Belt) tantanali ravishda topshirildi» (рус.: «Кувончбеку Исмоилову президент UWW Ненад Лалович торжественно вручил чемпионский пояс») |
+| 7 | Чемпионат мира U20 проходит в Братиславе с 16 по 23 августа | https://uww.org/article/u20-world-championships-2026-entries | «U20 World Wrestling Championships will be held in Bratislava, Slovakia from August 16 to 23» (рус.: «Чемпионат мира U20 по борьбе пройдёт в Братиславе, Словакия, с 16 по 23 августа») |
+| 8 | Минспорта сообщило о победе 18 августа | https://t.me/minsportuz/90889 | дата публикации поста в Telegram-канале — 18.08.2026 (метаданные канала) |
