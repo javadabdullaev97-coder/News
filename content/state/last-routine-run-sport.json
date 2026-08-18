@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-18T16:48:00+05:00",
+  "lastRunAt": "2026-08-18T17:27:00+05:00",
   "topicsProcessed": 1,
-  "published": 1,
+  "published": 0,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 1,
   "needsVerification": 0,
-  "belowThreshold": 43,
-  "notes": "Единственная тема прошла порог 40 (globalIcon 25 + topCompetition 15). Editor перефокусировал материал: абзац про Синнера пересекался с уже опубликованной сегодня 03:00 статьёй sinner-us-open-participation-doubt — сокращён и связан ссылкой на неё, фокус смещён на Алькараса и список из 9 отказов. TSN и Yahoo Sports не в config/news-sources.json — reporter нашла их сама; fact-checker и editor не возражали."
+  "belowThreshold": 59,
+  "notes": "Единственная прошедшая порог тема (Фьюри 18.08: «объявление боя с Джошуа скоро», спор о площадке) — дубль спора о площадке, уже дважды опубликованного 17.08 (uk-showdown-talks, cancel-risk) и уже отклонённого один раз сегодня (fury-joshua-saga). topic-dupecheck.mjs снова не поймал совпадение — второй раз подряд для этой саги, сравнение по ссылкам/заголовку не видит развивающийся сюжет с новыми URL каждый день."
 }
