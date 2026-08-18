@@ -216,3 +216,5 @@
 {"run":"2026-08-18T13:56","stage":"fact-checker","calls":1,"fetches":5,"minutes":4}
 {"run":"2026-08-18T13:56","stage":"editor","calls":1,"fetches":0,"minutes":5}
 {"run":"2026-08-18T14:00","stage":"fact-checker","calls":3,"fetches":20,"minutes":0}
+{"run":"2026-08-18T14:06","stage":"fact-checker","calls":2,"fetches":9,"minutes":8}
+{"run":"2026-08-18T14:06","stage":"editor","calls":3,"fetches":0,"minutes":15}
