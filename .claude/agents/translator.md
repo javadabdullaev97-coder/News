@@ -112,6 +112,21 @@ TRANSLATE_INPUT: {
   Так пишет и сам Нацкомстат в своих заголовках (`…8,5 foizga o'sdi`).
 - Программы: «Инициативный бюджет» → `«Tashabbusli byudjet»` — в узбекском
   это исходное название, а не перевод обратно.
+- **Спорт: падеж при глаголе исхода.** Самая частая ошибка машинного
+  перевода, владелец забраковал дважды 18.08.2026. Короткое правило —
+  `-dan` живёт только при `ustun keldi`:
+
+  | Смысл | Правильно | Неправильно |
+  |---|---|---|
+  | X победил Y | `X Yni mag'lub etdi` | |
+  | X сильнее Y | `X Ydan ustun keldi` | |
+  | победа над Y | `Y ustidan g'alaba qozondi`, `Yga qarshi g'alaba qozondi` | ❌ `Ydan g'alaba qozondi` |
+  | X проиграл Y | `X Yga yutqazdi`, `X Yga mag'lub bo'ldi` | ❌ `X Ydan yutqazdi` |
+  | со счётом | `0:3 hisobida`, `3:0 hisobi bilan` | |
+
+  Полный разбор с примерами из `championat.asia` —
+  `docs/terminology-glossary.md`, раздел про спорт. Проверяется машинно:
+  `node scripts/i18n-lint.mjs`.
 
 ### Английский
 

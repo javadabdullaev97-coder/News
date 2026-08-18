@@ -319,6 +319,88 @@ for (const m of miscategorised) {
   );
 }
 
+// ─── Падежи при глаголах исхода в спорте (узбекский) ───
+//
+// Правило владельца 18.08.2026 по двум заголовкам:
+//   «Bennning Garsiyadan g'alaba qozonishi» — «g'alaba qozonmoq» не управляет
+//   исходным падежом, нужно «Garsiya ustidan» или «Garsiyaga qarshi»;
+//   «"Siti" "Arsenal"dan 0:3 yutqazdi» — «yutqazmoq» требует дательного,
+//   нужно «"Arsenal"ga».
+//
+// Короткое правило: -dan живёт только при «ustun keldi». Разбор с примерами
+// живой практики — docs/terminology-glossary.md.
+//
+// Проверяется весь файл, а не только заголовок: ошибка одинаково вредна
+// в лиде и в теле. Автоматически НЕ чинится: правильная форма зависит от
+// того, кто подлежащее, и подставлять падеж вслепую нельзя.
+const UZ_CASE_RULES = [
+  {
+    // (?<!usti) — «ustidan g'alaba qozondi» и есть правильная форма, а она
+    // тоже оканчивается на -dan. Поймано на первом же прогоне проверки.
+    re: /[»"'’\p{L}]+(?<!usti)dan\s+g['’ʻ]alaba\s+qozon/giu,
+    hint: "«g'alaba qozonmoq» не берёт -dan: нужно «... ustidan g'alaba qozondi» или «...ga qarshi»",
+  },
+  {
+    re: /[»"'’\p{L}]+dan\s+\d+:\d+\s+yutqaz|[»"'’\p{L}]+dan\s+yutqaz/giu,
+    hint: "«yutqazmoq» требует дательного: «...ga yutqazdi»",
+  },
+  {
+    re: /[»"'’\p{L}]+dan\s+mag['’ʻ]lub\s+bo['’ʻ]l/giu,
+    hint: "«mag'lub bo'lmoq» требует дательного: «...ga mag'lub bo'ldi»",
+  },
+];
+const uzCaseErrors = [];
+for (const { path: file, lang } of files) {
+  if (lang !== "uz") continue;
+  const text = readFileSync(file, "utf8");
+  for (const rule of UZ_CASE_RULES) {
+    for (const m of text.matchAll(rule.re)) {
+      uzCaseErrors.push({ file: file.replace(ROOT + "/", ""), found: m[0].trim(), hint: rule.hint });
+    }
+  }
+}
+for (const e of uzCaseErrors) {
+  console.error(`✗ ${e.file}: «${e.found}» — ${e.hint}`);
+}
+
+// ─── Название издания в заголовке ───
+//
+// «Выручка Anthropic перед IPO выросла до 65 млрд долларов — Bloomberg»,
+// «Синнер сыграет на US Open только при полном восстановлении — Gazzetta».
+// Правило владельца 18.08.2026: читателю важно, что произошло; кто сообщил —
+// работа лида, а не витрины. Атрибуция при этом не отменяется, но делается
+// оборотом («по сведениям изданий»), а не приклеенным через тире брендом.
+//
+// Список закрытый и по названиям, а не по шаблону «тире + заглавное слово»:
+// иначе под правило попадут законные хвосты вроде «— Boeing 747 и A350»
+// или «— 123 статьи». Появилось новое издание в хвосте — добавь сюда.
+const OUTLET_BRANDS = [
+  "Bloomberg", "Reuters", "Gazzetta", "Marca", "AP", "AFP", "BBC", "CNN",
+  "Guardian", "The Guardian", "FT", "Financial Times", "WSJ", "Nikkei",
+  "SCMP", "Politico", "Axios", "TechCrunch", "The Information", "The Verge",
+  "Forbes", "Sky Sports", "ESPN", "Interfax", "Интерфакс", "РИА", "ТАСС",
+  "Коммерсантъ", "Ведомости", "Sports.ru", "Tennis365", "BoxingScene",
+  "Al Jazeera", "Associated Press", "Financial Post", "Business Insider",
+];
+const outletTail = new RegExp(
+  `[—–-]\\s*(?:${OUTLET_BRANDS.map((b) => b.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})\\s*$`,
+  "i",
+);
+const brandedTitles = [];
+for (const { path: file } of files) {
+  const head = readFileSync(file, "utf8").split(/\n---/, 1)[0];
+  const title = (head.match(/^title:\s*"(.*)"\s*$/m) ?? [])[1];
+  if (title && outletTail.test(title)) {
+    brandedTitles.push({ file: file.replace(ROOT + "/", ""), title });
+  }
+}
+for (const t of brandedTitles) {
+  console.error(
+    `✗ ${t.file}: название издания в заголовке — «${t.title}». Источник называем в лиде, ` +
+      "а недостоверность понижаем оборотом, а не брендом через тире",
+  );
+}
+
 // ─── Перевод без картинки, когда у оригинала она есть ───
 //
 // Переводчик копирует блок image из русского файла тем, каким тот был
@@ -351,8 +433,8 @@ for (const l of leaks) {
 }
 console.error(
   fix
-    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}, рубрика мимо ${miscategorised.length}, переводов без картинки ${imagelessTranslations.length}`
-    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}, рубрика мимо ${miscategorised.length}, переводов без картинки ${imagelessTranslations.length}`,
+    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}, рубрика мимо ${miscategorised.length}, переводов без картинки ${imagelessTranslations.length}, издание в заголовке ${brandedTitles.length}, падежи в спорте ${uzCaseErrors.length}`
+    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}, рубрика мимо ${miscategorised.length}, переводов без картинки ${imagelessTranslations.length}, издание в заголовке ${brandedTitles.length}, падежи в спорте ${uzCaseErrors.length}`,
 );
 // Утечка разметки — ошибка всегда, даже в режиме --fix: чинить её
 // автоматически нельзя, а выпускать материал с ней нельзя тем более.
@@ -363,6 +445,8 @@ process.exit(
   dateProblems.length ||
   miscategorised.length ||
   imagelessTranslations.length ||
+  brandedTitles.length ||
+  uzCaseErrors.length ||
   (!fix && findings.length)
     ? 1
     : 0,
