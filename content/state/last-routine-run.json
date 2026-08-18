@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T15:14:00+05:00",
+  "lastRunAt": "2026-08-18T16:04:00+05:00",
   "mode": "main",
-  "topicsProcessed": 5,
-  "published": 4,
+  "topicsProcessed": 2,
+  "published": 1,
   "queuedForOwner": 0,
   "rejected": 1,
   "needsVerification": 0,
-  "belowThreshold": 175,
+  "belowThreshold": 153,
   "rework": 0,
-  "notes": "constitutional-law-presidential-administration отклонена как дубль content/posts/2026-08-14/admin-president-constitutional-law.mdx — topic-dupecheck.mjs вернул clear (окно 3 суток, публикация была на день за его пределами). Обнаружено вручную на шаге перевода. См. content/rejected/*.reason.txt. Рекомендация: расширить окно сверки для politics/law либо сверять по номеру акта отдельно от давности."
+  "notes": "biz-reform-speech-aug18 отклонена как дубль: параллельная планёрка уже покрыла VI диалог президента с предпринимателями (Хива, 18.08) серией статей (president-entrepreneurs-day-khorazm-dialogue и ещё 7 материалов) раньше, чем наш черновик дошёл до очереди. topic-dupecheck на момент claim вернул clear — наборы первичных ссылок не пересекались (разные Telegram-каналы одного события). Второй такой инцидент за день (см. запись от 15:14) — рекомендация: dupecheck по overlap заголовка/сущностей, не только по ссылкам."
 }
