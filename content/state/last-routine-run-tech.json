@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-18T16:12:00+05:00",
-  "topicsProcessed": 5,
-  "published": 3,
+  "lastRunAt": "2026-08-18T16:41:00+05:00",
+  "topicsProcessed": 6,
+  "published": 4,
   "queuedForOwner": 0,
-  "rejected": 1,
-  "needsVerification": 1,
-  "belowThreshold": 37,
-  "notes": "Тема meta-child-safety-trial-29-states (иск 29 штатов США к Meta) оказалась дублем: параллельный прогон запушил meta-federal-trial-child-safety-oakland в content/queue/ ПОСЛЕ моей брони темы, но ДО того как я дошла до копирования в queue — topic-dupecheck на момент отбора (с синхронизацией origin/main перед отбором, как предписано) совпадения не нашёл, т.к. matchedByLink сравнивает точные URL, а источники не пересеклись. Обнаружено вручную перед i18n-lint, вся цепочка (fact-check/editor/bild) уже была пройдена — отклонено в content/rejected/ с reason.txt. Это третий подряд случай такого рода (см. notes прошлого прогона) — тема правда системная, нужна фикс на уровне dupecheck/блокировок между параллельными планёрками, не разовая правка. Xiaomi (xiaomi-profit-memory-crunch) — в needs-verification: ir.mi.com отдавал 503 весь прогон, точный HKEXnews PDF за Q2 2026 не нашёлся."
+  "rejected": 2,
+  "needsVerification": 0,
+  "belowThreshold": 48,
+  "notes": "apple-spyware-alerts-110-countries отклонена как дубликат уже опубликованной сегодня apple-spyware-alert-2026-08 — обнаружено случайно на стадии bild (совпадение контрольной суммы картинки), не topic-dupecheck при отборе. Причина: на входе в инбоксе была только вторичная ссылка habr.com, а настоящий первоисточник (techcrunch.com) reporter нашёл уже в процессе research — dupecheck по нему не перепроверялся. Третий подряд прогон с похожим классом пропуска (см. notes 16:12) — на этот раз не гонка параллельных планёрок, а смена ссылки в процессе работы. Стоит гонять topic-dupecheck повторно после того как reporter нашёл реальный источник, не только один раз на этапе отбора по инбокс-сниппету. apple-app-store-antitrust-services-growth отклонена по существу — fact-checker показал, что центральный тезис заголовка (антимонопольные ограничения тормозят рост Services) прямо противоречит MD&A того же SEC-filing, на который ссылалась статья."
 }
