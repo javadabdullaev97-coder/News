@@ -220,3 +220,4 @@
 {"run":"2026-08-18T14:06","stage":"editor","calls":3,"fetches":0,"minutes":15}
 {"run":"2026-08-18T14:07","stage":"fact-checker","calls":5,"fetches":40,"minutes":0}
 {"run":"2026-08-18T14:07","stage":"editor","calls":6,"fetches":0,"minutes":0}
+{"run":"2026-08-18T14:10","stage":"bild","calls":3,"fetches":0,"minutes":12}
