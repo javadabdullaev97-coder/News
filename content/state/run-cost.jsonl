@@ -150,3 +150,4 @@
 {"run":"2026-08-18T10:46","stage":"reporter","calls":5,"fetches":0,"minutes":0}
 {"run":"2026-08-18T10:56","stage":"reporter","calls":5,"fetches":92,"minutes":9}
 {"run":"2026-08-18T10:56","stage":"fact-checker","calls":4,"fetches":0,"minutes":0}
+{"run":"2026-08-18T11:01","stage":"fact-checker","calls":4,"fetches":40,"minutes":8}
