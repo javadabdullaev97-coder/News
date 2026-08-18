@@ -457,3 +457,12 @@
 {"ev":"fetched","at":"2026-08-18T01:51:31.897Z","link":"https://www.gazeta.uz/ru/2026/08/17/money-transfers/","status":"200","found":5}
 {"ev":"fetched","at":"2026-08-18T01:51:31.897Z","link":"https://www.gazeta.uz/ru/2026/08/17/weather/","status":"200","found":1}
 {"ev":"fetched","at":"2026-08-18T01:51:31.897Z","link":"https://nuz.uz/2026/08/17/mikrofinansovye-banki-uzbekistana-priravnyali-k-kommercheskim-po-depozitnym-stavkam/","status":"200","found":55}
+{"ev":"seen","domain":"payme.uz","at":"2026-08-18T02:21:06.968Z","url":"https://payme.uz/fallback/tez-qr/?step=bnpl-landing&lang=uz","foundIn":"https://kun.uz/news/2026/08/17/2026-yilda-toshkentda-bolani-maktabga-tayyorlash-qanchaga-tushadi","sourceId":"kun-uz","context":"xaridni 3 oy muddatga bo‘lib to‘lashga rasmiylashtirish;"}
+{"ev":"fetched","at":"2026-08-18T02:21:06.968Z","link":"https://kun.uz/news/2026/08/17/xotin-qizlar-uchun-imtiyozli-kvota-boyicha-otish-ballari-oshdi","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-18T02:21:06.968Z","link":"https://kun.uz/news/2026/08/17/ozbekistonda-mobil-telefon-importi-keskin-oshdi","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-18T02:21:06.968Z","link":"https://kun.uz/news/2026/08/17/hafta-davomida-ayrim-joylarda-yomgir-yogishi-kutilmoqda","status":"200","found":0}
+{"ev":"fetched","at":"2026-08-18T02:21:06.968Z","link":"https://kun.uz/news/2026/08/17/elektr-tarmogiga-ozboshimchalik-bilan-ulanish-holatlari-fosh-etildi","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-18T02:21:06.968Z","link":"https://kun.uz/news/2026/08/17/yevropada-ormon-yonginlari-avj-oldi-qurbonlar-bor","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-18T02:21:06.968Z","link":"https://kun.uz/news/2026/08/17/2026-yilda-toshkentda-bolani-maktabga-tayyorlash-qanchaga-tushadi","status":"200","found":3}
+{"ev":"fetched","at":"2026-08-18T02:21:06.969Z","link":"https://kun.uz/news/2026/08/17/liftlar-har-oy-texnik-xizmatdan-otkaziladi","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-18T02:21:06.969Z","link":"https://kun.uz/news/2026/08/17/viza-va-ish-vadasi-bilan-pul-olgan-shaxslar-qolga-tushdi","status":"200","found":1}
