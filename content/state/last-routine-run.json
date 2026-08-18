@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T17:16:00+05:00",
+  "lastRunAt": "2026-08-18T18:16:00+05:00",
   "mode": "main",
-  "topicsProcessed": 3,
-  "published": 1,
-  "queuedForOwner": 1,
-  "rejected": 0,
+  "topicsProcessed": 4,
+  "published": 2,
+  "queuedForOwner": 0,
+  "rejected": 2,
   "needsVerification": 0,
-  "belowThreshold": 210,
+  "belowThreshold": 103,
   "rework": 0,
-  "notes": "hotels-tax-break-2030-vat отклонена reporter'ом до драфта: подтверждено первоисточником (president.uz/ru/lists/view/9511), что это фрагмент того же VI диалога в Хиве 18.08, который уже покрыт параллельной планёркой (biz-support-measures и др.) — отдельного акта на lex.uz нет. us-state-dept-fiscal-transparency-uzbekistan ушла в needs-verification: первоисточник (state.gov) отдаёт только og:image-заглушки, AI-генерация недоступна в сессии — ждёт фото от владельца."
+  "notes": "Две из четырёх отобранных тем — дубли: world-iran-hormuz-trump-oman (то же событие, что и опубликованный сегодня us-iran-mou-expires-ground-ops) и digital-gov-supercomputer-2027 (тот же факт уже в очереди в business-ai-subsidy-ipo-acceleration) — обе найдены после reporter'а формальным topic-dupecheck.mjs, не дупчеком на этапе отбора (заголовки не совпадали текстуально). admission-results-209k опубликован напрямую (confidence фактчека 78% ≥ 70), хотя значительная часть цифр подана по правилу §10 (uzbmb.uz отдаёт 503) — фактчек вызван вручную поверх skip=true от гейта, так как §10-хедж требует проверки, которую механический гейт не видит."
 }
