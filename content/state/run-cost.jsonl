@@ -101,3 +101,9 @@
 {"run":"2026-08-18T08:07","stage":"bild","calls":1,"fetches":0,"minutes":7}
 {"run":"2026-08-18T08:07","stage":"translator","calls":1,"fetches":0,"minutes":2}
 {"run":"2026-08-18T08:09","stage":"editor","calls":2,"fetches":0,"minutes":7}
+{"run":"2026-08-18T08:11","stage":"reporter","calls":2,"fetches":14,"minutes":9}
+{"run":"2026-08-18T08:11","stage":"fact-checker","calls":1,"fetches":2,"minutes":3}
+{"run":"2026-08-18T08:11","stage":"editor","calls":1,"fetches":0,"minutes":4}
+{"run":"2026-08-18T08:11","stage":"bild","calls":1,"fetches":0,"minutes":5}
+{"run":"2026-08-18T08:11","stage":"translator","calls":1,"fetches":0,"minutes":2}
+{"run":"2026-08-18T08:11","topics":3,"published":2,"skippedFactcheck":0,"skippedBild":0}
