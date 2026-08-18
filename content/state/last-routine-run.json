@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T16:04:00+05:00",
+  "lastRunAt": "2026-08-18T17:16:00+05:00",
   "mode": "main",
-  "topicsProcessed": 2,
+  "topicsProcessed": 3,
   "published": 1,
-  "queuedForOwner": 0,
-  "rejected": 1,
+  "queuedForOwner": 1,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 153,
+  "belowThreshold": 210,
   "rework": 0,
-  "notes": "biz-reform-speech-aug18 отклонена как дубль: параллельная планёрка уже покрыла VI диалог президента с предпринимателями (Хива, 18.08) серией статей (president-entrepreneurs-day-khorazm-dialogue и ещё 7 материалов) раньше, чем наш черновик дошёл до очереди. topic-dupecheck на момент claim вернул clear — наборы первичных ссылок не пересекались (разные Telegram-каналы одного события). Второй такой инцидент за день (см. запись от 15:14) — рекомендация: dupecheck по overlap заголовка/сущностей, не только по ссылкам."
+  "notes": "hotels-tax-break-2030-vat отклонена reporter'ом до драфта: подтверждено первоисточником (president.uz/ru/lists/view/9511), что это фрагмент того же VI диалога в Хиве 18.08, который уже покрыт параллельной планёркой (biz-support-measures и др.) — отдельного акта на lex.uz нет. us-state-dept-fiscal-transparency-uzbekistan ушла в needs-verification: первоисточник (state.gov) отдаёт только og:image-заглушки, AI-генерация недоступна в сессии — ждёт фото от владельца."
 }
