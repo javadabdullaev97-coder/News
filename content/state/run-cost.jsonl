@@ -169,3 +169,4 @@
 {"run":"2026-08-18T11:18","stage":"reporter","calls":1,"fetches":0,"minutes":0}
 {"run":"2026-08-18T11:30","stage":"fact-checker","calls":1,"fetches":0,"minutes":0}
 {"run":"2026-08-18T11:34","stage":"editor","calls":1,"fetches":0,"minutes":0}
+{"run":"2026-08-18T11:40","stage":"bild","calls":1,"fetches":0,"minutes":0}
