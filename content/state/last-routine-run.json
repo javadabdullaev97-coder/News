@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T10:06:00+05:00",
+  "lastRunAt": "2026-08-18T11:10:00+05:00",
   "mode": "main",
-  "topicsProcessed": 1,
-  "published": 0,
+  "topicsProcessed": 5,
+  "published": 5,
   "queuedForOwner": 0,
   "rejected": 0,
-  "needsVerification": 0,
-  "belowThreshold": 172,
+  "needsVerification": 2,
+  "belowThreshold": 68,
   "rework": 0,
-  "notes": "node_modules отсутствовал полностью на старте сессии (0 пакетов) — npm install потребовался, иначе claims-lint/factcheck-gate/i18n-lint падали на 'yaml' not found. Единственная отобранная тема (Хорезм, $176 млн/$7,4 млрд) прошла весь цикл до перевода и оказалась дублем более раннего прогона (queue/khorezm-projects-176m-742bn-launch, queuedAt 01:12) — совпадение вскрылось только по president.uz/9506, которую reporter нашёл сам; исходный inbox-дупчек по ссылкам инбокса дубль не поймал, т.к. у раннего прогона другой номер поста @shmirziyoyev. Свой драфт/картинку/переводы не публиковали, журнал закрыт. needs-verification: 2 карточки перепроверены (bus-fare-fines, mfo-deposit-rate), первоисточник не нашёлся, recheckAt перенесён на 21.08."
+  "notes": "Все 5 отобранных тем прошли цикл целиком и опубликованы в очередь (trade-deficit-h1-2026, business-requirements-registry, urgench-khiva-toll-road, ismoilov-world-champion-u20, colombia-earthquake-2026 — мировая линия). reporter систематически ставил publishedAt/updatedAt в драфт — снимала сама, до передачи дальше по цепочке. Write-инструмент у reporter'ов блокирует любой путь с подстрокой 'report' в имени файла — reporter-notes ни разу не записались агентом, восстанавливала вручную по содержимому из финального ответа. needs-verification: 2 карточки перепроверены (tashkent-intercept-parking, uzbekneftegaz-exhead-testimony) — источник не первоисточник/дело закрыто для прессы, recheckAt перенесён."
 }
