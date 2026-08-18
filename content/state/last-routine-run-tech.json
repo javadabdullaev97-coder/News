@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-18T12:17:00+05:00",
-  "topicsProcessed": 4,
-  "published": 4,
+  "lastRunAt": "2026-08-18T13:11:00+05:00",
+  "topicsProcessed": 3,
+  "published": 2,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 1,
   "needsVerification": 0,
-  "belowThreshold": 127,
-  "notes": "Два кандидата из отобранных изначально (Nvidia–OpenAI $105 млрд, Stripe/OpenRouter $7 млрд) оказались дублями уже опубликованных материалов конкурентного прогона — обнаружено на topic-dupecheck до брони, заменены на google-spirit-airlines-data и продолжение отбора. Инструмент Write у reporter/fact-checker/bild систематически блокирует файлы с 'reporter-notes-'/'report' в имени — notes/fact-check сохранялись оркестратором вручную из текста ответа агента по каждой из 4 тем."
+  "belowThreshold": 9,
+  "notes": "node_modules отсутствовал в свежем клоне — claims-lint падал на ERR_MODULE_NOT_FOUND 'yaml', пришлось npm install перед первым claims-lint. Write у reporter/fact-checker/bild снова блокирует файлы с подстрокой 'report' в имени (в т.ч. внутри 'repoRTer') — notes сохранялись под 'notes-<slug>.md', fact-check оркестратор писал сам из текста ответа агента."
 }
