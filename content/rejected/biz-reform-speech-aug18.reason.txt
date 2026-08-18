@@ -1,0 +1,35 @@
+Отклонено планёркой (прогон 1042-10287, обнаружено 18.08.2026 ~19:20 Ташкента).
+
+Причина: дубль темы. Concurrent-планёрка уже покрыла VI открытый диалог
+президента с предпринимателями (Хива, 18.08.2026) целой серией материалов,
+опубликованных/поставленных в очередь ДО того, как этот черновик дошёл до
+готовности:
+
+- content/posts/2026-08-18/president-entrepreneurs-day-khorazm-dialogue.mdx
+- content/posts/2026-08-18/moratorium-business-inspections.mdx
+- content/posts/2026-08-18/business-advance-payment-utilities-cut.mdx
+- content/posts/2026-08-18/business-requirements-registry.mdx
+- content/queue/biz-support-measures.mdx
+- content/queue/silence-consent-state-services.mdx
+- content/queue/minjust-business-regulations-aug18.mdx
+- content/queue/business-ai-subsidy-ipo-acceleration.mdx
+- content/queue/business-land-auction-state-assets-deregulation.mdx
+
+topic-dupecheck.mjs на момент claim (18.08 ~15:42) вернул clear — конкурентная
+планёрка ещё не успела запушить свой контент, и наши наборы первичных ссылок
+не пересекались (мы шли от president.uz/ru/lists/view/9511 + Mintrans_uz +
+napp_uz, они — от Press_Secretary_Uz + biznes_ombudsman). Классический случай
+двух параллельных планёрок на одну тему; журнал тем по хэшам ссылок этого
+не поймал, потому что ссылки не совпадали буквально.
+
+Материал полностью прошёл reporter → factcheck-gate(skip) → editor (publish,
+confidence 92) и был на стадии bild, когда коллизия обнаружилась при попытке
+положить файл в content/queue/ (bild ещё писал файл, туда же уже легли чужие
+material с тем же событием). Останавливаем здесь — публиковать вторую версию
+той же новости читателю не нужно.
+
+Рекомендация в notes: расширить topic-dupecheck.mjs так, чтобы при высоком
+overlap по заголовку/сущностям (не только по ссылкам) он ловил такие случаи
+даже при разных первичных ссылках — это уже второй такой инцидент в
+last-routine-run.json (constitutional-law-presidential-administration ранее
+сегодня).
