@@ -65,3 +65,9 @@
 {"run":"2026-08-18T03:41","topics":0,"published":0,"skippedFactcheck":0,"skippedBild":0}
 {"run":"2026-08-18T04:54","stage":"reporter","calls":2,"fetches":31,"minutes":10}
 {"run":"2026-08-18T05:06","topics":1,"published":0,"skippedFactcheck":1,"skippedBild":0}
+{"run":"2026-08-18T06:10","stage":"reporter","calls":7,"fetches":120,"minutes":59}
+{"run":"2026-08-18T06:10","stage":"fact-checker","calls":3,"fetches":5,"minutes":9}
+{"run":"2026-08-18T06:10","stage":"editor","calls":5,"fetches":0,"minutes":20}
+{"run":"2026-08-18T06:10","stage":"bild","calls":4,"fetches":0,"minutes":18}
+{"run":"2026-08-18T06:10","stage":"translator","calls":5,"fetches":0,"minutes":8}
+{"run":"2026-08-18T06:10","topics":7,"published":5,"skippedFactcheck":2,"skippedBild":1}
