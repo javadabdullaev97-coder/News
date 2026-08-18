@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-18T02:37:00+05:00",
+  "lastRunAt": "2026-08-18T12:58:00+05:00",
   "topicsProcessed": 1,
   "published": 1,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 113,
-  "notes": "cbs-sports-soccer бэклог-аномалия (Salah/Trabzonspor, Vinicius contract, Diomande $155M, Jorge Messi — pubDate 05-09.08 при свежем fetchedAt) сохраняется пятый прогон подряд, всё ниже порога по staleNoNewStage. Родри (Ман Сити → Барселона, медосмотр 17.08, ~$80M) сегодня фактически завершил переход — снова не хватило имени в named-actors (20 transferWithFee без бонуса), как и в прошлом прогоне."
+  "belowThreshold": 167,
+  "notes": "Тема Махачев/UFC330 после reporter+fact-check оказалась частичным дублем: соседняя сессия параллельно опубликовала content/posts/2026-08-17/makhachev-welterweight-record-ufc330.mdx (сам бой/рекорд) и поставила в очередь makhachev-two-belts-holloway-criticism.mdx (два пояса/Холлоуэй) — topic-dupecheck дубль не поймал (разные заголовки/ссылки), нашёл вручную через bild-заметку про повтор промо-постера. Editor перекроил черновик на неперекрывающийся фокус (Мендес/Макгрегор/Пратес, что дальше) и переопубликовал повторным фактчеком. Вывод: при высокочастотных спортивных сюжетах (несколько статей об одном событии в разных сессиях) dupecheck по заголовкам/ссылкам недостаточен, нужна проверка по факту содержания перед queue."
 }
