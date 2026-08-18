@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T11:10:00+05:00",
+  "lastRunAt": "2026-08-18T12:08:00+05:00",
   "mode": "main",
-  "topicsProcessed": 5,
-  "published": 5,
+  "topicsProcessed": 2,
+  "published": 2,
   "queuedForOwner": 0,
   "rejected": 0,
-  "needsVerification": 2,
-  "belowThreshold": 68,
+  "needsVerification": 0,
+  "belowThreshold": 83,
   "rework": 0,
-  "notes": "Все 5 отобранных тем прошли цикл целиком и опубликованы в очередь (trade-deficit-h1-2026, business-requirements-registry, urgench-khiva-toll-road, ismoilov-world-champion-u20, colombia-earthquake-2026 — мировая линия). reporter систематически ставил publishedAt/updatedAt в драфт — снимала сама, до передачи дальше по цепочке. Write-инструмент у reporter'ов блокирует любой путь с подстрокой 'report' в имени файла — reporter-notes ни разу не записались агентом, восстанавливала вручную по содержимому из финального ответа. needs-verification: 2 карточки перепроверены (tashkent-intercept-parking, uzbekneftegaz-exhead-testimony) — источник не первоисточник/дело закрыто для прессы, recheckAt перенесён."
+  "notes": "2 темы прошли цикл целиком и опубликованы в очередь (president-entrepreneurs-day-khorazm-dialogue, minjust-business-regulations-aug18). Мировая линия — 0 тем (проверены все 326 кандидатов, ни один не прошёл tiers/ruUaHighBar). factcheck-gate пропустил тему minjust (1 происхождение, P0), для темы диалога понадобился полный фактчек (5 происхождений). Write-инструмент у reporter'ов по-прежнему блокирует пути с подстрокой 'report' — notes сохраняла вручную из инлайн-ответа агента (то же самое было в прошлом прогоне). node_modules не было установлено в свежем клоне — потребовался npm install перед claims-lint/factcheck-gate."
 }
