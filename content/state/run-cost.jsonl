@@ -228,3 +228,4 @@
 {"run":"2026-08-18T14:22","stage":"editor","calls":2,"fetches":0,"minutes":0}
 {"run":"2026-08-18T14:22","stage":"bild","calls":8,"fetches":0,"minutes":0}
 {"run":"2026-08-18T14:22","stage":"translator","calls":7,"fetches":0,"minutes":0}
+{"run":"2026-08-18T14:25","stage":"fact-checker","calls":1,"fetches":0,"minutes":0}
