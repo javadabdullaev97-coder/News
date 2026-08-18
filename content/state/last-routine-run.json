@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T12:08:00+05:00",
+  "lastRunAt": "2026-08-18T13:21:00+05:00",
   "mode": "main",
-  "topicsProcessed": 2,
+  "topicsProcessed": 3,
   "published": 2,
   "queuedForOwner": 0,
   "rejected": 0,
-  "needsVerification": 0,
-  "belowThreshold": 83,
+  "needsVerification": 1,
+  "belowThreshold": 717,
   "rework": 0,
-  "notes": "2 темы прошли цикл целиком и опубликованы в очередь (president-entrepreneurs-day-khorazm-dialogue, minjust-business-regulations-aug18). Мировая линия — 0 тем (проверены все 326 кандидатов, ни один не прошёл tiers/ruUaHighBar). factcheck-gate пропустил тему minjust (1 происхождение, P0), для темы диалога понадобился полный фактчек (5 происхождений). Write-инструмент у reporter'ов по-прежнему блокирует пути с подстрокой 'report' — notes сохраняла вручную из инлайн-ответа агента (то же самое было в прошлом прогоне). node_modules не было установлено в свежем клоне — потребовался npm install перед claims-lint/factcheck-gate."
+  "notes": "Баланс кредитов Higgsfield = 0 — AI-генерация картинок недоступна (bild ушёл в fallback на сток). Пополнить. Инвестфорум Сурхандарья-Китай: конкуренты дают 63/$6,25 млрд vs 95/$10 млрд, официальный источник не открылся (surxondaryo.uz — 503); рекомендую завести @InvestinUzb и invest.gov.uz в каталог источников — их там нет."
 }
