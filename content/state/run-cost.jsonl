@@ -180,3 +180,6 @@
 {"run":"2026-08-18T12:01","stage":"fact-checker","calls":1,"fetches":1,"minutes":4}
 {"run":"2026-08-18T12:05","stage":"bild","calls":1,"fetches":0,"minutes":1}
 {"run":"2026-08-18T12:06","stage":"bild","calls":1,"fetches":0,"minutes":1}
+{"run":"2026-08-18T12:09","stage":"editor","calls":1,"fetches":0,"minutes":5}
+{"run":"2026-08-18T12:09","stage":"bild","calls":1,"fetches":0,"minutes":4}
+{"run":"2026-08-18T12:09","stage":"translator","calls":1,"fetches":0,"minutes":3}
