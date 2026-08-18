@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T13:21:00+05:00",
+  "lastRunAt": "2026-08-18T14:15:00+05:00",
   "mode": "main",
   "topicsProcessed": 3,
-  "published": 2,
+  "published": 3,
   "queuedForOwner": 0,
   "rejected": 0,
-  "needsVerification": 1,
-  "belowThreshold": 717,
+  "needsVerification": 0,
+  "belowThreshold": 162,
   "rework": 0,
-  "notes": "Баланс кредитов Higgsfield = 0 — AI-генерация картинок недоступна (bild ушёл в fallback на сток). Пополнить. Инвестфорум Сурхандарья-Китай: конкуренты дают 63/$6,25 млрд vs 95/$10 млрд, официальный источник не открылся (surxondaryo.uz — 503); рекомендую завести @InvestinUzb и invest.gov.uz в каталог источников — их там нет."
+  "notes": "Все 3 темы — блоки президентского пакета мер для бизнеса (VI открытый диалог, 18.08). Первоисточник по всем трём — @Press_Secretary_Uz (пресс-секретарь президента), не занесён в config/telegram-channels.json как type:source, хотя 3 независимых fact-checker'а подтвердили официальный статус (verified, self-declared, конкуренты сами на него ссылаются). Рекомендация: добавить канал в каталог. Также вычищен хвост служебной разметки (</content>) в уже опубликованных samsung-humanoid-lab.{en,uz}.mdx — блокировал сборку этих переводов."
 }
