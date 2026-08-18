@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T18:16:00+05:00",
+  "lastRunAt": "2026-08-18T18:54:00+05:00",
   "mode": "main",
   "topicsProcessed": 4,
   "published": 2,
-  "queuedForOwner": 0,
-  "rejected": 2,
+  "queuedForOwner": 1,
+  "rejected": 1,
   "needsVerification": 0,
-  "belowThreshold": 103,
+  "belowThreshold": 81,
   "rework": 0,
-  "notes": "Две из четырёх отобранных тем — дубли: world-iran-hormuz-trump-oman (то же событие, что и опубликованный сегодня us-iran-mou-expires-ground-ops) и digital-gov-supercomputer-2027 (тот же факт уже в очереди в business-ai-subsidy-ipo-acceleration) — обе найдены после reporter'а формальным topic-dupecheck.mjs, не дупчеком на этапе отбора (заголовки не совпадали текстуально). admission-results-209k опубликован напрямую (confidence фактчека 78% ≥ 70), хотя значительная часть цифр подана по правилу §10 (uzbmb.uz отдаёт 503) — фактчек вызван вручную поверх skip=true от гейта, так как §10-хедж требует проверки, которую механический гейт не видит."
+  "notes": "toll-road-urganch-khiva отклонена как дубль — конкурентная планёрка опубликовала ту же тему между claim'ом и reporter'ом, topic-dupecheck на этапе отбора её не увидел (ещё не существовала). Бильд-субагент не имеет доступа к MCP/Higgsfield в этой сессии — на wrestler-ismoilov сработал только no-image fallback, хотя правило предполагает генерацию как гарантированный запасной путь; стоит проверить tools: у .claude/agents/bild.md. Свежий клон требовал npm install (пакет yaml отсутствовал) до первого запуска claims-lint.mjs."
 }
