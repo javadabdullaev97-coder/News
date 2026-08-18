@@ -821,3 +821,4 @@
 {"ev":"offset","at":"2026-08-17T13:10:13.621Z","value":273157633}
 {"ev":"ask","at":"2026-08-18T10:09:05.659Z","item":{"slug":"business-advance-payment-utilities-cut","title":"Мирзиёев анонсировал снижение аванса за газ и электричество до 15% для бизнеса","kind":"revocable","reason":"source-doubt","messageId":1018,"askedAt":"2026-08-18T10:09:05.659Z"}}
 {"ev":"ask","at":"2026-08-18T11:00:00.301Z","item":{"slug":"moratorium-business-inspections","title":"Мирзиёев анонсировал трёхлетний мораторий на проверки малого бизнеса","kind":"revocable","reason":"source-doubt","messageId":1020,"askedAt":"2026-08-18T11:00:00.301Z"}}
+{"ev":"ask","at":"2026-08-18T12:12:54.365Z","item":{"slug":"us-state-dept-fiscal-transparency-uzbekistan","title":"Госдеп США: Узбекистан не выполнил требования фискальной прозрачности","kind":"revocable","reason":"policy-edge","messageId":1021,"askedAt":"2026-08-18T12:12:54.365Z"}}
