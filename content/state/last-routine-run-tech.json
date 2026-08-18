@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-18T13:11:00+05:00",
-  "topicsProcessed": 3,
-  "published": 2,
+  "lastRunAt": "2026-08-18T14:17:00+05:00",
+  "topicsProcessed": 5,
+  "published": 5,
   "queuedForOwner": 0,
-  "rejected": 1,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 9,
-  "notes": "node_modules отсутствовал в свежем клоне — claims-lint падал на ERR_MODULE_NOT_FOUND 'yaml', пришлось npm install перед первым claims-lint. Write у reporter/fact-checker/bild снова блокирует файлы с подстрокой 'report' в имени (в т.ч. внутри 'repoRTer') — notes сохранялись под 'notes-<slug>.md', fact-check оркестратор писал сам из текста ответа агента."
+  "belowThreshold": 46,
+  "notes": "Write снова блокирует файлы с подстрокой 'report' в имени (reporter-notes-*) у reporter/fact-checker/bild — все агенты сохраняли заметки под альтернативными именами (notes-/correspondent-notes-/rptrnotes-), оркестратор фиксировал это в отчёте. photo-dupes.mjs нашёл дубль фото у трёх УЖЕ опубликованных статей за 17.08 (ai-infra-financing-wall-street-01.jpg использован трижды) — не связано с темами этого прогона, не чинил, флаг владельцу."
 }
