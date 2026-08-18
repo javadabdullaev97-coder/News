@@ -240,3 +240,5 @@
 {"run":"2026-08-18T14:38","stage":"translator","calls":1,"fetches":0,"minutes":0}
 {"run":"2026-08-18T14:42","stage":"bild","calls":1,"fetches":0,"minutes":0}
 {"run":"2026-08-18T14:43","stage":"translator","calls":1,"fetches":0,"minutes":0}
+{"run":"2026-08-18T14:58","stage":"reporter","calls":1,"fetches":9,"minutes":6}
+{"run":"2026-08-18T14:58","stage":"fact-checker","calls":1,"fetches":4,"minutes":3}
