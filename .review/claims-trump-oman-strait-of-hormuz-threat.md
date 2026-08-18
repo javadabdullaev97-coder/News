@@ -1,0 +1,19 @@
+# Таблица цитат: trump-oman-strait-of-hormuz-threat
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|----------------------|----------|-------------------------------|
+| 1 | Трамп заявил в интервью Fox News в понедельник, 17 августа, что разбомбит Оман, если тот помешает переговорам | https://www.cbsnews.com/live-updates/us-iran-war-deal-expired-strait-of-hormuz/ | «If Oman gets in the way, we'll bomb the s--- out of them» (перевод в тексте: «Если Оман встанет на пути, мы разбомбим их к чертям») |
+| 2 | Уточнение в Овальном кабинете: «мы разберёмся с ними легко, как обычно» | https://www.cbsnews.com/live-updates/us-iran-war-deal-expired-strait-of-hormuz/ | «I don't think they behaved very well, but we'd handle them very easily, just like we do other things» |
+| 3 | Оман выступает посредником в переговорах Вашингтона и Тегерана | https://www.dw.com/ru/война-в-иране-трамп-пригрозил-оману-бомбардировками-из-за-ормузского-пролива/a-78406068 | — прямая цитата недоступна: страница DW не открылась WebFetch-инструментом; факт роли Омана-посредника подтверждён косвенно через независимые переводные публикации (unian.net, themoscowtimes.com), не входящие в белый список как источники |
+| 4 | Меморандум между США и Ираном подписан 18 июня | https://www.cbsnews.com/live-updates/us-iran-war-deal-expired-strait-of-hormuz/ | «Iran claimed the U.S. violated terms shortly after the June 18 signing» |
+| 5 | Меморандум отводил сторонам 60 дней и истёк в понедельник, 17 августа | https://www.cbsnews.com/live-updates/us-iran-war-deal-expired-strait-of-hormuz/ | «The 60-day negotiation period expired Monday, August 17, 2026» |
+| 6 | Трамп призвал Иран «поднять белый флаг капитуляции» | https://www.aljazeera.com/news/2026/8/17/trump-demands-iran-put-up-the-white-flag-of-surrender-as-mou-expires | «put up the white flag of surrender» |
+| 7 | «У меня нет графика, я не тороплюсь» | https://www.aljazeera.com/news/2026/8/17/trump-demands-iran-put-up-the-white-flag-of-surrender-as-mou-expires | «I have no time schedule … I'm not in a hurry» |
+| 8 | «Мы контролируем его. Мы контролируем его блокадой» | https://www.aljazeera.com/news/2026/8/17/trump-demands-iran-put-up-the-white-flag-of-surrender-as-mou-expires | Trump stated: «We control it. We control it with the blockade» (передано в извлечении WebFetch) |
+| 9 | Трамп допустил объявление пролива территорией США | https://www.aljazeera.com/news/2026/8/17/trump-demands-iran-put-up-the-white-flag-of-surrender-as-mou-expires | «Trump previously claimed he would declare it US territory» |
+| 10 | Иран заявил, что пролив «остаётся иранским» | https://www.aljazeera.com/news/2026/8/17/trump-demands-iran-put-up-the-white-flag-of-surrender-as-mou-expires | «Iran countered it "will remain Iranian"» |
+| 11 | Число ежедневных проходов судов упало с 19 до трёх с 11 по 16 августа | https://www.cbsnews.com/live-updates/us-iran-war-deal-expired-strait-of-hormuz/ | «Week of Aug. 11-16: only 3 crossings on Aug. 16 (down from 19 on Aug. 11)» |
+| 12 | Трафик за неделю сократился на 19,5% | https://www.cbsnews.com/live-updates/us-iran-war-deal-expired-strait-of-hormuz/ | «Total weekly crossings fell 19.5%» |
+| 13 | До войны через пролив проходило около 130 судов в сутки | https://www.cbsnews.com/live-updates/us-iran-war-deal-expired-strait-of-hormuz/ | «Normal pre-war traffic: ~130 vessels daily» |
+| 14 | Баррель нефти Brent подорожал на 2,7%, до 90,87 доллара | https://www.cbsnews.com/live-updates/us-iran-war-deal-expired-strait-of-hormuz/ | «Brent crude rose 2.7% to $90.87 per barrel» |
+| 15 | Глава МИД Ирана Аракчи заявил, что решение о возобновлении переговоров с США пока не принято | https://www.aljazeera.com/news/2026/8/17/trump-demands-iran-put-up-the-white-flag-of-surrender-as-mou-expires | «Iranian Foreign Minister Abbas Araghchi said Iran had "not yet made a decision to restart negotiations with the United States"» |
