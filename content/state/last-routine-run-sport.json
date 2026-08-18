@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-18T15:15:00+05:00",
-  "topicsProcessed": 0,
-  "published": 0,
+  "lastRunAt": "2026-08-18T16:48:00+05:00",
+  "topicsProcessed": 1,
+  "published": 1,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 46,
-  "notes": "Пул после дедупа/review-фильтра — 46 кандидатов (764 уже смотрели и не взяли за 24ч). Максимум балла — Свёнтек обыграла Рыбакину в финале Canadian Open (globalIcon 25 + iconVsIcon 20 + topCompetition 15 − staleTopic 25 = 35, событию 4 дня) и Чимаев попросил бой у Уайта (globalIcon 25, без стадии переговоров). Узбекистанцев в потоке нет. Порог 40 не прошла ни одна тема."
+  "belowThreshold": 43,
+  "notes": "Единственная тема прошла порог 40 (globalIcon 25 + topCompetition 15). Editor перефокусировал материал: абзац про Синнера пересекался с уже опубликованной сегодня 03:00 статьёй sinner-us-open-participation-doubt — сокращён и связан ссылкой на неё, фокус смещён на Алькараса и список из 9 отказов. TSN и Yahoo Sports не в config/news-sources.json — reporter нашла их сама; fact-checker и editor не возражали."
 }
