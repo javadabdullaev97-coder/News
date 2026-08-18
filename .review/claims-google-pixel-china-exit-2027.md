@@ -1,0 +1,19 @@
+# Таблица цитат: google-pixel-china-exit-2027
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|---|---|---|
+| 1 | Google с 2027 года прекратит выпуск Pixel (смартфоны, часы, наушники) в Китае | https://asia.nikkei.com/spotlight/supply-chain/exclusive-google-plans-to-stop-making-pixel-products-in-china-in-2027 | "Google has told suppliers it plans to have all of its Pixel smartphones, watches and wireless earbuds produced outside of China starting next year amid ongoing Washington-Beijing tensions." (собственный WebFetch, вступительный абзац) |
+| 2 | Производство переносится во Вьетнам и Индию | https://asia.nikkei.com/spotlight/supply-chain/exclusive-google-plans-to-stop-making-pixel-products-in-china-in-2027 | Подзаголовок: "US tech giant shifts to Vietnam, India as it aims to increase smartphone shipments" (собственный WebFetch) |
+| 3 | Перенос связан с торговыми противоречиями между Вашингтоном и Пекином | https://asia.nikkei.com/spotlight/supply-chain/exclusive-google-plans-to-stop-making-pixel-products-in-china-in-2027 | "...amid ongoing Washington-Beijing tensions" (собственный WebFetch, тот же вступительный абзац) |
+| 4 | В 2026 году Google рассчитывает нарастить поставки Pixel на 8-10% | https://asia.nikkei.com/spotlight/supply-chain/exclusive-google-plans-to-stop-making-pixel-products-in-china-in-2027 | - : прямая цитата за пейволлом Nikkei, не открылась. Цифра сверена по независимым пересказам (9to5Google, Engadget, Business Standard, Investing.com), все со ссылкой на этот же материал Nikkei Asia |
+| 5 | Это около 13 млн телефонов против 12 млн в 2025 году | https://asia.nikkei.com/spotlight/supply-chain/exclusive-google-plans-to-stop-making-pixel-products-in-china-in-2027 | - : та же ситуация, что в строке 4 - за пейволлом, сверено по 4 независимым пересказам с совпадающими цифрами |
+| 6 | Google не продаёт Pixel на китайском рынке, что упрощает уход по сравнению с конкурентами | https://asia.nikkei.com/spotlight/supply-chain/exclusive-google-plans-to-stop-making-pixel-products-in-china-in-2027 | - : за пейволлом. В пересказе Business Standard: "A source indicated it will be easier for Google to exit China than competitors because it doesn't officially sell Pixels there" |
+| 7 | Google станет вторым крупным мировым производителем смартфонов после Samsung, полностью ушедшим из Китая | https://asia.nikkei.com/spotlight/supply-chain/exclusive-google-plans-to-stop-making-pixel-products-in-china-in-2027 | - : за пейволлом. В пересказе Investing.com: "the second major global smartphone brand after Samsung Electronics to shift production away from China" |
+| 8 | Ещё 13 января 2026 года Nikkei Asia сообщала, что Google начинает разработку и выпуск флагманских Pixel во Вьетнаме "с нуля" | https://asia.nikkei.com/spotlight/supply-chain/google-to-develop-and-make-high-end-phones-in-vietnam-this-year | "Google will start developing and manufacturing high-end smartphones in Vietnam this year from scratch." (собственный WebFetch, дата публикации 13 января 2026 подтверждена тем же фетчем) |
+| 9 | Apple выстраивает в Индии аналогичный полный цикл производства iPhone | https://asia.nikkei.com/spotlight/supply-chain/google-to-develop-and-make-high-end-phones-in-vietnam-this-year | - : прямой цитаты не увидел, в собственном WebFetch зафиксировано пересказом: "Apple has planned for India a similar milestone... both companies moving a step closer to having complete supply chains outside of China" |
+
+Примечание: строки 4-7 и 9 не имеют прямой цитаты, потому что основной текст
+обеих статей Nikkei Asia за пейволлом - WebFetch открыл только заголовок,
+подзаголовок, байлайн и первый абзац каждой статьи. Числа и тезисы сверены
+по независимым пересказам, но fact-checker должен по возможности попробовать
+альтернативный доступ к полному тексту Nikkei для прямой проверки.
