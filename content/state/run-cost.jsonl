@@ -140,3 +140,4 @@
 {"run":"2026-08-18T10:14","stage":"bild","calls":5,"fetches":0,"minutes":3}
 {"run":"2026-08-18T10:14","stage":"translator","calls":5,"fetches":0,"minutes":3}
 {"run":"2026-08-18T10:14","topics":5,"published":4,"skippedFactcheck":0,"skippedBild":0}
+{"run":"2026-08-18T10:15","topics":0,"published":0,"skippedFactcheck":0,"skippedBild":0}
