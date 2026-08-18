@@ -236,3 +236,5 @@
 {"run":"2026-08-18T14:32","stage":"translator","calls":1,"fetches":0,"minutes":0}
 {"run":"2026-08-18T14:32","topics":8,"published":8,"skippedFactcheck":0,"skippedBild":0}
 {"run":"2026-08-18T14:35","stage":"bild","calls":1,"fetches":0,"minutes":0}
+{"run":"2026-08-18T14:38","stage":"bild","calls":2,"fetches":0,"minutes":0}
+{"run":"2026-08-18T14:38","stage":"translator","calls":1,"fetches":0,"minutes":0}
