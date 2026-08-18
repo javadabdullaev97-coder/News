@@ -22,10 +22,10 @@ on:
     - cron: "17 */6 * * *"
   workflow_dispatch:
     inputs:
-      all:
-        description: "all — 1 = смотреть и то, что бот уже не сможет удалить (старше 48 ч)"
+      channel:
+        description: "channel — ru | uz | sport-ru | sport-uz | tech-ru | tech-uz (пусто — все)"
         required: false
-        default: "0"
+        default: ""
 
 permissions:
   contents: read
@@ -47,10 +47,27 @@ jobs:
         with:
           node-version: "24"
 
-      - name: Сверить каналы с реестром
+      # Коды возврата разведены намеренно:
+      #   0 — чисто;
+      #   1 — найдены дубли, это провал и повод зайти;
+      #   2 — часть каналов не проверена (у @leap_news закрыт предпросмотр).
+      #
+      # Второй случай красным делать НЕЛЬЗЯ: русский канал закрыт постоянно,
+      # прогон краснел бы каждые шесть часов, и через неделю на красный
+      # никто бы не смотрел. Поэтому предупреждение видное, а статус зелёный.
+      - name: Сверить каналы
         run: |
-          if [[ "${{ github.event.inputs.all }}" == "1" ]]; then
-            node scripts/audit-telegram-duplicates.mjs --all
+          set +e
+          if [[ -n "${{ github.event.inputs.channel }}" ]]; then
+            node scripts/audit-telegram-duplicates.mjs --channel "${{ github.event.inputs.channel }}"
           else
             node scripts/audit-telegram-duplicates.mjs
           fi
+          code=$?
+          set -e
+          case $code in
+            0) echo "Дублей нет." ;;
+            2) echo "::warning::Часть каналов не проверена — предпросмотр закрыт. Дубли там видны только глазами." ;;
+            *) echo "::error::В каналах найдены дубли. Снять: node scripts/audit-telegram-duplicates.mjs --request, затем пуш заявки."
+               exit 1 ;;
+          esac
