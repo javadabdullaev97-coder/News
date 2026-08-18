@@ -123,3 +123,4 @@
 {"run":"2026-08-18T09:07","stage":"translator","calls":1,"fetches":0,"minutes":0}
 {"run":"2026-08-18T09:09","stage":"bild","calls":1,"fetches":0,"minutes":0}
 {"run":"2026-08-18T09:09","stage":"translator","calls":1,"fetches":0,"minutes":0}
+{"run":"2026-08-18T09:14","topics":0,"published":0,"skippedFactcheck":0,"skippedBild":0}
