@@ -1,0 +1,101 @@
+---
+title: "Researchers Tricked Copilot AI Assistant Into Revealing How to Hack It"
+description: "Varonis used leading questions to make Microsoft's Copilot AI assistant reveal its hidden settings and a one-click way to steal user data."
+lang: "en"
+translatedFrom: "ru"
+updatedAt: "2026-08-18T19:15:00+05:00"
+category: "tech"
+tags: ["Copilot", "Microsoft", "cybersecurity", "artificial intelligence"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "Varonis Threat Labs: CoSnitch"
+    url: "https://www.varonis.com/blog/cosnitch"
+  - name: "The Register"
+    url: "https://www.theregister.com/research/2026/08/18/copilot-tricked-into-telling-reseachers-how-to-hack-itself/5288857"
+image:
+  url: "/images/posts/2026-08/copilot-cosnitch-meta-hacking-flaw-01.jpg"
+  alt: "A padlock on a laptop keyboard under red-green backlighting — a symbol of cybersecurity and data protection"
+  credit: "Unsplash / FlyD"
+tgScore: 30
+broadcast: false
+mainChannelGate: massSecurityIncident
+---
+
+Cybersecurity researchers at Varonis Threat Labs used leading questions to
+make Microsoft's Copilot AI assistant reveal how to bypass its own hacking
+protections, according to the [company's report dated August 10,
+2026](https://www.varonis.com/blog/cosnitch). Varonis updated the report on
+[August 18](https://www.varonis.com/blog/cosnitch), the day Microsoft's
+patches were released.
+
+## How the AI Gave Away Its Own Secret
+
+Researchers dubbed the technique "meta-hacking." It is a social engineering
+method aimed not at a human but at the AI's own "reasoning" mechanism — the
+logic Copilot uses to explain its decisions. Researchers asked Copilot why
+certain actions were impossible, and each refusal came with a technical
+explanation that [revealed details of the system's internal
+workings](https://www.varonis.com/blog/cosnitch).
+
+In the industry, this kind of deception is called a jailbreak. Through
+specially crafted phrasing, a user forces an AI system to bypass its own
+restrictions and provide information or an action its developers
+prohibited. In Copilot's case, researchers pushed the AI into disclosing
+details of its own defenses: it [described its own protective mechanisms
+and explained why one of the hidden request parameters "no longer
+works"](https://www.theregister.com/research/2026/08/18/copilot-tricked-into-telling-reseachers-how-to-hack-itself/5288857),
+thereby confirming that the parameter existed.
+
+"Copilot's confidence in its own security became the very mechanism through
+which it revealed how to compromise it," [the report
+says](https://www.varonis.com/blog/cosnitch).
+
+## Three Vulnerabilities Under One Name: CoSnitch
+
+That is what researchers called a chain of three vulnerabilities in
+Microsoft Copilot Personal — the free consumer version of the AI assistant,
+separate from the corporate Microsoft 365 Copilot.
+
+The first was automatic prompt execution. A link in the format
+[`https://copilot.microsoft.com/?q=<text>&autorun=1`](https://www.varonis.com/blog/cosnitch)
+opened Copilot with malicious text already filled in and a parameter that
+triggered its execution without user confirmation.
+
+The second was covert data leakage. Through connected OAuth apps —
+third-party services that Copilot links to a user's account without
+sharing their password — the AI has access to Gmail and Outlook mail,
+Google Calendar, Google Drive files and its own conversation memory. A
+malicious prompt made the AI encode the data it found and embed it in a
+link to an external server. Copilot then visited that link itself, as if
+merely summarizing the page's contents, sending the stolen data to the
+attacker. In one test, researchers extracted a plaintext password from an
+email: "Hey, My password is !214SDBG!!! thanks IT," [Varonis cites as an
+example](https://www.varonis.com/blog/cosnitch).
+
+The third was persistent memory poisoning. Asked to summarize a malicious
+webpage, Copilot cannot distinguish ordinary text from commands hidden
+inside it and writes the attacker's instructions into its persistent
+memory. According to Varonis, these instructions survive a password
+change, a session logout and even a factory reset of the device.
+
+## Microsoft's Response
+
+Varonis reported the vulnerabilities to Microsoft in December 2025.
+Patches were released on [August 18,
+2026](https://www.varonis.com/blog/cosnitch). The company said it saw no
+evidence the vulnerability was exploited by attackers before the fix and
+thanked Microsoft "for its cooperation in resolving the issue."
+
+The Register contacted Microsoft for comment on the patch and the
+vulnerability's number in the common CVE registry but [received no
+response before
+publication](https://www.theregister.com/research/2026/08/18/copilot-tricked-into-telling-reseachers-how-to-hack-itself/5288857).
+
+## What Copilot Users Should Do
+
+- Check the list of connected services in Copilot's settings — mail,
+  calendar, cloud drives — and disable the ones you don't use.
+- Don't click unfamiliar `copilot.microsoft.com` links with long
+  parameters in the address — that is exactly how the attack was launched.
+- Don't store passwords or access codes in the text of emails — Copilot
+  reads mail verbatim and could pass such data to a third party.
