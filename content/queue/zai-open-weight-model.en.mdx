@@ -1,0 +1,48 @@
+---
+title: "Z.ai Releases GLM-5.3 AI Model, Delays Its Open Weights by Two Weeks"
+description: "Z.ai released the open-weight GLM-5.3 model on August 14 and delayed publishing the weights by two weeks — the company says it fears the model could make hacking easier."
+publishedAt: null
+updatedAt: "2026-08-18T20:00:00+05:00"
+category: "tech"
+tags: ["Z.ai", "GLM-5.3", "artificial intelligence", "cybersecurity", "open-weight models"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "Z.ai — official blog post on the GLM-5.3 release"
+    url: "https://z.ai/blog/glm-5.3"
+  - name: "WIRED"
+    url: "https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/"
+  - name: "VentureBeat"
+    url: "https://venturebeat.com/technology/glm-5-3-is-here-with-advanced-cyber-capabilities-and-reportedly-already-found-a-serious-vulnerability-in-cursor"
+  - name: "TechCrunch"
+    url: "https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/"
+  - name: "The Decoder"
+    url: "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/"
+image:
+  url: "/images/posts/2026-08/zai-open-weight-model-01.jpg"
+  alt: "Close-up of a computer monitor screen with a fragment of program code — illustration for a story on the release of an open AI model for development and vulnerability research"
+  credit: "Unsplash / Ilya Pavlov"
+tgScore: 25
+broadcast: false
+lang: "en"
+translatedFrom: "ru"
+---
+
+The Chinese lab Z.ai released the open-weight GLM-5.3 AI model on August 14 and delayed publishing the weights themselves by two weeks, citing the risk that the model could be used for hacking. Open weights are model files that can be downloaded and run on a user's own hardware, without access to Z.ai's servers.
+
+According to Z.ai, GLM-5.3 scored 84.5% on the CyberGym benchmark, which tests an AI's ability to find known vulnerabilities in code. Z.ai says this is higher than the results of Anthropic and OpenAI models that took the same test. The ExploitBench benchmark requires turning a discovered vulnerability into a working exploit. Here the score more than doubled — from 24.4% for GLM-5.2 to 54.4% — [the company said on its blog](https://z.ai/blog/glm-5.3). GLM-5.3 is built on the same 743-billion-parameter base model as GLM-5.2, [VentureBeat notes](https://venturebeat.com/technology/glm-5-3-is-here-with-advanced-cyber-capabilities-and-reportedly-already-found-a-serious-vulnerability-in-cursor). Z.ai says the entire improvement came from additional training after the base stage. The model is already compatible with third-party development environments — Claude Code and OpenCode — in addition to Z.ai's own interface called ZCode, [The Decoder reports](https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/).
+
+Even before the release, Z.ai had used previous versions of GLM to search for real-world vulnerabilities. The company said this approach found 2,436 vulnerabilities in 269 open-source projects. Of those, 1,097 were classified as medium or high severity. 53 of them have been publicly disclosed, [the company's blog says](https://z.ai/blog/glm-5.3). A Z.ai employee named Lu said GLM-5.3 found a potentially serious vulnerability in the Cursor code editor, which SpaceX recently acquired, [VentureBeat reports](https://venturebeat.com/technology/glm-5-3-is-here-with-advanced-cyber-capabilities-and-reportedly-already-found-a-serious-vulnerability-in-cursor).
+
+## One Technology Serves Both Sides
+
+The technical explanation for the dual-use risk is simple: the better a model performs at autonomous software development, the more capable a security researcher it becomes — and potentially, the more capable an attack tool, [VentureBeat notes](https://venturebeat.com/technology/glm-5-3-is-here-with-advanced-cyber-capabilities-and-reportedly-already-found-a-serious-vulnerability-in-cursor). WIRED put the same dilemma in the headline of its story on the GLM-5.3 release — "The Powerful Chinese Model Experts Warned About—and Waited for—Is Here." [The story](https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/) was published on August 18 and written by Will Knight.
+
+An assessment by the independent organization SaferAI, published in early August, covered the previous version, GLM-5.2. But the problem is the same: the model did not refuse a single one of the offensive cyber or biological tasks it was offered, [TechCrunch reported](https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/). By comparison, Anthropic's Claude Opus model refused so consistently that the CyberGym test could not be completed on it. "Frontier capability is not the same as frontier risk, so properly assessing risk also requires accounting for the state of safeguards," said SaferAI Executive Director Henry Papadatos.
+
+The restrictions Z.ai builds into cloud access to the model stop working as soon as the weights are downloaded and run on a user's own hardware. A user can strip out the safety filters or fine-tune the model for their own purposes, [TechCrunch notes](https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/).
+
+Z.ai itself describes the upcoming release as staged. Selected cybersecurity partners will get access to GLM-5.3 first, then the API will open, and only after that will the model's weights be released, [the company's blog says](https://z.ai/blog/glm-5.3). Alongside the model, Z.ai is launching the OpenVuln initiative. Under it, the lab works with developers of open-source projects to find vulnerabilities and coordinate disclosure, giving defenders time to patch holes before they are made public.
+
+## What Comes Next
+
+Z.ai has pledged to publish GLM-5.3's full weights "two weeks after launch, once review and hardening are complete," [the company's blog says](https://z.ai/blog/glm-5.3). That works out to roughly August 28. Until then, the model is available only through the paid GLM Coding Plan tier and the API.

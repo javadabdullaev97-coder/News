@@ -1,0 +1,46 @@
+---
+title: "Z.ai выпустила модель GLM-5.3 и отложила публикацию весов на две недели"
+description: "Z.ai 14 августа выпустила модель GLM-5.3 с открытыми весами и отложила их публикацию на две недели — компания опасается, что модель облегчит взлом."
+queuedAt: "2026-08-18T15:15:00+05:00"
+updatedAt: "2026-08-18T20:00:00+05:00"
+category: "tech"
+tags: ["Z.ai", "GLM-5.3", "искусственный интеллект", "кибербезопасность", "открытые модели"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "Z.ai — официальный блог о релизе GLM-5.3"
+    url: "https://z.ai/blog/glm-5.3"
+  - name: "WIRED"
+    url: "https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/"
+  - name: "VentureBeat"
+    url: "https://venturebeat.com/technology/glm-5-3-is-here-with-advanced-cyber-capabilities-and-reportedly-already-found-a-serious-vulnerability-in-cursor"
+  - name: "TechCrunch"
+    url: "https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/"
+  - name: "The Decoder"
+    url: "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/"
+image:
+  url: "/images/posts/2026-08/zai-open-weight-model-01.jpg"
+  alt: "Экран монитора крупным планом с фрагментом программного кода — иллюстрация к релизу открытой ИИ-модели для разработки и поиска уязвимостей"
+  credit: "Unsplash / Ilya Pavlov"
+tgScore: 25
+broadcast: false
+---
+
+Китайская лаборатория Z.ai 14 августа выпустила ИИ-модель GLM-5.3 с открытыми весами и отложила публикацию самих весов на две недели из-за риска использования модели для взлома. Открытые веса — это файлы модели, которые можно скачать и запустить на собственном оборудовании, без доступа к серверам Z.ai.
+
+По данным Z.ai, GLM-5.3 набрала 84,5% на тесте CyberGym — он проверяет способность ИИ находить известные уязвимости в коде. По данным Z.ai, это выше результатов моделей Anthropic и OpenAI, участвовавших в том же тесте. На тесте ExploitBench нужно довести найденную уязвимость до рабочего эксплойта. Здесь результат вырос более чем вдвое — с 24,4% у GLM-5.2 до 54,4%, сообщает [компания в своём блоге](https://z.ai/blog/glm-5.3). В основе GLM-5.3 та же базовая модель на 743 млрд параметров, что и у GLM-5.2, [указывает VentureBeat](https://venturebeat.com/technology/glm-5-3-is-here-with-advanced-cyber-capabilities-and-reportedly-already-found-a-serious-vulnerability-in-cursor). По словам Z.ai, весь прирост дало дополнительное обучение после базового этапа. Модель уже совместима со сторонними средами разработки — Claude Code и OpenCode, помимо собственного интерфейса Z.ai под названием ZCode, [пишет The Decoder](https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/).
+
+Ещё до релиза Z.ai использовала предыдущие версии GLM для поиска реальных уязвимостей. Компания сообщила, что таким способом нашли 2 436 уязвимостей в 269 проектах с открытым кодом. Из них 1 097 отнесли к средней и высокой степени опасности. 53 из них публично раскрыты — об этом [говорится в блоге компании](https://z.ai/blog/glm-5.3). Сотрудник Z.ai по имени Лу сообщил, что GLM-5.3 нашла потенциально серьёзную уязвимость в редакторе кода Cursor, который недавно купила SpaceX, [передаёт VentureBeat](https://venturebeat.com/technology/glm-5-3-is-here-with-advanced-cyber-capabilities-and-reportedly-already-found-a-serious-vulnerability-in-cursor).
+
+## Одна технология работает на обе стороны
+
+Технически риск двойного назначения объясняется просто: чем лучше модель справляется с автономной разработкой софта, тем более способным исследователем безопасности она становится. А значит, потенциально — и более способным инструментом атаки, [отмечает VentureBeat](https://venturebeat.com/technology/glm-5-3-is-here-with-advanced-cyber-capabilities-and-reportedly-already-found-a-serious-vulnerability-in-cursor). Ту же дилемму WIRED вынес в заголовок материала о релизе GLM-5.3 — «The Powerful Chinese Model Experts Warned About—and Waited for—Is Here». [Материал](https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/) опубликован 18 августа, его автор — Уилл Найт.
+
+Оценка независимой организации SaferAI, опубликованная в начале августа, касалась предыдущей версии — GLM-5.2. Но проблема та же: модель не отказалась ни от одной наступательной кибер- или биологической задачи из предложенных, [сообщил TechCrunch](https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/). Для сравнения, модель Claude Opus отказывалась настолько последовательно, что тест CyberGym на ней завершить не удалось. «Передовой уровень возможностей — не то же самое, что передовой уровень риска, поэтому чтобы правильно оценить риск, нужно учитывать ещё и состояние защитных мер», — сказал исполнительный директор SaferAI Генри Пападатос.
+
+Ограничения, которые Z.ai встраивает в облачный доступ к модели, перестают действовать, как только веса скачивают и запускают на своём оборудовании. Пользователь может снять защитные фильтры или дообучить модель под свои задачи, [отмечает TechCrunch](https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/).
+
+Сама Z.ai называет предстоящий релиз поэтапным. Сначала доступ к GLM-5.3 получат отобранные партнёры по кибербезопасности, затем откроется API, и только потом — веса модели, [говорится в блоге компании](https://z.ai/blog/glm-5.3). Вместе с моделью Z.ai запускает инициативу OpenVuln. В её рамках лаборатория вместе с разработчиками открытых проектов ищет уязвимости и координирует раскрытие — так у защитников остаётся время закрыть дыры до огласки.
+
+## Что дальше
+
+Z.ai обещает опубликовать полные веса GLM-5.3 «через две недели после запуска, когда будут завершены проверка и усиление защиты», [говорится в блоге компании](https://z.ai/blog/glm-5.3). Ориентировочно это 28 августа. До этой даты модель доступна только через платный тариф GLM Coding Plan и API.
