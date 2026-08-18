@@ -51,3 +51,4 @@
 {"run":"2026-08-17T23:09","stage":"translator","calls":1,"fetches":0,"minutes":3}
 {"run":"2026-08-17T23:09","topics":1,"published":1,"skippedFactcheck":0,"skippedBild":0}
 {"run":"2026-08-17T23:41","topics":0,"published":0,"skippedFactcheck":0,"skippedBild":0}
+{"run":"2026-08-18T00:41","stage":"reporter","calls":1,"fetches":0,"minutes":0}
