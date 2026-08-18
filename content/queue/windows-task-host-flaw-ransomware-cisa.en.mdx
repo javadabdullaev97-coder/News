@@ -1,0 +1,39 @@
+---
+title: "CISA Catalog: Windows Flaw Now Exploited by Ransomware"
+description: "CISA's vulnerability catalog: a Windows flaw added to the list in April 2026 is now being exploited by ransomware, according to an independent mirror of the catalog."
+publishedAt: "2026-08-18T16:00:00+05:00"
+updatedAt: "2026-08-18T18:40:00+05:00"
+category: "tech"
+tags: ["Windows", "cybersecurity", "CISA", "ransomware", "Microsoft"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "CISA — Known Exploited Vulnerabilities (KEV) Catalog, CVE-2025-60710 entry"
+    url: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2025-60710"
+  - name: "Microsoft Security Response Center — Security Update Guide for CVE-2025-60710"
+    url: "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-60710"
+image:
+  url: "/images/posts/2026-08/windows-task-host-flaw-ransomware-cisa-01.jpg"
+  alt: "Windows Security notification on a laptop screen: \"Threats found — Microsoft Defender Antivirus found threats\""
+  credit: "Unsplash / Ed Hardie"
+tgScore: 20
+broadcast: false
+mainChannelGate: massSecurityIncident
+lang: "en"
+translatedFrom: "ru"
+---
+
+The US Cybersecurity and Infrastructure Security Agency (CISA) has updated its Known Exploited Vulnerabilities catalog: a Windows flaw added to the list on April 13, 2026, is now being exploited by ransomware, according to the catalog.
+
+The flaw affects Host Process for Windows Tasks (`taskhostw.exe`), a Windows system process. It runs some scheduled background tasks and closes them properly when the computer shuts down to prevent data loss. The vulnerability is tracked as [CVE-2025-60710](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-60710) — the identifier assigned in the international vulnerability registry — and carries a severity score of 7.8 out of 10 on the CVSS scale, [according to the Microsoft Security Response Center](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-60710).
+
+The bug stems from improper handling of symbolic links. An attacker with an ordinary, unprivileged account can trick the Task Host process into accessing the wrong file and obtain SYSTEM privileges — the highest access level in Windows. Exploiting it requires existing access to the computer, so the flaw is dangerous not on its own but as a second step in an attack. Once attackers breach a company's network — for example, through a phishing email — the vulnerability lets them entrench themselves and gain full control of the machine. They then deploy ransomware and encrypt the data.
+
+## How the Vulnerability Story Unfolded
+
+Microsoft fixed the vulnerability on November 11, 2025 — the patch was released for Windows 11 versions 24H2 and 25H2, as well as Windows Server 2025, [according to the MSRC bulletin](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-60710). At the time the patch was released, the company assessed the likelihood of exploitation as low.
+
+On April 13, 2026, CISA added CVE-2025-60710 to its Known Exploited Vulnerabilities (KEV) catalog, indicating that attacks on unpatched systems had already been observed. CISA ordered US federal agencies to remediate the flaw by April 27, 2026.
+
+This week, CISA updated the same catalog entry, noting that ransomware groups are also exploiting the vulnerability — attacks that encrypt data and demand payment. The CISA page was not loading at the time of publication; an independent mirror of the KEV catalog confirms the update.
+
+For organizations running Windows Server 2025 that have not yet installed the update, Microsoft offers a temporary mitigation. Administrators should disable the `\Microsoft\Windows\WindowsAI\Recall\PolicyConfiguration` task in Task Scheduler until the patch is installed, [the MSRC bulletin states](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-60710).

@@ -1,0 +1,39 @@
+---
+title: "CISA katalogi: Windows'dagi zaiflikdan endi to'lov dasturlari foydalanmoqda"
+description: "CISA zaifliklar katalogi: 2026-yil aprel oyida ro'yxatga kiritilgan Windows'dagi kamchilikdan endi to'lov dasturlari foydalanmoqda — buni katalogning mustaqil ko'zgusi tasdiqlaydi."
+publishedAt: "2026-08-18T16:00:00+05:00"
+updatedAt: "2026-08-18T18:40:00+05:00"
+category: "tech"
+tags: ["Windows", "kiberxavfsizlik", "CISA", "to'lov dasturlari", "Microsoft"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "CISA — ma'lum ekspluatatsiya qilinayotgan zaifliklar katalogi (KEV), CVE-2025-60710 yozuvi"
+    url: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2025-60710"
+  - name: "Microsoft Security Response Center — CVE-2025-60710 bo'yicha xavfsizlik byulleteni"
+    url: "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-60710"
+image:
+  url: "/images/posts/2026-08/windows-task-host-flaw-ransomware-cisa-01.jpg"
+  alt: "Noutbuk ekranida Windows Security bildirishnomasi: «Threats found — Microsoft Defender Antivirus found threats»"
+  credit: "Unsplash / Ed Hardie"
+tgScore: 20
+broadcast: false
+mainChannelGate: massSecurityIncident
+lang: "uz"
+translatedFrom: "ru"
+---
+
+AQSh Kiberxavfsizlik va infratuzilma xavfsizligi agentligi (CISA) ma'lum ekspluatatsiya qilinayotgan zaifliklar katalogini yangiladi: 2026-yil 13-aprelda ro'yxatga kiritilgan Windows'dagi zaiflikdan, katalog ma'lumotlariga ko'ra, endi to'lov dasturlari foydalanmoqda.
+
+Gap Windows'ning tizim jarayoni — Host Process for Windows Tasks (`taskhostw.exe`) haqida bormoqda. U jadval bo'yicha fon vazifalarining bir qismini ishga tushiradi va kompyuter o'chirilganda ma'lumot yo'qolmasligi uchun ularni to'g'ri yakunlaydi. Zaiflikka [CVE-2025-60710](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-60710) raqami berilgan — zaifliklar xalqaro reyestrda shu tarzda belgilanadi — va CVSS shkalasi bo'yicha 10 balldan 7,8 xavflilik bahosi qo'yilgan, [Microsoft Security Response Center xabar berishicha](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-60710).
+
+Xato ramziy havolalarni noto'g'ri qayta ishlash bilan bog'liq. Oddiy, imtiyozsiz hisobga ega tajovuzkor Task Host jarayonini noto'g'ri faylga murojaat qilishga majburlab, SYSTEM huquqlarini — Windows'dagi maksimal darajadagi kirish huquqini — qo'lga kiritishi mumkin. Undan foydalanish uchun kompyuterga allaqachon kirish huquqi kerak, shuning uchun zaiflik o'zi alohida emas, balki hujumning ikkinchi bosqichi sifatida xavflidir. Tajovuzkorlar kompaniya tarmog'iga — masalan, fishing xat orqali — kirib olgach, zaiflik ularga tizimda mustahkamlanish va mashina ustidan to'liq nazoratni qo'lga kiritish imkonini beradi. Shundan so'ng ular to'lov dasturini ishga tushiradi va ma'lumotlarni shifrlaydi.
+
+## Zaiflik tarixi qanday rivojlandi
+
+Microsoft zaiflikni 2025-yil 11-noyabrda bartaraf etdi — tuzatish Windows 11'ning 24H2 va 25H2 versiyalari, shuningdek Windows Server 2025 uchun chiqarildi, [MSRC byulletenida aytilishicha](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-60710). Patch chiqarilgan paytda kompaniya ekspluatatsiya qilinish ehtimolini past deb baholagan edi.
+
+2026-yil 13-aprelda CISA CVE-2025-60710'ni ma'lum ekspluatatsiya qilinayotgan zaifliklar katalogiga (KEV) kiritdi — bu tuzatilmagan tizimlarga hujumlar allaqachon qayd etilganini bildiradi. CISA AQSh federal idoralarini kamchilikni 2026-yil 27-aprelgacha bartaraf etishga majbur qildi.
+
+Shu hafta CISA katalogdagi ushbu yozuvni yangilab, zaiflikdan to'lov dasturi guruhlari ham foydalanayotganini qayd etdi — bular ma'lumotlarni shifrlash va to'lov talab qilish orqali amalga oshiriladigan hujumlardir. CISA sahifasi nashr etilgan vaqtda ochilmadi; bu qayd KEV katalogining mustaqil ko'zgusi (mirror) tomonidan tasdiqlanadi.
+
+Yangilanishni hali o'rnatmagan Windows Server 2025'ga ega tashkilotlar uchun Microsoft vaqtinchalik chora taklif qiladi. Patch o'rnatilguncha Vazifalar rejalashtiruvchisida `\Microsoft\Windows\WindowsAI\Recall\PolicyConfiguration` vazifasini o'chirib qo'yish kerak, [MSRC byulletenida ko'rsatilganidek](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-60710).
