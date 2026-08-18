@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T14:15:00+05:00",
+  "lastRunAt": "2026-08-18T15:14:00+05:00",
   "mode": "main",
-  "topicsProcessed": 3,
-  "published": 3,
+  "topicsProcessed": 5,
+  "published": 4,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 1,
   "needsVerification": 0,
-  "belowThreshold": 162,
+  "belowThreshold": 175,
   "rework": 0,
-  "notes": "Все 3 темы — блоки президентского пакета мер для бизнеса (VI открытый диалог, 18.08). Первоисточник по всем трём — @Press_Secretary_Uz (пресс-секретарь президента), не занесён в config/telegram-channels.json как type:source, хотя 3 независимых fact-checker'а подтвердили официальный статус (verified, self-declared, конкуренты сами на него ссылаются). Рекомендация: добавить канал в каталог. Также вычищен хвост служебной разметки (</content>) в уже опубликованных samsung-humanoid-lab.{en,uz}.mdx — блокировал сборку этих переводов."
+  "notes": "constitutional-law-presidential-administration отклонена как дубль content/posts/2026-08-14/admin-president-constitutional-law.mdx — topic-dupecheck.mjs вернул clear (окно 3 суток, публикация была на день за его пределами). Обнаружено вручную на шаге перевода. См. content/rejected/*.reason.txt. Рекомендация: расширить окно сверки для politics/law либо сверять по номеру акта отдельно от давности."
 }
