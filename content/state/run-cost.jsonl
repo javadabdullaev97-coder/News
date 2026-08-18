@@ -172,3 +172,4 @@
 {"run":"2026-08-18T11:40","stage":"bild","calls":1,"fetches":0,"minutes":0}
 {"run":"2026-08-18T11:44","stage":"translator","calls":1,"fetches":0,"minutes":0}
 {"run":"2026-08-18T11:45","stage":"reporter","calls":3,"fetches":0,"minutes":1}
+{"run":"2026-08-18T11:48","topics":1,"published":1,"skippedFactcheck":0,"skippedBild":0}
