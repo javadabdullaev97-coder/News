@@ -1,147 +1,141 @@
 #!/usr/bin/env node
-// Сверяет реестр отправленного с тем, что реально висит в каналах.
+// Ищет дубли ПО САМОМУ КАНАЛУ, а не по реестру отправленного.
 //
-// ЗАЧЕМ. 18.08.2026 владелец нашёл в технологическом канале одну статью
-// в пяти экземплярах. Разбор занял час, а когда механику починили,
-// сплошная сверка подняла ещё двадцать четыре лишних сообщения
-// в спортивных каналах — про них никто не знал, потому что смотреть было
-// нечем: реестр лежит в git, канал живёт отдельно, и расхождение между
-// ними не видит никто, пока подписчик не напишет.
+// ЗАЧЕМ ИМЕННО ТАК. Первая версия этой сверки (18.08.2026) сравнивала записи
+// реестра между собой: ключ с двумя номерами сообщений — подозрение. Она
+// пропустила ровно тот случай, ради которого затевалась. Дубль в спортивных
+// каналах выглядел так: первая отправка ушла и записи о себе НЕ ОСТАВИЛА
+// (прогон со старым кодом), вторая ушла и записалась. В реестре один номер,
+// значит подозрения нет — а в канале две одинаковые публикации, и владелец
+// нашёл их глазами.
 //
-// Теперь видит этот скрипт. Он ищет ключи «канал + язык + слаг»,
-// у которых больше одного номера сообщения, и проверяет каждое: живо ли
-// оно ещё в канале. Живых больше одного — это дубль у подписчика.
+// Отсюда правило: единственный надёжный источник правды о том, что видит
+// подписчик, — сам канал. Реестр может о посте не знать; канал знает всегда.
 //
-//   node scripts/audit-telegram-duplicates.mjs             — только окно удаления (48 ч)
-//   node scripts/audit-telegram-duplicates.mjs --all       — всё, включая неудаляемое
-//   node scripts/audit-telegram-duplicates.mjs --request   — сразу собрать заявку на снятие
+// Читается публичная страница t.me/s/<канал>: последние ~20 публикаций
+// с номерами и текстом. Ни токена, ни секретов — работает и в песочнице.
 //
-// Проверка идёт по публичной странице t.me — ни токена, ни секретов
-// не нужно, поэтому скрипт работает и в песочнице.
+//   node scripts/audit-telegram-duplicates.mjs            — все каналы
+//   node scripts/audit-telegram-duplicates.mjs --channel tech-ru
+//   node scripts/audit-telegram-duplicates.mjs --request  — собрать заявку на снятие
 //
-// Код возврата 1, если найдены живые дубли: сверку можно повесить
-// в расписание и узнавать о расхождении раньше подписчика.
+// Код возврата 1, если найдены дубли: сверку можно вешать в расписание.
 
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
-const LOG = join(ROOT, "content/state/telegram-posted.jsonl");
 const argv = process.argv.slice(2);
-const all = argv.includes("--all");
+// indexOf вернёт -1, когда флага нет, и argv[0] превратится в «фильтр»,
+// под который не подходит ни один канал: сверка молча проверит ноль
+// каналов и отрапортует «дублей нет». Поймано на первом же прогоне
+// с --request.
+const only = argv.includes("--channel") ? argv[argv.indexOf("--channel") + 1] : null;
 const makeRequest = argv.includes("--request");
 
-// Публичные имена каналов. Секреты сюда не нужны: страница t.me открыта.
-const HANDLE = {
-  "main ru": "leap_news",
-  "main uz": "leap_news_uz",
-  "sport ru": "leap_sports",
-  "sport uz": "leap_sports_uz",
-  "tech ru": "leap_techno",
-  "tech uz": "leap_techno_uz",
+// Публичные имена каналов. Ключ — то, чем их называет заявка на снятие.
+const CHANNELS = {
+  "ru": "leap_news",
+  "uz": "leap_news_uz",
+  "sport-ru": "leap_sports",
+  "sport-uz": "leap_sports_uz",
+  "tech-ru": "leap_techno",
+  "tech-uz": "leap_techno_uz",
 };
 
-// Bot API удаляет сообщения 48 часов. Что старше — найти можно, снять нельзя,
-// и заявку на такое собирать бессмысленно.
-const DELETABLE_HOURS = 47;
-
-if (!existsSync(LOG)) {
-  console.error("[audit] реестра нет — нечего сверять");
-  process.exit(0);
+// Заголовок — первая строка поста. Сравниваем по ней, а не по всему тексту:
+// повторная отправка идёт тем же шаблоном, но лид может обрезаться иначе.
+// Нормализуем пробелы и регистр — иначе одна и та же публикация разойдётся
+// на невидимом неразрывном пробеле.
+function headlineOf(text) {
+  return text
+    .split("\n")[0]
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase()
+    .slice(0, 120);
 }
 
-const byKey = new Map();
-const deleted = new Set();
-for (const line of readFileSync(LOG, "utf8").split("\n")) {
-  const s = line.trim();
-  if (!s) continue;
-  let r;
-  try {
-    r = JSON.parse(s);
-  } catch {
-    continue;
+function parseChannel(html) {
+  const posts = [];
+  // Блоки идут парами «data-post=…» и следующий за ним текст сообщения.
+  const re = /data-post="[^/]+\/(\d+)"[\s\S]*?tgme_widget_message_text[^>]*>([\s\S]*?)<\/div>/g;
+  for (const m of html.matchAll(re)) {
+    const text = m[2]
+      .replace(/<br\s*\/?>/gi, "\n")
+      .replace(/<[^>]+>/g, "")
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'")
+      .replace(/&laquo;/g, "«")
+      .replace(/&raquo;/g, "»")
+      .replace(/&mdash;/g, "—")
+      .replace(/&nbsp;/g, " ")
+      .replace(/&amp;/g, "&");
+    posts.push({ id: Number(m[1]), headline: headlineOf(text), preview: text.split("\n")[0].slice(0, 64) });
   }
-  // Снятые по явному номеру: сообщения уже нет, в сверку не берём.
-  if (r.deletedAt && r.messageId) {
-    deleted.add(`${r.target ?? "main"} ${r.lang ?? ""} ${r.messageId}`);
-    continue;
-  }
-  if (!r.messageId || !r.url) continue;
-  const lang = r.url.includes("/uz/") ? "uz" : "ru";
-  const key = `${r.target ?? "main"} ${lang} ${r.url.split("/").pop()}`;
-  const at = r.postedAt ?? "";
-  const prev = byKey.get(key) ?? { ids: new Map(), latest: "" };
-  prev.ids.set(r.messageId, at);
-  if (at > prev.latest) prev.latest = at;
-  byKey.set(key, prev);
-}
-
-const now = Date.now();
-const suspects = [];
-for (const [key, { ids, latest }] of byKey) {
-  if (ids.size < 2) continue;
-  const [target, lang] = key.split(" ");
-  const fresh = latest ? (now - Date.parse(latest)) / 3_600_000 < DELETABLE_HOURS : false;
-  if (!all && !fresh) continue;
-  const live = [...ids.keys()].filter((id) => !deleted.has(`${target} ${lang} ${id}`));
-  if (live.length < 2) continue;
-  suspects.push({ key, target, lang, ids: live.sort((a, b) => a - b), fresh });
-}
-
-if (!suspects.length) {
-  console.error(`[audit] проверять нечего: ключей с несколькими номерами нет${all ? "" : " в окне удаления"}`);
-  process.exit(0);
-}
-
-console.error(`[audit] ключей под подозрением: ${suspects.length}, проверяю каналы`);
-
-async function isLive(handle, id) {
-  try {
-    const res = await fetch(`https://t.me/${handle}/${id}?embed=1`, {
-      signal: AbortSignal.timeout(15_000),
-    });
-    if (!res.ok) return null;
-    const html = await res.text();
-    return html.includes("tgme_widget_message_text");
-  } catch {
-    return null; // сеть подвела — не выдаём за удаление
-  }
+  return posts;
 }
 
 const found = [];
-for (const s of suspects) {
-  const handle = HANDLE[`${s.target} ${s.lang}`];
-  if (!handle) continue;
-  const live = [];
-  for (const id of s.ids) {
-    const alive = await isLive(handle, id);
-    if (alive === null) {
-      console.error(`  ? ${handle}/${id}: канал не ответил, пропускаю ключ целиком`);
-      live.length = 0;
-      break;
+const unchecked = [];
+for (const [key, handle] of Object.entries(CHANNELS)) {
+  if (only && only !== key) continue;
+  let html;
+  try {
+    const res = await fetch(`https://t.me/s/${handle}`, { signal: AbortSignal.timeout(20_000) });
+    if (!res.ok) {
+      console.error(`  ? ${key}: страница канала ответила ${res.status}`);
+      continue;
     }
-    if (alive) live.push(id);
+    html = await res.text();
+  } catch (err) {
+    // Сеть подвела — молчать нельзя: «дублей нет» и «я не смотрел» это
+    // разные ответы, и путать их в сверке опаснее всего.
+    console.error(`  ? ${key}: канал не ответил (${err.message}) — НЕ ПРОВЕРЕН`);
+    continue;
   }
-  if (live.length > 1) {
-    found.push({ ...s, live });
-    const slug = s.key.split(" ").slice(2).join(" ");
-    console.error(`  ✗ ${s.target}/${s.lang} ${slug}: живых копий ${live.length} — ${live.join(", ")}`);
+
+  const posts = parseChannel(html);
+  if (!posts.length) {
+    // У закрытого канала страница t.me/s/ пуста. Это НЕ «дублей нет»:
+    // основной русский канал 18.08.2026 отдавал ноль публикаций именно
+    // поэтому, и молчаливый ноль в отчёте означал бы проверку, которой
+    // не было.
+    console.error(`  ! ${key} (${handle}): предпросмотр закрыт — КАНАЛ НЕ ПРОВЕРЕН`);
+    unchecked.push(key);
+    continue;
   }
+  const byHeadline = new Map();
+  for (const p of posts) {
+    if (!p.headline) continue;
+    byHeadline.set(p.headline, [...(byHeadline.get(p.headline) ?? []), p]);
+  }
+  const dupes = [...byHeadline.values()].filter((v) => v.length > 1);
+  console.error(`  ${key}: публикаций ${posts.length}, повторов ${dupes.length}`);
+  for (const group of dupes) {
+    const ids = group.map((p) => p.id).sort((a, b) => a - b);
+    console.error(`    ✗ ${ids.join(", ")} — ${group[0].preview}`);
+    found.push({ key, ids, preview: group[0].preview });
+  }
+}
+
+if (unchecked.length) {
+  console.error(`\n[audit] НЕ ПРОВЕРЕНЫ: ${unchecked.join(", ")} — предпросмотр канала закрыт.`);
+  console.error("[audit] по таким каналам дубли видны только глазами или по реестру.");
 }
 
 if (!found.length) {
-  console.error("[audit] живых дублей нет — реестр и каналы сходятся");
-  process.exit(0);
+  console.error(`[audit] дублей в проверенных каналах нет`);
+  process.exit(unchecked.length ? 2 : 0);
 }
 
-// Оставляем ПОСЛЕДНЮЮ копию: свёртка реестра указывает на неё, и удалять
-// надо ту, о которой реестр фактически не знает.
-const messages = found.flatMap((f) =>
-  f.live.slice(0, -1).map((id) => `${f.target === "main" ? "" : `${f.target}-`}${f.lang}:${id}`),
-);
+// Оставляем ПОСЛЕДНЮЮ копию. У неё больше шансов быть записанной в реестре:
+// повторы возникают, когда первая отправка не записалась, и снимать надо
+// именно её — иначе реестр будет указывать на удалённое сообщение.
+const messages = found.flatMap((f) => f.ids.slice(0, -1).map((id) => `${f.key}:${id}`));
 
-console.error(`\n[audit] живых дублей: ${messages.length}`);
+console.error(`\n[audit] дублей: ${messages.length}`);
 console.error(`[audit] к снятию: ${messages.join(", ")}`);
 
 if (makeRequest) {
@@ -151,13 +145,13 @@ if (makeRequest) {
     `${JSON.stringify(
       {
         $comment: [
-          "Заявка собрана scripts/audit-telegram-duplicates.mjs --request.",
-          "Каждое сообщение проверено на живость; оставлена последняя копия —",
-          "та, на которую указывает свёртка реестра.",
+          "Заявка собрана scripts/audit-telegram-duplicates.mjs --request по самим",
+          "каналам: одинаковые заголовки в последних публикациях. Оставлена",
+          "последняя копия — у неё больше шансов быть записанной в реестре.",
         ],
         slugs: [],
         messages,
-        reason: "сверка реестра с каналами: живые дубли",
+        reason: "сверка каналов: одинаковые заголовки подряд",
         requestedAt: new Date().toISOString(),
       },
       null,
