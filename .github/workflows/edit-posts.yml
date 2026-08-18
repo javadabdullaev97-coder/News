@@ -1,0 +1,89 @@
+name: Edit posts
+
+# Правит текст уже отправленных постов в Telegram.
+#
+# Статью в репозитории поправить легко, пост у подписчиков — нет. До
+# 18.08.2026 выходов было два, и оба плохие: оставить в ленте то, что
+# редакция уже признала ошибкой, либо снять и отправить заново, показав
+# подписчику ту же новость дважды. Bot API умеет третье — editMessageCaption
+# правит сообщение на месте, без уведомления и без второй публикации.
+#
+# ПОРЯДОК ТАКОЙ: сначала правится статья в репозитории, потом её слаг
+# кладётся в content/state/edit-request.json. Текст поста собирается заново
+# из текущего состояния статьи — отдельного «текста правки» нет, источник
+# истины один.
+#
+# Пуш заявки запускает этот воркфлоу.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/state/edit-request.json"
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: "slugs — через запятую (пусто — взять из заявки)"
+        required: false
+        default: ""
+      dry_run:
+        description: "dry_run — 1 = только показать новый текст"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  # Общая очередь со всем, что трогает канал. Правка реестра не меняет,
+  # но идти параллельно с отправкой ей незачем: обе ходят в один Bot API
+  # и обе пушат в main.
+  group: telegram-channel
+  cancel-in-progress: false
+
+jobs:
+  edit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund --no-save
+
+      - name: Edit
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          TELEGRAM_CHANNEL_UZ: ${{ secrets.TELEGRAM_CHANNEL_UZ }}
+          TELEGRAM_CHANNEL_SPORT: ${{ secrets.TELEGRAM_CHANNEL_SPORT }}
+          TELEGRAM_CHANNEL_SPORT_UZ: ${{ secrets.TELEGRAM_CHANNEL_SPORT_UZ }}
+          TELEGRAM_CHANNEL_TECH: ${{ secrets.TELEGRAM_CHANNEL_TECH }}
+          TELEGRAM_CHANNEL_TECH_UZ: ${{ secrets.TELEGRAM_CHANNEL_TECH_UZ }}
+          SITE_URL: "https://leap.uz"
+          SLUGS: ${{ github.event.inputs.slugs }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
+        run: node scripts/edit-posts.mjs
+
+      # Коммитим обнулённую заявку: заряженной ей оставаться нельзя — пуш
+      # её же запускает воркфлоу, и повторный прогон переписал бы сообщения
+      # текстом статей, которые с тех пор могли снова измениться.
+      - name: Commit request
+        if: always() && github.event.inputs.dry_run != '1'
+        run: |
+          if [[ -z $(git status --porcelain -- content/state/edit-request.json) ]]; then
+            echo "Заявка не менялась."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/state/edit-request.json
+          git commit -m "state: заявка на правку постов исполнена"
+          bash .github/scripts/git-push-with-rebase.sh

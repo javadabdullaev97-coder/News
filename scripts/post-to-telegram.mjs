@@ -40,6 +40,8 @@ import {
   decodeEntities,
   escapeHTML,
 } from "../lib/frontmatter.mjs";
+// Формат поста — общий с scripts/edit-posts.mjs, см. lib/telegram-message.mjs.
+import { buildCaption, buildMessage } from "../lib/telegram-message.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(HERE);
@@ -271,48 +273,6 @@ function articleUrl(date, slug, lang = DEFAULT_LANG) {
 // владелец забраковал 05.08.2026: пост целиком на узбекском, а последняя
 // строка — по-русски. Стрелка вместо слов «на leap.uz» короче и одинаково
 // читается на всех трёх языках.
-const READ_MORE = {
-  ru: "Читать полностью leap.uz →",
-  uz: "Batafsil leap.uz →",
-  en: "Read in full leap.uz →",
-};
-
-function buildMessage(fm, lede, url, { ledeLimit = 600, lang = "ru" } = {}) {
-  const title = escapeHTML(decodeEntities(fm.title || ""));
-
-  const parts = [];
-
-  // Заголовок первой строкой. Никаких плашек перед ним.
-  parts.push(`<b>${title}</b>`);
-
-  // Лид
-  const plainLede = decodeEntities(lede);
-  const shortLede =
-    plainLede.length > ledeLimit
-      ? plainLede.slice(0, ledeLimit - 1).replace(/\s+\S*$/, "") + "…"
-      : plainLede;
-  parts.push(escapeHTML(shortLede));
-
-  // Футер
-  parts.push(`<a href="${url}">${READ_MORE[lang] ?? READ_MORE.ru}</a>`);
-
-  return parts.join("\n\n");
-}
-
-// Telegram режет caption на 1024 символах. Раньше при переполнении код молча
-// откатывался на sendMessage — картинка терялась целиком. Вместо этого
-// подрезаем лид, пока подпись не влезет: заголовок и первоисточник важнее
-// последних двух предложений лида.
-const CAPTION_LIMIT = 1024;
-
-function buildCaption(fm, lede, url, lang = "ru") {
-  for (const limit of [600, 450, 320, 220, 140]) {
-    const text = buildMessage(fm, lede, url, { ledeLimit: limit, lang });
-    if (text.length <= CAPTION_LIMIT) return text;
-  }
-  return null; // даже без лида не влезло — уходим на sendMessage
-}
-
 // ─── Беззвучная доставка ночью ───
 //
 // Планёрки работают круглосуточно, поэтому пост в канал мог прийти в четыре
