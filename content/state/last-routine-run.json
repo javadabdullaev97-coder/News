@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T04:41:00+05:00",
+  "lastRunAt": "2026-08-18T06:05:00+05:00",
   "mode": "main",
-  "topicsProcessed": 0,
-  "published": 0,
+  "topicsProcessed": 1,
+  "published": 1,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 2532,
+  "belowThreshold": 1385,
   "rework": 0,
-  "notes": "Порог не прошла ни одна тема. Local-поток — 13 fresh (кадровая перестановка советника от influencer-канала без официального подтверждения, дежурный пост Минздрава, землетрясения M5.3 в Микронезии, региональная статистика Кыргызстана, архивные новости ООН) — ни одна не в формате новости с первоисточником. World-поток — 2519 fresh, кластеризован вручную по mustPublish/publishIfQuality категориям (ФРС/ЕЦБ, война/перемирие, теракты, смена власти, катастрофы M7+, санкции/ВТО, IPO, M&A $10B+, крипто, отчётность топ-6, премьеры) — совпадений с minDistinctBlocs и requireNonRussianBloc не найдено; РФ-Украина рутина отсеяна ruUaHighBar. check-doc-digest: fresh=false третий прогон подряд — CORE.md отстаёт от SKILL.md, нужно ручное обновление дайджеста (node scripts/check-doc-digest.mjs --update)."
+  "notes": "Local-поток пуст (inbox-select: 0 fresh — все 1329 свежих items уже reviewedEarlier в пределах 24ч). World: 1 тема прошла (Трамп/Оман/Ормузский пролив, mena+anglo+euro, mustPublish). check-doc-digest: fresh=false четвёртый прогон подряд (CORE.md отстаёт от SKILL.md) — читала полный SKILL.md сверх CORE.md, нужно ручное обновление дайджеста (node scripts/check-doc-digest.mjs --update). npm install отсутствовал в свежем клоне (нет node_modules) — claims-lint.mjs падал на 'yaml' до npm install; выполнила установку."
 }
