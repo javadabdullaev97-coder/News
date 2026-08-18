@@ -202,3 +202,4 @@
 {"run":"2026-08-18T13:09","stage":"editor","calls":2,"fetches":0,"minutes":8}
 {"run":"2026-08-18T13:09","topics":2,"published":0,"skippedFactcheck":0,"skippedBild":0}
 {"run":"2026-08-18T13:10","stage":"editor","calls":2,"fetches":0,"minutes":10}
+{"run":"2026-08-18T13:12","stage":"bild","calls":2,"fetches":0,"minutes":5}
