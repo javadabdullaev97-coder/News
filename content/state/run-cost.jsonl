@@ -75,3 +75,4 @@
 {"run":"2026-08-18T06:58","stage":"fact-checker","calls":1,"fetches":4,"minutes":4}
 {"run":"2026-08-18T07:02","stage":"editor","calls":1,"fetches":0,"minutes":5}
 {"run":"2026-08-18T07:02","stage":"bild","calls":1,"fetches":0,"minutes":3}
+{"run":"2026-08-18T07:03","stage":"editor","calls":1,"fetches":0,"minutes":4}
