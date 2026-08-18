@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-18T17:27:00+05:00",
-  "topicsProcessed": 1,
-  "published": 0,
+  "lastRunAt": "2026-08-18T18:53:00+05:00",
+  "topicsProcessed": 2,
+  "published": 2,
   "queuedForOwner": 0,
-  "rejected": 1,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 59,
-  "notes": "Единственная прошедшая порог тема (Фьюри 18.08: «объявление боя с Джошуа скоро», спор о площадке) — дубль спора о площадке, уже дважды опубликованного 17.08 (uk-showdown-talks, cancel-risk) и уже отклонённого один раз сегодня (fury-joshua-saga). topic-dupecheck.mjs снова не поймал совпадение — второй раз подряд для этой саги, сравнение по ссылкам/заголовку не видит развивающийся сюжет с новыми URL каждый день."
+  "belowThreshold": 43,
+  "notes": "Инструмент Write блокирует reporter/fact-checker при попытке сохранить .review/reporter-notes-*, .review/claims-*, .review/fact-check-* («Subagents should return findings as text, not write report files») — оба агента отдавали содержимое текстом, планёрка сохраняла сама. Editor/bild/translator пишут файлы нормально. Стоит проверить харнесс отдельно, повторялось дважды."
 }
