@@ -1,12 +1,12 @@
 {
-  "lastRunAt": "2026-08-18T06:05:00+05:00",
+  "lastRunAt": "2026-08-18T06:38:00+05:00",
   "mode": "main",
-  "topicsProcessed": 1,
-  "published": 1,
+  "topicsProcessed": 0,
+  "published": 0,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 1385,
+  "belowThreshold": 66,
   "rework": 0,
-  "notes": "Local-поток пуст (inbox-select: 0 fresh — все 1329 свежих items уже reviewedEarlier в пределах 24ч). World: 1 тема прошла (Трамп/Оман/Ормузский пролив, mena+anglo+euro, mustPublish). check-doc-digest: fresh=false четвёртый прогон подряд (CORE.md отстаёт от SKILL.md) — читала полный SKILL.md сверх CORE.md, нужно ручное обновление дайджеста (node scripts/check-doc-digest.mjs --update). npm install отсутствовал в свежем клоне (нет node_modules) — claims-lint.mjs падал на 'yaml' до npm install; выполнила установку."
+  "notes": "0 тем прошло порог. Local: 5 свежих items (курсы валют, погодный бот, перенос мозаики, кыргызское внутреннее дело, статья BBC Uzbek про протест Японии) — ни одна не тянет на новость с первоисточником. World: 61 кандидат, все ru-state/ru-business рутина войны или шоу-бизнес/индустрия развлечений; ни один кластер не набрал 2 разных блока с непророссийским блоком под mustPublish/publishIfQuality. check-doc-digest: fresh=false (CORE.md отстаёт от SKILL.md) — прочитан полный SKILL.md сверх CORE.md, дайджест не обновляла (нет полномочий на --update в рамках прогона)."
 }
