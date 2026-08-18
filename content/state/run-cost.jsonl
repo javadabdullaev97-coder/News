@@ -195,3 +195,5 @@
 {"run":"2026-08-18T12:16","topics":3,"published":1,"skippedFactcheck":0,"skippedBild":0}
 {"run":"2026-08-18T12:27","stage":"reporter","calls":1,"fetches":8,"minutes":5}
 {"run":"2026-08-18T12:27","topics":1,"published":0,"skippedFactcheck":0,"skippedBild":0}
+{"run":"2026-08-18T13:04","stage":"reporter","calls":4,"fetches":96,"minutes":12}
+{"run":"2026-08-18T13:04","stage":"fact-checker","calls":2,"fetches":6,"minutes":8}
