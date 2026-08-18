@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-18T15:20:00+05:00",
-  "topicsProcessed": 4,
-  "published": 1,
+  "lastRunAt": "2026-08-18T16:12:00+05:00",
+  "topicsProcessed": 5,
+  "published": 3,
   "queuedForOwner": 0,
-  "rejected": 3,
-  "needsVerification": 0,
-  "belowThreshold": 30,
-  "notes": "2 из 4 отобранных тем (anthropic-revenue-ipo, google-spirit-data-ai) оказались дублями уже опубликованных материалов другой планёрки — мой topic-dupecheck на момент отбора не видел свежий origin/main, т.к. я не сделал git checkout origin/main -- content/... перед отбором (§7 planyorka-run.md). Обнаружено только после того, как git-push-with-rebase.sh подтянул чужие коммиты и конфликт стал виден на диске. Урок для следующего прогона: синхронизировать content/queue и content/posts с origin/main ДО отбора, не только инбокс. Write снова блокирует файлы с подстрокой 'report' в имени (reporter-notes-*) — агенты сохраняли текст заметок в финальном ответе, оркестратор записывал файлы вручную."
+  "rejected": 1,
+  "needsVerification": 1,
+  "belowThreshold": 37,
+  "notes": "Тема meta-child-safety-trial-29-states (иск 29 штатов США к Meta) оказалась дублем: параллельный прогон запушил meta-federal-trial-child-safety-oakland в content/queue/ ПОСЛЕ моей брони темы, но ДО того как я дошла до копирования в queue — topic-dupecheck на момент отбора (с синхронизацией origin/main перед отбором, как предписано) совпадения не нашёл, т.к. matchedByLink сравнивает точные URL, а источники не пересеклись. Обнаружено вручную перед i18n-lint, вся цепочка (fact-check/editor/bild) уже была пройдена — отклонено в content/rejected/ с reason.txt. Это третий подряд случай такого рода (см. notes прошлого прогона) — тема правда системная, нужна фикс на уровне dupecheck/блокировок между параллельными планёрками, не разовая правка. Xiaomi (xiaomi-profit-memory-crunch) — в needs-verification: ir.mi.com отдавал 503 весь прогон, точный HKEXnews PDF за Q2 2026 не нашёлся."
 }
