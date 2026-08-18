@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-18T03:07:00+05:00",
-  "topicsProcessed": 1,
-  "published": 1,
+  "lastRunAt": "2026-08-18T12:17:00+05:00",
+  "topicsProcessed": 4,
+  "published": 4,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 28,
-  "notes": "Stripe/OpenRouter ($7 млрд) прошла отбор по баллам (tier2+fundingOrDeal=40), но dupecheck после отбора показал: уже опубликована конкурентным прогоном (content/posts/2026-08-18/stripe-openrouter-7bn-deal-bloomberg.mdx) — снята до брони. Editor выставил updatedAt в будущее (14:30 вместо факта ~03:07 Ташкента) и publishedAt:null вместо queuedAt в опубликованном материале — тот же баг унаследовали оба перевода; исправлено вручную во всех трёх файлах перед коммитом в очередь. reporter-агент по-прежнему не может писать файлы с 'report' в пути (Write-tool blocker) — notes сохранялись оркестратором вручную."
+  "belowThreshold": 127,
+  "notes": "Два кандидата из отобранных изначально (Nvidia–OpenAI $105 млрд, Stripe/OpenRouter $7 млрд) оказались дублями уже опубликованных материалов конкурентного прогона — обнаружено на topic-dupecheck до брони, заменены на google-spirit-airlines-data и продолжение отбора. Инструмент Write у reporter/fact-checker/bild систематически блокирует файлы с 'reporter-notes-'/'report' в имени — notes/fact-check сохранялись оркестратором вручную из текста ответа агента по каждой из 4 тем."
 }
