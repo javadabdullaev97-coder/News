@@ -1,23 +1,15 @@
 {
   "$comment": [
-    "Правка текста уже отправленных постов по разбору владельца 18.08.2026.",
+    "Заявка исполнена и обнулена скриптом.",
     "",
-    "Что поправлено в статьях и подтягивается сюда:",
-    "  anthropic-revenue-ipo-2026-08, sinner-us-open-participation-doubt —",
-    "    из заголовка убрано название издания («— Bloomberg», «— Gazzetta»);",
-    "  garcia-benn-wbc-crawford-prediction — «Garsiyadan g'alaba qozonishi»",
-    "    исправлено на «Garsiya ustidan»: g'alaba qozonmoq не берёт -dan;",
-    "  khusanov-90-minutes-community-shield-loss — «Arsenal»dan yutqazdi»",
-    "    исправлено на «Arsenal»ga»: yutqazmoq требует дательного.",
-    "",
-    "Текст собирается заново из текущего состояния статей."
+    "Как править текст уже отправленных постов: впиши слаги в slugs.",
+    "Текст собирается заново из текущего состояния статьи — сначала",
+    "правится статья в репозитории, потом сюда идёт её слаг."
   ],
-  "slugs": [
-    "anthropic-revenue-ipo-2026-08",
-    "sinner-us-open-participation-doubt",
-    "garcia-benn-wbc-crawford-prediction",
-    "khusanov-90-minutes-community-shield-loss"
-  ],
-  "reason": "название издания в заголовке и падежи в узбекском спорте",
-  "requestedAt": "2026-08-18T02:00:00Z"
+  "slugs": [],
+  "lastRun": {
+    "at": "2026-08-18T03:31:46.802Z",
+    "edited": 7,
+    "unchanged": 3
+  }
 }
