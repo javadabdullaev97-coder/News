@@ -1,0 +1,106 @@
+---
+title: "Tadqiqotchilar Copilot sun'iy intellekt yordamchisini aldab, o'zini qanday buzish mumkinligini aytib berishga majbur qildi"
+description: "Varonis yo'naltiruvchi savollar yordamida Microsoft Copilot sun'iy intellekt yordamchisini o'zining yashirin sozlamalarini va foydalanuvchi ma'lumotlarini bir marta bosish orqali o'g'irlash usulini oshkor qilishga majbur qildi."
+lang: "uz"
+translatedFrom: "ru"
+updatedAt: "2026-08-18T19:15:00+05:00"
+category: "tech"
+tags: ["Copilot", "Microsoft", "kiberxavfsizlik", "sun'iy intellekt"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "Varonis Threat Labs: CoSnitch"
+    url: "https://www.varonis.com/blog/cosnitch"
+  - name: "The Register"
+    url: "https://www.theregister.com/research/2026/08/18/copilot-tricked-into-telling-reseachers-how-to-hack-itself/5288857"
+image:
+  url: "/images/posts/2026-08/copilot-cosnitch-meta-hacking-flaw-01.jpg"
+  alt: "Noutbuk klaviaturasida qizil-yashil yorug'lik ostidagi qulf — kiberxavfsizlik va ma'lumotlar himoyasi ramzi"
+  credit: "Unsplash / FlyD"
+tgScore: 30
+broadcast: false
+mainChannelGate: massSecurityIncident
+---
+
+Varonis Threat Labs kompaniyasining kiberxavfsizlik bo'yicha mutaxassislari
+yo'naltiruvchi savollar yordamida Microsoft Copilot sun'iy intellekt (SI)
+yordamchisini o'zining buzishga qarshi himoyasini qanday chetlab o'tish
+mumkinligini oshkor qilishga majbur qildi — bu haqda kompaniyaning
+[2026-yil 10-avgustdagi hisobotida](https://www.varonis.com/blog/cosnitch)
+aytilgan. Varonis hisobotni Microsoft yamoqlari chiqqan kuni —
+[18-avgustda](https://www.varonis.com/blog/cosnitch) yangiladi.
+
+## Sun'iy intellekt o'zi haqidagi sirni qanday oshkor qildi
+
+Tadqiqotchilar bu texnikani «meta-xaking» deb atashdi. Bu — inson emas, balki
+SI ning o'zini «mulohaza yuritish» mexanizmiga, ya'ni Copilot o'z qarorlarini
+qanday tushuntirishiga qaratilgan ijtimoiy muhandislik usuli. Mutaxassislar
+Copilotdan muayyan harakatlar nega imkonsizligini so'rab, SI ning har bir rad
+javobini [tizimning ichki tuzilishi tafsilotlarini ochib beruvchi
+texnik tushuntirish](https://www.varonis.com/blog/cosnitch) bilan birga
+oldilar.
+
+Sohada bunday aldov «jeylbreyk» (jailbreak) deb ataladi. Foydalanuvchi
+maxsus tanlangan iboralar orqali SI tizimini o'z cheklovlarini chetlab
+o'tishga va ishlab chiquvchilar taqiqlagan ma'lumot yoki harakatni berishga
+majbur qiladi. Copilot holatida tadqiqotchilar SI ni himoya tafsilotlarini
+oshkor qilishga olib kelishdi: u [o'zining himoya mexanizmlarini tasvirlab
+berdi va so'rovning yashirin parametrlaridan biri nega «endi
+ishlamasligini» tushuntirdi](https://www.theregister.com/research/2026/08/18/copilot-tricked-into-telling-reseachers-how-to-hack-itself/5288857),
+shu bilan uning mavjudligini tasdiqladi.
+
+«Copilotning o'z xavfsizligiga bo'lgan ishonchi aynan uning qanday qilib
+buzilishi mumkinligini oshkor qilish mexanizmiga aylandi», — [hisobotda
+ta'kidlangan](https://www.varonis.com/blog/cosnitch).
+
+## CoSnitch umumiy nomi ostidagi uchta zaiflik
+
+Tadqiqotchilar shu nom bilan Microsoft Copilot Personal'dagi — SI
+yordamchisining korporativ Microsoft 365 Copilot'dan alohida bo'lgan bepul
+iste'molchi versiyasidagi — uchta zaiflikdan iborat zanjirni atashdi.
+
+Birinchisi — so'rovning avtomatik ishga tushishi.
+[`https://copilot.microsoft.com/?q=<matn>&autorun=1`](https://www.varonis.com/blog/cosnitch)
+ko'rinishidagi havola Copilotni allaqachon yozib qo'yilgan zararli matn va
+foydalanuvchi tasdiqisiz uni ishga tushiradigan parametr bilan ochardi.
+
+Ikkinchisi — yashirin ma'lumot oqishi. Ulangan OAuth ilovalari — Copilot
+foydalanuvchi hisobiga parolini uzatmasdan bog'laydigan uchinchi tomon
+xizmatlari — orqali SI Gmail va Outlook pochtasiga, Google kalendariga,
+Google Drive fayllariga va o'zining muloqot xotirasiga kirish huquqiga ega.
+Zararli so'rov SI ni topilgan ma'lumotlarni kodlashtirib, tashqi serverga
+havolaga joylashtirishga majbur qildi. Copilot bu havolaga xuddi sahifa
+mazmunini shunchaki qayta hikoya qilayotgandek o'zi o'tib, shu tariqa
+o'g'irlangan ma'lumotlarni tajovuzkorga yubordi. Testlardan birida
+tadqiqotchilar xatdan parolni ochiq ko'rinishda oldilar: «Hey, My password
+is !214SDBG!!! thanks IT», — [Varonis keltirgan
+misolda aytilgan](https://www.varonis.com/blog/cosnitch).
+
+Uchinchisi — doimiy xotiraning zararlanishi. Agar Copilotdan zararli
+veb-sahifani qayta hikoya qilishni so'rasangiz, u oddiy matnni ichiga
+yashirilgan buyruqlardan ajrata olmaydi va tajovuzkor ko'rsatmalarini
+o'zining doimiy xotirasiga yozib qo'yadi. Varonis ma'lumotlariga ko'ra, bu
+ko'rsatmalar parol almashtirilgandan, seans yakunlangandan va qurilma zavod
+sozlamalariga qaytarilgandan keyin ham saqlanib qoladi.
+
+## Microsoftning munosabati
+
+Varonis zaifliklar haqida Microsoftga 2025-yil dekabrida xabar berdi.
+Yamoqlar [2026-yil 18-avgustda](https://www.varonis.com/blog/cosnitch)
+chiqdi. Kompaniya tuzatishdan oldin zaiflikdan tajovuzkorlar
+foydalanganiga oid dalillar ko'rmaganini ta'kidladi va Microsoftga
+«muammoni bartaraf etishdagi hamkorligi uchun» minnatdorchilik bildirdi.
+
+The Register nashri Microsoftga yamoq va zaiflikning umumiy CVE
+reestridagi raqami bo'yicha izoh so'rab murojaat qildi, ammo [material
+chop etilguncha javob
+olmadi](https://www.theregister.com/research/2026/08/18/copilot-tricked-into-telling-reseachers-how-to-hack-itself/5288857).
+
+## Copilot foydalanuvchilari nima qilishi kerak
+
+- Copilot sozlamalarida ulangan xizmatlar — pochta, kalendar, bulutli
+  disklar — ro'yxatini tekshiring va foydalanmaydiganlaringizni o'chiring.
+- Manzilida uzun parametrlar bo'lgan notanish `copilot.microsoft.com`
+  havolalariga o'tmang — hujum aynan shunday ishga tushirilgan.
+- Parollar va kirish kodlarini xat matnida saqlamang — Copilot pochtani
+  so'zma-so'z o'qiydi va bunday ma'lumotlarni uchinchi tomonga uzatishi
+  mumkin.
