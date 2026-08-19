@@ -24,6 +24,8 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { readCostPerArticle } from "../lib/read-cost.mjs";
+
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const BUDGET = join(ROOT, "config/prompt-budget.json");
 const argv = process.argv.slice(2);
@@ -80,46 +82,25 @@ for (const r of rows) {
 }
 
 // Сумма по файлам ничего не значит: ни один агент не читает их все.
-// Значит стоимость ОДНОГО ВЫЗОВА — инструкция роли плюс её срез редполитики.
-// Это и есть число, которое умножается на количество материалов.
-// Роль → что она читает ВСЕГДА, помимо своей инструкции и среза редполитики.
-// Условное (приложения редполитики, тематические части глоссария, условные
-// шаги планёрки) сюда не входит намеренно: оно и не читается, пока признак
-// не сработал.
-const CHAIN = {
-  reporter: [],
-  "fact-checker": [],
-  editor: [],
-  bild: [],
-  translator: ["docs/terminology-glossary.md"],
-};
-const sizeOrNull = (rel) => {
-  const abs = join(ROOT, rel);
-  return existsSync(abs) ? readFileSync(abs, "utf8").length : null;
-};
-
+// Значит стоимость ОДНОГО ВЫЗОВА — инструкция роли плюс её срез редполитики
+// плюс то, что роль читает всегда. Считает lib/read-cost.mjs — тем же кодом,
+// которым record-run-cost штампует эту цифру на каждом прогоне.
+const cost = readCostPerArticle(ROOT);
 console.error("\n   Стоимость одного вызова — инструкция + срез редполитики:");
-let perArticle = 0;
-let unknown = false;
-for (const [role, extras] of Object.entries(CHAIN)) {
-  const agent = sizeOrNull(`.claude/agents/${role}.md`) ?? 0;
-  const policy = sizeOrNull(`config/generated/policy-${role}.md`);
-  const extra = extras.reduce((a, rel) => a + (sizeOrNull(rel) ?? 0), 0);
-  if (policy === null) {
-    unknown = true;
-    console.error(`   ${role.padEnd(13)} ${String(agent).padStart(6)} + срез не собран`);
+for (const [role, r] of Object.entries(cost.roles)) {
+  if (r.total === null) {
+    console.error(`   ${role.padEnd(13)} ${String(r.agent).padStart(6)} + срез не собран`);
     continue;
   }
-  perArticle += agent + policy + extra;
   console.error(
-    `   ${role.padEnd(13)} ${String(agent).padStart(6)} + ${String(policy).padStart(6)}` +
-      (extra ? ` + ${String(extra).padStart(5)}` : "        ") +
-      ` = ${String(agent + policy + extra).padStart(6)}`,
+    `   ${role.padEnd(13)} ${String(r.agent).padStart(6)} + ${String(r.policy).padStart(6)}` +
+      (r.extra ? ` + ${String(r.extra).padStart(5)}` : "        ") +
+      ` = ${String(r.total).padStart(6)}`,
   );
 }
 console.error(
-  `   ${"на материал".padEnd(13)} ${String(perArticle).padStart(15)} знаков` +
-    (unknown ? " (без несобранных срезов — node scripts/policy-slice.mjs --all)" : ""),
+  `   ${"на материал".padEnd(13)} ${String(cost.total).padStart(15)} знаков` +
+    (cost.complete ? "" : " (без несобранных срезов — node scripts/policy-slice.mjs --all)"),
 );
 
 if (missing) console.error(`[budget] ✗ файлов из бюджета нет на диске: ${missing}`);

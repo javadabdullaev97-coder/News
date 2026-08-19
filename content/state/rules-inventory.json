@@ -7,7 +7,7 @@
     "Строка попала сюда, если несёт модальность (нельзя, обязан, всегда),",
     "или это пример «Плохо/Хорошо», или упоминание файла конфига и скрипта."
   ],
-  "takenAt": "2026-08-19T22:39:00.157Z",
+  "takenAt": "2026-08-19T23:05:26.255Z",
   "counts": {
     ".claude/skills/leap-editorial-style/references/policy.md": 324,
     ".claude/skills/leap-editorial-style/SKILL.md": 12,
@@ -19,7 +19,7 @@
     ".claude/agents/seo.md": 118,
     ".claude/agents/translator.md": 52,
     "docs/routine-prompts/planyorka.md": 61,
-    "docs/routine-prompts/planyorka-run.md": 259,
+    "docs/routine-prompts/planyorka-run.md": 260,
     "docs/routine-prompts/steps/breaking-lane.md": 17,
     "docs/routine-prompts/steps/morning-review.md": 10,
     "docs/routine-prompts/steps/needs-verification.md": 18,
@@ -1418,7 +1418,8 @@
     "- duration: ~m минут",
     "расход не только печатается, но и записывается. по ходу прогона, после каждой стадии:",
     "bash node scripts/record-run-cost.mjs --stage reporter --calls 4 --fetches 22 --minutes 6 node scripts/record-run-cost.mjs --stage fact-checker --calls 2 --fetc",
-    "fetches берётся из строки fetches: n, которую возвращают reporter и fact-checker. сводка за прошлые прогоны — --summary.",
+    "fetches берётся из строки fetches: n, которую возвращают reporter и fact-checker. сводка за прошлые прогоны — --summary, сравнение версий инструкций — --compare",
+    "итоговая запись прогона (--topics/--published) сама проставляет readcost — сколько постоянного текста читает редакция на один материал при нынешней версии инстр",
     "прогон без записи расхода — это прогон, про который через неделю нельзя сказать, стало лучше или хуже.",
     "pr-цикл больше не основной путь — страховка на случай directpublish.enabled: false. полоса чп (breakinglane) имеет собственный выключатель и от directpublish не",
     "## правила и ограничения",
