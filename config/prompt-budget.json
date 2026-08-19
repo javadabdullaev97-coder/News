@@ -15,10 +15,10 @@
     ".claude/skills/leap-editorial-style/references/policy.md": 44100,
     ".claude/skills/leap-editorial-style/SKILL.md": 2300,
     ".claude/skills/leap-editorial-style/CORE.md": 11800,
-    ".claude/agents/reporter.md": 20200,
-    ".claude/agents/fact-checker.md": 18400,
-    ".claude/agents/editor.md": 18400,
-    ".claude/agents/bild.md": 17100,
+    ".claude/agents/reporter.md": 17500,
+    ".claude/agents/fact-checker.md": 16500,
+    ".claude/agents/editor.md": 17000,
+    ".claude/agents/bild.md": 13300,
     ".claude/agents/translator.md": 9200,
     ".claude/agents/seo.md": 14800,
     "docs/routine-prompts/planyorka.md": 10300,
@@ -33,7 +33,13 @@
     "docs/routine-prompts/steps/source-candidates.md": 4800,
     "docs/routine-prompts/steps/translations-backfill.md": 1200,
     "docs/terminology/sport.md": 2000,
-    "docs/terminology/tech.md": 2200
+    "docs/terminology/tech.md": 2200,
+    "docs/agent-playbooks/bild-ask-owner.md": 2600,
+    "docs/agent-playbooks/bild-charts.md": 2300,
+    "docs/agent-playbooks/editor-source-unavailable.md": 1900,
+    "docs/agent-playbooks/fact-checker-sensitive.md": 1800,
+    "docs/agent-playbooks/reporter-candidate-sources.md": 1800,
+    "docs/agent-playbooks/reporter-source-unavailable.md": 2000
   },
   "updatedAt": "2026-08-19"
 }

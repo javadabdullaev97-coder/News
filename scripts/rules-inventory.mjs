@@ -54,6 +54,10 @@ const SOURCES = [
   ...readdirSync(join(ROOT, "docs/terminology"))
     .filter((f) => f.endsWith(".md"))
     .map((f) => `docs/terminology/${f}`),
+  // Редкие процедуры агентов: вынесены из инструкций, читаются по признаку.
+  ...readdirSync(join(ROOT, "docs/agent-playbooks"))
+    .filter((f) => f.endsWith(".md"))
+    .map((f) => `docs/agent-playbooks/${f}`),
 ];
 
 const MODAL = /\b(не пишем|не публикуем|не ставим|не берём|не даём|нельзя|запрещено|обязан|обязана|обязано|обязательн|всегда|никогда|только если|только когда|должен|должна|должно|не должен|не может|недопустим)\b/i;
