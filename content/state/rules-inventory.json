@@ -7,7 +7,7 @@
     "Строка попала сюда, если несёт модальность (нельзя, обязан, всегда),",
     "или это пример «Плохо/Хорошо», или упоминание файла конфига и скрипта."
   ],
-  "takenAt": "2026-08-19T23:36:29.322Z",
+  "takenAt": "2026-08-19T23:43:28.158Z",
   "counts": {
     ".claude/skills/leap-editorial-style/references/policy.md": 324,
     ".claude/skills/leap-editorial-style/SKILL.md": 12,
@@ -19,7 +19,7 @@
     ".claude/agents/seo.md": 118,
     ".claude/agents/translator.md": 52,
     "docs/routine-prompts/planyorka.md": 61,
-    "docs/routine-prompts/planyorka-run.md": 260,
+    "docs/routine-prompts/planyorka-run.md": 261,
     "docs/routine-prompts/steps/breaking-lane.md": 17,
     "docs/routine-prompts/steps/morning-review.md": 10,
     "docs/routine-prompts/steps/needs-verification.md": 21,
@@ -1439,6 +1439,7 @@
     "он покрывает content/posts/ за трое суток, content/queue/, content/needs-verification/ и content/rejected/ разом (почему трое — rationale: у живого сюжета кажды",
     "- duplicate — ссылки уже разобраны, тему не бери;",
     "- possible — совпал заголовок. это не запрет, а повод посмотреть: открой совпавший материал. дубль — пропусти; развитие сюжета — законный материал, но пиши его ",
+    "- possible + strongtitlematch: true — заголовок совпал больше чем наполовину, это тот же сюжет. брать только как развитие и только если можешь назвать в первом ",
     "- clear — совпадений нет.",
     "совпадение темы — тот же субъект и то же событие, не дословный заголовок; поэтому скрипт сравнивает основы слов, а не строки. очередь проверяется наравне с опуб",
     "тем несколько — сложи их в файл и прогони одним вызовом: node scripts/topic-dupecheck.mjs --batch=<файл>.json, где файл — [{ id: …, title: …, links: […] }, …].",
