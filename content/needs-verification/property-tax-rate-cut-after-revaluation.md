@@ -1,8 +1,10 @@
 ---
 slug: property-tax-rate-cut-after-revaluation
-recheckAt: "2026-08-20T12:00:00+05:00"
+recheckAt: "2026-11-01T04:00:00+00:00"
 category: economy
 confidence: 12
+notBefore: "2026-11-01"
+rechecks: "1"
 ---
 
 # Снижение налоговых ставок после массовой оценки недвижимости
