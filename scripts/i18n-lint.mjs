@@ -150,6 +150,30 @@ for (const day of (existsSync(POSTS) ? readdirSync(POSTS) : []).filter((d) => da
   }
 }
 
+// Адреса и код правилам письма не подчиняются.
+//
+// В percent-encoding живут последовательности вида `%E2%80%99` (апостроф
+// в URL пресс-релиза), и правило «проценты словом foiz» видело в них
+// «80%» — сообщало о нарушении, а с `--fix` превратило бы адрес
+// в «80 foiz99s». Поэтому перед правилами адреса, цели ссылок и код
+// прячем, а после — возвращаем на место.
+//
+// Тройные кавычки идут первыми: иначе блок кода разберётся по одиночным.
+const PROTECTED = /(```[\s\S]*?```|`[^`\n]*`|\]\([^)\s]*\)|https?:\/\/\S+)/g;
+
+/** Применить правила языка к тексту, не трогая адреса и код. */
+function applyRules(text, rules) {
+  const stash = [];
+  let out = text.replace(PROTECTED, (m) => `\u0000${stash.push(m) - 1}\u0000`);
+  const hits = [];
+  for (const rule of rules) {
+    const before = out;
+    out = out.replace(rule.re, rule.to);
+    if (out !== before) hits.push(rule.name);
+  }
+  return { text: out.replace(/\u0000(\d+)\u0000/g, (_, i) => stash[Number(i)]), hits };
+}
+
 let touched = 0;
 const findings = [];
 const leaks = [];
@@ -157,13 +181,9 @@ for (const { path: file, lang } of files) {
   const text = readFileSync(file, "utf8");
   const found = LEAK_MARKERS.filter((sig) => text.includes(sig));
   if (found.length) leaks.push({ file: file.replace(ROOT + "/", ""), markers: found });
-  let next = text;
-  const hits = [];
-  for (const rule of RULES_BY_LANG[lang] ?? []) {
-    const before = next;
-    next = next.replace(rule.re, rule.to);
-    if (next !== before) hits.push(rule.name);
-  }
+  const applied = applyRules(text, RULES_BY_LANG[lang] ?? []);
+  let next = applied.text;
+  const hits = applied.hits;
   if (next !== text) {
     findings.push({ file: file.replace(ROOT + "/", ""), rules: hits });
     if (fix) {
