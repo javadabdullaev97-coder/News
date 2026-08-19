@@ -18,9 +18,6 @@ image:
 tgScore: 20
 broadcast: true
 awaitingEditor: true
-pendingEditorQuestion:
-  reason: "no-image"
-  question: "Оба первоисточника (t.me/toshkentprokuraturasi/132989 и t.me/poytaxt_uz/51542) — чисто текстовые посты, без фото; проверено через t.me/s/. Единственные картинки на страницах — аватары каналов (160×160), ниже порога 600px, prepare-image.py отбраковал бы как too-small. Тематический сток (Openverse, license=cc0/pdm) по запросам «Tashkent apartment courtyard», «Tashkent government building», «Uzbekistan apartment building» дал либо 0 результатов, либо только wikimedia.org (чёрный список редполитики). config/stock-photos.json покрывает только денежно-кредитные темы (cbu, sum, cash, inflation...), под «незаконную застройку» ничего нет. Официальный сайт прокуратуры (prokuratura.uz) — SPA без серверного рендера, фото не отдаёт через curl/WebFetch; poytaxt.uz не резолвится. AI-генерация через Higgsfield (fallback из хендоффа) в этом прогоне технически недоступна — инструмент не подключён к сессии. Нужно либо прислать фото здания Генпрокуратуры / реального двора с самостроем в Ташкенте, либо подтвердить генерацию через Higgsfield в среде, где она доступна."
 ---
 
 Генеральная прокуратура 18 августа объявила о запуске Telegram-бота «Незаконное строительство» (@noqonuniy_qurilish_bot) — жители Ташкента через него могут сообщать о самовольной застройке, чтобы сохранить архитектурный облик города.
