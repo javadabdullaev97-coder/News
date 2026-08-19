@@ -5,7 +5,7 @@
 
 | Файл | Чью историю хранит |
 |---|---|
-| `editorial-style.md` | `.claude/skills/leap-editorial-style/SKILL.md` и `CORE.md` |
+| `editorial-style.md` | `.claude/skills/leap-editorial-style/references/policy.md` и `CORE.md` |
 | `reporter.md` | `.claude/agents/reporter.md` |
 | `fact-checker.md` | `.claude/agents/fact-checker.md` |
 | `editor.md` | `.claude/agents/editor.md` |

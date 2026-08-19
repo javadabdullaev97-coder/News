@@ -34,7 +34,7 @@ const argv = process.argv.slice(2);
 const days = Number((argv.find((a) => a.startsWith("--days=")) || "--days=7").slice(7));
 const verbose = argv.includes("--verbose");
 
-// Список запрещённых доменов, скопирован из SKILL.md §2. Держим здесь
+// Список запрещённых доменов, скопирован из редполитики §2. Держим здесь
 // отдельно, чтобы валидатор мог работать без парсинга MD.
 const BLACKLIST_DOMAINS = [
   "gazeta.uz", "kun.uz", "spot.uz", "daryo.uz", "repost.uz", "podrobno.uz",

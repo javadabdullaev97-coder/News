@@ -106,7 +106,7 @@ node scripts/build-posts-index.mjs
 1. `docs/routine-prompts/planyorka-run.md` — механика прогона. Читай целиком,
    но применяй с поправками из раздела «Какие шаги ты переопределяешь» ниже.
 2. `.claude/skills/leap-editorial-style/CORE.md` — выжимка редполитики.
-   Полный `SKILL.md` не открывай.
+   Полную редполитику (`references/policy.md`) не открывай.
 3. `config/generated/policy-tech.json` — **твоя проекция редполитики**. Секций
    `sport` и `world` в ней нет: чужие вертикали ты не ведёшь, а все нужные
    правила у тебя свои. Это конфиг, а не проза: если он расходится с текстом
@@ -173,7 +173,7 @@ Telegram», «Gemini научился» — читатель узнаёт тем
 
 **Читать НЕ надо:** `planyorka-rationale.md`, `planyorka-setup.md`,
 `sport-planyorka.md`, `docs/media-landscape-2026.md`, `.claude/agents/*.md`,
-полный `SKILL.md`.
+полную редполитику `references/policy.md`.
 
 # Какие шаги `planyorka-run.md` ты переопределяешь
 

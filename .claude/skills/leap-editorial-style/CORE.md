@@ -1,9 +1,9 @@
-<!-- digest-of: .claude/skills/leap-editorial-style/SKILL.md
-     sha256: 0ee274bc41baefbe6bd6615daec863b9de0240704253fd799c39d3b030a6776c
+<!-- digest-of: .claude/skills/leap-editorial-style/references/policy.md
+     sha256: 87d2d0deda9ab06f8699716bcb2bc9dddedb76b5b2399ae861354387be76e9fc
      Это выжимка редполитики для оркестратора планёрки: отбор тем,
      маршрутизация, вопросы владельцу. Пишущие агенты читают свой срез
-     SKILL.md (config/generated/policy-<роль>.md) — им выжимки недостаточно.
-     Правишь SKILL.md → правь эту выжимку → node scripts/check-doc-digest.mjs --update
+     (config/generated/policy-<роль>.md) — им выжимки недостаточно.
+     Правишь policy.md → правь эту выжимку → node scripts/check-doc-digest.mjs --update
      Проверка свежести: node scripts/check-doc-digest.mjs (его запускает планёрка). -->
 
 # Редполитика LEAP News — ядро для планёрки

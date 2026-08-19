@@ -36,6 +36,7 @@ const SNAPSHOT = join(ROOT, "content/state/rules-inventory.json");
 const argv = process.argv.slice(2);
 
 const SOURCES = [
+  ".claude/skills/leap-editorial-style/references/policy.md",
   ".claude/skills/leap-editorial-style/SKILL.md",
   ".claude/skills/leap-editorial-style/CORE.md",
   ...readdirSync(join(ROOT, ".claude/agents"))

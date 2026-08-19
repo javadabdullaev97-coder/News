@@ -73,14 +73,43 @@ if (argv.includes("--json")) {
   process.exit(over || missing ? 1 : 0);
 }
 
-const total = rows.reduce((a, r) => a + (r.chars ?? 0), 0);
-const cap = rows.reduce((a, r) => a + r.limit, 0);
 for (const r of rows) {
   const mark = r.status === "ок" ? "  " : "✗ ";
   const num = r.chars === null ? "     —" : String(r.chars).padStart(6);
   console.error(`${mark}${num} / ${String(r.limit).padStart(6)}  ${r.file}`);
 }
-console.error(`\n   ИТОГО ${total} / ${cap} знаков в файлах, читаемых на каждом материале`);
+
+// Сумма по файлам ничего не значит: ни один агент не читает их все.
+// Значит стоимость ОДНОГО ВЫЗОВА — инструкция роли плюс её срез редполитики.
+// Это и есть число, которое умножается на количество материалов.
+const CHAIN = ["reporter", "fact-checker", "editor", "bild", "translator"];
+const sizeOrNull = (rel) => {
+  const abs = join(ROOT, rel);
+  return existsSync(abs) ? readFileSync(abs, "utf8").length : null;
+};
+
+console.error("\n   Стоимость одного вызова — инструкция + срез редполитики:");
+let perArticle = 0;
+let unknown = false;
+for (const role of CHAIN) {
+  const agent = sizeOrNull(`.claude/agents/${role}.md`) ?? 0;
+  const policy = sizeOrNull(`config/generated/policy-${role}.md`);
+  if (policy === null) {
+    unknown = true;
+    console.error(`   ${role.padEnd(13)} ${String(agent).padStart(6)} + срез не собран`);
+    continue;
+  }
+  perArticle += agent + policy;
+  console.error(
+    `   ${role.padEnd(13)} ${String(agent).padStart(6)} + ${String(policy).padStart(6)} = ${String(
+      agent + policy,
+    ).padStart(6)}`,
+  );
+}
+console.error(
+  `   ${"на материал".padEnd(13)} ${String(perArticle).padStart(15)} знаков` +
+    (unknown ? " (без несобранных срезов — node scripts/policy-slice.mjs --all)" : ""),
+);
 
 if (missing) console.error(`[budget] ✗ файлов из бюджета нет на диске: ${missing}`);
 if (over) {
