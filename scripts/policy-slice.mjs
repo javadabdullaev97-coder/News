@@ -264,6 +264,23 @@ for (let i = lastNumbered + 1; i < units.length; i += 1) units[i].id = "tail";
 const byId = new Map(units.map((u) => [u.id, u]));
 const KIND = new Map(LAYOUT.map((l) => [l.id, l.kind ?? "unit"]));
 const RIDES = LAYOUT.filter((l) => l.kind === "ride");
+
+/**
+ * Раскрыть набор подразделов до того, что реально уедет агенту.
+ *
+ * Подраздел без заголовка своего раздела читается как продолжение
+ * предыдущего: «### Атрибуция» сразу после «## 3. Правила цитирования»
+ * выглядит частью §3. Вступление раздела дешёвое (у §5 это 31 знак)
+ * и добавляется само — забыть его в карте ролей нельзя.
+ */
+function expand(want) {
+  const out = new Set(want);
+  for (const id of want) {
+    const [sec, sub] = id.split(".");
+    if (sub && sub !== "0" && byId.has(`${sec}.0`)) out.add(`${sec}.0`);
+  }
+  return [...out];
+}
 const TAIL = units.filter((u) => u.id === "tail");
 const sizeOf = (u) => u.lines.join("\n").length;
 
@@ -291,7 +308,7 @@ if (process.argv.includes("--coverage")) {
   }
   console.log("");
   for (const n of names) {
-    const chars = ROLES[n].reduce((a, id) => a + sizeOf(byId.get(id)), 0);
+    const chars = expand(ROLES[n]).reduce((a, id) => a + sizeOf(byId.get(id)), 0);
     const full = units.reduce((a, u) => a + sizeOf(u), 0);
     console.log(`${n.padEnd(13)} ${String(chars).padStart(6)} знаков — ${Math.round((chars / full) * 100)}% редполитики`);
   }
@@ -317,8 +334,10 @@ function slice(want, forRole) {
     );
     process.exit(2);
   }
+  const need = expand(want);
+
   const chosen = [];
-  for (const id of want) {
+  for (const id of need) {
     chosen.push(byId.get(id));
     // Ненумерованный `##` едет вместе с единицей, к которой прицеплен:
     // это продолжение примера, отдельно от него оно бессмысленно.
