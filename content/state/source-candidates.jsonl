@@ -945,3 +945,13 @@
 {"ev":"fetched","at":"2026-08-19T06:21:28.331Z","link":"https://sports.uz/ru/news/view/segodnya-proydut-dva-matcha-18-go-tura-19-08-2026","status":"200","found":6}
 {"ev":"fetched","at":"2026-08-19T06:21:28.331Z","link":"https://nuz.uz/2026/08/19/uzbekistan-i-rossiya-rasshiryat-sotrudnichestvo-v-sfere-teplosnabzheniya/","status":"200","found":55}
 {"ev":"fetched","at":"2026-08-19T06:21:28.331Z","link":"https://kapital.uz/aeroport-andizhana-2026/","status":"200","found":32}
+{"ev":"seen","domain":"meteo.uz","at":"2026-08-19T06:51:37.938Z","url":"https://monitoring.meteo.uz/uz/menu/ekologicheskij-bjulleten","foundIn":"https://t.me/uzgydromet/22022","sourceId":"uzhydromet","context":"#Atmosfera\n\nO'zbekiston Respublikasi tabiiy muhit ifloslanishi monitoringi \n\n—\n\nМониторинг загрязнения окружающей природной среды Республики Узбекистан\n\nTelegram | Facebook | Instagram | Youtube"}
+{"ev":"seen","domain":"cheryauto.uz","at":"2026-08-19T06:51:39.971Z","url":"https://cheryauto.uz/","foundIn":"https://kun.uz/news/2026/08/19/mustaqillik-kuni-munosabati-bilan-maxsus-shartlar","sourceId":"kun-uz","context":"Veb-sayt | Instagram | Telegram | Telegram-bot | Facebook | YouTube"}
+{"ev":"fetched","at":"2026-08-19T06:51:39.973Z","link":"https://anhor.uz/ru/novosti/uzbekistan-reestr-radioaktivnykh-otkhodov","status":"200","found":14}
+{"ev":"fetched","at":"2026-08-19T06:51:39.973Z","link":"https://podrobno.uz/cat/world/oae-obvinili-iran-v-zapuske-raket-i-priostanovili-torgovlyu-s-tegeranom-/","status":"200","found":5}
+{"ev":"fetched","at":"2026-08-19T06:51:39.973Z","link":"https://kun.uz/news/2026/08/19/toshkentda-noqonuniy-qurilishlarga-qarshi-maxsus-telegram-bot-ochildi","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-19T06:51:39.973Z","link":"https://kun.uz/news/2026/08/19/tadbirkorlarga-davlat-komagi-kengaytirildi","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-19T06:51:39.973Z","link":"https://kun.uz/news/2026/08/19/mustaqillik-kuni-munosabati-bilan-maxsus-shartlar","status":"200","found":6}
+{"ev":"fetched","at":"2026-08-19T06:51:39.973Z","link":"https://kun.uz/news/2026/08/19/toshkentda-kannabis-moyi-va-sibutraminli-mahsulotlar-aniqlandi","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-19T06:51:39.973Z","link":"https://kun.uz/news/2026/08/19/ozbekistonliklarning-xorijiy-safarlari-kopaydi","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-19T06:51:39.973Z","link":"https://nuz.uz/2026/08/19/uzbekistan-gotovitsya-k-predsedatelstvu-v-sng-v-2027-godu/","status":"200","found":55}
