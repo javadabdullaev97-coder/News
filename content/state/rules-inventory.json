@@ -7,7 +7,7 @@
     "Строка попала сюда, если несёт модальность (нельзя, обязан, всегда),",
     "или это пример «Плохо/Хорошо», или упоминание файла конфига и скрипта."
   ],
-  "takenAt": "2026-08-19T22:29:17.791Z",
+  "takenAt": "2026-08-19T22:30:41.731Z",
   "counts": {
     ".claude/skills/leap-editorial-style/references/policy.md": 324,
     ".claude/skills/leap-editorial-style/SKILL.md": 12,
@@ -18,7 +18,7 @@
     ".claude/agents/reporter.md": 157,
     ".claude/agents/seo.md": 118,
     ".claude/agents/translator.md": 52,
-    "docs/routine-prompts/planyorka.md": 60,
+    "docs/routine-prompts/planyorka.md": 61,
     "docs/routine-prompts/planyorka-run.md": 259,
     "docs/routine-prompts/steps/breaking-lane.md": 17,
     "docs/routine-prompts/steps/morning-review.md": 10,
@@ -1204,6 +1204,7 @@
     "что появляется в config/generated/ (в git этих файлов нет — производные, пересобираются каждый прогон и разойтись с исходниками не могут):",
     "- policy-orchestrator.json и source-index.json — читаешь ты. индекс собирается с --used-only: только источники, реально встречающиеся в текущем инбоксе (105 из ",
     "- policy-{reporter,editor,fact-checker,bild,translator,seo}.md — срезы редполитики, каждый субагент читает свой, плюс policy-appendix/.md — редкие правила, кото",
+    "- attributed-channels.md — каналы с неподтверждённой принадлежностью и дословные формулы оговорок; фактчекер и корреспондент читают его вместо 50-килобайтного c",
     "- tag-vocabulary.json — словарь тегов для seo;",
     "- published-index.json — темы за окно сверки, для topic-dupecheck.mjs.",
     "исходники config/newsroom-policy.json, config/news-sources.json и config/telegram-channels.json остаются источником истины — открывай их, если понадобилось поле",
@@ -1770,6 +1771,7 @@
     "что появляется в config/generated/ (в git этих файлов нет — производные, пересобираются каждый прогон и разойтись с исходниками не могут):",
     "- policy-orchestrator.json и source-index.json — читаешь ты. индекс собирается с --used-only: только источники, реально встречающиеся в текущем инбоксе (105 из ",
     "- policy-{reporter,editor,fact-checker,bild,translator,seo}.md — срезы редполитики, каждый субагент читает свой, плюс policy-appendix/.md — редкие правила, кото",
+    "- attributed-channels.md — каналы с неподтверждённой принадлежностью и дословные формулы оговорок; фактчекер и корреспондент читают его вместо 50-килобайтного c",
     "- tag-vocabulary.json — словарь тегов для seo;",
     "- published-index.json — темы за окно сверки, для topic-dupecheck.mjs.",
     "исходники config/newsroom-policy.json, config/news-sources.json и config/telegram-channels.json остаются источником истины — открывай их, если понадобилось поле",
