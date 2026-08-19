@@ -114,7 +114,11 @@ model: sonnet
    - Проверь `@huquqiyaxborot` (Минюст) — он публикует НПА за минуты
    - Проверь Telegram-канал соответствующего ведомства
    - Затем сайт ведомства: `mvd.uz`, `cbu.uz`, `stat.uz` и т.д.
-   - Каталог источников: `docs/media-landscape-2026.md` и `config/telegram-channels.json`
+   - Каталог источников — `config/telegram-channels.json` и
+     `config/news-sources.json`. **Целиком их не читай**: это 230 КБ на двоих.
+     Ищи Grep'ом по названию ведомства или домену:
+     `grep -n -i "минфин\|moliya" config/telegram-channels.json`.
+     `docs/media-landscape-2026.md` — карта рынка для человека, тебе не нужна
 
 2. Если тема международная (санкции, курсы, крупная политика):
    - Reuters / AP / BBC / Bloomberg — прямо в первоисточник

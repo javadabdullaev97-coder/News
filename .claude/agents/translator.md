@@ -42,6 +42,9 @@ TRANSLATE_INPUT: {
 1. Сам материал по `source_path`.
 2. `docs/terminology-glossary.md` — обязателен. Там русские соответствия
    местных терминов и правила написания названий программ и актов.
+   В начале файла — таблица тематических частей: статья про спорт —
+   плюс `docs/terminology/sport.md`, про технологии — плюс
+   `docs/terminology/tech.md`. Тема не совпала — не открывай.
 3. `config/generated/policy-translator.md` — ядро редполитики под твою роль:
    §1 (базовые принципы), §4 (тон, заголовок, лид, атрибуция)
    и §5 (терминология). Тон в переводе тот же, что в оригинале: сухой,
@@ -114,9 +117,8 @@ TRANSLATE_INPUT: {
   | X проиграл Y | `X Yga yutqazdi`, `X Yga mag'lub bo'ldi` | ❌ `X Ydan yutqazdi` |
   | со счётом | `0:3 hisobida`, `3:0 hisobi bilan` | |
 
-  Полный разбор с примерами из `championat.asia` —
-  `docs/terminology-glossary.md`, раздел про спорт. Проверяется машинно:
-  `node scripts/i18n-lint.mjs`.
+  Полный разбор с примерами из `championat.asia` — `docs/terminology/sport.md`.
+  Проверяется машинно: `node scripts/i18n-lint.mjs`.
 
 ### Английский
 

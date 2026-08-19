@@ -14,8 +14,10 @@ model: sonnet
 ## Что ты получаешь на вход
 
 - `DRAFT_PATH: content/drafts/YYYY-MM-DD/<slug>.mdx` — финальный отредактированный драфт
-- `NOTES_PATH: .review/reporter-notes-<slug>.md` — там reporter иногда упоминает URL картинки из
-  первоисточника
+- `NOTES_PATH: .review/reporter-notes-<slug>.md` — лог research'а корреспондента.
+  **Открывай его, только если в handoff пусто `image-hint`**: тебе нужна оттуда
+  одна строка `Main visual subject`, а файл бывает на несколько килобайт.
+  Иногда там же лежит URL картинки из первоисточника
 - `HANDOFF_PATH: .review/handoff-<slug>.md` — короткая передача от editor'а:
   `image-hint` (что показать) и `image-avoid` (чего быть не должно).
   Файла нет — работай по тексту статьи, это не блокер. Полный
@@ -45,8 +47,9 @@ model: sonnet
 
 ### Шаг 2 — Определи стратегию
 
-Прочти `NOTES_PATH` и `HANDOFF_PATH`. Извлеки из `frontmatter.sources`
-в `DRAFT_PATH` URL первоисточников.
+Прочти `HANDOFF_PATH` — в нём `image-hint` и `image-avoid`. Пусто или файла
+нет — тогда `NOTES_PATH` ради строки `Main visual subject`. Извлеки
+из `frontmatter.sources` в `DRAFT_PATH` URL первоисточников.
 
 ### Чего мы хотим от картинки
 
@@ -55,8 +58,8 @@ model: sonnet
 его показывать напрямую**. Абстрактные пейзажи, стоковые карты, вид Земли
 из космоса — **последний ресорт**, только если ничего лучшего нет.
 
-Reporter в своих notes указывает поле `mainVisualSubject` — читай его первым.
-Это твоя главная подсказка что искать. Примеры:
+Главная подсказка — `image-hint` из handoff (его editor берёт из поля
+`mainVisualSubject` в notes корреспондента). Примеры:
 - Материал про Трампа-Ормузский пролив → mainVisualSubject: «Трамп на пресс-конференции»
   → фото Трампа (Reuters/AP), **не** планета из космоса
 - Материал про матч Хусанова → mainVisualSubject: «Хусанов в форме Ман Сити»

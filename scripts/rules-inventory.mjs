@@ -44,7 +44,16 @@ const SOURCES = [
     .map((f) => `.claude/agents/${f}`),
   "docs/routine-prompts/planyorka.md",
   "docs/routine-prompts/planyorka-run.md",
+  // Условные шаги планёрки и тематические части глоссария: вынесены,
+  // чтобы не читаться каждый раз, но правила в них те же — инвентарь
+  // обязан их видеть, иначе вынос выглядел бы как пропажа.
+  ...readdirSync(join(ROOT, "docs/routine-prompts/steps"))
+    .filter((f) => f.endsWith(".md"))
+    .map((f) => `docs/routine-prompts/steps/${f}`),
   "docs/terminology-glossary.md",
+  ...readdirSync(join(ROOT, "docs/terminology"))
+    .filter((f) => f.endsWith(".md"))
+    .map((f) => `docs/terminology/${f}`),
 ];
 
 const MODAL = /\b(не пишем|не публикуем|не ставим|не берём|не даём|нельзя|запрещено|обязан|обязана|обязано|обязательн|всегда|никогда|только если|только когда|должен|должна|должно|не должен|не может|недопустим)\b/i;

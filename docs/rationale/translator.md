@@ -33,7 +33,7 @@
 
 Владелец забраковал дважды 18.08.2026: «Bennning Garsiyadan g'alaba
 qozonishi» и «„Siti" „Arsenal"dan 0:3 yutqazdi». Формы сверены
-по `championat.asia`, полная таблица — в `docs/terminology-glossary.md`,
+по `championat.asia`, полная таблица — в `docs/terminology/sport.md`,
 машинная проверка — `scripts/i18n-lint.mjs`.
 
 ## Английские названия министерств

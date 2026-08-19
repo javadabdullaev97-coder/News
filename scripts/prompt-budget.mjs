@@ -82,7 +82,17 @@ for (const r of rows) {
 // Сумма по файлам ничего не значит: ни один агент не читает их все.
 // Значит стоимость ОДНОГО ВЫЗОВА — инструкция роли плюс её срез редполитики.
 // Это и есть число, которое умножается на количество материалов.
-const CHAIN = ["reporter", "fact-checker", "editor", "bild", "translator"];
+// Роль → что она читает ВСЕГДА, помимо своей инструкции и среза редполитики.
+// Условное (приложения редполитики, тематические части глоссария, условные
+// шаги планёрки) сюда не входит намеренно: оно и не читается, пока признак
+// не сработал.
+const CHAIN = {
+  reporter: [],
+  "fact-checker": [],
+  editor: [],
+  bild: [],
+  translator: ["docs/terminology-glossary.md"],
+};
 const sizeOrNull = (rel) => {
   const abs = join(ROOT, rel);
   return existsSync(abs) ? readFileSync(abs, "utf8").length : null;
@@ -91,19 +101,20 @@ const sizeOrNull = (rel) => {
 console.error("\n   Стоимость одного вызова — инструкция + срез редполитики:");
 let perArticle = 0;
 let unknown = false;
-for (const role of CHAIN) {
+for (const [role, extras] of Object.entries(CHAIN)) {
   const agent = sizeOrNull(`.claude/agents/${role}.md`) ?? 0;
   const policy = sizeOrNull(`config/generated/policy-${role}.md`);
+  const extra = extras.reduce((a, rel) => a + (sizeOrNull(rel) ?? 0), 0);
   if (policy === null) {
     unknown = true;
     console.error(`   ${role.padEnd(13)} ${String(agent).padStart(6)} + срез не собран`);
     continue;
   }
-  perArticle += agent + policy;
+  perArticle += agent + policy + extra;
   console.error(
-    `   ${role.padEnd(13)} ${String(agent).padStart(6)} + ${String(policy).padStart(6)} = ${String(
-      agent + policy,
-    ).padStart(6)}`,
+    `   ${role.padEnd(13)} ${String(agent).padStart(6)} + ${String(policy).padStart(6)}` +
+      (extra ? ` + ${String(extra).padStart(5)}` : "        ") +
+      ` = ${String(agent + policy + extra).padStart(6)}`,
   );
 }
 console.error(

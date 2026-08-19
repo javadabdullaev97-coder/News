@@ -142,11 +142,54 @@ const index = {
 // данных. Для чтения глазами — --pretty.
 const text = JSON.stringify(index, null, process.argv.includes("--pretty") ? 2 : 0) + "\n";
 
+// ─── Каналы с неподтверждённой принадлежностью — отдельным файлом ───
+//
+// Фактчекеру, корреспонденту и переводчику нужно ровно одно: список таких
+// каналов и дословная формула оговорки к каждому. Инструкция посылала их
+// за этим в config/telegram-channels.json — 50 КБ ради одной записи
+// (attributed-канал в каталоге сейчас один). Пишем выжимку: и дешевле,
+// и формулу видно целиком, а не приходится выуживать из JSON.
+const ATTRIBUTED = join(ROOT, "config/generated/attributed-channels.md");
+
+function attributedDigest() {
+  const rows = (tg.channels ?? []).filter((c) => c.type === "attributed");
+  const head = [
+    "<!-- ПРОИЗВОДНЫЙ ФАЙЛ, не редактируй. Собирается",
+    "     scripts/build-source-index.mjs из config/telegram-channels.json. -->",
+    "",
+    "# Каналы с неподтверждённой принадлежностью",
+    "",
+    "Если хоть один из перечисленных каналов оказался в `frontmatter.sources` —",
+    "оговорка обязательна, и берётся она ДОСЛОВНО из колонки «формула».",
+    "Приписывать сообщение ведомству («СГБ сообщила», «по данным спецслужбы»)",
+    "нельзя нигде: ни в заголовке, ни в лиде, ни в тексте.",
+    "",
+  ];
+  if (!rows.length) {
+    return `${[...head, "Сейчас таких каналов в каталоге нет."].join("\n")}\n`;
+  }
+  const body = rows.flatMap((c) => [
+    `## ${c.handle} — ${c.name}`,
+    "",
+    `Связывают с: **${c.attributedTo ?? "не указано"}**`,
+    "",
+    "Формула оговорки (дословно):",
+    "",
+    `> ${c.attributionFormula ?? "формулы нет — материал с этим каналом не публикуется"}`,
+    "",
+    ...(Array.isArray(c.rules) && c.rules.length
+      ? ["Дополнительно:", "", ...c.rules.map((r) => `- ${r}`), ""]
+      : []),
+  ]);
+  return `${[...head, ...body].join("\n")}\n`;
+}
+
 if (process.argv.includes("--stdout")) {
   process.stdout.write(text);
 } else {
   mkdirSync(dirname(OUT), { recursive: true });
   writeFileSync(OUT, text);
+  writeFileSync(ATTRIBUTED, attributedDigest());
   console.error(
     `[source-index] ${kept.length} из ${sources.length} источников` +
       (omitted ? ` (скрыто ${omitted} — нет в инбоксе)` : "") +

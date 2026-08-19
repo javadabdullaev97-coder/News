@@ -1,5 +1,5 @@
 <!-- digest-of: .claude/skills/leap-editorial-style/references/policy.md
-     sha256: 87d2d0deda9ab06f8699716bcb2bc9dddedb76b5b2399ae861354387be76e9fc
+     sha256: 0b42d75f929f37cfeded9aa424f0af3547c323aaaf489ed4a6fbf1a54b013715
      Это выжимка редполитики для оркестратора планёрки: отбор тем,
      маршрутизация, вопросы владельцу. Пишущие агенты читают свой срез
      (config/generated/policy-<роль>.md) — им выжимки недостаточно.
@@ -205,7 +205,7 @@ AI-slop-обороты. Заголовок 60–90 символов, без во
 
 Правило целиком с примерами — SKILL.md §5, «Технический термин: раскрывать
 при первом упоминании». Узбекские частности (`chiqardi` вместо `taqdim etdi`,
-`SI` в заголовке) — `docs/terminology-glossary.md`.
+`SI` в заголовке) — `docs/terminology/tech.md`.
 
 ## Формат и терминология — территория пишущих агентов
 
