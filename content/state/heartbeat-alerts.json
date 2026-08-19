@@ -1,8 +1,8 @@
 {
   "channels": {
     "queue-stale": {
-      "at": "2026-08-19T04:17:55.428Z",
-      "message": "⚠️ <b>Материалы в очереди без ответа >24ч</b> (15 шт):\n— <code>us-polysilicon-tariff-signed-aug2026</code>\n— <code>dprk-missile-launch-tokyo-seoul-protest</code>\n— <code>president-ai-award-deadline-week-left</code>\n— <code>tashkent-bektemir-gas-outage-aug7</code>\n— <code>res-red-category-transformers-sept1</code>\n…и ещё 10"
+      "at": "2026-08-19T11:17:54.453Z",
+      "message": "⚠️ <b>Материалы в очереди без ответа >24ч</b> (17 шт):\n— <code>us-polysilicon-tariff-signed-aug2026</code>\n— <code>dprk-missile-launch-tokyo-seoul-protest</code>\n— <code>president-ai-award-deadline-week-left</code>\n— <code>tashkent-bektemir-gas-outage-aug7</code>\n— <code>res-red-category-transformers-sept1</code>\n…и ещё 12"
     }
   }
 }
