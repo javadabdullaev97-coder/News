@@ -1,0 +1,30 @@
+{
+  "$comment": [
+    "Потолок размера файлов, которые агенты читают на каждом материале.",
+    "Проверяется node scripts/prompt-budget.mjs (ежедневно в policy-drift.yml).",
+    "",
+    "Правило: новый инцидент — ОДНА строка правила в файле, полный разбор",
+    "в docs/rationale/. Текст действительно должен вырасти — подними потолок",
+    "командой --update отдельным коммитом, чтобы рост был виден в истории.",
+    "",
+    "Значения в ЗНАКАХ (не в байтах): кириллица весит два байта, и счёт",
+    "в байтах вводил бы в заблуждение вдвое."
+  ],
+  "headroom": 0.05,
+  "limits": {
+    ".claude/skills/leap-editorial-style/SKILL.md": 44700,
+    ".claude/skills/leap-editorial-style/CORE.md": 11800,
+    ".claude/agents/reporter.md": 19700,
+    ".claude/agents/fact-checker.md": 18000,
+    ".claude/agents/editor.md": 18100,
+    ".claude/agents/bild.md": 16300,
+    ".claude/agents/translator.md": 8800,
+    ".claude/agents/seo.md": 14600,
+    "docs/routine-prompts/planyorka.md": 9700,
+    "docs/routine-prompts/planyorka-run.md": 49500,
+    "docs/routine-prompts/sport-planyorka.md": 12200,
+    "docs/routine-prompts/tech-planyorka.md": 13500,
+    "docs/terminology-glossary.md": 12000
+  },
+  "updatedAt": "2026-08-19"
+}

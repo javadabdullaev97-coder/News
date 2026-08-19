@@ -74,6 +74,15 @@ jobs:
         run: node scripts/i18n-lint.mjs
         continue-on-error: true
 
+      # Размер файлов, которые агенты читают на каждом материале. Правила
+      # растут от инцидентов — по абзацу за случай, — и абзац оплачивается
+      # на каждой статье. Бюджет не запрещает рост, он требует объявить его
+      # отдельным коммитом (scripts/prompt-budget.mjs --update).
+      - name: Check prompt budget
+        id: budget
+        run: node scripts/prompt-budget.mjs
+        continue-on-error: true
+
       - name: Check drift
         id: drift
         run: |
@@ -96,7 +105,7 @@ jobs:
       # Владельцу — в Telegram, а не в молчаливую вкладку Actions.
       # Именно отсутствие этого шага дало четыре дня незамеченного отказа.
       - name: Tell the owner if anything is red
-        if: steps.digests.outcome == 'failure' || steps.i18n.outcome == 'failure' || steps.drift.outcome == 'failure'
+        if: steps.digests.outcome == 'failure' || steps.i18n.outcome == 'failure' || steps.drift.outcome == 'failure' || steps.budget.outcome == 'failure'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_EDITOR_CHAT_ID: ${{ secrets.TELEGRAM_EDITOR_CHAT_ID }}
@@ -105,6 +114,7 @@ jobs:
           [[ "${{ steps.digests.outcome }}" == "failure" ]] && FAILED="$FAILED%0A• выжимка редполитики отстала от SKILL.md (check-doc-digest)"
           [[ "${{ steps.i18n.outcome }}" == "failure" ]] && FAILED="$FAILED%0A• переводы: нарушения правил или утечка разметки агента (i18n-lint)"
           [[ "${{ steps.drift.outcome }}" == "failure" ]] && FAILED="$FAILED%0A• дрейф политики (check-policy-drift)"
+          [[ "${{ steps.budget.outcome }}" == "failure" ]] && FAILED="$FAILED%0A• инструкции агентов переросли бюджет (prompt-budget)"
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           curl -sS -X POST \
             "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
@@ -117,9 +127,10 @@ jobs:
       # Итоговый гейт: job красный, если красной была любая проверка.
       # Стоит последним, чтобы не съесть ни отчёт, ни уведомление.
       - name: Fail if any check failed
-        if: steps.digests.outcome == 'failure' || steps.i18n.outcome == 'failure' || steps.drift.outcome == 'failure'
+        if: steps.digests.outcome == 'failure' || steps.i18n.outcome == 'failure' || steps.drift.outcome == 'failure' || steps.budget.outcome == 'failure'
         run: |
           echo "выжимки: ${{ steps.digests.outcome }}"
           echo "переводы: ${{ steps.i18n.outcome }}"
+          echo "бюджет:  ${{ steps.budget.outcome }}"
           echo "дрейф:    ${{ steps.drift.outcome }}"
           exit 1
