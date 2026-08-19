@@ -1,0 +1,22 @@
+REJECTED as duplicate (orchestrator decision, post-editor/bild, before queue).
+
+content/posts/2026-08-18/installment-operators-realestate-ban.mdx already published
+(title: "Президент запретил продавать жильё в рассрочку через посредников с 2027 года"),
+covering the SAME postановление ПП-294 and the SAME core fact this draft presents as
+"clarification": that the ban applies only to intermediary operators, not to direct
+sales by developers. The 08-18 article already states this explicitly in its own body:
+"Норма не запрещает рассрочку на квартиру как таковую... застройщик или собственник
+по-прежнему может продать жильё в рассрочку покупателю напрямую."
+
+This draft was produced from a same-day (19-20 августа) social-media-rumor angle
+(Минюст denies a rumor) without the reporter/editor cross-checking LEAP's own recent
+archive against the same primary document (lex.uz/ru/docs/8407553, t.me/huquqiyaxborot/20275).
+topic-dupecheck.mjs returned "clear" at claim time because the candidate links (media
+signal articles from 19.08) didn't overlap with the 08-18 post's official sources, and
+title-stem matching missed the semantic overlap ("Минюст опроверг слухи о запрете..."
+vs "Президент запретил продавать... через посредников").
+
+No new fact survives the overlap check: the postановление text cited here (250 БРВ,
+12 months, ЦБ registry timeline) duplicates what 08-18 already reported. Full pipeline
+artifacts (reporter/fact-checker(skip)/editor/bild) are preserved in .review/ for the
+record; translations that had already been written to content/queue/ were removed.

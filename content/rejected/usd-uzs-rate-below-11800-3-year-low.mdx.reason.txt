@@ -1,0 +1,23 @@
+REJECTED as duplicate (orchestrator decision, post-editor/bild, before queue).
+
+content/queue/usd-som-rate-three-year-low.mdx (+.en/.uz) already sits in the publish
+queue (queuedAt: 2026-08-18T18:54, still unpublished as of this run) covering the exact
+same beat: official USD/UZS rate falling to a level not seen since August 2023, sourced
+from the same primary source (cbu.uz exchange-rate archive). That queued draft's data
+point is from 19.08.2026 (11 820,40 сум); this draft's data point is from 20.08.2026
+(11 794,88 сум) — one trading day later on the same continuous decline, same framing
+("минимум с августа 2023"), same category, same tgScore-qualifying modifiers.
+
+topic-dupecheck.mjs returned "clear" at claim time because the candidate links (media
+signal articles reporting the 19-20.08 movement) don't overlap with the already-queued
+draft's cbu.uz archive-JSON URLs, and the titles differ enough in wording to dodge
+stem-matching (own vs. "к суму упал до X сума — минимум с августа 2023 года"). This is
+a real gap in the automated dedup for same-beat stories that get re-triggered by each
+day's new data point without a fresh primary-source angle.
+
+Rather than push a second near-identical currency-drop story into the queue (which
+would read as a jarring double-post whenever the older one finally goes out), this
+draft is withdrawn. The already-queued item should be left for the owner/publish-tick
+to process; its being unpublished for ~2 days is itself worth a look (queue backlog?)
+but is out of scope for this fix. Full pipeline artifacts (reporter/fact-checker(skip)/
+editor/bild) are preserved in .review/ for the record.
