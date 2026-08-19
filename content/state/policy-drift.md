@@ -1,7 +1,7 @@
-# Policy drift check — 2026-08-18T04:00:59.435Z
+# Policy drift check — 2026-08-19T04:01:04.454Z
 
-Проверено: 1641 .mdx за последние 7 дней
-Ошибок: 0, предупреждений: 558
+Проверено: 1764 .mdx за последние 7 дней
+Ошибок: 0, предупреждений: 617
 
 ## ⚠️ Предупреждения
 
@@ -518,9 +518,65 @@
 - **content/posts/2026-08-17/uzbekistan-livestock-fishery-support-pp435.en.mdx** — sources[].url «https://lex.uz/ru/docs/8214086» не цитируется в теле — балласт
 - **content/posts/2026-08-17/uzbekistan-livestock-fishery-support-pp435.mdx** — sources[].url «https://lex.uz/ru/docs/8214086» не цитируется в теле — балласт
 - **content/posts/2026-08-17/uzbekistan-livestock-fishery-support-pp435.uz.mdx** — sources[].url «https://lex.uz/ru/docs/8214086» не цитируется в теле — балласт
+- **content/posts/2026-08-18/admission-results-209k.en.mdx** — sources[].url «https://t.me/eduuz/50601» не цитируется в теле — балласт
+- **content/posts/2026-08-18/admission-results-209k.en.mdx** — sources[].url «https://uzbmb.uz/upload/file/pdf/brifing-press-reliz.doc» не цитируется в теле — балласт
+- **content/posts/2026-08-18/admission-results-209k.mdx** — sources[].url «https://t.me/eduuz/50601» не цитируется в теле — балласт
+- **content/posts/2026-08-18/admission-results-209k.mdx** — sources[].url «https://uzbmb.uz/upload/file/pdf/brifing-press-reliz.doc» не цитируется в теле — балласт
+- **content/posts/2026-08-18/admission-results-209k.uz.mdx** — sources[].url «https://t.me/eduuz/50601» не цитируется в теле — балласт
+- **content/posts/2026-08-18/admission-results-209k.uz.mdx** — sources[].url «https://uzbmb.uz/upload/file/pdf/brifing-press-reliz.doc» не цитируется в теле — балласт
+- **content/posts/2026-08-18/afc-champions-league-elite-draw-pakhtakor-neftchi.en.mdx** — sources[].url «https://www.the-afc.com/en/club/afc_champions_league_elite.html/news/aclelite-hopefuls-discover-path-to-glory» не цитируется в теле — балласт
+- **content/posts/2026-08-18/afc-champions-league-elite-draw-pakhtakor-neftchi.en.mdx** — sources[].url «https://t.me/Pakhtakor_FC_ru/27452» не цитируется в теле — балласт
+- **content/posts/2026-08-18/afc-champions-league-elite-draw-pakhtakor-neftchi.mdx** — sources[].url «https://www.the-afc.com/en/club/afc_champions_league_elite.html/news/aclelite-hopefuls-discover-path-to-glory» не цитируется в теле — балласт
+- **content/posts/2026-08-18/afc-champions-league-elite-draw-pakhtakor-neftchi.mdx** — sources[].url «https://t.me/Pakhtakor_FC_ru/27452» не цитируется в теле — балласт
+- **content/posts/2026-08-18/afc-champions-league-elite-draw-pakhtakor-neftchi.uz.mdx** — sources[].url «https://www.the-afc.com/en/club/afc_champions_league_elite.html/news/aclelite-hopefuls-discover-path-to-glory» не цитируется в теле — балласт
+- **content/posts/2026-08-18/afc-champions-league-elite-draw-pakhtakor-neftchi.uz.mdx** — sources[].url «https://t.me/Pakhtakor_FC_ru/27452» не цитируется в теле — балласт
+- **content/posts/2026-08-18/apple-doj-antitrust-discovery-fight.en.mdx** — sources[].url «https://9to5mac.com/2026/08/17/apple-dojs-latest-challenge-in-antitrust-case-fails-at-every-level/» не цитируется в теле — балласт
+- **content/posts/2026-08-18/apple-doj-antitrust-discovery-fight.en.mdx** — sources[].url «https://leap.uz/ru/2026/08/17/apple-appstore-15pct-commission-epic» не цитируется в теле — балласт
+- **content/posts/2026-08-18/apple-doj-antitrust-discovery-fight.mdx** — sources[].url «https://9to5mac.com/2026/08/17/apple-dojs-latest-challenge-in-antitrust-case-fails-at-every-level/» не цитируется в теле — балласт
+- **content/posts/2026-08-18/apple-doj-antitrust-discovery-fight.uz.mdx** — sources[].url «https://9to5mac.com/2026/08/17/apple-dojs-latest-challenge-in-antitrust-case-fails-at-every-level/» не цитируется в теле — балласт
+- **content/posts/2026-08-18/apple-doj-antitrust-discovery-fight.uz.mdx** — sources[].url «https://leap.uz/ru/2026/08/17/apple-appstore-15pct-commission-epic» не цитируется в теле — балласт
+- **content/posts/2026-08-18/business-advance-payment-utilities-cut.en.mdx** — sources[].url «https://cbu.uz/ru/» не цитируется в теле — балласт
+- **content/posts/2026-08-18/business-advance-payment-utilities-cut.mdx** — sources[].url «https://cbu.uz/ru/» не цитируется в теле — балласт
+- **content/posts/2026-08-18/business-advance-payment-utilities-cut.uz.mdx** — sources[].url «https://cbu.uz/ru/» не цитируется в теле — балласт
+- **content/posts/2026-08-18/google-pixel-china-exit.en.mdx** — sources[].url «https://www.engadget.com/2238895/google-reportedly-planning-move-pixel-production-out-of-china/» не цитируется в теле — балласт
+- **content/posts/2026-08-18/google-pixel-china-exit.mdx** — sources[].url «https://www.engadget.com/2238895/google-reportedly-planning-move-pixel-production-out-of-china/» не цитируется в теле — балласт
+- **content/posts/2026-08-18/google-pixel-china-exit.uz.mdx** — sources[].url «https://www.engadget.com/2238895/google-reportedly-planning-move-pixel-production-out-of-china/» не цитируется в теле — балласт
+- **content/posts/2026-08-18/google-spirit-airlines-data-10m-ai.en.mdx** — sources[].url «https://document.epiq11.com/document/getdocumentbycode?docId=4606206&projectCode=SPJ» не цитируется в теле — балласт
+- **content/posts/2026-08-18/google-spirit-airlines-data-10m-ai.mdx** — sources[].url «https://document.epiq11.com/document/getdocumentbycode?docId=4606206&projectCode=SPJ» не цитируется в теле — балласт
+- **content/posts/2026-08-18/google-spirit-airlines-data-10m-ai.uz.mdx** — sources[].url «https://document.epiq11.com/document/getdocumentbycode?docId=4606206&projectCode=SPJ» не цитируется в теле — балласт
+- **content/posts/2026-08-18/meta-paid-influencers-teen-accounts-ttp.en.mdx** — sources[].url «https://www.techtransparencyproject.org/articles/meta-deploys-momfluencers-to-counter-child-safety-criticism» не цитируется в теле — балласт
+- **content/posts/2026-08-18/meta-paid-influencers-teen-accounts-ttp.mdx** — sources[].url «https://www.techtransparencyproject.org/articles/meta-deploys-momfluencers-to-counter-child-safety-criticism» не цитируется в теле — балласт
+- **content/posts/2026-08-18/meta-paid-influencers-teen-accounts-ttp.uz.mdx** — sources[].url «https://www.techtransparencyproject.org/articles/meta-deploys-momfluencers-to-counter-child-safety-criticism» не цитируется в теле — балласт
+- **content/posts/2026-08-18/moratorium-business-inspections.en.mdx** — sources[].url «https://t.me/shmirziyoyev/35147» не цитируется в теле — балласт
+- **content/posts/2026-08-18/moratorium-business-inspections.mdx** — sources[].url «https://t.me/shmirziyoyev/35147» не цитируется в теле — балласт
+- **content/posts/2026-08-18/moratorium-business-inspections.uz.mdx** — sources[].url «https://t.me/shmirziyoyev/35147» не цитируется в теле — балласт
+- **content/posts/2026-08-18/president-entrepreneurs-day-khorazm-dialogue.en.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/json/USD/2026-08-18/» не цитируется в теле — балласт
+- **content/posts/2026-08-18/president-entrepreneurs-day-khorazm-dialogue.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/json/USD/2026-08-18/» не цитируется в теле — балласт
+- **content/posts/2026-08-18/president-entrepreneurs-day-khorazm-dialogue.uz.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/json/USD/2026-08-18/» не цитируется в теле — балласт
+- **content/posts/2026-08-18/tesla-robotaxi-nevada-permit-cybercab-launch.en.mdx** — sources[].url «https://nta.nv.gov/uploadedFiles/ntanvgov/content/About/Notices/2026/06-June/26-05015_Tesla_Robotaxi_LLC_ADA.pdf» не цитируется в теле — балласт
+- **content/posts/2026-08-18/tesla-robotaxi-nevada-permit-cybercab-launch.mdx** — sources[].url «https://nta.nv.gov/uploadedFiles/ntanvgov/content/About/Notices/2026/06-June/26-05015_Tesla_Robotaxi_LLC_ADA.pdf» не цитируется в теле — балласт
+- **content/posts/2026-08-18/tesla-robotaxi-nevada-permit-cybercab-launch.uz.mdx** — sources[].url «https://nta.nv.gov/uploadedFiles/ntanvgov/content/About/Notices/2026/06-June/26-05015_Tesla_Robotaxi_LLC_ADA.pdf» не цитируется в теле — балласт
+- **content/posts/2026-08-18/us-open-2026-withdrawals-alcaraz-sinner-status.en.mdx** — sources[].url «https://www.tennis365.com/tennis-news/us-open-withdrawal-list-nine-stars-now-out» не цитируется в теле — балласт
+- **content/posts/2026-08-18/us-open-2026-withdrawals-alcaraz-sinner-status.mdx** — sources[].url «https://www.tennis365.com/tennis-news/us-open-withdrawal-list-nine-stars-now-out» не цитируется в теле — балласт
+- **content/posts/2026-08-18/us-open-2026-withdrawals-alcaraz-sinner-status.uz.mdx** — sources[].url «https://www.tennis365.com/tennis-news/us-open-withdrawal-list-nine-stars-now-out» не цитируется в теле — балласт
 - **content/posts/2026-08-18/uzbek-labor-migration-shift-europe-cis.en.mdx** — sources[].url «https://cbu.uz/uz/press_center/releases/4359622/» не цитируется в теле — балласт
 - **content/posts/2026-08-18/uzbek-labor-migration-shift-europe-cis.mdx** — sources[].url «https://cbu.uz/uz/press_center/releases/4359622/» не цитируется в теле — балласт
 - **content/posts/2026-08-18/uzbek-labor-migration-shift-europe-cis.uz.mdx** — sources[].url «https://cbu.uz/uz/press_center/releases/4359622/» не цитируется в теле — балласт
+- **content/posts/2026-08-18/uzbekistan-fines-halved-3yr-inspection-ban.en.mdx** — sources[].url «https://www.interfax.ru/world/1109899» не цитируется в теле — балласт
+- **content/posts/2026-08-18/uzbekistan-fines-halved-3yr-inspection-ban.mdx** — sources[].url «https://www.interfax.ru/world/1109899» не цитируется в теле — балласт
+- **content/posts/2026-08-18/uzbekistan-fines-halved-3yr-inspection-ban.uz.mdx** — sources[].url «https://www.interfax.ru/world/1109899» не цитируется в теле — балласт
+- **content/posts/2026-08-18/windows-task-host-flaw-ransomware-cisa.en.mdx** — sources[].url «https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2025-60710» не цитируется в теле — балласт
+- **content/posts/2026-08-18/windows-task-host-flaw-ransomware-cisa.mdx** — sources[].url «https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2025-60710» не цитируется в теле — балласт
+- **content/posts/2026-08-18/windows-task-host-flaw-ransomware-cisa.uz.mdx** — sources[].url «https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2025-60710» не цитируется в теле — балласт
+- **content/posts/2026-08-18/xiaomi-ai-no-rush-profit-drop.en.mdx** — sources[].url «https://ir.mi.com/static-files/bdeea0b9-246c-45be-8cb4-ab4faaddf80a» не цитируется в теле — балласт
+- **content/posts/2026-08-18/xiaomi-ai-no-rush-profit-drop.en.mdx** — sources[].url «https://ir.mi.com/static-files/098acc43-1b58-4d1b-b375-9ea25f35477b» не цитируется в теле — балласт
+- **content/posts/2026-08-18/xiaomi-ai-no-rush-profit-drop.mdx** — sources[].url «https://ir.mi.com/static-files/bdeea0b9-246c-45be-8cb4-ab4faaddf80a» не цитируется в теле — балласт
+- **content/posts/2026-08-18/xiaomi-ai-no-rush-profit-drop.mdx** — sources[].url «https://ir.mi.com/static-files/098acc43-1b58-4d1b-b375-9ea25f35477b» не цитируется в теле — балласт
+- **content/posts/2026-08-18/xiaomi-ai-no-rush-profit-drop.uz.mdx** — sources[].url «https://ir.mi.com/static-files/bdeea0b9-246c-45be-8cb4-ab4faaddf80a» не цитируется в теле — балласт
+- **content/posts/2026-08-18/xiaomi-ai-no-rush-profit-drop.uz.mdx** — sources[].url «https://ir.mi.com/static-files/098acc43-1b58-4d1b-b375-9ea25f35477b» не цитируется в теле — балласт
+- **content/posts/2026-08-18/zverev-swiatek-cincinnati-last16.en.mdx** — sources[].url «https://www.atptour.com/en/news/zverev-norrie-cincinnati-2026-r2-saturday» не цитируется в теле — балласт
+- **content/posts/2026-08-18/zverev-swiatek-cincinnati-last16.mdx** — sources[].url «https://www.atptour.com/en/news/zverev-norrie-cincinnati-2026-r2-saturday» не цитируется в теле — балласт
+- **content/posts/2026-08-18/zverev-swiatek-cincinnati-last16.uz.mdx** — sources[].url «https://www.atptour.com/en/news/zverev-norrie-cincinnati-2026-r2-saturday» не цитируется в теле — балласт
 - **content/posts/2026-08-01/** — категория "society": 15 материалов за день (порог 9)
 - **content/posts/2026-08-01/** — категория "economy": 24 материалов за день (порог 9)
 - **content/posts/2026-08-02/** — категория "society": 12 материалов за день (порог 9)
@@ -562,7 +618,10 @@
 - **content/posts/2026-08-17/** — категория "world": 18 материалов за день (порог 9)
 - **content/posts/2026-08-17/** — категория "economy": 21 материалов за день (порог 9)
 - **content/posts/2026-08-17/** — категория "sport": 45 материалов за день (порог 9)
-- **content/posts/2026-08-18/** — категория "tech": 24 материалов за день (порог 9)
+- **content/posts/2026-08-18/** — категория "society": 12 материалов за день (порог 9)
+- **content/posts/2026-08-18/** — категория "sport": 24 материалов за день (порог 9)
+- **content/posts/2026-08-18/** — категория "tech": 96 материалов за день (порог 9)
+- **content/posts/2026-08-18/** — категория "economy": 21 материалов за день (порог 9)
 
 ## Распределение по дням и категориям
 
@@ -580,4 +639,4 @@
 - **2026-08-15** (60): world 21, society 24, economy 9, politics 6
 - **2026-08-16** (21): world 12, politics 6, society 3
 - **2026-08-17** (180): tech 90, world 18, economy 21, sport 45, politics 3, society 3
-- **2026-08-18** (45): tech 24, world 9, sport 6, society 3, economy 3
+- **2026-08-18** (168): society 12, sport 24, tech 96, economy 21, world 9, politics 3, business 3
