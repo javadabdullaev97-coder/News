@@ -1424,3 +1424,12 @@
 {"ev":"fetched","at":"2026-08-20T12:21:48.802Z","link":"https://kapital.uz/minimalnye-tarify-na-energiyu/","status":"200","found":34}
 {"ev":"fetched","at":"2026-08-20T12:21:48.802Z","link":"https://kapital.uz/bektemir-city/","status":"200","found":35}
 {"ev":"fetched","at":"2026-08-20T12:21:48.802Z","link":"https://kapital.uz/vse-vezde-i-srazu/","status":"200","found":33}
+{"ev":"seen","domain":"main-news.ru","at":"2026-08-20T12:52:05.118Z","url":"https://main-news.ru/v-ulyanovske-zaderzhali-migrantov-iznasilovavshih-13-letnyuyu-devochku/","foundIn":"https://podrobno.uz/cat/proisshestviya/dvoim-uzbekistantsam-grozit-do-20-let-kolonii-za-iznasilovanie-13-letney-devochki-v-ulyanovske/","sourceId":"podrobno-uz","context":"Преступление произошло в Ленинском районе города. По версии следствия, двое иностранных граждан совершили противоправные действия в отношении 13-летней девочки. В отношении задержанных возбуждено уголовное дело по части 4 статьи 131 (\"Изнасилование потерпевшей, не достигшей четыр"}
+{"ev":"fetched","at":"2026-08-20T12:52:05.128Z","link":"https://podrobno.uz/cat/economic/pochti-kazhdyy-tretiy-zaemshchik-v-uzbekistane-vyplachivaet-neskolko-kreditov/","status":"200","found":5}
+{"ev":"fetched","at":"2026-08-20T12:52:05.128Z","link":"https://podrobno.uz/cat/economic/za-zatyagivanie-oplaty-po-goszakupkam-zakazchikov-mogut-nachat-nakazyvat/","status":"200","found":4}
+{"ev":"fetched","at":"2026-08-20T12:52:05.128Z","link":"https://podrobno.uz/cat/obchestvo/v-uzbekistane-obnovili-trebovaniya-k-parkovkam-i-zaryadnym-stantsiyam-dlya-elektromobiley/","status":"200","found":4}
+{"ev":"fetched","at":"2026-08-20T12:52:05.129Z","link":"https://nuz.uz/2026/08/20/kupi-sejchas-plati-potom-na-rynke-rassrochki-v-uzbekistane-menyayutsya-pravila-igry/","status":"200","found":55}
+{"ev":"fetched","at":"2026-08-20T12:52:05.129Z","link":"https://daryo.uz/2026/08/20/dunyoning-eng-qarzdor-kompaniyasi-rahbari-umrbodga-qamaldi","status":"200","found":43}
+{"ev":"fetched","at":"2026-08-20T12:52:05.129Z","link":"https://daryo.uz/2026/08/20/ozbekistondagi-birinchi-pulli-avtomobil-yolida-yol-haqi-miqdori-malum-qilindi","status":"200","found":40}
+{"ev":"fetched","at":"2026-08-20T12:52:05.129Z","link":"https://podrobno.uz/cat/proisshestviya/dvoim-uzbekistantsam-grozit-do-20-let-kolonii-za-iznasilovanie-13-letney-devochki-v-ulyanovske/","status":"200","found":5}
+{"ev":"fetched","at":"2026-08-20T12:52:05.129Z","link":"https://nuz.uz/2026/08/20/zhavohir-sindarov-zanyal-trete-mesto-na-sinquefield-cup-2026/","status":"200","found":54}
