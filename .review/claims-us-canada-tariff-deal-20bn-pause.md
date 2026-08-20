@@ -1,0 +1,22 @@
+# Таблица цитат: us-canada-tariff-deal-20bn-pause
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|---|---|---|
+| 1 | Трамп 19 августа приостановил на три дня 50-процентные пошлины на канадский экспорт | https://www.pbs.org/newshour/world/trump-says-us-and-canada-reached-last-minute-deal-to-delay-50-us-tariffs-on-canadian-imports | "I have paused the 50% Tariffs against Canada...for a three day period, based on the fact that Canada and the U.S.A...have a DEAL!" |
+| 2 | Пошлины должны были вступить в силу в ночь на 20 августа | https://www.pbs.org/newshour/world/trump-says-us-and-canada-reached-last-minute-deal-to-delay-50-us-tariffs-on-canadian-imports | - прямой цитаты нет: WebFetch-сводка страницы указала "Пошлины должны были вступить в силу: 20 августа 2026 в 00:01 (среда)" как факт статьи, без выделенной дословной формулировки |
+| 3 | Пауза объявлена менее чем за два часа до дедлайна | https://www.pbs.org/newshour/world/trump-says-us-and-canada-reached-last-minute-deal-to-delay-50-us-tariffs-on-canadian-imports | - прямой цитаты нет: сводка страницы указала "Трёхдневная отсрочка объявлена менее чем за два часа до дедлайна" |
+| 4 | Пошлины приостановлены до 22 августа | https://www.aljazeera.com/economy/2026/8/19/us-canada-reach-trade-deal-to-avert-steep-tariffs-trump-says | - прямой цитаты нет: сводка страницы указала "Пошлины приостановлены до 22 августа" как факт статьи |
+| 5 | Карни подтвердил "существенный прогресс", но отметил, что "важная работа остаётся" | https://www.pbs.org/newshour/world/trump-says-us-and-canada-reached-last-minute-deal-to-delay-50-us-tariffs-on-canadian-imports | "Substantial progress" достигнута, но "important work still to be done" (в переводе редакции: "существенный прогресс", "важная работа остаётся") |
+| 6 | Под угрозой пошлин находилось около 5% канадского экспорта в США, около 20 млрд долларов | https://www.pbs.org/newshour/world/trump-says-us-and-canada-reached-last-minute-deal-to-delay-50-us-tariffs-on-canadian-imports | - прямой цитаты нет: сводка страницы указала "Около 5% всего канадского экспорта в США", "50% пошлины на 20 млрд долларов канадского экспорта" |
+| 7 | Товары под пошлинами - от хоккейных клюшек до деревянных изделий | https://www.pbs.org/newshour/world/trump-says-us-and-canada-reached-last-minute-deal-to-delay-50-us-tariffs-on-canadian-imports | - прямой цитаты нет: сводка страницы указала "от хоккейных клюшек до деревянных шпателей" как перечень затронутых товаров |
+| 8 | Точный объём экспорта под пошлинами - 20,2 млрд долларов | https://www.aljazeera.com/economy/2026/8/19/us-canada-reach-trade-deal-to-avert-steep-tariffs-trump-says | - прямой цитаты нет: сводка страницы указала "Объём затронутого канадского экспорта: 20,2 миллиарда долларов" |
+| 9 | Товары под пошлинами (версия Al Jazeera) - электроника, промышленное оборудование, мебель, молочная продукция, вино | https://www.aljazeera.com/economy/2026/8/19/us-canada-reach-trade-deal-to-avert-steep-tariffs-trump-says | - прямой цитаты нет: сводка страницы указала перечень "Электроника, промышленное оборудование, мебель, молочные продукты и вино" |
+| 10 | Канада обязалась устранить меры, которые США считают дискриминационными в отношении алкоголя, молочной продукции и автомобилей | https://www.pbs.org/newshour/world/trump-says-us-and-canada-reached-last-minute-deal-to-delay-50-us-tariffs-on-canadian-imports | - прямой цитаты нет: сводка страницы указала "Канада обязалась устранить меры, которые американская администрация считает дискриминационными в отношении алкоголя, молочных продуктов и автомобилей США" |
+| 11 | Трамп заявил, что Keystone XL "может быть пробуждён из могилы" | https://www.pbs.org/newshour/world/trump-says-us-and-canada-reached-last-minute-deal-to-delay-50-us-tariffs-on-canadian-imports | "The great Keystone XL Pipeline, long ago killed by Sleepy Joe Biden, may be awoken from the grave!" |
+
+Примечание для fact-checker'а: строки 2, 3, 4, 6, 7, 8, 9, 10 получены через WebFetch-сводку
+страницы (инструмент возвращает суммаризацию контента, а не сырой HTML), поэтому дословная
+цитата из оригинального текста статьи не зафиксирована - только пересказанный факт с числами.
+Рекомендуется точечно сверить эти пункты по самим URL, особенно даты дедлайна и окончания
+паузы (расхождение между PBS и Al Jazeera по 22 августа отмечено в reporter-notes) и точную
+цифру объёма экспорта (20 против 20,2 млрд долларов).
