@@ -310,3 +310,4 @@
 {"run":"2026-08-20T02:48","stage":"reporter","calls":1,"fetches":8,"minutes":3}
 {"run":"2026-08-20T02:53","stage":"reporter","calls":3,"fetches":28,"minutes":6}
 {"run":"2026-08-20T02:52","stage":"reporter","calls":2,"fetches":8,"minutes":6}
+{"run":"2026-08-20T02:55","stage":"fact-checker","calls":1,"fetches":2,"minutes":2}
