@@ -842,3 +842,4 @@
 {"ev":"ask","at":"2026-08-20T02:48:46.524Z","item":{"slug":"nvidia-mercor-investment","title":"По данным The Information, Nvidia обсуждает участие в раунде Mercor с оценкой $20 млрд","kind":"revocable","reason":"low-confidence","messageId":1051,"askedAt":"2026-08-20T02:48:46.524Z"}}
 {"ev":"remind","at":"2026-08-20T03:47:04.261Z","slug":"unitree-robotics-shanghai-ipo","askedAt":"2026-08-20T01:14:18.767Z","remindedAt":"2026-08-20T03:47:04.260Z","messageId":1052}
 {"ev":"remind","at":"2026-08-20T04:09:34.117Z","slug":"rassrochka-zhilya-zastroyshik-ne-zapret","askedAt":"2026-08-20T01:53:21.329Z","remindedAt":"2026-08-20T04:09:34.117Z","messageId":1053}
+{"ev":"remind","at":"2026-08-20T04:43:14.772Z","slug":"akfa-jobs-for-uzbek-migrants","askedAt":"2026-08-20T00:11:39.209Z","remindedAt":"2026-08-20T04:43:14.771Z","messageId":1054}
