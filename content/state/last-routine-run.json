@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T00:16:00+05:00",
-  "topicsProcessed": 5,
-  "published": 3,
-  "queuedForOwner": 1,
+  "lastRunAt": "2026-08-21T00:46:00+05:00",
+  "topicsProcessed": 4,
+  "published": 2,
+  "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 2,
-  "belowThreshold": 1133,
-  "notes": "Rework AKFA: бильд не нашёл фото Артыкходжаева с надёжной атрибуцией по имени (галереи president.uz с того же мероприятия без подписей) — эскалировал владельцу (reason: source-doubt), не гадая. Antimon-refund изначально совпал с рубрикой content/rejected/antimonopoly-committee-59bn-recalculated-h1-2026.mdx (тот же комитет, дубль от 06.08) — переписан как развитие сюжета со ссылкой на вышедший материал и честной оговоркой о несопоставимости 10,5 млн/11,7 млн. CAR gold-mine: ABC News содержательно точен, но вне config/news-sources.json; BBC/NYT по этому эпизоду не индексируются WebSearch и недоступны через WebFetch — ушла в needs-verification с готовым черновиком. Разошлось прозы (§2 редполитики называет AP источником) и конфига (AP нет в news-sources.json) — стоит решить отдельно."
+  "belowThreshold": 28,
+  "notes": "Rework AKFA (итерация 2): бильд снова не нашёл фото Артыкходжаева (галереи president.uz без подписей, akfa.uz недоступен, AI-генерация в этом прогоне технически недоступна агенту bild — нет доступа к Higgsfield) — эскалировал владельцу с уточнённым вопросом (reason: no-image). Иран (trump-iran-economic-warfare): первый фактчек нашёл критичные нарушения citability — половина черновика держалась на SCMP и Anadolu Agency, которых нет в белом списке §2. Вернула reporter'у одной итерацией на замену источников; он нашёл те же факты у Al Jazeera, второй фактчек — approve-with-downgrades 88%. Оба локальных кандидата (паркинги Ташкента, E-permit с Грузией) упёрлись в ненайденный первоисточник — ушли в needs-verification с конкретным планом на следующий заход."
 }
