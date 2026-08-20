@@ -104,7 +104,8 @@ for (const url of sourceUrls) {
 function numbersOf(text) {
   const cleaned = text
     .replace(/\[[^\]]*\]\([^)]*\)/g, " ") // markdown-ссылки целиком
-    .replace(/https?:\/\/\S+/g, " ");
+    .replace(/https?:\/\/\S+/g, " ")
+    .replace(/&nbsp;/g, " "); // литеральная HTML-сущность — тот же разделитель разрядов, что и юникодный nbsp
   const out = new Set();
   for (const m of cleaned.matchAll(/\d[\d   ]*(?:[.,]\d+)?/g)) {
     const norm = m[0].replace(/[   ]/g, "").replace(",", ".").replace(/\.$/, "");
