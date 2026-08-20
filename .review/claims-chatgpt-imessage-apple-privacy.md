@@ -1,0 +1,11 @@
+# Таблица цитат: chatgpt-imessage-apple-privacy
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|----------------------|----------|-------------------------------|
+| 1 | OpenAI 20 августа выпустила плагин Apple Messages для ChatGPT на Mac (чтение, поиск, отправка iMessage/SMS/RCS) | https://learn.chatgpt.com/docs/changelog | «Use the Apple Messages plugin to read and search Messages chats on your Mac and prepare or send messages» (дата записи в changelog — 20 августа 2026) |
+| 2 | Плагин доступен на всех тарифах ChatGPT в десктоп-приложении для macOS, а также в ChatGPT Work и Codex | https://learn.chatgpt.com/docs/changelog | «All ChatGPT plans in the desktop app for macOS; usable in ChatGPT Work and Codex» |
+| 3 | ChatGPT отправляет сообщение только после того, как пользователь одобрил его текст и получателей | https://learn.chatgpt.com/docs/changelog | «ChatGPT sends messages only after you approve the message and its recipients» |
+| 4 | Bloomberg сообщил, что функция способна создать проблемы приватности для Apple как производителя iPhone | https://www.bloomberg.com/news/articles/2026-08-20/chatgpt-can-now-control-imessage-potentially-raising-apple-privacy-concerns | «a move with the potential to raise privacy concerns for the iPhone maker» (снипет из задания, совпадает с заголовком/лидом статьи) |
+| 5 | По данным Bloomberg, ChatGPT теперь может читать, писать и отправлять текстовые сообщения | https://www.bloomberg.com/news/articles/2026-08-20/chatgpt-can-now-control-imessage-potentially-raising-apple-privacy-concerns | «reading, writing and sending text messages» (получено через прокси-ридер r.jina.ai, прямой WebFetch на bloomberg.com вернул 403) |
+| 6 | По данным Bloomberg, ChatGPT может искать по переписке и получать сводки о разговорах в приложении «Сообщения» | https://www.bloomberg.com/news/articles/2026-08-20/chatgpt-can-now-control-imessage-potentially-raising-apple-privacy-concerns | «search through messages and get summaries and other information about conversations from the Apple Messages app» (тот же прокси-фетч) |
+| 7 | Доступ плагина к переписке можно отозвать в настройках ChatGPT | https://learn.chatgpt.com/docs/changelog | — цитаты нет: в сводке changelog упомянуты «revocation steps» без точной формулировки текста; фактчекеру стоит свериться напрямую со страницей |
