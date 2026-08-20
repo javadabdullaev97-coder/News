@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-20T07:20:00+05:00",
-  "topicsProcessed": 3,
-  "published": 2,
-  "queuedForOwner": 1,
+  "lastRunAt": "2026-08-20T08:07:00+05:00",
+  "topicsProcessed": 4,
+  "published": 3,
+  "queuedForOwner": 0,
   "rejected": 0,
-  "needsVerification": 0,
-  "belowThreshold": 48,
-  "notes": "rework закрыт как дубль — опубликован параллельно. rassrochka-zhilya-zastroyshik-ne-zapret (готовый publish прошлого прогона) найден в rejected/ без причины; editor-verdict описывает сообщение, выдавшее себя за координатора, с просьбой убрать publishedAt — перенесён в needs-verification владельцу. Bild сначала взял карту с CDN Al Jazeera (нарушение лицензии агентств) — переделано на сток. Локальный поток: 0 тем, noPrimarySourceFound везде. Подтверждено 2-й прогон подряд: policy-editor.md требует publishedAt вопреки queuedAt-правилу — править у источника."
+  "needsVerification": 1,
+  "belowThreshold": 24,
+  "notes": "Локальный поток дал только 9 sourceType:source items (землетрясения, ООН, тривиальный пост водоканала) — ни один не про Узбекистан; все 3 взятых местных темы (АЭС, НДС фермерам, поддержка гостиниц) шли от исходного visina Хорезмского визита 18.08, первоисточник — t.me/Press_Secretary_Uz, который подтверждён фактчекером как подлинный, но отсутствует в config/telegram-channels.json — стоит добавить как type:source. Тема про вторую АЭС ушла в needs-verification: president.uz/uza.uz на JS-рендере, обычный фетч не отдаёт архив статей, @shmirziyoyev не показал нужный пост в видимой части ленты."
 }
