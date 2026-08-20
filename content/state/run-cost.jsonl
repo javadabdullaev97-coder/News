@@ -307,3 +307,4 @@
 {"run":"2026-08-20T02:43","stage":"reporter","calls":1,"fetches":7,"minutes":6}
 {"run":"2026-08-20T02:43","stage":"fact-checker","calls":1,"fetches":4,"minutes":5}
 {"run":"2026-08-20T02:43","topics":1,"published":1,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
+{"run":"2026-08-20T02:48","stage":"reporter","calls":1,"fetches":8,"minutes":3}
