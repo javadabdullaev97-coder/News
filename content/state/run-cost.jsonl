@@ -402,3 +402,9 @@
 {"run":"2026-08-20T21:15","stage":"translator","calls":2,"fetches":0,"minutes":5}
 {"run":"2026-08-20T21:15","topics":3,"published":2,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
 {"run":"2026-08-20T21:43","topics":0,"published":0,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
+{"run":"2026-08-20T22:09","stage":"reporter","calls":5,"fetches":35,"minutes":8}
+{"run":"2026-08-20T22:09","stage":"fact-checker","calls":5,"fetches":16,"minutes":6}
+{"run":"2026-08-20T22:09","stage":"editor","calls":4,"fetches":0,"minutes":5}
+{"run":"2026-08-20T22:09","stage":"bild","calls":4,"fetches":0,"minutes":4}
+{"run":"2026-08-20T22:09","stage":"translator","calls":4,"fetches":0,"minutes":3}
+{"run":"2026-08-20T22:09","topics":5,"published":4,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
