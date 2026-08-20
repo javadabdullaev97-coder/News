@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T02:43:00+05:00",
-  "topicsProcessed": 0,
+  "lastRunAt": "2026-08-21T03:46:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
   "queuedForOwner": 0,
   "rejected": 0,
-  "needsVerification": 0,
-  "belowThreshold": 5,
-  "notes": "Местный поток пуст (5 свежих items — спорт без узб. привязки, тендер Атомстройэкспорта P3 без первоисточника, M5.0 Индонезия, автобусный маршрут Ташкента без первоисточника — все ниже порога). Единственная сильная мировая тема (кампания Трампа по экономической изоляции Ирана, mustPublish, 4 блока: anglo/asia/mena/euro) уже произведена соседней планёркой — content/queue/trump-iran-economic-warfare.mdx, дубль по ссылке aljazeera подтверждён topic-dupecheck. Остальные мировые кандидаты (Charter-Cox $34.5B, OpenAI IPO 2027) не набрали 2 разных блока или блок не non-russian."
+  "needsVerification": 1,
+  "belowThreshold": 19,
+  "notes": "Местный поток: 19 свежих items, лучшие (my.gov.uz — заселение в общежития для 1-курсников, Минюст — признание дипломов без нострификации) дали ~50-51 балл, порог 55 не пройден. Мировой: землетрясение на Флоресе (M7.7) — новый факт (84-летняя женщина спасена из-под завалов через 3 дня + toll 71) есть только у citable:false источников (Anadolu, Guardian); reporter не нашёл подтверждения у Reuters/AP/AFP/BBC/CBS/AJ/DW/PBS за 8 обращений — унесено в needs-verification/indonesia-earthquake-flores-rescue.md, recheck 09:00."
 }
