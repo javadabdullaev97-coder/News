@@ -1,0 +1,12 @@
+# Таблица цитат: uae-halts-trade-iran-us-pressure
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|----------------------|----------|-------------------------------|
+| 1 | МИД ОАЭ объявил о приостановке всей торговли и финансовых операций с Ираном вечером 19 августа | https://finance.yahoo.com/economy/articles/iran-risks-losing-key-economic-150832336.html | «The UAE's Ministry of Foreign Affairs announced the trade halt "on Tuesday evening"» |
+| 2 | Причина указана как «эскалации, подрывающие региональный и международный мир и безопасность» | https://finance.yahoo.com/economy/articles/iran-risks-losing-key-economic-150832336.html | «escalations that undermine regional and international peace and security» |
+| 3 | За несколько часов до заявления в Дубае поступило предупреждение о запуске двух баллистических ракет в сторону территориальных вод, оба снаряда упали в воду, пострадавших и разрушений нет | https://www.cnn.com/2026/08/19/world/live-news/iran-war-trump | — прямой fetch страницы вернул HTTP 451, дословной цитаты нет; сведения получены через синтез поисковой выдачи, опирающийся на эту страницу CNN |
+| 4 | Иран отверг причастность к инциденту | https://www.cnn.com/2026/08/19/world/live-news/iran-war-trump | — то же самое: прямая цитата недоступна, страница не открылась (HTTP 451) |
+| 5 | На ОАЭ пришлось 31% иранского импорта (около 21 млрд долларов) и 13% иранского экспорта в 2024 году | https://www.cnn.com/2026/08/19/world/live-news/iran-war-trump | — то же самое: прямая цитата недоступна, страница не открылась (HTTP 451) |
+| 6 | Трамп сместил фокус «от военных ударов к максимальному финансовому давлению на богатую нефтью страну» | https://finance.yahoo.com/economy/articles/iran-risks-losing-key-economic-150832336.html | «shifted focus "away from military strikes to imposing as much financial hardship on the oil-rich country as possible"» |
+| 7 | Министр финансов США Скотт Бессент заявил о намерении применить «беспрецедентное экономическое давление» | https://finance.yahoo.com/economy/articles/iran-risks-losing-key-economic-150832336.html | «Treasury Secretary Scott Bessent stated the US would apply "unprecedented economic pressure"» |
+| 8 | Эксперт: приостановка торговли ОАЭ способна нанести Ирану больший урон, чем санкции США и ЕС | https://finance.yahoo.com/economy/articles/iran-risks-losing-key-economic-150832336.html | «far more effective, and potentially more damaging to the Iranian economy, than US and EU sanctions» |
