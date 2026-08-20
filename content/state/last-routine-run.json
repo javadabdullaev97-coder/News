@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-20T06:14:00+05:00",
-  "topicsProcessed": 6,
-  "published": 3,
-  "queuedForOwner": 0,
-  "rejected": 2,
+  "lastRunAt": "2026-08-20T07:20:00+05:00",
+  "topicsProcessed": 3,
+  "published": 2,
+  "queuedForOwner": 1,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 3,
-  "notes": "kichik-mikro-ges-2030 и dollar-kurs-nizhe-11800 отклонены как дубли уже опубликованного/стоящего в очереди контента параллельной сессии — topic-dupecheck на claim-time их не поймал (разные slug/линки), поймано вручную перед queue. Reporter/editor слайсы политики стабильно проставляют publishedAt вопреки текущему правилу planyorka.md — снимал вручную на 4 черновиках, стоит проверить свежесть policy.md/policy-editor.md по этому пункту."
+  "belowThreshold": 48,
+  "notes": "rework закрыт как дубль — опубликован параллельно. rassrochka-zhilya-zastroyshik-ne-zapret (готовый publish прошлого прогона) найден в rejected/ без причины; editor-verdict описывает сообщение, выдавшее себя за координатора, с просьбой убрать publishedAt — перенесён в needs-verification владельцу. Bild сначала взял карту с CDN Al Jazeera (нарушение лицензии агентств) — переделано на сток. Локальный поток: 0 тем, noPrimarySourceFound везде. Подтверждено 2-й прогон подряд: policy-editor.md требует publishedAt вопреки queuedAt-правилу — править у источника."
 }
