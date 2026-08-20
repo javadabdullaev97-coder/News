@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-20T09:11:00+05:00",
-  "topicsProcessed": 2,
-  "published": 2,
+  "lastRunAt": "2026-08-20T23:42:00+05:00",
+  "topicsProcessed": 5,
+  "published": 5,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 29,
-  "notes": "node_modules отсутствовал в свежем контейнере (ERR_MODULE_NOT_FOUND: yaml) — потребовался npm install перед первым claims-lint. claims-lint нашёл число-без-цитаты дважды на marvell-google (округление 58,97 млн против точного числа в таблице; английский формат цитаты 1,360,867 против русского 1 360 867 в теле) — поправлено репортёром одной итерацией без похода в сеть. У обоих reporter-агентов Write отказался создавать NOTES_PATH как «report-style» файл — notes сохранены оркестратором вручную по тексту из финального ответа агента."
+  "belowThreshold": 673,
+  "notes": "node_modules снова отсутствовал в свежем контейнере — npm install до claims-lint (та же аномалия, что 09:11). Write у reporter-агентов блокирует файлы с префиксом reporter-notes-: notes и таблицу цитат по android и ai-labs сохранял оркестратор вручную. bild-gate по умолчанию ищет .review/reporter-notes-<slug>.md — нужен явный --notes, иначе всегда «субъект неизвестен». i18n-lint поймал хвост </content> в 4 переводах уже ПОСЛЕ выпуска публикатором (posts/2026-08-21) — вычищено. Дупликат-риск: Anthropic 4-й материал за 4 дня, взят только как развитие (новые факты — размер IPO и срок OpenAI)."
 }
