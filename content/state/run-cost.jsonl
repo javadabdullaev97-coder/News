@@ -313,3 +313,4 @@
 {"run":"2026-08-20T02:55","stage":"fact-checker","calls":1,"fetches":2,"minutes":2}
 {"run":"2026-08-20T02:56","stage":"fact-checker","calls":2,"fetches":5,"minutes":6}
 {"run":"2026-08-20T02:57","stage":"fact-checker","calls":1,"fetches":3,"minutes":3}
+{"run":"2026-08-20T02:59","stage":"editor","calls":2,"fetches":0,"minutes":8}
