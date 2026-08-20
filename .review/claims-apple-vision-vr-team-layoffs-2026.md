@@ -1,0 +1,13 @@
+# Таблица цитат: apple-vision-vr-team-layoffs-2026
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|---|---|---|
+| 1 | Apple уволила не менее 60 сотрудников Vision Products Group и команды VR-разработки | https://appleinsider.com/articles/26/08/20/layoffs-in-apples-vision-products-group-prove-slow-progress-in-spatial-computing | "at least 60 employees tied to Apple's VR team, Apple Vision Group, and similar positions" (перевод: «не менее 60 сотрудников, связанных с VR-командой Apple, Apple Vision Group и аналогичными должностями») |
+| 2 | Уволена целая команда, занимавшаяся VR-разработкой | https://appleinsider.com/articles/26/08/20/layoffs-in-apples-vision-products-group-prove-slow-progress-in-spatial-computing | "Apple has just laid off an entire team dedicated to VR development" (перевод: «Apple только что уволила целую команду, занимавшуюся VR-разработкой») |
+| 3 | Apple не подтвердила и не прокомментировала информацию | https://9to5mac.com/2026/08/20/apple-reportedly-lays-off-60-vision-employees-amid-shifting-priorities/ | "Apple has not confirmed nor commented on the report." |
+| 4 | Материал AppleInsider опубликован 20 августа 2026 года | https://appleinsider.com/articles/26/08/20/layoffs-in-apples-vision-products-group-prove-slow-progress-in-spatial-computing | - цитаты нет: дата взята из метки публикации на странице статьи (WebFetch-выжимка) |
+| 5 | Источник AppleInsider - неназванный, без ссылки на Bloomberg или Марка Гурмана | https://appleinsider.com/articles/26/08/20/layoffs-in-apples-vision-products-group-prove-slow-progress-in-spatial-computing | - цитаты нет: зафиксировано по содержанию статьи через WebFetch-выжимку, обозначено как "reliable source" |
+| 6 | Первая модель AI-очков Apple ожидается к WWDC 2027, с камерами и Siri вместо AR-дисплея | https://9to5mac.com/2026/08/20/apple-reportedly-lays-off-60-vision-employees-amid-shifting-priorities/ | - цитаты нет: передано как пересказ прогноза издания, дословной формулировки WebFetch не вернул |
+| 7 | Vision Pro получил чип M5 в октябре 2025 года | https://9to5mac.com/2026/08/20/apple-reportedly-lays-off-60-vision-employees-amid-shifting-priorities/ | - цитаты нет, зафиксировано по фактической сводке страницы |
+| 8 | Цена Vision Pro выросла до 3 699 долларов в июне 2026 года | https://9to5mac.com/2026/08/20/apple-reportedly-lays-off-60-vision-employees-amid-shifting-priorities/ | - цитаты нет, зафиксировано по фактической сводке страницы |
+| 9 | Vision Products Group реорганизовывали около года назад, сотрудников распределили между более крупными подразделениями | https://9to5mac.com/2026/08/20/apple-reportedly-lays-off-60-vision-employees-amid-shifting-priorities/ | - цитаты нет, зафиксировано по фактической сводке страницы |
