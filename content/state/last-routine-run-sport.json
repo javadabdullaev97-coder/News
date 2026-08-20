@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-20T06:43:00+05:00",
-  "topicsProcessed": 2,
-  "published": 2,
+  "lastRunAt": "2026-08-20T07:42:00+05:00",
+  "topicsProcessed": 1,
+  "published": 1,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 16,
-  "notes": "node_modules отсутствовал в свежем чекауте — claims-lint.mjs падал на ERR_MODULE_NOT_FOUND('yaml'), потребовался npm install перед первым запуском линтера (повторяется не первый прогон подряд). Оба reporter-агента получили отказ Write на .review/reporter-notes-*/notes-* (фильтр по подстроке report/reporter) — notes сохраняла сама вручную по тексту, который агент вернул в ответе. Индексы sport:N из inbox-select --titles сдвинулись между первым и повторным вызовом из-за клеймов соседней спортивной сессии (claimedByOther выросло с 0 до 3) — пересверяла ссылки по заголовку перед expand, а не доверяла старым номерам."
+  "belowThreshold": 996,
+  "notes": "node_modules отсутствовал в свежем чекауте — claims-lint.mjs падал на ERR_MODULE_NOT_FOUND('yaml'), потребовался npm install (тот же дефект, что и в прошлом прогоне). Reporter не смог сохранить .review/reporter-notes-*.md — guardrail харнесса блокирует запись файлов, распознаваемых как report/summary; текст notes вернулся в ответе агента, сохранила его сама вручную с Write. Из ~996 свежих items реально высокий скор (≥40 по sport.score) набрала только одна тема — травма Хаджара и рокировка пилотов Red Bull на Гран-при Нидерландов (globalIcon Red Bull/Ферстаппен + topCompetition)."
 }
