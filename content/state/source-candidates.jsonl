@@ -1394,3 +1394,12 @@
 {"ev":"fetched","at":"2026-08-20T10:51:40.068Z","link":"https://hook.report/2026/08/slavic-food/?utm_source=rss&utm_medium=rss&utm_campaign=slavic-food","status":"200","found":9}
 {"ev":"fetched","at":"2026-08-20T10:51:40.068Z","link":"https://kun.uz/news/2026/08/20/hammasi-hamma-joyda-va-bir-vaqtning-ozida","status":"200","found":1}
 {"ev":"fetched","at":"2026-08-20T10:51:40.068Z","link":"https://kun.uz/news/2026/08/20/toshkent-osmonida-past-balandlikda-parvozlar-amalga-oshiriladi","status":"200","found":1}
+{"ev":"seen","domain":"gov.kz","at":"2026-08-20T11:22:18.293Z","url":"https://www.gov.kz/memleket/entities/water/press/news/details/1276245?lang=ru","foundIn":"https://anhor.uz/ru/novosti/severnyi-aral-voda-1-2-mlrd","sourceId":"anhor-uz","context":"По данным Министерства водных ресурсов и ирригации Казахстана, благодаря этому общий объем воды в Северном Арале достиг 23,4 млрд кубометров. Сейчас, в период активного полива, приток воды составляет около 14 кубометров в секунду. В дальнейшем его планируют постепенно увеличить д"}
+{"ev":"fetched","at":"2026-08-20T11:22:18.298Z","link":"https://anhor.uz/ru/novosti/severnyi-aral-voda-1-2-mlrd","status":"200","found":12}
+{"ev":"fetched","at":"2026-08-20T11:22:18.298Z","link":"https://anhor.uz/ru/novosti/uzbekistan-rybolovnye-seti-standarty","status":"200","found":32}
+{"ev":"fetched","at":"2026-08-20T11:22:18.298Z","link":"https://anhor.uz/ru/novosti/yaponiya-poezd-sbil-chetyreh-rabochih","status":"200","found":14}
+{"ev":"fetched","at":"2026-08-20T11:22:18.298Z","link":"https://podrobno.uz/cat/obchestvo/v-tashkente-voditelyam-na-praktike-pokazali-deystvie-remnya-bezopasnosti-pri-perevorote-avto-video/","status":"200","found":6}
+{"ev":"fetched","at":"2026-08-20T11:22:18.299Z","link":"https://www.spot.uz/ru/2026/08/20/parking-chargers/","status":"200","found":3}
+{"ev":"fetched","at":"2026-08-20T11:22:18.299Z","link":"https://www.gazeta.uz/ru/2026/08/20/energy/","status":"200","found":2}
+{"ev":"fetched","at":"2026-08-20T11:22:18.299Z","link":"https://www.gazeta.uz/ru/2026/08/20/andijan-airport/","status":"200","found":21}
+{"ev":"fetched","at":"2026-08-20T11:22:18.299Z","link":"https://daryo.uz/2026/08/20/chelsi-manchester-sitiga-fernandesning-transfer-narxini-malum-qildi","status":"200","found":42}
