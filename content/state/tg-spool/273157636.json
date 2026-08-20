@@ -1,0 +1,87 @@
+{
+  "message": {
+    "chat": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "last_name": "Abdullaev",
+      "type": "private",
+      "username": "javad_abdullaev"
+    },
+    "date": 1787259802,
+    "from": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "is_bot": false,
+      "is_premium": true,
+      "language_code": "en",
+      "last_name": "Abdullaev",
+      "username": "javad_abdullaev"
+    },
+    "message_id": 1070,
+    "reply_to_message": {
+      "chat": {
+        "first_name": "Javad",
+        "id": 1104500,
+        "last_name": "Abdullaev",
+        "type": "private",
+        "username": "javad_abdullaev"
+      },
+      "date": 1787252370,
+      "entities": [
+        {
+          "length": 18,
+          "offset": 0,
+          "type": "bold"
+        },
+        {
+          "length": 78,
+          "offset": 20,
+          "type": "bold"
+        },
+        {
+          "length": 23,
+          "offset": 278,
+          "type": "url"
+        },
+        {
+          "length": 6,
+          "offset": 303,
+          "type": "bot_command"
+        },
+        {
+          "length": 12,
+          "offset": 324,
+          "type": "url"
+        },
+        {
+          "length": 7,
+          "offset": 817,
+          "type": "url"
+        },
+        {
+          "length": 13,
+          "offset": 826,
+          "type": "url"
+        },
+        {
+          "length": 34,
+          "offset": 1105,
+          "type": "italic"
+        }
+      ],
+      "from": {
+        "first_name": "LEAP News - ADMIN",
+        "id": 8652303606,
+        "is_bot": true,
+        "username": "leap_news_bot"
+      },
+      "link_preview_options": {
+        "url": "http://t.me/shmirziyoyev/35206"
+      },
+      "message_id": 1065,
+      "text": "НУЖНО ВАШЕ РЕШЕНИЕ\n\nAKFA Holding заявила о найме 10 тысяч узбекистанцев за рубежом — по данным СМИ\n\nПочему спрашиваю: есть сомнение в источнике или в трактовке факта.\n\nНе нашлось фото Артыкходжаева с надёжной атрибуцией по имени. Проверил официальный Telegram-канал президента (t.me/shmirziyoyev/35206, /35200) и обе статьи president.uz о мероприятии в Хиве (lists/view/9509 — награждение предпринимателей, lists/view/9511 — сам открытый диалог): в галереях есть высокое разрешение (1900x1266) с этого же мероприятия («O'ZBEKISTON RESPUBLIKASI PREZIDENTINING TADBIRKORLAR BILAN OCHIQ MULOQOTI, XIVA, 2026»), но подписей с именами под фото нет, а в тексте обеих статей Артыкходжаев/AKFA не упоминаются вовсе (сам текст статьи это подтверждает: пресс-служба президента его слова не приводила). Официального сайта AKFA (akfa.uz, akfagroup.com) нет в доступе/редирект на несвязанный домен, поисковики блокируют автоматические запросы. Ставить наугад фото человека с толпы без подтверждённого имени — риск подписать чужое лицо как Артыкходжаева. Прислать фото или подтвердить, что можно взять кадр по ссылке?\n\nОтветьте реплаем на это сообщение:\n• пришлите фото — оно станет главной картинкой\n• «ок» — публиковать как есть\n• «стоп» — снять материал\n• любой другой текст — уйдёт в правку как комментарий"
+    },
+    "text": "Ок"
+  },
+  "update_id": 273157636
+}
