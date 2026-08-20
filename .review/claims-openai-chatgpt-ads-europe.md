@@ -1,0 +1,15 @@
+# Таблица цитат: openai-chatgpt-ads-europe
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|----------------------|----------|-------------------------------|
+| 1 | Реклама в ChatGPT в Европе для тарифов Free и Go запускается 24 августа 2026 года | https://techxplore.com/news/2026-08-openai-ads-chatgpt-europe-week.html | — дословной фразы нет: дата и охват тарифов даны в извлечённой сводке материала («Launch Date: August 24, 2026»; «Free tier / Go subscribers»), не как прямая цитата текста статьи |
+| 2 | Реклама охватывает 31 европейскую страну | https://techxplore.com/news/2026-08-openai-ads-chatgpt-europe-week.html | — дословной фразы нет: число «31 European countries» дано в сводке материала, не в виде вырезанной цитаты |
+| 3 | Подписки Plus, Pro и Enterprise остаются без рекламы | https://techxplore.com/news/2026-08-openai-ads-chatgpt-europe-week.html | — дословной фразы нет: «Premium subscriptions explicitly excluded» — формулировка сводки, не цитата из тела статьи |
+| 4 | Go в Европе стоит 8 евро (9,3 доллара) в месяц | https://techxplore.com/news/2026-08-openai-ads-chatgpt-europe-week.html | — дословной фразы нет: цена дана в сводке («Go subscribers (€8/month or $9.30/month)») |
+| 5 | Объявления в ChatGPT всегда помечены как реклама и отделены от ответов | https://techxplore.com/news/2026-08-openai-ads-chatgpt-europe-week.html | «Ads in ChatGPT are always clearly labeled and separate from ChatGPT's answers» |
+| 6 | Реклама не влияет на содержание ответов ChatGPT | https://techxplore.com/news/2026-08-openai-ads-chatgpt-europe-week.html | «advertising does not influence the answers ChatGPT provides» |
+| 7 | Переписка пользователей закрыта для рекламодателей, данные клиентов не продаются | https://techxplore.com/news/2026-08-openai-ads-chatgpt-europe-week.html | «conversations would be private from advertisers and no customer data would be sold» |
+| 8 | Цитата OpenAI про маркетологов и решения пользователей | https://techxplore.com/news/2026-08-openai-ads-chatgpt-europe-week.html | «This expansion gives marketers across Europe a new way to reach people while they are actively exploring, comparing, and making decisions» (перевод в тексте статьи) |
+| 9 | Первый запуск рекламы в ChatGPT прошёл в США в феврале 2026 года | https://techxplore.com/news/2026-08-openai-ads-chatgpt-europe-week.html | — дословной фразы нет: «initially rolled out ads in the United States in February 2026» — из сводки материала |
+| 10 | С тех пор сервис расширился ещё на восемь регионов мира | https://openai.com/index/chatgpt-ads-expands-across-europe/ | — цитаты нет: первоисточник не открылся (HTTP 403), факт взят из сводных поисковых результатов (SearchEngineLand/Neowin: «eight additional markets since the initial U.S. pilot»), не проверен напрямую в цитируемом агентстве — требует перепроверки fact-checker'ом |
+| 11 | Узбекистан не входит в список 31 европейской страны | — | цитаты нет: логический вывод (список ограничен странами Европы, Узбекистан — страна Центральной Азии), а не прямое утверждение источника |
