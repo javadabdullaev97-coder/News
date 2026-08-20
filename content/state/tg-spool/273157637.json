@@ -1,0 +1,97 @@
+{
+  "message": {
+    "chat": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "last_name": "Abdullaev",
+      "type": "private",
+      "username": "javad_abdullaev"
+    },
+    "date": 1787260227,
+    "from": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "is_bot": false,
+      "is_premium": true,
+      "language_code": "en",
+      "last_name": "Abdullaev",
+      "username": "javad_abdullaev"
+    },
+    "message_id": 1072,
+    "reply_to_message": {
+      "chat": {
+        "first_name": "Javad",
+        "id": 1104500,
+        "last_name": "Abdullaev",
+        "type": "private",
+        "username": "javad_abdullaev"
+      },
+      "date": 1787062075,
+      "entities": [
+        {
+          "length": 18,
+          "offset": 0,
+          "type": "bold"
+        },
+        {
+          "length": 74,
+          "offset": 20,
+          "type": "bold"
+        },
+        {
+          "length": 36,
+          "offset": 214,
+          "type": "url"
+        },
+        {
+          "length": 47,
+          "offset": 297,
+          "type": "url"
+        },
+        {
+          "length": 12,
+          "offset": 673,
+          "type": "url"
+        },
+        {
+          "length": 7,
+          "offset": 687,
+          "type": "url"
+        },
+        {
+          "length": 6,
+          "offset": 703,
+          "type": "url"
+        },
+        {
+          "length": 11,
+          "offset": 743,
+          "type": "mention"
+        },
+        {
+          "length": 14,
+          "offset": 757,
+          "type": "mention"
+        },
+        {
+          "length": 34,
+          "offset": 1250,
+          "type": "italic"
+        }
+      ],
+      "from": {
+        "first_name": "LEAP News - ADMIN",
+        "id": 8652303606,
+        "is_bot": true,
+        "username": "leap_news_bot"
+      },
+      "link_preview_options": {
+        "url": "https://uww.org/athletes/ismoilov-kuvonchbek"
+      },
+      "message_id": 1022,
+      "text": "НУЖНО ВАШЕ РЕШЕНИЕ\n\nИсмоилов выиграл золото чемпионата мира U20 по борьбе в категории до 63 кг\n\nПочему спрашиваю: картинки нет вообще — ни в первоисточнике, ни в стоке.\n\nФото Исмоилова нигде не нашлось: профиль на uww.org/athletes/ismoilov-kuvonchbek отдаёт только generic-силуэт вместо портрета (athena.uww.org/public/person/117221/picture.jpg — заглушка 500×500, не фотография). Проверены все статьи UWW про турнир (day1/day2/day3 live blog, entries, расписание) — единственное живое фото по категории до 63 кг греко-римского стиля это полуфинал соперника Салима Казмахова (RUS) с иранцем — по image-avoid его нельзя ставить главным кадром. Федерация борьбы Узбекистана (wrestling.uz, gres.uz) и НОК (noc.uz) недоступны (DNS timeout / 503). @minsportuz и @tribunauznews публикацию о победе ещё не разместили. Тематический сток по «greco-roman wrestling» на Unsplash/Pexels дал только американскую школьную борьбу вольного стиля с узнаваемыми несовершеннолетними в чужом контексте — не тот стиль борьбы и риск некорректной атрибуции. AI-генерация через Higgsfield в этом прогоне не подключена к сессии. Нужно либо прислать фото Исмоилова (с награждения/схватки), либо подтвердить генерацию нейтральной иллюстрации, когда Higgsfield будет доступен.\n\nОтветьте реплаем на это сообщение:\n• пришлите фото — оно станет главной картинкой\n• «ок» — публиковать как есть\n• «стоп» — снять материал\n• любой другой текст — уйдёт в правку как комментарий"
+    },
+    "text": "Стоп"
+  },
+  "update_id": 273157637
+}
