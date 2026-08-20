@@ -1,0 +1,1 @@
+Apple v. Liu et al, No. 5:26-cv-07078 (N.D. Cal.). Sources checked: https://9to5mac.com/2026/08/19/apple-hits-back-at-openais-bid-to-dismiss-lawsuit-reaffirms-pervasive-trade-secret-misappropriation/ and https://www.claimsjournal.com/news/national/2026/08/07/339348.htm. Confidence 72/100.
