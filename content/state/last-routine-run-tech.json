@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-20T23:42:00+05:00",
-  "topicsProcessed": 5,
-  "published": 5,
+  "lastRunAt": "2026-08-21T01:12:00+05:00",
+  "topicsProcessed": 1,
+  "published": 1,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 673,
-  "notes": "node_modules снова отсутствовал в свежем контейнере — npm install до claims-lint (та же аномалия, что 09:11). Write у reporter-агентов блокирует файлы с префиксом reporter-notes-: notes и таблицу цитат по android и ai-labs сохранял оркестратор вручную. bild-gate по умолчанию ищет .review/reporter-notes-<slug>.md — нужен явный --notes, иначе всегда «субъект неизвестен». i18n-lint поймал хвост </content> в 4 переводах уже ПОСЛЕ выпуска публикатором (posts/2026-08-21) — вычищено. Дупликат-риск: Anthropic 4-й материал за 4 дня, взят только как развитие (новые факты — размер IPO и срок OpenAI)."
+  "belowThreshold": 19,
+  "notes": "Инбокс почти исчерпан предыдущими прогонами: 1143 из 1282 записей уже помечены «смотрел и не взял», в пул попало 20 кандидатов, порог взяла одна тема. node_modules снова отсутствовал в свежем контейнере — npm install до claims-lint (третий раз за сутки, аномалия устойчивая). Write у reporter-агента снова заблокировал .review/reporter-notes-<slug>.md — файл сохранял оркестратор. bild-gate вернул skip:false из-за отсутствия строки «Main visual subject» в notes — бильд вызван штатно, картинка взята из блога Google. git-push-with-rebase упал на конфликте из-за незакоммиченной правки i18n-lint в чужом файле (fury-joshua uz, «58%» → «58 foiz»): правка принадлежит спортивной планёрке, откачена, пуш прошёл."
 }
