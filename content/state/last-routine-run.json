@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T03:46:00+05:00",
-  "topicsProcessed": 1,
+  "lastRunAt": "2026-08-21T04:38:00+05:00",
+  "topicsProcessed": 2,
   "published": 0,
   "queuedForOwner": 0,
   "rejected": 0,
-  "needsVerification": 1,
-  "belowThreshold": 19,
-  "notes": "Местный поток: 19 свежих items, лучшие (my.gov.uz — заселение в общежития для 1-курсников, Минюст — признание дипломов без нострификации) дали ~50-51 балл, порог 55 не пройден. Мировой: землетрясение на Флоресе (M7.7) — новый факт (84-летняя женщина спасена из-под завалов через 3 дня + toll 71) есть только у citable:false источников (Anadolu, Guardian); reporter не нашёл подтверждения у Reuters/AP/AFP/BBC/CBS/AJ/DW/PBS за 8 обращений — унесено в needs-verification/indonesia-earthquake-flores-rescue.md, recheck 09:00."
+  "needsVerification": 2,
+  "belowThreshold": 16,
+  "notes": "Recheck двух карточек (АЭС-2 Хорезм, лифты МКД) — первоисточник всё ещё не найден у обеих, срок перенесён на +4ч. Местный поток: 16 свежих items, ни один не про Узбекистан с первоисточником (Sputnik-UZ про экспорт в Сирию — единственный местный сигнал, слишком тонкий). Мировой: сильнейший сюжет (санкционная война Трампа против Ирана, 5+ независимых блоков) уже в content/queue/trump-iran-economic-warfare.mdx — дубль не делали. Charter-Cox merger $34.5B — только anglo-блок, не прошёл minDistinctBlocs. Ноль новых тем в производство."
 }
