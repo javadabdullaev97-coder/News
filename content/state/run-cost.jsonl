@@ -353,3 +353,4 @@
 {"run":"2026-08-20T19:16","stage":"bild","calls":5,"fetches":0,"minutes":15}
 {"run":"2026-08-20T19:16","stage":"translator","calls":3,"fetches":0,"minutes":8}
 {"run":"2026-08-20T19:16","topics":5,"published":3,"skippedFactcheck":2,"skippedBild":0,"readCost":168780}
+{"run":"2026-08-20T19:19","stage":"planning","calls":0,"fetches":0,"minutes":5}
