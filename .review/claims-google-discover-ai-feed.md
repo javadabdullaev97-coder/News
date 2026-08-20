@@ -1,0 +1,13 @@
+# Таблица цитат: google-discover-ai-feed
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|---|---|---|
+| 1 | Функция появится «в ближайшие дни» | https://blog.google/products-and-platforms/products/search/personalize-search-discover-news/ | "Rolling out in the coming days in the Google app" (в переводе: «запуск в ближайшие дни в приложении Google») |
+| 2 | Пользователь открывает меню из трёх точек в ленте Discover и описывает словами, что хочет видеть | https://blog.google/products-and-platforms/products/search/personalize-search-discover-news/ | "In the Google app, you'll be able to tap any three-dot menu in your feed to add the exact topics or links you want to see more or less" |
+| 3 | Лента подстраивается сразу после запроса и запоминает предпочтения | https://blog.google/products-and-platforms/products/search/personalize-search-discover-news/ | "Your feed will adjust on the fly, and remember your requests" |
+| 4 | Пример запроса «идеи для ремонта кухни, только экологичные» | https://blog.google/products-and-platforms/products/search/personalize-search-discover-news/ | "kitchen reno ideas (eco-friendly only)" — перевод LEAP News |
+| 5 | Пример запроса «видео о поездках на выходных, но без палаток» | https://blog.google/products-and-platforms/products/search/personalize-search-discover-news/ | "videos about weekend road trips (but no camping)" — перевод LEAP News |
+| 6 | Система может задавать уточняющие вопросы, чтобы понять запрос точнее | https://9to5google.com/2026/08/20/google-discover-customize/ | — прямой цитаты нет: по пересказу инструмента, статья описывает возможность "follow-up questions to further refine preferences"; дословный фрагмент HTML не сверен вручную |
+| 7 | Тестирование функции Google начала ещё в конце 2025 года | https://9to5google.com/2026/08/20/google-discover-customize/ | — прямой цитаты нет: "Testing began in late 2025" по пересказу инструмента |
+| 8 | Кнопка «предпочитаемый источник» для сайтов в Поиске и ИИ-ответах, её уже добавили более 600 000 сайтов | https://blog.google/products-and-platforms/products/search/personalize-search-discover-news/ | — прямой цитаты нет: цифра "over 600,000 unique sources already selected" дана в пересказе инструмента как факт, не как выделенная кавычками цитата |
+| 9 | Google объявила о настройке аудиовыпусков в приложении Google News на Android | https://blog.google/products-and-platforms/products/search/personalize-search-discover-news/ | — прямой цитаты нет: раздел "Google News Audio Briefing Customization" описан пересказом инструмента, не дословной цитатой |
