@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-20T09:11:00+05:00",
-  "topicsProcessed": 0,
-  "published": 0,
+  "lastRunAt": "2026-08-20T23:12:00+05:00",
+  "topicsProcessed": 5,
+  "published": 5,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 23,
-  "notes": "23 свежих кандидата (995 отмечены ранее как below-threshold в предыдущем прогоне 08:52). Ни один не набрал порог 40: рутинные отчёты о матчах (МЛС, Цинциннати ATP/WTA без финалов), колонки и трэштолк без сюжета, ставки/прогнозы АПЛ (bettingContent), мнения пандитов о трансфере Батракова без citable-источника. Проверен Сулейманов (Sporting KC) — российский игрок из Дагестана, не узбекистанец."
+  "belowThreshold": 579,
+  "notes": "inoue-rodriguez-fight-venue вышел с publishedNotice(source-doubt): Ronspo и Nikkan Sports не в config/news-sources.json с citable:true, хотя факты подтверждены прямым чтением обоих. seen-topics.json ok. fury-joshua-venue-row не взят — strongTitleMatch с постом от 17.08, без нового факта."
 }
