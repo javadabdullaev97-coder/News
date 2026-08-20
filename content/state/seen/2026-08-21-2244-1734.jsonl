@@ -1,0 +1,17 @@
+{"h":"sha256:3259e54ebcbb1c4059b28aa5116ea755eaab5632ab9490c40085d6f5a93e4e6c","s":"below-threshold","st":"reviewed","at":"2026-08-20T22:44:24.387Z","exp":"2026-08-21T22:44:24.387Z"}
+{"h":"sha256:53f49a7db7bd6536c8a2ba198c9110b09850a72d986fa96e0620918dadc7975d","s":"below-threshold","st":"reviewed","at":"2026-08-20T22:44:24.387Z","exp":"2026-08-21T22:44:24.387Z"}
+{"h":"sha256:08bf6475fd34e0b32db167f589efcc5e55887b905d9ec603c8f6e680e33d7abf","s":"below-threshold","st":"reviewed","at":"2026-08-20T22:44:24.387Z","exp":"2026-08-21T22:44:24.387Z"}
+{"h":"sha256:42503d70fcc6601147e88a2dfabb30631c7719fa91a608a0d6f1349864884a4c","s":"below-threshold","st":"reviewed","at":"2026-08-20T22:44:24.387Z","exp":"2026-08-21T22:44:24.387Z"}
+{"h":"sha256:6056ad0fe5872d8cad2e0628c697132aeda30e328a1a1c4c3f315a726516299f","s":"below-threshold","st":"reviewed","at":"2026-08-20T22:44:24.387Z","exp":"2026-08-21T22:44:24.387Z"}
+{"h":"sha256:5e54f116b58ec8dc543e9dbffb94fae2966f03324eebd4d3324354b70d4a88c9","s":"below-threshold","st":"reviewed","at":"2026-08-20T22:44:24.387Z","exp":"2026-08-21T22:44:24.387Z"}
+{"h":"sha256:aa82b2d44d5e2cdae237ef1ac5a50b6a11ce44662db831604c78019a1369b94e","s":"below-threshold","st":"reviewed","at":"2026-08-20T22:44:24.387Z","exp":"2026-08-21T22:44:24.387Z"}
+{"h":"sha256:6fe860fae6bc04b9df8701cf9122980972b14dcb216ddb16a6c1f67c544dd2a1","s":"below-threshold","st":"reviewed","at":"2026-08-20T22:44:24.387Z","exp":"2026-08-21T22:44:24.387Z"}
+{"h":"sha256:9e9b8908b13fe96102e76ce3c6c02b1e434d13471aab279a9e3ce28a91dd85a1","s":"below-threshold","st":"reviewed","at":"2026-08-20T22:44:24.387Z","exp":"2026-08-21T22:44:24.387Z"}
+{"h":"sha256:e128330a6e91715543dccc81d44b4bb09cce4c6570c8d6bf2d102961555a6d41","s":"below-threshold","st":"reviewed","at":"2026-08-20T22:44:24.387Z","exp":"2026-08-21T22:44:24.387Z"}
+{"h":"sha256:bdbe3153ddd4730d85f8f522f09ef4d15e2c0152748b7a16f4dbe84f937b2d90","s":"below-threshold","st":"reviewed","at":"2026-08-20T22:44:24.387Z","exp":"2026-08-21T22:44:24.387Z"}
+{"h":"sha256:d1c9793a08a75ae779870be0ae4cc66d34390592bb1b6505198019bd136bfdff","s":"below-threshold","st":"reviewed","at":"2026-08-20T22:44:24.387Z","exp":"2026-08-21T22:44:24.387Z"}
+{"h":"sha256:43150e8cc5a81de27ab1c317c4a5595013a98bdfafae93d0aa0a8b16d5278a5b","s":"below-threshold","st":"reviewed","at":"2026-08-20T22:44:24.387Z","exp":"2026-08-21T22:44:24.387Z"}
+{"h":"sha256:3dd0e683e82845a692ecd69b1044a82feabe7b0d694dd835b39e51eafd0363f8","s":"apple-music-ai-track-labels","st":"claimed","at":"2026-08-20T22:44:24.440Z","exp":"2026-08-20T23:29:24.440Z"}
+{"h":"sha256:7a4a6fae536915755d35f34bc95f1a3fba0e07ff6aca907187860314fa5b14b9","s":"chatgpt-apple-messages-plugin","st":"claimed","at":"2026-08-20T22:44:24.534Z","exp":"2026-08-20T23:29:24.534Z"}
+{"h":"sha256:beb8931430dedda9d259a276fa2a2f8c97bcbe30ef44b2f2234373fd35e5df2e","s":"apple-smartphone-shipments-trend","st":"claimed","at":"2026-08-20T22:44:24.627Z","exp":"2026-08-20T23:29:24.627Z"}
+{"h":"sha256:bdb698ec663c3ddc49e95de324b6893f82fa6817ab1ad97686af841a5324c170","s":"google-discover-ai-feed","st":"claimed","at":"2026-08-20T22:44:24.718Z","exp":"2026-08-20T23:29:24.718Z"}
