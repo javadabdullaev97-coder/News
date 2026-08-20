@@ -265,3 +265,9 @@
 {"run":"2026-08-20T00:15","stage":"bild","calls":3,"fetches":0,"minutes":10}
 {"run":"2026-08-20T00:15","stage":"fact-checker","calls":2,"fetches":6,"minutes":9}
 {"run":"2026-08-20T00:15","topics":4,"published":3,"skippedFactcheck":2,"skippedBild":0,"readCost":168780}
+{"run":"2026-08-20T00:15","stage":"reporter","calls":7,"fetches":47,"minutes":12}
+{"run":"2026-08-20T00:15","stage":"fact-checker","calls":6,"fetches":44,"minutes":20}
+{"run":"2026-08-20T00:15","stage":"editor","calls":6,"fetches":0,"minutes":30}
+{"run":"2026-08-20T00:15","stage":"bild","calls":6,"fetches":0,"minutes":15}
+{"run":"2026-08-20T00:15","stage":"translator","calls":6,"fetches":0,"minutes":15}
+{"run":"2026-08-20T00:15","topics":6,"published":6,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
