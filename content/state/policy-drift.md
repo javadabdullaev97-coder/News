@@ -1,7 +1,7 @@
-# Policy drift check — 2026-08-19T04:01:04.454Z
+# Policy drift check — 2026-08-20T04:01:23.920Z
 
-Проверено: 1764 .mdx за последние 7 дней
-Ошибок: 0, предупреждений: 617
+Проверено: 1863 .mdx за последние 7 дней
+Ошибок: 0, предупреждений: 674
 
 ## ⚠️ Предупреждения
 
@@ -577,6 +577,58 @@
 - **content/posts/2026-08-18/zverev-swiatek-cincinnati-last16.en.mdx** — sources[].url «https://www.atptour.com/en/news/zverev-norrie-cincinnati-2026-r2-saturday» не цитируется в теле — балласт
 - **content/posts/2026-08-18/zverev-swiatek-cincinnati-last16.mdx** — sources[].url «https://www.atptour.com/en/news/zverev-norrie-cincinnati-2026-r2-saturday» не цитируется в теле — балласт
 - **content/posts/2026-08-18/zverev-swiatek-cincinnati-last16.uz.mdx** — sources[].url «https://www.atptour.com/en/news/zverev-norrie-cincinnati-2026-r2-saturday» не цитируется в теле — балласт
+- **content/posts/2026-08-20/abiturienty-shestoe-napravlenie.en.mdx** — sources[].url «https://gov.uz/oz/edu/uz/pages/news» не цитируется в теле — балласт
+- **content/posts/2026-08-20/abiturienty-shestoe-napravlenie.en.mdx** — sources[].url «https://t.me/eduuz» не цитируется в теле — балласт
+- **content/posts/2026-08-20/abiturienty-shestoe-napravlenie.mdx** — sources[].url «https://gov.uz/oz/edu/uz/pages/news» не цитируется в теле — балласт
+- **content/posts/2026-08-20/abiturienty-shestoe-napravlenie.mdx** — sources[].url «https://t.me/eduuz» не цитируется в теле — балласт
+- **content/posts/2026-08-20/abiturienty-shestoe-napravlenie.uz.mdx** — sources[].url «https://gov.uz/oz/edu/uz/pages/news» не цитируется в теле — балласт
+- **content/posts/2026-08-20/abiturienty-shestoe-napravlenie.uz.mdx** — sources[].url «https://t.me/eduuz» не цитируется в теле — балласт
+- **content/posts/2026-08-20/business-land-auction-state-assets-deregulation.en.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/» не цитируется в теле — балласт
+- **content/posts/2026-08-20/business-land-auction-state-assets-deregulation.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/» не цитируется в теле — балласт
+- **content/posts/2026-08-20/business-land-auction-state-assets-deregulation.uz.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/» не цитируется в теле — балласт
+- **content/posts/2026-08-20/fury-joshua-venue-dispute-escalation.en.mdx** — sources[].url «https://leap.uz/ru/2026/08/17/dana-white-joshua-fury-tv-venue-deal» не цитируется в теле — балласт
+- **content/posts/2026-08-20/fury-joshua-venue-dispute-escalation.uz.mdx** — sources[].url «https://leap.uz/ru/2026/08/17/dana-white-joshua-fury-tv-venue-deal» не цитируется в теле — балласт
+- **content/posts/2026-08-20/israel-lebanon-iran-escalation.en.mdx** — sources[].url «https://www.aljazeera.com/news/liveblog/2026/8/17/iran-war-live-tehran-us-mou-set-to-expire-hamass-al-khayya-meets-kushner» не цитируется в теле — балласт
+- **content/posts/2026-08-20/israel-lebanon-iran-escalation.en.mdx** — sources[].url «https://www.bloomberg.com/news/videos/2026-08-17/israel-strikes-lebanon-as-us-prepares-new-iran-sanctions-video» не цитируется в теле — балласт
+- **content/posts/2026-08-20/israel-lebanon-iran-escalation.en.mdx** — sources[].url «https://www.bloomberg.com/news/articles/2026-08-16/israel-strikes-lebanon-as-end-of-us-iran-ceasefire-looms» не цитируется в теле — балласт
+- **content/posts/2026-08-20/israel-lebanon-iran-escalation.mdx** — sources[].url «https://www.aljazeera.com/news/liveblog/2026/8/17/iran-war-live-tehran-us-mou-set-to-expire-hamass-al-khayya-meets-kushner» не цитируется в теле — балласт
+- **content/posts/2026-08-20/israel-lebanon-iran-escalation.mdx** — sources[].url «https://www.bloomberg.com/news/videos/2026-08-17/israel-strikes-lebanon-as-us-prepares-new-iran-sanctions-video» не цитируется в теле — балласт
+- **content/posts/2026-08-20/israel-lebanon-iran-escalation.mdx** — sources[].url «https://www.bloomberg.com/news/articles/2026-08-16/israel-strikes-lebanon-as-end-of-us-iran-ceasefire-looms» не цитируется в теле — балласт
+- **content/posts/2026-08-20/israel-lebanon-iran-escalation.uz.mdx** — sources[].url «https://www.aljazeera.com/news/liveblog/2026/8/17/iran-war-live-tehran-us-mou-set-to-expire-hamass-al-khayya-meets-kushner» не цитируется в теле — балласт
+- **content/posts/2026-08-20/israel-lebanon-iran-escalation.uz.mdx** — sources[].url «https://www.bloomberg.com/news/videos/2026-08-17/israel-strikes-lebanon-as-us-prepares-new-iran-sanctions-video» не цитируется в теле — балласт
+- **content/posts/2026-08-20/israel-lebanon-iran-escalation.uz.mdx** — sources[].url «https://www.bloomberg.com/news/articles/2026-08-16/israel-strikes-lebanon-as-end-of-us-iran-ceasefire-looms» не цитируется в теле — балласт
+- **content/posts/2026-08-20/landspace-zhuque3-landing.en.mdx** — sources[].url «https://x.com/LandSpace_Tech/status/2089877715331809546» не цитируется в теле — балласт
+- **content/posts/2026-08-20/landspace-zhuque3-landing.mdx** — sources[].url «https://x.com/LandSpace_Tech/status/2089877715331809546» не цитируется в теле — балласт
+- **content/posts/2026-08-20/landspace-zhuque3-landing.uz.mdx** — sources[].url «https://x.com/LandSpace_Tech/status/2089877715331809546» не цитируется в теле — балласт
+- **content/posts/2026-08-20/mamatjanov-veon-perfectum-deal.en.mdx** — sources[].url «https://t.me/s/shmirziyoyev» не цитируется в теле — балласт
+- **content/posts/2026-08-20/mamatjanov-veon-perfectum-deal.en.mdx** — sources[].url «https://president.uz/ru/news/list» не цитируется в теле — балласт
+- **content/posts/2026-08-20/mamatjanov-veon-perfectum-deal.en.mdx** — sources[].url «https://www.veon.com/newsroom/press-releases/» не цитируется в теле — балласт
+- **content/posts/2026-08-20/mamatjanov-veon-perfectum-deal.mdx** — sources[].url «https://t.me/s/shmirziyoyev» не цитируется в теле — балласт
+- **content/posts/2026-08-20/mamatjanov-veon-perfectum-deal.mdx** — sources[].url «https://president.uz/ru/news/list» не цитируется в теле — балласт
+- **content/posts/2026-08-20/mamatjanov-veon-perfectum-deal.mdx** — sources[].url «https://www.veon.com/newsroom/press-releases/» не цитируется в теле — балласт
+- **content/posts/2026-08-20/mamatjanov-veon-perfectum-deal.uz.mdx** — sources[].url «https://t.me/s/shmirziyoyev» не цитируется в теле — балласт
+- **content/posts/2026-08-20/mamatjanov-veon-perfectum-deal.uz.mdx** — sources[].url «https://president.uz/ru/news/list» не цитируется в теле — балласт
+- **content/posts/2026-08-20/mamatjanov-veon-perfectum-deal.uz.mdx** — sources[].url «https://www.veon.com/newsroom/press-releases/» не цитируется в теле — балласт
+- **content/posts/2026-08-20/micro-hydro-tariff-plan-uzbekistan.en.mdx** — sources[].url «https://t.me/shmirziyoyev/35207» не цитируется в теле — балласт
+- **content/posts/2026-08-20/micro-hydro-tariff-plan-uzbekistan.mdx** — sources[].url «https://t.me/shmirziyoyev/35207» не цитируется в теле — балласт
+- **content/posts/2026-08-20/micro-hydro-tariff-plan-uzbekistan.uz.mdx** — sources[].url «https://t.me/shmirziyoyev/35207» не цитируется в теле — балласт
+- **content/posts/2026-08-20/odil-sudlov-2030-strategy.en.mdx** — sources[].url «https://www.president.uz/ru/lists/view/9498» не цитируется в теле — балласт
+- **content/posts/2026-08-20/odil-sudlov-2030-strategy.mdx** — sources[].url «https://www.president.uz/ru/lists/view/9498» не цитируется в теле — балласт
+- **content/posts/2026-08-20/odil-sudlov-2030-strategy.uz.mdx** — sources[].url «https://www.president.uz/ru/lists/view/9498» не цитируется в теле — балласт
+- **content/posts/2026-08-20/openai-training-pause-cyberattack.en.mdx** — sources[].url «https://siliconangle.com/2026/08/18/openai-paused-some-ai-training-runs-over-cybersecurity-concerns/» не цитируется в теле — балласт
+- **content/posts/2026-08-20/openai-training-pause-cyberattack.en.mdx** — sources[].url «https://www.theregister.com/ai-and-ml/2026/08/19/openais-overhead-will-rise-20-percent-for-some-workloads-as-it-hardens-security/5289303» не цитируется в теле — балласт
+- **content/posts/2026-08-20/openai-training-pause-cyberattack.en.mdx** — sources[].url «https://fortune.com/2026/08/19/openai-hits-pause-on-training-in-hugging-face-aftermath/» не цитируется в теле — балласт
+- **content/posts/2026-08-20/openai-training-pause-cyberattack.uz.mdx** — sources[].url «https://siliconangle.com/2026/08/18/openai-paused-some-ai-training-runs-over-cybersecurity-concerns/» не цитируется в теле — балласт
+- **content/posts/2026-08-20/openai-training-pause-cyberattack.uz.mdx** — sources[].url «https://www.theregister.com/ai-and-ml/2026/08/19/openais-overhead-will-rise-20-percent-for-some-workloads-as-it-hardens-security/5289303» не цитируется в теле — балласт
+- **content/posts/2026-08-20/openai-training-pause-cyberattack.uz.mdx** — sources[].url «https://fortune.com/2026/08/19/openai-hits-pause-on-training-in-hugging-face-aftermath/» не цитируется в теле — балласт
+- **content/posts/2026-08-20/predprinimateli-otkrytyy-dialog-mirziyoyev.en.mdx** — sources[].url «https://www.president.uz/ru/lists/view/9512» не цитируется в теле — балласт
+- **content/posts/2026-08-20/predprinimateli-otkrytyy-dialog-mirziyoyev.mdx** — sources[].url «https://www.president.uz/ru/lists/view/9512» не цитируется в теле — балласт
+- **content/posts/2026-08-20/predprinimateli-otkrytyy-dialog-mirziyoyev.uz.mdx** — sources[].url «https://www.president.uz/ru/lists/view/9512» не цитируется в теле — балласт
+- **content/posts/2026-08-20/vuz-admission-exam-results-appeal-aug2026.en.mdx** — sources[].url «https://gov.uz/ru/uzbmb/pages/about» не цитируется в теле — балласт
+- **content/posts/2026-08-20/vuz-admission-exam-results-appeal-aug2026.mdx** — sources[].url «https://gov.uz/ru/uzbmb/pages/about» не цитируется в теле — балласт
+- **content/posts/2026-08-20/vuz-admission-exam-results-appeal-aug2026.uz.mdx** — sources[].url «https://gov.uz/ru/uzbmb/pages/about» не цитируется в теле — балласт
+- **content/posts/2026-08-20/wbc-suleiman-fury-joshua-eliminator.en.mdx** — sources[].url «https://leap.uz/ru/2026/08/20/fury-joshua-venue-dispute-escalation» не цитируется в теле — балласт
+- **content/posts/2026-08-20/wbc-suleiman-fury-joshua-eliminator.uz.mdx** — sources[].url «https://leap.uz/ru/2026/08/20/fury-joshua-venue-dispute-escalation» не цитируется в теле — балласт
 - **content/posts/2026-08-01/** — категория "society": 15 материалов за день (порог 9)
 - **content/posts/2026-08-01/** — категория "economy": 24 материалов за день (порог 9)
 - **content/posts/2026-08-02/** — категория "society": 12 материалов за день (порог 9)
@@ -622,6 +674,11 @@
 - **content/posts/2026-08-18/** — категория "sport": 24 материалов за день (порог 9)
 - **content/posts/2026-08-18/** — категория "tech": 96 материалов за день (порог 9)
 - **content/posts/2026-08-18/** — категория "economy": 21 материалов за день (порог 9)
+- **content/posts/2026-08-20/** — категория "society": 15 материалов за день (порог 9)
+- **content/posts/2026-08-20/** — категория "tech": 27 материалов за день (порог 9)
+- **content/posts/2026-08-20/** — категория "economy": 24 материалов за день (порог 9)
+- **content/posts/2026-08-20/** — категория "sport": 12 материалов за день (порог 9)
+- **content/posts/2026-08-20/** — категория "world": 18 материалов за день (порог 9)
 
 ## Распределение по дням и категориям
 
@@ -640,3 +697,4 @@
 - **2026-08-16** (21): world 12, politics 6, society 3
 - **2026-08-17** (180): tech 90, world 18, economy 21, sport 45, politics 3, society 3
 - **2026-08-18** (168): society 12, sport 24, tech 96, economy 21, world 9, politics 3, business 3
+- **2026-08-20** (99): society 15, tech 27, economy 24, sport 12, world 18, politics 3
