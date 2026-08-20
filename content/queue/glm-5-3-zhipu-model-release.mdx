@@ -1,0 +1,38 @@
+---
+title: "Z.ai открыла доступ к GLM-5.3 по цене ниже конкурентов — модель возглавила рейтинг"
+description: "Z.ai открыла API GLM-5.3 по $1,4/$4,4 за миллион токенов. Модель набрала 60 баллов в рейтинге Artificial Analysis, обойдя GLM-5.2 на 7 баллов."
+updatedAt: "2026-08-20T05:45:00+05:00"
+queuedAt: "2026-08-20T05:45:00+05:00"
+category: "tech"
+tags: ["Z.ai", "GLM-5.3", "искусственный интеллект", "кибербезопасность"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "Z.ai — официальный блог, GLM-5.3 (страница не открылась при проверке)"
+    url: "https://z.ai/blog/glm-5.3"
+  - name: "The Decoder — GLM-5.3 tops the open model rankings"
+    url: "https://the-decoder.com/glm-5-3-tops-the-open-model-rankings-and-undercuts-rivals-on-price-but-its-release-is-delayed/"
+  - name: "VentureBeat — GLM-5.3 hits the API"
+    url: "https://venturebeat.com/technology/glm-5-3-hits-the-api-at-1-4-4-4-per-million-tokens"
+  - name: "VentureBeat — GLM-5.3 cyber capabilities"
+    url: "https://venturebeat.com/technology/glm-5-3-is-here-with-advanced-cyber-capabilities-and-reportedly-already-found-a-serious-vulnerability-in-cursor"
+image:
+  url: "/images/posts/2026-08/glm-5-3-zhipu-model-release-01.jpg"
+  alt: "Экран монитора крупным планом с фрагментом программного кода в редакторе — иллюстрация к открытию API-доступа к языковой модели GLM-5.3"
+  credit: "Unsplash / Mohammad Rahmani"
+tgScore: 35
+broadcast: false
+---
+
+Китайский стартап Z.ai (Zhipu AI) 19 августа открыл доступ к GLM-5.3 по цене 1,4 доллара за миллион входных и 4,4 доллара за миллион выходных токенов. Об этом сообщают [The Decoder](https://the-decoder.com/glm-5-3-tops-the-open-model-rankings-and-undercuts-rivals-on-price-but-its-release-is-delayed/) и [VentureBeat](https://venturebeat.com/technology/glm-5-3-hits-the-api-at-1-4-4-4-per-million-tokens). Модель доступна через API — программный интерфейс, через который сторонние приложения подключаются к нейросети. Токенами модели измеряют объём обработанного текста. Цена ниже, чем у конкурирующих открытых моделей — нейросетей, чьи параметры разработчик публикует в открытом доступе.
+
+По данным Artificial Analysis, которая независимо тестирует языковые модели по десяткам задач, GLM-5.3 набрала 60 баллов в Intelligence Index. Результат сравнялся с моделью Kimi K3 и на 7 баллов опередил предыдущую версию GLM-5.2, [пишет The Decoder](https://the-decoder.com/glm-5-3-tops-the-open-model-rankings-and-undercuts-rivals-on-price-but-its-release-is-delayed/).
+
+На бенчмарке агентных задач GDPval-AA v2 показатель GLM-5.3 вырос с 1524 до 1770 очков Эло, по тем же данным. Эло — рейтинговая система, которая сравнивает модели по прямым состязаниям между собой. Стоимость выполнения одной задачи Artificial Analysis оценила в 0,68 доллара. Это на 19% дешевле, чем у Kimi K3 (0,84 доллара), но в полтора раза дороже, чем у GLM-5.2 (0,44 доллара).
+
+Z.ai позиционирует GLM-5.3 как открытую модель. Компания должна опубликовать параметры (веса) нейросети — тогда разработчики смогут запускать её на собственных серверах, а не только через платный доступ Z.ai. Публикацию весов компания отложила примерно на две недели после дебюта модели 14 августа. По данным The Decoder, разработчик объяснил задержку дополнительной проверкой безопасности — модель оказалась слишком эффективной в поиске уязвимостей в коде.
+
+## Заявление о найденной уязвимости в Cursor
+
+По данным нескольких изданий, дебютную версию GLM-5.3 Z.ai представила 14 августа с акцентом на автономный поиск уязвимостей. Сотрудник Z.ai, ведущий аккаунт Lou в соцсети X, сообщил, что модели поставили задачу на реверс-инжиниринг. Она нашла потенциально серьёзную уязвимость в редакторе кода Cursor, [приводит VentureBeat](https://venturebeat.com/technology/glm-5-3-is-here-with-advanced-cyber-capabilities-and-reportedly-already-found-a-serious-vulnerability-in-cursor). Компания уведомила разработчиков Cursor и работает с ними над исправлением.
+
+Независимого подтверждения от Cursor или сторонних исследователей безопасности по состоянию на 19 августа нет. Номер CVE — идентификатор уязвимости в международном реестре — заявлению не присвоен, поэтому пока это остаётся утверждением самой Z.ai, а не подтверждённым фактом.
