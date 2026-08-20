@@ -370,3 +370,4 @@
 {"run":"2026-08-20T19:47","stage":"reporter","calls":4,"fetches":16,"minutes":7}
 {"run":"2026-08-20T19:53","stage":"reporter","calls":1,"fetches":5,"minutes":6}
 {"run":"2026-08-20T19:55","stage":"fact-checker","calls":2,"fetches":0,"minutes":1}
+{"run":"2026-08-20T19:57","stage":"fact-checker","calls":1,"fetches":4,"minutes":4}
