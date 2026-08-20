@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-20T05:15:00+05:00",
-  "topicsProcessed": 6,
-  "published": 6,
-  "queuedForOwner": 0,
+  "lastRunAt": "2026-08-20T06:14:00+05:00",
+  "topicsProcessed": 3,
+  "published": 2,
+  "queuedForOwner": 1,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 281,
-  "notes": "Все editor-агенты по умолчанию проставляли publishedAt вместо queuedAt — правило спецификации явно запрещает это на стадии editor/reporter. Правила вручную во всех 6 черновиках и переводах перед коммитом в очередь. Строка Main visual subject в reporter-notes у 3 из 6 репортёров была не оформлена как ## H2-заголовок, из-за чего bild-gate.mjs не распознавал субъект — тоже правила вручную."
+  "belowThreshold": 0,
+  "notes": "node_modules отсутствовал (yaml, claims-lint падал) — третий прогон подряд, нужен постинстолл окружения. Write у reporter/editor снова блокирует .review/reporter-notes-*.md — сохраняла сама. Дважды Main visual subject был bold-текстом вместо ## H2 — bild-gate не видел субъект (тот же баг, что и в прошлом tech-прогоне). Литеральный '&nbsp;' в числах ломал claims-lint — убрала. i18n-lint --fix задел чужой опубликованный файл (mamatjanov-veon...) — откатила. Добавила Unitree в named-actors/tech.json (tier2). Below-threshold review не отметила: индексы tech:N съехали за время прогона."
 }
