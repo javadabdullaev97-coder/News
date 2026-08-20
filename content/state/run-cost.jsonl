@@ -324,3 +324,4 @@
 {"run":"2026-08-20T03:07","topics":4,"published":3,"skippedFactcheck":1,"skippedBild":0,"readCost":168780}
 {"run":"2026-08-20T03:25","stage":"reporter","calls":1,"fetches":13,"minutes":8}
 {"run":"2026-08-20T03:32","stage":"fact-checker","calls":1,"fetches":8,"minutes":5}
+{"run":"2026-08-20T03:43","stage":"bild","calls":1,"fetches":5,"minutes":5}
