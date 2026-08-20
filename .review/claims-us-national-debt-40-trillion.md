@@ -1,0 +1,29 @@
+# Таблица цитат: us-national-debt-40-trillion
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|----------------------|----------|-------------------------------|
+| 1 | Госдолг США 18 августа впервые превысил 40 трлн долларов | https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/debt-to-the-penny | — прямой цитаты нет, данные из датасета Debt to the Penny: `record_date: 2026-08-18, tot_pub_debt_out_amt: 40047425768420.22` |
+| 2 | Точная сумма на 18 августа — 40,05 трлн долларов (40 047 425 768 420 долларов) | https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/debt-to-the-penny | — тот же датасет: `tot_pub_debt_out_amt: "40047425768420.22"` за 2026-08-18 |
+| 3 | 17 августа сумма составляла 39,99 трлн — ниже 40 трлн | https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/debt-to-the-penny | — датасет: `record_date: 2026-08-17, tot_pub_debt_out_amt: 39986657878071.92` |
+| 4 | Отметку в 37 трлн долг прошёл к 11 августа 2025 года | https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/debt-to-the-penny | — датасет (фильтр по 37 трлн): `record_date: 2025-08-11, tot_pub_debt_out_amt: 37004817625842.56` |
+| 5 | Порог в 35 трлн пройден 26 июля 2024 года | https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/debt-to-the-penny | — датасет (фильтр по 35 трлн): `record_date: 2024-07-26, tot_pub_debt_out_amt: 35001278179208.67` |
+| 6 | Долг вырос на 3 трлн долларов за год (37→40 трлн) | https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/debt-to-the-penny | — расчёт редакции по строкам 2 и 4: 40 047 425 768 420 − 37 004 817 625 842 ≈ 3,04 трлн |
+| 7 | За два года и три недели долг вырос на 5 трлн (35→40 трлн) | https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/debt-to-the-penny | — расчёт редакции по строкам 2 и 5: 40 047 425 768 420 − 35 001 278 179 208 ≈ 5,05 трлн |
+| 8 | Долг соответствует 101% ВВП США в 2026 году | https://www.aljazeera.com/economy/2026/8/20/us-debt-hits-40-trillion-who-does-washington-owe-and-why-does-it-matter | — прямой цитаты нет, значение приведено в статье как показатель debt-to-GDP на 2026 год |
+| 9 | Прогноз роста до 120% ВВП к 2036 году, выше рекорда 106% | https://www.aljazeera.com/economy/2026/8/20/us-debt-hits-40-trillion-who-does-washington-owe-and-why-does-it-matter | — прямой цитаты нет, прогнозные цифры приведены в статье |
+| 10 | Обслуживание долга обходится в ~1,1 трлн долларов в год, вторая по величине статья бюджета | https://www.aljazeera.com/economy/2026/8/20/us-debt-hits-40-trillion-who-does-washington-owe-and-why-does-it-matter | — прямой цитаты нет, цифра и ранжирование статьи расходов приведены в тексте статьи |
+| 11 | Внутренним держателям принадлежит ~21 трлн (ФРС 4,528 трлн, фонды 5,195 трлн, пенсионные фонды 1,135 трлн, банки 2,083 трлн) | https://www.aljazeera.com/economy/2026/8/20/us-debt-hits-40-trillion-who-does-washington-owe-and-why-does-it-matter | — прямой цитаты нет, разбивка держателей долга дана в статье |
+| 12 | Иностранным держателям принадлежит ~11 трлн (Япония 1,203 трлн, Британия 889 млрд, Китай 683 млрд) | https://www.aljazeera.com/economy/2026/8/20/us-debt-hits-40-trillion-who-does-washington-owe-and-why-does-it-matter | — прямой цитаты нет, разбивка по странам дана в статье |
+| 13 | Доля зарубежных держателей выросла с 5% (1970) до 32% (2025) | https://www.aljazeera.com/economy/2026/8/20/us-debt-hits-40-trillion-who-does-washington-owe-and-why-does-it-matter | — прямой цитаты нет, динамика доли приведена в статье |
+| 14 | Минфин 19 августа объявил об увеличении выкупа долгосрочных облигаций как минимум вдвое | https://home.treasury.gov/news/press-releases/sb0607 | — прямой цитаты нет, пересказ заголовка и содержания релиза «Treasury Announces Increased Sizes of Nominal Long-End Liquidity Support Buybacks Beginning September 9» от 19 августа 2026 |
+| 15 | Максимальный размер операции вырастет с 2 до минимум 4 млрд долларов | https://home.treasury.gov/news/press-releases/sb0607 | — прямой цитаты нет, цифры приведены в пересказе релиза (current maximum $2bn → new minimum $4bn per operation) |
+| 16 | Изменения действуют с 9 сентября по 4 ноября 2026 года | https://home.treasury.gov/news/press-releases/sb0607 | — прямой цитаты нет, даты приведены в пересказе релиза |
+| 17 | Решение объяснено устойчивым спросом рынка и большим объёмом качественных заявок | https://home.treasury.gov/news/press-releases/sb0607 | «consistent strong sponsorship from market participants» и «significant volume of high-quality offers» — близкий пересказ формулировок релиза, не выверено дословно построчно |
+| 18 | Долг впервые превысил 30 трлн долларов в январе 2022 года | https://www.scmp.com/news/world/united-states-canada/article/3364613/us-debt-hits-us40-trillion-high-raising-doom-loop-risk | — прямой цитаты нет, дата приведена в статье: «US$30 trillion: January 2022» |
+| 19 | Цитата Маргарет Спеллингс о влиянии долга на стоимость жизни | https://www.aljazeera.com/economy/2026/8/19/us-national-debt-passes-record-40-trillion | «Federal debt is already raising the cost of living and choking out other spending» — дословная цитата, август 2026 |
+| 20 | Выкуп затрагивает выпуски сроком 10–20 и 20–30 лет | https://home.treasury.gov/news/press-releases/sb0607 | Дословного текста релиза у меня нет — привожу формулировку, которую фактически увидел при фетче страницы (вывод инструмента WebFetch, не проверенная построчно цитата): «longer-dated nominal coupon securities (10-year to 20-year and 20-year to 30-year sectors)». Совпадает с заголовком релиза «...Nominal Long-End Liquidity Support Buybacks...» |
+
+Примечание: строки 8–17 получены через инструмент выборки контента (WebFetch с
+суммаризацией), а не через дословное чтение полного HTML источника, поэтому дословных
+цитат для них нет — только пересказанные цифры и факты. Фактчекеру рекомендуется при
+необходимости открыть сами страницы для верификации точных формулировок.
