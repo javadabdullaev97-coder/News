@@ -1,0 +1,56 @@
+---
+title: "Google Adds 24-Hour Wait for Installing Android Apps Outside Google Play"
+description: "Starting August 2026, Google requires a 24-hour wait and a phone restart before installing Android apps from unverified developers outside Google Play."
+queuedAt: "2026-08-20T23:42:00+05:00"
+updatedAt: "2026-08-20T23:42:00+05:00"
+category: "tech"
+tags: ["Google", "Android", "cybersecurity", "fraud"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "Android Developers Blog — Balancing openness and choice with safety"
+    url: "https://android-developers.googleblog.com/2026/03/android-developer-verification.html"
+  - name: "Android Developers Blog — Building a safer ecosystem together"
+    url: "https://android-developers.googleblog.com/2026/06/android-developer-verification.html"
+  - name: "Android Developers — Developer Verification Timeline"
+    url: "https://developer.android.com/developer-verification"
+image:
+  url: "/images/posts/2026-08/google-android-unverified-apps-install-01.jpg"
+  alt: "Google's official timeline for Android developer verification: stages from June to September 2026 and the worldwide expansion of the requirement starting in 2027"
+  credit: "Android Developers Blog (Google)"
+tgScore: 65
+broadcast: false
+mainChannelGate: massProductChange
+lang: "en"
+translatedFrom: "ru"
+---
+
+Google [in August 2026](https://developer.android.com/developer-verification) is rolling out a new worldwide process for installing Android apps outside Google Play: apps from unverified developers will require a 24-hour wait and a phone restart.
+
+This concerns sideloading — installing an APK file (Android's installation package) directly, bypassing the Google Play catalog. Previously, this only required enabling installation from "unknown sources" in phone settings. Now Google has added developer identity verification: the app's author must confirm their real identity with Google, even when distributing the app outside the official store.
+
+This affects Uzbekistan directly. Users install some banking and government services manually — downloading an APK file from a bank's or agency's website. The same applies to apps that aren't available in the local version of Google Play.
+
+## What Installation Will Look Like Now
+
+Google describes five steps of an "extended process" for those who still want to install an app from an unverified developer. First, a user has to enable a special mode in phone settings. The system then asks whether anyone is pressuring the user to disable the protection — a check meant to catch fraud.
+
+After that, the phone restarts: [the restart cuts off any remote access to the device](https://android-developers.googleblog.com/2026/03/android-developer-verification.html) that an attacker might have been using. Then a ["one-time, 24-hour wait"](https://android-developers.googleblog.com/2026/03/android-developer-verification.html) begins — installation of the app is blocked for that period.
+
+After 24 hours, the user reconfirms their identity with a fingerprint, face recognition, or a PIN — only then can the app be installed. The permission lasts either seven days or indefinitely, at the user's choice. The whole procedure doesn't need to be repeated.
+
+## Full Ban — From September 30, in Only Four Countries
+
+[Starting September 30, 2026](https://android-developers.googleblog.com/2026/06/android-developer-verification.html), Google will require app stores in Brazil, Indonesia, Singapore and Thailand to accept only apps from registered developers.
+
+The requirement applies to ["certified Android devices"](https://developer.android.com/developer-verification) — that's the wording used in Google's documentation, without specifying which models or firmware versions are excluded. Registration takes place in Play Console for apps on Google Play, or in the Android Developer Console if a developer distributes the app outside the store. During registration, the developer confirms their identity.
+
+Google's published materials don't specify what will happen to already-installed apps from unverified developers in these four countries.
+
+Neither Uzbekistan nor other CIS countries are mentioned in the blog post — the first wave is limited to four countries in Asia and South America. At the same time, [Google says it plans to expand the verification requirement worldwide starting in 2027](https://android-developers.googleblog.com/2026/06/android-developer-verification.html), without naming which countries would follow.
+
+## What to Do If You Install Apps Manually
+
+- The 24-hour wait and restart apply only to apps from developers without verification. If a bank or government agency has completed registration, there should be no additional barriers for their apps.
+- A full ban on installing apps from unregistered developers takes effect September 30, 2026, only in Brazil, Indonesia, Singapore and Thailand.
+- Starting in 2027, Google plans to extend the verification requirement worldwide, but the company hasn't named dates for specific countries.
+</content>

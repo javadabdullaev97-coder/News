@@ -1,0 +1,56 @@
+---
+title: "Google Play tashqarisida ilova o'rnatishga Google bir sutkalik kutish joriy qildi"
+description: "2026-yil avgustidan boshlab Google tasdiqlanmagan dasturchilarning Google Play tashqarisidagi Android-ilovalarini o'rnatishda bir sutkalik kutish va telefonni qayta yuklashni talab qiladi."
+queuedAt: "2026-08-20T23:42:00+05:00"
+updatedAt: "2026-08-20T23:42:00+05:00"
+category: "tech"
+tags: ["Google", "Android", "kiberxavfsizlik", "firibgarlik"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "Android Developers Blog — Balancing openness and choice with safety"
+    url: "https://android-developers.googleblog.com/2026/03/android-developer-verification.html"
+  - name: "Android Developers Blog — Building a safer ecosystem together"
+    url: "https://android-developers.googleblog.com/2026/06/android-developer-verification.html"
+  - name: "Android Developers — dasturchilarni verifikatsiya qilish muddatlari"
+    url: "https://developer.android.com/developer-verification"
+image:
+  url: "/images/posts/2026-08/google-android-unverified-apps-install-01.jpg"
+  alt: "Google'ning Android dasturchilarini verifikatsiya qilish bo'yicha rasmiy jadvali: 2026-yil iyun–sentabr bosqichlari va 2027-yildan talabning butun dunyoga kengayishi"
+  credit: "Android Developers Blog (Google)"
+tgScore: 65
+broadcast: false
+mainChannelGate: massProductChange
+lang: "uz"
+translatedFrom: "ru"
+---
+
+Google [2026-yil avgustida](https://developer.android.com/developer-verification) butun dunyoda Google Play'ni chetlab o'tib Android-ilovalarni o'rnatishning yangi tartibini joriy qilmoqda: tasdiqlanmagan dasturchining dasturlari uchun bir sutkalik kutish va telefonni qayta yuklash talab etiladi.
+
+Gap sideloading haqida bormoqda — bu Google Play katalogini chetlab o'tib, APK fayli (Android uchun o'rnatish paketi)ni to'g'ridan-to'g'ri o'rnatish. Ilgari buning uchun telefon sozlamalarida "noma'lum manbalar"dan o'rnatishga ruxsat berish kifoya edi. Endi dasturchi shaxsini tekshirish — verifikatsiya — qo'shildi: ilova muallifi, hatto dasturni rasmiy do'kon orqali tarqatmasa ham, Google'ga o'zining haqiqiy ma'lumotlarini tasdiqlashi kerak.
+
+Bu O'zbekistonga bevosita tegishli. Ba'zi bank va davlat xizmatlarini foydalanuvchilar qo'lda o'rnatadi — bank yoki idora saytidan APK faylini yuklab olib. Google Play'ning mahalliy versiyasida bo'lmagan ilovalar bilan ham xuddi shunday qilinadi.
+
+## O'rnatish endi qanday bo'ladi
+
+Google tasdiqlanmagan dasturchidan baribir ilova o'rnatmoqchi bo'lganlar uchun "kengaytirilgan jarayon"ning beshta bosqichini tavsiflaydi. Avval telefon sozlamalarida maxsus rejimni yoqish kerak. Keyin tizim foydalanuvchidan kimdir himoyani o'chirishga majburlayotgani yo'qligini so'raydi — shu tariqa firibgarlik holati yo'qligi tekshiriladi.
+
+Shundan so'ng telefon qayta yuklanadi: [qayta yuklash qurilmaga masofaviy kirishni o'chiradi](https://android-developers.googleblog.com/2026/03/android-developer-verification.html) — undan firibgar foydalangan bo'lishi mumkin edi. Keyin ["bir martalik bir sutkalik kutish"](https://android-developers.googleblog.com/2026/03/android-developer-verification.html) boshlanadi — shu muddat davomida ilovani o'rnatish bloklanadi.
+
+Bir sutkadan so'ng foydalanuvchi shaxsini barmoq izi, yuz tanish yoki PIN-kod orqali qayta tasdiqlaydi — va faqat shundan keyin ilovani o'rnatishi mumkin. Ruxsat foydalanuvchining tanloviga ko'ra yetti kun yoki muddatsiz amal qiladi. Butun jarayonni qayta bajarish shart emas.
+
+## To'liq taqiq — 30-sentabrdan va faqat to'rtta davlatda
+
+[2026-yil 30-sentabrdan](https://android-developers.googleblog.com/2026/06/android-developer-verification.html) Google Braziliya, Indoneziya, Singapur va Tailanddagi ilovalar do'konlarini faqat ro'yxatdan o'tgan dasturchilarning dasturlarini qabul qilishga majbur qiladi.
+
+Talab ["sertifikatlangan Android qurilmalari"](https://developer.android.com/developer-verification)da amal qiladi — bu Google hujjatlarida shunday ta'riflangan, qaysi model yoki proshivkalarga tegishli emasligi aniqlashtirilmagan. Ro'yxatdan o'tish Play Console'da — Google Play'dagi ilovalar uchun — yoki dasturchi dasturni do'kon tashqarisida tarqatsa, Android Developer Console'da amalga oshiriladi. Ro'yxatdan o'tishda u o'z ma'lumotlarini tasdiqlaydi.
+
+Bu to'rtta davlatda tasdiqlanmagan dasturchilarning allaqachon o'rnatilgan ilovalari bilan nima bo'lishi haqida Google e'lon qilingan materiallarida aniqlik kiritmaydi.
+
+Blog matnida na O'zbekiston, na boshqa MDH davlatlari tilga olinmagan — birinchi bosqich Osiyo va Janubiy Amerikaning to'rtta davlati bilan chegaralangan. Shu bilan birga [Google 2027-yildan boshlab verifikatsiya talabini butun dunyoga kengaytirish rejalari haqida e'lon qiladi](https://android-developers.googleblog.com/2026/06/android-developer-verification.html), keyingi qaysi davlatlar bo'lishini aniq aytmasdan.
+
+## Ilovalarni qo'lda o'rnatsangiz, nima qilish kerak
+
+- Bir sutkalik kutish va qayta yuklash faqat verifikatsiyadan o'tmagan dasturchilarning ilovalariga tegishli. Agar bank yoki idora ro'yxatdan o'tgan bo'lsa, ularning dasturlari uchun qo'shimcha to'siqlar bo'lmasligi kerak.
+- Ro'yxatdan o'tmagan dasturchilarning ilovalarini o'rnatishga to'liq taqiq 2026-yil 30-sentabrdan faqat Braziliya, Indoneziya, Singapur va Tailandda joriy etiladi.
+- 2027-yildan Google verifikatsiya talabini butun dunyoga tarqatishni rejalashtirmoqda, ammo kompaniya aniq davlatlar uchun sanalarni aytmagan.
+</content>
