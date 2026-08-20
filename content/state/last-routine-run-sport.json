@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-20T07:42:00+05:00",
+  "lastRunAt": "2026-08-20T08:52:00+05:00",
   "topicsProcessed": 1,
-  "published": 1,
+  "published": 0,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 1,
   "needsVerification": 0,
-  "belowThreshold": 996,
-  "notes": "node_modules отсутствовал в свежем чекауте — claims-lint.mjs падал на ERR_MODULE_NOT_FOUND('yaml'), потребовался npm install (тот же дефект, что и в прошлом прогоне). Reporter не смог сохранить .review/reporter-notes-*.md — guardrail харнесса блокирует запись файлов, распознаваемых как report/summary; текст notes вернулся в ответе агента, сохранила его сама вручную с Write. Из ~996 свежих items реально высокий скор (≥40 по sport.score) набрала только одна тема — травма Хаджара и рокировка пилотов Red Bull на Гран-при Нидерландов (globalIcon Red Bull/Ферстаппен + topCompetition)."
+  "belowThreshold": 972,
+  "notes": "node_modules отсутствовал в чекауте — npm install потребовался повторно (тот же дефект, что и в прошлом прогоне). Единственная тема, набравшая порог (Махачев, UFC 330, globalIcon+titleFight=50), прошла весь конвейер до готовой статьи, но topic-dupecheck по итоговым фактам вернул duplicate: событие уже публиковалось 17 и 18 августа, а материал про тот же GOAT/два-пояса угол уже 2 дня висит неопубликованным в content/queue/makhachev-two-belts-holloway-criticism.mdx. Первичный dupecheck (до фактчека) ложно дал clear — другие ссылки-источники и неверный черновой заголовок. Материал отброшен до постановки в очередь, коммитов в queue нет."
 }
