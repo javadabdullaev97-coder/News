@@ -361,3 +361,4 @@
 {"run":"2026-08-20T19:28","stage":"bild","calls":4,"fetches":0,"minutes":21}
 {"run":"2026-08-20T19:28","stage":"translator","calls":4,"fetches":0,"minutes":10}
 {"run":"2026-08-20T19:29","stage":"fact-checker","calls":1,"fetches":4,"minutes":5}
+{"run":"2026-08-20T19:33","stage":"editor","calls":1,"fetches":0,"minutes":4}
