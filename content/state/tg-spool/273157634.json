@@ -1,0 +1,77 @@
+{
+  "message": {
+    "chat": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "last_name": "Abdullaev",
+      "type": "private",
+      "username": "javad_abdullaev"
+    },
+    "date": 1787210392,
+    "from": {
+      "first_name": "Javad",
+      "id": 1104500,
+      "is_bot": false,
+      "is_premium": true,
+      "language_code": "en",
+      "last_name": "Abdullaev",
+      "username": "javad_abdullaev"
+    },
+    "message_id": 1061,
+    "reply_to_message": {
+      "chat": {
+        "first_name": "Javad",
+        "id": 1104500,
+        "last_name": "Abdullaev",
+        "type": "private",
+        "username": "javad_abdullaev"
+      },
+      "date": 1787184699,
+      "entities": [
+        {
+          "length": 18,
+          "offset": 0,
+          "type": "bold"
+        },
+        {
+          "length": 78,
+          "offset": 20,
+          "type": "bold"
+        },
+        {
+          "length": 23,
+          "offset": 247,
+          "type": "url"
+        },
+        {
+          "length": 16,
+          "offset": 410,
+          "type": "url"
+        },
+        {
+          "length": 15,
+          "offset": 535,
+          "type": "url"
+        },
+        {
+          "length": 34,
+          "offset": 1041,
+          "type": "italic"
+        }
+      ],
+      "from": {
+        "first_name": "LEAP News - ADMIN",
+        "id": 8652303606,
+        "is_bot": true,
+        "username": "leap_news_bot"
+      },
+      "link_preview_options": {
+        "url": "http://t.me/shmirziyoyev/35206"
+      },
+      "message_id": 1044,
+      "text": "НУЖНО ВАШЕ РЕШЕНИЕ\n\nAKFA Holding заявила о найме 10 тысяч узбекистанцев за рубежом — по данным СМИ\n\nПочему спрашиваю: картинки нет вообще — ни в первоисточнике, ни в стоке.\n\nГлавный субъект по хендоффу — Артыкходжаев на трибуне открытого диалога (t.me/shmirziyoyev/35206) либо площадка/логотип AKFA. Оба Telegram-первоисточника пресс-службы президента отдают только og:image-превью 320×180 (ниже порога 600px, prepare-image.py отбраковал бы как too-small); полноразмерных фото через MTProto нет доступа. Официальный сайт AKFA Holding (akfaholding.com) вернул 503; настоящего Telegram-канала AKFA Holding не нашлось (akfa_holding — захваченный аккаунт с 1 подписчиком, продаётся). Фототека редакции по теме не покрывает (только ЦБ/сум/инфляция). Unsplash/Pexels недоступны без API-ключа в этой среде (бот-защита блокирует скрейпинг). AI-генерация через Higgsfield недоступна — инструмент не подключён к сессии. Нужно либо прислать фото Артыкходжаева/AKFA, либо подтвердить публикацию без картинки, либо разрешить генерацию через Higgsfield.\n\nОтветьте реплаем на это сообщение:\n• пришлите фото — оно станет главной картинкой\n• «ок» — публиковать как есть\n• «стоп» — снять материал\n• любой другой текст — уйдёт в правку как комментарий"
+    },
+    "text": "Бери фото Джахангира артыкходжаева из сети"
+  },
+  "update_id": 273157634
+}
