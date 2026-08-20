@@ -1,0 +1,37 @@
+---
+title: "Apple Music добавит видимые метки для контента, созданного ИИ"
+description: "Apple сообщила лейблам и дистрибьюторам: до конца 2026 года Apple Music начнёт показывать слушателям видимые метки на треках и обложках, созданных с помощью ИИ."
+queuedAt: "2026-08-21T11:20:00+05:00"
+updatedAt: "2026-08-21T14:10:00+05:00"
+category: "tech"
+tags: ["Apple", "Apple Music", "искусственный интеллект", "маркировка ИИ-контента"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "Apple Music Metadata Specification (официальная техническая спецификация Apple)"
+    url: "https://help.apple.com/itc/musicspec/en.lproj/static.html"
+  - name: "9to5mac — Apple Music will soon get visible labels for AI-generated content"
+    url: "https://9to5mac.com/2026/08/20/apple-music-will-soon-get-visible-labels-for-ai-generated-content/"
+  - name: "9to5mac — Apple Music introduces metadata tags to disclose AI-generated content"
+    url: "https://9to5mac.com/2026/03/04/apple-music-introduces-metadata-tags-to-disclose-ai-generated-content/"
+  - name: "MacRumors — Apple Music Rolling Out Disclosure Tags for AI-Made Songs"
+    url: "https://www.macrumors.com/2026/03/05/apple-music-ai-transparency-tags/"
+image:
+  url: "/images/posts/2026-08/apple-music-ai-labels-01.jpg"
+  alt: "Главный экран приложения Apple Music на iPad с подборками альбомов и плеером внизу — официальный промо-скриншот интерфейса из App Store, без метки «Made With AI» (функция ещё не запущена)"
+  credit: "Apple / App Store"
+tgScore: 40
+broadcast: false
+mainChannelGate: massProductChange
+---
+
+Apple 20 августа сообщила лейблам и дистрибьюторам, что до конца 2026 года Apple Music начнёт показывать слушателям видимые метки «Made With AI» на контенте, созданном с помощью искусственного интеллекта (ИИ). Метки появятся на треках, обложках и клипах — об этом со ссылкой на письмо компании [пишет 9to5mac](https://9to5mac.com/2026/08/20/apple-music-will-soon-get-visible-labels-for-ai-generated-content/).
+
+Метку получит контент, который «преимущественно создан с помощью генеративного сервиса ИИ». Так Apple определяет материал, подлежащий раскрытию, в письме индустрии, приводимом изданием. Система по-прежнему построена на самостоятельном декларировании: лейблы и дистрибьюторы сами присваивают тег при отправке релиза. Apple независимо не проверяет происхождение контента.
+
+## Технические теги Apple ввела ещё в марте
+
+Требование раскрывать использование ИИ Apple впервые объявила в начале марта 2026 года. Компания добавила в [техническую спецификацию метаданных Apple Music](https://help.apple.com/itc/musicspec/en.lproj/static.html) для поставщиков контента поле `<ai_transparencies>`. Тег можно поставить по четырём категориям: обложка альбома, трек (звукозапись), композиция (в том числе текст песни) и музыкальное видео. Метка ставится каждый раз, когда ИИ использован для «существенной части» соответствующего элемента.
+
+Пока присвоение тегов добровольно: если поставщик контента не указал тег, Apple Music считает, что ИИ не использовался, [сообщает MacRumors](https://www.macrumors.com/2026/03/05/apple-music-ai-transparency-tags/) со ссылкой на объявление Apple индустрии. Обновление спецификации версии 5.3.26 в апреле 2026 года распространило тег `<ai_transparencies>` и на музыкальные видео, выпускаемые отдельными синглами.
+
+До сих пор эти метаданные не показывались слушателям напрямую. С выходом видимых меток «Made With AI» до конца года пользователи впервые увидят отметку. Она появится прямо на странице трека или альбома.
