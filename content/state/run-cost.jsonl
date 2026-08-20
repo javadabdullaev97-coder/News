@@ -348,3 +348,8 @@
 {"run":"2026-08-20T18:55","stage":"bild","calls":4,"fetches":0,"minutes":6}
 {"run":"2026-08-20T19:01","stage":"translator","calls":5,"fetches":0,"minutes":6}
 {"run":"2026-08-20T19:06","topics":5,"published":5,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
+{"run":"2026-08-20T19:16","stage":"editor","calls":5,"fetches":0,"minutes":25}
+{"run":"2026-08-20T19:16","stage":"fact-checker","calls":2,"fetches":8,"minutes":9}
+{"run":"2026-08-20T19:16","stage":"bild","calls":5,"fetches":0,"minutes":15}
+{"run":"2026-08-20T19:16","stage":"translator","calls":3,"fetches":0,"minutes":8}
+{"run":"2026-08-20T19:16","topics":5,"published":3,"skippedFactcheck":2,"skippedBild":0,"readCost":168780}
