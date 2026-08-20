@@ -1,0 +1,42 @@
+REJECTED as duplicate (editor decision, pre-bild/pre-tg-score).
+
+content/posts/2026-08-20/micro-hydro-tariff-plan-uzbekistan.mdx already published
+2026-08-20T04:56:00+05:00 (updatedAt 18:45 the day before, tgScore 75,
+broadcast:true) and covers the SAME event with the SAME two sources
+(https://president.uz/ru/lists/view/9513 and https://t.me/shmirziyoyev/35207,
+Мирзиёев presentation 19 August on small/micro hydropower development).
+
+Every headline fact in this draft is already in the published post, with no
+addition:
+- ~3,000 planned stations / 164 MW under the current programme — same
+- 64 commissioned objects / 41.6 MW — same
+- initiators found for only 932 of ~3,000 projects — same
+- target 204.8 MW by 2030 — same
+- 620 million kWh/year, 350,000 households — same
+- 187 million m³ gas savings/year — same
+- simplified design rules for microHPP up to 100 kW, exemption from
+  urban-planning expertise/state architectural-construction oversight for
+  projects up to 50 kW — same
+- permission to alter canal/river channel construction for extra head,
+  land on water-management objects allocated without auction — same
+- digital platform covering the full project cycle — same
+- minimum tariffs at auctions, differentiated by capacity — same
+- instruction to accelerate implementation, attract private investment,
+  localise equipment production, train personnel — same
+
+Net informational overlap is total: this draft adds nothing the published
+version doesn't already have, and the published version is strictly more
+complete — it additionally carries a Минэнерго Telegram source with H1 2026
+generation context (5.4 bn kWh of 54.3 bn total from all HPPs) and the CO2
+avoidance figure (311,000 tons/year), which this draft omits entirely.
+Publishing this draft as a second, same-day, same-topic article on the same
+two sources would read as a near-identical repeat of a story already
+broadcast to Telegram roughly five hours earlier, with no new angle or fact
+to justify a follow-up.
+
+Recommendation to owner/queue editor: no action needed on the published post
+— it already covers this event more completely than this draft. This draft
+should not run in any form.
+
+Editor-verdict with full reasoning:
+.review/editor-verdict-kichik-mikro-ges-2030.md
