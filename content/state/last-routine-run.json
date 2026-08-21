@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T10:05:00+05:00",
-  "topicsProcessed": 2,
-  "published": 1,
-  "queuedForOwner": 0,
-  "rejected": 1,
-  "needsVerification": 5,
-  "belowThreshold": 61,
-  "notes": "business-requirements-registry (сигнал Spot.uz) оказался дублем статьи от 18.08 — inbox-select dupecheck по ссылке сигнала дал clear, потому что первоисточник (t.me/huquqiyaxborot/20269) стал известен только после research reporter'ом; поймано вручную повторным topic-dupecheck после research, до fact-check. needs-verification: 11 матурировало, потолок 5 — обработаны banks/indonesia/tashkent-parkings/georgia-epermit (recheck) + nuclear (уже был рекрещён другим заходом в 04:38, только продвинут срок); первоисточник не нашёлся ни у одной. 6 карточек перенесены на след. прогон."
+  "lastRunAt": "2026-08-21T11:13:00+05:00",
+  "topicsProcessed": 3,
+  "published": 2,
+  "queuedForOwner": 1,
+  "rejected": 0,
+  "needsVerification": 0,
+  "belowThreshold": 69,
+  "notes": "design-code-tashkent-reversal дублировал незакрытую карточку tashkent-design-code-revised.md (заведена 20.08 по посту @poytaxt_uz, застряла на отсутствии второго источника — tashkent.uz давал 404). Новый reporter нашёл рабочую страницу tashkent.uz/ru+uz/news/7424 — блокер снят, старая карточка закрыта как superseded. topic-dupecheck дал clear на этот дубль (совпадение не поймано по ссылкам/заголовку) — стоит присмотреться к чувствительности скрипта к needs-verification-карточкам."
 }
