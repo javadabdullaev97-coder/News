@@ -1,0 +1,42 @@
+---
+title: "Alibaba data-markazsiz ishlaydigan ixcham sun'iy intellekt modeli Qwen3.8-27B'ni taqdim etdi"
+description: "Alibaba'ning 27 milliard parametrli Qwen3.8-27B modeli testlarda OpenAI'ning GPT-5.6 Luna modeli bilan tenglashdi va data-markazda emas, oddiy kompyuterda ishlaydi."
+lang: "uz"
+translatedFrom: "ru"
+updatedAt: "2026-08-21T17:20:00+05:00"
+queuedAt: "2026-08-21T17:13:00+05:00"
+category: "tech"
+tags: ["Alibaba", "Qwen", "sun'iy intellekt", "ochiq modellar"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "Hugging Face'dagi Qwen3.8-27B model kartasi"
+    url: "https://huggingface.co/Qwen/Qwen3.8-27B"
+  - name: "Artificial Analysis — Qwen3.8-27B modeli sahifasi"
+    url: "https://artificialanalysis.ai/models/qwen3-8-27b"
+  - name: "South China Morning Post"
+    url: "https://www.scmp.com/tech/tech-trends/article/3364404/alibabas-lightweight-qwen-model-takes-larger-ai-systems-openai-deepseek-zhipu"
+image:
+  url: "/images/posts/2026-08/alibaba-qwen3-8-27b-lightweight-model-01.jpg"
+  alt: "O'yin noutbuki klaviaturasi yaqindan: yoritilgan W, A, S, D tugmalari va korpus burchagidagi Intel Core i5 hamda NVIDIA GeForce RTX yorliqlari"
+  credit: "Unsplash / Georgiy Lyamin"
+tgScore: 30
+broadcast: false
+---
+
+Alibaba 14-avgustda sun'iy intellekt modeli Qwen3.8-27B'ni taqdim etdi — bu 27 milliard parametrga ega tizim bo'lib, mustaqil testlarga ko'ra, u OpenAI'ning GPT-5.6 Luna kabi raqobatchilarning ancha kattaroq modellari bilan tenglashdi.
+
+Parametrlar — bu neyron tarmoq o'qitish jarayonida «yodlab oladigan» ichki o'zgaruvchilar. Ular qancha ko'p bo'lsa, model odatda shuncha aniq ishlaydi, ammo ishlashi uchun shuncha ko'p hisoblash quvvati talab qilinadi. Ishlab chiquvchilar Qwen3.8-27B'ni «yengil» deb ataydi: Qwen liniyasining kattaroq modellaridan farqli o'laroq, u ishlashi uchun data-markaz serverlarini talab qilmaydi. [South China Morning Post](https://www.scmp.com/tech/tech-trends/article/3364404/alibabas-lightweight-qwen-model-takes-larger-ai-systems-openai-deepseek-zhipu) xabar berishicha, model «kundalik» uskunalarda — oddiy kompyuter yoki o'yin videokartasiga ega noutbukda — ishlashga qodir, data-markazda emas.
+
+## Test natijalari
+
+Mustaqil kuzatuv xizmati [Artificial Analysis](https://artificialanalysis.ai/models/qwen3-8-27b) — sun'iy intellekt modellarini o'zining to'qqizta baholash mezonidan iborat to'plamidan o'tkazib, ularni yagona Intelligence Index ko'rsatkichiga jamlaydigan servis — Qwen3.8-27B'ga 52 ball berdi. Bu shu kabi modellarning o'rtacha ko'rsatkichi bo'lgan 9 balldan sezilarli darajada yuqori.
+
+[SCMP](https://www.scmp.com/tech/tech-trends/article/3364404/alibabas-lightweight-qwen-model-takes-larger-ai-systems-openai-deepseek-zhipu) havola qilgan Artificial Analysis ma'lumotlariga ko'ra, Qwen3.8-27B OpenAI'ning GPT-5.6 Luna darajasidagi natijani ko'rsatdi. Model shuningdek kattaroq ochiq modellarga — DeepSeek-V4-Pro-0813'ga (1,7 trillion parametr) va Zhipu'ning GLM-5.2'siga (753 milliard parametr) — deyarli yetib oldi. «Agentli» vazifalar — model shunchaki savolga javob berish o'rniga harakatlar zanjirini mustaqil bajarishi kerak bo'lgan testlar — uchun Artificial Analysis'da alohida indeks mavjud. Nashr xabar berishicha, unda Qwen3.8-27B GPT-5.6 liniyasining o'rta quvvatli Terra nomli modelidan va Anthropic'ning Claude Opus 4.8'idan o'zib ketdi.
+
+Alibaba o'zining benchmark — sun'iy intellekt modellarini solishtirish uchun standartlashtirilgan testlar — natijalarini [Hugging Face'dagi model kartasida](https://huggingface.co/Qwen/Qwen3.8-27B) keltirdi. Model haqiqiy dasturlash vazifalarini yechish bo'yicha SWE-bench Pro testida 61,7 ball, LiveCodeBench v6'da esa 90,3 ball to'pladi. Murakkab ilmiy savollar bo'yicha GPQA Diamond testida natija 89,2 ballni, operatsion tizimda vazifalarni bajarish bo'yicha OSWorld-Verified testida esa 84,3 ballni tashkil etdi. Kompaniya ma'lumotlariga ko'ra, Qwen3.8-27B Qwen liniyasining oldingi modeli Qwen3.7-Plus'dan SWE-bench Pro'da (61,7'ga qarshi 57,6) va ayniqsa OSWorld-Verified'da (84,3'ga qarshi 73,3) o'zib ketadi. LiveCodeBench v6 va GPQA Diamond'da ikkala modelning ko'rsatkichlari deyarli bir xil.
+
+## Texnik xususiyatlar
+
+Qwen3.8-27B — zich (dense) arxitekturaga ega model: har bir so'rovni qayta ishlashda barcha 27 milliard parametr ishtirok etadi, MoE modellaridan farqli o'laroq — ularda parametrlarning faqat bir qismi ishlatiladi. Kontekst oynasi — model bir vaqtning o'zida hisobga olishi mumkin bo'lgan matn hajmi — 262 144 tokenni tashkil etadi va 1 mln tokengacha kengaytirilishi mumkin, deyiladi [model kartasida](https://huggingface.co/Qwen/Qwen3.8-27B).
+
+Model Apache 2.0 litsenziyasi asosida tarqatiladi — bu ochiq litsenziya bo'lib, modelni bepul foydalanish, o'zgartirish va tijorat mahsulotlariga joylashtirishga ruxsat beradi. Modelning og'irliklari Hugging Face'da ochiq holda joylashtirilgan: ishlab chiquvchilar ularni yuklab olib, Alibaba serverlariga murojaat qilmasdan mustaqil ishga tushirishlari mumkin.
