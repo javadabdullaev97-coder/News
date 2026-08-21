@@ -1,0 +1,13 @@
+# Таблица цитат: xiaomi-xring-o3-chip-tsmc-n3p
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|----------------------|----------|-------------------------------|
+| 1 | Лэй Цзюнь 18 августа подтвердил в Weibo разработку нового поколения чипа Xring | https://www.digitimes.com/news/a20260821VL206/xiaomi-xring-launch-silicon-testing-tsmc.html | «Xiaomi is preparing to take its in-house smartphone silicon further upmarket, with founder and chairman Lei Jun confirming that a new generation of its Xring chip is on the way.» |
+| 2 | То же (дата 18 августа, публикация в Weibo) | https://m.ithome.com/html/991336.htm | «宣布，新一代玄戒芯片即将发布» (объявил, что новое поколение чипа Xuanjie вскоре будет представлено); заголовок статьи: «雷军正式官宣：小米新一代玄戒芯片即将发布，微博小尾巴已更换为神秘新机», дата статьи 18.08.2026 |
+| 3 | Новый чип получит обозначение Xring O3 | https://www.digitimes.com/news/a20260821VL206/xiaomi-xring-launch-silicon-testing-tsmc.html | — цитаты из тела текста нет (страница за платным доступом), название взято из заголовка статьи в поисковой выдаче: «Xiaomi's Xring O3 nears launch on TSMC N3P, testing its in-house chip strategy» |
+| 4 | Чип изготовят по технологии TSMC N3P | https://www.digitimes.com/news/a20260821VL206/xiaomi-xring-launch-silicon-testing-tsmc.html | — цитаты из тела текста нет (платный доступ), техпроцесс упомянут в заголовке статьи: «...nears launch on TSMC N3P...» |
+| 5 | Источники в цепочке поставок: чип вернулся с фабрики и прошёл тестирование включения питания | https://www.digitimes.com/news/a20260821VL206/xiaomi-xring-launch-silicon-testing-tsmc.html | «Supply-chain sources say the chip has already returned from fabrication, completed initial power-on testing and moved into the device testing phase.» |
+| 6 | Чип перешёл на этап тестирования в готовом устройстве | https://www.digitimes.com/news/a20260821VL206/xiaomi-xring-launch-silicon-testing-tsmc.html | «...moved into the device testing phase» (см. цитату в строке 5) |
+| 7 | Чип вернулся с фабрики в конце 2025 года и в тот же день прошёл первое включение | https://www.ithome.com/0/991/685.htm | «2025 年底已完成回片，当天一次点亮成功，目前已进入终端实装阶段» (к концу 2025 года чип вернулся с фабрики, в тот же день успешно прошёл первое включение, сейчас на этапе интеграции в конечные устройства) |
+| 8 | Xring O1 вышел тиражом более миллиона штук в трёх моделях устройств — по словам президента Xiaomi Лу Вэйбина | https://m.ithome.com/html/991336.htm | «在三款终端上的累计出货量已超过百万» (совокупные поставки на трёх устройствах превысили миллион) |
+| 9 | Статья ithome.com о статусе тестирования чипа опубликована 19 августа | https://www.ithome.com/0/991/685.htm | дата публикации на странице статьи: 2026-08-19 |
