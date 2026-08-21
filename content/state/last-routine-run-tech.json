@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T14:10:00+05:00",
-  "topicsProcessed": 1,
-  "published": 1,
+  "lastRunAt": "2026-08-21T15:14:00+05:00",
+  "topicsProcessed": 5,
+  "published": 3,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 2,
   "needsVerification": 0,
-  "belowThreshold": 916,
-  "notes": "Инбокс дал только 33 кандидата после отсечки 'смотрел и не взял ранее' (916). Единственная тема (Nvidia-Rebellions) прошла порог через tier1Floor (Nvidia). VK vs Apple lawsuit отсеян дедупом — уже публиковался сегодня (vk-sues-apple-appstore). Reporter не смог открыть страницу Bloomberg (403), фактчек 68% — ниже гейта 70%, материал ушёл маршрутом notice/low-confidence."
+  "belowThreshold": 41,
+  "notes": "2 из 5 отобранных тем оказались дублями уже обработанных другими прогонами тем же днём, но topic-dupecheck --batch пропустил оба (разные source-URL, слабое совпадение заголовка): Broadcom-долг пойман только fact-checker'ом (уже был content/posts/.../broadcom-ai-chip-debt-financing.mdx), Nevada-robotaxi — только editor'ом, и это уже ТРЕТИЙ независимый заход на один сюжет NTA/Tesla/Uber/Waymo за день. Стоит проверить, почему topic-dupecheck не ловит одно событие при разных первоисточниках у конкурирующих reporter'ов."
 }
