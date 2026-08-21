@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T04:08:00+05:00",
-  "topicsProcessed": 4,
-  "published": 4,
+  "lastRunAt": "2026-08-21T05:09:00+05:00",
+  "topicsProcessed": 3,
+  "published": 3,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 13,
-  "notes": "node_modules снова отсутствовал в свежем контейнере — npm install перед claims-lint. Write у reporter-агентов блокирует пути с подстрокой «report» — заметки сохранял сам. У перевода apple-music-ai-track-labels (uz/en) был хвост служебной разметки (</content>) — вычищен вручную перед публикацией. i18n-lint отдельно показал ту же утечку в уже опубликованном content/posts/2026-08-21/pixel-gboard-gemini-suggestions.{en,uz}.mdx — не мой материал, но нужна отдельная чистка. Все 4 темы прошли tier1Floor (Apple×2, OpenAI, Google), tgScore у всех ниже 70 — только техканал."
+  "belowThreshold": 34,
+  "notes": "node_modules отсутствовал в свежем контейнере — npm ci перед claims-lint. Write у reporter/editor-агентов блокирует файлы с report-подобной структурой (заголовки источники/расхождения/слабые места) — заметки сохранял сам по тексту из ответа агента. Все 3 темы прошли tier1Floor (Apple, OpenAI, Samsung). i18n-lint отдельно показал утечку служебной разметки в уже опубликованных content/posts/2026-08-21/{pixel-gboard-gemini-suggestions,trump-iran-economic-warfare}.{en,uz}.mdx — не мои материалы, чужой прогон, нужна отдельная чистка."
 }
