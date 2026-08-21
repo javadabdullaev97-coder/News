@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T16:10:00+05:00",
-  "topicsProcessed": 5,
+  "lastRunAt": "2026-08-21T17:09:00+05:00",
+  "topicsProcessed": 3,
   "published": 2,
-  "queuedForOwner": 1,
-  "rejected": 1,
+  "queuedForOwner": 0,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 84,
-  "notes": "Дубль: anthropic-record-ipo отклонён ПОСЛЕ editor/fact-check — topic-dupecheck для мировой темы забыла прогнать до reporter'а (прогнала только для локальных). Впредь дупчек — для всех тем, включая мировые. i18n-lint --fix дважды ложно менял '%'→'foiz' в русском поле publishedNotice.why двух уже опубликованных .uz.mdx (nvidia-rebellions, samsung-sk-hynix) — откатывала руками, баг скрипта не чинила. Случайно продублировала вызов fact-checker для samsung-shareholder-return-plan-2026 (взяла оба вердикта, синтезировала downgrades). 8 постов от 21.08 с утечкой служебной разметки агента (</content>/</invoke>) не из этого прогона — не трогала."
+  "belowThreshold": 1,
+  "notes": "И reporter, и editor у обоих материалов оставили publishedAt в drafts (запрещено спецификацией) — правила вручную на queuedAt перед queue, включая uz/en переводы (та же утечка). Стоит поправить промпт/шаблон reporter и editor. Продвинула recheckAt у 2 карточек needs-verification (fine-appeal-refund-procedure, mfo-deposit-rate-rules-cbu) — recheck уже был сделан прошлым прогоном (6 обращений, источник не найден), но recheck-schedule.mjs не вызывался, и preflight держал их 'матурыми' второй раз подряд. Bild сообщил о расхождении prepare-image.py: report.upscaled на верхнем уровне захардкожен в false даже при апскейле, реальный флаг — в fit.upscaled/fit.scale."
 }
