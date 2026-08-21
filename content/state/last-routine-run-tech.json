@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T17:15:00+05:00",
-  "topicsProcessed": 3,
-  "published": 2,
+  "lastRunAt": "2026-08-21T18:02:00+05:00",
+  "topicsProcessed": 2,
+  "published": 1,
   "queuedForOwner": 0,
-  "rejected": 1,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 36,
-  "notes": "Samsung buyback дал ложный clear в topic-dupecheck.mjs (заголовки/первые ссылки не совпали настолько, чтобы сработать), хотя тот же инфоповод уже стоял в очереди под другим слагом (world, более ранняя планёрка). Обнаружено вручную по git log при разборе untracked-файлов, не автоматикой. Полная цепочка (reporter+fact-check 92%) сделана впустую — см. content/rejected/samsung-record-shareholder-return-2026.mdx.reason.txt."
+  "belowThreshold": 49,
+  "notes": "apple-vision-products-layoffs отклонена на reporter: единственное подтверждение — анонимный источник AppleInsider, MacRumors/9to5Mac пересказывают без независимой проверки; Bloomberg (Gurman) сегодняшний эпизод не подтвердил. Три другие дупликат-кандидата этого захода (tesla-solar-roof, nevada-robotaxi, alibaba-qwen) уже были опубликованы/в очереди/отклонены предыдущим прогоном этой же сессии — совпадение обнаружено topic-dupecheck.mjs, повторно не производились."
 }
