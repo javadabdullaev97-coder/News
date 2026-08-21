@@ -462,3 +462,4 @@
 {"run":"2026-08-21T03:55","stage":"fact-checker","calls":1,"fetches":5,"minutes":4}
 {"run":"2026-08-21T03:59","stage":"editor","calls":1,"fetches":0,"minutes":3}
 {"run":"2026-08-21T04:04","stage":"bild","calls":1,"fetches":0,"minutes":4}
+{"run":"2026-08-21T04:07","topics":1,"published":1,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
