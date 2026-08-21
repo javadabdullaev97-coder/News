@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T11:13:00+05:00",
-  "topicsProcessed": 3,
+  "lastRunAt": "2026-08-21T12:09:00+05:00",
+  "topicsProcessed": 7,
   "published": 2,
-  "queuedForOwner": 1,
+  "queuedForOwner": 0,
   "rejected": 0,
-  "needsVerification": 0,
-  "belowThreshold": 69,
-  "notes": "design-code-tashkent-reversal дублировал незакрытую карточку tashkent-design-code-revised.md (заведена 20.08 по посту @poytaxt_uz, застряла на отсутствии второго источника — tashkent.uz давал 404). Новый reporter нашёл рабочую страницу tashkent.uz/ru+uz/news/7424 — блокер снят, старая карточка закрыта как superseded. topic-dupecheck дал clear на этот дубль (совпадение не поймано по ссылкам/заголовку) — стоит присмотреться к чувствительности скрипта к needs-verification-карточкам."
+  "needsVerification": 5,
+  "belowThreshold": 92,
+  "notes": "5 карточек needs-verification перепроверены (потолок §Шаг1б — 7 созрело, взято 5 свежих по дате заведения): у 4 первоисточник по-прежнему не найден (bus-fare NOT_BEFORE 2026-09-03, surkhandarya NOT_BEFORE 2026-08-25, fine-appeal и mfo-deposit — обычная лестница). Пятая (лифты) — первоисточник найден на lex.uz, опубликована. Новая тема digital-tech-center-legal-regime ушла в needs-verification, не во владельцу: confidence репортёра 45% ниже порога 50% (§Шаг 5б) — закон ЗРУ-1169 подтверждён по номеру/дате, но полный текст lex.uz отдаёт как нечитаемый PDF-embed, содержание режима и название центра (возможно переименован в Enterprise Uzbekistan) — только по пересказам конкурентов. Мировая линия не разбиралась содержательно — заголовки просмотрены, ничего не прошло планку (нет перелома в войне/переговоров/массовых жертв/прямых последствий для УZ), решение не брать. У двух субагентов (reporter по лифтам и по biz-fines) инструмент Write заблокировал файл `reporter-notes-*.md` с сообщением «Subagents should return findings as text, not write report files» — заметки пришлось сохранять оркестратору вручную текстом из ответа агента; стоит поправить либо формулировку инструкции агентам, либо разрешить это конкретное имя файла в конфиге харнесса. Также при npm install обнаружены 3 уже опубликованных материала (pixel-gboard-gemini-suggestions, trump-iran-economic-warfare, white-house-space-transport-policy — по 2 языковых версии каждый) с необрезанной служебной разметкой агента, из сборки сайта они автоматически исключены build-posts.mjs, но требуют ручной чистки — не моя тема в этом заходе, есть подозрение на технический долг от прошлых сессий."
 }
