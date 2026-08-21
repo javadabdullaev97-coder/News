@@ -895,3 +895,4 @@
 {"ev":"ask","at":"2026-08-21T16:08:58.546Z","item":{"slug":"grade10-to-technicum-transfer-rule","title":"Кабмин ввёл единый порядок перевода 10-классников в техникумы — по сведениям изданий","kind":"revocable","reason":"low-confidence","messageId":1109,"askedAt":"2026-08-21T16:08:58.546Z"}}
 {"ev":"ask","at":"2026-08-21T17:08:58.492Z","item":{"slug":"tesla-china-recalls-driver-monitoring-door-handles","title":"Tesla отзовёт в Китае около 2,7 млн авто из-за слежения за водителем — по сведениям СМИ","kind":"revocable","reason":"low-confidence","messageId":1110,"askedAt":"2026-08-21T17:08:58.492Z"}}
 {"ev":"remind","at":"2026-08-21T17:08:59.554Z","slug":"design-code-tashkent-reversal","askedAt":"2026-08-21T15:00:12.763Z","remindedAt":"2026-08-21T17:08:59.553Z","messageId":1111}
+{"ev":"remind","at":"2026-08-21T18:09:04.379Z","slug":"tashkent-design-code-mistakes","askedAt":"2026-08-21T13:08:54.437Z","remindedAt":"2026-08-21T18:09:04.378Z","messageId":1112}
