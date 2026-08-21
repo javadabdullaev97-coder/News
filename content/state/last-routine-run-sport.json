@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T05:14:00+05:00",
+  "lastRunAt": "2026-08-21T06:34:00+05:00",
   "topicsProcessed": 1,
-  "published": 0,
-  "queuedForOwner": 1,
+  "published": 1,
+  "queuedForOwner": 0,
   "rejected": 0,
-  "needsVerification": 1,
-  "belowThreshold": 31,
-  "notes": "Единственная тема выше 40: сёстры Уильямс, парный камбэк в Цинциннати (globalIcon Серена 25 + topCompetition WTA1000 15 = 40). Прошла reporter/fact-check(84%, approve-with-downgrades)/editor(publish), но bild не нашёл лицензионно чистого фото — оба кандидата были Getty/Imagn (агентства вне белого списка), официального фото WTA/турнира нет, AI-генерация людей запрещена. Материал ушёл в needs-verification с pendingEditorQuestion (source-doubt) на подтверждение лицензии владельцем. cbs-sports-soccer источник по-прежнему отдаёт ссылки с переводами строк (баг отмечен и в прошлых прогонах)."
+  "needsVerification": 0,
+  "belowThreshold": 13,
+  "notes": "Единственная тема выше 40: Швёнтек/Рыбакина, Цинциннати WTA 1000 (globalIcon 25 + iconVsIcon 20 + topCompetition 15 = 60). Прошла reporter/fact-check(93%, approve)/editor(publish)/bild(фото WTA, Jimmie48) — ушла в очередь. reporter-notes и claims-таблица репортёра пришли не в ожидаемом формате (прозой вместо pipe-таблицы/markdown-заголовков) — потребовалась одна доработка каждого файла, стоит проверить на следующих прогонах."
 }
