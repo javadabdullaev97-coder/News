@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T14:16:00+05:00",
-  "topicsProcessed": 49,
+  "lastRunAt": "2026-08-21T15:26:00+05:00",
+  "topicsProcessed": 44,
   "published": 0,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 1,
   "needsVerification": 0,
-  "belowThreshold": 49,
-  "notes": "Порог не прошла ни одна тема. Единственный кандидат, набиравший 40 (Рыбакина: globalIcon 25 + topCompetition 15, снятие с ЧФ Цинциннати перед US Open, sport:22/27), оказался повторным заходом на уже закрытый сюжет: опубликован content/posts/2026-08-21/sventek-rybakina-cincinnati.mdx (06:57) и дважды отклонён как дубликат до меня (content/rejected/rybakina-cincinnati-ankle-injury.mdx, editor-verdict в 09:12 — уже второй killed по тому же WTA-источнику 4563969). Reporter'а не запускала — дубль виден по editor-verdict без похода в сеть. Остальные 48 — ниже порога 40 (превью, интервью без второй стадии, betting-контент sport:48, трансферные слухи без fee/icon)."
+  "belowThreshold": 43,
+  "notes": "Единственная тема, прошедшая порог 40 (Фьюри-Джошуа, boxing-news-online, globalIcon+iconVsIcon+negotiationStage=55), оказалась той же сагой о споре про площадку/деньги, что уже опубликована 7 раз за 5 дней, последний — сегодня в 01:00 (fury-joshua-matchroom-msg-terms). Reporter отработал (confidence 78), но перед fact-checker'ом обнаружено по content/posts, что новой стадии (дата, место, отмена, перенос, сумма, медосмотр) нет — отклонено вручную, topic-dupecheck.mjs дубль не поймал (третий подобный пробел на этой саге, см. content/rejected/fury-joshua-fight-uncertain.md). Остальные 43 — ниже порога 40 (сезонные превью, betting-контент, трансферные слухи без fee/icon, non-citable источники)."
 }
