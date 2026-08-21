@@ -1,7 +1,7 @@
-# Policy drift check — 2026-08-20T04:01:23.920Z
+# Policy drift check — 2026-08-21T04:00:55.105Z
 
-Проверено: 1863 .mdx за последние 7 дней
-Ошибок: 0, предупреждений: 674
+Проверено: 1976 .mdx за последние 7 дней
+Ошибок: 0, предупреждений: 716
 
 ## ⚠️ Предупреждения
 
@@ -588,6 +588,9 @@
 - **content/posts/2026-08-20/business-land-auction-state-assets-deregulation.uz.mdx** — sources[].url «https://cbu.uz/ru/arkhiv-kursov-valyut/» не цитируется в теле — балласт
 - **content/posts/2026-08-20/fury-joshua-venue-dispute-escalation.en.mdx** — sources[].url «https://leap.uz/ru/2026/08/17/dana-white-joshua-fury-tv-venue-deal» не цитируется в теле — балласт
 - **content/posts/2026-08-20/fury-joshua-venue-dispute-escalation.uz.mdx** — sources[].url «https://leap.uz/ru/2026/08/17/dana-white-joshua-fury-tv-venue-deal» не цитируется в теле — балласт
+- **content/posts/2026-08-20/hotel-sector-support-50m.en.mdx** — sources[].url «https://t.me/shmirziyoyev/35205» не цитируется в теле — балласт
+- **content/posts/2026-08-20/hotel-sector-support-50m.mdx** — sources[].url «https://t.me/shmirziyoyev/35205» не цитируется в теле — балласт
+- **content/posts/2026-08-20/hotel-sector-support-50m.uz.mdx** — sources[].url «https://t.me/shmirziyoyev/35205» не цитируется в теле — балласт
 - **content/posts/2026-08-20/israel-lebanon-iran-escalation.en.mdx** — sources[].url «https://www.aljazeera.com/news/liveblog/2026/8/17/iran-war-live-tehran-us-mou-set-to-expire-hamass-al-khayya-meets-kushner» не цитируется в теле — балласт
 - **content/posts/2026-08-20/israel-lebanon-iran-escalation.en.mdx** — sources[].url «https://www.bloomberg.com/news/videos/2026-08-17/israel-strikes-lebanon-as-us-prepares-new-iran-sanctions-video» не цитируется в теле — балласт
 - **content/posts/2026-08-20/israel-lebanon-iran-escalation.en.mdx** — sources[].url «https://www.bloomberg.com/news/articles/2026-08-16/israel-strikes-lebanon-as-end-of-us-iran-ceasefire-looms» не цитируется в теле — балласт
@@ -629,6 +632,42 @@
 - **content/posts/2026-08-20/vuz-admission-exam-results-appeal-aug2026.uz.mdx** — sources[].url «https://gov.uz/ru/uzbmb/pages/about» не цитируется в теле — балласт
 - **content/posts/2026-08-20/wbc-suleiman-fury-joshua-eliminator.en.mdx** — sources[].url «https://leap.uz/ru/2026/08/20/fury-joshua-venue-dispute-escalation» не цитируется в теле — балласт
 - **content/posts/2026-08-20/wbc-suleiman-fury-joshua-eliminator.uz.mdx** — sources[].url «https://leap.uz/ru/2026/08/20/fury-joshua-venue-dispute-escalation» не цитируется в теле — балласт
+- **content/posts/2026-08-21/apple-houston-manufacturing-center.en.mdx** — sources[].url «https://www.apple.com/newsroom/2026/04/tim-cook-to-become-apple-executive-chairman-john-ternus-to-become-apple-ceo/» не цитируется в теле — балласт
+- **content/posts/2026-08-21/apple-houston-manufacturing-center.en.mdx** — sources[].url «https://www.macrumors.com/2026/08/13/apple-houston-manufacturing-center/» не цитируется в теле — балласт
+- **content/posts/2026-08-21/apple-houston-manufacturing-center.mdx** — sources[].url «https://www.apple.com/newsroom/2026/04/tim-cook-to-become-apple-executive-chairman-john-ternus-to-become-apple-ceo/» не цитируется в теле — балласт
+- **content/posts/2026-08-21/apple-houston-manufacturing-center.mdx** — sources[].url «https://www.macrumors.com/2026/08/13/apple-houston-manufacturing-center/» не цитируется в теле — балласт
+- **content/posts/2026-08-21/apple-houston-manufacturing-center.uz.mdx** — sources[].url «https://www.apple.com/newsroom/2026/04/tim-cook-to-become-apple-executive-chairman-john-ternus-to-become-apple-ceo/» не цитируется в теле — балласт
+- **content/posts/2026-08-21/apple-houston-manufacturing-center.uz.mdx** — sources[].url «https://www.macrumors.com/2026/08/13/apple-houston-manufacturing-center/» не цитируется в теле — балласт
+- **content/posts/2026-08-21/cash-fx-500-limit.en.mdx** — sources[].url «https://t.me/toshvil/7312» не цитируется в теле — балласт
+- **content/posts/2026-08-21/cash-fx-500-limit.mdx** — sources[].url «https://t.me/toshvil/7312» не цитируется в теле — балласт
+- **content/posts/2026-08-21/cash-fx-500-limit.uz.mdx** — sources[].url «https://t.me/toshvil/7312» не цитируется в теле — балласт
+- **content/posts/2026-08-21/google-publisher-preferred-source-ai-traffic.en.mdx** — sources[].url «https://www.searchenginejournal.com/google-expands-personalization-across-search-discover-news/586528/» не цитируется в теле — балласт
+- **content/posts/2026-08-21/google-publisher-preferred-source-ai-traffic.mdx** — sources[].url «https://www.searchenginejournal.com/google-expands-personalization-across-search-discover-news/586528/» не цитируется в теле — балласт
+- **content/posts/2026-08-21/google-publisher-preferred-source-ai-traffic.uz.mdx** — sources[].url «https://www.searchenginejournal.com/google-expands-personalization-across-search-discover-news/586528/» не цитируется в теле — балласт
+- **content/posts/2026-08-21/hongkong-export-growth.en.mdx** — sources[].url «https://stat.uz/img/press-relizlar/press_release_rus_p53810.pdf» не цитируется в теле — балласт
+- **content/posts/2026-08-21/hongkong-export-growth.en.mdx** — sources[].url «https://siat.stat.uz/data/1170/?lang=ru» не цитируется в теле — балласт
+- **content/posts/2026-08-21/hongkong-export-growth.en.mdx** — sources[].url «https://president.uz/ru/lists/view/9277» не цитируется в теле — балласт
+- **content/posts/2026-08-21/hongkong-export-growth.mdx** — sources[].url «https://stat.uz/img/press-relizlar/press_release_rus_p53810.pdf» не цитируется в теле — балласт
+- **content/posts/2026-08-21/hongkong-export-growth.mdx** — sources[].url «https://siat.stat.uz/data/1170/?lang=ru» не цитируется в теле — балласт
+- **content/posts/2026-08-21/hongkong-export-growth.mdx** — sources[].url «https://president.uz/ru/lists/view/9277» не цитируется в теле — балласт
+- **content/posts/2026-08-21/hongkong-export-growth.uz.mdx** — sources[].url «https://stat.uz/img/press-relizlar/press_release_rus_p53810.pdf» не цитируется в теле — балласт
+- **content/posts/2026-08-21/hongkong-export-growth.uz.mdx** — sources[].url «https://siat.stat.uz/data/1170/?lang=ru» не цитируется в теле — балласт
+- **content/posts/2026-08-21/hongkong-export-growth.uz.mdx** — sources[].url «https://president.uz/ru/lists/view/9277» не цитируется в теле — балласт
+- **content/posts/2026-08-21/makhachev-two-belts-holloway-criticism.en.mdx** — sources[].url «https://www.mmafighting.com/ufc/505335/ufc-330-report-what-do-we-make-of-islam-makhachevs-win-over-ian-machado-garry» не цитируется в теле — балласт
+- **content/posts/2026-08-21/makhachev-two-belts-holloway-criticism.mdx** — sources[].url «https://www.mmafighting.com/ufc/505335/ufc-330-report-what-do-we-make-of-islam-makhachevs-win-over-ian-machado-garry» не цитируется в теле — балласт
+- **content/posts/2026-08-21/makhachev-two-belts-holloway-criticism.uz.mdx** — sources[].url «https://www.mmafighting.com/ufc/505335/ufc-330-report-what-do-we-make-of-islam-makhachevs-win-over-ian-machado-garry» не цитируется в теле — балласт
+- **content/posts/2026-08-21/openai-chatgpt-ads-europe.en.mdx** — sources[].url «https://openai.com/index/chatgpt-ads-expands-across-europe/» не цитируется в теле — балласт
+- **content/posts/2026-08-21/openai-chatgpt-ads-europe.en.mdx** — sources[].url «https://techxplore.com/news/2026-08-openai-ads-chatgpt-europe-week.html» не цитируется в теле — балласт
+- **content/posts/2026-08-21/openai-chatgpt-ads-europe.mdx** — sources[].url «https://openai.com/index/chatgpt-ads-expands-across-europe/» не цитируется в теле — балласт
+- **content/posts/2026-08-21/openai-chatgpt-ads-europe.mdx** — sources[].url «https://techxplore.com/news/2026-08-openai-ads-chatgpt-europe-week.html» не цитируется в теле — балласт
+- **content/posts/2026-08-21/openai-chatgpt-ads-europe.uz.mdx** — sources[].url «https://openai.com/index/chatgpt-ads-expands-across-europe/» не цитируется в теле — балласт
+- **content/posts/2026-08-21/openai-chatgpt-ads-europe.uz.mdx** — sources[].url «https://techxplore.com/news/2026-08-openai-ads-chatgpt-europe-week.html» не цитируется в теле — балласт
+- **content/posts/2026-08-21/trump-iran-economic-warfare.en.mdx** — sources[].url «https://www.bloomberg.com/news/articles/2026-08-17/trump-threatens-to-bomb-oman-if-it-gets-in-way-of-us-fox-news-msx5rdoc» не цитируется в теле — балласт
+- **content/posts/2026-08-21/trump-iran-economic-warfare.mdx** — sources[].url «https://www.bloomberg.com/news/articles/2026-08-17/trump-threatens-to-bomb-oman-if-it-gets-in-way-of-us-fox-news-msx5rdoc» не цитируется в теле — балласт
+- **content/posts/2026-08-21/trump-iran-economic-warfare.uz.mdx** — sources[].url «https://www.bloomberg.com/news/articles/2026-08-17/trump-threatens-to-bomb-oman-if-it-gets-in-way-of-us-fox-news-msx5rdoc» не цитируется в теле — балласт
+- **content/posts/2026-08-21/white-house-space-transport-policy.en.mdx** — sources[].url «https://www.whitehouse.gov/fact-sheets/2026/08/fact-sheet-president-donald-j-trump-launches-the-golden-age-of-space-transportation/» не цитируется в теле — балласт
+- **content/posts/2026-08-21/white-house-space-transport-policy.mdx** — sources[].url «https://www.whitehouse.gov/fact-sheets/2026/08/fact-sheet-president-donald-j-trump-launches-the-golden-age-of-space-transportation/» не цитируется в теле — балласт
+- **content/posts/2026-08-21/white-house-space-transport-policy.uz.mdx** — sources[].url «https://www.whitehouse.gov/fact-sheets/2026/08/fact-sheet-president-donald-j-trump-launches-the-golden-age-of-space-transportation/» не цитируется в теле — балласт
 - **content/posts/2026-08-01/** — категория "society": 15 материалов за день (порог 9)
 - **content/posts/2026-08-01/** — категория "economy": 24 материалов за день (порог 9)
 - **content/posts/2026-08-02/** — категория "society": 12 материалов за день (порог 9)
@@ -675,10 +714,13 @@
 - **content/posts/2026-08-18/** — категория "tech": 96 материалов за день (порог 9)
 - **content/posts/2026-08-18/** — категория "economy": 21 материалов за день (порог 9)
 - **content/posts/2026-08-20/** — категория "society": 15 материалов за день (порог 9)
-- **content/posts/2026-08-20/** — категория "tech": 27 материалов за день (порог 9)
-- **content/posts/2026-08-20/** — категория "economy": 24 материалов за день (порог 9)
-- **content/posts/2026-08-20/** — категория "sport": 12 материалов за день (порог 9)
+- **content/posts/2026-08-20/** — категория "tech": 33 материалов за день (порог 9)
+- **content/posts/2026-08-20/** — категория "economy": 27 материалов за день (порог 9)
+- **content/posts/2026-08-20/** — категория "sport": 18 материалов за день (порог 9)
 - **content/posts/2026-08-20/** — категория "world": 18 материалов за день (порог 9)
+- **content/posts/2026-08-21/** — категория "sport": 18 материалов за день (порог 9)
+- **content/posts/2026-08-21/** — категория "tech": 63 материалов за день (порог 9)
+- **content/posts/2026-08-21/** — категория "world": 10 материалов за день (порог 9)
 
 ## Распределение по дням и категориям
 
@@ -697,4 +739,5 @@
 - **2026-08-16** (21): world 12, politics 6, society 3
 - **2026-08-17** (180): tech 90, world 18, economy 21, sport 45, politics 3, society 3
 - **2026-08-18** (168): society 12, sport 24, tech 96, economy 21, world 9, politics 3, business 3
-- **2026-08-20** (99): society 15, tech 27, economy 24, sport 12, world 18, politics 3
+- **2026-08-20** (114): society 15, tech 33, economy 27, sport 18, world 18, politics 3
+- **2026-08-21** (98): society 1, sport 18, tech 63, economy 6, world 10
