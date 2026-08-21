@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T04:15:00+05:00",
-  "topicsProcessed": 0,
+  "lastRunAt": "2026-08-21T05:14:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
-  "queuedForOwner": 0,
+  "queuedForOwner": 1,
   "rejected": 0,
-  "needsVerification": 0,
-  "belowThreshold": 25,
-  "notes": "Ни один из 25 кандидатов не набрал 40 баллов. Ближе всего: Мурильо/Мбаппе-тренировка, Мартинс–«Динамо» — без узнаваемого имени; превью Реала с Моуринью (globalIcon 25, но спекулятивное превью сезона, не стадия переговоров); Месси/Inter Miami и IOC-Russia — аналитика без события. Баг источника cbs-sports-soccer с переводами строк в link (отмечен в прошлых прогонах) сохраняется."
+  "needsVerification": 1,
+  "belowThreshold": 31,
+  "notes": "Единственная тема выше 40: сёстры Уильямс, парный камбэк в Цинциннати (globalIcon Серена 25 + topCompetition WTA1000 15 = 40). Прошла reporter/fact-check(84%, approve-with-downgrades)/editor(publish), но bild не нашёл лицензионно чистого фото — оба кандидата были Getty/Imagn (агентства вне белого списка), официального фото WTA/турнира нет, AI-генерация людей запрещена. Материал ушёл в needs-verification с pendingEditorQuestion (source-doubt) на подтверждение лицензии владельцем. cbs-sports-soccer источник по-прежнему отдаёт ссылки с переводами строк (баг отмечен и в прошлых прогонах)."
 }
