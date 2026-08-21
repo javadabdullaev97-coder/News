@@ -560,3 +560,4 @@
 {"run":"2026-08-21T11:10","stage":"bild","calls":3,"fetches":0,"minutes":25}
 {"run":"2026-08-21T11:10","stage":"translator","calls":2,"fetches":0,"minutes":8}
 {"run":"2026-08-21T11:10","topics":5,"published":2,"skippedFactcheck":1,"skippedBild":0,"readCost":168780}
+{"run":"2026-08-21T11:21","stage":"reporter","calls":1,"fetches":6,"minutes":4}
