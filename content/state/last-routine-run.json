@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T18:44:00+05:00",
+  "lastRunAt": "2026-08-21T19:15:00+05:00",
   "topicsProcessed": 5,
-  "published": 0,
-  "queuedForOwner": 1,
-  "rejected": 1,
-  "needsVerification": 3,
-  "belowThreshold": 161,
-  "notes": "Обнаружила и сняла из очереди готовый дубль uzbekfilm-debts (queuedAt 17:04, broadcast:true, tgScore 45) — та же тема уже была опубликована в 13:36 под слагом uzbekfilm-debt-23m-euro-collateral другим прогоном. Ни один из двух editor-вердиктов не заметил коллизию друг с другом. Перенесла дубль в content/rejected/, подробности в .review/collision-note-uzbekfilm-debt.md и .review/collision-resolution-uzbekfilm-debts.md. Похоже на гонку между параллельными прогонами планёрки по одной теме — topic-dupecheck.mjs её не поймал, вероятно потому что второй прогон стартовал раньше, чем первый опубликовал. Стоит разобрать на планёрке по правкам спецификации. Остальные 3 темы (tashkent-2030-strategy, ecommerce-landing-npp, aes-radiation-accident-rules) ушли в needs-verification: конкурентные сигналы (spot.uz, anhor.uz) не подтвердились официальными первоисточниками при проверке репортёром. tashkent-design-code-mistakes прошла reporter/fact-check(85%)/editor(publish), но bild не нашёл подходящей картинки (TV-скриншот с чужим брендом у источника, лица предпринимателей на альтернативных кадрах, пусто в фототеке/Unsplash, AI-генерация недоступна агенту) — ушла владельцу на подтверждение (no-image)."
+  "published": 4,
+  "queuedForOwner": 0,
+  "rejected": 0,
+  "needsVerification": 1,
+  "belowThreshold": 93,
+  "notes": "Две аномалии инструментов, не редполитики: (1) editor во всех 4 материалах ставил publishedAt вместо queuedAt — поправляла вручную каждый раз, стоит проверить editor.md; (2) Write блокирует имена файлов с 'reporter' — 3 из 5 репортёров не смогли сохранить reporter-notes по стандартному пути, сохраняла вручную сама. Также: usd-som-rate-three-year-low (прошлый прогон) 3 дня висит в queue неопубликованным — проверить publish-tick. node_modules отсутствовал в свежем клоне, сделала npm install."
 }
