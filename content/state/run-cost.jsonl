@@ -458,3 +458,5 @@
 {"run":"2026-08-21T03:32","stage":"fact-checker","calls":1,"fetches":3,"minutes":4}
 {"run":"2026-08-21T03:32","stage":"editor","calls":1,"fetches":0,"minutes":2}
 {"run":"2026-08-21T03:32","topics":1,"published":0,"skippedFactcheck":0,"skippedBild":1,"readCost":168780}
+{"run":"2026-08-21T03:55","stage":"reporter","calls":1,"fetches":8,"minutes":7}
+{"run":"2026-08-21T03:55","stage":"fact-checker","calls":1,"fetches":5,"minutes":4}
