@@ -1,0 +1,17 @@
+# Таблица цитат: serena-venus-williams-doubles-return-loss
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|----------------------|----------|-------------------------------|
+| 1 | Костюк и Стернс обыграли сестёр Уильямс со счётом 6:2, 1:6, 10:8 | https://sports.yahoo.com/articles/serena-venus-williams-lose-cincinnati-161845422.html | "Final Score: Kostyuk/Stearns defeated Williams sisters 6-2, 1-6, 10-8" |
+| 2 | Соперницами были Марта Костюк и Пейтон Стернс | https://sports.yahoo.com/articles/serena-venus-williams-lose-cincinnati-161845422.html | "Kostyuk/Stearns defeated Williams sisters" |
+| 3 | Матч прошёл 18 августа 2026, первый круг Cincinnati Open 2026 | https://justwomenssports.com/reads/serena-venus-williams-lose-cincinnati-open-2026/ | "Tournament Details: 2026 Cincinnati Open, first round, August 18, 2026" |
+| 4 | Это первый совместный парный матч сестёр с US Open 2022 года | https://justwomenssports.com/reads/serena-venus-williams-lose-cincinnati-open-2026/ | "Last Doubles Match Together: 2022 US Open (nearly four years prior)" |
+| 5 | Сёстры вышли на турнир по wildcard | https://justwomenssports.com/reads/serena-venus-williams-lose-cincinnati-open-2026/ | "Wildcard Entry: Yes, both sisters entered as wildcards" |
+| 6 | Первый сет выиграли Костюк и Стернс 6:2 | https://sports.yahoo.com/articles/serena-venus-williams-lose-cincinnati-161845422.html | "Set 1: Kostyuk/Stearns won 6-2" |
+| 7 | Второй сет выиграли сёстры Уильямс 6:1 | https://sports.yahoo.com/articles/serena-venus-williams-lose-cincinnati-161845422.html | "Set 2: Williams sisters won 6-1" |
+| 8 | В решающем тай-брейке победили Костюк и Стернс 10:8 | https://sports.yahoo.com/articles/serena-venus-williams-lose-cincinnati-161845422.html | "Set 3 Tiebreak: Kostyuk/Stearns won 10-8" |
+| 9 | Цитата Винус Уильямс о возвращении в пару | https://sports.yahoo.com/articles/serena-venus-williams-lose-cincinnati-161845422.html | "We waited a long time to get back on the doubles court, even this year. I think eventually we would find our way to each other." |
+| 10 | Цитата Серены Уильямс об удовольствии от игры | https://sports.yahoo.com/articles/serena-venus-williams-lose-cincinnati-161845422.html | "Obviously I wanted to do the best that I could do, but I think having fun and also just seeing how we are and how we feel out there." |
+| 11 | Цитата Серены про «rust» и удовольствие, а не победу | https://justwomenssports.com/reads/serena-venus-williams-lose-cincinnati-open-2026/ | "We kicked off a little rust in the middle of the match and just, you know [were] starting to feel it. I didn't come out here to win [this tournament]. Winning is obviously great. But in this position just, you know, having fun. It was really cool to be able to do this again." |
+| 12 | Заголовок и факт события подтверждены BBC Sport | https://www.bbc.co.uk/sport/tennis/articles/c4g6m08nnn8o?at_medium=RSS&at_campaign=rss | — прямая цитата недоступна: страница BBC не открылась через WebFetch (техническая ошибка инструмента при трёх попытках), факт события подтверждён двумя другими независимо открытыми источниками (Yahoo Sports, Just Women's Sports) |
+| 13 | Турнир в Цинциннати имеет категорию WTA 1000 | https://www.wtatennis.com/tournaments/cincinnati-open | "The Cincinnati Open is a WTA 1000 tournament played on outdoor hard courts at the Lindner Family Tennis Center in Mason, Ohio." |
