@@ -1,0 +1,15 @@
+# Таблица цитат: nvidia-poolside-model-factory-acquisition
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|----------------------|----------|-------------------------------|
+| 1 | Nvidia заключила с Poolside сделку на $6 млрд — лицензия на Model Factory | https://the-decoder.com/nvidia-is-acquiring-poolsides-model-factory-and-109-employees-for-6-billion/ | — цитаты нет: факт взят из сводки статьи The Decoder (сумма лицензии $6 млрд за платформу Model Factory), дословный фрагмент оригинального английского текста при обработке не сохранён |
+| 2 | Nvidia дополнительно вложит $1 млрд в Poolside при оценке $12 млрд (pre-money) | https://the-decoder.com/nvidia-is-acquiring-poolsides-model-factory-and-109-employees-for-6-billion/ | — цитаты нет: сводка The Decoder |
+| 3 | 109 сотрудников Poolside получили предложения о работе в Nvidia | https://the-decoder.com/nvidia-is-acquiring-poolsides-model-factory-and-109-employees-for-6-billion/ | — цитаты нет: цифра совпадает с заголовком источника и снипетом inbox, сводка подтверждает |
+| 4 | Лицензия на Model Factory неисключительная, Poolside может продавать технологию другим | https://the-decoder.com/nvidia-is-acquiring-poolsides-model-factory-and-109-employees-for-6-billion/ | — цитаты нет: сводка The Decoder |
+| 5 | Model Factory использовалась для обучения модели Poolside Laguna | https://the-decoder.com/nvidia-is-acquiring-poolsides-model-factory-and-109-employees-for-6-billion/ | — цитаты нет: сводка The Decoder |
+| 6 | Основатели Poolside назвали сделку не поглощением и не acquihire | https://www.newcomer.co/p/sources-poolside-strikes-6-billion | — цитаты нет: полный текст письма инвесторам за пейволлом Newcomer, факт подтверждён вторично сводкой The Decoder |
+| 7 | Три сооснователя Poolside остаются в компании и продолжают работу самостоятельно | https://the-decoder.com/nvidia-is-acquiring-poolsides-model-factory-and-109-employees-for-6-billion/ | — цитаты нет: сводка The Decoder |
+| 8 | Ни Nvidia, ни Poolside по состоянию на 21 августа не опубликовали официальных пресс-релизов о сделке | https://nvidianews.nvidia.com/news | — цитаты нет: прямая проверка репортёром — в новостной ленте Nvidia на дату проверки материалов о сделке с Poolside нет |
+| 8а | (тот же факт, вторая проверка) | https://poolside.ai | — цитаты нет: прямая проверка репортёром — на сайте/в блоге Poolside материалов о сделке нет |
+| 9 | Сделка с Poolside похожа на более ранние соглашения Nvidia с Groq (~$20 млрд) и Enfabrica (~$900 млн) | https://the-decoder.com/nvidia-is-acquiring-poolsides-model-factory-and-109-employees-for-6-billion/ | — цитаты нет: сводка The Decoder, сравнение приведено как контекст самой статьи |
+| 10 | Письмо основателей Poolside инвесторам впервые получило издание Newcomer, дата публикации — 20 августа 2026 | https://www.newcomer.co/p/sources-poolside-strikes-6-billion | — цитаты нет: дата и факт получения письма видны в заголовке/тизере страницы (доступной часть за пейволлом) |
