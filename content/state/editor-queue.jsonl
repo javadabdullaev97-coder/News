@@ -873,3 +873,4 @@
 {"ev":"remind","at":"2026-08-21T08:09:36.560Z","slug":"unitree-robotics-shanghai-ipo","askedAt":"2026-08-20T01:14:18.767Z","remindedAt":"2026-08-21T08:09:36.560Z","messageId":1085}
 {"ev":"remind","at":"2026-08-21T09:09:13.282Z","slug":"design-code-tashkent-reversal","askedAt":"2026-08-21T06:10:24.995Z","remindedAt":"2026-08-21T09:09:13.281Z","messageId":1087}
 {"ev":"ask","at":"2026-08-21T09:44:17.097Z","item":{"slug":"nvidia-rebellions-deal-talks","title":"Nvidia ведёт переговоры о возможной сделке с южнокорейской Rebellions","kind":"revocable","reason":"low-confidence","messageId":1088,"askedAt":"2026-08-21T09:44:17.097Z"}}
+{"ev":"ask","at":"2026-08-21T11:07:31.122Z","item":{"slug":"samsung-shareholder-return-sk-hynix","title":"Samsung направит акционерам до 110 трлн вон вслед за байбэком SK Hynix","kind":"revocable","reason":"low-confidence","messageId":1089,"askedAt":"2026-08-21T11:07:31.121Z"}}
