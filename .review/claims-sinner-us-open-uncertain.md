@@ -1,0 +1,13 @@
+# Таблица цитат: sinner-us-open-uncertain
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|----------------------|----------|-------------------------------|
+| 1 | Синнер снялся с турнира в Цинциннати 9 августа из-за травмы правого колена | https://www.skysports.com/tennis/news/12040/13571440/jannik-sinner-withdraws-from-cincinnati-open-as-knee-injury-raises-us-open-fitness-concerns | «My right knee has been bothering me and even though we have been working hard with my medical team, I have to accept that I'm not ready to compete yet» (перевод в тексте статьи) |
+| 2 | Синнер пропустил турнир в Монреале неделей раньше Цинциннати | https://www.skysports.com/tennis/news/12040/13571440/jannik-sinner-withdraws-from-cincinnati-open-as-knee-injury-raises-us-open-fitness-concerns | «...following a previous withdrawal from Montreal the week prior» |
+| 3 | С победы на Уимблдоне в июле Синнер не выходил на корт | https://www.skysports.com/tennis/news/12040/13571440/jannik-sinner-withdraws-from-cincinnati-open-as-knee-injury-raises-us-open-fitness-concerns | «Sinner has not competed since defending his Wimbledon title in July» |
+| 4 | Основная сетка US Open-2026 стартует 30 августа | https://www.skysports.com/tennis/news/12040/13571440/jannik-sinner-withdraws-from-cincinnati-open-as-knee-injury-raises-us-open-fitness-concerns | «The main draw begins August 30, 2026» |
+| 5 | К 21 августа с US Open-2026 снялись 14 игроков | https://www.tennis365.com/tennis-news/us-open-withdrawal-list-2026-14-stars-out | — прямой цитаты нет, число взято из заголовка статьи «US Open withdrawal list: 14 stars now out» |
+| 6 | Среди снявшихся — Эмма Радукану и Алехандро Давидович Фокина | https://www.tennis365.com/tennis-news/us-open-withdrawal-list-2026-14-stars-out | — цитаты нет, имена перечислены в теле статьи как выбывшие игроки (пересказ через WebFetch, не дословный текст) |
+| 7 | Джек Дрейпер под вопросом из-за ушиба кости руки | https://www.tennis365.com/tennis-news/us-open-withdrawal-list-2026-14-stars-out | — цитаты нет, формулировка «bone bruising in left arm» получена через сводку страницы, дословного абзаца не выписывал |
+| 8 | Хольгер Руне под вопросом после разрыва ахилла в октябре 2025 года | https://www.tennis365.com/tennis-news/us-open-withdrawal-list-2026-14-stars-out | — цитаты нет, формулировка «ruptured Achilles tendon (since October 2025)» получена через сводку страницы, дословного абзаца не выписывал |
+| 9 | В тексте статьи источник назван по имени: издание Tennis365 (атрибуция «сообщает Tennis365») | https://www.tennis365.com/tennis-news/us-open-withdrawal-list-2026-14-stars-out | — не фактическое утверждение, а название издания в атрибуции; «365» здесь часть бренда Tennis365, не цифра из новости |
