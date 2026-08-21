@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T06:34:00+05:00",
-  "topicsProcessed": 1,
-  "published": 1,
+  "lastRunAt": "2026-08-21T07:13:00+05:00",
+  "topicsProcessed": 0,
+  "published": 0,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
   "belowThreshold": 13,
-  "notes": "Единственная тема выше 40: Швёнтек/Рыбакина, Цинциннати WTA 1000 (globalIcon 25 + iconVsIcon 20 + topCompetition 15 = 60). Прошла reporter/fact-check(93%, approve)/editor(publish)/bild(фото WTA, Jimmie48) — ушла в очередь. reporter-notes и claims-таблица репортёра пришли не в ожидаемом формате (прозой вместо pipe-таблицы/markdown-заголовков) — потребовалась одна доработка каждого файла, стоит проверить на следующих прогонах."
+  "notes": "Пул сузился до 13 кандидатов (1007 уже отмечены review более ранними заходами). Ни один не набрал 40: единственный citable-транспорт (Тоттенхэм/Савиньо, ru-sport) — 30, остальное — превью/аналитика без новой стадии или rumor без citable-источника (Haney/Garcia, boxingnews24)."
 }
