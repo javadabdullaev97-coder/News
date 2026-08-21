@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T11:16:00+05:00",
-  "topicsProcessed": 30,
+  "lastRunAt": "2026-08-21T12:17:00+05:00",
+  "topicsProcessed": 29,
   "published": 0,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 30,
-  "notes": "Пул тонкий (30 fresh из 2972, 830 уже отмечено below-threshold прошлым прогоном 10:32). Ни одна тема не прошла порог 40. Ближе всего: Al-Hilal/Casadó (football-espana, citable) — transferWithFee+negotiationStage=30, не хватило второго сигнала; Savinho/Tottenham verbal agreement — только caughtoffside (citable:false), rumorWithoutCitableSource; Williams sisters Cincinnati comeback loss — Серена в legends, но это не голос/заявление, а обычное поражение раннего круга. IOC-Russia/FIFA-UEFA от CBS не ложится ни в одну категорию sport.score и не мировая тема (world к спорту не применяется). Известный баг с embedded newline в CBS Sports RSS-link по-прежнему наблюдается."
+  "belowThreshold": 29,
+  "notes": "Единственный сюжет с проходным баллом — Рыбакина снялась с травмой против Швёнтек в Цинциннати (globalIcon+iconVsIcon+topCompetition≈60) — уже опубликован ранее сегодня (content/posts/2026-08-21/sventek-rybakina-cincinnati.mdx, dupecheck possible/overlap 0.46). Единственная возможная развивающая деталь (Анисимова обыграла Пегулу) держится на одном ru-source без подтверждения WTA и сама по себе ниже порога — не взята. Остальное: РПЛ/низшие дивизионы (neverTake), рекламные ставки/прогнозы, превью-аналитика без события, трансфер Savinho/Tottenham без второго сигнала (35), F1 Macarena-wing — устарел (pubDate 18.08, staleNoNewStage)."
 }
