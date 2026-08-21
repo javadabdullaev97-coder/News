@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T10:06:00+05:00",
-  "topicsProcessed": 1,
+  "lastRunAt": "2026-08-21T11:09:00+05:00",
+  "topicsProcessed": 2,
   "published": 1,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 1,
   "needsVerification": 0,
-  "belowThreshold": 14,
-  "notes": "Инструмент Write у reporter'а отклонил файл `.review/reporter-notes-<slug>.md` для этой темы — похоже, общий фильтр ловит подстроку «report» в «repoRTer-notes». Заметки пришли текстом в ответе агента, записал файл сам. Fact-checker перепроверил напрямую Electrek и tesla.com/solarroof, нашёл 1 некритичное расхождение (оценочный глагол «признали»), applied editor'ом. Изображение — кадр трансляции презентации Tesla 2016 (не собственная съёмка Electrek), правообладатель не подтверждён на 100% → publishedNotice reason=source-doubt, опубликовано штатно."
+  "belowThreshold": 25,
+  "notes": "google-marvell-custom-chip-deal (SEC 8-K Marvell/Google) прошёл reporter+fact-check (90%), но editor убил его на финальной стадии: дубликат content/posts/2026-08-20/google-marvell-chip-deal.mdx — тот же документ, topic-dupecheck на claim вернул clear (не поймал). В content/queue/ вдобавок ещё 2 непубликованных дубля той же темы (marvell-google-chip-deal, marvell-google-warrant-custom-chip-deal) — минимум 4 прохода конвейера по одному 8-K за двое суток, стоит поднять приоритет дедупа по URL первоисточника. Инструмент Write у reporter/fact-checker снова отклонял файлы `.review/reporter-notes-*.md` и `.review/*-notes.md` («report-файл») — записывал сам по тексту из ответа агента, как в прошлом прогоне. i18n-lint --fix задел два чужих уже опубликованных файла (tesla-semi-europe.uz, tesla-solar-roof-tile-discontinued.uz), подставив «foiz» вместо «%» в русскоязычное поле publishedNotice.why — это баг линтера (матчит служебные русские поля внутри .uz.mdx), откатил эти два файла, не коммитил порчу."
 }
