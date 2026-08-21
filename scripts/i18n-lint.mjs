@@ -401,11 +401,28 @@ const OUTLET_BRANDS = [
   "Forbes", "Sky Sports", "ESPN", "Interfax", "Интерфакс", "РИА", "ТАСС",
   "Коммерсантъ", "Ведомости", "Sports.ru", "Tennis365", "BoxingScene",
   "Al Jazeera", "Associated Press", "Financial Post", "Business Insider",
+  // Технологические и агентские бренды: 21.08.2026 английский заголовок
+  // вышел с «— DigiTimes Says It\'s the O3», и список их не знал.
+  "DigiTimes", "Engadget", "Ars Technica", "9to5Mac", "9to5Google",
+  "MacRumors", "The Athletic", "Anadolu", "Xinhua", "Yonhap", "Kyodo",
+  "Sputnik", "Bild", "Sky News", "CNBC", "Wired", "Rest of World",
 ];
-const outletTail = new RegExp(
-  `[—–-]\\s*(?:${OUTLET_BRANDS.map((b) => b.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})\\s*$`,
-  "i",
-);
+// Бренд в заголовке ловим в трёх видах, а не только хвостом.
+//
+// Хвост «— Bloomberg» правило знало с 18.08.2026. Но 21.08 вышло
+// «Lei Jun Confirms… — DigiTimes Says It\'s the O3»: тот же приём, только
+// после бренда идёт ещё несколько слов, и проверка промолчала. Плюс
+// зеркальная форма «Reuters: …» в начале.
+const BRANDS_RE = OUTLET_BRANDS.map((b) => b.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
+const OUTLET_PATTERNS = [
+  // «…— Bloomberg» в самом конце
+  new RegExp(`[—–-]\\s*(?:${BRANDS_RE})\\s*$`, "i"),
+  // «…— DigiTimes says …» — бренд сразу после тире, недалеко от конца
+  new RegExp(`[—–-]\\s*(?:${BRANDS_RE})\\b(?=[^—–-]{0,45}$)`, "i"),
+  // «Reuters: …» в начале
+  new RegExp(`^\\s*(?:${BRANDS_RE})\\s*:`, "i"),
+];
+const outletTail = { test: (t) => OUTLET_PATTERNS.some((re) => re.test(t)) };
 const brandedTitles = [];
 for (const { path: file } of files) {
   const head = readFileSync(file, "utf8").split(/\n---/, 1)[0];

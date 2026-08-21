@@ -7,7 +7,7 @@
     "Строка попала сюда, если несёт модальность (нельзя, обязан, всегда),",
     "или это пример «Плохо/Хорошо», или упоминание файла конфига и скрипта."
   ],
-  "takenAt": "2026-08-19T23:43:28.158Z",
+  "takenAt": "2026-08-21T16:38:23.726Z",
   "counts": {
     ".claude/skills/leap-editorial-style/references/policy.md": 324,
     ".claude/skills/leap-editorial-style/SKILL.md": 12,
@@ -19,7 +19,7 @@
     ".claude/agents/seo.md": 118,
     ".claude/agents/translator.md": 52,
     "docs/routine-prompts/planyorka.md": 61,
-    "docs/routine-prompts/planyorka-run.md": 261,
+    "docs/routine-prompts/planyorka-run.md": 262,
     "docs/routine-prompts/steps/breaking-lane.md": 17,
     "docs/routine-prompts/steps/morning-review.md": 10,
     "docs/routine-prompts/steps/needs-verification.md": 21,
@@ -1286,6 +1286,7 @@
     "тема a: reporter → fact-checker → editor тема b: reporter → fact-checker → editor (все параллельно) тема c: reporter → fact-checker → editor",
     "для каждой темы topic: вызови subagent(reporter, {topic, tashkentdate, category}) (все reporter-вызовы в одном сообщении для параллельности)",
     "затем для каждого результата reporter: если status == topic-declined: зафиксируй причину в отчёте, пропусти иначе если status == ready-for-factcheck: # таблица ",
+    "# вторые ворота на дубль — уже по источникам, которые нашёл # корреспондент. на отборе их не было: там только ссылки инбокса. node scripts/topic-dupecheck.mjs -",
     "# звать ли фактчекера — решает скрипт, не ты. node scripts/factcheck-gate.mjs <draftpath> --json если .skip == true: factcheck = { verdict: approve, confidence:",
     "# правило пропуска fact-checkerа — в коде, а не здесь #",
     "# условия живут в scripts/factcheck-gate.mjs и config/newsroom-policy.json",
@@ -1849,6 +1850,7 @@
     "правила в config/newsroom-policy.json, секция world. рубрика — world.",
     "порог берётся из config/newsroom-policy.json, секция world.tiers — у каждого тира свой mindistinctblocs и свой requirenonrussianbloc. своего числа блоков здесь ",
     "затем для каждого результата reporter: если status == topic-declined: зафиксируй причину в отчёте, пропусти иначе если status == ready-for-factcheck: # таблица ",
+    "# вторые ворота на дубль — уже по источникам, которые нашёл # корреспондент. на отборе их не было: там только ссылки инбокса. node scripts/topic-dupecheck.mjs -",
     "# звать ли фактчекера — решает скрипт, не ты. node scripts/factcheck-gate.mjs <draftpath> --json если .skip == true: factcheck = { verdict: approve, confidence:",
     "# условия живут в scripts/factcheck-gate.mjs и config/newsroom-policy.json",
     "затем для каждого результата editor: если status == publish: # рассылка в telegram — арифметика по конфигам, не работа модели. # модификаторы редактор вернул ст",

@@ -585,6 +585,21 @@ for (const mdxPath of allMdx) {
     continue;
   }
 
+  // Хвост служебной разметки агента — материал в канал не уходит.
+  //
+  // Сайт такие файлы держит с 07.08.2026 (build-posts.mjs исключает их
+  // из lib/generated-posts.ts), а постер обходит content/posts напрямую
+  // и про это не знал. 21.08.2026 в десяти переводах снова оказался хвост
+  // «</content>» и «</invoke>»: спецификация велит планёрке прогнать
+  // i18n-lint и не коммитить такой файл, но правило процедурное — его
+  // можно не выполнить. Здесь оно механическое.
+  const LEAKS = ["</content>", "</invoke>", "<invoke", "<function_calls>", "antml:", "<parameter"];
+  const leaked = LEAKS.filter((sig) => raw.includes(sig));
+  if (leaked.length) {
+    console.error(`[skip] ${rel}: служебная разметка агента (${leaked.join(", ")}) — вычисти файл`);
+    continue;
+  }
+
   // Не всё что на сайте — в TG. SEO-агент вычисляет tgScore и ставит broadcast.
   //
   // Раньше отсутствующее поле считалось за broadcast:true («legacy default»),

@@ -21,6 +21,16 @@
 //   node scripts/topic-dupecheck.mjs --title="ЦБ повысил ставку до 15%" \
 //        --links="https://t.me/cbu_uz/123,https://cbu.uz/ru/press/456"
 //   node scripts/topic-dupecheck.mjs --batch=candidates.json   — пачкой
+//   node scripts/topic-dupecheck.mjs --draft=content/drafts/…/slug.mdx
+//                                                            — после драфта
+//
+// Режим --draft — вторые ворота, уже по СОБРАННЫМ корреспондентом
+// источникам. На отборе их ещё нет: там есть только ссылки из инбокса,
+// а первоисточник корреспондент найдёт сам. 21.08.2026 в очереди стояли
+// 35 материалов, задержанных публикатором как дубли: каждый прошёл полную
+// цепочку — фактчек, редактора, бильда, переводчика — и не выйдет никогда.
+// Эта проверка стоит миллисекунды и ставится сразу после драфта.
+// Код возврата 1 — дубль, материал дальше не ведём.
 //
 // Формат --batch: [{ "id": "…", "title": "…", "links": ["…"] }, …]
 //
@@ -31,6 +41,7 @@ import { execFileSync } from "node:child_process";
 import { join } from "node:path";
 import { ROOT } from "../lib/inbox-core.mjs";
 import { titleTokens, titleOverlap, normLink } from "../lib/posts-index.mjs";
+import { duplicateOfPublished } from "../lib/topic-dupe.mjs";
 
 const INDEX = join(ROOT, "config/generated/published-index.json");
 const MAX_AGE_MS = 5 * 60 * 1000;
@@ -127,6 +138,32 @@ export function check({ id, title = "", links = [] }, topics) {
 // разбираются только при прямом запуске: иначе тест платил бы за пересборку
 // индекса и падал на чужих argv.
 const isMain = process.argv[1] && process.argv[1].endsWith("topic-dupecheck.mjs");
+
+// ─── Режим --draft: сверка по источникам готового драфта ───
+if (isMain && opt("draft", null)) {
+  const rel = opt("draft", "");
+  const abs = rel.startsWith("/") ? rel : join(ROOT, rel);
+  if (!existsSync(abs)) {
+    console.error(`[dupecheck] нет файла ${rel}`);
+    process.exit(0);
+  }
+  const slug = rel.split("/").pop().replace(/\.mdx$/, "");
+  const dupe = duplicateOfPublished(
+    { slug, raw: readFileSync(abs, "utf8") },
+    join(ROOT, "content/posts"),
+  );
+  if (dupe) {
+    console.error(`[dupecheck] ✗ ${slug}: ${dupe}`);
+    console.error(
+      "  Дальше по цепочке не веди: фактчек, редактор, бильд и переводчик\n" +
+        "  отработают впустую, а публикатор всё равно задержит материал.\n" +
+        "  Развитие сюжета оформляется правкой вышедшего, а не новой статьёй.",
+    );
+    process.exit(1);
+  }
+  console.error(`[dupecheck] ✓ ${slug}: совпадений с вышедшим нет`);
+  process.exit(0);
+}
 if (!isMain) {
   // eslint-disable-next-line no-empty
 } else {
