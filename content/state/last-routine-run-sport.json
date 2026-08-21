@@ -1,10 +1,11 @@
 {
-  "lastRunAt": "2026-08-21T07:13:00+05:00",
-  "topicsProcessed": 0,
+  "lastRunAt": "2026-08-21T08:32:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 1,
   "needsVerification": 0,
-  "belowThreshold": 13,
-  "notes": "Пул сузился до 13 кандидатов (1007 уже отмечены review более ранними заходами). Ни один не набрал 40: единственный citable-транспорт (Тоттенхэм/Савиньо, ru-sport) — 30, остальное — превью/аналитика без новой стадии или rumor без citable-источника (Haney/Garcia, boxingnews24)."
+  "belowThreshold": 27,
+  "notes": "1 тема прошла порог (Рыбакина/Свёнтек, Цинциннати, 60 баллов), editor убил её на финальной стадии: дубликат content/posts/2026-08-21/sventek-rybakina-cincinnati.mdx (06:57). topic-dupecheck.mjs дубликат не поймал ни разу — разные заголовки, разные ссылки-кластера (sport-express vs wtatennis.com). Отдельно: 7 позиций CBS Sports Soccer не review-мечаются — RSS отдаёт ссылку с embedded \\n/пробелами, topic-journal.mjs делает .trim(), CLI не даёт передать нетримленную строку — тема виснет в выборке каждый заход (seenTimes 16/27/30/35 и растёт)."
 }
+
