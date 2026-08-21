@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T17:09:00+05:00",
-  "topicsProcessed": 3,
-  "published": 2,
-  "queuedForOwner": 0,
-  "rejected": 0,
-  "needsVerification": 0,
-  "belowThreshold": 1,
-  "notes": "И reporter, и editor у обоих материалов оставили publishedAt в drafts (запрещено спецификацией) — правила вручную на queuedAt перед queue, включая uz/en переводы (та же утечка). Стоит поправить промпт/шаблон reporter и editor. Продвинула recheckAt у 2 карточек needs-verification (fine-appeal-refund-procedure, mfo-deposit-rate-rules-cbu) — recheck уже был сделан прошлым прогоном (6 обращений, источник не найден), но recheck-schedule.mjs не вызывался, и preflight держал их 'матурыми' второй раз подряд. Bild сообщил о расхождении prepare-image.py: report.upscaled на верхнем уровне захардкожен в false даже при апскейле, реальный флаг — в fit.upscaled/fit.scale."
+  "lastRunAt": "2026-08-21T18:44:00+05:00",
+  "topicsProcessed": 5,
+  "published": 0,
+  "queuedForOwner": 1,
+  "rejected": 1,
+  "needsVerification": 3,
+  "belowThreshold": 161,
+  "notes": "Обнаружила и сняла из очереди готовый дубль uzbekfilm-debts (queuedAt 17:04, broadcast:true, tgScore 45) — та же тема уже была опубликована в 13:36 под слагом uzbekfilm-debt-23m-euro-collateral другим прогоном. Ни один из двух editor-вердиктов не заметил коллизию друг с другом. Перенесла дубль в content/rejected/, подробности в .review/collision-note-uzbekfilm-debt.md и .review/collision-resolution-uzbekfilm-debts.md. Похоже на гонку между параллельными прогонами планёрки по одной теме — topic-dupecheck.mjs её не поймал, вероятно потому что второй прогон стартовал раньше, чем первый опубликовал. Стоит разобрать на планёрке по правкам спецификации. Остальные 3 темы (tashkent-2030-strategy, ecommerce-landing-npp, aes-radiation-accident-rules) ушли в needs-verification: конкурентные сигналы (spot.uz, anhor.uz) не подтвердились официальными первоисточниками при проверке репортёром. tashkent-design-code-mistakes прошла reporter/fact-check(85%)/editor(publish), но bild не нашёл подходящей картинки (TV-скриншот с чужим брендом у источника, лица предпринимателей на альтернативных кадрах, пусто в фототеке/Unsplash, AI-генерация недоступна агенту) — ушла владельцу на подтверждение (no-image)."
 }
