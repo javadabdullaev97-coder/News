@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T19:20:00+05:00",
+  "lastRunAt": "2026-08-21T21:35:00+05:00",
   "topicsProcessed": 4,
   "published": 4,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 38,
-  "notes": "openai-chatgpt-teens-safety изначально дублировала уже опубликованный 18.08 материал openai-launches-chatgpt-for-teens (topic-dupecheck пропустил из-за несовпадения заголовков) — обнаружено на стадии bild, editor переписал как развитие сюжета со ссылкой на прошлый текст. meta-ai-glasses-privacy вышла с publishedNotice (low-confidence 62%): цифры EssilorLuxottica не подтвердились напрямую, CNBC отдавал 403 трижды."
+  "belowThreshold": 40,
+  "notes": "Инструмент Write у reporter стабильно блокирует файлы, чьё имя содержит подстроку «report» (сработало у всех 4 репортёров) — planyorka сохраняла .review/reporter-notes-*.md вручную из текста ответа агента; стоит поправить фильтр. tesla-china-recalls: editor поймал дубль с уже вышедшим content/posts/tesla-china-recall.mdx на стадии back-to-reporter, reporter сузил охват до второго отзыва и вышел через editorReview.routing.notice (confidence 68%, publishedNotice)."
 }
