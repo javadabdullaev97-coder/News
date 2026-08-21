@@ -35,7 +35,7 @@ import {
   mkdirSync,
 } from "node:fs";
 import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { loadQueue } from "../lib/editor-queue-log.mjs";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
@@ -129,6 +129,43 @@ async function sendTelegram(text) {
   }
 }
 
+// ─── Возраст берётся из СОДЕРЖИМОГО, а не из mtime файла ───
+//
+// Здесь стоял statSync(...).mtimeMs — и сторож не мог сработать никогда.
+// Actions клонируют репозиторий заново на каждый запуск, mtime у всех файлов
+// равен времени checkout'а, то есть «возраст» всегда около нуля.
+//
+// Что это стоило: 19.08.2026 ни одна из трёх планёрок не отметилась за целые
+// сутки (все три last-routine-run*.json не менялись), 20.08 была вторая
+// пауза с 03:47 до 19:16. Сторож в оба дня отработал по расписанию и оба
+// раза сказал «всё живо». Единственный канал, который вообще срабатывал, —
+// очередь редактора: он один читал время из содержимого (askedAt).
+//
+// Теперь время читается из данных: у отметки прогона — поле lastRunAt,
+// у инбокса — fetchedAt последней записи. mtime остаётся запасным путём
+// на случай, когда поля нет.
+
+/** Время из JSON-поля; null, если поля нет или оно не разбирается. */
+export function timestampFromJson(text, field) {
+  try {
+    const v = JSON.parse(text)?.[field];
+    const t = v ? Date.parse(v) : NaN;
+    return Number.isFinite(t) ? t : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Время последней записи JSONL по указанному полю. */
+export function timestampFromJsonl(text, field) {
+  const lines = text.trimEnd().split("\n");
+  for (let i = lines.length - 1; i >= 0 && i > lines.length - 50; i -= 1) {
+    const t = timestampFromJson(lines[i], field);
+    if (t !== null) return t;
+  }
+  return null;
+}
+
 // ─── Проверки ───
 
 function checkInbox() {
@@ -144,7 +181,8 @@ function checkInbox() {
       message: `⚠️ <b>Inbox</b>: файл <code>content/inbox/${today}.jsonl</code> не существует. Фетчер не отработал сегодня?`,
     };
   }
-  const age = hoursSince(statSync(file).mtimeMs);
+  const stamped = timestampFromJsonl(readFileSync(file, "utf8"), "fetchedAt");
+  const age = hoursSince(stamped ?? statSync(file).mtimeMs);
   if (age > INBOX_STALE_HOURS) {
     return {
       channel: "inbox-stale",
@@ -180,7 +218,11 @@ function checkRoutine() {
     return null;
   }
   const age = Math.min(
-    ...files.map((n) => hoursSince(statSync(join(STATE_DIR, n)).mtimeMs)),
+    ...files.map((n) => {
+      const abs = join(STATE_DIR, n);
+      const stamped = timestampFromJson(readFileSync(abs, "utf8"), "lastRunAt");
+      return hoursSince(stamped ?? statSync(abs).mtimeMs);
+    }),
   );
   if (age > ROUTINE_STALE_HOURS) {
     return {
@@ -222,6 +264,13 @@ function checkEditorQueue() {
 }
 
 // ─── main ───
+//
+// Модуль импортируется selftest'ом ради чистых функций времени, поэтому
+// проверки и отправка запускаются только при прямом вызове.
+const isMain = import.meta.url === pathToFileURL(process.argv[1] ?? "").href;
+if (!isMain) {
+  // импорт ради экспортов — ничего не делаем
+} else {
 
 const state = loadAlertsState();
 const results = [checkInbox(), checkRoutine(), checkEditorQueue()].filter(Boolean);
@@ -246,3 +295,4 @@ for (const alert of results) {
 
 saveAlertsState(state);
 console.log(`[heartbeat] отправлено ${sent}, подавлено ${suppressed}`);
+}

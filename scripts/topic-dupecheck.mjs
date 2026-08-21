@@ -39,6 +39,7 @@
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { join } from "node:path";
+import { pathToFileURL } from "node:url";
 import { ROOT } from "../lib/inbox-core.mjs";
 import { titleTokens, titleOverlap, normLink } from "../lib/posts-index.mjs";
 import { duplicateOfPublished } from "../lib/topic-dupe.mjs";
@@ -137,7 +138,7 @@ export function check({ id, title = "", links = [] }, topics) {
 // Модуль импортируется selftest'ом, поэтому индекс собирается и аргументы
 // разбираются только при прямом запуске: иначе тест платил бы за пересборку
 // индекса и падал на чужих argv.
-const isMain = process.argv[1] && process.argv[1].endsWith("topic-dupecheck.mjs");
+const isMain = import.meta.url === pathToFileURL(process.argv[1] ?? "").href;
 
 // ─── Режим --draft: сверка по источникам готового драфта ───
 if (isMain && opt("draft", null)) {

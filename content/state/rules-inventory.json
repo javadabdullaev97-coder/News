@@ -7,7 +7,7 @@
     "Строка попала сюда, если несёт модальность (нельзя, обязан, всегда),",
     "или это пример «Плохо/Хорошо», или упоминание файла конфига и скрипта."
   ],
-  "takenAt": "2026-08-21T16:38:23.726Z",
+  "takenAt": "2026-08-21T16:42:53.313Z",
   "counts": {
     ".claude/skills/leap-editorial-style/references/policy.md": 324,
     ".claude/skills/leap-editorial-style/SKILL.md": 12,
