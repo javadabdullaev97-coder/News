@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T07:12:00+05:00",
-  "topicsProcessed": 3,
-  "published": 2,
+  "lastRunAt": "2026-08-21T08:12:00+05:00",
+  "topicsProcessed": 2,
+  "published": 1,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 1,
   "needsVerification": 0,
-  "belowThreshold": 6,
-  "notes": "anthropic-largest-ipo — reporter сам поймал дубль: тема уже прошла весь цикл ранее под slug ai-labs-ipo-anthropic-openai и лежит в content/queue/ — не публиковала повторно, закрыла claim в журнале. Write у reporter/fact-checker блокирует .review/*notes*.md — сохраняла заметки и таблицы цитат сама по тексту ответа агента (оба реporterа это подтвердили). broadcom-ai-chip-debt-financing — publish, tgScore 50, только tech-канал (techNeverToMainChannel). nevada-robotaxis-tesla-uber-waymo — publish с publishedNotice (low-confidence, факт подтверждён только TechCrunch, §10.1 buквально не выполнено для события 20 августа), tgScore 35, развитие сюжета от 18 августа."
+  "belowThreshold": 14,
+  "notes": "stripe-openrouter-deal — reporter поймал дубль по содержанию, не по ссылке: dupecheck дал clear, но тема оказалась откатом стадии (сделка уже подтверждена и стоит в content/queue/ с 20.08). Write у reporter блокирует имена *report*-notes*.md — снова сохраняла заметки сама текстом ответа агента. node_modules отсутствовал в контейнере — пришлось npm ci перед claims-lint/factcheck-gate. alibaba-ai-cloud-q2-2026 — publish, tgScore 40, только tech-канал; approve-with-downgrades 88%, единственное понижение — неполный список причин капзатрат."
 }
