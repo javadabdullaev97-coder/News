@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T12:16:00+05:00",
-  "topicsProcessed": 1,
-  "published": 0,
+  "lastRunAt": "2026-08-21T12:44:00+05:00",
+  "topicsProcessed": 2,
+  "published": 1,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 17,
-  "notes": "Единственная прошедшая порог тема (tesla-robotaxi-nevada-expansion, NTA расширила разрешение Tesla до 5000 роботакси) прошла весь конвейер (reporter, fact-check 64%, editor publish, bild, translator), но на шаге постановки в очередь обнаружилась коллизия: параллельная сессия tech-планёрки уже поставила тот же сюжет в content/queue/nevada-robotaxis-tesla-uber-waymo (объединяет Tesla+Uber+Waymo, тот же вердикт/confidence). Разбор — .review/collision-note-tesla-robotaxi-nevada-expansion.md. Публикацию не дублировал, тему закрыл в журнале под слагом сиблинга. Остальные 17 кандидатов инбокса ниже порога (в т.ч. Windows 11 update issues — уже опубликовано ранее сегодня, отмечено как дубль)."
+  "belowThreshold": 19,
+  "notes": "tesla-robotaxi-nevada-expansion прошла весь конвейер (fact-check 64%), но на шаге очереди обнаружилась коллизия — параллельная сессия уже поставила тот же сюжет в content/queue/nevada-robotaxis-tesla-uber-waymo; публикацию не дублировал, разбор в .review/collision-note-tesla-robotaxi-nevada-expansion.md. vk-sues-apple-appstore опубликована штатно (fact-check 52%, publishedNotice low-confidence, номер дела и деталь о структуре ВК убраны как неподтверждённые — первоисточник kad.arbitr.ru был недоступен, факты держатся на republish РБК/КП через mail.ru + The Moscow Times)."
 }
