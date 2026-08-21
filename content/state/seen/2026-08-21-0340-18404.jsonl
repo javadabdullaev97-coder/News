@@ -17,3 +17,7 @@
 {"h":"sha256:2c466c16d98c66a611ca11bbeef2e1d4e8269721564c40728eab197a341168d7","s":"below-threshold","st":"reviewed","at":"2026-08-21T03:40:15.849Z","exp":"2026-08-22T03:40:15.849Z"}
 {"h":"sha256:83fd94560f06a3ea41bf3f71406bc1c1f68d811b1ad0c753ac8ea06b725a9296","s":"kazakhstan-elections-tokayev-2026-08","st":"claimed","at":"2026-08-21T03:41:37.045Z","exp":"2026-08-21T04:26:37.045Z"}
 {"h":"sha256:5dc0bc706e1a012d63c6cc374afe4ebc00e1c6e5173a67a5b6ed8036af75233f","s":"kazakhstan-elections-tokayev-2026-08","st":"claimed","at":"2026-08-21T03:41:37.045Z","exp":"2026-08-21T04:26:37.045Z"}
+{"h":"sha256:83fd94560f06a3ea41bf3f71406bc1c1f68d811b1ad0c753ac8ea06b725a9296","s":"kazakhstan-elections-tokayev-2026-08","st":"released","at":"2026-08-21T03:41:52.730Z"}
+{"h":"sha256:5dc0bc706e1a012d63c6cc374afe4ebc00e1c6e5173a67a5b6ed8036af75233f","s":"kazakhstan-elections-tokayev-2026-08","st":"released","at":"2026-08-21T03:41:52.730Z"}
+{"h":"sha256:83fd94560f06a3ea41bf3f71406bc1c1f68d811b1ad0c753ac8ea06b725a9296","s":"kazakhstan-elections-tokayev-2026-08","st":"claimed","at":"2026-08-21T03:41:52.785Z","exp":"2026-08-21T04:26:52.785Z"}
+{"h":"sha256:91bfab64d92dd419c57a94ca9fcfd0af19d7fba5baa8786ed6d6452fa7a7d03f","s":"kazakhstan-elections-tokayev-2026-08","st":"claimed","at":"2026-08-21T03:41:52.785Z","exp":"2026-08-21T04:26:52.785Z"}
