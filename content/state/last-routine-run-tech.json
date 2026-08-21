@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T12:44:00+05:00",
-  "topicsProcessed": 2,
-  "published": 1,
+  "lastRunAt": "2026-08-21T13:14:00+05:00",
+  "topicsProcessed": 4,
+  "published": 4,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 19,
-  "notes": "tesla-robotaxi-nevada-expansion прошла весь конвейер (fact-check 64%), но на шаге очереди обнаружилась коллизия — параллельная сессия уже поставила тот же сюжет в content/queue/nevada-robotaxis-tesla-uber-waymo; публикацию не дублировал, разбор в .review/collision-note-tesla-robotaxi-nevada-expansion.md. vk-sues-apple-appstore опубликована штатно (fact-check 52%, publishedNotice low-confidence, номер дела и деталь о структуре ВК убраны как неподтверждённые — первоисточник kad.arbitr.ru был недоступен, факты держатся на republish РБК/КП через mail.ru + The Moscow Times)."
+  "belowThreshold": 916,
+  "notes": "1 из 4 тем (ai-usage-research-vs-reported) вышла маршрутом notice/low-confidence (68%, ниже гейта 70%) — фактчек поймал вымышленного третьего автора исследования, editor убрал перед публикацией. Остальные 3 — approve/approve-with-downgrades ≥74%, обычным путём directPublish."
 }
