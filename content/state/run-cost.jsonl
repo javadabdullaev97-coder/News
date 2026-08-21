@@ -591,3 +591,5 @@
 {"run":"2026-08-21T13:07","stage":"reporter","calls":2,"fetches":11,"minutes":8}
 {"run":"2026-08-21T13:07","stage":"fact-checker","calls":1,"fetches":2,"minutes":5}
 {"run":"2026-08-21T13:07","topics":2,"published":1,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
+{"run":"2026-08-21T13:08","stage":"editor","calls":2,"fetches":3,"minutes":10}
+{"run":"2026-08-21T13:08","stage":"bild","calls":1,"fetches":15,"minutes":9}
