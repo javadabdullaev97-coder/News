@@ -870,3 +870,4 @@
 {"ev":"ask","at":"2026-08-21T07:04:25.812Z","item":{"slug":"xiaomi-xring-o3-chip-tsmc-n3p","title":"Лэй Цзюнь подтвердил разработку нового чипа Xiaomi Xring — по данным DigiTimes, это O3","kind":"revocable","reason":"low-confidence","messageId":1082,"askedAt":"2026-08-21T07:04:25.812Z"}}
 {"ev":"ask","at":"2026-08-21T08:07:53.610Z","item":{"slug":"vk-sues-apple-appstore","title":"VK подала иск против Apple за удаление приложений из App Store","kind":"revocable","reason":"low-confidence","messageId":1083,"askedAt":"2026-08-21T08:07:53.610Z"}}
 {"ev":"remind","at":"2026-08-21T08:07:54.907Z","slug":"serena-venus-williams-doubles-return-loss","askedAt":"2026-08-21T00:35:15.684Z","remindedAt":"2026-08-21T08:07:54.907Z","messageId":1084}
+{"ev":"remind","at":"2026-08-21T08:09:36.560Z","slug":"unitree-robotics-shanghai-ipo","askedAt":"2026-08-20T01:14:18.767Z","remindedAt":"2026-08-21T08:09:36.560Z","messageId":1085}
