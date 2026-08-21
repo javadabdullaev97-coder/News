@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T17:20:00+05:00",
+  "lastRunAt": "2026-08-21T18:19:00+05:00",
   "topicsProcessed": 2,
-  "published": 1,
+  "published": 0,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 1,
   "needsVerification": 0,
-  "belowThreshold": 69,
-  "notes": "salah-trabzonspor снята с брони — тема уже отработана соседним прогоном (journal: done), в архиве два поста и карточка needs-verification. В производство пошла только sinner-us-open-uncertain (globalIcon 25 + topCompetition 15 = 40)."
+  "belowThreshold": 46,
+  "notes": "salah-trabzonspor снята с брони сразу — link уже done (соседний прогон). fury-joshua-fight-in-doubt-money: reporter+fact-checker (approve 92) отработали, но отклонена мной как редактором поручений — это 4-й подряд случай, когда topic-dupecheck.mjs пропускает развитие одной и той же саги (Фьюри-Джошуа, 7 публикаций за 5 дней), потому что каждый заход берёт новый первоисточник. Стоит завести владельцу явный cooldown-механизм для медленно тлеющих сюжетов."
 }

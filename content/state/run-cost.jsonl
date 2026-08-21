@@ -594,3 +594,6 @@
 {"run":"2026-08-21T13:08","stage":"editor","calls":2,"fetches":3,"minutes":10}
 {"run":"2026-08-21T13:08","stage":"bild","calls":1,"fetches":15,"minutes":9}
 {"run":"2026-08-21T13:09","topics":5,"published":0,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
+{"run":"2026-08-21T13:40","stage":"reporter","calls":1,"fetches":6,"minutes":12}
+{"run":"2026-08-21T13:40","stage":"fact-checker","calls":1,"fetches":5,"minutes":4}
+{"run":"2026-08-21T13:40","topics":1,"published":0,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
