@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T12:17:00+05:00",
-  "topicsProcessed": 29,
+  "lastRunAt": "2026-08-21T13:34:00+05:00",
+  "topicsProcessed": 41,
   "published": 0,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 29,
-  "notes": "Единственный сюжет с проходным баллом — Рыбакина снялась с травмой против Швёнтек в Цинциннати (globalIcon+iconVsIcon+topCompetition≈60) — уже опубликован ранее сегодня (content/posts/2026-08-21/sventek-rybakina-cincinnati.mdx, dupecheck possible/overlap 0.46). Единственная возможная развивающая деталь (Анисимова обыграла Пегулу) держится на одном ru-source без подтверждения WTA и сама по себе ниже порога — не взята. Остальное: РПЛ/низшие дивизионы (neverTake), рекламные ставки/прогнозы, превью-аналитика без события, трансфер Savinho/Tottenham без второго сигнала (35), F1 Macarena-wing — устарел (pubDate 18.08, staleNoNewStage)."
+  "belowThreshold": 40,
+  "notes": "Единственная проходная тема (Швёнтек/Рыбакина, ЧФ Цинциннати, globalIcon+iconVsIcon=45) прошла весь конвейер до editor publish, но оказалась дублем content/posts/2026-08-21/sventek-rybakina-cincinnati.mdx (тот же матч, тот же WTA-источник). topic-dupecheck на входе вернул clear: не совпал ни по ссылке (сверял сигнал sports.ru, не итоговые WTA-ссылки), ни по заголовку («Швентек» vs «Швёнтек»). Изъято из content/queue до подхвата публикатором. Остальные 40 — ниже порога (РПЛ, превью без события, Savinho+Marmoush/Tottenham — вне списков узнаваемости, только transferWithFee=20)."
 }
