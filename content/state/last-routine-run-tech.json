@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T18:02:00+05:00",
-  "topicsProcessed": 2,
-  "published": 1,
+  "lastRunAt": "2026-08-21T19:20:00+05:00",
+  "topicsProcessed": 4,
+  "published": 4,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 49,
-  "notes": "apple-vision-products-layoffs отклонена на reporter: единственное подтверждение — анонимный источник AppleInsider, MacRumors/9to5Mac пересказывают без независимой проверки; Bloomberg (Gurman) сегодняшний эпизод не подтвердил. Три другие дупликат-кандидата этого захода (tesla-solar-roof, nevada-robotaxi, alibaba-qwen) уже были опубликованы/в очереди/отклонены предыдущим прогоном этой же сессии — совпадение обнаружено topic-dupecheck.mjs, повторно не производились."
+  "belowThreshold": 38,
+  "notes": "openai-chatgpt-teens-safety изначально дублировала уже опубликованный 18.08 материал openai-launches-chatgpt-for-teens (topic-dupecheck пропустил из-за несовпадения заголовков) — обнаружено на стадии bild, editor переписал как развитие сюжета со ссылкой на прошлый текст. meta-ai-glasses-privacy вышла с publishedNotice (low-confidence 62%): цифры EssilorLuxottica не подтвердились напрямую, CNBC отдавал 403 трижды."
 }
