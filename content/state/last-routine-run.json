@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T08:40:00+05:00",
-  "topicsProcessed": 1,
+  "lastRunAt": "2026-08-21T10:05:00+05:00",
+  "topicsProcessed": 2,
   "published": 1,
   "queuedForOwner": 0,
-  "rejected": 0,
-  "needsVerification": 0,
-  "belowThreshold": 17,
-  "notes": "Местный поток: 17 новых item'ов, ни один не набрал порог 55 (погода/дежурные Telegram-посты, спорт, старые темы 18–20 августа без нового поворота). Мировой поток: выборы в однопалатный парламент Казахстана 23.08 прошли tier publishIfQuality (euro DW + anglo Bloomberg, 2 разных не-российских блока) — опубликована через полный цикл, confidence 82%."
+  "rejected": 1,
+  "needsVerification": 5,
+  "belowThreshold": 61,
+  "notes": "business-requirements-registry (сигнал Spot.uz) оказался дублем статьи от 18.08 — inbox-select dupecheck по ссылке сигнала дал clear, потому что первоисточник (t.me/huquqiyaxborot/20269) стал известен только после research reporter'ом; поймано вручную повторным topic-dupecheck после research, до fact-check. needs-verification: 11 матурировало, потолок 5 — обработаны banks/indonesia/tashkent-parkings/georgia-epermit (recheck) + nuclear (уже был рекрещён другим заходом в 04:38, только продвинут срок); первоисточник не нашёлся ни у одной. 6 карточек перенесены на след. прогон."
 }
