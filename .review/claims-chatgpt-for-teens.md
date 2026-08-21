@@ -1,0 +1,12 @@
+# Таблица цитат: chatgpt-for-teens
+
+| # | Утверждение в тексте | Источник | Дословная цитата из источника |
+|---|----------------------|----------|-------------------------------|
+| 1 | OpenAI запустила ChatGPT for Teens 18 августа 2026 | https://openai.com/index/chatgpt-for-teens/ | — прямой WebFetch вернул HTTP 403; дата подтверждена URL/датировкой материалов TechCrunch и 9to5Mac (оба опубликованы 2026-08-18 и прямо ссылаются на этот пост как источник) |
+| 2 | Версия предназначена для пользователей 13–17 лет | https://9to5mac.com/2026/08/18/chatgpt-for-teens-openai/ | «Target Age Group: 13-17 years old» (пересказ 9to5Mac поста OpenAI) |
+| 3 | Возраст определяется автоматически системой либо указывается вручную | https://9to5mac.com/2026/08/18/chatgpt-for-teens-openai/ | «OpenAI systems estimate a user is between 13 and 17» / «Manual: User directly states their age» |
+| 4 | Ограничения касаются самоповреждения, суицида, романтического и сексуального контента | https://openai.com/index/chatgpt-for-teens/ | — дословной цитаты нет: страница не открылась (403), в открытых источниках (TechCrunch, 9to5Mac) есть только обобщённая формулировка «content that may be harmful or developmentally inappropriate», без явного перечисления категорий |
+| 5 | Есть уведомления при признаках расстройств пищевого поведения | https://9to5mac.com/2026/08/18/chatgpt-for-teens-openai/ | «additional notifications related to eating disorders» |
+| 6 | Study Mode задаёт наводящие вопросы вместо готовых ответов и может включаться в отведённые часы | https://techcrunch.com/2026/08/18/openai-launches-a-safer-chatgpt-for-teens-years-after-teens-started-using-it/ | «Study Mode option will give teens guiding questions and step-by-step support to help them understand the material»; «It can activate automatically during designated Study Hours» |
+| 7 | Родители могут менять настройки, получать уведомления и устанавливать «тихие часы» | https://techcrunch.com/2026/08/18/openai-launches-a-safer-chatgpt-for-teens-years-after-teens-started-using-it/ | «Manage settings, receive safety notifications, and set Quiet Hours» |
+| 8 | Запуск идёт на фоне исков к OpenAI, связанных с отсутствием защит подростков от темы суицида | https://techcrunch.com/2026/08/18/openai-launches-a-safer-chatgpt-for-teens-years-after-teens-started-using-it/ | — дословной цитаты не зафиксировано; в выжимке TechCrunch указано на «Multiple lawsuits cited: Florida suit, cases involving teen suicides allegedly linked to AI chatbots' lack of safeguards» как пересказ содержания статьи |
