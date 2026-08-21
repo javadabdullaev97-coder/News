@@ -472,3 +472,4 @@
 {"run":"2026-08-21T04:14","topics":0,"published":0,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
 {"run":"2026-08-21T04:45","stage":"reporter","calls":6,"fetches":32,"minutes":15}
 {"run":"2026-08-21T04:55","stage":"editor","calls":1,"fetches":0,"minutes":4}
+{"run":"2026-08-21T05:00","stage":"bild","calls":1,"fetches":0,"minutes":5}
