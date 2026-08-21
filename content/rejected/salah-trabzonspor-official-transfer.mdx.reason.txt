@@ -1,0 +1,20 @@
+REJECTED as duplicate (orchestrator decision, sport-planyorka, rework cycle).
+
+content/posts/2026-08-17/trabzonspor-salah-free-agent-transfer.mdx already published
+2026-08-17 covering the SAME signing (Salah joins Trabzonspor as free agent,
+5 August 2026, 2-year deal, president Ertugrul Dogan's comment on the transfer).
+This rework draft was produced from Al Jazeera/Daily Sabah sources describing the
+same 5-6 August presentation and stalled in editor-queue on a "no-image" question;
+by the time the owner replied with a rework comment ("find a Salah-in-Trabzonspor-
+jersey photo"), the same underlying event had already been published independently
+12 days later from CBS Sports/TRT Spor sources with additional 16 August developments.
+
+topic-dupecheck.mjs returned "clear" only because its posts window covers 3 days
+and the sibling article is from 2026-08-17 (older than the window) — this is a
+known limitation of the automated check, not evidence the stories differ.
+Publishing this draft now would be a second article about an already-covered
+transfer with no new stage (same date, same contract terms, no fresh fact).
+
+Owner's rework comment addressed the image gate, not the duplicate — flagging
+this discovery in the run report/notification per planyorka-run.md rule 2's
+exception for a new circumstance surfacing during production.
