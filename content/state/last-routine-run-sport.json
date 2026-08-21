@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T15:26:00+05:00",
-  "topicsProcessed": 44,
+  "lastRunAt": "2026-08-21T16:14:00+05:00",
+  "topicsProcessed": 1,
   "published": 0,
-  "queuedForOwner": 0,
-  "rejected": 1,
+  "queuedForOwner": 1,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 43,
-  "notes": "Единственная тема, прошедшая порог 40 (Фьюри-Джошуа, boxing-news-online, globalIcon+iconVsIcon+negotiationStage=55), оказалась той же сагой о споре про площадку/деньги, что уже опубликована 7 раз за 5 дней, последний — сегодня в 01:00 (fury-joshua-matchroom-msg-terms). Reporter отработал (confidence 78), но перед fact-checker'ом обнаружено по content/posts, что новой стадии (дата, место, отмена, перенос, сумма, медосмотр) нет — отклонено вручную, topic-dupecheck.mjs дубль не поймал (третий подобный пробел на этой саге, см. content/rejected/fury-joshua-fight-uncertain.md). Остальные 43 — ниже порога 40 (сезонные превью, betting-контент, трансферные слухи без fee/icon, non-citable источники)."
+  "belowThreshold": 44,
+  "notes": "Единственная тема выше порога 40 (Салах-Трабзонспор, globalIcon+transferWithFee=45) прошла reporter/fact-check(approve-with-downgrades,72%)/editor(publish)/bild. Bild не нашёл кадр без риска по правам (все доступные фото — Reuters/AA агентские без лицензии, BBC — Getty; официальный сайт клуба отдаёт 403; AI-генерация недопустима для реального лица) → в needs-verification с pendingEditorQuestion reason no-image (bild изначально проставил source-doubt — поправлено вручную на no-image, т.к. картинки нет вообще, а не сомнение в уже найденной)."
 }
