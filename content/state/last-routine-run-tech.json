@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T11:09:00+05:00",
-  "topicsProcessed": 2,
-  "published": 1,
+  "lastRunAt": "2026-08-21T12:16:00+05:00",
+  "topicsProcessed": 1,
+  "published": 0,
   "queuedForOwner": 0,
-  "rejected": 1,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 25,
-  "notes": "google-marvell-custom-chip-deal (SEC 8-K Marvell/Google) прошёл reporter+fact-check (90%), но editor убил его на финальной стадии: дубликат content/posts/2026-08-20/google-marvell-chip-deal.mdx — тот же документ, topic-dupecheck на claim вернул clear (не поймал). В content/queue/ вдобавок ещё 2 непубликованных дубля той же темы (marvell-google-chip-deal, marvell-google-warrant-custom-chip-deal) — минимум 4 прохода конвейера по одному 8-K за двое суток, стоит поднять приоритет дедупа по URL первоисточника. Инструмент Write у reporter/fact-checker снова отклонял файлы `.review/reporter-notes-*.md` и `.review/*-notes.md` («report-файл») — записывал сам по тексту из ответа агента, как в прошлом прогоне. i18n-lint --fix задел два чужих уже опубликованных файла (tesla-semi-europe.uz, tesla-solar-roof-tile-discontinued.uz), подставив «foiz» вместо «%» в русскоязычное поле publishedNotice.why — это баг линтера (матчит служебные русские поля внутри .uz.mdx), откатил эти два файла, не коммитил порчу."
+  "belowThreshold": 17,
+  "notes": "Единственная прошедшая порог тема (tesla-robotaxi-nevada-expansion, NTA расширила разрешение Tesla до 5000 роботакси) прошла весь конвейер (reporter, fact-check 64%, editor publish, bild, translator), но на шаге постановки в очередь обнаружилась коллизия: параллельная сессия tech-планёрки уже поставила тот же сюжет в content/queue/nevada-robotaxis-tesla-uber-waymo (объединяет Tesla+Uber+Waymo, тот же вердикт/confidence). Разбор — .review/collision-note-tesla-robotaxi-nevada-expansion.md. Публикацию не дублировал, тему закрыл в журнале под слагом сиблинга. Остальные 17 кандидатов инбокса ниже порога (в т.ч. Windows 11 update issues — уже опубликовано ранее сегодня, отмечено как дубль)."
 }
