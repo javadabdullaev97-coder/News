@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T05:09:00+05:00",
-  "topicsProcessed": 3,
-  "published": 3,
+  "lastRunAt": "2026-08-21T06:13:00+05:00",
+  "topicsProcessed": 6,
+  "published": 4,
   "queuedForOwner": 0,
   "rejected": 0,
-  "needsVerification": 0,
-  "belowThreshold": 34,
-  "notes": "node_modules отсутствовал в свежем контейнере — npm ci перед claims-lint. Write у reporter/editor-агентов блокирует файлы с report-подобной структурой (заголовки источники/расхождения/слабые места) — заметки сохранял сам по тексту из ответа агента. Все 3 темы прошли tier1Floor (Apple, OpenAI, Samsung). i18n-lint отдельно показал утечку служебной разметки в уже опубликованных content/posts/2026-08-21/{pixel-gboard-gemini-suggestions,trump-iran-economic-warfare}.{en,uz}.mdx — не мои материалы, чужой прогон, нужна отдельная чистка."
+  "needsVerification": 1,
+  "belowThreshold": 14,
+  "notes": "Samsung (79 млрд $ выплат акционерам) — needs-verification: анонимный Bloomberg-слух с расходящимися цифрами (72/79/108 млрд), Samsung отказалась комментировать. apple-music-ai-labels прошла всю цепочку до bild, но обнаружилась как дубликат уже существующего content/queue/apple-music-ai-labels.mdx (другой прогон, лучше источники — Apple Music Metadata Spec + 9to5mac) — не публиковала, bild-агент сам поймал slug-коллизию файла картинки и восстановил чужой -01.jpg. Write у reporter/fact-checker блокирует файлы с report-подобным именем — notes/claims сохраняла сама по тексту ответа агента. Все reporter'ы проставляли publishedAt вместо queuedAt — поправила во всех 4 опубликованных материалах (ru+uz+en) перед постановкой в очередь. tg-score: ни одна тема не набрала техно-порог 70 для основного канала (макс. 40) — все ушли только в технологический канал."
 }
