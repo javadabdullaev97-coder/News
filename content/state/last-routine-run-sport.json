@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T13:34:00+05:00",
-  "topicsProcessed": 41,
+  "lastRunAt": "2026-08-21T14:16:00+05:00",
+  "topicsProcessed": 49,
   "published": 0,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 40,
-  "notes": "Единственная проходная тема (Швёнтек/Рыбакина, ЧФ Цинциннати, globalIcon+iconVsIcon=45) прошла весь конвейер до editor publish, но оказалась дублем content/posts/2026-08-21/sventek-rybakina-cincinnati.mdx (тот же матч, тот же WTA-источник). topic-dupecheck на входе вернул clear: не совпал ни по ссылке (сверял сигнал sports.ru, не итоговые WTA-ссылки), ни по заголовку («Швентек» vs «Швёнтек»). Изъято из content/queue до подхвата публикатором. Остальные 40 — ниже порога (РПЛ, превью без события, Savinho+Marmoush/Tottenham — вне списков узнаваемости, только transferWithFee=20)."
+  "belowThreshold": 49,
+  "notes": "Порог не прошла ни одна тема. Единственный кандидат, набиравший 40 (Рыбакина: globalIcon 25 + topCompetition 15, снятие с ЧФ Цинциннати перед US Open, sport:22/27), оказался повторным заходом на уже закрытый сюжет: опубликован content/posts/2026-08-21/sventek-rybakina-cincinnati.mdx (06:57) и дважды отклонён как дубликат до меня (content/rejected/rybakina-cincinnati-ankle-injury.mdx, editor-verdict в 09:12 — уже второй killed по тому же WTA-источнику 4563969). Reporter'а не запускала — дубль виден по editor-verdict без похода в сеть. Остальные 48 — ниже порога 40 (превью, интервью без второй стадии, betting-контент sport:48, трансферные слухи без fee/icon)."
 }
