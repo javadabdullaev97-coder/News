@@ -1,0 +1,16 @@
+REJECT: дубликат по topic-dupecheck.mjs (ретроактивная проверка, должна была
+пройти до запуска reporter'а — упущение планёрки, зафиксировано в отчёте).
+
+Ссылка https://www.bloomberg.com/news/articles/2026-08-20/anthropic-expects-to-match-spacex-s-record-ipo-size-or-top-it
+уже разобрана: content/queue/ai-labs-ipo-anthropic-openai.mdx (queuedAt
+2026-08-20T23:42, ещё не опубликован). Тот материал покрывает тот же
+инфоповод (Bloomberg 20.08 про IPO Anthropic на уровне SpaceX) плюс больше
+контекста (сравнение с OpenAI, revenue run rate, раунд Series H, оценка
+Financial Times/TechCrunch). Наш черновик — более узкая версия того же
+факта, самостоятельной фактуры сверх уже поставленного в очередь не несёт.
+
+fact-check (approve, 88%) и editor (publish) прошли до того, как
+обнаружился дубль — их работа не потрачена зря содержательно (текст
+качественный), но публиковать второй материал об одном и том же факте
+нельзя (redpolitika: 09/10 августа уже был прецедент с постановлением
+Кабмина, вышедшим дважды).
