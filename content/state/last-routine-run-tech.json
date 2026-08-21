@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T15:44:00+05:00",
-  "topicsProcessed": 1,
-  "published": 1,
+  "lastRunAt": "2026-08-21T17:15:00+05:00",
+  "topicsProcessed": 3,
+  "published": 2,
   "queuedForOwner": 0,
-  "rejected": 0,
+  "rejected": 1,
   "needsVerification": 0,
-  "belowThreshold": 48,
-  "notes": "Пул слабый (49 кандидатов из 1677, большая часть — обзоры/скидки/утечки без citable-источника). Samsung $80bn buyback (ft-tech) сознательно пропущен: тот же сюжет уже держит needs-verification/samsung-79b-shareholder-returns.md (заведён более ранним тек-прогоном по Bloomberg, recheckAt матурировал) — это забота основной планёрки, не моя."
+  "belowThreshold": 36,
+  "notes": "Samsung buyback дал ложный clear в topic-dupecheck.mjs (заголовки/первые ссылки не совпали настолько, чтобы сработать), хотя тот же инфоповод уже стоял в очереди под другим слагом (world, более ранняя планёрка). Обнаружено вручную по git log при разборе untracked-файлов, не автоматикой. Полная цепочка (reporter+fact-check 92%) сделана впустую — см. content/rejected/samsung-record-shareholder-return-2026.mdx.reason.txt."
 }
