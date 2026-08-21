@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T18:19:00+05:00",
+  "lastRunAt": "2026-08-21T19:24:00+05:00",
   "topicsProcessed": 2,
   "published": 0,
   "queuedForOwner": 0,
-  "rejected": 1,
+  "rejected": 2,
   "needsVerification": 0,
-  "belowThreshold": 46,
-  "notes": "salah-trabzonspor снята с брони сразу — link уже done (соседний прогон). fury-joshua-fight-in-doubt-money: reporter+fact-checker (approve 92) отработали, но отклонена мной как редактором поручений — это 4-й подряд случай, когда topic-dupecheck.mjs пропускает развитие одной и той же саги (Фьюри-Джошуа, 7 публикаций за 5 дней), потому что каждый заход берёт новый первоисточник. Стоит завести владельцу явный cooldown-механизм для медленно тлеющих сюжетов."
+  "belowThreshold": 53,
+  "notes": "salah-trabzonspor-official-transfer (rework, ждала фото по комментарию владельца) оказалась дублем уже опубликованного 17.08 trabzonspor-salah-free-agent-transfer — 3-я запись об одном трансфере; отклонена, а не доработана. fury-joshua-fight-off — 9-я попытка за 5 дней об одной саге (деньги/площадка), отклонена reporter'ом как повтор двух уже отклонённых сегодня питчей. Cooldown-механизм для тлеющих сюжетов, предложенный прошлым прогоном (18:19), всё ещё не заведён."
 }
