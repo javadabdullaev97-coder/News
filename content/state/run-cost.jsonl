@@ -585,3 +585,5 @@
 {"run":"2026-08-21T12:42","stage":"translator","calls":1,"fetches":0,"minutes":2}
 {"run":"2026-08-21T12:42","topics":2,"published":1,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
 {"run":"2026-08-21T12:45","stage":"reporter","calls":5,"fetches":0,"minutes":0}
+{"run":"2026-08-21T12:53","stage":"reporter","calls":0,"fetches":33,"minutes":7}
+{"run":"2026-08-21T12:53","stage":"fact-checker","calls":2,"fetches":0,"minutes":0}
