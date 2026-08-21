@@ -441,3 +441,4 @@
 {"run":"2026-08-21T01:35","stage":"reporter","calls":1,"fetches":5,"minutes":6}
 {"run":"2026-08-21T01:35","stage":"fact-checker","calls":1,"fetches":3,"minutes":3}
 {"run":"2026-08-21T01:35","topics":1,"published":1,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
+{"run":"2026-08-21T01:41","topics":0,"published":0,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
