@@ -1,0 +1,30 @@
+---
+title: "Microsoft Patches Critical Entra ID Flaw — Already Exploited by Hackers, Company Says"
+description: "Microsoft fixed a critical flaw in Entra ID, the service employees use to log in — according to Microsoft, it had already been exploited in attacks; the patch was installed automatically."
+updatedAt: "2026-08-21T16:40:00+05:00"
+queuedAt: "2026-08-21T17:12:00+05:00"
+category: "tech"
+tags: ["Microsoft", "Entra ID", "cybersecurity"]
+authors: ["reporter", "editor"]
+sources:
+  - name: "MSRC Security Advisory — CVE-2026-69836"
+    url: "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69836"
+  - name: "The Hacker News"
+    url: "https://thehackernews.com/2026/08/microsoft-entra-id-flaw-cvss-100.html"
+image:
+  url: "/images/posts/2026-08/microsoft-entra-id-critical-flaw-patched-01.jpg"
+  alt: "A metal padlock on a computer keyboard symbolizing digital security and protecting access to corporate systems"
+  credit: "Unsplash / Sasun Bughdaryan"
+tgScore: 20
+broadcast: false
+lang: "en"
+translatedFrom: "ru"
+---
+
+Microsoft said on August 21 that it had found a critical vulnerability with the maximum risk score in Entra ID, the cloud service organizations' employees use to log in to Microsoft 365 and Azure. The risk score is 10 out of 10 on the CVSS scale, the international system for rating the severity of vulnerabilities, and according to Microsoft, it had already been exploited in attacks. The company did not disclose the scale of the attacks or their source.
+
+The vulnerability was assigned the identifier CVE-2026-69836 in the international vulnerability registry. The cause was a data-processing flaw: the service accepted specially crafted packets without verification and turned them into working objects. As a result, an attacker could remotely execute code on the server without a password or any user involvement, [according to a summary of Microsoft's security bulletin](https://thehackernews.com/2026/08/microsoft-entra-id-flaw-cvss-100.html).
+
+The vulnerability affected Entra ID — formerly Azure Active Directory, the service used to sign in to Microsoft 365, Azure and third-party corporate applications. Organizations around the world use the service. [According to Microsoft](https://thehackernews.com/2026/08/microsoft-entra-id-flaw-cvss-100.html), the vulnerability has already been fully fixed on the company's side: the patch was installed automatically on Entra ID servers, since it is a fully managed cloud service. Users do not need to download anything or change any settings.
+
+Microsoft disclosed neither the number of affected organizations nor the technical chain of the attack — the company limited itself to a general warning to those who use Entra ID.
