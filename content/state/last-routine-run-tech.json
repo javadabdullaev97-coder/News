@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T13:14:00+05:00",
-  "topicsProcessed": 4,
-  "published": 4,
+  "lastRunAt": "2026-08-21T14:10:00+05:00",
+  "topicsProcessed": 1,
+  "published": 1,
   "queuedForOwner": 0,
   "rejected": 0,
   "needsVerification": 0,
   "belowThreshold": 916,
-  "notes": "1 из 4 тем (ai-usage-research-vs-reported) вышла маршрутом notice/low-confidence (68%, ниже гейта 70%) — фактчек поймал вымышленного третьего автора исследования, editor убрал перед публикацией. Остальные 3 — approve/approve-with-downgrades ≥74%, обычным путём directPublish."
+  "notes": "Инбокс дал только 33 кандидата после отсечки 'смотрел и не взял ранее' (916). Единственная тема (Nvidia-Rebellions) прошла порог через tier1Floor (Nvidia). VK vs Apple lawsuit отсеян дедупом — уже публиковался сегодня (vk-sues-apple-appstore). Reporter не смог открыть страницу Bloomberg (403), фактчек 68% — ниже гейта 70%, материал ушёл маршрутом notice/low-confidence."
 }
