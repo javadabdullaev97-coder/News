@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T15:14:00+05:00",
-  "topicsProcessed": 5,
-  "published": 3,
+  "lastRunAt": "2026-08-21T15:44:00+05:00",
+  "topicsProcessed": 1,
+  "published": 1,
   "queuedForOwner": 0,
-  "rejected": 2,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 41,
-  "notes": "2 из 5 отобранных тем оказались дублями уже обработанных другими прогонами тем же днём, но topic-dupecheck --batch пропустил оба (разные source-URL, слабое совпадение заголовка): Broadcom-долг пойман только fact-checker'ом (уже был content/posts/.../broadcom-ai-chip-debt-financing.mdx), Nevada-robotaxi — только editor'ом, и это уже ТРЕТИЙ независимый заход на один сюжет NTA/Tesla/Uber/Waymo за день. Стоит проверить, почему topic-dupecheck не ловит одно событие при разных первоисточниках у конкурирующих reporter'ов."
+  "belowThreshold": 48,
+  "notes": "Пул слабый (49 кандидатов из 1677, большая часть — обзоры/скидки/утечки без citable-источника). Samsung $80bn buyback (ft-tech) сознательно пропущен: тот же сюжет уже держит needs-verification/samsung-79b-shareholder-returns.md (заведён более ранним тек-прогоном по Bloomberg, recheckAt матурировал) — это забота основной планёрки, не моя."
 }
