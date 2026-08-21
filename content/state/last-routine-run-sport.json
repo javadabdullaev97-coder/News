@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T19:24:00+05:00",
-  "topicsProcessed": 2,
-  "published": 0,
+  "lastRunAt": "2026-08-21T20:16:00+05:00",
+  "topicsProcessed": 1,
+  "published": 1,
   "queuedForOwner": 0,
-  "rejected": 2,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 53,
-  "notes": "salah-trabzonspor-official-transfer (rework, ждала фото по комментарию владельца) оказалась дублем уже опубликованного 17.08 trabzonspor-salah-free-agent-transfer — 3-я запись об одном трансфере; отклонена, а не доработана. fury-joshua-fight-off — 9-я попытка за 5 дней об одной саге (деньги/площадка), отклонена reporter'ом как повтор двух уже отклонённых сегодня питчей. Cooldown-механизм для тлеющих сюжетов, предложенный прошлым прогоном (18:19), всё ещё не заведён."
+  "belowThreshold": 67,
+  "notes": "Единственный сюжет, прошедший порог 40 (Синнер снялся с US Open, 25 globalIcon + 15 topCompetition), — развитие уже опубликованного сегодня материала sinner-us-open-uncertain, взят как отдельная статья со ссылкой на предыдущую. Bild не нашёл фото Синнера с подтверждёнными правами у Sky Sports/Tennis365/Tennis Majors — поставил нейтральный сток без лица. FIFA/Паредес (7 источников, WC-дисквалификация) и Уоткинс-Аль-Хиляль (30 баллов) не дотянули до 40 по конфигу."
 }

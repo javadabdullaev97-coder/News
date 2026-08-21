@@ -627,3 +627,4 @@
 {"run":"2026-08-21T15:36","stage":"bild","calls":4,"fetches":0,"minutes":10}
 {"run":"2026-08-21T15:36","stage":"translator","calls":4,"fetches":0,"minutes":10}
 {"run":"2026-08-21T15:36","topics":4,"published":4,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
+{"run":"2026-08-21T15:37","topics":1,"published":1,"skippedFactcheck":0,"skippedBild":0,"readCost":168780}
