@@ -1,10 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T10:32:00+05:00",
-  "topicsProcessed": 21,
+  "lastRunAt": "2026-08-21T11:16:00+05:00",
+  "topicsProcessed": 30,
   "published": 0,
   "queuedForOwner": 0,
-  "rejected": 1,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 20,
-  "notes": "1 тема прошла порог 40 (Рыбакина/Швёнтек, Cincinnati, globalIcon+topCompetition=40) и дошла до editor, но killed: дубликат уже опубликованного content/posts/2026-08-21/sventek-rybakina-cincinnati.mdx — тот же первоисточник wtatennis.com/news/4563969, тема уже была отклонена ранее сегодня как rybakina-retires-cincinnati-ankle-injury. topic-dupecheck.mjs на момент claim (05:16) вернул clear — коллизия произошла из-за параллельного прогона, опубликовавшего тему между claim и editor-стадией. 20 остальных кандидатов ниже порога: рутинные ru-sport трансферные цитаты, CBS превью/рейтинги/беттинг, слух PSG без citable-источника. Известный баг с CBS Sports ссылками (embedded newline в RSS-link ломает hash-сверку topic-journal review) снова наблюдается — те же URL продолжают предъявляться повторно."
+  "belowThreshold": 30,
+  "notes": "Пул тонкий (30 fresh из 2972, 830 уже отмечено below-threshold прошлым прогоном 10:32). Ни одна тема не прошла порог 40. Ближе всего: Al-Hilal/Casadó (football-espana, citable) — transferWithFee+negotiationStage=30, не хватило второго сигнала; Savinho/Tottenham verbal agreement — только caughtoffside (citable:false), rumorWithoutCitableSource; Williams sisters Cincinnati comeback loss — Серена в legends, но это не голос/заявление, а обычное поражение раннего круга. IOC-Russia/FIFA-UEFA от CBS не ложится ни в одну категорию sport.score и не мировая тема (world к спорту не применяется). Известный баг с embedded newline в CBS Sports RSS-link по-прежнему наблюдается."
 }
