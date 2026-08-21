@@ -563,3 +563,4 @@
 {"run":"2026-08-21T11:21","stage":"reporter","calls":1,"fetches":6,"minutes":4}
 {"run":"2026-08-21T11:28","stage":"fact-checker","calls":1,"fetches":2,"minutes":5}
 {"run":"2026-08-21T11:33","stage":"editor","calls":1,"fetches":0,"minutes":4}
+{"run":"2026-08-21T11:39","stage":"bild","calls":1,"fetches":0,"minutes":6}
