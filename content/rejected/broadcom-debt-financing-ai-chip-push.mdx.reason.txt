@@ -1,0 +1,18 @@
+REJECTED as duplicate (fact-checker verdict, tech planyorka run 2026-08-21 09:45).
+
+content/posts/2026-08-21/broadcom-ai-chip-debt-financing.mdx already published
+2026-08-21T07:51+05:00, covering the SAME Bloomberg report (20 August) about
+Broadcom's talks with Blackstone and Apollo Global Management for up to $100B
+in debt financing for AI infrastructure — same tranche structure ($30B junior
++ $60-70B senior-secured), same June $35B Anthropic partnership context.
+
+This draft was produced independently by a second reporter working from
+different secondary sources (Reuters/Yahoo Finance + DigiTimes instead of
+SiliconANGLE) after tech-planyorka's inbox-select and topic-dupecheck did not
+catch the collision (different source URLs, no strong title match against
+the already-queued/published article). Fact-checker also found one
+unsupported claim: a sentence attributing "one of the largest AI
+infrastructure financings" to Reuters, which does not appear in the full
+Reuters/Yahoo Finance text (checked paragraph by paragraph).
+
+Full fact-check: .review/fact-check-broadcom-debt-financing-ai-chip-push.md
