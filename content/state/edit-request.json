@@ -1,17 +1,15 @@
 {
   "$comment": [
-    "Заявка на правку уже отправленных постов в Telegram.",
-    "Обрабатывает scripts/edit-posts.mjs (workflow edit-posts.yml на пуш этого файла).",
-    "Причина: из заголовков убраны названия изданий — правило редполитики §4",
-    "«названия издания в заголовке нет». Источник назван в лиде и в тексте."
+    "Заявка исполнена и обнулена скриптом.",
+    "",
+    "Как править текст уже отправленных постов: впиши слаги в slugs.",
+    "Текст собирается заново из текущего состояния статьи — сначала",
+    "правится статья в репозитории, потом сюда идёт её слаг."
   ],
-  "slugs": [
-    "navarrete-foster-unification-oct24-san-antonio",
-    "nvidia-3bn-sb-energy-openai-ohio",
-    "openai-ipo-turmoil-safety-team",
-    "stripe-openrouter-7bn-ai-deal",
-    "apple-airpods-camera-leak",
-    "stripe-openrouter-7bn-deal-bloomberg",
-    "xiaomi-xring-o3-chip-tsmc-n3p"
-  ]
+  "slugs": [],
+  "lastRun": {
+    "at": "2026-08-21T23:40:26.337Z",
+    "edited": 11,
+    "unchanged": 5
+  }
 }
