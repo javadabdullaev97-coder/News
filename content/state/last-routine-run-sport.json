@@ -1,11 +1,10 @@
 {
-  "lastRunAt": "2026-08-21T08:32:00+05:00",
-  "topicsProcessed": 1,
+  "lastRunAt": "2026-08-21T09:14:00+05:00",
+  "topicsProcessed": 12,
   "published": 0,
   "queuedForOwner": 0,
-  "rejected": 1,
+  "rejected": 0,
   "needsVerification": 0,
-  "belowThreshold": 27,
-  "notes": "1 тема прошла порог (Рыбакина/Свёнтек, Цинциннати, 60 баллов), editor убил её на финальной стадии: дубликат content/posts/2026-08-21/sventek-rybakina-cincinnati.mdx (06:57). topic-dupecheck.mjs дубликат не поймал ни разу — разные заголовки, разные ссылки-кластера (sport-express vs wtatennis.com). Отдельно: 7 позиций CBS Sports Soccer не review-мечаются — RSS отдаёт ссылку с embedded \\n/пробелами, topic-journal.mjs делает .trim(), CLI не даёт передать нетримленную строку — тема виснет в выборке каждый заход (seenTimes 16/27/30/35 и растёт)."
+  "belowThreshold": 12,
+  "notes": "12 свежих кандидатов, ни один не прошёл порог 40 (пять рутинных трансферных цитат ru-sport, шесть CBS Sports превью/рейтингов/беттинга, один спекулятивный CBS-разбор решения МОК по России без первоисточника). Мировые кандидаты не считаются — секция world к спорту не применяется. Известный баг сохраняется: 6 ссылок CBS Sports содержат embedded-переводы строк в RSS-link, topic-journal.mjs делает .trim() внутри CLI, из-за чего хеш отметки review не совпадает с хешем, которым inbox-select.mjs индексирует item — те же URL будут снова предъявляться каждый час, пока баг не починят."
 }
-
