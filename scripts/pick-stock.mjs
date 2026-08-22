@@ -49,23 +49,65 @@ const has = (name) => args.includes(`--${name}`);
 
 const manifest = JSON.parse(readFileSync(MANIFEST, "utf8"));
 
+// Кадр считается занятым не только на сайте, но и во всём, что ещё выйдет.
+//
+// 21.08.2026 два материала про курс доллара вышли подряд с одним и тем же
+// снимком башен ЦБ. Оба брали кадр из фототеки, и оба были правы: первый
+// в этот момент лежал в content/queue, а туда ротация не смотрела —
+// только в content/posts. Материал, который сегодня в очереди, завтра
+// в ленте, и для читателя разницы нет.
+const PENDING = ["content/queue", "content/needs-verification", "content/rework"];
+
+function noteUse(seen, url, day, slug) {
+  if (!url?.startsWith("/images/stock/")) return;
+  const prev = seen.get(url);
+  if (!prev || day > prev.day) seen.set(url, { day, slug, count: prev?.count });
+  const rec = seen.get(url);
+  rec.count = (rec.count ?? 0) + 1;
+}
+
+/**
+ * Адрес картинки статьи — из блока `image:`, а не первый попавшийся `url:`.
+ *
+ * Раньше брался именно первый, и это ломало ротацию целиком: во frontmatter
+ * выше `image:` стоит список `sources:`, у каждого источника свой `url:`.
+ * Скрипт читал ссылку на первоисточник, она не начиналась с /images/stock/,
+ * и кадр считался ни разу не выходившим. Ни разу не выходившими были ВСЕ
+ * кадры всегда, сортировка «по давности» превращалась в сортировку по имени
+ * файла, и по каждой теме выдавался один и тот же снимок. Отсюда две
+ * соседние статьи 21.08.2026 с одинаковым фото башен ЦБ.
+ */
+function stockUrlOf(text) {
+  const head = text.split(/\n---/, 1)[0];
+  const block = head.match(/^image:\s*\n((?:[ \t]+.*\n?)*)/m);
+  if (!block) return undefined;
+  return (block[1].match(/^\s*url:\s*"([^"]*)"/m) ?? [])[1];
+}
+
 /** Когда каждый файл фототеки в последний раз ставили в статью. */
 function lastUsed() {
   const seen = new Map();
-  if (!existsSync(POSTS)) return seen;
-  for (const day of readdirSync(POSTS).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d))) {
-    for (const f of readdirSync(join(POSTS, day))) {
-      if (!f.endsWith(".mdx")) continue;
-      // Переводы указывают тот же файл, что и оригинал, — считать их
-      // отдельными выходами нельзя, иначе счётчик утроится.
-      if (/\.(uz|en)\.mdx$/.test(f)) continue;
-      const head = readFileSync(join(POSTS, day, f), "utf8").split(/\n---/, 1)[0];
-      const url = (head.match(/^\s*url:\s*"([^"]*)"/m) ?? [])[1];
-      if (!url?.startsWith("/images/stock/")) continue;
-      const prev = seen.get(url);
-      if (!prev || day > prev.day) seen.set(url, { day, slug: f.replace(/\.mdx$/, "") });
-      const rec = seen.get(url);
-      rec.count = (rec.count ?? 0) + 1;
+  if (existsSync(POSTS)) {
+    for (const day of readdirSync(POSTS).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d))) {
+      for (const f of readdirSync(join(POSTS, day))) {
+        if (!f.endsWith(".mdx")) continue;
+        // Переводы указывают тот же файл, что и оригинал, — считать их
+        // отдельными выходами нельзя, иначе счётчик утроится.
+        if (/\.(uz|en)\.mdx$/.test(f)) continue;
+        noteUse(seen, stockUrlOf(readFileSync(join(POSTS, day, f), "utf8")), day, f.replace(/\.mdx$/, ""));
+      }
+    }
+  }
+  // Ещё не вышедшее датируется завтрашним днём: так оно заведомо новее
+  // всего опубликованного и уходит в самый хвост ротации. Настоящей даты
+  // выхода у него ещё нет — её поставит публикатор.
+  const tomorrow = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
+  for (const dir of PENDING) {
+    const abs = join(ROOT, dir);
+    if (!existsSync(abs)) continue;
+    for (const f of readdirSync(abs)) {
+      if (!f.endsWith(".mdx") || /\.(uz|en)\.mdx$/.test(f)) continue;
+      noteUse(seen, stockUrlOf(readFileSync(join(abs, f), "utf8")), tomorrow, f.replace(/\.mdx$/, ""));
     }
   }
   return seen;
@@ -80,13 +122,28 @@ const withUsage = manifest.photos.map((p) => ({
 }));
 
 if (has("list")) {
+  // Мелкие кадры в списке помечаем прямо в строке. Без пометки они выглядят
+  // самыми привлекательными: «выходов 0, последний никогда» — то есть свежими.
+  // Так 21.08.2026 в материал ушёл кадр 547×360: бильд посмотрел --list
+  // глазами вместо --topic, увидел неиспользованный снимок и взял его.
+  // Карточка для Instagram по нему не собралась.
   for (const p of withUsage) {
+    const verdict =
+      p.width < SOCIAL_MIN_WIDTH
+        ? "  ✗ МЕЛКИЙ, в статью не ставить"
+        : p.width < HERO_MIN_WIDTH
+          ? "  — не для героя"
+          : "";
     console.log(
       `${p.file.padEnd(38)} ${String(p.width).padStart(4)}px  ` +
         `выходов ${String(p.timesUsed).padStart(2)}  ` +
-        `последний ${p.lastDay ?? "никогда"}  [${p.topics.join(", ")}]`,
+        `последний ${p.lastDay ?? "никогда"}  [${p.topics.join(", ")}]${verdict}`,
     );
   }
+  console.error(
+    `\n--list — только чтобы посмотреть, что вообще есть. Выбирать им нельзя: ` +
+      `ротацию считает --topic, и он же не отдаст кадр уже ${SOCIAL_MIN_WIDTH} px.`,
+  );
   process.exit(0);
 }
 
@@ -112,6 +169,36 @@ if (!pool.length) {
     `в фототеке нет кадров по теме «${topic}», годных для карточки` +
       `${has("hero") ? ` и героя (от ${HERO_MIN_WIDTH} px)` : ` (от ${SOCIAL_MIN_WIDTH} px)`}` +
       ". Ищи снимок обычным путём — у первоисточника или в стоке.",
+  );
+  process.exit(1);
+}
+
+// Два материала подряд с одним и тем же кадром — брак, который видно
+// с первого взгляда на ленту. 21.08.2026 так вышли две соседние статьи
+// про курс доллара с одинаковым фото башен ЦБ.
+//
+// Ротация «самый давно не выходивший» этого не ловит, когда пригодный кадр
+// по теме один: он же и самый давний, и самый свежий одновременно. Поэтому
+// кадр, уже занятый сегодняшним днём или лежащий в очереди, из выдачи
+// убирается совсем.
+//
+// Именно сутки, а не «предыдущий материал»: библиотека маленькая, и запрет
+// на повтор вообще выключил бы её почти целиком — бильд ходил бы к
+// первоисточнику за каждым материалом про курс, а это лишние фетчи. Сутки
+// разводят соседей по ленте и оставляют кадру право выйти завтра.
+const today = new Date(Date.now() + 5 * 3_600_000).toISOString().slice(0, 10);
+const busy = pool.filter((p) => p.lastDay && p.lastDay >= today);
+if (busy.length && busy.length < pool.length) {
+  console.error(
+    `[pick-stock] занято сегодняшними материалами, пропускаю: ` +
+      busy.map((p) => `${p.file} (${p.lastSlug ?? "?"})`).join(", "),
+  );
+  pool = pool.filter((p) => !busy.includes(p));
+} else if (busy.length) {
+  console.error(
+    `[pick-stock] все кадры темы «${topic}» уже стоят в сегодняшних материалах ` +
+      `(${busy.map((p) => p.file).join(", ")}). Второй раз за день один и тот же ` +
+      "снимок в ленту не идёт — возьми фото у первоисточника.",
   );
   process.exit(1);
 }

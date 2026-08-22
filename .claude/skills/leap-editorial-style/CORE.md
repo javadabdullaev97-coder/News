@@ -1,5 +1,5 @@
 <!-- digest-of: .claude/skills/leap-editorial-style/references/policy.md
-     sha256: 1b52185902d5517b9b54ce3560af292798c16aa1d40ef0c36c4afdcb42a58626
+     sha256: 16632c1087f9a356b71ad57dfc5f85148f453da75fb57f6e598ec61457455b32
      Это выжимка редполитики для оркестратора планёрки: отбор тем,
      маршрутизация, вопросы владельцу. Пишущие агенты читают свой срез
      (config/generated/policy-<роль>.md) — им выжимки недостаточно.

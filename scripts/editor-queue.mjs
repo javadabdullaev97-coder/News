@@ -400,10 +400,7 @@ function promoteToPosts(file, slug) {
   let text = readFileSync(file, "utf8")
     .replace(/^status:\s*["']?needs-verification["']?\s*\n/m, "")
     .replace(/^recheckAt:.*\n/m, "");
-  if (!/^queuedAt:/m.test(text)) {
-    const stamp = new Date(Date.now() + 5 * 3600 * 1000).toISOString().slice(0, 16) + ":00+05:00";
-    text = text.replace(/^(title:.*\n)/m, `$1queuedAt: "${stamp}"\n`);
-  }
+  text = restampQueuedAt(text);
   writeFileSync(dest, text);
   unlinkSync(file);
 
@@ -422,10 +419,7 @@ function promoteToPosts(file, slug) {
       .replace(/^status:\s*["']?needs-verification["']?\s*\n/m, "")
       .replace(/^recheckAt:.*\n/m, "");
     tr = dropFrontmatterField(tr, "awaitingEditor");
-    if (!/^queuedAt:/m.test(tr)) {
-      const stamp = new Date(Date.now() + 5 * 3600 * 1000).toISOString().slice(0, 16) + ":00+05:00";
-      tr = tr.replace(/^(title:.*\n)/m, `$1queuedAt: "${stamp}"\n`);
-    }
+    tr = restampQueuedAt(tr);
     writeFileSync(join(destDir, `${slug}.${lang}.mdx`), tr);
     unlinkSync(src);
     moved.push(lang);
@@ -433,6 +427,22 @@ function promoteToPosts(file, slug) {
   const langNote = moved.length ? ` +${moved.join("/")}` : "";
   console.error(`[queue] ${slug}${langNote}: одобрен → content/queue (выпустит публикатор)`);
   return dest;
+}
+
+/**
+ * Ставит queuedAt в момент одобрения, ЗАМЕНЯЯ старое значение.
+ *
+ * Замена, а не «поставить, если пусто». Материал попадает сюда из папки
+ * вопросов, где он мог пролежать сутки и больше, и старое queuedAt —
+ * это момент, когда он туда лёг, а не момент, когда владелец сказал
+ * «выпускай». С прежним значением публикатор считал бы его протухшим
+ * ровно в ту секунду, когда получил обратно, и отправил бы владельцу
+ * тот же вопрос по кругу.
+ */
+function restampQueuedAt(text) {
+  const stamp = new Date(Date.now() + 5 * 3600 * 1000).toISOString().slice(0, 16) + ":00+05:00";
+  if (/^queuedAt:/m.test(text)) return text.replace(/^queuedAt:.*$/m, `queuedAt: "${stamp}"`);
+  return text.replace(/^(title:.*\n)/m, `$1queuedAt: "${stamp}"\n`);
 }
 
 function setFrontmatterField(text, key, value) {

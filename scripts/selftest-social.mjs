@@ -175,6 +175,29 @@ function writePost(root, { date, name, title, lang, extra = "" }) {
   ok(items.length === 0 && /картинк/.test(skipped[0].why), "без картинки не публикуем, а ждём");
 }
 
+// ── окно свежести: протухшее не догоняем ──────────────────────────────
+{
+  const root = fresh();
+  writePost(root, { date: "2026-08-20", name: "svezhaya", title: "Вчерашняя" });
+  writePost(root, { date: "2026-08-16", name: "protuhla", title: "Пятидневной давности" });
+  const withWindow = { ...CONFIG, pacing: { maxAgeHours: 36 } };
+  const opts = { siteUrl: "https://leap.uz", now: new Date("2026-08-21T09:00:00Z") };
+
+  const { items, skipped } = collectPublishable(root, withWindow, opts);
+  const slugs = items.map((i) => i.slug);
+  ok(slugs.includes("svezhaya"), "материал внутри окна публикуется");
+  ok(
+    !slugs.includes("protuhla") && skipped.some((s) => /не догоняем/.test(s.why)),
+    "материал старше окна выброшен и объяснён (иначе после простоя лента догоняет старьём)",
+  );
+
+  const { items: all } = collectPublishable(root, CONFIG, opts);
+  ok(
+    all.length === 2,
+    "без pacing.maxAgeHours окно выключено — старое поведение не меняется",
+  );
+}
+
 // ── startAt не заполнен: постинг выключен целиком ─────────────────────
 {
   const root = fresh();

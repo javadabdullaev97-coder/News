@@ -96,6 +96,34 @@ function planyorkaMinutes() {
   return [0];
 }
 
+/**
+ * Сколько часов материал имеет право пролежать в очереди, прежде чем
+ * перестанет быть новостью.
+ *
+ * 18.08.2026 корреспондент написал про курс доллара на 19 августа. 19-го
+ * встали GitHub Actions, планёрок не было весь день, и материал пролежал
+ * в очереди трое суток. 21-го он вышел — минута в минуту рядом со свежим
+ * материалом про разворот курса, который его же и опровергал: в одном
+ * заголовке «минимум 11 820,40 сума», в соседнем «минимум 11 794,88 сума».
+ * Подписчики получили оба поста подряд, с разницей в одну минуту.
+ *
+ * Очередь считает, когда материал выпустить, но не проверяет, стоит ли
+ * вообще. Это и проверяется здесь: пролежавшее дольше срока не выходит
+ * молча — оно уходит владельцу с вопросом, как материал без картинки.
+ */
+function maxQueueAgeHours() {
+  try {
+    const cfg = JSON.parse(readFileSync(join(ROOT, "config/newsroom-policy.json"), "utf8"));
+    const h = Number(cfg?.publishing?.maxQueueAgeHours);
+    if (Number.isFinite(h) && h > 0) return h;
+  } catch {
+    // Политика не прочиталась — работаем без отсечки, как раньше.
+  }
+  return 0;
+}
+
+const MAX_QUEUE_AGE_HOURS = maxQueueAgeHours();
+
 function nextBatchAt(now) {
   const d = new Date(now);
   const m = d.getUTCMinutes();
@@ -216,7 +244,7 @@ function publishedKeys() {
 
 const knownArticles = publishedKeys();
 
-import { duplicateOfPublished } from "../lib/topic-dupe.mjs";
+import { duplicateOfPublished, pendingSourceUrls } from "../lib/topic-dupe.mjs";
 
 // Сверка «один ли это сюжет» живёт в lib/topic-dupe.mjs: её же
 // вызывает планёрка сразу после корреспондента.
@@ -248,11 +276,27 @@ function blockedReason(item) {
   // его под вопрос — подписчики получили мёртвую ссылку.
   if (item.fm?.pendingEditorQuestion) return "стоит неснятый вопрос владельцу";
   if (!item.hasImage) return "нет картинки (gates.requiresImage)";
+  const stale = staleReason(item);
+  if (stale) return stale;
   const problem = contentProblem(item);
   if (problem) return problem;
   const dupe = duplicateOfPublished(item, POSTS_DIR);
   if (dupe) return `дубль темы — ${dupe}`;
   return null;
+}
+
+/**
+ * Материал пролежал в очереди дольше, чем новость остаётся новостью.
+ * Срочные — жёстче: у breaking срок жизни короче обычного.
+ */
+function staleReason(item) {
+  if (!MAX_QUEUE_AGE_HOURS) return null;
+  const t = Date.parse(item.queuedAt ?? "");
+  if (!Number.isFinite(t)) return null;
+  const limit = item.urgency === "breaking" ? MAX_QUEUE_AGE_HOURS / 2 : MAX_QUEUE_AGE_HOURS;
+  const ageHours = (Date.now() - t) / 3_600_000;
+  if (ageHours <= limit) return null;
+  return `протух в очереди: лежит ${Math.round(ageHours)} ч при пределе ${Math.round(limit)} ч`;
 }
 
 /** Проставляет publishedAt и убирает служебное queuedAt. */
@@ -365,18 +409,27 @@ for (const b of blocked) {
 // Ничего нового изобретать не нужно.
 if (!dryRun && !flag("plan")) {
   for (const b of blocked) {
-    if (b.why !== "нет картинки (gates.requiresImage)") continue;
+    const noImage = b.why === "нет картинки (gates.requiresImage)";
+    // Протухшее уходит той же дорогой и по той же причине: молча
+    // заблокированный материал завис бы в очереди навсегда. Разница
+    // только в вопросе — тут спрашиваем не фото, а нужно ли это вообще.
+    const stale = b.why.startsWith("протух в очереди");
+    if (!noImage && !stale) continue;
     const nv = join(ROOT, "content/needs-verification");
     mkdirSync(nv, { recursive: true });
-    const question =
-      `Материал готов к выходу, но картинки нет — ни в первоисточнике, ни в стоке. ` +
-      `Пришлите фото реплаем на это сообщение, и я выпущу материал с ним. ` +
-      `Ответ «стоп» — сниму материал совсем. Без картинки не публикую.`;
+    const question = noImage
+      ? `Материал готов к выходу, но картинки нет — ни в первоисточнике, ни в стоке. ` +
+        `Пришлите фото реплаем на это сообщение, и я выпущу материал с ним. ` +
+        `Ответ «стоп» — сниму материал совсем. Без картинки не публикую.`
+      : `Материал пролежал в очереди дольше срока и как новость устарел: ${b.why}. ` +
+        `Сам публиковать не буду — за это время факты могли смениться, ` +
+        `а рядом мог выйти материал, который его опровергает. ` +
+        `Ответ «выпускай» — выпущу как есть, «стоп» — сниму совсем.`;
     let raw = b.item.raw;
     if (!/^pendingEditorQuestion:/m.test(raw)) {
       raw = raw.replace(
         /^(title:.*\n)/m,
-        `$1awaitingEditor: true\npendingEditorQuestion:\n  reason: "no-image"\n  question: ${JSON.stringify(question)}\n`,
+        `$1awaitingEditor: true\npendingEditorQuestion:\n  reason: "${noImage ? "no-image" : "stale"}"\n  question: ${JSON.stringify(question)}\n`,
       );
     }
     // Сначала правим исходный файл, потом переносим. Обратный порядок
@@ -384,7 +437,15 @@ if (!dryRun && !flag("plan")) {
     // материал уезжал молча и владельца никто не спрашивал.
     writeFileSync(b.item.path, raw);
     renameSync(b.item.path, join(nv, b.item.file));
-    console.error(`  → ${b.item.slug} уехал в needs-verification: спрошу владельца про картинку`);
+    // Переводы едут за оригиналом. Оставленные в очереди, они вышли бы
+    // на сайт одни, без русской версии, — и ссылка на язык вела бы в никуда.
+    for (const tf of translationsOf(b.item.slug)) {
+      renameSync(join(QUEUE_DIR, tf), join(nv, tf));
+    }
+    console.error(
+      `  → ${b.item.slug} уехал в needs-verification: спрошу владельца ` +
+        `${noImage ? "про картинку" : "про протухший материал"}`,
+    );
   }
 }
 
@@ -420,12 +481,31 @@ for (const p of plan) {
 if (flag("plan")) process.exit(0);
 
 const released = [];
+// Что уже ушло этим тиком — для сверки внутри пачки. Материал из очереди
+// в content/posts ещё не попал, поэтому duplicateOfPublished его не видит:
+// 21.08.2026 так вышли минута в минуту два текста про курс доллара,
+// в которых «трёхлетний минимум» назывался разными числами.
+const releasedThisTick = [];
 for (const p of ready) {
   const item = queue.find((q) => q.slug === p.slug);
   if (!item) continue;
+
+  const twin = releasedThisTick.length
+    ? duplicateOfPublished(item, POSTS_DIR, pendingSourceUrls(releasedThisTick, dayDir(now)))
+    : null;
+  if (twin) {
+    // Не блокируем навсегда — откладываем до следующего тика. К тому времени
+    // соперник уже на сайте, и обычная сверка решит, дубль это или развитие
+    // сюжета, по тем же правилам, что и всегда.
+    console.error(`  ⏸ ${item.slug}: ${twin} — второй материал пачки, отложен до следующего тика`);
+    continue;
+  }
+
   const publishedAt = stampPublishedAt(now);
   const dir = join(POSTS_DIR, dayDir(now));
   const target = join(dir, item.file);
+
+  releasedThisTick.push({ slug: item.slug, raw: item.raw });
 
   if (dryRun) {
     console.error(`  [dry] ${item.slug} → ${dayDir(now)}/ publishedAt ${publishedAt}`);

@@ -484,6 +484,59 @@ for (const t of brandedTitles) {
   );
 }
 
+// ─── Событие в будущем, поданное как уже случившееся ───
+//
+// Ведомство публикует сегодня то, что действует завтра: ЦБ объявляет курс
+// на следующий рабочий день, Кабмин — тариф с первого числа. Корреспондент
+// раз за разом переносит дату действия на дату объявления.
+//
+// 21.08.2026 (пятница) ЦБ объявил курс на понедельник 24 августа, и лид
+// вышел так: «Центральный банк Узбекистана 24 августа объявил курс…» —
+// про день, который ещё не наступил, в прошедшем времени. Второй абзац
+// той же статьи описывал всё правильно, то есть ошибка была именно
+// в формулировке, а не в фактуре.
+//
+// Ловим узкий и однозначный случай: дата ПОЗЖЕ дня выхода материала стоит
+// прямо перед глаголом объявления в прошедшем времени.
+const MONTHS_RU = [
+  "январ", "феврал", "март", "апрел", "ма", "июн",
+  "июл", "август", "сентябр", "октябр", "ноябр", "декабр",
+];
+const ANNOUNCE_PAST =
+  /(\d{1,2})\s+([а-яё]+?)(?:а|я)?\s+(объявил|установил|утвердил|подписал|принял|сообщил|повысил|снизил|определил)/giu;
+
+const futureDated = [];
+for (const { path: file } of files) {
+  const raw = readFileSync(file, "utf8");
+  const head = raw.split(/\n---/, 1)[0];
+  const publishedAt = (head.match(/^publishedAt:\s*"([^"]+)"/m) ?? [])[1];
+  const pub = Date.parse(publishedAt ?? "");
+  if (!Number.isFinite(pub)) continue;
+  const pubDate = new Date(pub);
+  // Заголовок и первый абзац — там, где ошибка стоит дороже всего.
+  const title = (head.match(/^title:\s*"(.*)"\s*$/m) ?? [])[1] ?? "";
+  const lede = raw.split(/\n---\n/).slice(1).join("\n---\n").trim().split("\n\n")[0] ?? "";
+  for (const m of `${title}\n${lede}`.matchAll(ANNOUNCE_PAST)) {
+    const day = Number(m[1]);
+    const mi = MONTHS_RU.findIndex((stem) => m[2].toLowerCase().startsWith(stem));
+    if (mi === -1) continue;
+    // Год не назван почти никогда — берём год выхода и проверяем только
+    // разницу в пределах месяца, чтобы не ловить исторические отсылки.
+    const when = new Date(Date.UTC(pubDate.getUTCFullYear(), mi, day));
+    const diffDays = (when - Date.UTC(pubDate.getUTCFullYear(), pubDate.getUTCMonth(), pubDate.getUTCDate())) / 86_400_000;
+    if (diffDays > 0 && diffDays <= 31) {
+      futureDated.push({ file: file.replace(ROOT + "/", ""), match: m[0].trim(), publishedAt });
+      break;
+    }
+  }
+}
+for (const f of futureDated) {
+  console.error(
+    `✗ ${f.file}: «${f.match}» — дата позже дня выхода (${f.publishedAt.slice(0, 10)}), ` +
+      "а глагол в прошедшем. Разведи две даты: «21 августа объявил курс на понедельник, 24 августа»",
+  );
+}
+
 // ─── Перевод без картинки, когда у оригинала она есть ───
 //
 // Переводчик копирует блок image из русского файла тем, каким тот был
