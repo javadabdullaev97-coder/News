@@ -265,6 +265,26 @@ if (overflow) {
 
 console.error(`[social] к публикации: ${jobs.length}`);
 
+// Ошибка не про материал, а про доступ: повторять её на остальных заданиях
+// бессмысленно, результат будет тот же.
+//
+//   code 200  «API access blocked» — приложение ограничено или лишено
+//             расширенного доступа к Instagram Graph API;
+//   code 190  токен протух или отозван;
+//   code 10   у токена нет нужного разрешения;
+//   code 803  идентификатор аккаунта не найден.
+//
+// Всё это чинится в Meta Business Manager, а не в репозитории.
+const ACCOUNT_LEVEL = [
+  /API access blocked/i,
+  /code 190/,
+  /\(code 10[)/]/,
+  /code 803/,
+  /Invalid OAuth/i,
+  /session has expired/i,
+];
+const isAccountLevel = (msg) => ACCOUNT_LEVEL.some((re) => re.test(String(msg)));
+
 const MIN_GAP_MS = (config.pacing?.minGapSeconds ?? 45) * 1000;
 let ok = 0;
 let failed = 0;
@@ -320,6 +340,20 @@ for (let i = 0; i < jobs.length; i++) {
   } catch (err) {
     failed++;
     console.error(`  ✗ ${item.rel} → ${network}: ${err.message}`);
+    if (isAccountLevel(err.message)) {
+      // Дальше идти незачем: беда не в материале, а в доступе к аккаунту.
+      // 22.08.2026 прогон честно отработал все восемь заданий, получил
+      // восемь раз одно и то же «API access blocked» и потратил на паузы
+      // между ними шесть минут раннера. Столько же он потратит и завтра,
+      // и послезавтра — пока владелец не починит доступ в Meta.
+      console.error(
+        `[social] ${network}: доступ к аккаунту закрыт на стороне Meta — ` +
+          `останавливаю прогон, остальные ${jobs.length - i - 1} задания не трогаю. ` +
+          "Чинить в Business Manager (статус приложения, срок токена, ограничения аккаунта), " +
+          "в репозитории чинить нечего.",
+      );
+      break;
+    }
   }
 
   if (i < jobs.length - 1) {
