@@ -5,8 +5,8 @@
       "message": "⚠️ <b>Материалы в очереди без ответа >24ч</b> (34 шт):\n— <code>us-polysilicon-tariff-signed-aug2026</code>\n— <code>dprk-missile-launch-tokyo-seoul-protest</code>\n— <code>president-ai-award-deadline-week-left</code>\n— <code>tashkent-bektemir-gas-outage-aug7</code>\n— <code>res-red-category-transformers-sept1</code>\n…и ещё 29"
     },
     "routine-stale": {
-      "at": "2026-08-22T05:17:47.266Z",
-      "message": "⚠️ <b>Планёрки молчат</b>: ни одна отметка last-routine-run*.json не обновлялась 12.7ч (порог 6ч). Проверь code.claude.com → LEAP Planyorka → History."
+      "at": "2026-08-22T11:17:52.711Z",
+      "message": "⚠️ <b>Планёрки молчат</b>: ни одна отметка last-routine-run*.json не обновлялась 18.7ч (порог 6ч). Проверь code.claude.com → LEAP Planyorka → History."
     }
   }
 }
