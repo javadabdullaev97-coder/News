@@ -1,0 +1,54 @@
+name: Social doctor
+
+# Разбирает, что именно закрыто в доступе к Instagram Graph API.
+#
+# Постер отвечает одинаковым «API access blocked. (code 200)» на четыре
+# разные причины: приложение в режиме разработки, отобранный расширенный
+# доступ, протухший токен, отвязанный от актива системный пользователь.
+# Этот воркфлоу спрашивает у Graph API про наш токен напрямую и печатает
+# ответы — вместе с тем, что чинить и где.
+#
+# Ничего не публикует и не меняет: только чтение. Токен в вывод не попадает.
+#
+# Запуск — кнопкой Run workflow либо пушем файла-заявки
+# content/state/social-doctor.json (кнопка доступна не из всякого контекста).
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "content/state/social-doctor.json"
+
+permissions:
+  contents: read
+
+concurrency:
+  # Своя очередь: диагностика ничего не пишет и никому не мешает, а вставать
+  # в общую очередь с публикацией ей незачем — там её отменит третий прогон.
+  group: social-doctor
+  cancel-in-progress: true
+
+jobs:
+  doctor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Разбор доступа
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          IG_USER_ID_RU: ${{ secrets.IG_USER_ID_RU }}
+          IG_USER_ID_UZ: ${{ secrets.IG_USER_ID_UZ }}
+          FB_PAGE_ID_RU: ${{ secrets.FB_PAGE_ID_RU }}
+          FB_PAGE_ID_UZ: ${{ secrets.FB_PAGE_ID_UZ }}
+          GRAPH_VERSION: "v25.0"
+        run: node scripts/social-doctor.mjs
