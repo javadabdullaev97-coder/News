@@ -12,7 +12,7 @@
   ],
   "headroom": 0.05,
   "limits": {
-    ".claude/skills/leap-editorial-style/references/policy.md": 44100,
+    ".claude/skills/leap-editorial-style/references/policy.md": 45600,
     ".claude/skills/leap-editorial-style/SKILL.md": 2300,
     ".claude/skills/leap-editorial-style/CORE.md": 11800,
     ".claude/agents/reporter.md": 20100,
@@ -41,5 +41,5 @@
     "docs/agent-playbooks/reporter-candidate-sources.md": 1800,
     "docs/agent-playbooks/reporter-source-unavailable.md": 2000
   },
-  "updatedAt": "2026-08-21"
+  "updatedAt": "2026-08-22"
 }

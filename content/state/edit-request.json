@@ -1,15 +1,22 @@
 {
   "$comment": [
-    "Заявка исполнена и обнулена скриптом.",
-    "",
-    "Как править текст уже отправленных постов: впиши слаги в slugs.",
-    "Текст собирается заново из текущего состояния статьи — сначала",
-    "правится статья в репозитории, потом сюда идёт её слаг."
+    "Заявка на правку уже отправленных постов в Telegram.",
+    "Причина: из заголовков убрано слово «СМИ» во всех языках — «СМИ сообщили»,",
+    "«— по данным СМИ», «— по сведениям СМИ», «OAV ma'lumotlariga ko'ra»,",
+    "«Reports Say», «Media Reports», «SMI:». Мы сами СМИ; неопределённость",
+    "несёт глагол или прямая оговорка, а издание называется в лиде."
   ],
-  "slugs": [],
-  "lastRun": {
-    "at": "2026-08-21T23:40:26.337Z",
-    "edited": 11,
-    "unchanged": 5
-  }
+  "slugs": [
+    "inoue-rodriguez-fight-venue",
+    "samsung-humanoid-lab",
+    "mamatjanov-veon-perfectum-deal",
+    "uzbekistan-bus-fare-evasion-fine-hike",
+    "akfa-jobs-for-uzbek-migrants",
+    "admission-results-209k",
+    "twitch-ai-training-opt-out-default",
+    "uz-kg-border-exchange-working-group",
+    "tesla-china-recalls-driver-monitoring-door-handles",
+    "grade10-to-technicum-transfer-rule",
+    "samsung-shareholder-return-sk-hynix"
+  ]
 }

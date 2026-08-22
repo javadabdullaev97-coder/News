@@ -423,12 +423,58 @@ const OUTLET_PATTERNS = [
   new RegExp(`^\\s*(?:${BRANDS_RE})\\s*:`, "i"),
 ];
 const outletTail = { test: (t) => OUTLET_PATTERNS.some((re) => re.test(t)) };
+// «СМИ» как источник — отдельный запрет, и он шире брендов.
+//
+// 22.08.2026 владелец прислал узбекский заголовок «SMI: Inoue-Rodriguez jangi
+// uchun arena variantlari» и сказал коротко: мы сами СМИ, ссылаться в своём
+// заголовке на «СМИ» бессмысленно. Нашлось девять таких материалов в трёх
+// языках: «— по данным СМИ», «— по сведениям СМИ», «OAV ma'lumotlariga ko'ra»,
+// «Reports Say», «Media Reports».
+//
+// Это не то же самое, что бренд издания: бренд ставит ярлык, а «СМИ» вообще
+// ничего не сообщает — ни кто, ни насколько надёжно. Неопределённость несёт
+// глагол («предлагают», «рассматривают») или прямая оговорка («подтверждения
+// нет»), а конкретное издание называется в лиде.
+//
+// В теле статьи ловим тот же оборот: §1 требует называть издание со ссылкой,
+// а не прятать его за словом «СМИ».
+const MEDIA_ATTRIB_TITLE = [
+  /(?:^|[—–-]\s*|,\s*)(?:по данным|по сведениям|как сообщают|со ссылкой на)\s+СМИ/i,
+  /^\s*СМИ\s*[::]/i,
+  // \b перед кириллицей не работает: в JS \w — это только ASCII, границы
+  // слова у «СМИ» нет вовсе. Поэтому без \b, но с явным «не буква» слева.
+  /(?:^|[^\p{L}])СМИ\s+сообщ/iu,
+  /^\s*(?:SMI|OAV|Media)\s*:/i,
+  // Апостроф в узбекском приходит и прямым, и типографским, и модификатором.
+  /OAV\s+(?:ma['’ʻʼ]lumot|xabar)/i,
+  /[—–-]\s*OAV\s*$/i,
+  /\b(?:media|reports?)\s+says?\b/i,
+  /[—–-]\s*media\s+reports?\s*$/i,
+  /,\s*reports?\s+say\s*$/i,
+];
+const MEDIA_ATTRIB_BODY = [
+  /по данным СМИ/i,
+  /по сведениям СМИ/i,
+  /как сообщают СМИ/i,
+  /СМИ сообщают/i,
+];
+const mediaAttribTitles = [];
+const mediaAttribBodies = [];
+
 const brandedTitles = [];
 for (const { path: file } of files) {
   const head = readFileSync(file, "utf8").split(/\n---/, 1)[0];
   const title = (head.match(/^title:\s*"(.*)"\s*$/m) ?? [])[1];
   if (title && outletTail.test(title)) {
     brandedTitles.push({ file: file.replace(ROOT + "/", ""), title });
+  }
+  if (title && MEDIA_ATTRIB_TITLE.some((re) => re.test(title))) {
+    mediaAttribTitles.push({ file: file.replace(ROOT + "/", ""), title });
+  }
+  const body = readFileSync(file, "utf8").split(/\n---\n/).slice(1).join("\n---\n");
+  const hit = MEDIA_ATTRIB_BODY.find((re) => re.test(body));
+  if (hit) {
+    mediaAttribBodies.push({ file: file.replace(ROOT + "/", ""), match: (body.match(hit) ?? [])[0] });
   }
 }
 for (const t of brandedTitles) {
@@ -468,10 +514,22 @@ for (const t of imagelessTranslations) {
 for (const l of leaks) {
   console.error(`✗ ${l.file}: служебная разметка агента в тексте (${l.markers.join(", ")}) — вычистить руками`);
 }
+
+for (const t of mediaAttribTitles) {
+  console.error(
+    `✗ ${t.file}: «СМИ» в заголовке — «${t.title}». Мы сами СМИ: неопределённость несёт глагол ` +
+      "(«предлагают», «рассматривают») или оговорка «подтверждения нет», а издание называется в лиде",
+  );
+}
+for (const b of mediaAttribBodies) {
+  console.error(
+    `✗ ${b.file}: «${b.match}» в тексте — назови конкретное издание со ссылкой (§1, пункт 4)`,
+  );
+}
 console.error(
   fix
-    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}, рубрика мимо ${miscategorised.length}, переводов без картинки ${imagelessTranslations.length}, издание в заголовке ${brandedTitles.length}, падежи в спорте ${uzCaseErrors.length}`
-    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}, рубрика мимо ${miscategorised.length}, переводов без картинки ${imagelessTranslations.length}, издание в заголовке ${brandedTitles.length}, падежи в спорте ${uzCaseErrors.length}`,
+    ? `[i18n-lint] проверено ${files.length}, исправлено ${touched}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}, рубрика мимо ${miscategorised.length}, переводов без картинки ${imagelessTranslations.length}, издание в заголовке ${brandedTitles.length}, «СМИ» как источник ${mediaAttribTitles.length + mediaAttribBodies.length}, падежи в спорте ${uzCaseErrors.length}`
+    : `[i18n-lint] проверено ${files.length}, с нарушениями ${findings.length}, утечек разметки ${leaks.length}, карточек без срока ${cards.length}, просроченных ${overdue.length}, битых ссылок ${badLinks.length}, дат вразнобой ${dateProblems.length}, рубрика мимо ${miscategorised.length}, переводов без картинки ${imagelessTranslations.length}, издание в заголовке ${brandedTitles.length}, «СМИ» как источник ${mediaAttribTitles.length + mediaAttribBodies.length}, падежи в спорте ${uzCaseErrors.length}`,
 );
 // Утечка разметки — ошибка всегда, даже в режиме --fix: чинить её
 // автоматически нельзя, а выпускать материал с ней нельзя тем более.
@@ -483,6 +541,8 @@ process.exit(
   miscategorised.length ||
   imagelessTranslations.length ||
   brandedTitles.length ||
+  mediaAttribTitles.length ||
+  mediaAttribBodies.length ||
   uzCaseErrors.length ||
   (!fix && findings.length)
     ? 1
