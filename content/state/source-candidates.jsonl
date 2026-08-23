@@ -2347,3 +2347,6 @@
 {"ev":"fetched","at":"2026-08-23T19:22:39.747Z","link":"https://daryo.uz/2026/08/23/norvegiya-2027-yilda-ukrainaga-92-mlrd-dollar-moliyaviy-yordam-ajratadi","status":"200","found":41}
 {"ev":"fetched","at":"2026-08-23T19:52:37.229Z","link":"https://www.spot.uz/ru/2026/08/24/azerbaijan/","status":"200","found":4}
 {"ev":"fetched","at":"2026-08-23T19:52:37.229Z","link":"https://daryo.uz/2026/08/23/turkiya-superligasi-shomurodov-gol-urgan-bahsda-bashakshehir-maglub-boldi-video","status":"200","found":42}
+{"ev":"seen","domain":"president.az","at":"2026-08-23T20:22:46.261Z","url":"https://president.az/ru/articles/view/73331","foundIn":"https://www.spot.uz/ru/2026/08/24/new-tashkent/","sourceId":"spot-uz","context":"В свою очередь, пресс-служба президента Азербайджана сообщает, что после полного завершения проекта в Новом Ташкенте планируется создать более 260 тыс. рабочих мест. Сейчас на строительных площадках работают свыше 10 тыс. человек."}
+{"ev":"fetched","at":"2026-08-23T20:22:46.262Z","link":"https://www.spot.uz/ru/2026/08/24/new-tashkent/","status":"200","found":4}
+{"ev":"fetched","at":"2026-08-23T20:22:46.262Z","link":"https://www.spot.uz/ru/2026/08/24/azerbaijan-start/","status":"200","found":4}
