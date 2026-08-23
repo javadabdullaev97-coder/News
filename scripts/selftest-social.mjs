@@ -361,5 +361,96 @@ function writePost(root, { date, name, title, lang, extra = "" }) {
   ok(extractSummary("---\ntitle: T\n---\n", 800) === "", "пустое тело — пустая подпись, не падение");
 }
 
+// ── темп публикации: суточный потолок, разгон, пауза на переотправку ──────
+//
+// Регрессия на инцидент 17.08.2026: 35 публикаций в первый день жизни
+// аккаунта, вечером 5 удалений и 6 повторных публикаций (пять — через три
+// минуты после удаления). Meta закрыла аккаунту разработчика доступ к Graph
+// API целиком. Ни одно из трёх правил ниже тогда не существовало.
+{
+  const { allowanceFor, repostBlockedFor, applyPacing } = await import("../lib/social-pacing.mjs");
+  const { markPosted, markRevoked } = await import("../lib/social-posted.mjs");
+
+  const CFG = {
+    startAt: { ru: "2026-08-17T00:00:00Z" },
+    pacing: {
+      maxPerDay: 8,
+      warmup: [
+        { throughDay: 2, maxPerDay: 3 },
+        { throughDay: 7, maxPerDay: 5 },
+      ],
+      repostCooldownHours: 24,
+    },
+  };
+  const NOW = Date.parse("2026-08-18T12:00:00Z"); // аккаунту 1 день
+  const job = (slug) => ({ network: "instagram", item: { lang: "ru", slug, rel: `r/${slug}.mdx` } });
+
+  // разгон: на второй день жизни аккаунта норма 3, а не 8
+  {
+    const root = fresh();
+    const a = allowanceFor(root, CFG, { lang: "ru", network: "instagram", now: NOW });
+    ok(a.cap === 3 && a.left === 3, "молодой аккаунт: норма 3 в сутки, не 8");
+
+    const older = allowanceFor(root, CFG, {
+      lang: "ru", network: "instagram", now: Date.parse("2026-09-17T12:00:00Z"),
+    });
+    ok(older.cap === 8, "через месяц действует полная норма");
+  }
+
+  // потолок считает СОБЫТИЯ, включая снятые публикации
+  {
+    const root = fresh();
+    for (const slug of ["a", "b"]) {
+      markPosted(root, { network: "instagram", lang: "ru", slug, url: "u", postId: "1",
+        postedAt: new Date(NOW - 3600_000).toISOString() });
+    }
+    markRevoked(root, { network: "instagram", lang: "ru", slug: "a", reason: "тест" });
+    const a = allowanceFor(root, CFG, { lang: "ru", network: "instagram", now: NOW });
+    ok(a.used === 2, "снятая публикация всё равно считается вызовом API");
+    ok(a.left === 1, "осталась одна из трёх");
+  }
+
+  // старое за окном не считается
+  {
+    const root = fresh();
+    markPosted(root, { network: "instagram", lang: "ru", slug: "old", url: "u", postId: "1",
+      postedAt: new Date(NOW - 30 * 3600_000).toISOString() });
+    const a = allowanceFor(root, CFG, { lang: "ru", network: "instagram", now: NOW });
+    ok(a.used === 0, "публикация старше суток в скользящее окно не попадает");
+  }
+
+  // пауза перед переотправкой снятого
+  {
+    const root = fresh();
+    markPosted(root, { network: "instagram", lang: "ru", slug: "x", url: "u", postId: "1",
+      postedAt: new Date(NOW - 7200_000).toISOString() });
+    markRevoked(root, { network: "instagram", lang: "ru", slug: "x", reason: "брак карточки" });
+    const soon = repostBlockedFor(root, CFG, {
+      network: "instagram", lang: "ru", slug: "x", now: Date.now() + 3 * 60_000,
+    });
+    ok(soon > 0, "через три минуты после снятия переотправка запрещена (почерк 17.08)");
+    const later = repostBlockedFor(root, CFG, {
+      network: "instagram", lang: "ru", slug: "x", now: Date.now() + 25 * 3600_000,
+    });
+    ok(later === 0, "через сутки переотправка разрешена");
+  }
+
+  // прореживание списка: лишнее откладывается с причиной, а не пропадает
+  {
+    const root = fresh();
+    const { kept, dropped } = applyPacing(root, CFG, ["a", "b", "c", "d", "e"].map(job), { now: NOW });
+    ok(kept.length === 3, "из пяти заданий проходят три — по норме разгона");
+    ok(dropped.length === 2 && dropped.every((d) => d.why), "отложенное объяснено, а не потеряно молча");
+  }
+
+  // выключенный потолок не меняет старого поведения
+  {
+    const root = fresh();
+    const { kept } = applyPacing(root, { startAt: CFG.startAt, pacing: {} },
+      ["a", "b", "c", "d", "e"].map(job), { now: NOW });
+    ok(kept.length === 5, "без maxPerDay ограничения нет — старое поведение");
+  }
+}
+
 console.log(failed ? `\n${failed} проверок упало` : "\nвсе проверки прошли");
 process.exit(failed ? 1 : 0);

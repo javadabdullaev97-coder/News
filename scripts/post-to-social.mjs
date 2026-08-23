@@ -34,6 +34,7 @@ import { fileURLToPath } from "node:url";
 import { decodeEntities, extractSummary } from "../lib/frontmatter.mjs";
 import { collectPublishable, hashtagsFor } from "../lib/social-queue.mjs";
 import { isPosted, markPosted } from "../lib/social-posted.mjs";
+import { applyPacing } from "../lib/social-pacing.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(HERE);
@@ -255,6 +256,18 @@ for (const item of items) {
 // прогон, потому что список собирается обходом content/posts заново, а не
 // из очереди «что осталось».
 const MAX_PER_RUN = config.pacing?.maxPerRun ?? 8;
+
+// Суточный потолок и разгон молодого аккаунта — lib/social-pacing.mjs.
+// Отдельно от потолка прогона: тот про залп, этот про сутки. Именно
+// суточного не хватало 17.08.2026, когда за шесть часов ушёл 41 вызов
+// публикации и аккаунт разработчика попал под проверку Meta.
+{
+  const { kept, dropped } = applyPacing(ROOT, config, jobs);
+  for (const d of dropped) console.error(`  – ${d.rel} → ${d.network}: ${d.why}`);
+  jobs.length = 0;
+  jobs.push(...kept);
+}
+
 const overflow = Math.max(0, jobs.length - MAX_PER_RUN);
 if (overflow) {
   console.error(
