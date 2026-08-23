@@ -2203,3 +2203,12 @@
 {"ev":"fetched","at":"2026-08-23T05:21:51.636Z","link":"https://anhor.uz/ru/novosti/iran-irakskie-tankers-ormuzskij-proliv","status":"200","found":13}
 {"ev":"fetched","at":"2026-08-23T05:21:51.636Z","link":"https://anhor.uz/ru/novosti/usa-dolgov-oon","status":"200","found":13}
 {"ev":"fetched","at":"2026-08-23T05:21:51.636Z","link":"https://anhor.uz/ru/novosti/bundkor-yaponsky-futbolista-328-tysyach","status":"200","found":13}
+{"ev":"seen","domain":"gov.kz","at":"2026-08-23T05:51:52.777Z","url":"https://www.election.gov.kz/rus/news/releases/index.php?ID=10535","foundIn":"https://anhor.uz/ru/novosti/kazakhstan-vybory-odnopalatnyj-parlament","sourceId":"anhor-uz","context":"По данным Центральной избирательной комиссии, в 20 регионах страны открылись около 10,4 тыс. избирательных участков. Ещё 19 участков начали работу в 16 зарубежных странах."}
+{"ev":"fetched","at":"2026-08-23T05:51:52.783Z","link":"https://anhor.uz/ru/novosti/mirziyoev-nagradil-hokimov-ministrov","status":"200","found":13}
+{"ev":"fetched","at":"2026-08-23T05:51:52.783Z","link":"https://anhor.uz/ru/novosti/israel-udar-aviabase-siriya-ssha-damask","status":"200","found":13}
+{"ev":"fetched","at":"2026-08-23T05:51:52.784Z","link":"https://anhor.uz/ru/novosti/kazakhstan-vybory-odnopalatnyj-parlament","status":"200","found":13}
+{"ev":"fetched","at":"2026-08-23T05:51:52.784Z","link":"https://kun.uz/news/2026/08/23/ozbekiston-hududidagi-buyuk-ipak-yoli-chorrahasida-yangi-manzil-ochilmoqda","status":"200","found":0}
+{"ev":"fetched","at":"2026-08-23T05:51:52.784Z","link":"https://anhor.uz/ru/novosti/passazhirov-4-5-mln-vozdushnyj-transport","status":"200","found":13}
+{"ev":"fetched","at":"2026-08-23T05:51:52.784Z","link":"https://www.spot.uz/ru/2026/08/23/independence-awards/","status":"200","found":3}
+{"ev":"fetched","at":"2026-08-23T05:51:52.784Z","link":"https://daryo.uz/2026/08/23/portugaliyalik-25-yoshli-futbolchi-ortoqlik-oyini-vaqtida-vafot-etdi","status":"200","found":43}
+{"ev":"fetched","at":"2026-08-23T05:51:52.784Z","link":"https://daryo.uz/2026/08/23/kriptologiya-axborot-xavfsizligi-va-innovatsion-texnologiyalar-instituti-tashkil-etildi","status":"200","found":40}
