@@ -2509,3 +2509,16 @@
 {"ev":"fetched","at":"2026-08-24T10:52:10.193Z","link":"https://nuz.uz/2026/08/24/prezidenty-uzbekistana-i-azerbajdzhana-prodolzhat-peregovory-v-buhare/","status":"200","found":56}
 {"ev":"fetched","at":"2026-08-24T10:52:10.193Z","link":"https://www.gazeta.uz/ru/2026/08/24/tokaev/","status":"200","found":7}
 {"ev":"fetched","at":"2026-08-24T10:52:10.193Z","link":"https://www.spot.uz/ru/2026/08/24/goverment-plans/","status":"200","found":4}
+{"ev":"seen","domain":"afishamedia.net","at":"2026-08-24T11:22:05.572Z","url":"https://oa.afishamedia.net/www/delivery/ck.php?n=a4da766e&cb=1798115573","foundIn":"https://www.gazeta.uz/ru/2026/08/24/bukhara/","sourceId":"gazeta-uz","context":null}
+{"ev":"seen","domain":"zira.uz","at":"2026-08-24T11:22:05.572Z","url":"https://zira.uz/","foundIn":"https://www.gazeta.uz/ru/2026/08/24/bukhara/","sourceId":"gazeta-uz","context":"Afisha Spot Zira Погода Вакансии"}
+{"ev":"seen","domain":"pogoda.uz","at":"2026-08-24T11:22:05.572Z","url":"https://pogoda.uz/","foundIn":"https://www.gazeta.uz/ru/2026/08/24/bukhara/","sourceId":"gazeta-uz","context":"Afisha Spot Zira Погода Вакансии"}
+{"ev":"seen","domain":"kapitalbank.online","at":"2026-08-24T11:22:05.572Z","url":"http://kapitalbank.online/","foundIn":"https://anhor.uz/ru/novosti/mastercard-kapitalbank-skidki-yeda-taksi-bilety","sourceId":"anhor-uz","context":"Все акции действует до 31 декабря 2026 года включительно. Для получения привилегий не требуется ввод промокодов или какая-либо предварительная регистрация — достаточно провести оплату картой Mastercard Kapitalbank. Оформить карту можно в ближайших отделениях Капиталбанка или чере"}
+{"ev":"seen","domain":"seventech.uz","at":"2026-08-24T11:22:05.572Z","url":"https://seventech.uz/","foundIn":"https://kun.uz/news/2026/08/24/7tech-ozining-ilk-smartfonini-taqdim-etdi-connect-u7","sourceId":"kun-uz","context":"Web-sayt"}
+{"ev":"fetched","at":"2026-08-24T11:22:05.578Z","link":"https://www.gazeta.uz/ru/2026/08/24/bukhara/","status":"200","found":66}
+{"ev":"fetched","at":"2026-08-24T11:22:05.578Z","link":"https://anhor.uz/ru/novosti/mastercard-kapitalbank-skidki-yeda-taksi-bilety","status":"200","found":14}
+{"ev":"fetched","at":"2026-08-24T11:22:05.578Z","link":"https://kun.uz/news/2026/08/24/iqtisodiy-qamal-trampning-eronga-qarshi-yangi-chorasi","status":"200","found":0}
+{"ev":"fetched","at":"2026-08-24T11:22:05.578Z","link":"https://kun.uz/news/2026/08/24/7tech-ozining-ilk-smartfonini-taqdim-etdi-connect-u7","status":"200","found":3}
+{"ev":"fetched","at":"2026-08-24T11:22:05.578Z","link":"https://podrobno.uz/cat/politic/ilkham-aliev-pribyl-v-bukharu-gde-prodolzhitsya-programma-ego-vizita-v-uzbekistan-video/","status":"200","found":4}
+{"ev":"fetched","at":"2026-08-24T11:22:05.578Z","link":"https://kun.uz/news/2026/08/24/shavkat-mirziyoyev-donald-trampga-ananaviy-ozbek-shiyponlarini-sovga-qildi","status":"200","found":2}
+{"ev":"fetched","at":"2026-08-24T11:22:05.578Z","link":"https://kun.uz/news/2026/08/24/namanganda-ikkita-kater-toqnashib-ketdi","status":"200","found":0}
+{"ev":"fetched","at":"2026-08-24T11:22:05.578Z","link":"https://daryo.uz/2026/08/24/ozbekiston-milliy-terma-jamoasining-eronga-qarshi-uchrashuvi-sanasi-va-manzili-malum-boldi","status":"200","found":43}
