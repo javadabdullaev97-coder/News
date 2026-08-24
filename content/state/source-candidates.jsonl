@@ -2357,3 +2357,5 @@
 {"ev":"seen","domain":"president.az","at":"2026-08-23T21:22:08.669Z","url":"https://president.az/ru/articles/view/73330","foundIn":"https://www.spot.uz/ru/2026/08/24/davr-bank/","sourceId":"spot-uz","context":"Кроме того, Ильхам Алиев, выступая на встрече с представителями СМИ, упомянул двустороннее сотрудничество в банковской сфере, отметив, что «ведущий азербайджанский банк вошел на рынок Узбекистана»."}
 {"ev":"fetched","at":"2026-08-23T21:22:08.671Z","link":"https://www.spot.uz/ru/2026/08/24/davr-bank/","status":"200","found":11}
 {"ev":"fetched","at":"2026-08-24T03:22:16.170Z","link":"https://www.afisha.uz/ru/cinema/2026/08/24/niu-lai-best-grossing-animated-movie","status":"200","found":5}
+{"ev":"fetched","at":"2026-08-24T03:52:05.708Z","link":"https://podrobno.uz/cat/politic/mirziyeev-pozdravil-tokaeva-s-pervymi-vyborami-v-kurultay/","status":"200","found":4}
+{"ev":"fetched","at":"2026-08-24T03:52:05.708Z","link":"https://nuz.uz/2026/08/24/zhara-do-40-gradusov-kakaya-pogoda-ozhidaetsya-v-uzbekistane-24-avgusta/","status":"200","found":54}
