@@ -2671,3 +2671,12 @@
 {"ev":"fetched","at":"2026-08-24T19:22:11.018Z","link":"https://www.spot.uz/ru/2026/08/24/sea-breeze-uzbekistan/","status":"200","found":16}
 {"ev":"fetched","at":"2026-08-24T19:22:11.018Z","link":"https://www.spot.uz/ru/2026/08/24/immigration-visas/","status":"200","found":5}
 {"ev":"fetched","at":"2026-08-24T19:22:11.018Z","link":"https://daryo.uz/2026/08/24/ipoteka-bank-otp-group-ozbekiston-mustaqilligining-35-yilligini-bayramona-sayt-dizayni-bilan-qarshi-olmoqda","status":"200","found":37}
+{"ev":"seen","domain":"railway.uz","at":"2026-08-24T19:52:08.806Z","url":"https://eticket.railway.uz/","foundIn":"https://kun.uz/news/2026/08/24/ozbekiston-temir-yollari-aj-eticketrailwayuz-sayti-va-uzrailway-tickets-mobil-ilovasini-ishga-tushurdi","sourceId":"kun-uz","context":"eticket.railway.uz"}
+{"ev":"fetched","at":"2026-08-24T19:52:08.820Z","link":"https://kun.uz/news/2026/08/24/shavkat-mirziyoyev-bahouddin-naqshband-maqbarasini-ziyorat-qildi","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-24T19:52:08.820Z","link":"https://kun.uz/news/2026/08/24/ozbekiston-temir-yollari-aj-eticketrailwayuz-sayti-va-uzrailway-tickets-mobil-ilovasini-ishga-tushurdi","status":"200","found":3}
+{"ev":"fetched","at":"2026-08-24T19:52:08.820Z","link":"https://daryo.uz/2026/08/24/mourinyo-realida-asosiy-tarkibdan-tushib-qoladigan-ikki-futbolchi-malum-el-nacional","status":"200","found":43}
+{"ev":"fetched","at":"2026-08-24T19:52:08.820Z","link":"https://daryo.uz/2026/08/24/janni-infantino-badavlat-federatsiyalar-boshqalarning-rivojlanishini-istamayapti","status":"200","found":40}
+{"ev":"fetched","at":"2026-08-24T19:52:08.820Z","link":"https://daryo.uz/2026/08/24/prezidenr-bahouddin-naqshband-maqbarasini-ziyorat-qildi","status":"200","found":40}
+{"ev":"fetched","at":"2026-08-24T19:52:08.820Z","link":"https://daryo.uz/2026/08/24/norvegiya-qirolining-ahvoli-ogirlashdi","status":"200","found":41}
+{"ev":"fetched","at":"2026-08-24T19:52:08.820Z","link":"https://daryo.uz/2026/08/24/nrg-bi-kompaniyasi-ochiq-eshiklar-kunini-kino-olamiga-sayohatga-aylantirdi","status":"200","found":37}
+{"ev":"fetched","at":"2026-08-24T19:52:08.820Z","link":"https://daryo.uz/2026/08/24/ozbekiston-va-ozarbayjon-fuqarolariga-pensiya-tayinlashda-ish-staji-ozaro-hisobga-olinadi","status":"200","found":39}
