@@ -3060,3 +3060,13 @@
 {"ev":"fetched","at":"2026-08-25T18:52:15.421Z","link":"https://anhor.uz/ru/news/goszdolg-uzbekistana-48-mlrd","status":"200","found":15}
 {"ev":"fetched","at":"2026-08-25T18:52:15.421Z","link":"https://anhor.uz/ru/news/uzbekistan-internet-skorost-reyting","status":"200","found":15}
 {"ev":"fetched","at":"2026-08-25T18:52:15.421Z","link":"https://anhor.uz/ru/news/uzbekistan-bezrabotitsa-bednost-snizilis","status":"200","found":15}
+{"ev":"seen","domain":"ticketon.kz","at":"2026-08-25T19:22:14.043Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/news/shavkat-mirziev-kongress-ssha-partnerstvo","sourceId":"anhor-uz","context":"Реклама"}
+{"ev":"seen","domain":"news.am","at":"2026-08-25T19:22:14.043Z","url":"http://news.am/","foundIn":"https://anhor.uz/ru/v-mire/eksprezidet-kocharian-armeiya-zaderzhali","sourceId":"anhor-uz","context":"По данным NEWS.am со ссылкой на Антикоррупционный комитет Армении, расследование касается предполагаемых преступлений коррупционного характера. Следствие утверждает, что человек, занимавший должность президента республики, действуя по предварительному сговору с близкими ему лицам"}
+{"ev":"fetched","at":"2026-08-25T19:22:14.052Z","link":"https://kapital.uz/uroven-bednosti-snizilsa/","status":"200","found":31}
+{"ev":"fetched","at":"2026-08-25T19:22:14.052Z","link":"https://daryo.uz/2026/08/25/ozbekiston-va-polsha-kasbiy-talim-boyicha-hamkorlikni-kengaytiradi","status":"200","found":39}
+{"ev":"fetched","at":"2026-08-25T19:22:14.052Z","link":"https://daryo.uz/2026/08/25/us-open-jokovich-va-sabalenka-juftligi-ilk-bosqichdayoq-maglub-boldi","status":"200","found":42}
+{"ev":"fetched","at":"2026-08-25T19:22:14.052Z","link":"https://daryo.uz/2026/08/25/namanganda-gaz-tarmogi-tortib-berish-uchun-2-100-dollar-soragan-shaxslar-ushlandi","status":"200","found":42}
+{"ev":"fetched","at":"2026-08-25T19:22:14.052Z","link":"https://anhor.uz/ru/news/shavkat-mirziev-kongress-ssha-partnerstvo","status":"200","found":15}
+{"ev":"fetched","at":"2026-08-25T19:22:14.052Z","link":"https://anhor.uz/ru/news/fergana-zavod-elektrobusov","status":"200","found":15}
+{"ev":"fetched","at":"2026-08-25T19:22:14.052Z","link":"https://anhor.uz/ru/v-mire/ssha-isklyuchila-siriyu-sponsorov-terrorizma","status":"200","found":15}
+{"ev":"fetched","at":"2026-08-25T19:22:14.052Z","link":"https://anhor.uz/ru/v-mire/eksprezidet-kocharian-armeiya-zaderzhali","status":"200","found":17}
