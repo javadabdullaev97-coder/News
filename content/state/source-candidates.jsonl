@@ -3070,3 +3070,16 @@
 {"ev":"fetched","at":"2026-08-25T19:22:14.052Z","link":"https://anhor.uz/ru/news/fergana-zavod-elektrobusov","status":"200","found":15}
 {"ev":"fetched","at":"2026-08-25T19:22:14.052Z","link":"https://anhor.uz/ru/v-mire/ssha-isklyuchila-siriyu-sponsorov-terrorizma","status":"200","found":15}
 {"ev":"fetched","at":"2026-08-25T19:22:14.052Z","link":"https://anhor.uz/ru/v-mire/eksprezidet-kocharian-armeiya-zaderzhali","status":"200","found":17}
+{"ev":"seen","domain":"ticketon.kz","at":"2026-08-25T19:52:30.484Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/v-mire/tornado-yuge-frantsii-ranit-41-cheloveka","sourceId":"anhor-uz","context":"Реклама"}
+{"ev":"seen","domain":"uza.uz","at":"2026-08-25T19:52:30.484Z","url":"https://uza.uz/uz/posts/sudyalar-daromadlari-va-mulkini-deklaraciyalashga-oid-elektron-tizim-2026-yil-1-sentyabrga-qadar-ishga-tushadi_899664","foundIn":"https://anhor.uz/ru/news/dokhody-sudei-proverka-elektronnaya-sistema","sourceId":"anhor-uz","context":"Об этом сообщила судья Яккасарайского межрайонного суда по гражданским делам Васила Абдусатторова в интервью УзА."}
+{"ev":"seen","domain":"ticketon.kz","at":"2026-08-25T19:52:30.484Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/news/uzbekistan-fintekh-investicii-1-mlrd","sourceId":"anhor-uz","context":"Реклама"}
+{"ev":"seen","domain":"ticketon.kz","at":"2026-08-25T19:52:30.484Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/news/moshennichestvo-gaz-namangang-operatora","sourceId":"anhor-uz","context":"Реклама"}
+{"ev":"seen","domain":"ticketon.kz","at":"2026-08-25T19:52:30.484Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/v-mire/temperatura-mirovogo-okeana-rekord","sourceId":"anhor-uz","context":"Реклама"}
+{"ev":"fetched","at":"2026-08-25T19:52:30.491Z","link":"https://anhor.uz/ru/v-mire/tornado-yuge-frantsii-ranit-41-cheloveka","status":"200","found":19}
+{"ev":"fetched","at":"2026-08-25T19:52:30.491Z","link":"https://anhor.uz/ru/news/dokhody-sudei-proverka-elektronnaya-sistema","status":"200","found":16}
+{"ev":"fetched","at":"2026-08-25T19:52:30.491Z","link":"https://anhor.uz/ru/news/uzbekistan-fintekh-investicii-1-mlrd","status":"200","found":15}
+{"ev":"fetched","at":"2026-08-25T19:52:30.491Z","link":"https://anhor.uz/ru/news/poezzd-sariasiia-termez-oxlazhdenie","status":"200","found":16}
+{"ev":"fetched","at":"2026-08-25T19:52:30.491Z","link":"https://anhor.uz/ru/news/uzbekistan-migrants-russia-return","status":"200","found":15}
+{"ev":"fetched","at":"2026-08-25T19:52:30.491Z","link":"https://anhor.uz/ru/v-mire/zapret-socsietei-deti-16-let","status":"200","found":18}
+{"ev":"fetched","at":"2026-08-25T19:52:30.491Z","link":"https://anhor.uz/ru/news/moshennichestvo-gaz-namangang-operatora","status":"200","found":21}
+{"ev":"fetched","at":"2026-08-25T19:52:30.491Z","link":"https://anhor.uz/ru/v-mire/temperatura-mirovogo-okeana-rekord","status":"200","found":16}
