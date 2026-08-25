@@ -3098,3 +3098,18 @@
 {"ev":"fetched","at":"2026-08-25T20:23:17.455Z","link":"https://anhor.uz/ru/news/mirziyoev-aliev-buhara-dostoprimechatelnosti","status":"200","found":20}
 {"ev":"fetched","at":"2026-08-25T20:23:17.455Z","link":"https://anhor.uz/ru/news/uzbekskie-ayvany-dar-trampu-tashkent","status":"200","found":18}
 {"ev":"fetched","at":"2026-08-25T20:23:17.455Z","link":"https://anhor.uz/ru/news/avtomobili-uzbekistana-5-millionov","status":"200","found":15}
+{"ev":"seen","domain":"ticketon.kz","at":"2026-08-25T20:52:16.456Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/reklama/mastercard-kapitalbank-skidki-yeda-taksi-bilety1","sourceId":"anhor-uz","context":"Реклама"}
+{"ev":"seen","domain":"kapitalbank.online","at":"2026-08-25T20:52:16.456Z","url":"http://kapitalbank.online/","foundIn":"https://anhor.uz/ru/reklama/mastercard-kapitalbank-skidki-yeda-taksi-bilety1","sourceId":"anhor-uz","context":"Все акции действует до 31 декабря 2026 года включительно. Для получения привилегий не требуется ввод промокодов или какая-либо предварительная регистрация — достаточно провести оплату картой Mastercard Kapitalbank. Оформить карту можно в ближайших отделениях Капиталбанка или чере"}
+{"ev":"seen","domain":"ticketon.kz","at":"2026-08-25T20:52:16.456Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/ekonomika/tsentralnaya-aziya-vodnyy-deficit","sourceId":"anhor-uz","context":"Реклама"}
+{"ev":"seen","domain":"springer.com","at":"2026-08-25T20:52:16.456Z","url":"https://link.springer.com/article/10.1007/s11269-014-0716-x","foundIn":"https://anhor.uz/ru/ekonomika/tsentralnaya-aziya-vodnyy-deficit","sourceId":"anhor-uz","context":"[1] https://link.springer.com/article/10.1007/s11269-014-0716-x."}
+{"ev":"seen","domain":"ticketon.kz","at":"2026-08-25T20:52:16.456Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/news/omsk-pozhar-stroyka-smert","sourceId":"anhor-uz","context":"Реклама"}
+{"ev":"seen","domain":"ticketon.kz","at":"2026-08-25T20:52:16.456Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/news/zhakhongir-artykkhodzhayev-ukhdit-pakhatakor","sourceId":"anhor-uz","context":"Реклама"}
+{"ev":"seen","domain":"ticketon.kz","at":"2026-08-25T20:52:16.456Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/v-mire/ozon-logisticheskiy-centr-dagestan-ataka","sourceId":"anhor-uz","context":"Реклама"}
+{"ev":"fetched","at":"2026-08-25T20:52:16.461Z","link":"https://anhor.uz/ru/reklama/mastercard-kapitalbank-skidki-yeda-taksi-bilety1","status":"200","found":15}
+{"ev":"fetched","at":"2026-08-25T20:52:16.461Z","link":"https://anhor.uz/ru/v-mire/lesnoi-pozhar-rino-evacuation-90-tysyach","status":"200","found":16}
+{"ev":"fetched","at":"2026-08-25T20:52:16.461Z","link":"https://anhor.uz/ru/ekonomika/tsentralnaya-aziya-vodnyy-deficit","status":"200","found":21}
+{"ev":"fetched","at":"2026-08-25T20:52:16.461Z","link":"https://anhor.uz/ru/news/uzbekistan-zharko-40-gradusov","status":"200","found":15}
+{"ev":"fetched","at":"2026-08-25T20:52:16.461Z","link":"https://anhor.uz/ru/news/omsk-pozhar-stroyka-smert","status":"200","found":15}
+{"ev":"fetched","at":"2026-08-25T20:52:16.461Z","link":"https://anhor.uz/ru/news/zhakhongir-artykkhodzhayev-ukhdit-pakhatakor","status":"200","found":16}
+{"ev":"fetched","at":"2026-08-25T20:52:16.461Z","link":"https://anhor.uz/ru/v-mire/ozon-logisticheskiy-centr-dagestan-ataka","status":"200","found":18}
+{"ev":"fetched","at":"2026-08-25T20:52:16.461Z","link":"https://anhor.uz/ru/ekonomika/skrytye-dvernye-ruchki-tesla-otzyvaet-kitay","status":"200","found":15}
