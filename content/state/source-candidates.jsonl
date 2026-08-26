@@ -3176,3 +3176,11 @@
 {"ev":"fetched","at":"2026-08-26T04:22:09.561Z","link":"https://www.gazeta.uz/ru/2026/08/26/south-caucasus/","status":"200","found":9}
 {"ev":"fetched","at":"2026-08-26T04:22:09.561Z","link":"https://nuz.uz/2026/08/26/v-uzbekistane-26-avgusta-ozhidaetsya-nebolshoe-snizhenie-zhary/","status":"200","found":55}
 {"ev":"fetched","at":"2026-08-26T04:22:09.561Z","link":"https://daryo.uz/2026/08/26/kanada-aqsh-bojlariga-javoban-mamlakat-tovarlariga-50-foizgacha-tarif-joriy-etdi","status":"200","found":43}
+{"ev":"seen","domain":"cnn.com","at":"2026-08-26T04:52:12.913Z","url":"https://edition.cnn.com/2026/08/24/politics/trump-administration-h-1b-visa-fee","foundIn":"https://anhor.uz/ru/news/h1b-visa-cost-increase-103000","sourceId":"anhor-uz","context":"Как отмечается в документе, новый сбор должен покрывать расходы на администрирование иммиграционной системы, а также стимулировать американские компании нанимать местных специалистов и предлагать им более высокую заработную плату."}
+{"ev":"seen","domain":"naked-science.ru","at":"2026-08-26T04:52:12.913Z","url":"https://naked-science.ru/community/1210826","foundIn":"https://kun.uz/news/2026/08/26/oltin-qazib-olish-reytingi-15-yilda-nimalar-ozgardi","sourceId":"kun-uz","context":"keltirilgan"}
+{"ev":"fetched","at":"2026-08-26T04:52:12.919Z","link":"https://anhor.uz/ru/news/h1b-visa-cost-increase-103000","status":"200","found":15}
+{"ev":"fetched","at":"2026-08-26T04:52:12.919Z","link":"https://podrobno.uz/cat/obchestvo/zhiteli-odnogo-iz-rayonov-stolitsy-vremenno-ostanutsya-bez-gaza-3/","status":"200","found":3}
+{"ev":"fetched","at":"2026-08-26T04:52:12.919Z","link":"https://www.gazeta.uz/ru/2026/08/26/advertising/","status":"200","found":2}
+{"ev":"fetched","at":"2026-08-26T04:52:12.919Z","link":"https://kun.uz/news/2026/08/26/oltin-qazib-olish-reytingi-15-yilda-nimalar-ozgardi","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-26T04:52:12.919Z","link":"https://nuz.uz/2026/08/26/kamil-karate-snova-vstretitsya-s-uzbekskim-tajsonom-na-konu-vyhod-v-final-hype-fc/","status":"200","found":55}
+{"ev":"fetched","at":"2026-08-26T04:52:12.919Z","link":"https://daryo.uz/2026/08/26/oltin-topga-davogar-futbolchilarning-reytingi-elon-qilindi-oav","status":"200","found":43}
