@@ -3806,3 +3806,13 @@
 {"ev":"fetched","at":"2026-08-27T16:22:44.732Z","link":"https://kapital.uz/pensii-za-10-let/","status":"200","found":32}
 {"ev":"fetched","at":"2026-08-27T16:22:44.732Z","link":"https://kapital.uz/privatizirovat-platformu-kreditovaniya/","status":"200","found":30}
 {"ev":"fetched","at":"2026-08-27T16:22:44.732Z","link":"https://kapital.uz/auga-zavod-fonon/","status":"200","found":31}
+{"ev":"seen","domain":"time.com","at":"2026-08-27T16:52:16.993Z","url":"https://time.com/collection/time100-ai/2026/","foundIn":"https://kun.uz/news/2026/08/27/time-jurnali-si-sohasidagi-eng-nufuzli-100-kishi-royxatini-tuzdi","sourceId":"kun-uz","context":"qayd etishicha,"}
+{"ev":"seen","domain":"piima.uz","at":"2026-08-27T16:52:16.993Z","url":"https://ariza.piima.uz/news/xorijiy-tillarga-ixtisoslashtirilgan-maktab-internatiga-2026-2027-o-quv-yili-uchun-qabul-boshlandi","foundIn":"https://kun.uz/news/2026/08/27/toshkentdagi-davlat-maktabida-oyiga-24-29-mln-somlik-pulli-sinflar-ochildi","sourceId":"kun-uz","context":"topshirgan"}
+{"ev":"fetched","at":"2026-08-27T16:52:17.001Z","link":"https://kun.uz/news/2026/08/27/geely-taassurotlar-kuni-yangi-emgrand-va-ex2-modellari-amaliy-sinovdan-otkazildi","status":"200","found":0}
+{"ev":"fetched","at":"2026-08-27T16:52:17.001Z","link":"https://kun.uz/news/2026/08/27/time-jurnali-si-sohasidagi-eng-nufuzli-100-kishi-royxatini-tuzdi","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-27T16:52:17.002Z","link":"https://www.spot.uz/ru/2026/08/27/bellissimo-kz/","status":"200","found":9}
+{"ev":"fetched","at":"2026-08-27T16:52:17.002Z","link":"https://daryo.uz/2026/08/27/krishtianu-ronaldu-jamoadoshlarini-tanqid-qildi","status":"200","found":42}
+{"ev":"fetched","at":"2026-08-27T16:52:17.002Z","link":"https://daryo.uz/2026/08/27/ozbekiston-aeroportlarida-import-qilinadigan-chorva-mollariga-ishlov-berish-tariflari-pasaytirildi","status":"200","found":39}
+{"ev":"fetched","at":"2026-08-27T16:52:17.002Z","link":"https://daryo.uz/2026/08/27/shavkat-mirziyoyev-pokiston-prezidenti-va-bosh-vaziriga-hamdardlik-bildirdi","status":"200","found":40}
+{"ev":"fetched","at":"2026-08-27T16:52:17.002Z","link":"https://kun.uz/news/2026/08/27/toshkentdagi-davlat-maktabida-oyiga-24-29-mln-somlik-pulli-sinflar-ochildi","status":"200","found":2}
+{"ev":"fetched","at":"2026-08-27T16:52:17.002Z","link":"https://daryo.uz/2026/08/27/shavkat-mirziyoyev-xitoy-raisi-va-nepal-prezidentiga-hamdardlik-bildirdi","status":"200","found":40}
