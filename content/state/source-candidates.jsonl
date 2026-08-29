@@ -4404,3 +4404,12 @@
 {"ev":"fetched","at":"2026-08-29T13:22:22.452Z","link":"https://kun.uz/news/2026/08/29/ijara-munosabatlarida-tijorat-ijarasi-toifasi-joriy-etiladi","status":"200","found":2}
 {"ev":"fetched","at":"2026-08-29T13:22:22.453Z","link":"https://kun.uz/news/2026/08/29/dokon-va-brendlar-keng-tanlovi-mazali-taomlar-va-tropik-dam-olish-malayziyaga-safar-nimasi-bilan-oziga-xos","status":"200","found":0}
 {"ev":"fetched","at":"2026-08-29T13:22:22.453Z","link":"https://kun.uz/news/2026/08/29/jinoyat-ishi-doirasida-garov-pullarini-qaytarish-tezlashtiriladi","status":"200","found":2}
+{"ev":"seen","domain":"gov.kz","at":"2026-08-29T13:52:29.766Z","url":"https://www.gov.kz/memleket/entities/mfa/documents/details/1060150?lang=ru","foundIn":"https://podrobno.uz/cat/world/tokaev-prizval-yadernye-derzhavy-k-peregovoram/","sourceId":"podrobno-uz","context":"Об этом говорится в обращении главы государства по случаю Международного дня действий против ядерных испытаний, который отмечается 29 августа."}
+{"ev":"fetched","at":"2026-08-29T13:52:29.772Z","link":"https://podrobno.uz/cat/world/tokaev-prizval-yadernye-derzhavy-k-peregovoram/","status":"200","found":4}
+{"ev":"fetched","at":"2026-08-29T13:52:29.772Z","link":"https://podrobno.uz/cat/politic/premer-ministr-indii-pribyl-v-uzbekistan-s-gosudarstvennym-vizitom/","status":"200","found":10}
+{"ev":"fetched","at":"2026-08-29T13:52:29.772Z","link":"https://www.gazeta.uz/ru/2026/08/29/arrival/","status":"200","found":4}
+{"ev":"fetched","at":"2026-08-29T13:52:29.772Z","link":"https://www.spot.uz/ru/2026/08/29/business-presumption/","status":"200","found":4}
+{"ev":"fetched","at":"2026-08-29T13:52:29.772Z","link":"https://nuz.uz/2026/08/29/sbornaya-uzbekistana-vozglavila-medalnyj-zachyot-iii-otkrytogo-chempionata-czentralnoj-azii-po-lyogkoj-atletike/","status":"200","found":54}
+{"ev":"fetched","at":"2026-08-29T13:52:29.772Z","link":"https://daryo.uz/2026/08/29/qashqadaryoda-xizmat-burchini-bajarish-chogida-halok-bolgan-qutqaruvchining-oilasiga-3-xonali-uy-berildi","status":"200","found":42}
+{"ev":"fetched","at":"2026-08-29T13:52:29.772Z","link":"https://daryo.uz/2026/08/29/xitoyda-otkazilgan-ufc-turnirida-nurmagomedov-nokautga-uchradi","status":"200","found":43}
+{"ev":"fetched","at":"2026-08-29T13:52:29.772Z","link":"https://daryo.uz/2026/08/29/qiymati-bhmning-400-baravaridan-oshadigan-tovarlarni-endi-naqd-pulga-olib-bolmaydi","status":"200","found":40}
