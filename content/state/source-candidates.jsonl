@@ -4590,3 +4590,14 @@
 {"ev":"fetched","at":"2026-08-30T12:22:14.875Z","link":"https://daryo.uz/2026/08/30/aqsh-razvedka-rahbari-moskvaga-rossiya-ukraina-va-aqsh-prezidentlari-ishtirokida-uchrashuv-otkazishni-taklif-qilgan-axios","status":"200","found":41}
 {"ev":"fetched","at":"2026-08-30T12:22:14.875Z","link":"https://daryo.uz/2026/08/30/hindiston-bosh-vaziri-javohir-sindorov-hamda-gukesh-ortasidagi-bahs-haqida-gapirdi","status":"200","found":41}
 {"ev":"fetched","at":"2026-08-30T12:22:14.875Z","link":"https://daryo.uz/2026/08/30/ozbekiston-va-hindiston-yetakchilari-muzokaralar-yakunlarini-sarhisob-qildi","status":"200","found":40}
+{"ev":"seen","domain":"ticketon.kz","at":"2026-08-30T12:52:25.072Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/v-mire/ozero-amerika-ontario-ssha","sourceId":"anhor-uz","context":"Реклама"}
+{"ev":"seen","domain":"ticketon.kz","at":"2026-08-30T12:52:25.072Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/news/us-authorities-surveillance-loophole-journalists","sourceId":"anhor-uz","context":"Реклама"}
+{"ev":"seen","domain":"tengrinews.kz","at":"2026-08-30T12:52:25.072Z","url":"https://tengrinews.kz/kazakhstan_news/sotni-fur-skopilis-granitse-kazahstana-kyirgyizstana-607332/","foundIn":"https://kun.uz/news/2026/08/30/qozogiston-qirgiziston-chegarasida-yuk-mashinalari-toplanib-qoldi","sourceId":"kun-uz","context":"maʼlum qildi"}
+{"ev":"fetched","at":"2026-08-30T12:52:25.078Z","link":"https://anhor.uz/ru/v-mire/ozero-amerika-ontario-ssha","status":"200","found":15}
+{"ev":"fetched","at":"2026-08-30T12:52:25.079Z","link":"https://kun.uz/news/2026/08/30/mehmondostlikning-ajralmas-qismi-sifatidagi-issiqlik-ozbekiston-mehmonxonalari-uchun-zamonaviy-bug-xonalari-nima-uchun-muhim","status":"200","found":0}
+{"ev":"fetched","at":"2026-08-30T12:52:25.079Z","link":"https://anhor.uz/ru/news/us-authorities-surveillance-loophole-journalists","status":"200","found":15}
+{"ev":"fetched","at":"2026-08-30T12:52:25.079Z","link":"https://anhor.uz/ru/news/mirziyoyev-modi-derevo-kuksaroy","status":"200","found":15}
+{"ev":"fetched","at":"2026-08-30T12:52:25.079Z","link":"https://kun.uz/news/2026/08/30/pensiyaning-kam-yoki-kopligi-nimalarga-bogliq","status":"200","found":0}
+{"ev":"fetched","at":"2026-08-30T12:52:25.079Z","link":"https://kun.uz/news/2026/08/30/qozogiston-qirgiziston-chegarasida-yuk-mashinalari-toplanib-qoldi","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-30T12:52:25.079Z","link":"https://daryo.uz/2026/08/30/shavkat-mirziyoyev-va-narendra-modi-faxriy-mehmonlar-xiyobonida-daraxt-ekdi","status":"200","found":39}
+{"ev":"fetched","at":"2026-08-30T12:52:25.079Z","link":"https://daryo.uz/2026/08/30/kuz-nafasi-yaqin-salqin-kunlarda-tomosha-qilish-uchun-iliqlik-baxsh-etuvchi-filmlar","status":"200","found":42}
