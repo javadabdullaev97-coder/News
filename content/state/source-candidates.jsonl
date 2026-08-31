@@ -4656,3 +4656,5 @@
 {"ev":"fetched","at":"2026-08-30T18:22:17.446Z","link":"https://daryo.uz/2026/08/30/apl-manchester-yunayted-ipsvichni-ayab-otirmadi","status":"200","found":39}
 {"ev":"fetched","at":"2026-08-30T18:52:19.286Z","link":"https://daryo.uz/2026/08/30/germaniya-konsuli-kosta-rikadagi-kolda-chokib-halok-boldi","status":"200","found":41}
 {"ev":"fetched","at":"2026-08-30T22:22:18.266Z","link":"https://daryo.uz/2026/08/31/turkiya-superligasi-shomurodov-gol-urgan-bahsda-bashakshehir-durang-oynadi-video","status":"200","found":41}
+{"ev":"seen","domain":"ticketon.kz","at":"2026-08-31T01:22:11.783Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/v-mire/udarami-po-iranu-bazy-ormuzskii-proliv","sourceId":"anhor-uz","context":"Реклама"}
+{"ev":"fetched","at":"2026-08-31T01:22:11.785Z","link":"https://anhor.uz/ru/v-mire/udarami-po-iranu-bazy-ormuzskii-proliv","status":"200","found":18}
