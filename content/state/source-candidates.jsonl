@@ -4661,3 +4661,8 @@
 {"ev":"seen","domain":"ticketon.kz","at":"2026-08-31T01:52:11.283Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/news/intervaly-poyezdov-metro-tashkent","sourceId":"anhor-uz","context":"Реклама"}
 {"ev":"fetched","at":"2026-08-31T01:52:11.284Z","link":"https://anhor.uz/ru/news/intervaly-poyezdov-metro-tashkent","status":"200","found":19}
 {"ev":"fetched","at":"2026-08-31T03:22:16.145Z","link":"https://daryo.uz/2026/08/31/eldor-shomurodov-hamda-abbosbek-fayzullayevning-qosimposhoga-qarshi-oyini-qanday-baholandi","status":"200","found":41}
+{"ev":"seen","domain":"naked-science.ru","at":"2026-08-31T04:22:21.240Z","url":"https://naked-science.ru/community/1211230","foundIn":"https://kun.uz/news/2026/08/31/kuzatuv-kameralari-kormaydigan-koylak-yaratildi","sourceId":"kun-uz","context":"Лойиҳа Берлиннинг Котбуссер-Тор майдонида 2026 йил август ойида сунъий интеллектга асосланган видеокузатув тизимидан фойдаланиш бўйича пилот лойиҳа бошланганидан кейин ишлаб чиқилган."}
+{"ev":"fetched","at":"2026-08-31T04:22:21.242Z","link":"https://kun.uz/news/2026/08/31/kuzatuv-kameralari-kormaydigan-koylak-yaratildi","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-31T04:22:21.242Z","link":"https://www.gazeta.uz/ru/2026/08/31/30-aug/","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-31T04:22:21.242Z","link":"https://kun.uz/news/2026/08/31/grand-kanonda-kuchli-toshqin-turistik-yonalishlar-yopildi","status":"200","found":1}
+{"ev":"fetched","at":"2026-08-31T04:22:21.242Z","link":"https://nuz.uz/2026/08/31/kakaya-pogoda-ozhidaetsya-v-uzbekistane-31-avgusta/","status":"200","found":54}
