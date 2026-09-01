@@ -5047,3 +5047,12 @@
 {"ev":"fetched","at":"2026-09-01T18:21:42.398Z","link":"https://www.gazeta.uz/ru/2026/09/01/singapore-uzbekistan/","status":"200","found":7}
 {"ev":"fetched","at":"2026-09-01T18:21:42.398Z","link":"https://nuz.uz/2026/09/01/deti-nashe-budushhee-nash-zolotoj-fond-shavkat-mirziyoev-pozdravil-shkolnikov-i-uchitelej-uzbekistana/","status":"200","found":54}
 {"ev":"fetched","at":"2026-09-01T18:21:42.398Z","link":"https://www.gazeta.uz/ru/2026/09/01/uzb-china/","status":"200","found":6}
+{"ev":"seen","domain":"president.kg","at":"2026-09-01T18:51:52.139Z","url":"https://president.kg/ru/news/21/40730","foundIn":"https://kun.uz/news/2026/09/01/bishkekdagi-shht-sammiti-yakunida-28-ta-hujjat-imzolandi","sourceId":"kun-uz","context":"xabar"}
+{"ev":"fetched","at":"2026-09-01T18:51:52.144Z","link":"https://www.gazeta.uz/ru/2026/09/01/vakhidov-chess/","status":"200","found":4}
+{"ev":"fetched","at":"2026-09-01T18:51:52.144Z","link":"https://www.gazeta.uz/ru/2026/09/01/greeting/","status":"200","found":2}
+{"ev":"fetched","at":"2026-09-01T18:51:52.144Z","link":"https://kun.uz/news/2026/09/01/bishkekdagi-shht-sammiti-yakunida-28-ta-hujjat-imzolandi","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-01T18:51:52.144Z","link":"https://daryo.uz/2026/09/01/manchester-siti-60-mln-funtga-hujumchi-sotib-oldi-the-athletic","status":"200","found":42}
+{"ev":"fetched","at":"2026-09-01T18:51:52.144Z","link":"https://daryo.uz/2026/09/01/mustaqillik-bayrami-arafasida-ozbekistonda-kuniga-30-ming-tonna-chiqindi-olib-chiqildi","status":"200","found":39}
+{"ev":"fetched","at":"2026-09-01T18:51:52.144Z","link":"https://kun.uz/news/2026/09/01/shavkat-mirziyoyev-shht-plyus-formatidagi-uchrashuvda-ishtirok-etdi-va-nutq-qildi","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-01T18:51:52.144Z","link":"https://kun.uz/news/2026/09/01/nepalda-maktab-direktori-900-oquvchini-suv-toshqinidan-qutqarib-qoldi","status":"200","found":0}
+{"ev":"fetched","at":"2026-09-01T18:51:52.144Z","link":"https://daryo.uz/2026/09/01/arsenal-xulian-alvares-transferi-boyicha-atletikoga-yangi-taklif-yubordi-manba","status":"200","found":41}
