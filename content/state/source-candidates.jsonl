@@ -5177,3 +5177,12 @@
 {"ev":"fetched","at":"2026-09-02T09:21:09.592Z","link":"https://www.gazeta.uz/ru/2026/09/02/school/","status":"200","found":106}
 {"ev":"fetched","at":"2026-09-02T09:21:09.592Z","link":"https://kun.uz/news/2026/09/02/poliklinika-mudiri-orinbosari-1-500-dollar-bilan-ushlandi","status":"200","found":1}
 {"ev":"fetched","at":"2026-09-02T09:21:09.592Z","link":"https://www.gazeta.uz/ru/2026/09/02/islam-karimov/","status":"200","found":16}
+{"ev":"seen","domain":"gov.in","at":"2026-09-02T09:50:54.924Z","url":"https://www.mea.gov.in/bilateral-documents?dtl/41714/JOINT_STATEMENT_during_the_State_Visit_of_Prime_Minister_Narendra_Modi_to_Uzbekistan","foundIn":"https://www.gazeta.uz/ru/2026/09/02/mirziyoyev-modi/","sourceId":"gazeta-uz","context":"Узбекистан и Индия договорились изучить дальнейшие шаги по заключению соглашения о преференциальной торговле, расширить сотрудничество в сфере критических минералов, мирного атома, искусственного интеллекта и транспортных коридоров. Это следует из совместного заявления по итогам "}
+{"ev":"fetched","at":"2026-09-02T09:50:54.939Z","link":"https://podrobno.uz/cat/economic/uzbekistan-predlozhil-indiyskim-kompaniyam-pyat-energoproektov-bolee-chem-na-3-milliarda-dollarov/","status":"200","found":84}
+{"ev":"fetched","at":"2026-09-02T09:50:54.939Z","link":"https://nuz.uz/2026/09/02/fontan-v-novom-tashkente-ustanovil-srazu-dva-mirovyh-rekorda/","status":"200","found":55}
+{"ev":"fetched","at":"2026-09-02T09:50:54.939Z","link":"https://www.gazeta.uz/ru/2026/09/02/mirziyoyev-modi/","status":"200","found":8}
+{"ev":"fetched","at":"2026-09-02T09:50:54.939Z","link":"https://nuz.uz/2026/09/02/obshhepit-uzbekistana-poka-ne-vyglyadit-perenasyshhennym-na-odnu-tochku-prihoditsya-13-tys-zhitelej/","status":"200","found":54}
+{"ev":"fetched","at":"2026-09-02T09:50:54.939Z","link":"https://daryo.uz/2026/09/02/qollanma-ielts-yoki-boshqa-xalqaro-imtihon-uchun-sarflangan-pulni-qanday-qaytarib-olish-mumkin","status":"200","found":37}
+{"ev":"fetched","at":"2026-09-02T09:50:54.940Z","link":"https://daryo.uz/2026/09/02/oltin-top-uchun-asosiy-davogarlar-royxati-malum-boldi-oav","status":"200","found":39}
+{"ev":"fetched","at":"2026-09-02T09:50:54.940Z","link":"https://daryo.uz/2026/09/02/nurota-tumanida-fuqaroni-ishga-kiritish-evaziga-1-500-dollar-olgan-poliklinika-mudiri-orinbosari-ushlandi","status":"200","found":42}
+{"ev":"fetched","at":"2026-09-02T09:50:54.940Z","link":"https://daryo.uz/2026/09/02/shavkat-mirziyoyev-marhum-birinchi-prezident-islom-karimov-xotirasini-yod-etdi","status":"200","found":40}
