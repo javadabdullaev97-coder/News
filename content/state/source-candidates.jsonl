@@ -5811,3 +5811,15 @@
 {"ev":"fetched","at":"2026-09-03T15:21:55.444Z","link":"https://kapital.uz/zapustyat-sistemu-soczialnyh-vaucherov/","status":"200","found":31}
 {"ev":"fetched","at":"2026-09-03T15:21:55.444Z","link":"https://nuz.uz/2026/09/03/v-tashkente-vveli-v-ekspluatacziyu-pervuyu-brt-polosu-na-ulicze-shahrisabz/","status":"200","found":52}
 {"ev":"fetched","at":"2026-09-03T15:21:55.444Z","link":"https://www.gazeta.uz/ru/2026/09/03/uzbekistan-hong-kong-export/","status":"200","found":3}
+{"ev":"seen","domain":"bfa.uz","at":"2026-09-03T15:51:37.989Z","url":"http://admission.bfa.uz/","foundIn":"https://t.me/eduuz/51187","sourceId":"eduuz","context":"E'LON!\n\n🇺🇿 🇲🇾 Qo‘shma ta’lim dasturi asosidagi o‘qishga hujjatlar qabul davom etmoqda\n\n🎓Bank-moliya akademiyasi Malayziyaning Utara universiteti hamkorligida tashkil etilgan qo‘shma ta’lim dasturi asosidagi o‘qishga taklif etadi. \n\n📚Dasturni muvaffaqiyatli tamomlaganlarga q"}
+{"ev":"seen","domain":"stanbase.tech","at":"2026-09-03T15:51:40.664Z","url":"https://stanbase.tech/","foundIn":"https://www.spot.uz/ru/2026/09/03/enterprise-uz/","sourceId":"spot-uz","context":"глава и основатель Stanbase.tech."}
+{"ev":"seen","domain":"pwc.com","at":"2026-09-03T15:51:40.664Z","url":"https://www.pwc.com/uz/en/ru/services/legal-services.html","foundIn":"https://www.spot.uz/ru/2026/09/03/enterprise-uz/","sourceId":"spot-uz","context":"PwC Uzbekistan."}
+{"ev":"seen","domain":"yakubovs.com","at":"2026-09-03T15:51:40.664Z","url":"https://yakubovs.com/","foundIn":"https://www.spot.uz/ru/2026/09/03/enterprise-uz/","sourceId":"spot-uz","context":"партнер юридической фирмы Yakubovs Legal Consulting, корпоративный юрист."}
+{"ev":"fetched","at":"2026-09-03T15:51:40.669Z","link":"https://www.spot.uz/ru/2026/09/03/hong-kong/","status":"200","found":6}
+{"ev":"fetched","at":"2026-09-03T15:51:40.669Z","link":"https://www.spot.uz/ru/2026/09/03/enterprise-uz/","status":"200","found":21}
+{"ev":"fetched","at":"2026-09-03T15:51:40.669Z","link":"https://kun.uz/news/2026/09/03/shavkat-mirziyoyev-aqsh-senatori-stiv-deyns-bilan-uchrashdi","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-03T15:51:40.669Z","link":"https://kun.uz/news/2026/09/03/top-5-chempionatda-yozgi-transfer-oynasi-yopildi-eng-qimmat-kelishuvlar","status":"200","found":0}
+{"ev":"fetched","at":"2026-09-03T15:51:40.669Z","link":"https://www.gazeta.uz/ru/2026/09/03/qatar/","status":"200","found":2}
+{"ev":"fetched","at":"2026-09-03T15:51:40.669Z","link":"https://podrobno.uz/cat/world/livan-zayavil-o-namerenii-prodolzhit-peregovory-s-izrailem/","status":"200","found":2}
+{"ev":"fetched","at":"2026-09-03T15:51:40.670Z","link":"https://repost.uz/podborka-ot-0309","status":"200","found":29}
+{"ev":"fetched","at":"2026-09-03T15:51:40.670Z","link":"https://repost.uz/obmen-mneniyami-i-ne-tolko","status":"200","found":23}
