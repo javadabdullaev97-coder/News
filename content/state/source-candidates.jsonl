@@ -6132,3 +6132,13 @@
 {"ev":"fetched","at":"2026-09-04T08:21:12.506Z","link":"https://www.gazeta.uz/ru/2026/09/04/italy/","status":"200","found":2}
 {"ev":"fetched","at":"2026-09-04T08:21:12.506Z","link":"https://www.gazeta.uz/ru/2026/09/04/poverty/","status":"200","found":3}
 {"ev":"fetched","at":"2026-09-04T08:21:12.506Z","link":"https://repost.uz/life/posledniy-eto-uje-seryozno","status":"200","found":14}
+{"ev":"seen","domain":"ticketon.kz","at":"2026-09-04T08:51:38.390Z","url":"https://ticketon.kz/event/enrique-iglesias-almaty-2026","foundIn":"https://anhor.uz/ru/news/reisy-iz-almaty-v-urgench","sourceId":"anhor-uz","context":"Реклама"}
+{"ev":"seen","domain":"apa.az","at":"2026-09-04T08:51:38.390Z","url":"https://en.apa.az/america/trump-declares-imminent-us-victory-over-iran-522781","foundIn":"https://anhor.uz/ru/v-mire/trump-pobeda-ssha-iran","sourceId":"anhor-uz","context":"Президент США Дональд Трамп заявил, что Соединенные Штаты вскоре одержат победу над Ираном."}
+{"ev":"fetched","at":"2026-09-04T08:51:38.396Z","link":"https://anhor.uz/ru/news/reisy-iz-almaty-v-urgench","status":"200","found":17}
+{"ev":"fetched","at":"2026-09-04T08:51:38.396Z","link":"https://anhor.uz/ru/v-mire/trump-pobeda-ssha-iran","status":"200","found":14}
+{"ev":"fetched","at":"2026-09-04T08:51:38.396Z","link":"https://anhor.uz/ru/news/khishcheniya-gaz-elektroenergiiya-uzbekistan","status":"200","found":14}
+{"ev":"fetched","at":"2026-09-04T08:51:38.396Z","link":"https://podrobno.uz/cat/proisshestviya/vlasti-tashkenta-nazvali-predvaritelnuyu-prichinu-vzryva-na-ulitse-glinki/","status":"200","found":5}
+{"ev":"fetched","at":"2026-09-04T08:51:38.396Z","link":"https://www.gazeta.uz/ru/2026/09/04/accident/","status":"200","found":4}
+{"ev":"fetched","at":"2026-09-04T08:51:38.396Z","link":"https://www.spot.uz/ru/2026/09/04/xb-vatan-sale/","status":"200","found":2}
+{"ev":"fetched","at":"2026-09-04T08:51:38.396Z","link":"https://kun.uz/news/2026/09/04/ozbekistonda-eng-kop-cobalt-ishlab-chiqarilmoqda","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-04T08:51:38.396Z","link":"https://nuz.uz/2026/09/04/v-tashkente-otkryvaetsya-czentr-sovremennogo-iskusstva/","status":"200","found":52}
