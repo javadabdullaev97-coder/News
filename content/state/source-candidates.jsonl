@@ -6884,3 +6884,13 @@
 {"ev":"fetched","at":"2026-09-06T04:51:38.223Z","link":"https://anhor.uz/ru/v-mire/ksin-udary-shest-sudov-ormuzskiy-proliv","status":"200","found":15}
 {"ev":"fetched","at":"2026-09-06T04:51:38.223Z","link":"https://anhor.uz/ru/v-mire/minfina-delegaciya-moskva","status":"200","found":15}
 {"ev":"fetched","at":"2026-09-06T04:51:38.223Z","link":"https://anhor.uz/ru/v-mire/iran-prezident-unity-usa","status":"200","found":15}
+{"ev":"seen","domain":"telegraph.co.uk","at":"2026-09-06T05:21:49.190Z","url":"https://www.telegraph.co.uk/politics/2026/09/04/tractors-could-spy-on-farmers-for-china/?utm_source=chatgpt.com","foundIn":"https://anhor.uz/ru/v-mire/kitayskaya-tekhnika-fermakh-slezhka","sourceId":"anhor-uz","context":"Как пишет The Telegraph со ссылкой на доклад аналитического центра Coalition on Secure Technology (CST), хакеры, связанные с Китаем, потенциально могут получить доступ к такой технике и данным британских фермеров."}
+{"ev":"seen","domain":"novosti.rs","at":"2026-09-06T05:21:49.190Z","url":"https://www.novosti.rs/c/vesti/politika/1645365/sns-doneo-odluku-aleksandar-vucic-nosilac-liste-predstojecim-izborima-kandidat-predsednika-vlade","foundIn":"https://anhor.uz/ru/v-mire/vucic-kandidat-premier-ministr-srbija","sourceId":"anhor-uz","context":"Председатель SNS Милош Вучевич заявил, что решение было принято единогласно. По его словам, Вучич намерен добиться убедительной победы на выборах, после чего новое правительство должно работать более эффективно."}
+{"ev":"fetched","at":"2026-09-06T05:21:49.196Z","link":"https://anhor.uz/ru/v-mire/kitayskaya-tekhnika-fermakh-slezhka","status":"200","found":15}
+{"ev":"fetched","at":"2026-09-06T05:21:49.197Z","link":"https://anhor.uz/ru/news/uzbekistan-medsestram-vyshee-obrazovanie-vyplaty","status":"200","found":15}
+{"ev":"fetched","at":"2026-09-06T05:21:49.197Z","link":"https://anhor.uz/ru/v-mire/nepal-spasli-dvukh-chelovek-iz-pod-zavalov","status":"200","found":15}
+{"ev":"fetched","at":"2026-09-06T05:21:49.197Z","link":"https://anhor.uz/ru/v-mire/vucic-kandidat-premier-ministr-srbija","status":"200","found":15}
+{"ev":"fetched","at":"2026-09-06T05:21:49.197Z","link":"https://www.gazeta.uz/ru/2026/09/06/charvak/","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-06T05:21:49.197Z","link":"https://www.gazeta.uz/ru/2026/09/06/evgeniy-abdullayev/","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-06T05:21:49.197Z","link":"https://www.gazeta.uz/ru/2026/09/06/school-buses/","status":"200","found":6}
+{"ev":"fetched","at":"2026-09-06T05:21:49.197Z","link":"https://daryo.uz/2026/09/06/chorvoq-suv-omborida-ota-va-uning-ikki-ogli-chokib-ketdi","status":"200","found":41}
