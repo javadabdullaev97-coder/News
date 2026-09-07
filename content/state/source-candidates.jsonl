@@ -7213,3 +7213,13 @@
 {"ev":"fetched","at":"2026-09-07T12:51:03.450Z","link":"https://www.spot.uz/ru/2026/09/07/binance/","status":"200","found":3}
 {"ev":"fetched","at":"2026-09-07T12:51:03.450Z","link":"https://www.gazeta.uz/ru/2026/09/07/benchellal-monumental/","status":"200","found":7}
 {"ev":"fetched","at":"2026-09-07T12:51:03.450Z","link":"https://nuz.uz/2026/09/07/transportnye-inspektory-tashkenta-nachali-ispolzovat-bodi-kamery/","status":"200","found":55}
+{"ev":"seen","domain":"pfl.uz","at":"2026-09-07T13:21:02.044Z","url":"https://pfl.uz/news/liga-ofisi-vaqtincha-masofadan-faoliyat-yuritishga-otdi","foundIn":"https://podrobno.uz/cat/sport/stadion-bunyedkor-polnostyu-otklyuchili-ot-elektrichestva-iz-za-dolgov/","sourceId":"podrobno-uz","context":"Об этом сообщили в Профессиональной футбольной лиге Узбекистана."}
+{"ev":"seen","domain":"economicsandpeace.org","at":"2026-09-07T13:21:02.044Z","url":"https://www.economicsandpeace.org/wp-content/uploads/2026/06/Global-Peace-Index-2026-Report.pdf","foundIn":"https://podrobno.uz/cat/obchestvo/uzbekistan-stal-samym-mirnym-gosudarstvom-tsentralnoy-azii/","sourceId":"podrobno-uz","context":"Согласно новому рейтингу Institute for Economics & Peace, Узбекистан набрал 1,726 балла, и оказался первым в региональном зачете. Казахстан занял 44-е место, Таджикистан — 47-е, Кыргызстан — 61-е, а Туркменистан — 66-е."}
+{"ev":"fetched","at":"2026-09-07T13:21:02.058Z","link":"https://podrobno.uz/cat/obchestvo/osen-v-gorakh-surkhandari-nachalas-so-snega-video/","status":"200","found":84}
+{"ev":"fetched","at":"2026-09-07T13:21:02.058Z","link":"https://podrobno.uz/cat/sport/stadion-bunyedkor-polnostyu-otklyuchili-ot-elektrichestva-iz-za-dolgov/","status":"200","found":4}
+{"ev":"fetched","at":"2026-09-07T13:21:02.058Z","link":"https://podrobno.uz/cat/obchestvo/uzbekistan-stal-samym-mirnym-gosudarstvom-tsentralnoy-azii/","status":"200","found":5}
+{"ev":"fetched","at":"2026-09-07T13:21:02.058Z","link":"https://kapital.uz/kursi-valyut-na-8-sentyabrya-2026/","status":"200","found":31}
+{"ev":"fetched","at":"2026-09-07T13:21:02.058Z","link":"https://kapital.uz/postavki-szhizhennogo-gaza/","status":"200","found":31}
+{"ev":"fetched","at":"2026-09-07T13:21:02.058Z","link":"https://kapital.uz/zapustili-novyj-elektropoezd/","status":"200","found":33}
+{"ev":"fetched","at":"2026-09-07T13:21:02.058Z","link":"https://nuz.uz/2026/09/07/uzbekistan-podnyalsya-na-30-poziczij-v-rejtinge-samyh-mirnyh-stran-mira/","status":"200","found":55}
+{"ev":"fetched","at":"2026-09-07T13:21:02.058Z","link":"https://nuz.uz/2026/09/07/v-tashkente-shkolnik-popal-v-bolniczu-posle-togo-kak-emu-nasilno-zapihnuli-braslet-v-rot/","status":"200","found":55}
