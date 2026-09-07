@@ -7035,3 +7035,14 @@
 {"ev":"fetched","at":"2026-09-07T04:52:08.545Z","link":"https://repost.uz/a-vdrug-poyavyatsya","status":"200","found":26}
 {"ev":"fetched","at":"2026-09-07T04:52:08.545Z","link":"https://daryo.uz/2026/09/07/uitkoff-va-kushnerning-ukrainadagi-uch-raundlik-muzokaralari-natijasiz-yakunlandi","status":"200","found":43}
 {"ev":"fetched","at":"2026-09-07T04:52:08.545Z","link":"https://daryo.uz/2026/09/07/ozbekistonda-markirovkalash-qoidalarini-buzganlik-uchun-javobgarlik-yengillashtiriladi","status":"200","found":39}
+{"ev":"seen","domain":"weather.com","at":"2026-09-07T05:22:13.603Z","url":"https://weather.com/ru-KG/uz/city/tashkent/tenday","foundIn":"https://www.afisha.uz/ru/gorod/2026/09/07/weather","sourceId":"afisha-uz","context":"Прогноз погоды в Ташкенте на рабочую неделю с 7 по 11 сентября."}
+{"ev":"seen","domain":"tbcbank.uz","at":"2026-09-07T05:22:13.603Z","url":"https://tbcbank.uz/ru/product/debit-card/","foundIn":"https://www.afisha.uz/ru/weddings/2026/09/07/bachelorette-party","sourceId":"afisha-uz","context":"Друзья могут заранее перевести организатору свои части через приложение TBC UZ — переводы с карты TBC Salom на карты любых банков проходят без комиссии. После этого организатор оплачивает общий чек на локации одной картой и получает кешбэк со всей суммы: 1% за обычную покупку или"}
+{"ev":"seen","domain":"wsj.com","at":"2026-09-07T05:22:13.603Z","url":"https://www.wsj.com/us-news/amazon-cargo-plane-miami-runway-crash-52198128","foundIn":"https://podrobno.uz/cat/world/pyat-chelovek-pogibli-pri-avarii-gruzovogo-boeing-v-aeroportu-mayami-video/","sourceId":"podrobno-uz","context":"По данным местных спасательных служб, трое пострадавших находятся в критическом состоянии."}
+{"ev":"fetched","at":"2026-09-07T05:22:13.605Z","link":"https://anhor.uz/ru/news/uzbekistan-41-tysyach-vypusknikov-bez-raboty","status":"200","found":15}
+{"ev":"fetched","at":"2026-09-07T05:22:13.605Z","link":"https://www.afisha.uz/ru/gorod/2026/09/07/weather","status":"200","found":3}
+{"ev":"fetched","at":"2026-09-07T05:22:13.605Z","link":"https://www.afisha.uz/ru/weddings/2026/09/07/bachelorette-party","status":"200","found":6}
+{"ev":"fetched","at":"2026-09-07T05:22:13.605Z","link":"https://www.gazeta.uz/ru/2026/09/07/bridge/","status":"200","found":5}
+{"ev":"fetched","at":"2026-09-07T05:22:13.605Z","link":"https://podrobno.uz/cat/obchestvo/kadry-so-vzryvom-v-kashkadare-okazalis-ispytaniem-novoy-gazovoy-skvazhiny-video/","status":"200","found":4}
+{"ev":"fetched","at":"2026-09-07T05:22:13.605Z","link":"https://podrobno.uz/cat/world/pyat-chelovek-pogibli-pri-avarii-gruzovogo-boeing-v-aeroportu-mayami-video/","status":"200","found":3}
+{"ev":"fetched","at":"2026-09-07T05:22:13.605Z","link":"https://www.spot.uz/ru/2026/09/07/patron-gas/","status":"200","found":6}
+{"ev":"fetched","at":"2026-09-07T05:22:13.605Z","link":"https://repost.uz/sport/teper-jdem-next-god","status":"200","found":13}
