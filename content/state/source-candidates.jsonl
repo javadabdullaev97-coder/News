@@ -7853,3 +7853,7 @@
 {"ev":"fetched","at":"2026-09-09T00:51:49.402Z","link":"https://daryo.uz/2026/09/08/barselonaning-kuchli-starti-yana-omadsizlik-bilan-yakunlanadimi","status":"200","found":43}
 {"ev":"fetched","at":"2026-09-09T00:51:49.402Z","link":"https://repost.uz/poluchaetsya-ne-jarim-na-obed","status":"200","found":23}
 {"ev":"fetched","at":"2026-09-09T00:51:49.402Z","link":"https://repost.uz/sekunda-lomaet-govoryat","status":"200","found":23}
+{"ev":"seen","domain":"meteo.uz","at":"2026-09-09T01:20:58.397Z","url":"https://www.meteo.uz/#/ru/forecasts/next-day","foundIn":"https://nuz.uz/2026/09/09/dozhdi-na-severo-zapade-i-zhara-do-38-prognoz-na-9-sentyabrya/","sourceId":"nuz-uz","context":"9 сентября в большинстве регионов Узбекистана сохранится сухая погода. Днем воздух прогреется до 38°, а в Каракалпакстане и Хорезмской области ночью и утром местами пройдет кратковременный дождь."}
+{"ev":"fetched","at":"2026-09-09T01:20:58.405Z","link":"https://daryo.uz/2026/09/08/toshkent-va-mavrikiy-ortasida-ilk-bor-aviaqatnovlar-yolga-qoyiladi","status":"200","found":40}
+{"ev":"fetched","at":"2026-09-09T01:20:58.405Z","link":"https://daryo.uz/2026/09/08/fargonada-qaynotasini-dopposlab-oldirgan-erkak-qamaldi","status":"200","found":39}
+{"ev":"fetched","at":"2026-09-09T01:20:58.405Z","link":"https://nuz.uz/2026/09/09/dozhdi-na-severo-zapade-i-zhara-do-38-prognoz-na-9-sentyabrya/","status":"200","found":55}
