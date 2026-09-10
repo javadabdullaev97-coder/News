@@ -8603,3 +8603,13 @@
 {"ev":"fetched","at":"2026-09-10T20:51:42.139Z","link":"https://www.gazeta.uz/ru/2026/09/10/eco-police/","status":"200","found":1}
 {"ev":"fetched","at":"2026-09-10T20:51:42.139Z","link":"https://daryo.uz/2026/09/10/ozbekistonda-voyaga-yetmaganlar-orasida-sudlanganlar-olti-oyda-91-foizga-kopaydi","status":"200","found":40}
 {"ev":"fetched","at":"2026-09-10T20:51:42.139Z","link":"https://daryo.uz/2026/09/10/dollar-kursi-yana-pasaydi","status":"200","found":40}
+{"ev":"seen","domain":"senat.uz","at":"2026-09-10T21:21:43.532Z","url":"https://senat.uz/ru/plenary-sessions/post-6006","foundIn":"https://repost.uz/v-kodeksi-izmeneniya-vnesut","sourceId":"repost-uz","context":"Сенат Олий Мажлиса одобрили закон, направленный на совершенствование процедур разрешения бесспорных дел. Об этом сообщает пресс-служба верхней палаты парламента."}
+{"ev":"seen","domain":"senat.uz","at":"2026-09-10T21:21:43.532Z","url":"https://senat.uz/oz/plenary-sessions/post-6004","foundIn":"https://kun.uz/news/2026/09/10/davlat-chegarasi-ostidan-tunnel-qaziganlik-uchun-jinoiy-javobgarlik-joriy-etiladi","sourceId":"kun-uz","context":"qilindi"}
+{"ev":"fetched","at":"2026-09-10T21:21:43.542Z","link":"https://repost.uz/v-kodeksi-izmeneniya-vnesut","status":"200","found":23}
+{"ev":"fetched","at":"2026-09-10T21:21:43.542Z","link":"https://repost.uz/kitayskiy-yuan-zashel-v-uzbekistan","status":"200","found":14}
+{"ev":"fetched","at":"2026-09-10T21:21:43.542Z","link":"https://daryo.uz/2026/09/10/neftchi-apl-chempionini-oz-safiga-qoshib-olishi-mumkin-manba","status":"200","found":42}
+{"ev":"fetched","at":"2026-09-10T21:21:43.542Z","link":"https://daryo.uz/2026/09/10/tashiyevga-qoyilgan-hokimiyatni-kuch-bilan-egallash-ayblovi-ozgartirildi","status":"200","found":39}
+{"ev":"fetched","at":"2026-09-10T21:21:43.542Z","link":"https://kun.uz/news/2026/09/10/uyimizdan-chiqayotganimizda-kimdir-yechinayotgan-boladi-marhamatda-dom-atrofi-bozorga-aylantirilgan","status":"200","found":0}
+{"ev":"fetched","at":"2026-09-10T21:21:43.542Z","link":"https://daryo.uz/2026/09/10/elektrotexnika-korxonalari-uchun-imtiyozlar-2030-yilgacha-uzaytirilishi-rejalashtirilmoqda","status":"200","found":41}
+{"ev":"fetched","at":"2026-09-10T21:21:43.542Z","link":"https://kun.uz/news/2026/09/10/davlat-chegarasi-ostidan-tunnel-qaziganlik-uchun-jinoiy-javobgarlik-joriy-etiladi","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-10T21:21:43.542Z","link":"https://daryo.uz/2026/09/10/kuniga-5-ta-soz-haftasiga-bir-bob-ingliz-tilini-organishni-osonlashtiradigan-6-usul","status":"200","found":37}
