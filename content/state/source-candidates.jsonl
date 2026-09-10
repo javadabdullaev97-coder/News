@@ -8261,3 +8261,8 @@
 {"ev":"fetched","at":"2026-09-10T03:21:25.038Z","link":"https://kun.uz/news/2026/09/10/nasa-marsning-yangi-suratlarini-elon-qildi","status":"200","found":1}
 {"ev":"fetched","at":"2026-09-10T03:21:25.038Z","link":"https://www.gazeta.uz/ru/2026/09/10/forced-labor/","status":"200","found":5}
 {"ev":"fetched","at":"2026-09-10T03:21:25.038Z","link":"https://daryo.uz/2026/09/10/germaniya-harbiy-xizmat-yoshidagi-ukrainalik-erkaklarni-kiyevga-qaytarmoqchi","status":"200","found":43}
+{"ev":"seen","domain":"iaea.org","at":"2026-09-10T03:51:35.445Z","url":"https://www.iaea.org/sites/default/files/gc/gc70-18.pdf","foundIn":"https://podrobno.uz/cat/world/kndr-postroila-novyy-obekt-po-obogashcheniyu-urana-/","sourceId":"podrobno-uz","context":"Об этом говорится в новом докладе Международного агентства по атомной энергии (МАГАТЭ). Они установили местоположение объекта после сравнения спутниковых снимков со сделанными во время июньского визита Ким Чен Ына фотографиями. Центрифужные каскады установлены на обоих этажах дву"}
+{"ev":"fetched","at":"2026-09-10T03:51:35.448Z","link":"https://www.gazeta.uz/ru/2026/09/10/detention/","status":"200","found":6}
+{"ev":"fetched","at":"2026-09-10T03:51:35.448Z","link":"https://podrobno.uz/cat/world/kndr-postroila-novyy-obekt-po-obogashcheniyu-urana-/","status":"200","found":4}
+{"ev":"fetched","at":"2026-09-10T03:51:35.448Z","link":"https://www.gazeta.uz/ru/2026/09/10/children/","status":"200","found":9}
+{"ev":"fetched","at":"2026-09-10T03:51:35.448Z","link":"https://nuz.uz/2026/09/10/uzbekistan-snova-razogreet-temperatura-podnimetsya-do-38/","status":"200","found":54}
