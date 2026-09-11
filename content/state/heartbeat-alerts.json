@@ -1,12 +1,16 @@
 {
   "channels": {
     "queue-stale": {
-      "at": "2026-09-11T03:18:12.724Z",
+      "at": "2026-09-11T13:18:35.202Z",
       "message": "⚠️ <b>Материалы в очереди без ответа >24ч</b> (42 шт):\n— <code>us-polysilicon-tariff-signed-aug2026</code>\n— <code>dprk-missile-launch-tokyo-seoul-protest</code>\n— <code>president-ai-award-deadline-week-left</code>\n— <code>tashkent-bektemir-gas-outage-aug7</code>\n— <code>res-red-category-transformers-sept1</code>\n…и ещё 37"
     },
     "routine-stale": {
-      "at": "2026-09-11T03:18:12.398Z",
-      "message": "⚠️ <b>Планёрки молчат</b>: ни одна отметка last-routine-run*.json не обновлялась 490.7ч (порог 6ч). Проверь code.claude.com → LEAP Planyorka → History."
+      "at": "2026-09-11T13:18:35.081Z",
+      "message": "⚠️ <b>Планёрки молчат</b>: ни одна отметка last-routine-run*.json не обновлялась 500.7ч (порог 6ч). Проверь code.claude.com → LEAP Planyorka → History."
+    },
+    "inbox-stale": {
+      "at": "2026-09-11T13:18:34.781Z",
+      "message": "⚠️ <b>Inbox молчит</b>: последнее обновление 5.9ч назад (порог 2ч). Проверь Actions → Pull news inbox: массовый 403/429?"
     }
   }
 }
