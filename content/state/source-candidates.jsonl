@@ -8887,3 +8887,13 @@
 {"ev":"fetched","at":"2026-09-11T17:21:48.220Z","link":"https://kapital.uz/v-tashkente-zapustili-farmpredpriyatie/","status":"200","found":32}
 {"ev":"fetched","at":"2026-09-11T17:21:48.220Z","link":"https://daryo.uz/2026/09/11/22-yoshli-qiz-turkiya-klubi-bosh-murabbiyiga-aylandi","status":"200","found":40}
 {"ev":"fetched","at":"2026-09-11T17:21:48.220Z","link":"https://daryo.uz/2026/09/11/toshkentda-bir-oyda-11-mln-kvt-soat-elektr-va-10-mln-kub-metr-gaz-tejaldi","status":"200","found":41}
+{"ev":"seen","domain":"blikk.hu","at":"2026-09-11T17:52:02.729Z","url":"https://www.blikk.hu/eletmod/lelek/koncentracio-hazimunka-beszed/tce5dsz","foundIn":"https://kun.uz/news/2026/09/11/ish-vaqtida-ozi-bilan-ozi-gaplashish-odati-tadqiqot-natijalari-malum-boldi","sourceId":"kun-uz","context":"xabar"}
+{"ev":"seen","domain":"gov.kz","at":"2026-09-11T17:52:02.729Z","url":"https://www.gov.kz/memleket/entities/akimvko/press/news/details/1289728?lang=ru","foundIn":"https://kun.uz/news/2026/09/11/qozogistonda-davlat-xizmatchilari-qimmatbaho-buyumlarni-koz-koz-qilmaslikka-chaqirildi","sourceId":"kun-uz","context":"xabar"}
+{"ev":"fetched","at":"2026-09-11T17:52:02.736Z","link":"https://sports.uz/ru/news/view/lokomotiv-uverenno-obygral-mashal-11-09-2026","status":"200","found":6}
+{"ev":"fetched","at":"2026-09-11T17:52:02.736Z","link":"https://sports.uz/ru/news/view/navbaxor-pobedil-buxaru-11-09-2026","status":"200","found":6}
+{"ev":"fetched","at":"2026-09-11T17:52:02.736Z","link":"https://kun.uz/news/2026/09/11/ish-vaqtida-ozi-bilan-ozi-gaplashish-odati-tadqiqot-natijalari-malum-boldi","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-11T17:52:02.736Z","link":"https://kun.uz/news/2026/09/11/qozogistonda-davlat-xizmatchilari-qimmatbaho-buyumlarni-koz-koz-qilmaslikka-chaqirildi","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-11T17:52:02.737Z","link":"https://daryo.uz/2026/09/11/superliga-navabahor-safarda-lokomotiv-esa-oz-maydonida-yirik-galabani-qolga-kiritdi","status":"200","found":42}
+{"ev":"fetched","at":"2026-09-11T17:52:02.737Z","link":"https://daryo.uz/2026/09/11/insoniyat-giyohvand-moddalarni-25-ming-yil-avval-istemol-qila-boshlagan-bolishi-mumkin-tadqiqot","status":"200","found":42}
+{"ev":"fetched","at":"2026-09-11T17:52:02.737Z","link":"https://daryo.uz/2026/09/11/fargonada-mahalladoshiga-shilqimlik-qilgan-yigit-5-sutkaga-qamaldi","status":"200","found":42}
+{"ev":"fetched","at":"2026-09-11T17:52:02.737Z","link":"https://daryo.uz/2026/09/11/toshkentda-tadbirkorlar-uchun-garovsiz-kredit-limiti-200-mln-somga-oshiriladi","status":"200","found":40}
