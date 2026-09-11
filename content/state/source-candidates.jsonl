@@ -8828,3 +8828,12 @@
 {"ev":"fetched","at":"2026-09-11T15:22:40.843Z","link":"https://www.spot.uz/ru/2026/09/11/old-town/","status":"200","found":3}
 {"ev":"fetched","at":"2026-09-11T15:22:40.843Z","link":"https://nuz.uz/2026/09/11/nalogovye-schastlivchiki-uzbekistana-komu-gosudarstvo-prodlilo-lgotnyj-rezhim-2/","status":"200","found":55}
 {"ev":"fetched","at":"2026-09-11T15:22:40.843Z","link":"https://podrobno.uz/cat/podrobno/uzbekistan-stal-vtorym-v-tsentralnoy-azii-po-udobstvu-dlya-relokantov/","status":"200","found":3}
+{"ev":"seen","domain":"kremlin.ru","at":"2026-09-11T15:52:17.503Z","url":"http://kremlin.ru/events/president/news/80726","foundIn":"https://kun.uz/news/2026/09/11/rossiyada-migrantlar-tomonidan-sodir-etilgan-jinoyatlar-soni-kamaygani-aytildi","sourceId":"kun-uz","context":"maʼlum qildi."}
+{"ev":"fetched","at":"2026-09-11T15:52:17.507Z","link":"https://podrobno.uz/cat/politic/shavkat-mirziyeev-otsenil-rezultaty-novogo-eksperimenta-po-borbe-s-prestupnostyu-v-almazarskom-rayon/","status":"200","found":2}
+{"ev":"fetched","at":"2026-09-11T15:52:17.507Z","link":"https://podrobno.uz/cat/obchestvo/v-tashkente-podveli-itogi-podgotovki-kommunalnoy-sistemy-k-osenne-zimnemu-sezonu/","status":"200","found":3}
+{"ev":"fetched","at":"2026-09-11T15:52:17.507Z","link":"https://podrobno.uz/cat/politic/v-tashkente-rasshiryat-detskie-sady-i-vnedryat-intellektualnuyu-sistemu-upravleniya-trafikom/","status":"200","found":3}
+{"ev":"fetched","at":"2026-09-11T15:52:17.507Z","link":"https://www.spot.uz/ru/2026/09/11/education/","status":"200","found":5}
+{"ev":"fetched","at":"2026-09-11T15:52:17.507Z","link":"https://kun.uz/news/2026/09/11/rossiyada-migrantlar-tomonidan-sodir-etilgan-jinoyatlar-soni-kamaygani-aytildi","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-11T15:52:17.507Z","link":"https://www.gazeta.uz/ru/2026/09/11/uzbekistan-chess-teams-women/","status":"200","found":5}
+{"ev":"fetched","at":"2026-09-11T15:52:17.507Z","link":"https://kun.uz/news/2026/09/11/qurilishda-ishlaysan-deyishgandi-rossiya-armiyasiga-yollangan-yigit-frontda-mina-bosib-olib-barmoqlaridan-ayrildi","status":"200","found":0}
+{"ev":"fetched","at":"2026-09-11T15:52:17.507Z","link":"https://nuz.uz/2026/09/11/vdol-kanala-bozsu-v-tashkente-sozdadut-20-kilometrovuyu-peshehodnuyu-zonu/","status":"200","found":54}
