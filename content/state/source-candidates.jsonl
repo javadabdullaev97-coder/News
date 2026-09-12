@@ -9011,3 +9011,13 @@
 {"ev":"fetched","at":"2026-09-11T23:52:16.301Z","link":"https://kapital.uz/proizvodstvo-elektroniki/","status":"200","found":34}
 {"ev":"fetched","at":"2026-09-11T23:52:16.301Z","link":"https://kapital.uz/kompensaczii-za-zaderzhki/","status":"200","found":34}
 {"ev":"fetched","at":"2026-09-11T23:52:16.301Z","link":"https://kapital.uz/perviy-bank-v-mirovom-rejtinge/","status":"200","found":36}
+{"ev":"seen","domain":"cbr.ru","at":"2026-09-12T00:21:47.717Z","url":"https://cbr.ru/press/pr/?file=11092026_133000key.htm","foundIn":"https://www.spot.uz/ru/2026/09/11/cbr-rate/","sourceId":"spot-uz","context":"Банк России прекратил цикл смягчения денежно-кредитной политики. Правление регулятора на заседании 11 сентября решило оставить ключевую ставку на уровне 14% годовых."}
+{"ev":"seen","domain":"embraer.com","at":"2026-09-12T00:21:47.717Z","url":"http://embraer.com/media-center/en/?mediatype=NEWS&detail=24149-Republic-of-Uzbekistan-revealed-as-previously-announced-C-390-Millennium-undisclosed-customer-","foundIn":"https://www.spot.uz/ru/2026/09/11/embraer-c390/","sourceId":"spot-uz","context":"Впервые компания объявила о закупке Узбекистаном военно-транспортных самолетов C-390 Millennium на февральском авиасалоне в Сингапуре. Согласно анонсу, они будут использоваться в основном в транспортных и гуманитарных миссиях."}
+{"ev":"fetched","at":"2026-09-12T00:21:47.720Z","link":"https://www.spot.uz/ru/2026/09/11/usd-break/","status":"200","found":4}
+{"ev":"fetched","at":"2026-09-12T00:21:47.720Z","link":"https://www.spot.uz/ru/2026/09/11/waste-legislation/","status":"200","found":4}
+{"ev":"fetched","at":"2026-09-12T00:21:47.720Z","link":"https://www.spot.uz/ru/2026/09/11/cbr-rate/","status":"200","found":6}
+{"ev":"fetched","at":"2026-09-12T00:21:47.720Z","link":"https://www.spot.uz/ru/2026/09/11/unemployment-poverty/","status":"200","found":4}
+{"ev":"fetched","at":"2026-09-12T00:21:47.720Z","link":"https://www.spot.uz/ru/2026/09/11/first-floors/","status":"200","found":3}
+{"ev":"fetched","at":"2026-09-12T00:21:47.720Z","link":"https://www.spot.uz/ru/2026/09/11/public-transport-fares/","status":"200","found":3}
+{"ev":"fetched","at":"2026-09-12T00:21:47.720Z","link":"https://www.spot.uz/ru/2026/09/11/embraer-c390/","status":"200","found":7}
+{"ev":"fetched","at":"2026-09-12T00:21:47.720Z","link":"https://www.spot.uz/ru/2026/09/11/interventions/","status":"200","found":3}
