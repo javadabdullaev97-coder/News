@@ -9042,3 +9042,12 @@
 {"ev":"fetched","at":"2026-09-12T01:21:47.930Z","link":"https://www.gazeta.uz/ru/2026/09/11/noise/","status":"200","found":3}
 {"ev":"fetched","at":"2026-09-12T01:21:47.930Z","link":"https://kun.uz/news/2026/09/11/hafta-oxirida-harorat-biroz-pasayadi-2","status":"200","found":1}
 {"ev":"fetched","at":"2026-09-12T01:21:47.930Z","link":"https://kun.uz/news/2026/09/11/hujumga-otgan-husiychilar-va-rossiyaning-fosh-qilingan-rejasi-kun-dayjesti","status":"200","found":0}
+{"ev":"seen","domain":"senat.uz","at":"2026-09-12T01:51:36.100Z","url":"https://senat.uz/ru/plenary-sessions/post-6011","foundIn":"https://repost.uz/novie-doma-i-infrastruktura","sourceId":"repost-uz","context":"Сенат Олий Мажлиса принял постановление об изменении границ города Зарафшана и Тамдынского района Навоийской области, сообщает пресс-служба верхней палаты парламента."}
+{"ev":"fetched","at":"2026-09-12T01:51:36.107Z","link":"https://repost.uz/nu-chto-j-valkommen","status":"200","found":24}
+{"ev":"fetched","at":"2026-09-12T01:51:36.107Z","link":"https://kun.uz/news/2026/09/11/old-traffordga-borgan-ozbekistonlik-va-istanbuldagi-galati-istefo-kun-oyinlari","status":"200","found":0}
+{"ev":"fetched","at":"2026-09-12T01:51:36.107Z","link":"https://repost.uz/v-obshem-budet-gde-pogulyat","status":"200","found":23}
+{"ev":"fetched","at":"2026-09-12T01:51:36.107Z","link":"https://repost.uz/life/eshe-odin-minekaev","status":"200","found":14}
+{"ev":"fetched","at":"2026-09-12T01:51:36.107Z","link":"https://kun.uz/news/2026/09/11/oltin-top-uchun-30-nomzod-messi-bor-ronaldu-yoq","status":"200","found":0}
+{"ev":"fetched","at":"2026-09-12T01:51:36.107Z","link":"https://repost.uz/viglyadit-on-voobshe-moshno","status":"200","found":24}
+{"ev":"fetched","at":"2026-09-12T01:51:36.107Z","link":"https://repost.uz/novie-doma-i-infrastruktura","status":"200","found":23}
+{"ev":"fetched","at":"2026-09-12T01:51:36.107Z","link":"https://repost.uz/xoroshaya-takaya-osen","status":"200","found":23}
