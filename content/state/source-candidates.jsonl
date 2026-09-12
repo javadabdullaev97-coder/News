@@ -9337,3 +9337,7 @@
 {"ev":"fetched","at":"2026-09-12T17:51:20.030Z","link":"https://sports.uz/ru/news/view/olimpiyskaya-sbornaya-uzbekistana-prodoljaet-podgotovku-k-aziatskim-igram-v-yaponii-12-09-2026","status":"200","found":6}
 {"ev":"fetched","at":"2026-09-12T17:51:20.030Z","link":"https://daryo.uz/2026/09/12/eron-aqshning-iordaniyadagi-bazasiga-hujum-qilishda-xitoy-suniy-yoldosh-tasvirlaridan-foydalangan","status":"200","found":43}
 {"ev":"fetched","at":"2026-09-12T17:51:20.030Z","link":"https://nuz.uz/2026/09/12/kazhdyj-vosemnadczatyj-dollar-uzbekistan-zarabotal-na-afganskom-rynke-2/","status":"200","found":56}
+{"ev":"seen","domain":"gazeta.ru","at":"2026-09-12T18:21:49.341Z","url":"https://www.gazeta.ru/sport/news/2026/09/12/29305009.shtml","foundIn":"https://kun.uz/news/2026/09/12/infantino-fifa-rahbarligiga-saylovlarda-oz-nomzodini-qoyishini-tasdiqladi","sourceId":"kun-uz","context":"tasdiqladi"}
+{"ev":"fetched","at":"2026-09-12T18:21:49.344Z","link":"https://kun.uz/news/2026/09/12/infantino-fifa-rahbarligiga-saylovlarda-oz-nomzodini-qoyishini-tasdiqladi","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-12T18:21:49.345Z","link":"https://repost.uz/pora-stavit-vse-na-zaryadku","status":"200","found":23}
+{"ev":"fetched","at":"2026-09-12T18:21:49.345Z","link":"https://daryo.uz/2026/09/12/toshkent-viloyatida-400-dan-ortiq-fuqaroni-foizsiz-kredit-bilan-aldab-17-mlrd-som-ozlashtirgan-guruh-fosh-etildi","status":"200","found":39}
