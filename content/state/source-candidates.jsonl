@@ -10216,3 +10216,12 @@
 {"ev":"fetched","at":"2026-09-15T16:21:34.036Z","link":"https://kapital.uz/taukuber-dlya-upravleniya-kubernetes/","status":"200","found":37}
 {"ev":"fetched","at":"2026-09-15T16:21:34.036Z","link":"https://kapital.uz/prodazhi-avtomobilej/","status":"200","found":33}
 {"ev":"fetched","at":"2026-09-15T16:21:34.036Z","link":"https://kapital.uz/povysyat-pensionnyj-vozrast/","status":"200","found":33}
+{"ev":"seen","domain":"propublica.org","at":"2026-09-15T16:51:31.652Z","url":"https://www.propublica.org/article/donald-trump-jr-wedding-bankrolled-russian-oligarch-umar-kremlev-putin","foundIn":"https://kun.uz/news/2026/09/15/rossiyalik-tadbirkordan-yuz-minglab-dollarlik-sovga-kichik-tramp-atrofida-mojaro","sourceId":"kun-uz","context":"maʼlumotlariga"}
+{"ev":"fetched","at":"2026-09-15T16:51:31.661Z","link":"https://kun.uz/news/2026/09/15/rossiyalik-tadbirkordan-yuz-minglab-dollarlik-sovga-kichik-tramp-atrofida-mojaro","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-15T16:51:31.661Z","link":"https://www.gazeta.uz/ru/2026/09/15/biome/","status":"200","found":4}
+{"ev":"fetched","at":"2026-09-15T16:51:31.661Z","link":"https://www.gazeta.uz/ru/2026/09/15/green/","status":"200","found":3}
+{"ev":"fetched","at":"2026-09-15T16:51:31.661Z","link":"https://repost.uz/govorit-vyezjal-kto-xotel","status":"200","found":25}
+{"ev":"fetched","at":"2026-09-15T16:51:31.661Z","link":"https://daryo.uz/2026/09/15/futbol-imperiyasi-kinoprodyuserlik-va-padel-oynash-ronalduning-kelajakdagi-rejalari-qanday","status":"200","found":43}
+{"ev":"fetched","at":"2026-09-15T16:51:31.661Z","link":"https://daryo.uz/2026/09/15/kanadalik-boks-afsonasi-vafot-etdi-u-faoliyati-davomida-umuman-nokdaun-holatiga-tushmagan","status":"200","found":43}
+{"ev":"fetched","at":"2026-09-15T16:51:31.661Z","link":"https://www.spot.uz/ru/2026/09/15/subway/","status":"200","found":4}
+{"ev":"fetched","at":"2026-09-15T16:51:31.661Z","link":"https://daryo.uz/2026/09/15/bogdorchilikning-salomatlikka-foydalari-aniqlandi","status":"200","found":40}
