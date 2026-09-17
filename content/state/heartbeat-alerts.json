@@ -1,12 +1,12 @@
 {
   "channels": {
     "queue-stale": {
-      "at": "2026-09-17T00:18:02.254Z",
+      "at": "2026-09-17T07:17:31.131Z",
       "message": "⚠️ <b>Материалы в очереди без ответа >24ч</b> (42 шт):\n— <code>us-polysilicon-tariff-signed-aug2026</code>\n— <code>dprk-missile-launch-tokyo-seoul-protest</code>\n— <code>president-ai-award-deadline-week-left</code>\n— <code>tashkent-bektemir-gas-outage-aug7</code>\n— <code>res-red-category-transformers-sept1</code>\n…и ещё 37"
     },
     "routine-stale": {
-      "at": "2026-09-17T00:18:01.817Z",
-      "message": "⚠️ <b>Планёрки молчат</b>: ни одна отметка last-routine-run*.json не обновлялась 631.7ч (порог 6ч). Проверь code.claude.com → LEAP Planyorka → History."
+      "at": "2026-09-17T07:17:30.708Z",
+      "message": "⚠️ <b>Планёрки молчат</b>: ни одна отметка last-routine-run*.json не обновлялась 638.7ч (порог 6ч). Проверь code.claude.com → LEAP Planyorka → History."
     },
     "inbox-stale": {
       "at": "2026-09-11T13:18:34.781Z",
