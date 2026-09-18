@@ -11164,3 +11164,5 @@
 {"ev":"fetched","at":"2026-09-18T00:20:57.800Z","link":"https://kun.uz/news/2026/09/17/kiyev-mikolayiv-yolovchi-poyezdiga-zarba-berildi","status":"200","found":1}
 {"ev":"fetched","at":"2026-09-18T00:20:57.800Z","link":"https://daryo.uz/2026/09/17/samarqandda-bolalar-kelajagi-boyicha-butunjahon-sammiti-otkaziladi","status":"200","found":39}
 {"ev":"fetched","at":"2026-09-18T02:20:59.949Z","link":"https://kun.uz/news/2026/09/18/aktrisa-yodgora-ziyomuhamedova-vafot-etdi","status":"200","found":0}
+{"ev":"seen","domain":"egov.tj","at":"2026-09-18T03:50:57.019Z","url":"https://egov.tj/site/parlament-tj/press/news/details/8882?lang=ru","foundIn":"https://podrobno.uz/cat/world/tadzhikistan-mozhet-prekratit-uchastie-v-mezhdunarodnom-ugolovnom-sude/","sourceId":"podrobno-uz","context":"Соответствующий проект постановления рассмотрел Совет нижней палаты парламента республики на внеочередном заседании 16 сентября."}
+{"ev":"fetched","at":"2026-09-18T03:50:57.020Z","link":"https://podrobno.uz/cat/world/tadzhikistan-mozhet-prekratit-uchastie-v-mezhdunarodnom-ugolovnom-sude/","status":"200","found":4}
