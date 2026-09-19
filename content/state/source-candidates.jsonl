@@ -11835,3 +11835,11 @@
 {"ev":"fetched","at":"2026-09-19T15:51:00.481Z","link":"https://daryo.uz/2026/09/19/shaxmat-olimpiadasi-ozbekistonning-asosiy-jamoalari-4-turda-ham-zafar-quchdi","status":"200","found":43}
 {"ev":"fetched","at":"2026-09-19T15:51:00.481Z","link":"https://daryo.uz/2026/09/19/toshkentnukus-tezyurar-poyezdi-qatnovi-kelasi-yil-mart-oyidan-yolga-qoyiladi","status":"200","found":39}
 {"ev":"fetched","at":"2026-09-19T15:51:00.481Z","link":"https://daryo.uz/2026/09/19/qoraqalpogistonda-karbon-kredit-mexanizmi-yolga-qoyiladi","status":"200","found":39}
+{"ev":"seen","domain":"nbu.uz","at":"2026-09-19T16:21:00.674Z","url":"https://nbu.uz/ru","foundIn":"https://www.gazeta.uz/ru/2026/09/19/chess-olympiad-4/","sourceId":"gazeta-uz","context":"Подготовка и участие Синдарова в международных турнирах, включая шахматную Олимпиаду, а также работа с тренерами проходят при поддержке Национального банка Узбекистана."}
+{"ev":"seen","domain":"prg.kz","at":"2026-09-19T16:21:00.674Z","url":"https://ba.prg.kz/710000000-astana/231140900723-chastnaya-kompaniya-vtr-holdings-limited/","foundIn":"https://www.spot.uz/ru/2026/09/19/railways/","sourceId":"spot-uz","context":"По данным ЕГРПО, учредителями Transport Engineering Center являются частная компания VTR Holdings Limited (94,2%) и «Вектор технологических решений» (5,8%). Первая компания зарегистрирована в Астане, а вторая — в Москве."}
+{"ev":"fetched","at":"2026-09-19T16:21:00.677Z","link":"https://www.gazeta.uz/ru/2026/09/19/drugs/","status":"200","found":5}
+{"ev":"fetched","at":"2026-09-19T16:21:00.677Z","link":"https://www.gazeta.uz/ru/2026/09/19/chess-olympiad-4/","status":"200","found":11}
+{"ev":"fetched","at":"2026-09-19T16:21:00.677Z","link":"https://www.spot.uz/ru/2026/09/19/ev-charging/","status":"200","found":3}
+{"ev":"fetched","at":"2026-09-19T16:21:00.677Z","link":"https://www.spot.uz/ru/2026/09/19/railways/","status":"200","found":8}
+{"ev":"fetched","at":"2026-09-19T16:21:00.677Z","link":"https://daryo.uz/2026/09/19/oglim-toyini-moliyalashtirgan-rossiyalik-oligarxga-pulini-qaytarib-bergan-tramp","status":"error","found":0}
+{"ev":"fetched","at":"2026-09-19T16:21:00.677Z","link":"https://daryo.uz/2026/09/19/fyuri-va-joshua-jangi-kardiff-shahrida-otkazilishi-mumkin","status":"200","found":43}
