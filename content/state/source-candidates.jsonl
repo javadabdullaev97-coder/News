@@ -11971,3 +11971,7 @@
 {"ev":"fetched","at":"2026-09-20T12:20:54.726Z","link":"https://sports.uz/ru/news/view/startovye-sostavy-na-match-andijan-nasaf-20-09-2026","status":"200","found":4}
 {"ev":"fetched","at":"2026-09-20T12:20:54.726Z","link":"https://daryo.uz/2026/09/20/hindistonda-ona-qizlarining-talimi-uchun-marafonda-yalangoyoq-yugurdi","status":"error","found":0}
 {"ev":"fetched","at":"2026-09-20T12:20:54.726Z","link":"https://daryo.uz/2026/09/20/ozbekiston-banklarida-18-mln-dan-ortiq-firibgarlik-operatsiyalarining-oldi-olindi","status":"200","found":40}
+{"ev":"seen","domain":"beinsports.com.tr","at":"2026-09-20T12:50:54.024Z","url":"https://beinsports.com.tr/takim/genclerbirligi","foundIn":"https://anhor.uz/ru/sport/eldor-shommurodov-bombardirov-superliga","sourceId":"anhor-uz","context":"Нападающий сборной Узбекистана Элдор Шомуродов продолжает результативно выступать в чемпионате Турции."}
+{"ev":"fetched","at":"2026-09-20T12:50:54.025Z","link":"https://kun.uz/news/2026/09/20/chizilgan-galabalar-rossiya-harbiylari-suniy-intellekt-orqali-frontdagi-yutuqlarni-qanday-yasamoqda","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-20T12:50:54.025Z","link":"https://anhor.uz/ru/sport/eldor-shommurodov-bombardirov-superliga","status":"200","found":9}
+{"ev":"fetched","at":"2026-09-20T12:50:54.025Z","link":"https://anhor.uz/ru/v-mire/ratcliffe-teryaet-doverie-velikobritanii","status":"200","found":9}
