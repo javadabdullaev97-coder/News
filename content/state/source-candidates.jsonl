@@ -13721,3 +13721,12 @@
 {"ev":"fetched","at":"2026-09-25T05:51:22.196Z","link":"https://podrobno.uz/cat/sport/uzbekistanskie-baydarochnitsy-zavoevali-serebro-aziatskikh-igr/","status":"200","found":5}
 {"ev":"fetched","at":"2026-09-25T05:51:22.196Z","link":"https://kun.uz/news/2026/09/25/qaysi-mamlakatlar-oquvchilari-tabiiy-fanlarni-yaxshiroq-biladi","status":"200","found":1}
 {"ev":"fetched","at":"2026-09-25T05:51:22.196Z","link":"https://www.spot.uz/ru/2026/09/25/loans-aug26/","status":"200","found":7}
+{"ev":"seen","domain":"weather.com","at":"2026-09-25T06:20:54.379Z","url":"https://weather.com/ru-KG/uz/city/tashkent/tenday","foundIn":"https://www.afisha.uz/ru/gorod/2026/09/25/weather","sourceId":"afisha-uz","context":"Прогноз погоды в Ташкенте на выходных 26 и 27 сентября."}
+{"ev":"fetched","at":"2026-09-25T06:20:54.384Z","link":"https://www.afisha.uz/ru/gorod/2026/09/25/weather","status":"200","found":3}
+{"ev":"fetched","at":"2026-09-25T06:20:54.384Z","link":"https://podrobno.uz/cat/obchestvo/ot-zavoda-do-aptechnoy-polki-chto-proiskhodit-s-lekarstvom-po-doroge-k-patsientu/","status":"200","found":3}
+{"ev":"fetched","at":"2026-09-25T06:20:54.384Z","link":"https://anhor.uz/ru/news/pomoshchnik-prokurora-vzyatka-4700","status":"200","found":19}
+{"ev":"fetched","at":"2026-09-25T06:20:54.384Z","link":"https://anhor.uz/ru/v-mire/macklemore-free-palestine-tour","status":"200","found":17}
+{"ev":"fetched","at":"2026-09-25T06:20:54.385Z","link":"https://anhor.uz/ru/v-mire/strelba-sinagoga-kanada-napad-nenavist","status":"200","found":17}
+{"ev":"fetched","at":"2026-09-25T06:20:54.385Z","link":"https://podrobno.uz/cat/economic/vstuplenie-uzbekistana-v-vto-vyshlo-na-zavershayushchiy-etap-saida-mirziyeeva/","status":"200","found":5}
+{"ev":"fetched","at":"2026-09-25T06:20:54.385Z","link":"https://anhor.uz/ru/v-mire/molodye-britantsy-silovye-trenirovki-kardio","status":"200","found":16}
+{"ev":"fetched","at":"2026-09-25T06:20:54.385Z","link":"https://anhor.uz/ru/v-mire/britain-warns-iran-hostile-activity","status":"200","found":17}
