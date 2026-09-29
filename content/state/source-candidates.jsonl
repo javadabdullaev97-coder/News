@@ -15239,3 +15239,13 @@
 {"ev":"fetched","at":"2026-09-29T15:22:15.328Z","link":"https://kun.uz/news/2026/09/29/osiyo-oyinlari-kundaligi-yana-ikki-oltin-va-doping-mojarosi","status":"200","found":0}
 {"ev":"fetched","at":"2026-09-29T15:22:15.328Z","link":"https://www.spot.uz/ru/2026/09/29/remittance-of-roubles/","status":"200","found":3}
 {"ev":"fetched","at":"2026-09-29T15:22:15.328Z","link":"https://www.gazeta.uz/ru/2026/09/29/aiib-uzbekistan/","status":"200","found":1}
+{"ev":"seen","domain":"franceinfo.fr","at":"2026-09-29T15:51:52.272Z","url":"https://www.franceinfo.fr/","foundIn":"https://daryo.uz/2026/09/29/fransiyada-maktab-oquvchilari-norozilik-namoyishi-otkazmoqda-160-dan-ortiq-odam-hibsga-olindi","sourceId":"daryo-uz","context":"28-sentyabr kuni Fransiya boʻylab taʼlim sharoitlaridan norozi yuqori sinf oʻquvchilari namoyishga chiqdi. Bu haqda France Info xabar berdi."}
+{"ev":"seen","domain":"avs.io","at":"2026-09-29T15:51:52.272Z","url":"https://i.avs.io/oyl1D7vk","foundIn":"https://kun.uz/news/2026/09/29/aydarkoldan-maldiv-orollarigacha-kuzda-qayerga-borish-mumkin","sourceId":"kun-uz","context":"kuzda borish mumkin boʻlgan mamlakatlar toʻplamini"}
+{"ev":"fetched","at":"2026-09-29T15:51:52.277Z","link":"https://www.spot.uz/ru/2026/09/29/aiib/","status":"200","found":2}
+{"ev":"fetched","at":"2026-09-29T15:51:52.277Z","link":"https://kun.uz/news/2026/09/29/pedofiliya-uchun-umrbod-qamoq-taklifi-va-defoliatsiyadan-zaharlangan-bolalar-mahalliy-dayjest","status":"200","found":5}
+{"ev":"fetched","at":"2026-09-29T15:51:52.277Z","link":"https://daryo.uz/2026/09/29/fransiyada-maktab-oquvchilari-norozilik-namoyishi-otkazmoqda-160-dan-ortiq-odam-hibsga-olindi","status":"200","found":9}
+{"ev":"fetched","at":"2026-09-29T15:51:52.277Z","link":"https://repost.uz/podborka-ot-2909","status":"200","found":29}
+{"ev":"fetched","at":"2026-09-29T15:51:52.277Z","link":"https://kun.uz/news/2026/09/29/aydarkoldan-maldiv-orollarigacha-kuzda-qayerga-borish-mumkin","status":"200","found":2}
+{"ev":"fetched","at":"2026-09-29T15:51:52.277Z","link":"https://daryo.uz/2026/09/29/ozbekistonda-sovitilgan-mol-va-qoy-goshti-importi-uchun-subsidiya-ajratiladi","status":"200","found":7}
+{"ev":"fetched","at":"2026-09-29T15:51:52.277Z","link":"https://daryo.uz/2026/09/29/florentino-peres-barselonani-hakamlarni-sotib-olganlikda-ayblagani-uchun-sudga-chaqirildi","status":"200","found":10}
+{"ev":"fetched","at":"2026-09-29T15:51:52.277Z","link":"https://daryo.uz/2026/09/29/ozbekistonda-qishloq-xojaligi-faoliyatini-hisobga-olish-boyicha-yangi-milliy-standart-tasdiqlandi","status":"200","found":10}
