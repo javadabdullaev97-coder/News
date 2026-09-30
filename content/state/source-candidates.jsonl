@@ -15745,3 +15745,13 @@
 {"ev":"fetched","at":"2026-09-30T19:22:10.889Z","link":"https://sports.uz/ru/news/view/aichi-nagoya-2026-aytjan-xalmaxanov-chempion-aziady-30-09-2026","status":"200","found":4}
 {"ev":"fetched","at":"2026-09-30T19:22:10.889Z","link":"https://nuz.uz/2026/09/30/uzbekskij-plov-prigotovili-dlya-gostej-mezhdunarodnogo-festivalya-v-londone/","status":"200","found":56}
 {"ev":"fetched","at":"2026-09-30T19:22:10.889Z","link":"https://nuz.uz/2026/09/30/zakonoproekt-o-zashhite-detej-ot-nasiliya-prinyali-vo-vtorom-chtenii/","status":"200","found":56}
+{"ev":"seen","domain":"war.gov","at":"2026-09-30T19:51:46.165Z","url":"https://www.war.gov/News/Releases/Release/Article/4614195/statement-by-chief-pentagon-spokesman-sean-parnell-on-the-conclusion-of-the-us/","foundIn":"https://kun.uz/news/2026/09/30/aqsh-23-yillik-harbiy-ishtirokidan-song-iroqdan-barcha-qoshinlarini-olib-chiqdi","sourceId":"kun-uz","context":"eʼlon qildi."}
+{"ev":"seen","domain":"autonews.ru","at":"2026-09-30T19:51:46.165Z","url":"https://www.autonews.ru/news/6abca62b9a7947fc5ffc1833","foundIn":"https://kun.uz/news/2026/09/30/bmw-yangi-avlod-3-series-avtomobilini-namoyish-etdi","sourceId":"kun-uz","context":"oshkor qildi."}
+{"ev":"fetched","at":"2026-09-30T19:51:46.172Z","link":"https://www.spot.uz/ru/2026/09/30/belarus/","status":"200","found":4}
+{"ev":"fetched","at":"2026-09-30T19:51:46.172Z","link":"https://sports.uz/ru/news/view/aichi-nagoya-2026-sita-kadamboeva-chempionka-igr-30-09-2026","status":"200","found":4}
+{"ev":"fetched","at":"2026-09-30T19:51:46.172Z","link":"https://kun.uz/news/2026/09/30/aqsh-23-yillik-harbiy-ishtirokidan-song-iroqdan-barcha-qoshinlarini-olib-chiqdi","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-30T19:51:46.172Z","link":"https://daryo.uz/2026/09/30/singapurda-davlat-xizmatchilari-uchun-sovchilik-xizmati-yolga-qoyildi","status":"200","found":13}
+{"ev":"fetched","at":"2026-09-30T19:51:46.172Z","link":"https://kun.uz/news/2026/09/30/qaynoq-mavsum-oylagandan-da-tezroq-boshlanadi-sotuvchi-1111-va-barakali-juma-aksiyalariga-qanday-tayyorgarlik-korishi-kerak","status":"200","found":0}
+{"ev":"fetched","at":"2026-09-30T19:51:46.173Z","link":"https://kun.uz/news/2026/09/30/ozbekistonda-ozon-uchun-yangi-bosqich-ozon-mdh-rahbari-yangi-fulfilment-markazi-eksport-va-viloyatlarda-sotuvchilar-sonining-ortishi-haqida","status":"200","found":0}
+{"ev":"fetched","at":"2026-09-30T19:51:46.173Z","link":"https://kun.uz/news/2026/09/30/bmw-yangi-avlod-3-series-avtomobilini-namoyish-etdi","status":"200","found":1}
+{"ev":"fetched","at":"2026-09-30T19:51:46.173Z","link":"https://kun.uz/news/2026/09/30/olimpiadaning-respublika-bosqichi-goliblarini-tayyorlagan-oqituvchilar-100-mln-somgacha-mukofot-oladi","status":"200","found":0}
