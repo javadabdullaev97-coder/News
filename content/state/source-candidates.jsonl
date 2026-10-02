@@ -16184,3 +16184,4 @@
 {"ev":"fetched","at":"2026-10-01T19:52:06.553Z","link":"https://kun.uz/news/2026/10/02/bosqichma-bosqich-yaxshi-jamoa-shakllantiryapmiz-togri-yonalishdamiz-kannavaro","status":"200","found":1}
 {"ev":"seen","domain":"meteo.uz","at":"2026-10-02T02:21:32.003Z","url":"https://www.meteo.uz/#/ru/forecasts/next-day","foundIn":"https://nuz.uz/2026/10/02/dozhdi-grozy-i-seli-kakoj-budet-pogoda-v-uzbekistane-2-oktyabrya/","sourceId":"nuz-uz","context":"2 октября в предгорных и горных районах Узбекистана возможны селе-паводковые явления. Об этом сообщает Узгидромет."}
 {"ev":"fetched","at":"2026-10-02T02:21:32.007Z","link":"https://nuz.uz/2026/10/02/dozhdi-grozy-i-seli-kakoj-budet-pogoda-v-uzbekistane-2-oktyabrya/","status":"200","found":55}
+{"ev":"fetched","at":"2026-10-02T03:21:59.908Z","link":"https://nuz.uz/2026/10/02/transkaspijskij-transportnyj-koridor-svyazhet-evropu-i-aziyu/","status":"200","found":54}
