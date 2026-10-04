@@ -17045,3 +17045,7 @@
 {"ev":"fetched","at":"2026-10-04T11:51:29.957Z","link":"https://sports.uz/ru/news/view/segodnya-v-baku-startuet-chempionat-mira-po-dzyudo-04-10-2026","status":"200","found":4}
 {"ev":"fetched","at":"2026-10-04T11:51:29.957Z","link":"https://sports.uz/ru/news/view/mirabror-usmonov-cup-2026-startovyy-sostav-sbornoy-uzbekistana-u-20-na-match-s-saudovskoy-araviey-04-10-2026","status":"200","found":4}
 {"ev":"fetched","at":"2026-10-04T11:51:29.957Z","link":"https://daryo.uz/2026/10/04/tramp-ozbekistonga-qachon-keladi","status":"200","found":12}
+{"ev":"seen","domain":"glamos.ch","at":"2026-10-04T12:20:56.988Z","url":"https://doi.glamos.ch/pubs/annualrep/annualrep_2026.pdf","foundIn":"https://kun.uz/news/2026/10/04/shveysariya-alp-toglarida-asriy-muzliklar-shitob-bilan-erimoqda","sourceId":"kun-uz","context":".pdf"}
+{"ev":"fetched","at":"2026-10-04T12:20:56.990Z","link":"https://kun.uz/news/2026/10/04/shveysariya-alp-toglarida-asriy-muzliklar-shitob-bilan-erimoqda","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-04T12:20:56.990Z","link":"https://sports.uz/ru/news/view/delegatsiya-uzbekistana-zavershila-vystuplenie-na-aziatskix-igrax-aichi-nagoya-2026-v-pyatyorke-silneyshix-04-10-2026","status":"200","found":4}
+{"ev":"fetched","at":"2026-10-04T12:20:56.990Z","link":"https://daryo.uz/2026/10/04/ozbekistonda-ekologik-ekspertiza-xulosasini-onlayn-olish-imkoni-yaratildi","status":"200","found":9}
