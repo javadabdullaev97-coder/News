@@ -17335,3 +17335,13 @@
 {"ev":"fetched","at":"2026-10-05T14:21:52.564Z","link":"https://www.afisha.uz/ru/premium/2026/10/05/premier-group","status":"200","found":8}
 {"ev":"fetched","at":"2026-10-05T14:21:52.564Z","link":"https://kapital.uz/latviya-mozhet-priostanovit/","status":"200","found":33}
 {"ev":"fetched","at":"2026-10-05T14:21:52.564Z","link":"https://kapital.uz/kurs-dollara-6oktyabr/","status":"200","found":33}
+{"ev":"seen","domain":"ngmk.uz","at":"2026-10-05T14:51:53.249Z","url":"https://www.ngmk.uz/wp-content/uploads/2026/09/NMMC-FY-1H_2026-IFRS-UZB_v2.pdf","foundIn":"https://kapital.uz/ngmk-uvelichil-chistuyu-pribyl/","sourceId":"kapital-uz","context":"В первом полугодии чистая прибыль НГМК выросла на 57,2%, до $2,38 млрд. Об этом говорится в финансовой отчетности компании за январь–июнь 2026 года."}
+{"ev":"seen","domain":"customs.uz","at":"2026-10-05T14:51:53.249Z","url":"https://customs.uz/oz#","foundIn":"https://kapital.uz/importniy-benzin-dlya-uzb-vyros/","sourceId":"kapital-uz","context":"Поставки бензина и дизельного топлива в Узбекистан в сентябре заметно снизились в годовом выражении, тогда как их средняя импортная стоимость продолжила расти. Об этом свидетельствуют данные внешней торговли Узбекистана."}
+{"ev":"fetched","at":"2026-10-05T14:51:53.257Z","link":"https://www.gazeta.uz/ru/2026/10/05/caves/","status":"200","found":2}
+{"ev":"fetched","at":"2026-10-05T14:51:53.257Z","link":"https://www.spot.uz/ru/2026/10/05/gas-system/","status":"200","found":3}
+{"ev":"fetched","at":"2026-10-05T14:51:53.257Z","link":"https://daryo.uz/2026/10/05/ozbekistonda-74-mingdan-ortiq-yoshning-xalqaro-imtihon-xarajatlari-qoplab-berildi","status":"200","found":4}
+{"ev":"fetched","at":"2026-10-05T14:51:53.257Z","link":"https://nuz.uz/2026/10/05/centrum-air-obyasnila-zaderzhku-99-mest-bagazha-na-rejse-stambul-fergana/","status":"200","found":55}
+{"ev":"fetched","at":"2026-10-05T14:51:53.258Z","link":"https://daryo.uz/2026/10/05/aqshda-parkovka-mojarosi-sabab-12-yashar-qiz-otib-oldirildi","status":"200","found":9}
+{"ev":"fetched","at":"2026-10-05T14:51:53.258Z","link":"https://nuz.uz/2026/10/05/v-uzbekistane-s-nachala-goda-otkryli-pyat-novyh-gazovyh-mestorozhdenij/","status":"200","found":56}
+{"ev":"fetched","at":"2026-10-05T14:51:53.258Z","link":"https://kapital.uz/ngmk-uvelichil-chistuyu-pribyl/","status":"200","found":34}
+{"ev":"fetched","at":"2026-10-05T14:51:53.258Z","link":"https://kapital.uz/importniy-benzin-dlya-uzb-vyros/","status":"200","found":34}
