@@ -17121,3 +17121,13 @@
 {"ev":"fetched","at":"2026-10-05T05:21:42.846Z","link":"https://nuz.uz/2026/10/05/v-karshi-nalogovikov-zapodozrili-v-prisvoenii-1226-mln-sumov/","status":"200","found":55}
 {"ev":"fetched","at":"2026-10-05T05:21:42.846Z","link":"https://kun.uz/news/2026/10/05/latviyada-ozbekiston-fuqarolariga-viza-berishni-vaqtincha-toxtatish-taklif-qilindi","status":"200","found":1}
 {"ev":"fetched","at":"2026-10-05T05:21:42.846Z","link":"https://nuz.uz/2026/10/05/delegacziya-uzbekistana-vernulas-s-aziatskih-igr-aichi-nagoya-2026/","status":"200","found":54}
+{"ev":"seen","domain":"weather.com","at":"2026-10-05T05:52:52.664Z","url":"https://weather.com/ru-KG/uz/city/tashkent/tenday","foundIn":"https://www.afisha.uz/ru/gorod/2026/10/05/weather","sourceId":"afisha-uz","context":"Прогноз погоды в Ташкенте на рабочую неделю с 5 по 9 октября."}
+{"ev":"seen","domain":"lifehacker.ru","at":"2026-10-05T05:52:52.664Z","url":"https://lifehacker.ru/sekretnye-roli-aktyorov/","foundIn":"https://daryo.uz/2026/10/05/kadr-orti-sirlari-mashhur-aktyorlarning-filmlardagi-tomoshabin-payqamagan-kichik-rollari","sourceId":"daryo-uz","context":"Ba’zan filmlarni tomosha qilganingizda, unda mashhur aktyorlarning kichik rollariga e’tibor bermagan bo‘lishingiz mumkin. Masalan, “Dedpul-2” filmidagi Bred Pitt, “Yulduzlar jangi” filmidagi Deniyel Kreygni aniq payqamay qolgansiz."}
+{"ev":"fetched","at":"2026-10-05T05:52:52.670Z","link":"https://anhor.uz/ru/news/yashnabadasky-rajohn-tashkent-bez-elektrichestva","status":"200","found":20}
+{"ev":"fetched","at":"2026-10-05T05:52:52.671Z","link":"https://www.afisha.uz/ru/gorod/2026/10/05/weather","status":"200","found":2}
+{"ev":"fetched","at":"2026-10-05T05:52:52.671Z","link":"https://anhor.uz/ru/v-mire/flavio-bolsonaro-pervyy-tur-vybory-braziliya","status":"200","found":21}
+{"ev":"fetched","at":"2026-10-05T05:52:52.671Z","link":"https://www.gazeta.uz/ru/2026/10/05/drugstores/","status":"200","found":2}
+{"ev":"fetched","at":"2026-10-05T05:52:52.671Z","link":"https://podrobno.uz/cat/proisshestviya/v-kashkadare-nalogovikov-zapodozrili-v-khishchenii-sotni-millionov-sumov/","status":"200","found":4}
+{"ev":"fetched","at":"2026-10-05T05:52:52.671Z","link":"https://daryo.uz/2026/10/05/olat-xavotiri-rossiyadagi-ayrim-kasalxonalarda-karantin-joriy-etildi","status":"200","found":12}
+{"ev":"fetched","at":"2026-10-05T05:52:52.671Z","link":"https://daryo.uz/2026/10/05/kadr-orti-sirlari-mashhur-aktyorlarning-filmlardagi-tomoshabin-payqamagan-kichik-rollari","status":"200","found":6}
+{"ev":"fetched","at":"2026-10-05T05:52:52.671Z","link":"https://nuz.uz/2026/10/05/iz-gruzii-v-uzbekistan-ekstradirovali-obyavlennogo-v-mezhdunarodnyj-rozysk-prestupnika/","status":"200","found":55}
