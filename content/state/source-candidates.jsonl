@@ -18518,3 +18518,12 @@
 {"ev":"fetched","at":"2026-10-08T10:21:58.691Z","link":"https://www.spot.uz/ru/2026/10/08/yandex-sasovo/","status":"200","found":4}
 {"ev":"fetched","at":"2026-10-08T10:21:58.691Z","link":"https://www.gazeta.uz/ru/2026/10/08/trade/","status":"200","found":2}
 {"ev":"fetched","at":"2026-10-08T10:21:58.691Z","link":"https://nuz.uz/2026/10/08/na-granicze-s-kyrgyzstanom-u-muzhchiny-nashli-64-tysyachi-spryatannye-v-noskah/","status":"error","found":0}
+{"ev":"seen","domain":"meduza.io","at":"2026-10-08T10:51:52.147Z","url":"https://meduza.io/feature/2026/10/08/voyna","foundIn":"https://kun.uz/news/2026/10/08/ukraina-ilk-bor-yandeksga-hujum-qildi","sourceId":"kun-uz","context":"chiqdi"}
+{"ev":"fetched","at":"2026-10-08T10:51:52.151Z","link":"https://podrobno.uz/cat/obchestvo/uzbekistan-i-nasa-obsudili-sovmestnye-kosmicheskie-proekty/","status":"200","found":4}
+{"ev":"fetched","at":"2026-10-08T10:51:52.151Z","link":"https://podrobno.uz/cat/politic/uzbekistan-predlozhil-obedinit-data-tsentry-stran-tsentralnoy-azii/","status":"200","found":4}
+{"ev":"fetched","at":"2026-10-08T10:51:52.151Z","link":"https://www.gazeta.uz/ru/2026/10/08/partnership/","status":"200","found":3}
+{"ev":"fetched","at":"2026-10-08T10:51:52.151Z","link":"https://www.gazeta.uz/ru/2026/10/08/routes/","status":"200","found":2}
+{"ev":"fetched","at":"2026-10-08T10:51:52.151Z","link":"https://nuz.uz/2026/10/08/v-chimgane-vyrubili-586-derevev-i-kustarnikov-ushherb-oczenili-v-17-mlrd-sumov/","status":"200","found":53}
+{"ev":"fetched","at":"2026-10-08T10:51:52.151Z","link":"https://www.gazeta.uz/ru/2026/10/08/region/","status":"200","found":2}
+{"ev":"fetched","at":"2026-10-08T10:51:52.151Z","link":"https://kun.uz/news/2026/10/08/ukraina-ilk-bor-yandeksga-hujum-qildi","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-08T10:51:52.151Z","link":"https://kun.uz/news/2026/10/08/mintaqaviy-jarayonda-katta-va-murakkab-tuzilmalarga-intilish-yoq-shavkat-mirziyoyev","status":"200","found":1}
