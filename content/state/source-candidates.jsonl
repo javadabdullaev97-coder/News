@@ -19541,3 +19541,6 @@
 {"ev":"fetched","at":"2026-10-10T19:52:08.383Z","link":"https://daryo.uz/2026/10/10/la-liga-barselona-xetafeni-yirik-hisobda-maglub-etdi","status":"200","found":5}
 {"ev":"fetched","at":"2026-10-10T23:21:59.436Z","link":"https://kun.uz/news/2026/10/11/yuk-mashinasining-odam-bosib-ketishi-birinchisi-emas-buloqboshidagi-dahshatli-yth-tafsiloti","status":"200","found":0}
 {"ev":"fetched","at":"2026-10-11T03:22:03.740Z","link":"https://daryo.uz/2026/10/11/ozbekistonda-inson-faxri-milliy-mukofoti-tasis-etildi","status":"200","found":7}
+{"ev":"seen","domain":"gov.sa","at":"2026-10-11T03:52:10.294Z","url":"https://www.spa.gov.sa/en/N2697867","foundIn":"https://kun.uz/news/2026/10/11/husiychilar-ar-riyoddagi-aeroportga-yana-zarba-berdi-kamida-12-kishi-halok-boldi-309-kishi-jarohatlangan","sourceId":"kun-uz","context":"aqtincha toʻxtatildi"}
+{"ev":"fetched","at":"2026-10-11T03:52:10.296Z","link":"https://kun.uz/news/2026/10/11/husiychilar-ar-riyoddagi-aeroportga-yana-zarba-berdi-kamida-12-kishi-halok-boldi-309-kishi-jarohatlangan","status":"200","found":5}
+{"ev":"fetched","at":"2026-10-11T03:52:10.296Z","link":"https://daryo.uz/2026/10/11/ozbekistonda-innovatsiya-va-startap-loyihalar-parklari-tashkil-etiladi","status":"200","found":8}
