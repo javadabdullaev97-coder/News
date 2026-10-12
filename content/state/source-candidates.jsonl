@@ -20215,3 +20215,5 @@
 {"ev":"fetched","at":"2026-10-12T18:51:14.745Z","link":"https://sports.uz/ru/news/view/uzbekistan-i-kyrgyzstan-podpisali-memorandum-o-sotrudnichestve-v-sfere-dzyudo-12-10-2026","status":"200","found":4}
 {"ev":"fetched","at":"2026-10-12T18:52:49.594Z","link":"https://daryo.uz/2026/10/12/fargonada-fermerni-aldab-undan-600-dollar-undirmoqchi-bolgan-agroinspeksiya-xodimi-qamaldi","status":"200","found":12}
 {"ev":"fetched","at":"2026-10-12T18:52:49.594Z","link":"https://daryo.uz/2026/10/12/eron-saudiya-va-husiylar-ortasida-vositachilik-qilishni-taklif-etdi","status":"200","found":14}
+{"ev":"seen","domain":"undp.org","at":"2026-10-12T19:21:19.154Z","url":"https://www.undp.org/press-releases/global-multidimensional-poverty-rises-first-time-2010","foundIn":"https://kun.uz/news/2026/10/12/dunyodagi-kambagallar-soni-oshdi-va-12-milliard-kishiga-yetdi-bmt","sourceId":"kun-uz","context":"keltirilgan."}
+{"ev":"fetched","at":"2026-10-12T19:21:19.154Z","link":"https://kun.uz/news/2026/10/12/dunyodagi-kambagallar-soni-oshdi-va-12-milliard-kishiga-yetdi-bmt","status":"200","found":1}
