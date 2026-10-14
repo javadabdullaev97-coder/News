@@ -20678,3 +20678,5 @@
 {"ev":"seen","domain":"meteo.uz","at":"2026-10-14T02:50:50.994Z","url":"https://www.meteo.uz/#/ru/forecasts/next-day","foundIn":"https://nuz.uz/2026/10/14/kakoj-budet-pogoda-v-uzbekistane-14-oktyabrya/","sourceId":"nuz-uz","context":"14 октября в большинстве регионов Узбекистана осадков не ожидается. В предгорных и горных районах временами пройдут дожди, а в высокогорье возможен переход осадков в снег. Об этом сообщает Узгидромет."}
 {"ev":"fetched","at":"2026-10-14T02:50:50.997Z","link":"https://nuz.uz/2026/10/14/kakoj-budet-pogoda-v-uzbekistane-14-oktyabrya/","status":"200","found":55}
 {"ev":"fetched","at":"2026-10-14T03:21:54.981Z","link":"https://daryo.uz/2026/10/14/ozbekistonda-2027-yilda-4-mln-gektar-yaylov-qayta-tiklanadi","status":"200","found":8}
+{"ev":"fetched","at":"2026-10-14T03:52:17.490Z","link":"https://repost.uz/life/goroskop-na-14-oktyabrya-2026-goda","status":"200","found":11}
+{"ev":"fetched","at":"2026-10-14T03:52:17.490Z","link":"https://daryo.uz/2026/10/14/seyshel-orollarida-gigant-toshbaqalar-odamlardan-ham-kop-ekani-aniqlandi","status":"200","found":9}
