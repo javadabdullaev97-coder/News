@@ -20675,3 +20675,5 @@
 {"ev":"fetched","at":"2026-10-13T21:21:46.935Z","link":"https://www.spot.uz/ru/2026/10/14/pastures/","status":"200","found":3}
 {"ev":"fetched","at":"2026-10-13T21:51:59.029Z","link":"https://nuz.uz/2026/10/14/v-uzbekistane-rasshiryat-podderzhku-semej-na-otopitelnyj-sezon-kto-poluchit-pomoshh/","status":"200","found":55}
 {"ev":"fetched","at":"2026-10-13T22:22:34.584Z","link":"https://daryo.uz/2026/10/14/ychl-barselonadan-yirik-galaba-manchester-yunayted-atletikoga-maglub-boldi","status":"200","found":11}
+{"ev":"seen","domain":"meteo.uz","at":"2026-10-14T02:50:50.994Z","url":"https://www.meteo.uz/#/ru/forecasts/next-day","foundIn":"https://nuz.uz/2026/10/14/kakoj-budet-pogoda-v-uzbekistane-14-oktyabrya/","sourceId":"nuz-uz","context":"14 октября в большинстве регионов Узбекистана осадков не ожидается. В предгорных и горных районах временами пройдут дожди, а в высокогорье возможен переход осадков в снег. Об этом сообщает Узгидромет."}
+{"ev":"fetched","at":"2026-10-14T02:50:50.997Z","link":"https://nuz.uz/2026/10/14/kakoj-budet-pogoda-v-uzbekistane-14-oktyabrya/","status":"200","found":55}
