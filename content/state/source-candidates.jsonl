@@ -20791,3 +20791,11 @@
 {"ev":"fetched","at":"2026-10-14T07:22:40.568Z","link":"https://kun.uz/news/2026/10/14/qutqaruv-narvonlarimiz-72-metrgacha-osmonopar-binolarda-yongin-qanday-ochiriladi","status":"200","found":0}
 {"ev":"fetched","at":"2026-10-14T07:22:40.568Z","link":"https://kun.uz/news/2026/10/14/marko-rubio-samarqandga-200-dan-ortiq-biznes-vakili-bilan-keladi","status":"200","found":1}
 {"ev":"fetched","at":"2026-10-14T07:22:40.568Z","link":"https://podrobno.uz/cat/economic/v-uzbekistane-rasshiryat-set-logisticheskikh-tsentrov-i-osvobodyat-ikh-ot-nalogov-do-2040-goda/","status":"error","found":0}
+{"ev":"seen","domain":"naked-science.ru","at":"2026-10-14T07:51:26.496Z","url":"https://naked-science.ru/article/biology/kak-mertvye-slony-menyayut","foundIn":"https://kun.uz/news/2026/10/14/olimlar-olgan-fillar-atrofiga-hayvonlar-nega-koproq-kelishini-aniqladi","sourceId":"kun-uz","context":"etilgan"}
+{"ev":"seen","domain":"naked-science.ru","at":"2026-10-14T07:51:26.496Z","url":"https://naked-science.ru/community/1221538","foundIn":"https://kun.uz/news/2026/10/14/xitoyda-atom-energiyasini-uzatuvchi-ulkan-elektr-tarmogi-ishga-tushdi","sourceId":"kun-uz","context":"moʻljallangan"}
+{"ev":"fetched","at":"2026-10-14T07:51:26.500Z","link":"https://www.spot.uz/ru/2026/10/14/parcel-fee-reduction/","status":"200","found":5}
+{"ev":"fetched","at":"2026-10-14T07:51:26.501Z","link":"https://kun.uz/news/2026/10/14/olimlar-olgan-fillar-atrofiga-hayvonlar-nega-koproq-kelishini-aniqladi","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-14T07:51:26.501Z","link":"https://kun.uz/news/2026/10/14/qashqadaryoda-sel-damasni-oqizib-ketishi-oqibatida-bir-kishi-halok-boldi","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-14T07:51:26.501Z","link":"https://kun.uz/news/2026/10/14/xitoyda-atom-energiyasini-uzatuvchi-ulkan-elektr-tarmogi-ishga-tushdi","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-14T07:51:26.501Z","link":"https://nuz.uz/2026/10/14/uzbekistanku-vosem-let-uderzhivali-v-podvale-v-turczii-i-prinuzhdali-k-prostituczii/","status":"200","found":56}
+{"ev":"fetched","at":"2026-10-14T07:51:26.501Z","link":"https://podrobno.uz/cat/proisshestviya/selevoy-potok-unes-avtomobil-v-kashkadare-odin-chelovek-pogib/","status":"timeout","found":0}
