@@ -21866,3 +21866,13 @@
 {"ev":"fetched","at":"2026-10-16T10:22:39.878Z","link":"https://daryo.uz/2026/10/16/bizga-alohida-alohida-elektr-stansiyalari-emas-uzviy-boglangan-energetika-tizimi-kerak-shavkat-mirziyoyev","status":"200","found":4}
 {"ev":"fetched","at":"2026-10-16T10:22:39.878Z","link":"https://kun.uz/news/2026/10/16/prezident-saroyiga-zarba-bergan-husiylar-va-pokistondagi-fojia-kun-dayjesti","status":"200","found":0}
 {"ev":"fetched","at":"2026-10-16T10:22:39.878Z","link":"https://daryo.uz/2026/10/16/cau-tibbiyot-sohasidagi-ilmiy-nashrlar-boyicha-ozbekiston-oliy-oquv-yurtlari-orasida-1-orinni-egalladi","status":"200","found":8}
+{"ev":"seen","domain":"weather.com","at":"2026-10-16T10:51:22.558Z","url":"https://weather.com/ru-KG/uz/city/tashkent/tenday","foundIn":"https://www.afisha.uz/ru/gorod/2026/10/16/weather","sourceId":"afisha-uz","context":"Прогноз погоды в Ташкенте на выходные 17 и 18 октября."}
+{"ev":"seen","domain":"teknofest.org","at":"2026-10-16T10:51:22.558Z","url":"https://www.teknofest.org/tr/","foundIn":"https://www.gazeta.uz/ru/2026/10/16/uzspace/","sourceId":"gazeta-uz","context":"Позже клуб запустил шестимесячный курс по робототехнике и ИИ для школьников и студентов, а его участники начали выступать на международных площадках — например, заняли третье и четвёртое места на фестивале Teknofest в Турции."}
+{"ev":"fetched","at":"2026-10-16T10:51:22.560Z","link":"https://www.afisha.uz/ru/gorod/2026/10/16/weather","status":"200","found":3}
+{"ev":"fetched","at":"2026-10-16T10:51:22.560Z","link":"https://podrobno.uz/cat/economic/uzbekistan-potratil-svyshe-2-milliardov-dollarov-na-modernizatsiyu-elektrosetey/","status":"200","found":4}
+{"ev":"fetched","at":"2026-10-16T10:51:22.560Z","link":"https://www.spot.uz/ru/2026/10/16/energy-system/","status":"200","found":5}
+{"ev":"fetched","at":"2026-10-16T10:51:22.560Z","link":"https://www.spot.uz/ru/2026/10/16/china-taxi/","status":"200","found":5}
+{"ev":"fetched","at":"2026-10-16T10:51:22.560Z","link":"https://podrobno.uz/cat/obchestvo/do-27-gradusov-i-bez-osadkov-kakoy-budet-pogoda-v-uzbekistane-na-vykhodnykh/","status":"200","found":4}
+{"ev":"fetched","at":"2026-10-16T10:51:22.560Z","link":"https://podrobno.uz/cat/economic/chto-takoe-sukuk-i-kak-budet-rabotat-islamskoe-finansirovanie-v-uzbekistane/","status":"200","found":3}
+{"ev":"fetched","at":"2026-10-16T10:51:22.560Z","link":"https://www.gazeta.uz/ru/2026/10/16/energy-resources/","status":"200","found":5}
+{"ev":"fetched","at":"2026-10-16T10:51:22.560Z","link":"https://www.gazeta.uz/ru/2026/10/16/uzspace/","status":"200","found":12}
