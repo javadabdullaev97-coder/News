@@ -21966,3 +21966,13 @@
 {"ev":"fetched","at":"2026-10-16T13:23:04.015Z","link":"https://daryo.uz/2026/10/16/ozbekistonda-dam-olish-kunlari-havo-harorati-27-darajagacha-kotariladi","status":"200","found":6}
 {"ev":"fetched","at":"2026-10-16T13:23:04.015Z","link":"https://podrobno.uz/cat/obchestvo/v-tashkente-poyavyatsya-eshche-18-kilometrov-vydelennykh-polos-dlya-avtobusov/","status":"timeout","found":0}
 {"ev":"fetched","at":"2026-10-16T13:23:04.015Z","link":"https://podrobno.uz/cat/politic/v-uzbekistane-za-narushenie-neprikosnovennosti-chlenov-administratsii-prezidenta-vveli-ugolovnuyu-ot/","status":"timeout","found":0}
+{"ev":"seen","domain":"theatlantic.com","at":"2026-10-16T13:51:07.298Z","url":"https://www.theatlantic.com/national-security/2026/10/ukraine-russia-trump-putin-war/689002/","foundIn":"https://kun.uz/news/2026/10/16/dronlar-tunda-yana-moskva-va-peterburgdagi-aeroportlar-faoliyatini-toxtatib-qoydi","sourceId":"kun-uz","context":"yozdi"}
+{"ev":"seen","domain":"fide.com","at":"2026-10-16T13:51:07.298Z","url":"https://ratings.fide.com/top_lists.phtml?list=open","foundIn":"https://kun.uz/news/2026/10/16/ozbekistonning-ikki-vakili-dunyoning-eng-kuchli-5-shaxmatchisi-qatoriga-qaytdi","sourceId":"kun-uz","context":"reytingida"}
+{"ev":"fetched","at":"2026-10-16T13:51:07.300Z","link":"https://podrobno.uz/cat/economic/octobank-prinyal-uchastie-v-mezhdunarodnom-sammite-iamtn-2026-v-londone/","status":"200","found":9}
+{"ev":"fetched","at":"2026-10-16T13:51:07.300Z","link":"https://podrobno.uz/cat/obchestvo/v-tashkente-mladshemu-bratu-16-letney-devochki-sovershivshey-suitsid-okazyvayut-psikhologicheskuyu-p/","status":"200","found":5}
+{"ev":"fetched","at":"2026-10-16T13:51:07.300Z","link":"https://sports.uz/ru/news/view/startovye-sostavy-na-match-kokand-1912-neftchi-16-10-2026","status":"200","found":4}
+{"ev":"fetched","at":"2026-10-16T13:51:07.300Z","link":"https://sports.uz/ru/news/view/startovye-sostavy-na-match-surxan-xorezm-16-10-2026","status":"200","found":4}
+{"ev":"fetched","at":"2026-10-16T13:51:07.300Z","link":"https://nuz.uz/2026/10/16/masturahon-sajfutdinova-iz-uzbekistana-udostoena-priznaniya-v-chisle-100-zhenshhin-geroev-fao/","status":"200","found":52}
+{"ev":"fetched","at":"2026-10-16T13:51:07.300Z","link":"https://kun.uz/news/2026/10/16/dronlar-tunda-yana-moskva-va-peterburgdagi-aeroportlar-faoliyatini-toxtatib-qoydi","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-16T13:51:07.300Z","link":"https://kun.uz/news/2026/10/16/ruminiya-yaqinida-tanker-hujumga-uchradi-7-dengizchi-qidirilmoqda","status":"200","found":0}
+{"ev":"fetched","at":"2026-10-16T13:51:07.300Z","link":"https://kun.uz/news/2026/10/16/ozbekistonning-ikki-vakili-dunyoning-eng-kuchli-5-shaxmatchisi-qatoriga-qaytdi","status":"200","found":1}
