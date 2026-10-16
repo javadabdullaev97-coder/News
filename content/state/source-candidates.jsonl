@@ -21630,3 +21630,7 @@
 {"ev":"fetched","at":"2026-10-16T04:20:50.886Z","link":"https://kun.uz/news/2026/10/16/jabrlangan-bolani-sudga-chaqirmasdan-korsatmasidan-foydalanish-mumkin-boladi","status":"200","found":1}
 {"ev":"fetched","at":"2026-10-16T04:20:50.886Z","link":"https://kun.uz/news/2026/10/16/aqshda-boshlangich-maktabda-otishma-yuz-berdi-uch-bola-va-oqituvchi-halok-boldi","status":"200","found":1}
 {"ev":"fetched","at":"2026-10-16T04:20:50.886Z","link":"https://www.afisha.uz/ru/cinema/2026/10/16/street-fighter-review","status":"200","found":2}
+{"ev":"seen","domain":"fontanka.ru","at":"2026-10-16T04:22:02.206Z","url":"https://www.fontanka.ru/2026/10/15/76703342/","foundIn":"https://repost.uz/ogranicheniya-kak-i-v-taksi","sourceId":"repost-uz","context":"Администрация Санкт-Петербурга (Россия) запретила иностранным гражданам с трудовым патентом работать в сферах медицины, парикмахерских услуг, косметологии, розничной торговли и физкультуры. Об этом сообщает «Фонтанка»."}
+{"ev":"fetched","at":"2026-10-16T04:22:02.208Z","link":"https://repost.uz/ogranicheniya-kak-i-v-taksi","status":"200","found":24}
+{"ev":"fetched","at":"2026-10-16T04:22:02.208Z","link":"https://repost.uz/v-obshem-eshe-est-vremya","status":"200","found":23}
+{"ev":"fetched","at":"2026-10-16T04:22:02.208Z","link":"https://repost.uz/na-sem-chasov-minus-da","status":"error","found":0}
