@@ -21959,3 +21959,10 @@
 {"ev":"fetched","at":"2026-10-16T13:21:21.312Z","link":"https://www.gazeta.uz/ru/2026/10/16/weather/","status":"200","found":1}
 {"ev":"fetched","at":"2026-10-16T13:21:21.313Z","link":"https://sports.uz/ru/news/view/startovye-sostavy-na-match-bunyodkor-sogdiana-16-10-2026","status":"200","found":4}
 {"ev":"fetched","at":"2026-10-16T13:21:21.313Z","link":"https://nuz.uz/2026/10/16/v-tashkente-obsudili-pomozhet-li-iskusstvennyj-intellekt-preodolet-kadrovyj-deficzit/","status":"200","found":54}
+{"ev":"seen","domain":"tengrinews.kz","at":"2026-10-16T13:23:04.011Z","url":"https://tengrinews.kz/kazakhstan_news/knb-provl-sovmestnuyu-operatsiyu-s-rossiey-i-uzbekistanom-611016/","foundIn":"https://repost.uz/sovmestno-xlopnuli","sourceId":"repost-uz","context":"Комитет национальной безопасности Казахстана совместно со спецслужбами Узбекистана и России и пресек канал контрабанды наркотиков из Афганистана, сообщает Tengrinews.kz."}
+{"ev":"fetched","at":"2026-10-16T13:23:04.015Z","link":"https://repost.uz/sovmestno-xlopnuli","status":"200","found":25}
+{"ev":"fetched","at":"2026-10-16T13:23:04.015Z","link":"https://daryo.uz/2026/10/16/ozbekistonda-dollar-kursi-oshdi-2","status":"200","found":8}
+{"ev":"fetched","at":"2026-10-16T13:23:04.015Z","link":"https://daryo.uz/2026/10/16/foto-indoneziyada-ormonlar-yonmoqda-mamlakatni-smog-qoplagan","status":"200","found":14}
+{"ev":"fetched","at":"2026-10-16T13:23:04.015Z","link":"https://daryo.uz/2026/10/16/ozbekistonda-dam-olish-kunlari-havo-harorati-27-darajagacha-kotariladi","status":"200","found":6}
+{"ev":"fetched","at":"2026-10-16T13:23:04.015Z","link":"https://podrobno.uz/cat/obchestvo/v-tashkente-poyavyatsya-eshche-18-kilometrov-vydelennykh-polos-dlya-avtobusov/","status":"timeout","found":0}
+{"ev":"fetched","at":"2026-10-16T13:23:04.015Z","link":"https://podrobno.uz/cat/politic/v-uzbekistane-za-narushenie-neprikosnovennosti-chlenov-administratsii-prezidenta-vveli-ugolovnuyu-ot/","status":"timeout","found":0}
