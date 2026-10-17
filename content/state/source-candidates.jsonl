@@ -22110,3 +22110,5 @@
 {"ev":"seen","domain":"meteo.uz","at":"2026-10-17T02:21:00.727Z","url":"https://www.meteo.uz/#/ru/forecasts/next-day","foundIn":"https://nuz.uz/2026/10/17/v-uzbekistane-17-oktyabrya-ozhidaetsya-do-28-gradusov/","sourceId":"nuz-uz","context":"В субботу, 17 октября, в большинстве регионов Узбекистана осадков не ожидается. Днём воздух прогреется до +28 градусов, сообщает Узгидромет."}
 {"ev":"fetched","at":"2026-10-17T02:21:00.731Z","link":"https://nuz.uz/2026/10/17/v-uzbekistane-17-oktyabrya-ozhidaetsya-do-28-gradusov/","status":"200","found":55}
 {"ev":"fetched","at":"2026-10-17T02:51:51.433Z","link":"https://kun.uz/news/2026/10/16/aqsh-blokadasi-eron-iqtisodiyotiga-qanday-tasir-qilyapti","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-17T04:23:06.469Z","link":"https://daryo.uz/2026/10/17/surxondaryoda-fuqaroning-uyidan-2-kilogrammdan-ortiq-giyohvandlik-moddasi-topildi","status":"200","found":4}
+{"ev":"fetched","at":"2026-10-17T04:23:06.469Z","link":"https://daryo.uz/2026/10/17/trampning-yangi-matbuot-kotibi-bir-hafta-ishlab-lavozimidan-ketmoqda","status":"200","found":15}
