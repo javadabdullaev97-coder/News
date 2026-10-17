@@ -22107,3 +22107,5 @@
 {"ev":"fetched","at":"2026-10-16T20:21:02.597Z","link":"https://kun.uz/news/2026/10/17/isroilda-saylov-yaqin-hukumat-ozgarishi-mumkin","status":"200","found":0}
 {"ev":"fetched","at":"2026-10-16T20:51:12.651Z","link":"https://anhor.uz/ru/news/khishenie-kredita-fermera-namangan","status":"200","found":22}
 {"ev":"fetched","at":"2026-10-16T21:21:02.637Z","link":"https://anhor.uz/ru/news/prisvoenie-sredstv-direktor-fergana","status":"200","found":19}
+{"ev":"seen","domain":"meteo.uz","at":"2026-10-17T02:21:00.727Z","url":"https://www.meteo.uz/#/ru/forecasts/next-day","foundIn":"https://nuz.uz/2026/10/17/v-uzbekistane-17-oktyabrya-ozhidaetsya-do-28-gradusov/","sourceId":"nuz-uz","context":"В субботу, 17 октября, в большинстве регионов Узбекистана осадков не ожидается. Днём воздух прогреется до +28 градусов, сообщает Узгидромет."}
+{"ev":"fetched","at":"2026-10-17T02:21:00.731Z","link":"https://nuz.uz/2026/10/17/v-uzbekistane-17-oktyabrya-ozhidaetsya-do-28-gradusov/","status":"200","found":55}
