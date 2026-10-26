@@ -25362,3 +25362,13 @@
 {"ev":"fetched","at":"2026-10-26T06:51:21.404Z","link":"https://www.gazeta.uz/ru/2026/10/26/serbia/","status":"200","found":4}
 {"ev":"fetched","at":"2026-10-26T06:51:21.404Z","link":"https://nuz.uz/2026/10/26/v-namanganskoj-oblasti-obnaruzhili-nelegalnyj-sklad-lekarstv-na-56-mlrd-sumov/","status":"200","found":51}
 {"ev":"fetched","at":"2026-10-26T06:51:21.404Z","link":"https://nuz.uz/2026/10/26/ne-tonkovoloknistyj-hlopok-a-myaso-uzbekistan-i-egipet-obsudili-sotrudnichestvo-v-zhivotnovodstve/","status":"200","found":51}
+{"ev":"seen","domain":"openinfo.uz","at":"2026-10-26T07:21:21.040Z","url":"https://openinfo.uz/ru/facts/6/14263","foundIn":"https://www.gazeta.uz/ru/2026/10/26/islamic-finance/","sourceId":"gazeta-uz","context":"Как следует из раскрытия корпоративной информации, акционеры Open Bank ещё 29 июня 2026 года на годовом общем собрании единогласно одобрили внедрение исламской банковской деятельности."}
+{"ev":"seen","domain":"naked-science.ru","at":"2026-10-26T07:21:21.040Z","url":"https://naked-science.ru/community/1224129","foundIn":"https://kun.uz/news/2026/10/26/spacex-oy-missiyasi-ucun-kabina-qurmoqda-uning-ici-qanday-korinisga-ega","sourceId":"kun-uz","context":"körsatilgan"}
+{"ev":"fetched","at":"2026-10-26T07:21:21.045Z","link":"https://anhor.uz/ru/news/navoi-depytat-neprikusnovennost-elektroenergiya","status":"200","found":20}
+{"ev":"fetched","at":"2026-10-26T07:21:21.045Z","link":"https://sports.uz/ru/news/view/segodnya-zavershitsya-25-y-tur-superligim-26-10-2026","status":"200","found":6}
+{"ev":"fetched","at":"2026-10-26T07:21:21.045Z","link":"https://www.gazeta.uz/ru/2026/10/26/heating/","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-26T07:21:21.045Z","link":"https://www.gazeta.uz/ru/2026/10/26/islamic-finance/","status":"200","found":7}
+{"ev":"fetched","at":"2026-10-26T07:21:21.045Z","link":"https://www.gazeta.uz/ru/2026/10/26/weather/","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-26T07:21:21.045Z","link":"https://kun.uz/news/2026/10/26/spacex-oy-missiyasi-ucun-kabina-qurmoqda-uning-ici-qanday-korinisga-ega","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-26T07:21:21.045Z","link":"https://kun.uz/news/2026/10/26/namanganda-yertoladan-56-mlrd-somlik-dori-vositalari-topildi","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-26T07:21:21.045Z","link":"https://nuz.uz/2026/10/26/uzbekistan-vvedyot-novye-sbory-za-perevozku-gruzov-v-afganistan-cherez-termez/","status":"200","found":51}
