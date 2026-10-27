@@ -26142,3 +26142,15 @@
 {"ev":"fetched","at":"2026-10-27T22:21:18.382Z","link":"https://www.gazeta.uz/ru/2026/10/27/fire/","status":"200","found":1}
 {"ev":"fetched","at":"2026-10-27T22:21:18.382Z","link":"https://www.spot.uz/ru/2026/10/27/medical-package/","status":"200","found":5}
 {"ev":"fetched","at":"2026-10-27T22:21:18.382Z","link":"https://www.spot.uz/ru/2026/10/27/medical-rewards/","status":"200","found":6}
+{"ev":"seen","domain":"emaratalyoum.com","at":"2026-10-27T22:51:10.719Z","url":"https://www.emaratalyoum.com/business/local/2026-10-25-1.2095866","foundIn":"https://kun.uz/news/2026/10/27/oltin-ustida-sayr-dubayda-yil-oxirigacha-gayrioddiy-piyodalar-yolagi-ochiladi-58114","sourceId":"kun-uz","context":"tutilgan"}
+{"ev":"seen","domain":"naked-science.ru","at":"2026-10-27T22:51:10.719Z","url":"https://naked-science.ru/community/1224305","foundIn":"https://kun.uz/news/2026/10/27/turkiya-samolyotlar-va-dengiz-dronlari-uchun-ulkan-aviatashuvchi-qurmoqda-58116","sourceId":"kun-uz","context":"kutilmoqda"}
+{"ev":"seen","domain":"naked-science.ru","at":"2026-10-27T22:51:10.719Z","url":"https://naked-science.ru/community/1224206","foundIn":"https://kun.uz/news/2026/10/27/xitoyda-deyarli-butun-yoli-koprik-va-tunnellardan-otadigan-magistral-qurilmoqda-58112","sourceId":"kun-uz","context":"yotqizilgan"}
+{"ev":"seen","domain":"naked-science.ru","at":"2026-10-27T22:51:10.719Z","url":"https://naked-science.ru/community/1224303","foundIn":"https://kun.uz/news/2026/10/27/atlantika-rekordchisi-bolgan-ulkan-layner-suniy-rifga-aylanadi-58110","sourceId":"kun-uz","context":"qilmoqda"}
+{"ev":"fetched","at":"2026-10-27T22:51:10.723Z","link":"https://kun.uz/news/2026/10/27/oltin-ustida-sayr-dubayda-yil-oxirigacha-gayrioddiy-piyodalar-yolagi-ochiladi-58114","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-27T22:51:10.724Z","link":"https://kun.uz/news/2026/10/27/turkiya-samolyotlar-va-dengiz-dronlari-uchun-ulkan-aviatashuvchi-qurmoqda-58116","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-27T22:51:10.724Z","link":"https://www.spot.uz/ru/2026/10/27/apple-google-pay/","status":"200","found":5}
+{"ev":"fetched","at":"2026-10-27T22:51:10.724Z","link":"https://kun.uz/news/2026/10/27/qora-dengiz-dunyodagi-eng-xavfli-kemachilik-yonalishiga-aylandi-58119","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-27T22:51:10.724Z","link":"https://kun.uz/news/2026/10/27/xitoyda-deyarli-butun-yoli-koprik-va-tunnellardan-otadigan-magistral-qurilmoqda-58112","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-27T22:51:10.724Z","link":"https://repost.uz/vse-mojno-budet-prochekat","status":"200","found":25}
+{"ev":"fetched","at":"2026-10-27T22:51:10.724Z","link":"https://repost.uz/ocenyat-ix-vklad","status":"200","found":25}
+{"ev":"fetched","at":"2026-10-27T22:51:10.724Z","link":"https://kun.uz/news/2026/10/27/atlantika-rekordchisi-bolgan-ulkan-layner-suniy-rifga-aylanadi-58110","status":"200","found":1}
