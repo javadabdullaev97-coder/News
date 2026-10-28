@@ -26428,3 +26428,13 @@
 {"ev":"fetched","at":"2026-10-28T12:51:15.550Z","link":"https://www.spot.uz/ru/2026/10/28/benefits-application/","status":"200","found":3}
 {"ev":"fetched","at":"2026-10-28T12:51:15.550Z","link":"https://www.gazeta.uz/ru/2026/10/28/new-tashkent/","status":"200","found":6}
 {"ev":"fetched","at":"2026-10-28T12:51:15.550Z","link":"https://podrobno.uz/cat/podrobno/uzbekistan-i-tailand-soglasovali-podpisanie-soglasheniya-o-bezvizovom-rezhime/","status":"200","found":6}
+{"ev":"seen","domain":"iqair.com","at":"2026-10-28T13:21:20.025Z","url":"https://www.iqair.com/world-air-quality-ranking","foundIn":"https://kun.uz/news/2026/10/28/toshkent-havoning-ifloslanish-darajasi-boyicha-jahon-reytingida-1-oringa-chiqdi-58351","sourceId":"kun-uz","context":"IQAir"}
+{"ev":"seen","domain":"cdc.gov","at":"2026-10-28T13:21:20.025Z","url":"https://www.cdc.gov/port-health/media/pdfs/2026/10/367886-A_FRM_EbolaAttestation_3_pass.pdf","foundIn":"https://kun.uz/news/2026/10/28/aqshga-uchuvchi-yolovchilar-uchun-deklaratsiya-toldirish-majburiy-boladi-58347","sourceId":"kun-uz","context":"havolada"}
+{"ev":"fetched","at":"2026-10-28T13:21:20.026Z","link":"https://www.spot.uz/ru/2026/10/28/loan-refinancing/","status":"200","found":2}
+{"ev":"fetched","at":"2026-10-28T13:21:20.026Z","link":"https://www.gazeta.uz/ru/2026/10/28/mirmansur-mirxamidov/","status":"200","found":4}
+{"ev":"fetched","at":"2026-10-28T13:21:20.026Z","link":"https://kun.uz/news/2026/10/28/qorakolda-8-yoshli-qizchaga-buzuq-harakatlar-qilgan-erkakka-nisbatan-jinoiy-ish-qozgatildi-58354","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-28T13:21:20.026Z","link":"https://podrobno.uz/cat/politic/ministru-vnutrennikh-del-uzbekistana-naznachili-pervogo-zamestitelya-/","status":"200","found":6}
+{"ev":"fetched","at":"2026-10-28T13:21:20.026Z","link":"https://kun.uz/news/2026/10/28/toshkent-havoning-ifloslanish-darajasi-boyicha-jahon-reytingida-1-oringa-chiqdi-58351","status":"200","found":2}
+{"ev":"fetched","at":"2026-10-28T13:21:20.026Z","link":"https://kun.uz/news/2026/10/28/aqshga-uchuvchi-yolovchilar-uchun-deklaratsiya-toldirish-majburiy-boladi-58347","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-28T13:21:20.026Z","link":"https://kun.uz/news/2026/10/28/ichki-ishlar-vaziriga-yangi-birinchi-orinbosar-tayinlandi-58350","status":"200","found":2}
+{"ev":"fetched","at":"2026-10-28T13:21:20.026Z","link":"https://www.gazeta.uz/ru/2026/10/28/changes/","status":"200","found":8}
