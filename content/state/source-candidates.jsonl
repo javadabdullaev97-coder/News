@@ -27826,3 +27826,12 @@
 {"ev":"fetched","at":"2026-10-31T09:22:20.528Z","link":"https://daryo.uz/2026/10/31/oltin-top-natijalari-elon-qilindi","status":"522","found":0}
 {"ev":"fetched","at":"2026-10-31T09:22:20.528Z","link":"https://daryo.uz/2026/10/31/aqshda-harbiylar-uchun-uchar-gilam-taqim-etildi","status":"522","found":0}
 {"ev":"fetched","at":"2026-10-31T09:22:20.528Z","link":"https://daryo.uz/2026/10/31/kamqonlikdan-shamollashgacha-davolay-oladigan-behining-foydali-xususiyatlari","status":"522","found":0}
+{"ev":"seen","domain":"elektropoyezd.uz","at":"2026-10-31T09:52:32.372Z","url":"https://ticket.elektropoyezd.uz/schedule","foundIn":"https://anhor.uz/ru/news/peresadka-metro-prigorodnyye-elektrichki","sourceId":"anhor-uz","context":"Согласно опубликованному расписанию, электропоезда делают остановку на «Чоштепе» в обоих направлениях. Актуальное время отправления и прибытия можно проверить на официальном сайте перевозчика."}
+{"ev":"fetched","at":"2026-10-31T09:52:32.376Z","link":"https://anhor.uz/ru/news/peresadka-metro-prigorodnyye-elektrichki","status":"200","found":19}
+{"ev":"fetched","at":"2026-10-31T09:52:32.376Z","link":"https://anhor.uz/ru/news/dorozhnaya-razmetka-shtrafy-perekrestki","status":"200","found":17}
+{"ev":"fetched","at":"2026-10-31T09:52:32.376Z","link":"https://kun.uz/news/2026/10/31/saida-mirziyoeva-zakomat-gambit-goliblarini-taqdirladi-58798","status":"200","found":1}
+{"ev":"fetched","at":"2026-10-31T09:52:32.376Z","link":"https://www.spot.uz/ru/2026/10/31/google-pay/","status":"200","found":4}
+{"ev":"fetched","at":"2026-10-31T09:52:32.376Z","link":"https://podrobno.uz/cat/obchestvo/zhiteli-uzbekistana-zhaluyutsya-na-mutnuyu-vodu-v-uzsuvtaminot-nazvali-vozmozhnuyu-prichinu/","status":"200","found":3}
+{"ev":"fetched","at":"2026-10-31T09:52:32.376Z","link":"https://repost.uz/life/dolgi-rastut-bistree-sinovey","status":"200","found":16}
+{"ev":"fetched","at":"2026-10-31T09:52:32.376Z","link":"https://daryo.uz/2026/10/31/polshada-tontarish-mojarosi-prezident-xorij-safarini-toxtatib-mamlakatga-qaytdi","status":"522","found":0}
+{"ev":"fetched","at":"2026-10-31T09:52:32.376Z","link":"https://daryo.uz/2026/10/31/toshkent-metrosida-besh-vagonli-poyezdlar-qatnovini-yolga-qoyish-rejalashtirilmoqda","status":"522","found":0}
