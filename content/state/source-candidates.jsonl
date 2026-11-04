@@ -29172,3 +29172,13 @@
 {"ev":"fetched","at":"2026-11-04T10:21:32.717Z","link":"https://kun.uz/news/2026/11/04/byulletenda-mening-nomim-yoq-edi-tramp-respublikachilar-maglubiyati-haqida-59263","status":"200","found":1}
 {"ev":"fetched","at":"2026-11-04T10:21:32.717Z","link":"https://podrobno.uz/cat/obchestvo/v-uzbekistane-zakonodatelno-zakrepili-monitoring-publikatsiy-v-smi-na-predmet-ekstremizma/","status":"200","found":4}
 {"ev":"fetched","at":"2026-11-04T10:21:32.717Z","link":"https://daryo.uz/2026/11/04/qirgizistonda-niqob-taqqanlik-uchun-jarima-ikki-baravar-kamaytiriladi","status":"200","found":13}
+{"ev":"seen","domain":"cnn.com","at":"2026-11-04T10:51:36.917Z","url":"https://edition.cnn.com/2026/11/04/politics/live-news/midterm-election-congress","foundIn":"https://www.gazeta.uz/ru/2026/11/04/us-elections/","sourceId":"gazeta-uz","context":"В Сенате у демократов, по оценке CNN, уже уверенное большинство: 54 места из 100."}
+{"ev":"seen","domain":"foxnews.com","at":"2026-11-04T10:51:36.917Z","url":"https://www.foxnews.com/video/6407887154112","foundIn":"https://www.gazeta.uz/ru/2026/11/04/us-elections/","sourceId":"gazeta-uz","context":"Позже в телефонном интервью Fox News он отметил, что «немного удивлён» результатами, поскольку думал, что республиканцы «выступят лучше». Президент объяснил поражение своей партии тем, что его имени не было в избирательном бюллетене."}
+{"ev":"fetched","at":"2026-11-04T10:51:36.923Z","link":"https://anhor.uz/ru/news/khranenie-ekstremistskikh-materialov-shtraf","status":"200","found":18}
+{"ev":"fetched","at":"2026-11-04T10:51:36.923Z","link":"https://anhor.uz/ru/news/samarkand-buhara-platnaya-trassa","status":"200","found":16}
+{"ev":"fetched","at":"2026-11-04T10:51:36.923Z","link":"https://www.spot.uz/ru/2026/11/04/cb-rate/","status":"200","found":3}
+{"ev":"fetched","at":"2026-11-04T10:51:36.923Z","link":"https://www.spot.uz/ru/2026/11/04/fire-safety-fines/","status":"200","found":7}
+{"ev":"fetched","at":"2026-11-04T10:51:36.923Z","link":"https://nuz.uz/2026/11/04/v-uzbekistane-ustanovili-razmer-kompensaczij-za-ushherb-ot-tehnogennyh-chs/","status":"200","found":52}
+{"ev":"fetched","at":"2026-11-04T10:51:36.923Z","link":"https://www.gazeta.uz/ru/2026/11/04/shevchenko-street/","status":"200","found":17}
+{"ev":"fetched","at":"2026-11-04T10:51:36.923Z","link":"https://www.gazeta.uz/ru/2026/11/04/us-elections/","status":"200","found":6}
+{"ev":"fetched","at":"2026-11-04T10:51:36.923Z","link":"https://kun.uz/news/2026/11/04/uyingizning-ommaviy-bahosi-nimani-ozgartiradi-rasmiylar-va-baholovchilar-bahsi-59081","status":"200","found":2}
