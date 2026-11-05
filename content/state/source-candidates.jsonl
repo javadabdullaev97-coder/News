@@ -29500,3 +29500,14 @@
 {"ev":"fetched","at":"2026-11-05T01:51:30.630Z","link":"https://www.gazeta.uz/ru/2026/11/04/main-rate/","status":"200","found":4}
 {"ev":"fetched","at":"2026-11-05T01:51:30.630Z","link":"https://www.gazeta.uz/ru/2026/11/04/currency/","status":"200","found":6}
 {"ev":"fetched","at":"2026-11-05T01:51:30.630Z","link":"https://www.spot.uz/ru/2026/11/04/imarat-new-tashkent/","status":"200","found":5}
+{"ev":"seen","domain":"nationalacademies.org","at":"2026-11-05T02:21:35.119Z","url":"https://www.nationalacademies.org/projects/DEPS-SSB-24-06/publication/29401","foundIn":"https://kun.uz/news/2026/11/04/oyga-qonish-uchun-tanlangan-tort-manzilning-eng-muhimi-erdan-korinmaydi-59209","sourceId":"kun-uz","context":"tutilgan"}
+{"ev":"seen","domain":"oecd.org","at":"2026-11-05T02:21:35.119Z","url":"https://www.oecd.org/en/publications/2025/09/education-at-a-glance-2025_c58fc9ae.html","foundIn":"https://kun.uz/news/2026/11/04/bakalavriatda-oqish-eng-qimmatga-tushadigan-mamlakatlar-malum-boldi-59212","sourceId":"kun-uz","context":"bölgan"}
+{"ev":"seen","domain":"worldbank.org","at":"2026-11-05T02:21:35.119Z","url":"https://data.worldbank.org/indicator/SP.POP.TOTL","foundIn":"https://kun.uz/news/2026/11/04/dunyo-aholisi-65-yilda-5-milliarddan-ziyodga-kopaydi-59207","sourceId":"kun-uz","context":"soliştirilgan"}
+{"ev":"fetched","at":"2026-11-05T02:21:35.123Z","link":"https://kun.uz/news/2026/11/04/oyga-qonish-uchun-tanlangan-tort-manzilning-eng-muhimi-erdan-korinmaydi-59209","status":"200","found":1}
+{"ev":"fetched","at":"2026-11-05T02:21:35.123Z","link":"https://kun.uz/news/2026/11/04/bakalavriatda-oqish-eng-qimmatga-tushadigan-mamlakatlar-malum-boldi-59212","status":"200","found":1}
+{"ev":"fetched","at":"2026-11-05T02:21:35.123Z","link":"https://kun.uz/news/2026/11/04/payariqda-tiriklayin-komilgani-aytilayotgan-erkak-qariyb-bir-oy-komada-yotib-vafot-etdi-59210","status":"200","found":1}
+{"ev":"fetched","at":"2026-11-05T02:21:35.123Z","link":"https://kun.uz/news/2026/11/04/markaziy-bank-asosiy-stavkani-14-foiz-darajasida-saqlab-qoldi-59221","status":"200","found":1}
+{"ev":"fetched","at":"2026-11-05T02:21:35.123Z","link":"https://kun.uz/news/2026/11/04/dunyo-aholisi-65-yilda-5-milliarddan-ziyodga-kopaydi-59207","status":"200","found":1}
+{"ev":"fetched","at":"2026-11-05T02:21:35.123Z","link":"https://repost.uz/life/pop-korol-ostavil-kvest","status":"200","found":15}
+{"ev":"fetched","at":"2026-11-05T02:21:35.124Z","link":"https://repost.uz/chto-to-tam-podklyuchayut","status":"200","found":24}
+{"ev":"fetched","at":"2026-11-05T02:21:35.124Z","link":"https://daryo.uz/2026/11/04/instagram-turmushga-chiqayotgan-muborak-abdullayeva-ijodga-qaytayotgan-sitora-farmonova-milena-madmusayevaning-xonadoniga-sayohat","status":"200","found":6}
