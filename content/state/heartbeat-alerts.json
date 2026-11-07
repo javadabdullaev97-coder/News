@@ -9,8 +9,8 @@
       "message": "⚠️ <b>Планёрки молчат</b>: ни одна отметка last-routine-run*.json не обновлялась 1853.7ч (порог 6ч). Проверь code.claude.com → LEAP Planyorka → History."
     },
     "inbox-stale": {
-      "at": "2026-09-11T13:18:34.781Z",
-      "message": "⚠️ <b>Inbox молчит</b>: последнее обновление 5.9ч назад (порог 2ч). Проверь Actions → Pull news inbox: массовый 403/429?"
+      "at": "2026-11-07T01:17:57.316Z",
+      "message": "⚠️ <b>Inbox молчит</b>: последнее обновление 3.0ч назад (порог 2ч). Проверь Actions → Pull news inbox: массовый 403/429?"
     }
   }
 }
