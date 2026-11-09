@@ -30959,3 +30959,14 @@
 {"ev":"fetched","at":"2026-11-09T03:50:58.601Z","link":"https://kun.uz/news/2026/11/09/ozbekiston-pokiston-bilan-savdoni-afgoniston-orqali-jonlantirmoqchi-59802","status":"200","found":1}
 {"ev":"fetched","at":"2026-11-09T03:50:58.601Z","link":"https://kun.uz/news/2026/11/09/moldova-energetik-qaramlikdan-qutulishga-yana-bir-qadam-tashladi-59804","status":"200","found":1}
 {"ev":"fetched","at":"2026-11-09T03:50:58.601Z","link":"https://daryo.uz/2026/11/09/qoraqalpogistonda-hamshiralikka-ishga-joylashtirish-uchun-5-ming-dollar-soragan-shaxs-ushlandi","status":"200","found":11}
+{"ev":"seen","domain":"weather.com","at":"2026-11-09T04:20:59.674Z","url":"https://weather.com/ru-KG/uz/city/tashkent/tenday","foundIn":"https://www.afisha.uz/ru/gorod/2026/11/09/weather","sourceId":"afisha-uz","context":"Прогноз погоды в Ташкенте на рабочую неделю с 9 по 13 ноября."}
+{"ev":"seen","domain":"apexdev.uz","at":"2026-11-09T04:20:59.674Z","url":"https://apexdev.uz/","foundIn":"https://kun.uz/news/2026/11/09/apex-development-va-daikin-strategik-hamkorlikni-yolga-qoydi-59798","sourceId":"kun-uz","context":"Apex Development"}
+{"ev":"seen","domain":"daikin-uzbekistan.uz","at":"2026-11-09T04:20:59.674Z","url":"https://daikin-uzbekistan.uz/","foundIn":"https://kun.uz/news/2026/11/09/apex-development-va-daikin-strategik-hamkorlikni-yolga-qoydi-59798","sourceId":"kun-uz","context":"Daikin"}
+{"ev":"fetched","at":"2026-11-09T04:20:59.679Z","link":"https://www.afisha.uz/ru/gorod/2026/11/09/weather","status":"200","found":3}
+{"ev":"fetched","at":"2026-11-09T04:20:59.679Z","link":"https://www.gazeta.uz/ru/2026/11/09/fire-safety-law/","status":"200","found":2}
+{"ev":"fetched","at":"2026-11-09T04:20:59.679Z","link":"https://anhor.uz/ru/ekologiya/uzbekistan-malye-solnechnie-stancii","status":"200","found":25}
+{"ev":"fetched","at":"2026-11-09T04:20:59.679Z","link":"https://kun.uz/news/2026/11/09/gurjiston-rossiyaliklarni-deportatsiya-qilishni-keskin-kuchaytirdi-59810","status":"200","found":1}
+{"ev":"fetched","at":"2026-11-09T04:20:59.679Z","link":"https://kun.uz/news/2026/11/09/halol-bolishi-hali-yaxshi-investitsiya-degani-emas-xondamir-nusratxojaev-islom-moliyasi-va-investitsiya-platformalari-haqida-nima-dard-59818","status":"200","found":0}
+{"ev":"fetched","at":"2026-11-09T04:20:59.679Z","link":"https://kun.uz/news/2026/11/09/ukraina-chegarasi-yaqinida-11-mamlakat-harbiylari-toplanmoqda-59808","status":"200","found":1}
+{"ev":"fetched","at":"2026-11-09T04:20:59.679Z","link":"https://kun.uz/news/2026/11/09/buxoro-va-navoiyda-34-yillik-issiqlik-rekordi-yangilandi-59806","status":"200","found":1}
+{"ev":"fetched","at":"2026-11-09T04:20:59.679Z","link":"https://kun.uz/news/2026/11/09/apex-development-va-daikin-strategik-hamkorlikni-yolga-qoydi-59798","status":"200","found":2}
