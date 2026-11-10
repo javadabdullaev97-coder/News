@@ -31604,3 +31604,13 @@
 {"ev":"fetched","at":"2026-11-10T10:21:00.181Z","link":"https://kun.uz/news/2026/11/10/men-kochaman-haydovchini-haqorat-qilgan-ypx-xodimi-lavozimidan-chetlatildi-60055","status":"200","found":1}
 {"ev":"fetched","at":"2026-11-10T10:21:00.181Z","link":"https://nuz.uz/2026/11/10/v-uzbekistan-iz-ssha-vernuli-muzhchinu-kotorogo-razyskivali-12-let/","status":"200","found":56}
 {"ev":"fetched","at":"2026-11-10T10:21:00.181Z","link":"https://daryo.uz/2026/11/10/futbol-boyicha-ozbekiston-amputantlar-jamoasi-jahon-chempionatida-qatnashish-uchun-meksikaga-yol-oldi","status":"200","found":6}
+{"ev":"seen","domain":"inbusiness.kz","at":"2026-11-10T10:50:57.719Z","url":"https://inbusiness.kz/ru/last/kazahstan-prodlil-zapret-na-vyvoz-benzina-i-dizelya","foundIn":"https://www.spot.uz/ru/2026/11/10/kz-gasoline/","sourceId":"spot-uz","context":"Казахстан продлил действие запрета на вывоз бензина, дизельного топлива и ряда других нефтепродуктов. Об этом сообщает Inbusiness.kz."}
+{"ev":"seen","domain":"gov.kz","at":"2026-11-10T10:50:57.719Z","url":"https://www.gov.kz/org/kgd-zhambyl/press/news/details/1256711?lang=ru","foundIn":"https://www.spot.uz/ru/2026/11/10/kz-gasoline/","sourceId":"spot-uz","context":"Изначально запрет на экспорт бензина, дизеля и других нефтепродуктов из Казахстана был введен в мае. Он должен был действовать до 21 ноября."}
+{"ev":"fetched","at":"2026-11-10T10:50:57.728Z","link":"https://www.spot.uz/ru/2026/11/10/kz-gasoline/","status":"200","found":5}
+{"ev":"fetched","at":"2026-11-10T10:50:57.728Z","link":"https://www.gazeta.uz/ru/2026/11/10/shared-equity-construction/","status":"200","found":7}
+{"ev":"fetched","at":"2026-11-10T10:50:57.728Z","link":"https://kun.uz/news/2026/11/10/qoqonda-13-yoshli-qiz-mehmonxonada-jinsiy-zoravonlikka-uchradi-60058","status":"200","found":2}
+{"ev":"fetched","at":"2026-11-10T10:50:57.728Z","link":"https://nuz.uz/2026/11/10/%e2%9a%a1%ef%b8%8f-v-kokande-13-letnyaya-devochka-podverglas-seksualnomu-nasiliyu-v-gostinicze/","status":"200","found":52}
+{"ev":"fetched","at":"2026-11-10T10:50:57.728Z","link":"https://repost.uz/teper-vsem-po-sroku","status":"200","found":24}
+{"ev":"fetched","at":"2026-11-10T10:50:57.728Z","link":"https://repost.uz/ot-pravosudiya-ne-sbejish","status":"200","found":25}
+{"ev":"fetched","at":"2026-11-10T10:50:57.728Z","link":"https://repost.uz/narushili-po-vsem-punktam","status":"200","found":24}
+{"ev":"fetched","at":"2026-11-10T10:50:57.728Z","link":"https://podrobno.uz/cat/economic/eksport-perevody-i-prodazhi-naseleniya-tsb-nazval-istochniki-rosta-predlozheniya-valyuty/","status":"200","found":5}
