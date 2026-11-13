@@ -32854,3 +32854,14 @@
 {"ev":"fetched","at":"2026-11-13T00:51:18.135Z","link":"https://www.gazeta.uz/ru/2026/11/12/imei-customs/","status":"200","found":7}
 {"ev":"fetched","at":"2026-11-13T00:51:18.135Z","link":"https://kun.uz/news/2026/11/12/airbus-yolovchi-samolyotiga-qiruvchining-burnini-ornatdi-60300","status":"200","found":1}
 {"ev":"fetched","at":"2026-11-13T00:51:18.135Z","link":"https://kun.uz/news/2026/11/12/kanadada-ona-bola-ayiqlarga-em-boldi-shundan-song-urgochi-grizli-va-uning-3-bolasi-oldirildi-60311","status":"200","found":3}
+{"ev":"seen","domain":"wsj.com","at":"2026-11-13T01:20:57.071Z","url":"https://www.wsj.com/business/nvidia-is-preparing-to-oust-nvidia-ceo-jensen-huang-30f421ad?mod=hp_onevizplusstories_pos_1","foundIn":"https://repost.uz/rassmotryat-dalneyshuyu-sudbu","sourceId":"repost-uz","context":"Совет директоров Nvidia готовится отправить в отставку основателя и генерального директора компании Дженсена Хуанга. Об этом сообщает The Wall Street Journal."}
+{"ev":"seen","domain":"worldatlas.com","at":"2026-11-13T01:20:57.071Z","url":"https://www.worldatlas.com/oceans/countries-with-the-longest-coastline.html","foundIn":"https://kun.uz/news/2026/11/12/nega-norvegiyaning-qirgoqlari-rossiyanikidan-uzun-60296","sourceId":"kun-uz","context":"çözilgan"}
+{"ev":"seen","domain":"naked-science.ru","at":"2026-11-13T01:20:57.071Z","url":"https://naked-science.ru/community/1225460","foundIn":"https://kun.uz/news/2026/11/12/saturnning-yoldoshlari-qolgan-etti-sayyoranikidan-ham-kop-60294","sourceId":"kun-uz","context":"izohlanadi"}
+{"ev":"fetched","at":"2026-11-13T01:20:57.075Z","link":"https://repost.uz/budut-pristalno-sledit","status":"200","found":25}
+{"ev":"fetched","at":"2026-11-13T01:20:57.075Z","link":"https://repost.uz/rassmotryat-dalneyshuyu-sudbu","status":"200","found":26}
+{"ev":"fetched","at":"2026-11-13T01:20:57.075Z","link":"https://kun.uz/news/2026/11/12/yangi-toshkent-oz-hokimiga-ega-boladi-60312","status":"200","found":1}
+{"ev":"fetched","at":"2026-11-13T01:20:57.075Z","link":"https://daryo.uz/2026/11/12/yangi-toshkent-shahri-hokimligi-tashkil-etiladi","status":"200","found":10}
+{"ev":"fetched","at":"2026-11-13T01:20:57.075Z","link":"https://daryo.uz/2026/11/12/fargona-va-andijonda-umraga-noqonuniy-yubormoqchi-bolgan-sayyohlik-firmasi-xodimlari-ushlandi","status":"200","found":7}
+{"ev":"fetched","at":"2026-11-13T01:20:57.075Z","link":"https://daryo.uz/2026/11/12/gollivudning-52-yoshli-boydogi-leonardo-di-kaprioning-haligacha-uylanmaganining-sababi-va-shov-shuvlarga-boy-muhabbat-tarixi-haqida","status":"200","found":5}
+{"ev":"fetched","at":"2026-11-13T01:20:57.075Z","link":"https://kun.uz/news/2026/11/12/nega-norvegiyaning-qirgoqlari-rossiyanikidan-uzun-60296","status":"200","found":1}
+{"ev":"fetched","at":"2026-11-13T01:20:57.075Z","link":"https://kun.uz/news/2026/11/12/saturnning-yoldoshlari-qolgan-etti-sayyoranikidan-ham-kop-60294","status":"200","found":1}
