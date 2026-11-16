@@ -34146,3 +34146,14 @@
 {"ev":"fetched","at":"2026-11-16T15:21:27.733Z","link":"https://kun.uz/news/2026/11/16/ozbekiston-iqtisodiyotining-real-manzarasi-qanday-biznesni-royxatga-olish-haqida-nimalarni-bilish-kerak-60886","status":"200","found":0}
 {"ev":"fetched","at":"2026-11-16T15:21:27.733Z","link":"https://www.gazeta.uz/ru/2026/11/16/ipoteka-uzb/","status":"200","found":7}
 {"ev":"fetched","at":"2026-11-16T15:21:27.733Z","link":"https://repost.uz/pogoda-17noyabrya","status":"200","found":22}
+{"ev":"seen","domain":"humocard.uz","at":"2026-11-16T15:51:18.913Z","url":"https://humocard.uz/ru/","foundIn":"https://repost.uz/humo-na-finobod-2026","sourceId":"repost-uz","context":"Cайт: humocard.uz"}
+{"ev":"seen","domain":"rfi.fr","at":"2026-11-16T15:51:18.913Z","url":"https://www.rfi.fr/fr/europe/20261116-mission-volia-comment-l-arm%C3%A9e-fran%C3%A7aise-op%C3%A8re-en-ukraine","foundIn":"https://kun.uz/news/2026/11/16/frantsiya-oz-harbiylarini-ukraina-hududiga-yashirincha-joylashtirdi-oav-60889","sourceId":"kun-uz","context":"xabar"}
+{"ev":"seen","domain":"meduza.io","at":"2026-11-16T15:51:18.913Z","url":"https://meduza.io/feature/2026/11/16/v-kakoy-strane-bystree-vsego-poluchit-grazhdanstvo-a-prosche-vsego-i-kuda-pereezzhat-esli-nuzhen-nadezhnyy-put-k-vnzh-i-pasportu","foundIn":"https://daryo.uz/2026/11/16/qaysi-davlatlarda-fuqarolikni-tez-va-oson-olish-mumkin","sourceId":"daryo-uz","context":"Quyida Yevropa, Amerika va Osiyo mamlakatlarida fuqarolik olishning amaldagi tartibi, yashash muddati, til imtihonlari va davlat bojlari haqida batafsil ma’lumot beriladi."}
+{"ev":"fetched","at":"2026-11-16T15:51:18.923Z","link":"https://repost.uz/humo-na-finobod-2026","status":"200","found":29}
+{"ev":"fetched","at":"2026-11-16T15:51:18.923Z","link":"https://repost.uz/kurs-valyut-17noyabrya","status":"200","found":24}
+{"ev":"fetched","at":"2026-11-16T15:51:18.923Z","link":"https://repost.uz/posle-legochnoy-infekcii","status":"200","found":24}
+{"ev":"fetched","at":"2026-11-16T15:51:18.923Z","link":"https://repost.uz/sobitiya-17noyabrya","status":"200","found":23}
+{"ev":"fetched","at":"2026-11-16T15:51:18.923Z","link":"https://kun.uz/news/2026/11/16/frantsiya-oz-harbiylarini-ukraina-hududiga-yashirincha-joylashtirdi-oav-60889","status":"200","found":1}
+{"ev":"fetched","at":"2026-11-16T15:51:18.923Z","link":"https://daryo.uz/2026/11/16/qashqadaryoda-36-gektar-yerni-18-5-ming-dollarga-sotib-berishni-vada-qilgan-shaxs-ushlandi","status":"200","found":4}
+{"ev":"fetched","at":"2026-11-16T15:51:18.923Z","link":"https://daryo.uz/2026/11/16/qaysi-davlatlarda-fuqarolikni-tez-va-oson-olish-mumkin","status":"200","found":11}
+{"ev":"fetched","at":"2026-11-16T15:51:18.924Z","link":"https://nuz.uz/2026/11/16/mvf-podderzhal-dalnejshee-povyshenie-tarifov-na-gaz-i-elektroenergiyu-v-uzbekistane/","status":"200","found":54}
