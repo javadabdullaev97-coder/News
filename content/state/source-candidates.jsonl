@@ -34819,3 +34819,13 @@
 {"ev":"fetched","at":"2026-11-17T23:21:11.075Z","link":"https://www.spot.uz/ru/2026/11/17/construction-mess/","status":"200","found":12}
 {"ev":"fetched","at":"2026-11-17T23:21:11.075Z","link":"https://www.gazeta.uz/ru/2026/11/17/societe-generale/","status":"200","found":1}
 {"ev":"fetched","at":"2026-11-17T23:21:11.076Z","link":"https://www.gazeta.uz/ru/2026/11/17/crocodile/","status":"200","found":3}
+{"ev":"seen","domain":"kaktus.media","at":"2026-11-17T23:50:53.787Z","url":"https://kaktus.media/doc/556965_v_mid_otreagirovali_na_sityaciu_s_zastriavshimi_v_tashkente_palomnikami_iz_kr.html","foundIn":"https://kun.uz/news/2026/11/17/umraga-yol-olgan-qirgizistonlik-ziyoratchilar-toshkent-aeroportida-qolib-ketdi-61013","sourceId":"kun-uz","context":"maʼlum qilişiça"}
+{"ev":"seen","domain":"pravilamag.ru","at":"2026-11-17T23:50:53.787Z","url":"https://www.pravilamag.ru/news/culture-and-entertainment/16-11-2026/782249-obyyavlen-spisok-nominantov-na-gremmi-2027/","foundIn":"https://daryo.uz/2026/11/17/teylor-svift-bruno-mars-va-raye-2027-yilgi-gremmi-mukofotiga-nomzodlar-royxati-elon-qilindi","sourceId":"daryo-uz","context":"“Gremmi” mukofoti rasmiy saytida 2027-yilgi nomzodlarning to‘liq ro‘yxati e’lon qilindi. Britaniyalik xonanda Raye 11 ta nominatsiya bilan ro‘yxatda yetakchilik qilmoqda."}
+{"ev":"fetched","at":"2026-11-17T23:50:53.791Z","link":"https://kun.uz/news/2026/11/17/ozbekiston-va-omon-munosabatlari-strategik-sheriklik-darajasiga-kotarildi-61005","status":"200","found":1}
+{"ev":"fetched","at":"2026-11-17T23:50:53.791Z","link":"https://kun.uz/news/2026/11/17/yagona-yoqilgi-va-aniq-hisob-kitob-rossiyaning-evnat-kompaniyasi-ozbekiston-yoqilgi-bazalariga-qanday-tejamkorlik-keltirmoqda-61011","status":"200","found":0}
+{"ev":"fetched","at":"2026-11-17T23:50:53.791Z","link":"https://kun.uz/news/2026/11/17/umraga-yol-olgan-qirgizistonlik-ziyoratchilar-toshkent-aeroportida-qolib-ketdi-61013","status":"200","found":1}
+{"ev":"fetched","at":"2026-11-17T23:50:53.791Z","link":"https://repost.uz/life/novie-lica-v-sudebnom-raspisanii","status":"200","found":14}
+{"ev":"fetched","at":"2026-11-17T23:50:53.791Z","link":"https://repost.uz/cifra-pryam-zametno-virosla","status":"200","found":23}
+{"ev":"fetched","at":"2026-11-17T23:50:53.791Z","link":"https://repost.uz/prodoljayut-visilat-na-rodinu","status":"200","found":24}
+{"ev":"fetched","at":"2026-11-17T23:50:53.791Z","link":"https://daryo.uz/2026/11/17/surxondaryo-va-qashqadaryo-ortasida-209-kilometrdan-ortiq-chegara-chizigi-tasdiqlanadi","status":"200","found":8}
+{"ev":"fetched","at":"2026-11-17T23:50:53.791Z","link":"https://daryo.uz/2026/11/17/teylor-svift-bruno-mars-va-raye-2027-yilgi-gremmi-mukofotiga-nomzodlar-royxati-elon-qilindi","status":"200","found":9}
