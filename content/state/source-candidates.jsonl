@@ -34699,3 +34699,14 @@
 {"ev":"fetched","at":"2026-11-17T17:51:17.784Z","link":"https://daryo.uz/2026/11/17/aqsh-milliy-xavfsizlik-agentligining-maxfiy-ichki-tarmogi-ishlamay-qoldi","status":"200","found":13}
 {"ev":"fetched","at":"2026-11-17T17:51:17.784Z","link":"https://daryo.uz/2026/11/17/andijon-va-toshkent-viloyatlarida-fuqarolarni-umraga-yuborishni-vada-qilgan-shaxslar-qolga-olindi","status":"200","found":4}
 {"ev":"fetched","at":"2026-11-17T17:51:17.784Z","link":"https://kun.uz/news/2026/11/17/ozbekiston-ortoqlik-oyinida-saudiyani-maglub-etdi-61102","status":"200","found":0}
+{"ev":"seen","domain":"uzcard.uz","at":"2026-11-17T18:21:14.991Z","url":"https://uzcard.uz/","foundIn":"https://kapital.uz/apple-pay-dlya-uzcard/","sourceId":"kapital-uz","context":"Сайт: uzcard.uz"}
+{"ev":"seen","domain":"humocard.uz","at":"2026-11-17T18:21:14.991Z","url":"https://humocard.uz/ru/","foundIn":"https://kapital.uz/humo-v-apple-pay/","sourceId":"kapital-uz","context":"Cайт: humocard.uz"}
+{"ev":"seen","domain":"uza.uz","at":"2026-11-17T18:21:14.991Z","url":"http://uza.uz/","foundIn":"https://sports.uz/ru/news/view/uzbekistan-razvivaet-sotrudnichestvo-s-kitaem-v-oblasti-sporta","sourceId":"sports-uz","context":"Гости проявили большой интерес к научным исследованиям, проводимым специалистами в области спортивного образования нашей страны по оценке физического и психологического состояния спортсменов, а также изучению их функциональных возможностей, - пишет uza.uz."}
+{"ev":"fetched","at":"2026-11-17T18:21:14.999Z","link":"https://kapital.uz/akkreditacziyu-poluchili-dva-banka/","status":"200","found":35}
+{"ev":"fetched","at":"2026-11-17T18:21:14.999Z","link":"https://kapital.uz/apple-pay-dlya-uzcard/","status":"200","found":35}
+{"ev":"fetched","at":"2026-11-17T18:21:14.999Z","link":"https://kapital.uz/humo-v-apple-pay/","status":"200","found":40}
+{"ev":"fetched","at":"2026-11-17T18:21:14.999Z","link":"https://sports.uz/ru/news/view/sbornaya-uzbekistana-po-tyajyoloy-atletike-otpravilas-v-moskvu-na-kubok-shos","status":"429","found":0}
+{"ev":"fetched","at":"2026-11-17T18:21:14.999Z","link":"https://sports.uz/ru/news/view/uzbekistan-razvivaet-sotrudnichestvo-s-kitaem-v-oblasti-sporta","status":"200","found":5}
+{"ev":"fetched","at":"2026-11-17T18:21:14.999Z","link":"https://sports.uz/ru/news/view/sbornaya-uzbekistana-obigrala-saudovskuyu-araviyu","status":"429","found":0}
+{"ev":"fetched","at":"2026-11-17T18:21:14.999Z","link":"https://sports.uz/ru/news/view/do-starta-finalnogo-gran-pri-po-taekvondo-ostalos-10-dney","status":"429","found":0}
+{"ev":"fetched","at":"2026-11-17T18:21:14.999Z","link":"https://sports.uz/ru/news/view/uzbekistanskie-spesialisti-budut-rabotat-na-kubke-azii-po-plyajnomu-futbolu","status":"429","found":0}
