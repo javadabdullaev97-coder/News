@@ -36098,3 +36098,13 @@
 {"ev":"fetched","at":"2026-11-20T10:21:00.398Z","link":"https://kun.uz/news/2026/11/20/apex-development-mirabad-square-tarkibidagi-regent-park-loyihasining-ikkinchi-bosqichi-sotuvlari-boshlanganini-elon-qildi-61562","status":"200","found":0}
 {"ev":"fetched","at":"2026-11-20T10:21:00.398Z","link":"https://podrobno.uz/cat/obchestvo/v-tashkentskoy-oblasti-sozdali-rabochuyu-gruppu-dlya-resheniya-problem-teplichnykh-khozyaystv/","status":"200","found":5}
 {"ev":"fetched","at":"2026-11-20T10:21:00.398Z","link":"https://repost.uz/life/taylorskoe-mesto-zanyato","status":"200","found":15}
+{"ev":"seen","domain":"weather.com","at":"2026-11-20T10:51:00.966Z","url":"https://weather.com/ru-KG/uz/city/tashkent/tenday","foundIn":"https://www.afisha.uz/ru/gorod/2026/11/20/weather","sourceId":"afisha-uz","context":"Прогноз погоды в Ташкенте на выходные 21 и 22 ноября."}
+{"ev":"seen","domain":"telegraph.co.uk","at":"2026-11-20T10:51:00.966Z","url":"https://www.telegraph.co.uk/news/2026/11/19/school-absences-up-35000-on-gta-release-day/","foundIn":"https://repost.uz/nu-tut-sami-ponimaete","sourceId":"repost-uz","context":"Школы Англии пытаются предотвратить массовые прогулы из-за выхода видеоигры GTA VI, сообщает РБК со ссылкой на The Telegraph."}
+{"ev":"fetched","at":"2026-11-20T10:51:00.970Z","link":"https://www.afisha.uz/ru/gorod/2026/11/20/weather","status":"200","found":3}
+{"ev":"fetched","at":"2026-11-20T10:51:00.971Z","link":"https://podrobno.uz/cat/proisshestviya/inostranku-i-ee-rebenka-uderzhivayut-protiv-voli-v-otdalennom-kishlake-uzbekistana/","status":"200","found":4}
+{"ev":"fetched","at":"2026-11-20T10:51:00.971Z","link":"https://podrobno.uz/cat/politic/mirziyeev-predlozhil-rastirazhirovat-opyt-novogo-kurorta-v-parkente-na-drugie-regiony/","status":"200","found":5}
+{"ev":"fetched","at":"2026-11-20T10:51:00.971Z","link":"https://kun.uz/news/2026/11/20/said-abdulaziz-yusupov-10-yilga-qamaldi-61580","status":"200","found":2}
+{"ev":"fetched","at":"2026-11-20T10:51:00.971Z","link":"https://repost.uz/nu-tut-sami-ponimaete","status":"200","found":24}
+{"ev":"fetched","at":"2026-11-20T10:51:00.971Z","link":"https://repost.uz/vishli-na-tuxlyak-v-maxalle","status":"200","found":24}
+{"ev":"fetched","at":"2026-11-20T10:51:00.971Z","link":"https://www.gazeta.uz/ru/2026/11/20/nuclear-power-station-water/","status":"200","found":8}
+{"ev":"fetched","at":"2026-11-20T10:51:00.971Z","link":"https://nuz.uz/2026/11/20/v-parkentskom-rajone-na-baze-kompleksa-oltin-bel-sozdano-600-rabochih-mest/","status":"200","found":52}
