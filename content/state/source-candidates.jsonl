@@ -37012,3 +37012,14 @@
 {"ev":"fetched","at":"2026-11-23T06:50:59.309Z","link":"https://kun.uz/news/2026/11/23/nasaning-marsdagi-ikki-apparati-tadqiqotlarni-toxtatdi-61867","status":"200","found":0}
 {"ev":"fetched","at":"2026-11-23T06:50:59.309Z","link":"https://www.gazeta.uz/ru/2026/11/23/sel/","status":"200","found":1}
 {"ev":"fetched","at":"2026-11-23T06:50:59.309Z","link":"https://www.spot.uz/ru/2026/11/23/australia/","status":"200","found":3}
+{"ev":"seen","domain":"turmush.kg","at":"2026-11-23T07:20:53.704Z","url":"https://www.turmush.kg/ru/news:2571548/","foundIn":"https://anhor.uz/ru/news/pozhar-stroitelnom-obekte-kyrgyzstan","sourceId":"anhor-uz","context":"В городе Манас в Кыргызстане при пожаре на строительном объекте погибли двое граждан Узбекистана. Еще один узбекистанец находится в коме, четвертому оказали медицинскую помощь. Об этом сообщает кыргызстанское издание Turmush.kg."}
+{"ev":"seen","domain":"springer.com","at":"2026-11-23T07:20:53.704Z","url":"https://link.springer.com/article/10.1007/s12520-026-02579-2?utm_source=chatgpt.com","foundIn":"https://kun.uz/news/2026/11/23/chingizxon-devori-yonidan-kuygan-ovqat-topildi-61874","sourceId":"kun-uz","context":"Archaeological and Anthropological Sciences"}
+{"ev":"seen","domain":"nature.com","at":"2026-11-23T07:20:53.704Z","url":"https://www.nature.com/articles/s41586-026-11308-7?utm_source=chatgpt.com","foundIn":"https://kun.uz/news/2026/11/23/keksalarga-nega-isinish-qiyin-61872","sourceId":"kun-uz","context":"Nature"}
+{"ev":"fetched","at":"2026-11-23T07:20:53.709Z","link":"https://anhor.uz/ru/ekonomika/rezerv-benzina-102-tysyachi-tonn","status":"200","found":16}
+{"ev":"fetched","at":"2026-11-23T07:20:53.709Z","link":"https://anhor.uz/ru/news/deystvuyushchie-banknoty-monety-ostanusya","status":"200","found":15}
+{"ev":"fetched","at":"2026-11-23T07:20:53.709Z","link":"https://anhor.uz/ru/news/pozhar-stroitelnom-obekte-kyrgyzstan","status":"200","found":22}
+{"ev":"fetched","at":"2026-11-23T07:20:53.709Z","link":"https://kun.uz/news/2026/11/23/chingizxon-devori-yonidan-kuygan-ovqat-topildi-61874","status":"200","found":2}
+{"ev":"fetched","at":"2026-11-23T07:20:53.709Z","link":"https://www.gazeta.uz/ru/2026/11/23/incident/","status":"200","found":7}
+{"ev":"fetched","at":"2026-11-23T07:20:53.709Z","link":"https://kun.uz/news/2026/11/23/keksalarga-nega-isinish-qiyin-61872","status":"200","found":2}
+{"ev":"fetched","at":"2026-11-23T07:20:53.709Z","link":"https://repost.uz/life/biznes-na-zaklyuchennom","status":"200","found":14}
+{"ev":"fetched","at":"2026-11-23T07:20:53.709Z","link":"https://nuz.uz/2026/11/23/eurouz-healthcare-and-life-sciences-forum-2026-kak-izmenitsya-zdravoohranenie-uzbekistana/","status":"200","found":50}
