@@ -38665,3 +38665,13 @@
 {"ev":"fetched","at":"2026-11-26T12:20:53.509Z","link":"https://www.spot.uz/ru/2026/11/26/security-cameras/","status":"200","found":4}
 {"ev":"fetched","at":"2026-11-26T12:20:53.509Z","link":"https://www.spot.uz/ru/2026/11/26/germany/","status":"200","found":3}
 {"ev":"fetched","at":"2026-11-26T12:20:53.509Z","link":"https://www.spot.uz/ru/2026/11/26/protective-services/","status":"200","found":3}
+{"ev":"seen","domain":"armenpress.am","at":"2026-11-26T12:51:02.130Z","url":"https://armenpress.am/ru/article/1266718","foundIn":"https://anhor.uz/ru/v-mire/pashinyan-armeniya-evrop-soyuz","sourceId":"anhor-uz","context":"Премьер-министр Армении Никол Пашинян считает невозможным отмену закона о начале процесса вступления страны в Европейский союз. Об этом он заявил журналистам, сообщает «Арменпресс»."}
+{"ev":"seen","domain":"informburo.kz","at":"2026-11-26T12:51:02.130Z","url":"https://informburo.kz/novosti/ia-poniala-cto-my-gorim-kak-zilcy-vybiralis-iz-doma-v-almaty-gde-pogibli-piat-celovek","foundIn":"https://podrobno.uz/cat/proisshestviya/pri-pozhare-v-almaty-pogibli-dvoe-grazhdan-uzbekistana-video/","sourceId":"podrobno-uz","context":"О том, что среди погибших были двое мужчин из Узбекистана, рассказала местным СМИ одна из выживших Анар Турганбаева. По ее словам, они поселились в доме за несколько дней до пожара."}
+{"ev":"fetched","at":"2026-11-26T12:51:02.132Z","link":"https://anhor.uz/ru/v-mire/pashinyan-armeniya-evrop-soyuz","status":"200","found":16}
+{"ev":"fetched","at":"2026-11-26T12:51:02.133Z","link":"https://anhor.uz/ru/news/muftiy-uzbekistana-tsifrovaya-platforma-fetv","status":"200","found":16}
+{"ev":"fetched","at":"2026-11-26T12:51:02.133Z","link":"https://anhor.uz/ru/news/tashkente-sklad-poddelnyh-lekarstv-pereupovka","status":"200","found":16}
+{"ev":"fetched","at":"2026-11-26T12:51:02.133Z","link":"https://www.spot.uz/ru/2026/11/26/guide-badges/","status":"200","found":3}
+{"ev":"fetched","at":"2026-11-26T12:51:02.133Z","link":"https://podrobno.uz/cat/proisshestviya/pri-pozhare-v-almaty-pogibli-dvoe-grazhdan-uzbekistana-video/","status":"200","found":7}
+{"ev":"fetched","at":"2026-11-26T12:51:02.133Z","link":"https://podrobno.uz/cat/economic/uzbekistanu-nuzhno-v-desyat-raz-bolshe-skladov-eabr-otsenil-defitsit-infrastruktury/","status":"200","found":4}
+{"ev":"fetched","at":"2026-11-26T12:51:02.133Z","link":"https://www.gazeta.uz/ru/2026/11/26/condolences/","status":"200","found":2}
+{"ev":"fetched","at":"2026-11-26T12:51:02.133Z","link":"https://kun.uz/news/2026/11/26/moskvada-mehnat-migrantlari-uchun-patent-narxi-1-yanvardan-oshiriladi-62404","status":"200","found":1}
